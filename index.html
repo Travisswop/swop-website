@@ -167,7 +167,7 @@ main {
 .legend-item {
   display: flex; align-items: center; gap: 6px;
   font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.80);
 }
 .legend-dot { width: 7px; height: 7px; border-radius: 2px; flex-shrink: 0; }
 
@@ -305,6 +305,109 @@ main {
 .tick-dot { color: rgba(255,255,255,0.15); font-size: 14px; }
 
 /* ════════════════════════════════════════════════════════════
+   EMAIL SUBSCRIBE
+   ════════════════════════════════════════════════════════════ */
+.email-subscribe {
+  background: transparent;
+  padding: 64px 0 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.email-subscribe-inner {
+  background: rgba(1,1,8,0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 24px;
+  padding: 48px 40px !important;
+  text-align: center;
+  max-width: 520px;
+  width: 100%;
+  padding: 0 24px;
+}
+.email-subscribe-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255,255,255,0.85);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.email-subscribe-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00ff88;
+  box-shadow: 0 0 8px #00ff88;
+  animation: pulse 2s ease-in-out infinite;
+}
+.email-subscribe-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: #fff;
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+.email-subscribe-sub {
+  font-size: 14px;
+  color: rgba(255,255,255,0.80);
+  margin: 0 0 28px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+.email-subscribe-form {
+  display: flex;
+  gap: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 14px;
+  padding: 6px 6px 6px 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.email-subscribe-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Figtree', sans-serif;
+  min-width: 0;
+}
+.email-subscribe-input::placeholder { color: rgba(255,255,255,0.3); }
+.email-subscribe-btn {
+  background: #00ff88;
+  color: #010108;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Figtree', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.2s, transform 0.2s;
+  letter-spacing: 0.3px;
+}
+.email-subscribe-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+.email-subscribe-success {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #00ff88;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* ════════════════════════════════════════════════════════════
    FOOTER BENTO
    ════════════════════════════════════════════════════════════ */
 .footer-bento {
@@ -365,7 +468,7 @@ main {
 .ftile-app-btn:hover { opacity: 0.85; transform: translateY(-1px); }
 .ftile-apple { background: #00ff88; color: #010108; }
 .ftile-google {
-  background: transparent; color: rgba(255,255,255,0.6);
+  background: transparent; color: rgba(255,255,255,0.85);
   border: 1px solid rgba(255,255,255,0.12);
 }
 .ftile-live-row { display: flex; align-items: center; gap: 7px; margin-top: auto; padding-top: 8px; }
@@ -392,7 +495,7 @@ main {
    ════════════════════════════════════════════════════════════ */
 .hiw-section {
   position: relative; z-index: 2; background: transparent;
-  padding: 16px 40px 40px; isolation: isolate;
+  padding: 16px 40px 16px; isolation: isolate;
 }
 .hiw-section::before {
   content: ''; position: absolute; inset: 0; z-index: -1;
@@ -704,6 +807,14 @@ main {
 @keyframes pingSend { 0%{transform:scale(0.8);opacity:0} 40%{opacity:1} 100%{transform:scale(1.4);opacity:0} }
 
 /* ════════════════════════════════════════════════════════════
+   RESPONSIVE — MEDIUM DESKTOP (≤1100px)
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 1100px) {
+  .bento { gap: 10px; }
+  .tile  { padding: 22px; }
+}
+
+/* ════════════════════════════════════════════════════════════
    RESPONSIVE — TABLET (≤900px)
    ════════════════════════════════════════════════════════════ */
 @media (max-width: 900px) {
@@ -718,13 +829,14 @@ main {
   .tx-feed, .chain-status-fixed, .global-counter { display: none; }
 
   .bento { grid-template-columns: repeat(6, 1fr); gap: 10px; }
-  .tile-platform { grid-column: span 6; }
-  .tile-stats    { grid-column: span 6; }
-  .tile-escrow   { grid-column: span 6; }
-  .tile-social   { grid-column: span 6; }
-  .tile-feature1 { grid-column: span 3; }
-  .tile-feature2 { grid-column: span 3; }
-  .tile-cta      { grid-column: span 6; }
+  .tile-gas      { grid-column: span 3; }
+  .tile-globe    { grid-column: span 3; }
+  .tile-trade    { grid-column: span 3; }
+  .tile-payments { grid-column: span 3; }
+  .tile-tools    { grid-column: span 2; }
+  .tile-github   { grid-column: span 2; }
+  .tile-identity { grid-column: span 2; }
+  #globe-canvas  { height: 260px !important; }
 
   .site-footer { padding: 24px 20px; }
   .footer-bottom { flex-direction: column; align-items: flex-start; }
@@ -762,6 +874,12 @@ main {
   .site-footer { padding: 20px 16px; }
   .footer-bottom { gap: 16px; }
   .store-btn { padding: 7px 12px; }
+
+  /* Mobile subscribe */
+  .email-subscribe { padding: 16px 0 32px; }
+  .email-subscribe-form { flex-direction: column; padding: 10px; gap: 8px; }
+  .email-subscribe-input { padding: 10px 6px; }
+  .email-subscribe-btn { width: 100%; padding: 13px; }
 
   /* Mobile footer: stack columns */
   .footer-bento { padding: 0 16px; }
@@ -811,7 +929,7 @@ main {
   </a>
 
   <!-- Single CTA button — no menu needed -->
-  <a href="https://swopme.app" class="nav-cta">Launch App ↗</a>
+  <a href="https://swopme.app/wallet" class="nav-cta">Launch App ↗</a>
 </nav>
 
 <!-- Global TX counter (top right, desktop only) -->
@@ -857,14 +975,14 @@ main {
     </div>
 
     <div class="hero-actions">
-      <a href="https://apps.apple.com/app/swop" class="store-btn-hero">
+      <a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322" target="_blank" rel="noopener noreferrer" class="store-btn-hero">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         <div>
           <div style="font-size:9px;opacity:0.7;line-height:1;">Download on the</div>
           <div style="font-size:14px;font-weight:700;line-height:1.2;">App Store</div>
         </div>
       </a>
-      <a href="https://play.google.com/store/apps/swop" class="store-btn-hero">
+      <a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp" target="_blank" rel="noopener noreferrer" class="store-btn-hero">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.22.99.14l12.12-6.97-2.54-2.54-10.57 9.37zM.44 1.6C.17 1.94.01 2.43.01 3.06v17.88c0 .63.16 1.12.43 1.46l.08.07 10.02-10.02v-.24L.52 1.53l-.08.07zM20.13 10.4l-2.72-1.56-2.83 2.83 2.83 2.83 2.74-1.57c.78-.45.78-1.08-.02-1.53zM3.18.24l12.13 6.97-2.54 2.54L2.19.38C2.5.19 2.88.07 3.18.24z"/></svg>
         <div>
           <div style="font-size:9px;opacity:0.7;line-height:1;">Get it on</div>
@@ -1232,6 +1350,25 @@ main {
   </div>
 </section>
 
+<!-- EMAIL SUBSCRIBE -->
+<section class="email-subscribe">
+  <div class="email-subscribe-inner">
+    <div class="email-subscribe-label">
+      <span class="email-subscribe-dot"></span>STAY IN THE LOOP
+    </div>
+    <h2 class="email-subscribe-title">Get early access &amp; updates.</h2>
+    <p class="email-subscribe-sub">No spam. Just launches, drops, and things worth knowing.</p>
+    <form class="email-subscribe-form" onsubmit="handleSubscribe(event)">
+      <input type="email" class="email-subscribe-input" placeholder="your@email.com" required />
+      <button type="submit" class="email-subscribe-btn">Subscribe ↗</button>
+    </form>
+    <div class="email-subscribe-success" id="subscribe-success" style="display:none;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#00ff88" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      You're in. Welcome to Swop.
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER BENTO -->
 <section class="footer-bento">
   <div class="fbento-inner">
@@ -1249,23 +1386,23 @@ main {
 
     <div class="ftile ftile-links">
       <div class="ftile-col-head">Product</div>
-      <a href="https://swopme.app" class="ftile-link">Launch App ↗</a>
+      <a href="https://swopme.app/wallet" class="ftile-link">Launch App ↗</a>
       <a href="#features" class="ftile-link">Features</a>
-      <a href="#escrow" class="ftile-link">AI Escrow</a>
-      <a href="#features" class="ftile-link">Multi-Chain</a>
+      <a href="https://support.swop.id" target="_blank" rel="noopener noreferrer" class="ftile-link">AI Escrow</a>
+      <a href="https://support.swop.id" target="_blank" rel="noopener noreferrer" class="ftile-link">Multi-Chain</a>
     </div>
 
     <div class="ftile ftile-community">
       <div class="ftile-col-head">Community</div>
-      <a href="https://x.com/swopme" class="ftile-social-row">
+      <a href="https://x.com/swoplabs" target="_blank" rel="noopener noreferrer" class="ftile-social-row">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         X Twitter
       </a>
-      <a href="https://discord.gg/swop" class="ftile-social-row">
+      <a href="https://discord.com/invite/axxx4mHePf" target="_blank" rel="noopener noreferrer" class="ftile-social-row">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057c.002.022.015.043.033.057a19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03z"/></svg>
         Discord
       </a>
-      <a href="https://instagram.com/swopme" class="ftile-social-row">
+      <a href="https://www.instagram.com/swop.labs" target="_blank" rel="noopener noreferrer" class="ftile-social-row">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         Instagram
       </a>
@@ -1273,11 +1410,11 @@ main {
 
     <div class="ftile ftile-download">
       <div class="ftile-col-head">Get the app</div>
-      <a href="https://apps.apple.com/app/swop" class="ftile-app-btn ftile-apple">
+      <a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322" target="_blank" rel="noopener noreferrer" class="ftile-app-btn ftile-apple">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         App Store
       </a>
-      <a href="https://play.google.com/store/apps/swop" class="ftile-app-btn ftile-google">
+      <a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp" target="_blank" rel="noopener noreferrer" class="ftile-app-btn ftile-google">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M3.18 23.76c.3.17.64.24.99.2l12.6-12.6-2.93-2.93L3.18 23.76zm16.4-11.2L16.9 11l-2.97 2.97 2.97 2.97 2.7-1.55c.77-.44.77-1.18-.02-1.83zM2.01 1.05C1.7 1.37 1.5 1.87 1.5 2.5v19c0 .63.2 1.13.51 1.45l.08.07L13.46 12v-.29L2.09.98l-.08.07zm11.45 11.89L2.09 24.04"/></svg>
         Google Play
       </a>
@@ -1742,6 +1879,34 @@ setTimeout(() => {
     }
   });
 }, 1500);
+
+// Email subscribe handler
+function handleSubscribe(e) {
+  e.preventDefault();
+  const form = e.target;
+  const input = form.querySelector('.email-subscribe-input');
+  const btn = form.querySelector('.email-subscribe-btn');
+  const success = document.getElementById('subscribe-success');
+  const email = input.value;
+
+  btn.textContent = 'Sending...';
+  btn.disabled = true;
+
+  fetch('https://script.google.com/macros/s/AKfycbxolqhXghFk94840zwyFmEuNtXIqnliTgaPQc1fL5jzj3_VD0H56ckBJtFKm2B2lTtOBg/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: email })
+  })
+  .then(() => {
+    form.style.display = 'none';
+    success.style.display = 'flex';
+  })
+  .catch(() => {
+    form.style.display = 'none';
+    success.style.display = 'flex';
+  });
+}
 </script>
 </body>
 </html>
