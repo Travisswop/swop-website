@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Swop — Self-Custody Social Trading</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ════════════════════════════════════════════════════════════
+   DESIGN TOKENS — edit colors here
+   ════════════════════════════════════════════════════════════ */
+:root {
+  --bg:      #010108;
+  --surface: #0a0a16;
+  --surface2:#0d0d1a;
+  --border:  rgba(255,255,255,0.06);
+  --border-bright: rgba(255,255,255,0.12);
+  --blue:    #38bdf8;
+  --purple:  #7b5cfa;
+  --green:   #00ff88;
+  --amber:   #f5c842;
+  --red:     #ef4444;
+  --text:    #ffffff;
+  --muted:   #555577;
+  --dim:     #333355;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Figtree', sans-serif;
+  font-weight: 300;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ════════════════════════════════════════════════════════════
+   MATRIX BACKGROUND
+   ════════════════════════════════════════════════════════════ */
+#matrix-canvas {
+  position: fixed; inset: 0;
+  width: 100%; height: 100%;
+  z-index: 0; pointer-events: none;
+  /* Canvas is hidden on very low-power devices via JS class */
+}
+.scanlines {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.07) 2px, rgba(0,0,0,0.07) 4px);
+}
+.hero-vignette {
+  position: fixed; inset: 0; z-index: 1; pointer-events: none;
+  background: radial-gradient(ellipse 80% 70% at 50% 45%, transparent 10%, rgba(1,1,8,0.6) 55%, rgba(1,1,8,0.97) 100%);
+}
+
+/* ════════════════════════════════════════════════════════════
+   NAV
+   ════════════════════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px;
+  background: rgba(1,1,8,0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid #06060f;
+}
+
+/* ── LOGO ──
+   Option A (default): Planet icon + wordmark text
+   Option B: Use <img> tag — see HTML nav section below
+   To switch to image logo, comment out .nav-logo-default and uncomment .nav-logo-img
+*/
+.nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+
+/* Option A: Icon + text wordmark */
+.nav-planet {
+  width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0;
+  background: radial-gradient(circle at 35% 35%, #3a3a5a, #0a0a1f 75%);
+  position: relative;
+}
+.nav-planet::before {
+  content: '';
+  position: absolute; top: 50%; left: 50%;
+  width: 44px; height: 44px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  border-radius: 50%;
+  transform: translate(-50%,-50%) rotateX(70deg);
+}
+.nav-wordmark { font-size: 21px; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+.nav-wordmark span { color: var(--blue); }
+
+/* Option B: Image logo — swap src to your logo URL or base64
+   Uncomment this and add <img class="nav-logo-img"> in HTML
+.nav-logo-img { height: 32px; width: auto; object-fit: contain; }
+*/
+
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover { color: #fff; }
+.nav-cta {
+  background: var(--green) !important;
+  color: #000 !important;
+  font-family: 'Space Mono', monospace !important;
+  font-size: 10px !important; font-weight: 700 !important; letter-spacing: 1px;
+  padding: 10px 20px; border-radius: 8px;
+  box-shadow: 0 0 24px rgba(0,255,136,0.3);
+  transition: box-shadow 0.2s !important;
+}
+.nav-cta:hover { box-shadow: 0 0 40px rgba(0,255,136,0.5) !important; }
+
+/* Mobile hamburger */
+.nav-hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 4px;
+}
+.nav-hamburger span { display: block; width: 22px; height: 2px; background: #fff; border-radius: 2px; transition: 0.3s; }
+.nav-hamburger.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* Mobile nav drawer */
+.nav-mobile {
+  display: none; flex-direction: column;
+  position: fixed; top: 60px; left: 0; right: 0; z-index: 99;
+  background: rgba(1,1,8,0.97); backdrop-filter: blur(20px);
+  border-bottom: 1px solid #0d0d1e;
+  padding: 24px 32px 28px;
+  gap: 20px;
+}
+.nav-mobile.open { display: flex; }
+.nav-mobile a {
+  font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 1px;
+  text-transform: uppercase; color: var(--muted); text-decoration: none;
+}
+.nav-mobile .nav-cta { text-align: center; padding: 14px; border-radius: 8px; }
+
+/* ════════════════════════════════════════════════════════════
+   HERO SECTION
+   ════════════════════════════════════════════════════════════ */
+main {
+  position: relative; z-index: 10;
+  padding: 0 40px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero {
+  text-align: center;
+  padding: 160px 0 72px;
+  margin-bottom: 56px;
+}
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes glowPulse {
+  0%,100%{box-shadow:0 0 30px rgba(0,255,136,0.25)}
+  50%{box-shadow:0 0 60px rgba(0,255,136,0.45)}
+}
+
+.hero-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 22px;
+  animation: fadeUp 1s 0.2s ease both;
+}
+
+/* ── HERO TITLE — edit the copy below in HTML ── */
+.hero-title {
+  font-size: clamp(46px, 7.5vw, 108px);
+  font-weight: 900; line-height: 0.93; letter-spacing: -4px;
+  margin-bottom: 28px; color: #fff;
+  animation: fadeUp 1s 0.4s ease both;
+}
+.hero-title .accent { color: var(--green); text-shadow: 0 0 60px rgba(0,255,136,0.3); }
+.hero-title .dim    { color: #111125; }
+
+.hero-sub {
+  font-size: 16px; font-weight: 400;
+  color: rgba(255,255,255,0.28); line-height: 1.75;
+  max-width: 480px; margin: 0 auto 20px;
+  animation: fadeUp 1s 0.5s ease both;
+}
+.hero-sub strong { color: rgba(255,255,255,0.5); font-weight: 600; }
+
+/* Asset type legend */
+.asset-legend {
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: center;
+  margin-bottom: 36px;
+  animation: fadeUp 1s 0.6s ease both;
+}
+.legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase;
+  color: rgba(255,255,255,0.22);
+}
+.legend-dot { width: 7px; height: 7px; border-radius: 2px; flex-shrink: 0; }
+
+.hero-actions {
+  display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;
+  margin-bottom: 48px;
+  animation: fadeUp 1s 0.7s ease both;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--green); color: #000;
+  font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  padding: 14px 30px; border-radius: 8px; text-decoration: none;
+  animation: glowPulse 2.5s ease-in-out infinite;
+  transition: transform 0.15s;
+}
+.btn-primary:hover { transform: translateY(-2px); }
+
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; color: rgba(255,255,255,0.22);
+  font-family: 'Space Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
+  padding: 13px 22px; border-radius: 8px;
+  border: 1px solid #111122; text-decoration: none;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: #222244; color: rgba(255,255,255,0.6); }
+
+/* Stats bar */
+.hero-stats {
+  display: flex;
+  border: 1px solid #0d0d1e; border-radius: 14px;
+  background: rgba(4,4,16,0.8); backdrop-filter: blur(20px);
+  overflow: hidden; max-width: 640px; margin: 0 auto;
+  animation: fadeUp 1s 0.9s ease both;
+}
+.hstat { flex: 1; padding: 18px 0; border-right: 1px solid #0a0a18; text-align: center; }
+.hstat:last-child { border-right: none; }
+.hstat-val { font-size: 24px; font-weight: 900; letter-spacing: -1.5px; line-height: 1; }
+.hstat-label { font-family: 'Space Mono', monospace; font-size: 7px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.18); margin-top: 5px; }
+
+/* ════════════════════════════════════════════════════════════
+   LIVE TX TOASTS (bottom left)
+   ════════════════════════════════════════════════════════════ */
+.tx-feed {
+  position: fixed; bottom: 56px; left: 24px; z-index: 20;
+  display: flex; flex-direction: column; gap: 6px;
+  pointer-events: none; width: 260px;
+}
+.tx-toast {
+  background: rgba(4,4,16,0.9);
+  border: 1px solid #0d0d20; border-left: 2px solid var(--green);
+  border-radius: 8px; padding: 9px 12px;
+  backdrop-filter: blur(12px);
+  animation: toastIn 0.35s ease both, toastOut 0.35s 4.6s ease forwards;
+  display: flex; align-items: center; gap: 8px;
+}
+@keyframes toastIn  { from{opacity:0;transform:translateX(-14px)} to{opacity:1;transform:none} }
+@keyframes toastOut { from{opacity:1} to{opacity:0;transform:translateX(-8px)} }
+.toast-icon { font-family: 'Space Mono', monospace; font-size: 7px; font-weight: 700; padding: 3px 5px; border-radius: 3px; flex-shrink: 0; }
+.toast-pair { font-size: 11px; font-weight: 700; }
+.toast-meta { font-family: 'Space Mono', monospace; font-size: 7px; color: rgba(255,255,255,0.2); margin-top: 1px; }
+.toast-val  { font-family: 'Space Mono', monospace; font-size: 10px; font-weight: 700; margin-left: auto; }
+
+/* ════════════════════════════════════════════════════════════
+   CHAIN PILLS + GLOBAL COUNTER
+   ════════════════════════════════════════════════════════════ */
+.chain-status-fixed {
+  position: fixed; bottom: 56px; right: 24px; z-index: 20;
+  display: flex; flex-direction: column; gap: 5px; align-items: flex-end;
+}
+.cpill {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+  padding: 5px 10px; border-radius: 6px;
+  background: rgba(4,4,16,0.85); border: 1px solid #0d0d1e;
+  backdrop-filter: blur(12px);
+}
+.cpill-dot { width: 5px; height: 5px; border-radius: 50%; animation: cpulse 2s ease-in-out infinite; }
+@keyframes cpulse { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+.global-counter {
+  position: fixed; top: 76px; right: 44px; z-index: 20; text-align: right;
+  animation: fadeUp 1s 1.2s ease both;
+}
+.gc-val   { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--green); letter-spacing: 1px; }
+.gc-label { font-family: 'Space Mono', monospace; font-size: 7px; color: #1a1a2e; letter-spacing: 1px; text-transform: uppercase; }
+
+/* ════════════════════════════════════════════════════════════
+   TICKER
+   ════════════════════════════════════════════════════════════ */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid #06060f; border-bottom: 1px solid #06060f;
+  padding: 10px 0; margin-bottom: 48px;
+  background: rgba(1,1,8,0.6); position: relative; z-index: 10;
+}
+.ticker-inner {
+  display: flex; gap: 48px;
+  animation: ticker 28s linear infinite;
+  white-space: nowrap;
+}
+@keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.tick { font-family: 'Space Mono', monospace; font-size: 10px; color: #2a2a3e; display: flex; align-items: center; gap: 10px; }
+.tick strong { color: #3a3a5a; }
+.tick .up { color: var(--green); }
+.tick .dn { color: var(--red); }
+
+/* ════════════════════════════════════════════════════════════
+   BENTO GRID
+   ════════════════════════════════════════════════════════════ */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: auto;
+  gap: 12px;
+}
+
+.tile {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  position: relative; overflow: hidden;
+  transition: border-color 0.25s, transform 0.25s;
+  opacity: 0; /* JS animates in */
+}
+.tile:hover { border-color: var(--border-bright); transform: translateY(-2px); }
+
+/* ── 5-TILE LAYOUT (12-col grid) ──────────────────────
+   Row 1: platform(8) | stats(4)
+   Row 2: escrow(6)   | social(6)
+   Row 3: feature1(4) | feature2(4) | cta(4)
+   ─────────────────────────────────────────────────── */
+.tile-platform { grid-column: span 8; }
+.tile-stats    { grid-column: span 4; }
+.tile-escrow   { grid-column: span 6; }
+.tile-social   { grid-column: span 6; }
+.tile-feature1 { grid-column: span 4; }
+.tile-feature2 { grid-column: span 4; }
+.tile-cta      { grid-column: span 4; }
+
+.tile-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+}
+.tile-num {
+  font-size: 52px; font-weight: 800; line-height: 1; letter-spacing: -2px; color: #fff;
+}
+.tile-desc { font-family: 'Space Mono', monospace; font-size: 11px; color: var(--muted); margin-top: 6px; }
+.badge {
+  display: inline-block; font-family: 'Space Mono', monospace; font-size: 9px;
+  padding: 3px 10px; border-radius: 20px; margin-top: 10px;
+}
+
+/* PLATFORM TILE */
+.tile-platform { background: #031a22; border-color: #0e4d66; }
+.tile-platform .big-title {
+  font-size: clamp(24px, 3vw, 38px); font-weight: 800; letter-spacing: -1.5px;
+  line-height: 1.05; color: #fff; margin-bottom: 14px;
+}
+.tile-platform .big-title span { color: var(--blue); }
+.tile-platform p { font-size: 14px; color: #5599aa; line-height: 1.7; max-width: 480px; margin-bottom: 18px; }
+
+/* STATS TILE */
+.tile-stats { background: #0a0a16; border-color: #1e1e2e; display: flex; flex-direction: column; gap: 0; }
+.stat-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 0; border-bottom: 1px solid #0d0d1e;
+}
+.stat-row:last-child { border-bottom: none; }
+.stat-row-label { font-family: 'Space Mono', monospace; font-size: 9px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); }
+.stat-row-val   { font-size: 22px; font-weight: 900; letter-spacing: -1px; }
+
+@keyframes floatPlanet { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+@keyframes twinkle { 0%,100%{opacity:var(--min,0.1)} 50%{opacity:var(--max,0.7)} }
+
+/* SOCIAL TILE */
+.tile-social { background: #13102b; border-color: #3a2fa0; }
+.tile-social .tile-label { color: var(--purple); }
+
+/* ESCROW TILE */
+.tile-escrow { background: #031a22; border-color: #0e4d66; display: flex; flex-direction: column; justify-content: space-between; }
+.tile-escrow .tile-label { color: var(--blue); }
+.escrow-headline { font-size: 28px; font-weight: 800; letter-spacing: -1px; line-height: 1.1; margin-bottom: 10px; }
+.escrow-headline span { color: var(--blue); }
+.tile-escrow p { font-size: 13px; color: #5599aa; line-height: 1.7; max-width: 480px; }
+.escrow-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+.escrow-tag { font-family: 'Space Mono', monospace; font-size: 9px; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+
+/* CTA TILE */
+.tile-cta { background: #07070f; border-color: #38bdf833; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; }
+.tile-cta .big { font-size: 22px; font-weight: 800; letter-spacing: -0.5px; line-height: 1.15; margin-bottom: 6px; }
+.tile-cta .sub { font-family: 'Space Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 20px; line-height: 1.8; }
+.tile-cta a {
+  display: inline-block; background: var(--blue); color: #000;
+  font-family: 'Space Mono', monospace; font-size: 11px; font-weight: 700; letter-spacing: 0.5px;
+  padding: 12px 22px; border-radius: 8px; text-decoration: none;
+  animation: glowPulse2 2.5s ease-in-out infinite; transition: opacity 0.2s;
+}
+.tile-cta a:hover { opacity: 0.85; }
+@keyframes glowPulse2 {
+  0%,100%{box-shadow:0 0 0 0 rgba(56,189,248,0)}
+  50%{box-shadow:0 0 24px 4px rgba(56,189,248,0.2)}
+}
+
+/* FEATURE TILES */
+.tile-feature1 { background: #13102b; border-color: #3a2fa0; }
+.tile-feature1 .tile-label { color: var(--purple); }
+.tile-feature1 h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+.tile-feature1 p  { font-size: 14px; color: #7766bb; line-height: 1.7; }
+.tile-feature2 { background: #0a1f14; border-color: #1a4a2e; }
+.tile-feature2 .tile-label { color: var(--green); }
+.tile-feature2 h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 10px; }
+.tile-feature2 p  { font-size: 14px; color: #336644; line-height: 1.7; }
+
+/* ════════════════════════════════════════════════════════════
+   BOTTOM CTA + FOOTER
+   ════════════════════════════════════════════════════════════ */
+.bottom-cta {
+  text-align: center; padding: 100px 40px;
+  position: relative; z-index: 1;
+}
+.bottom-cta h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -2px; color: #fff; margin-bottom: 16px; }
+.bottom-cta h2 span { color: var(--blue); }
+.bottom-cta p  { font-size: 16px; color: var(--muted); margin-bottom: 36px; }
+
+.site-footer {
+  position: relative; z-index: 1;
+  border-top: 1px solid #0d0d18;
+  padding: 24px 40px;
+  max-width: 1200px; margin: 0 auto;
+}
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.footer-bottom-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.footer-copy { font-family: 'Space Mono', monospace; font-size: 9px; color: var(--dim); letter-spacing: 0.5px; }
+.footer-chain-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.fchain { font-family: 'Space Mono', monospace; font-size: 8px; letter-spacing: 0.5px; padding: 3px 9px; border-radius: 20px; text-transform: uppercase; }
+.footer-right { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.store-btn {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+  padding: 8px 16px; text-decoration: none; transition: border-color 0.2s;
+}
+.store-btn:hover { border-color: #38bdf855; }
+.store-btn-icon { font-size: 18px; color: #fff; line-height: 1; }
+.store-btn-label { display: flex; flex-direction: column; }
+.store-btn-sub  { font-family: 'Space Mono', monospace; font-size: 8px; color: var(--muted); }
+.store-btn-name { font-family: 'Figtree', sans-serif; font-size: 13px; font-weight: 700; color: #fff; }
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE — TABLET (≤900px)
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  nav { padding: 14px 20px; }
+  .nav-links { display: none; }         /* hidden — hamburger shows instead */
+  .nav-hamburger { display: flex; }
+
+  main { padding: 0 16px 60px; }
+
+  .hero { padding: 120px 0 56px; }
+  .hero-title { letter-spacing: -3px; }
+
+  /* Hide tx toasts and chain pills — too crowded on tablet */
+  .tx-feed, .chain-status-fixed, .global-counter { display: none; }
+
+  .bento { grid-template-columns: repeat(6, 1fr); gap: 10px; }
+  .tile-platform { grid-column: span 6; }
+  .tile-stats    { grid-column: span 6; }
+  .tile-escrow   { grid-column: span 6; }
+  .tile-social   { grid-column: span 6; }
+  .tile-feature1 { grid-column: span 3; }
+  .tile-feature2 { grid-column: span 3; }
+  .tile-cta      { grid-column: span 6; }
+
+  .site-footer { padding: 24px 20px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+}
+
+/* ════════════════════════════════════════════════════════════
+   RESPONSIVE — MOBILE (≤600px)
+   ════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  nav { padding: 14px 16px; }
+  main { padding: 0 12px 48px; }
+
+  .hero { padding: 100px 0 48px; }
+  .hero-tag { font-size: 8px; letter-spacing: 2px; }
+  .hero-title { font-size: clamp(38px, 11vw, 56px); letter-spacing: -2.5px; }
+  .hero-sub { font-size: 14px; }
+  .asset-legend { gap: 10px; }
+  .legend-item  { font-size: 7px; }
+  .hero-actions { gap: 8px; }
+  .btn-primary  { font-size: 10px; padding: 13px 22px; }
+  .btn-ghost    { font-size: 9px;  padding: 12px 16px; }
+  .hero-stats   { max-width: 100%; }
+  .hstat-val    { font-size: 20px; }
+
+  .ticker-wrap  { margin-bottom: 28px; }
+
+  /* Mobile bento: 2 columns */
+  .bento { grid-template-columns: 1fr 1fr; gap: 8px; }
+  .tile  { padding: 18px; }
+  .tile-platform, .tile-stats, .tile-escrow,
+  .tile-social, .tile-cta { grid-column: span 2; }
+  .tile-feature1, .tile-feature2 { grid-column: span 1; }
+
+  .tile-platform .big-title { font-size: 22px; }
+  .escrow-headline { font-size: 22px; }
+  .planet-large { width: 120px; height: 120px; }
+
+  .bottom-cta { padding: 60px 20px; }
+  .site-footer { padding: 20px 16px; }
+  .footer-bottom { gap: 16px; }
+  .store-btn { padding: 7px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MATRIX CANVAS — JS handles mobile performance automatically -->
+<canvas id="matrix-canvas"></canvas>
+<div class="scanlines"></div>
+<div class="hero-vignette"></div>
+
+<!-- ════════════════════════════════════════════════════
+     NAV
+     To swap the logo:
+       Option A (current): Planet icon + "swop." text
+       Option B (image):   Replace the nav-logo div contents with:
+                           <img src="YOUR_LOGO_URL" class="nav-logo-img" alt="Swop">
+                           And add: .nav-logo-img { height: 30px; width: auto; }
+     ════════════════════════════════════════════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <!-- LOGO — swap this block for your <img> tag if needed -->
+    <div class="nav-planet"></div>
+    <span class="nav-wordmark">swop<span>.</span></span>
+    <!-- End logo -->
+  </a>
+
+  <!-- Desktop links -->
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#chains">Chains</a></li>
+    <li><a href="#trade">Trade</a></li>
+    <li><a href="https://swopme.app" class="nav-cta">Launch App</a></li>
+  </ul>
+
+  <!-- Mobile hamburger -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile drawer -->
+<div class="nav-mobile" id="nav-mobile">
+  <a href="#features" onclick="closeNav()">Features</a>
+  <a href="#chains"   onclick="closeNav()">Chains</a>
+  <a href="#trade"    onclick="closeNav()">Trade</a>
+  <a href="https://swopme.app" class="nav-cta">Launch App ↗</a>
+</div>
+
+<!-- Global TX counter (top right, desktop only) -->
+<div class="global-counter">
+  <div class="gc-val" id="gc-val">1,322,481</div>
+  <div class="gc-label">transactions today</div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main>
+
+  <!-- ════════════════════════════════════════
+       HERO — edit copy here
+       ════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-tag">● Global Asset Layer · Live</div>
+
+    <!-- Edit the headline below -->
+    <h1 class="hero-title">
+      Money moves<br>
+      <span class="accent">everywhere.</span><br>
+      <span class="dim">Own yours.</span>
+    </h1>
+
+    <!-- Edit the sub-headline below -->
+    <p class="hero-sub">
+      <strong>Tokenized gold. Stocks. Stablecoins. Crypto.</strong><br>
+      Every asset, every chain — social trading with self-custody.
+    </p>
+
+    <!-- Asset type legend — matches matrix rain colors -->
+    <div class="asset-legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#00ff88;box-shadow:0 0 5px #00ff88;"></div>Crypto</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#f5c842;box-shadow:0 0 5px #f5c842;"></div>Gold</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#38bdf8;box-shadow:0 0 5px #38bdf8;"></div>Stablecoins</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#a855f7;box-shadow:0 0 5px #a855f7;"></div>Stocks</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#ef4444;box-shadow:0 0 5px #ef4444;"></div>Fiat</div>
+    </div>
+
+    <div class="hero-actions">
+      <a href="https://swopme.app" class="btn-primary">Start Trading ↗</a>
+      <a href="#features" class="btn-ghost">See how it works</a>
+    </div>
+
+    <!-- Edit stat values below -->
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-val" style="color:#00ff88;">$107K</div><div class="hstat-label">Vol/Week</div></div>
+      <div class="hstat"><div class="hstat-val" style="color:#38bdf8;">1,322</div><div class="hstat-label">Trades</div></div>
+      <div class="hstat"><div class="hstat-val" style="color:#f5c842;">+127</div><div class="hstat-label">Wallets</div></div>
+      <div class="hstat"><div class="hstat-val" style="color:#a855f7;">4</div><div class="hstat-label">Chains</div></div>
+    </div>
+  </section>
+
+  <!-- PRICE TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-inner" id="ticker"></div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       BENTO GRID — 5 tiles, easy to edit
+       ════════════════════════════════════════ -->
+  <section class="bento" id="features">
+
+    <!-- TILE 1: Platform overview (left, wide) -->
+    <div class="tile tile-platform">
+      <div class="tile-label" style="color:var(--blue)">Platform</div>
+      <div class="big-title">Your wallet.<br>Your rules.<br><span>Your keys.</span></div>
+      <p>Swop is a self-custody DeFi wallet built for social traders. See what the best wallets are trading in real time, copy them in one tap, and never give up custody of your assets.</p>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace;font-size:9px;padding:4px 10px;border-radius:20px;border:1px solid rgba(56,189,248,0.25);background:rgba(56,189,248,0.06);color:var(--blue);">Self-custody</span>
+        <span style="font-family:'Space Mono',monospace;font-size:9px;padding:4px 10px;border-radius:20px;border:1px solid rgba(123,92,250,0.25);background:rgba(123,92,250,0.06);color:var(--purple);">Social feed</span>
+        <span style="font-family:'Space Mono',monospace;font-size:9px;padding:4px 10px;border-radius:20px;border:1px solid rgba(0,255,136,0.25);background:rgba(0,255,136,0.06);color:var(--green);">Copy trading</span>
+        <span style="font-family:'Space Mono',monospace;font-size:9px;padding:4px 10px;border-radius:20px;border:1px solid rgba(245,200,66,0.25);background:rgba(245,200,66,0.06);color:var(--amber);">Prediction markets</span>
+      </div>
+    </div>
+
+    <!-- TILE 2: Live stats (right, narrow) -->
+    <div class="tile tile-stats">
+      <div class="tile-label" style="color:var(--muted);">Live stats</div>
+      <div class="stat-row">
+        <span class="stat-row-label">Weekly Swaps</span>
+        <span class="stat-row-val" style="color:var(--purple);">1,322</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-row-label">Volume</span>
+        <span class="stat-row-val" style="color:var(--green);">$107K</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-row-label">New Wallets</span>
+        <span class="stat-row-val" style="color:var(--amber);">+127</span>
+      </div>
+      <div class="stat-row">
+        <span class="stat-row-label">Live Chains</span>
+        <span class="stat-row-val" style="color:var(--blue);">4</span>
+      </div>
+    </div>
+
+    <!-- TILE 3: Escrow / AI agents (left) -->
+    <div class="tile tile-escrow" id="escrow">
+      <div>
+        <div class="tile-label">AI-ready · Programmable escrow</div>
+        <div class="escrow-headline">The payment layer<br>for <span>AI agents.</span></div>
+        <p>AI agents can't open bank accounts — but they can hold a wallet. Swop's programmable escrow holds funds on-chain and releases only when conditions are met. No intermediary. No counterparty risk.</p>
+      </div>
+      <div class="escrow-tags">
+        <span class="escrow-tag" style="border:1px solid rgba(56,189,248,0.3);background:rgba(56,189,248,0.06);color:var(--blue);">On-chain settlement</span>
+        <span class="escrow-tag" style="border:1px solid rgba(123,92,250,0.3);background:rgba(123,92,250,0.06);color:var(--purple);">Agent-to-agent</span>
+        <span class="escrow-tag" style="border:1px solid rgba(0,255,136,0.3);background:rgba(0,255,136,0.06);color:var(--green);">Condition-based release</span>
+        <span class="escrow-tag" style="border:1px solid rgba(20,241,149,0.3);background:rgba(20,241,149,0.06);color:#14f195;">x402 compatible</span>
+      </div>
+    </div>
+
+    <!-- TILE 4: Community (right) -->
+    <div class="tile tile-social">
+      <div class="tile-label">Community</div>
+      <div style="font-size:48px;font-weight:900;letter-spacing:-2px;color:#fff;line-height:1;margin-bottom:8px;">2,400+</div>
+      <div style="font-family:'Space Mono',monospace;font-size:11px;color:#554488;margin-bottom:20px;">followers across platforms</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <a href="https://x.com/swopme"        style="display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:9px;padding:7px 12px;border-radius:8px;background:#1a1035;border:1px solid #3a2fa0;color:#7b5cfa;text-decoration:none;">𝕏 Twitter</a>
+        <a href="https://discord.gg/swop"      style="display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:9px;padding:7px 12px;border-radius:8px;background:#1a1035;border:1px solid #3a2fa0;color:#7b5cfa;text-decoration:none;">Discord</a>
+        <a href="https://instagram.com/swopme" style="display:inline-flex;align-items:center;gap:5px;font-family:'Space Mono',monospace;font-size:9px;padding:7px 12px;border-radius:8px;background:#1a1035;border:1px solid #3a2fa0;color:#7b5cfa;text-decoration:none;">Instagram</a>
+      </div>
+    </div>
+
+    <!-- TILE 5a: Social trading feature -->
+    <div class="tile tile-feature1">
+      <div class="tile-label">Social trading</div>
+      <h3 style="font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:10px;">See every trade.<br>Copy the best.</h3>
+      <p style="font-size:14px;color:#7766bb;line-height:1.7;">Follow top traders and copy their positions in one tap — without giving up your keys.</p>
+    </div>
+
+    <!-- TILE 5b: Multi-chain feature -->
+    <div class="tile tile-feature2">
+      <div class="tile-label">DeFi-native</div>
+      <h3 style="font-size:22px;font-weight:800;letter-spacing:-0.5px;margin-bottom:10px;">4 chains.<br>One wallet.</h3>
+      <p style="font-size:14px;color:#336644;line-height:1.7;">Polygon, Base, Ethereum, and Solana — best rates routed automatically via LiFi and Jupiter.</p>
+    </div>
+
+    <!-- TILE 5c: CTA -->
+    <div class="tile tile-cta">
+      <div>
+        <div class="big">Ready to<br>trade smarter?</div>
+        <div class="sub">Self-custody<br>No KYC · Your keys</div>
+      </div>
+      <a href="https://swopme.app">Open Swop ↗</a>
+    </div>
+
+  </section>
+</main>
+
+<!-- Live TX feed (desktop only — hidden on mobile via CSS) -->
+<div class="tx-feed" id="tx-feed"></div>
+
+<!-- Chain status pills (desktop only) -->
+<div class="chain-status-fixed">
+  <div class="cpill"><span class="cpill-dot" style="background:#8b5cf6;"></span><span style="color:#8b5cf6;">Polygon</span> · live</div>
+  <div class="cpill"><span class="cpill-dot" style="background:#38bdf8;animation-delay:0.5s;"></span><span style="color:#38bdf8;">Base</span> · live</div>
+  <div class="cpill"><span class="cpill-dot" style="background:#a78bfa;animation-delay:1s;"></span><span style="color:#a78bfa;">Ethereum</span> · live</div>
+  <div class="cpill"><span class="cpill-dot" style="background:#14f195;animation-delay:1.5s;"></span><span style="color:#14f195;">Solana</span> · live</div>
+</div>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <h2>Start trading.<br><span>Own everything.</span></h2>
+  <p>Join 127 new wallets that joined this week alone.</p>
+  <div class="hero-actions">
+    <a href="https://swopme.app" class="btn-primary">Launch Swop ↗</a>
+    <a href="https://apps.apple.com/app/swop"              class="btn-ghost">App Store</a>
+    <a href="https://play.google.com/store/apps/swop"      class="btn-ghost">Play Store</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-bottom">
+    <div class="footer-bottom-left">
+      <span class="footer-copy">© 2026 Swop · swopme.app · Built for self-custody.</span>
+      <div class="footer-chain-pills">
+        <span class="fchain" style="border:1px solid #8b5cf633;background:#8b5cf610;color:#8b5cf6;">Polygon</span>
+        <span class="fchain" style="border:1px solid #38bdf833;background:#38bdf810;color:#38bdf8;">Base</span>
+        <span class="fchain" style="border:1px solid #a78bfa33;background:#a78bfa10;color:#a78bfa;">Ethereum</span>
+        <span class="fchain" style="border:1px solid #14f19533;background:#14f19510;color:#14f195;">Solana</span>
+      </div>
+    </div>
+    <div class="footer-right">
+      <a href="https://apps.apple.com/app/swop" class="store-btn">
+        <span class="store-btn-icon">&#63743;</span>
+        <div class="store-btn-label">
+          <span class="store-btn-sub">Download on the</span>
+          <span class="store-btn-name">App Store</span>
+        </div>
+      </a>
+      <a href="https://play.google.com/store/apps/swop" class="store-btn">
+        <span class="store-btn-icon" style="color:#22c55e;font-size:16px;">&#9654;</span>
+        <div class="store-btn-label">
+          <span class="store-btn-sub">Get it on</span>
+          <span class="store-btn-name">Google Play</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════════════
+// MOBILE HAMBURGER
+// ════════════════════════════════════════════════════════════
+const hamburger = document.getElementById('hamburger');
+const navMobile = document.getElementById('nav-mobile');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  navMobile.classList.toggle('open');
+});
+function closeNav() {
+  hamburger.classList.remove('open');
+  navMobile.classList.remove('open');
+}
+
+// ════════════════════════════════════════════════════════════
+// MATRIX ENGINE
+// Fixes:
+//   1. Uses devicePixelRatio for crisp rendering on retina/mobile
+//   2. Reduces column count on mobile for performance
+//   3. Falls back to CSS gradient if canvas 2D not supported
+//   4. Uses currency symbols as primary glyphs (BIG CHANGE)
+// ════════════════════════════════════════════════════════════
+
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+if (!ctx) {
+  // Fallback: hide canvas, use CSS gradient background
+  canvas.style.display = 'none';
+  document.body.style.background = 'radial-gradient(ellipse at 50% 0%, #0a1a2a 0%, #010108 60%)';
+}
+
+// ── ASSET DATA ─────────────────────────────────────────────
+// Each asset type has: color, label, and CURRENCY SYMBOLS
+// that appear large and glowing as the primary matrix glyph
+const ASSET_TYPES = {
+  CRYPTO: {
+    color: '#00ff88',
+    label: 'CRYPTO',
+    // ★ Currency symbols that flash as large leading chars
+    currencySymbols: ['₿','Ξ','◎','⬡','Ⓐ','₳','Ð','Ł','฿'],
+    // Smaller supporting fragments that fill the column trail
+    fragments: ['BTC','ETH','SOL','BNB','MATIC','ARB','0.12','2.4','150','tx:','→','↑'],
+    amounts: ['0.12 BTC','2.4 ETH','150 SOL','450 MATIC'],
+  },
+  GOLD: {
+    color: '#f5c842',
+    label: 'TOK.GOLD',
+    currencySymbols: ['Au','XAU','oz','☀','◈','⬡','Au','XAU'],
+    fragments: ['PAXG','XAUT','1.2oz','0.5','3.1','tGOLD','→','↑'],
+    amounts: ['1.2 oz','0.5 PAXG','3.1 XAUT'],
+  },
+  STABLE: {
+    color: '#38bdf8',
+    label: 'STABLE',
+    currencySymbols: ['$','€','¥','£','₣','฿','$','€','¥'],
+    fragments: ['USDC','USDT','DAI','1.00','→','5000','1240','FRAX'],
+    amounts: ['$1,240','$5,000','$500'],
+  },
+  STOCK: {
+    color: '#a855f7',
+    label: 'TOK.STOCK',
+    currencySymbols: ['📈','%','#','⬆','▲','↗','★','◆'],
+    fragments: ['AAPL','TSLA','NVDA','SPY','0.5','2.0','tSPY','QQQ'],
+    amounts: ['0.5 AAPL','2 TSLA','10 SPY'],
+  },
+  FIAT: {
+    color: '#ef4444',
+    label: 'FIAT',
+    currencySymbols: ['$','€','£','¥','₹','₽','R$','₩','د.إ','₦'],
+    fragments: ['USD','EUR','GBP','JPY','MXN','BRL','INR','→','wire'],
+    amounts: ['$2,000','€1,500','£800','¥150K'],
+  },
+};
+
+const assetKeys = Object.keys(ASSET_TYPES);
+const CITIES = ['New York','London','Tokyo','Singapore','Dubai','Sydney','Frankfurt','Seoul','Hong Kong','São Paulo','Mumbai','Toronto','Zurich','Chicago','Mexico City','Riyadh','Lagos','Jakarta','Paris','Nairobi'];
+
+// ── CANVAS SETUP ───────────────────────────────────────────
+const isMobile = window.innerWidth <= 600;
+// Slightly larger font on desktop so currency symbols are readable
+const FONT_SIZE = isMobile ? 14 : 16;
+
+let cols, drops, colAssets, colPhase;
+
+function initMatrix() {
+  // Use physical pixel size (fixes blur on retina/OLED mobile screens)
+  const dpr = Math.min(window.devicePixelRatio || 1, 2); // cap at 2x
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  canvas.width  = w * dpr;
+  canvas.height = h * dpr;
+  canvas.style.width  = w + 'px';
+  canvas.style.height = h + 'px';
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  // Fewer columns on mobile to save battery + improve perf
+  const effectiveCols = isMobile ? Math.floor(w / (FONT_SIZE * 1.8)) : Math.floor(w / FONT_SIZE);
+  cols = effectiveCols;
+
+  drops     = new Array(cols).fill(0).map(() => Math.random() * -80);
+  colAssets = new Array(cols).fill(0).map(() => assetKeys[Math.floor(Math.random() * assetKeys.length)]);
+  // Phase offset makes each column start at a different point in its currency symbol cycle
+  colPhase  = new Array(cols).fill(0).map(() => Math.floor(Math.random() * 8));
+}
+
+window.addEventListener('resize', initMatrix);
+initMatrix();
+
+// ── DRAW LOOP ──────────────────────────────────────────────
+let frameCount = 0;
+// On mobile, skip every other frame to save battery
+const SKIP_FRAMES = isMobile ? 1 : 0;
+
+function pickGlyph(assetKey, isLead, phase) {
+  const a = ASSET_TYPES[assetKey];
+  if (isLead) {
+    // LEAD glyph: always a big currency symbol — this is the core change!
+    return a.currencySymbols[(phase + Math.floor(Date.now() / 800)) % a.currencySymbols.length];
+  }
+  // Trail: mix of small fragments
+  const r = Math.random();
+  if (r < 0.35) {
+    const frag = a.fragments[Math.floor(Math.random() * a.fragments.length)];
+    return frag[Math.floor(Math.random() * frag.length)] || frag[0];
+  }
+  if (r < 0.55) return String(Math.floor(Math.random() * 10));
+  return ['$','%','→','↑','↓','/','.',','][Math.floor(Math.random() * 8)];
+}
+
+function drawMatrix() {
+  requestAnimationFrame(drawMatrix);
+  frameCount++;
+  if (SKIP_FRAMES && frameCount % 2 !== 0) return; // mobile frame skip
+
+  // Fade trail — slightly slower on mobile for nicer glow
+  ctx.fillStyle = isMobile ? 'rgba(1,1,8,0.06)' : 'rgba(1,1,8,0.05)';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  const colWidth = isMobile ? FONT_SIZE * 1.8 : FONT_SIZE;
+
+  for (let i = 0; i < cols; i++) {
+    const key   = colAssets[i];
+    const asset = ASSET_TYPES[key];
+    const y = drops[i] * FONT_SIZE;
+    const x = i * colWidth;
+
+    // ── LEAD GLYPH: large currency symbol ──────────────────
+    const leadSym = pickGlyph(key, true, colPhase[i]);
+    ctx.font = `bold ${FONT_SIZE + 2}px 'Space Mono', monospace`;
+    ctx.fillStyle = '#ffffff';
+    ctx.shadowBlur = 14;
+    ctx.shadowColor = asset.color;
+    ctx.fillText(leadSym, x, y);
+    ctx.shadowBlur = 0;
+
+    // ── TRAIL GLYPHS: fragments with color glow ─────────────
+    ctx.font = `${FONT_SIZE - 2}px 'Space Mono', monospace`;
+    const trailLen = isMobile ? 3 : 5;
+    for (let t = 1; t <= trailLen; t++) {
+      if (Math.random() > 0.5) continue;
+      const alpha = (1 - t / trailLen) * 0.55;
+      ctx.fillStyle = asset.color + Math.round(alpha * 255).toString(16).padStart(2, '0');
+      const trailChar = pickGlyph(key, false, colPhase[i]);
+      ctx.fillText(trailChar, x, y - FONT_SIZE * t);
+    }
+
+    // ── OCCASIONAL FULL FRAGMENT FLASH ─────────────────────
+    if (Math.random() > 0.997) {
+      const frag = asset.fragments[Math.floor(Math.random() * asset.fragments.length)];
+      ctx.font = `bold ${FONT_SIZE - 3}px 'Space Mono', monospace`;
+      ctx.fillStyle = asset.color + 'cc';
+      ctx.shadowBlur = 6; ctx.shadowColor = asset.color;
+      ctx.fillText(frag, x, y - FONT_SIZE * 2.5);
+      ctx.shadowBlur = 0;
+    }
+
+    // ── ADVANCE DROP ────────────────────────────────────────
+    drops[i] += Math.random() * 0.6 + 0.4;
+
+    if (drops[i] * FONT_SIZE > window.innerHeight && Math.random() > 0.972) {
+      drops[i] = 0;
+      colPhase[i] = Math.floor(Math.random() * 8); // new symbol cycle
+      if (Math.random() > 0.6) colAssets[i] = assetKeys[Math.floor(Math.random() * assetKeys.length)];
+    }
+  }
+}
+drawMatrix();
+
+// ════════════════════════════════════════════════════════════
+// LIVE TX TOASTS (desktop only)
+// ════════════════════════════════════════════════════════════
+const feedEl = document.getElementById('tx-feed');
+function spawnToast() {
+  if (window.innerWidth <= 900) return; // don't spawn on mobile/tablet
+  const key   = assetKeys[Math.floor(Math.random() * assetKeys.length)];
+  const asset = ASSET_TYPES[key];
+  const sym   = asset.fragments[Math.floor(Math.random() * asset.fragments.length)] + '/' + asset.fragments[0];
+  const city1 = CITIES[Math.floor(Math.random() * CITIES.length)];
+  const city2 = CITIES[Math.floor(Math.random() * CITIES.length)];
+  const up    = Math.random() > 0.28;
+  const chg   = (Math.random() * 7 + 0.1).toFixed(2);
+  const col   = asset.color;
+  const toast = document.createElement('div');
+  toast.className = 'tx-toast';
+  toast.style.borderLeftColor = col;
+  toast.innerHTML = `
+    <div class="toast-icon" style="background:${col}18;color:${col};">${asset.label}</div>
+    <div style="flex:1;min-width:0;">
+      <div class="toast-pair">${asset.currencySymbols[0]} ${asset.amounts[0]}</div>
+      <div class="toast-meta">${city1} → ${city2} · now</div>
+    </div>
+    <div class="toast-val" style="color:${up ? '#00ff88' : '#ef4444'};">${up ? '+' : '-'}${chg}%</div>`;
+  feedEl.insertBefore(toast, feedEl.firstChild);
+  if (feedEl.children.length > 4) feedEl.removeChild(feedEl.lastChild);
+  setTimeout(() => { if (toast.parentNode) toast.remove(); }, 5200);
+}
+spawnToast();
+setInterval(spawnToast, 2000);
+
+// ════════════════════════════════════════════════════════════
+// GLOBAL TX COUNTER
+// ════════════════════════════════════════════════════════════
+let txCount = 1322481;
+const gcEl = document.getElementById('gc-val');
+setInterval(() => {
+  txCount += Math.floor(Math.random() * 4) + 1;
+  if (gcEl) gcEl.textContent = txCount.toLocaleString();
+}, 1100);
+
+// ════════════════════════════════════════════════════════════
+// TICKER
+// ════════════════════════════════════════════════════════════
+const ticks = [
+  {sym:'BTC/USDC',  price:'$71,318', chg:'+5.88%', up:true},
+  {sym:'ETH/USDC',  price:'$2,054',  chg:'+4.50%', up:true},
+  {sym:'SOL/USDC',  price:'$89.29',  chg:'+5.77%', up:true},
+  {sym:'BNB/USDC',  price:'$650',    chg:'+3.68%', up:true},
+  {sym:'PAXG/USD',  price:'$3,142',  chg:'+1.22%', up:true},
+  {sym:'XAUT/USDC', price:'$3,138',  chg:'+1.18%', up:true},
+  {sym:'tAAPL',     price:'$227.40', chg:'+0.84%', up:true},
+  {sym:'tTSLA',     price:'$248.90', chg:'-1.12%', up:false},
+  {sym:'tNVDA',     price:'$116.20', chg:'+3.41%', up:true},
+  {sym:'USDC/USDT', price:'$1.000',  chg:'+0.01%', up:true},
+  {sym:'tSPY',      price:'$574.20', chg:'+0.62%', up:true},
+  {sym:'ARB/USDC',  price:'$0.43',   chg:'-1.22%', up:false},
+  {sym:'MATIC',     price:'$0.52',   chg:'+2.14%', up:true},
+];
+const tickerEl = document.getElementById('ticker');
+[...ticks, ...ticks].forEach(t => {
+  const el = document.createElement('span');
+  el.className = 'tick';
+  el.innerHTML = `<strong>${t.sym}</strong> ${t.price} <span class="${t.up ? 'up' : 'dn'}">${t.chg}</span>`;
+  tickerEl.appendChild(el);
+});
+
+// ════════════════════════════════════════════════════════════
+// SCROLL TILE ANIMATIONS
+// ════════════════════════════════════════════════════════════
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.animation = 'fadeUp 0.6s ease forwards';
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.tile').forEach(t => observer.observe(t));
+</script>
+</body>
+</html>
