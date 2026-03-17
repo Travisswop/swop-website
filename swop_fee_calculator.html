@@ -1,0 +1,842 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swop — Merchant Savings Calculator</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green: #00c278;
+        --green-dim: rgba(0, 194, 120, 0.12);
+        --green-border: rgba(0, 194, 120, 0.3);
+        --red: #ff4d4d;
+        --red-dim: rgba(255, 77, 77, 0.1);
+        --red-border: rgba(255, 77, 77, 0.25);
+        --bg: #080b0f;
+        --surface: #0f1318;
+        --surface2: #161c23;
+        --border: rgba(255, 255, 255, 0.06);
+        --border2: rgba(255, 255, 255, 0.1);
+        --text: #f2f2f2;
+        --muted: rgba(255, 255, 255, 0.45);
+        --subtle: rgba(255, 255, 255, 0.2);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "DM Sans", sans-serif;
+        font-weight: 300;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* Background texture */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            ellipse 80% 50% at 50% -10%,
+            rgba(0, 194, 120, 0.07) 0%,
+            transparent 60%
+          ),
+          linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+          linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.015) 1px,
+            transparent 1px
+          );
+        background-size:
+          100% 100%,
+          48px 48px,
+          48px 48px;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .page {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* NAV */
+      nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 28px 48px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .logo-mark {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        background: var(--green);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo-mark svg {
+        width: 16px;
+        height: 16px;
+        fill: #080b0f;
+      }
+
+      .nav-wordmark {
+        font-family: "DM Sans", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+
+      .nav-tag {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+        padding: 6px 14px;
+        border: 1px solid var(--border2);
+        border-radius: 100px;
+      }
+
+      /* HERO */
+      .hero {
+        text-align: center;
+        padding: 80px 24px 64px;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--green);
+        margin-bottom: 28px;
+      }
+
+      .hero-eyebrow::before {
+        content: "";
+        width: 20px;
+        height: 1px;
+        background: var(--green);
+      }
+
+      .hero h1 {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(40px, 7vw, 68px);
+        font-weight: 400;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+
+      .hero h1 em {
+        font-style: italic;
+        color: var(--green);
+      }
+
+      .hero p {
+        font-size: 17px;
+        color: var(--muted);
+        line-height: 1.7;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      /* CALCULATOR */
+      .calc-wrap {
+        max-width: 860px;
+        margin: 0 auto 80px;
+        padding: 0 24px;
+      }
+
+      .calc-card {
+        background: var(--surface);
+        border: 1px solid var(--border2);
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      .calc-inputs {
+        padding: 44px 48px 40px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .input-group {
+        margin-bottom: 36px;
+      }
+
+      .input-group:last-child {
+        margin-bottom: 0;
+      }
+
+      .input-label {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        margin-bottom: 16px;
+      }
+
+      .input-label span:first-child {
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .input-value {
+        font-family: "Instrument Serif", serif;
+        font-size: 28px;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+
+      .slider-wrap {
+        position: relative;
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        width: 100%;
+        height: 3px;
+        border-radius: 2px;
+        background: var(--border2);
+        outline: none;
+        cursor: pointer;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background: var(--green);
+        border: 3px solid var(--surface);
+        box-shadow: 0 0 0 1px var(--green);
+        cursor: pointer;
+        transition: transform 0.15s ease;
+      }
+
+      input[type="range"]::-webkit-slider-thumb:hover {
+        transform: scale(1.15);
+      }
+
+      .slider-track {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        height: 3px;
+        transform: translateY(-50%);
+        background: var(--green);
+        border-radius: 2px;
+        pointer-events: none;
+      }
+
+      .slider-ticks {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+
+      .slider-ticks span {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        color: var(--subtle);
+      }
+
+      /* Fee row */
+      .fee-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+
+      .fee-input-box {
+        background: var(--surface2);
+        border: 1px solid var(--border2);
+        border-radius: 14px;
+        padding: 20px 24px;
+        cursor: pointer;
+        transition: border-color 0.2s;
+      }
+
+      .fee-input-box:hover {
+        border-color: var(--border2);
+      }
+      .fee-input-box.active-fee {
+        border-color: var(--green-border);
+        background: var(--green-dim);
+      }
+
+      .fee-box-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      .fee-box-label.red-label {
+        color: rgba(255, 77, 77, 0.7);
+      }
+      .fee-box-label.green-label {
+        color: rgba(0, 194, 120, 0.7);
+      }
+
+      .fee-box-rate {
+        font-family: "Instrument Serif", serif;
+        font-size: 36px;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .fee-box-rate.red {
+        color: var(--red);
+      }
+      .fee-box-rate.green {
+        color: var(--green);
+      }
+
+      .fee-box-sub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .custom-fee-input {
+        font-family: "Instrument Serif", serif;
+        font-size: 36px;
+        color: var(--red);
+        background: none;
+        border: none;
+        outline: none;
+        width: 100%;
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      /* RESULTS */
+      .calc-results {
+        padding: 44px 48px;
+      }
+
+      .results-label {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 32px;
+      }
+
+      .results-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .result-box {
+        background: var(--surface2);
+        border-radius: 16px;
+        padding: 24px 20px;
+      }
+
+      .result-box.savings {
+        background: var(--green-dim);
+        border: 1px solid var(--green-border);
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+      }
+
+      .result-label {
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 10px;
+      }
+
+      .result-label.green {
+        color: rgba(0, 194, 120, 0.7);
+      }
+      .result-label.red {
+        color: rgba(255, 77, 77, 0.6);
+      }
+
+      .result-val {
+        font-family: "Instrument Serif", serif;
+        font-size: 30px;
+        color: var(--text);
+        line-height: 1;
+        margin-bottom: 4px;
+        letter-spacing: -0.02em;
+      }
+
+      .result-val.green {
+        color: var(--green);
+      }
+      .result-val.red {
+        color: var(--red);
+      }
+
+      .result-note {
+        font-size: 12px;
+        color: var(--muted);
+      }
+
+      .savings-big {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(42px, 7vw, 60px);
+        color: var(--green);
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+
+      .savings-tag {
+        display: inline-block;
+        background: var(--green);
+        color: #080b0f;
+        font-size: 12px;
+        font-weight: 500;
+        letter-spacing: 0.06em;
+        padding: 6px 14px;
+        border-radius: 100px;
+        text-transform: uppercase;
+      }
+
+      /* Token bar */
+      .token-bar {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 194, 120, 0.08) 0%,
+          rgba(0, 170, 255, 0.06) 100%
+        );
+        border: 1px solid var(--green-border);
+        border-radius: 16px;
+        padding: 28px 32px;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 24px;
+        align-items: center;
+      }
+
+      .token-bar-left h3 {
+        font-family: "Instrument Serif", serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: var(--text);
+        margin-bottom: 8px;
+      }
+
+      .token-bar-left p {
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .token-bar-left p strong {
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .token-rate {
+        text-align: right;
+      }
+
+      .token-rate-val {
+        font-family: "Instrument Serif", serif;
+        font-size: 42px;
+        color: var(--green);
+        line-height: 1;
+        margin-bottom: 4px;
+      }
+
+      .token-rate-label {
+        font-family: "DM Mono", monospace;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(0, 194, 120, 0.6);
+      }
+
+      /* Pitch */
+      .pitch-wrap {
+        max-width: 860px;
+        margin: 0 auto 100px;
+        padding: 0 24px;
+        text-align: center;
+      }
+
+      .pitch-wrap blockquote {
+        font-family: "Instrument Serif", serif;
+        font-size: clamp(22px, 4vw, 32px);
+        font-style: italic;
+        color: var(--muted);
+        line-height: 1.5;
+        max-width: 600px;
+        margin: 0 auto 40px;
+      }
+
+      .pitch-wrap blockquote em {
+        font-style: normal;
+        color: var(--text);
+      }
+
+      .cta-btn {
+        display: inline-block;
+        background: var(--green);
+        color: #080b0f;
+        font-family: "DM Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        padding: 16px 40px;
+        border-radius: 100px;
+        text-decoration: none;
+        transition:
+          opacity 0.2s,
+          transform 0.15s;
+      }
+
+      .cta-btn:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+      }
+
+      /* Footer */
+      footer {
+        border-top: 1px solid var(--border);
+        padding: 28px 48px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      footer span {
+        font-family: "DM Mono", monospace;
+        font-size: 11px;
+        color: var(--subtle);
+        letter-spacing: 0.1em;
+      }
+
+      /* Animations */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(16px);
+        animation: fadeIn 0.6s ease forwards;
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in:nth-child(1) {
+        animation-delay: 0s;
+      }
+      .fade-in:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .fade-in:nth-child(3) {
+        animation-delay: 0.2s;
+      }
+
+      .count-anim {
+        transition: all 0.25s ease;
+      }
+
+      @media (max-width: 640px) {
+        nav {
+          padding: 20px 20px;
+        }
+        .calc-inputs,
+        .calc-results {
+          padding: 28px 24px;
+        }
+        .results-grid {
+          grid-template-columns: 1fr;
+        }
+        .result-box.savings {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .token-bar {
+          grid-template-columns: 1fr;
+        }
+        .token-rate {
+          text-align: left;
+        }
+        .fee-row {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          flex-direction: column;
+          gap: 8px;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <!-- NAV -->
+      <nav>
+        <a href="/index.html" class="nav-logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 16 16">
+              <path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" />
+            </svg>
+          </div>
+          <span class="nav-wordmark">Swop</span>
+        </a>
+        <span class="nav-tag">Merchant Calculator</span>
+      </nav>
+
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-eyebrow fade-in">See your savings</div>
+        <h1 class="fade-in">
+          How much are you <em>actually</em> paying to get paid?
+        </h1>
+        <p class="fade-in">
+          Enter your annual revenue and current processing fee. See exactly what
+          you're losing — and what you'd keep with Swop.
+        </p>
+      </section>
+
+      <!-- CALCULATOR -->
+      <div class="calc-wrap">
+        <div class="calc-card">
+          <!-- INPUTS -->
+          <div class="calc-inputs">
+            <!-- Revenue Slider -->
+            <div class="input-group">
+              <div class="input-label">
+                <span>Annual Revenue</span>
+                <span class="input-value" id="rev-display">$10,000,000</span>
+              </div>
+              <div class="slider-wrap">
+                <div class="slider-track" id="rev-track"></div>
+                <input
+                  type="range"
+                  id="rev-slider"
+                  min="100000"
+                  max="1000000000"
+                  value="10000000"
+                  step="100000"
+                />
+              </div>
+              <div class="slider-ticks">
+                <span>$100K</span>
+                <span>$10M</span>
+                <span>$100M</span>
+                <span>$1B</span>
+              </div>
+            </div>
+
+            <!-- Fee Inputs -->
+            <div class="input-group">
+              <div class="input-label">
+                <span>Processing Fee Comparison</span>
+              </div>
+              <div class="fee-row">
+                <div class="fee-input-box">
+                  <div class="fee-box-label red-label">Your current fee</div>
+                  <input
+                    class="custom-fee-input"
+                    id="current-fee-input"
+                    type="number"
+                    value="3.5"
+                    min="0.1"
+                    max="10"
+                    step="0.1"
+                  />
+                  <div class="fee-box-sub">% per transaction</div>
+                </div>
+                <div
+                  class="fee-input-box"
+                  style="
+                    border-color: var(--green-border);
+                    background: var(--green-dim);
+                  "
+                >
+                  <div class="fee-box-label green-label">With Swop</div>
+                  <div class="fee-box-rate green">0.5%</div>
+                  <div class="fee-box-sub">per transaction</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="calc-results">
+            <div class="results-label">Your annual breakdown</div>
+
+            <div class="results-grid">
+              <div class="result-box">
+                <div class="result-label red">Paying today</div>
+                <div class="result-val red count-anim" id="old-fees">
+                  $350,000
+                </div>
+                <div class="result-note" id="old-pct">at 3.5%</div>
+              </div>
+              <div class="result-box">
+                <div class="result-label green">With Swop</div>
+                <div class="result-val green count-anim" id="new-fees">
+                  $50,000
+                </div>
+                <div class="result-note">at 0.5%</div>
+              </div>
+              <div class="result-box">
+                <div class="result-label">Fee reduction</div>
+                <div class="result-val count-anim" id="pct-saved">86%</div>
+                <div class="result-note">lower cost</div>
+              </div>
+
+              <div class="result-box savings">
+                <div>
+                  <div class="result-label green" style="margin-bottom: 8px">
+                    Annual savings
+                  </div>
+                  <div class="savings-big count-anim" id="savings">
+                    $300,000
+                  </div>
+                </div>
+                <div>
+                  <span class="savings-tag" id="savings-tag"
+                    >Saved per year</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Token layer -->
+            <div class="token-bar">
+              <div class="token-bar-left">
+                <h3>The Token Layer</h3>
+                <p>
+                  Hold <strong>$SWOP</strong> and earn back a share of every fee
+                  generated across the network. Your effective rate drops
+                  <strong>below 0.5%</strong> — potentially near zero at scale.
+                  The more volume you run, the more your holdings pay back.
+                </p>
+              </div>
+              <div class="token-rate">
+                <div class="token-rate-val">&lt;0.5%</div>
+                <div class="token-rate-label">effective rate</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PITCH -->
+      <div class="pitch-wrap">
+        <blockquote>
+          "You're not just saving 3% —
+          <em>you're owning a piece of the network you're paying into."</em>
+        </blockquote>
+        <a href="#" class="cta-btn">Get started with Swop</a>
+      </div>
+
+      <!-- FOOTER -->
+      <footer>
+        <span>swop.com</span>
+        <span>Self-custody merchant payments · Built on Polygon & Solana</span>
+        <span>© 2025 Swop Labs</span>
+      </footer>
+    </div>
+
+    <script>
+      const revSlider = document.getElementById("rev-slider");
+      const revDisplay = document.getElementById("rev-display");
+      const revTrack = document.getElementById("rev-track");
+      const currentFeeInput = document.getElementById("current-fee-input");
+
+      function fmt(n) {
+        if (n >= 1e9)
+          return "$" + (n / 1e9).toFixed(2).replace(/\.?0+$/, "") + "B";
+        if (n >= 1e6)
+          return "$" + (n / 1e6).toFixed(2).replace(/\.?0+$/, "") + "M";
+        if (n >= 1e3) return "$" + (n / 1e3).toFixed(0) + "K";
+        return "$" + n.toFixed(0);
+      }
+
+      function fmtFull(n) {
+        return "$" + Math.round(n).toLocaleString();
+      }
+
+      function updateTrack() {
+        const min = parseFloat(revSlider.min);
+        const max = parseFloat(revSlider.max);
+        const val = parseFloat(revSlider.value);
+        const pct = ((val - min) / (max - min)) * 100;
+        revTrack.style.width = pct + "%";
+      }
+
+      function recalc() {
+        const rev = parseFloat(revSlider.value);
+        const currentFee = parseFloat(currentFeeInput.value) || 3.5;
+        const swopFee = 0.5;
+
+        const oldCost = rev * (currentFee / 100);
+        const newCost = rev * (swopFee / 100);
+        const saved = oldCost - newCost;
+        const pctReduction = Math.round(((oldCost - newCost) / oldCost) * 100);
+
+        revDisplay.textContent = fmtFull(rev);
+        document.getElementById("old-fees").textContent = fmt(oldCost);
+        document.getElementById("new-fees").textContent = fmt(newCost);
+        document.getElementById("savings").textContent = fmt(saved);
+        document.getElementById("pct-saved").textContent = pctReduction + "%";
+        document.getElementById("old-pct").textContent =
+          "at " + currentFee.toFixed(1) + "%";
+        document.getElementById("savings-tag").textContent = "Saved per year";
+
+        updateTrack();
+      }
+
+      revSlider.addEventListener("input", recalc);
+      currentFeeInput.addEventListener("input", recalc);
+
+      updateTrack();
+      recalc();
+    </script>
+  </body>
+</html>
