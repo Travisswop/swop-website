@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Swop — $4.6M Seed Round 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ── Variables ── */
+:root{
+  --dk:#070C14;--dk2:#0C1520;--dk3:#132035;--dk4:#1C3050;
+  --green:#00C278;--gd:rgba(0,194,120,.10);--gb:rgba(0,194,120,.25);
+  --amber:#F0B429;--lt:#F4F7FB;--white:#fff;
+  --bdr:#E2E8F0;--bdr2:#EFF4F8;
+  --t1:#0F172A;--t2:#334155;--t3:#64748B;--t4:#94A3B8;
+  --dk1:#EEF3F8;--dk2t:rgba(238,243,248,.60);--dk3t:rgba(238,243,248,.32);
+  --red:#EF4444;--blue:#3B82F6;
+}
+
+/* ── Reset ── */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;overflow:hidden;-webkit-overflow-scrolling:none}
+body{background:var(--dk);font-family:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-weight:300;-webkit-font-smoothing:antialiased}
+
+/* ── Deck ── */
+#deck{position:relative;width:100%;height:100vh;overflow:hidden;user-select:none;-webkit-user-select:none}
+
+/* ── Slides ── */
+.sl{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;padding:5vh 6vw 72px;opacity:0;transition:opacity .42s ease;pointer-events:none;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.sl.on{opacity:1;pointer-events:all}
+.d{background:var(--dk)}
+.l{background:var(--lt);color:var(--t1)}
+
+/* ── Type — mobile base ── */
+.lbl{font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:12px;display:block}
+.f-display{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(30px,8vw,78px);font-weight:400;line-height:1.08;letter-spacing:-.025em;margin-bottom:14px}
+.f-h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(22px,6vw,48px);font-weight:400;line-height:1.12;letter-spacing:-.02em;margin-bottom:12px}
+.f-h3{font-size:14px;font-weight:600;line-height:1.4;margin-bottom:6px}
+.f-lead{font-size:14px;line-height:1.72;color:var(--dk2t);margin-bottom:18px;max-width:640px}
+.f-lead-lt{font-size:14px;line-height:1.72;color:var(--t3);margin-bottom:18px;max-width:640px}
+.f-body{font-size:13px;line-height:1.65;color:var(--t3)}
+.f-body-dk{font-size:13px;line-height:1.65;color:var(--dk2t)}
+.f-cap{font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase}
+.teal{color:var(--green)}.amb{color:var(--amber)}
+
+/* ── Numbers — mobile base ── */
+.n-xl{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(44px,11vw,110px);font-weight:400;line-height:1;letter-spacing:-.035em}
+.n-lg{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(22px,6vw,44px);font-weight:400;line-height:1;letter-spacing:-.025em}
+.n-md{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(18px,5vw,34px);font-weight:400;line-height:1;letter-spacing:-.02em}
+
+/* ── Cards ── */
+.cdk{background:var(--dk2);border:1px solid var(--dk4);border-radius:12px;padding:16px 18px}
+.clt{background:var(--white);border:1px solid var(--bdr);border-radius:12px;padding:16px 18px}
+.cg{background:var(--gd);border:1px solid var(--gb);border-radius:12px;padding:16px 18px}
+
+/* ── Grids — mobile: single column ── */
+.g2,.g3,.g4{display:grid;grid-template-columns:1fr;gap:10px}
+.g-split{display:flex;flex-direction:column;gap:18px}
+.g-split-r{display:flex;flex-direction:column;gap:14px}
+
+/* ── Bullets ── */
+.br{display:flex;gap:9px;align-items:flex-start;margin-bottom:9px}
+.br:last-child{margin-bottom:0}
+.bd{width:6px;height:6px;border-radius:50%;flex-shrink:0;margin-top:5px;background:var(--green)}
+.bda{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:6px;background:var(--amber)}
+.bdm{width:5px;height:5px;border-radius:50%;flex-shrink:0;margin-top:6px;background:var(--t4)}
+
+/* ── Misc ── */
+.accent-line{width:5px;height:42px;background:var(--green);border-radius:3px;margin-bottom:22px}
+.tag{display:inline-block;padding:4px 12px;border-radius:100px;font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.05em;background:var(--dk3);color:var(--green);border:1px solid var(--dk4);margin:2px 2px 0 0}
+.kv{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:12.5px}
+.kv:last-child{border-bottom:none}
+.kv-lt{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--bdr2);font-size:12.5px}
+.kv-lt:last-child{border-bottom:none}
+.bg-r{background:#FEF2F2;border:1px solid #FECACA;border-radius:10px;padding:11px 14px}
+.bg-g{background:#ECFDF5;border:1px solid #A7F3D0;border-radius:10px;padding:11px 14px}
+.bg-b{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:11px 14px}
+.bg-a{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:11px 14px}
+
+/* ── Competitor cards (mobile-friendly replacement for table) ── */
+.comp-row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:10px;background:var(--white);border:1px solid var(--bdr);margin-bottom:6px}
+.comp-row:last-child{margin-bottom:0}
+.comp-row.win{background:#ECFDF5;border-color:#A7F3D0}
+.comp-name{font-size:13px;font-weight:600;color:var(--t1);width:110px;flex-shrink:0}
+.comp-fee{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;width:52px;flex-shrink:0;color:var(--t3)}
+.comp-fee.good{color:var(--green)}
+.comp-flaw{font-size:12px;color:var(--t3);line-height:1.4;flex:1}
+.comp-flaw.good{color:#065F46;font-weight:500}
+
+/* ── Calculator ── */
+#cd-sl{-webkit-appearance:none;appearance:none;width:100%;height:4px;border-radius:2px;background:var(--bdr);outline:none;cursor:pointer;display:block}
+#cd-sl::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--green);border:3px solid #fff;box-shadow:0 0 0 1.5px var(--green);cursor:pointer}
+#cd-fee{-moz-appearance:textfield;font-family:'Instrument Serif',Georgia,serif;font-size:28px;color:var(--red);background:none;border:none;outline:none;width:100%;display:block;cursor:text}
+#cd-fee::-webkit-inner-spin-button,#cd-fee::-webkit-outer-spin-button{-webkit-appearance:none}
+
+/* ── Nav ── */
+#bar{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);display:flex;gap:4px;align-items:center;z-index:9999;max-width:200px;flex-wrap:wrap;justify-content:center}
+.dot{width:6px;height:4px;border-radius:2px;background:rgba(255,255,255,.18);transition:all .3s;cursor:pointer;flex-shrink:0}
+.dot.on{width:20px;background:var(--green)}
+#cnt{position:fixed;bottom:22px;right:66px;font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.25);z-index:9999}
+#prev-btn,#next-btn{position:fixed;bottom:10px;width:46px;height:46px;display:none;align-items:center;justify-content:center;cursor:pointer;color:#fff;z-index:9999;border-radius:50%;border:1px solid rgba(255,255,255,.18);font-size:18px;background:rgba(7,11,20,.6)}
+#prev-btn{left:10px}#next-btn{right:10px}
+
+/* ── DESKTOP enhancements (min-width: 700px) ── */
+@media(min-width:700px){
+  .sl{padding:6vh 7vw 64px;justify-content:center;overflow-y:visible}
+  .lbl{font-size:10.5px;margin-bottom:16px}
+  .f-lead,.f-lead-lt{font-size:clamp(14px,1.55vw,17.5px);margin-bottom:22px}
+  .f-body,.f-body-dk{font-size:13.5px}
+  .f-h3{font-size:15px}
+  .cdk,.clt,.cg{padding:20px 22px;border-radius:14px}
+  .g2{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .g3{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+  .g4{grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+  .g-split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:48px;align-items:center}
+  .g-split-r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;align-items:start}
+  .accent-line{height:52px;margin-bottom:28px}
+  .tag{font-size:10px;padding:5px 14px}
+  .br{margin-bottom:11px}
+  .br p,.f-body-dk{font-size:14px}
+  /* Show table, hide cards on desktop */
+  .comp-desktop{display:block!important}
+  .comp-mobile{display:none!important}
+  #prev-btn,#next-btn{bottom:50px;width:40px;height:40px;font-size:17px}
+  #cnt{right:72px;bottom:56px}
+  #bar{bottom:20px}
+}
+@media(min-width:700px) and (min-height:600px){
+  .g3 .cdk,.g3 .clt{padding:22px 24px}
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+</style>
+</head>
+<body>
+<div id="deck">
+
+<!-- S0: COVER -->
+<div class="sl d on" id="s0">
+  <div class="accent-line"></div>
+  <p class="lbl">swopme.app · seed round 2026</p>
+  <h1 class="f-display" style="color:var(--dk1)">Tokenized trading,<br><span class="teal">made simple.</span></h1>
+  <p class="f-lead" style="margin-bottom:20px">The settlement layer for the next generation of social payment networks.</p>
+  <p style="font-family:'DM Mono',monospace;font-size:10px;color:var(--green);letter-spacing:.08em;font-weight:500;margin-bottom:18px">$4.6M SEED ROUND · $46M VALUATION · 10% EQUITY</p>
+  <div style="margin-bottom:20px">
+    <span class="tag">Social trading</span>
+    <span class="tag">Self-custody wallet</span>
+    <span class="tag">Tokenized commerce</span>
+    <span class="tag">Agentic payments</span>
+  </div>
+</div>
+
+<!-- S1: THE SHIFT -->
+<div class="sl d" id="s1">
+  <p class="lbl">Chapter 1 — The world is changing</p>
+  <p class="n-xl teal" style="margin-bottom:8px">$16 Trillion.</p>
+  <h2 class="f-h2" style="color:var(--dk1)">That's how much stablecoin volume moved last year.</h2>
+  <p class="f-lead">Growing 33% year-over-year. Moving 20× faster than traditional payment rails. Real-world assets are being tokenized. AI agents are learning to pay each other. The next generation of money is already here — with or without the banks.</p>
+  <div class="g3">
+    <div class="cdk" style="text-align:center">
+      <p class="n-md amb" style="margin-bottom:6px">33%</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">YoY growth</p>
+      <p style="font-size:12px;color:var(--dk3t)">Stablecoin volume 2024–25</p>
+    </div>
+    <div class="cdk" style="text-align:center">
+      <p class="n-md amb" style="margin-bottom:6px">20×</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Faster than</p>
+      <p style="font-size:12px;color:var(--dk3t)">Traditional payment rails</p>
+    </div>
+    <div class="cdk" style="text-align:center">
+      <p class="n-md amb" style="margin-bottom:6px">15×</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Growth projected</p>
+      <p style="font-size:12px;color:var(--dk3t)">Stablecoin issuance by 2030</p>
+    </div>
+  </div>
+</div>
+
+<!-- S2: THE PROBLEM -->
+<div class="sl l" id="s2">
+  <p class="lbl">Chapter 2 — The problem</p>
+  <h2 class="f-h2">But moving money<br>still costs a fortune.</h2>
+  <p class="f-lead-lt">Every transaction bleeds value. Payment infrastructure hasn't meaningfully changed in decades.</p>
+  <div class="g3" style="margin-bottom:12px">
+    <div class="clt" style="text-align:center;padding:20px 14px">
+      <p class="f-display" style="font-size:clamp(36px,8vw,62px);color:var(--t1);margin-bottom:6px">3%<span style="font-size:.55em">+</span></p>
+      <p class="f-cap" style="color:var(--t4);margin-bottom:3px">Merchant fees</p>
+      <p style="font-size:11.5px;color:var(--t4)">Visa, Mastercard, Stripe</p>
+    </div>
+    <div class="clt" style="text-align:center;padding:20px 14px">
+      <p class="f-display" style="font-size:clamp(36px,8vw,62px);color:var(--t1);margin-bottom:6px">2%<span style="font-size:.55em">+</span></p>
+      <p class="f-cap" style="color:var(--t4);margin-bottom:3px">Cross-border</p>
+      <p style="font-size:11.5px;color:var(--t4)">SWIFT, wire transfers</p>
+    </div>
+    <div class="clt" style="text-align:center;padding:20px 14px">
+      <p class="f-display" style="font-size:clamp(36px,8vw,62px);color:var(--t1);margin-bottom:6px">1%<span style="font-size:.55em">+</span></p>
+      <p class="f-cap" style="color:var(--t4);margin-bottom:3px">Wallet swapping</p>
+      <p style="font-size:11.5px;color:var(--t4)">Coinbase, Binance</p>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="bg-r" style="border-radius:10px"><p class="f-h3" style="color:#92400E">Not ready for AI agents</p><p style="font-size:12.5px;color:#B45309;line-height:1.6">Legacy rails can't handle the speed or micro-transaction volume agentic commerce requires.</p></div>
+    <div class="bg-r" style="border-radius:10px"><p class="f-h3" style="color:#92400E">Siloed ecosystems</p><p style="font-size:12.5px;color:#B45309;line-height:1.6">Venmo can't talk to Coinbase. Every platform is a walled garden with no exit.</p></div>
+    <div class="bg-r" style="border-radius:10px"><p class="f-h3" style="color:#92400E">Too complex on-chain</p><p style="font-size:12.5px;color:#B45309;line-height:1.6">Blockchain payments are fragmented and far too complex for mainstream adoption.</p></div>
+  </div>
+</div>
+
+<!-- S3: HUMAN COST -->
+<div class="sl d" id="s3">
+  <p class="lbl">Chapter 2 — The human cost</p>
+  <p class="n-xl" style="color:var(--dk1);margin-bottom:8px"><span class="teal">3 Billion</span> people.</p>
+  <h2 class="f-h2" style="color:var(--dk1)">Underbanked or completely unbanked.</h2>
+  <p class="f-lead">They pay the highest fees for the worst service. Companies like bKash disrupted banks but still charge 1–2% on every transfer at 65M users — because users have no alternative.</p>
+  <div class="g3">
+    <div class="cdk" style="text-align:center">
+      <p class="n-md amb" style="margin-bottom:6px">1.4B</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Completely unbanked</p>
+      <p style="font-size:11.5px;color:var(--dk3t)">No bank account at all</p>
+    </div>
+    <div class="cdk" style="text-align:center">
+      <p class="n-md amb" style="margin-bottom:6px">$500B</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">In fees paid annually</p>
+      <p style="font-size:11.5px;color:var(--dk3t)">By people who can least afford it</p>
+    </div>
+    <div class="cdk" style="text-align:center">
+      <p class="n-md" style="color:var(--green);margin-bottom:6px">0</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Good alternatives</p>
+      <p style="font-size:11.5px;color:var(--dk3t)">Built specifically for them</p>
+    </div>
+  </div>
+</div>
+
+<!-- S4: COMPETITIVE — cards on mobile, table on desktop -->
+<div class="sl l" id="s4">
+  <p class="lbl">Chapter 2 — The broken landscape</p>
+  <h2 class="f-h2">Every existing platform<br>has a fatal flaw.</h2>
+  <p class="f-lead-lt" style="margin-bottom:16px">Expensive. Closed. Fragmented. No single platform solves all three at once.</p>
+
+  <!-- MOBILE: card rows -->
+  <div class="comp-mobile">
+    <div class="comp-row"><span class="comp-name">Visa / MC</span><span class="comp-fee">3%+</span><span class="comp-flaw">Expensive legacy infrastructure — no crypto</span></div>
+    <div class="comp-row"><span class="comp-name">Venmo / CashApp</span><span class="comp-fee">Fees</span><span class="comp-flaw">Closed US-only ecosystem, no wallets</span></div>
+    <div class="comp-row"><span class="comp-name">X (Twitter)</span><span class="comp-fee">Fees</span><span class="comp-flaw">Platform-locked, no swaps, no DeFi</span></div>
+    <div class="comp-row"><span class="comp-name">Coinbase</span><span class="comp-fee">1%+</span><span class="comp-flaw">Fragmented crypto rails, no social layer</span></div>
+    <div class="comp-row"><span class="comp-name">TikTok Shop</span><span class="comp-fee">Fees</span><span class="comp-flaw">Commerce locked inside platform</span></div>
+    <div class="comp-row win"><span class="comp-name" style="color:#065F46">Swop</span><span class="comp-fee good">0.5%</span><span class="comp-flaw good">Unified wallet + social + commerce + agents</span></div>
+  </div>
+
+  <!-- DESKTOP: full table -->
+  <div class="comp-desktop" style="display:none;background:var(--white);border:1px solid var(--bdr);border-radius:14px;overflow:hidden">
+    <table style="width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px">
+      <colgroup><col style="width:19%"><col style="width:13%"><col style="width:17%"><col style="width:14%"><col style="width:37%"></colgroup>
+      <thead><tr style="background:#F8FAFC">
+        <th style="font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding:11px 14px;text-align:left;border-bottom:2px solid var(--bdr)">Platform</th>
+        <th style="font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding:11px 14px;text-align:left;border-bottom:2px solid var(--bdr)">Fees</th>
+        <th style="font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding:11px 14px;text-align:left;border-bottom:2px solid var(--bdr)">Cross-border</th>
+        <th style="font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding:11px 14px;text-align:left;border-bottom:2px solid var(--bdr)">Swaps</th>
+        <th style="font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--t4);padding:11px 14px;text-align:left;border-bottom:2px solid var(--bdr)">Key issue</th>
+      </tr></thead>
+      <tbody>
+        <tr><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1)">Visa / Mastercard</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">3%+</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Slow bank rails</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--red)">None</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t3)">Expensive legacy infrastructure</td></tr>
+        <tr><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1)">Venmo / CashApp</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Fees</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Limited intl.</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--red)">None</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t3)">Closed payment ecosystem</td></tr>
+        <tr><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1)">X (Twitter)</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Fees</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Limited rails</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--red)">None</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t3)">Payments locked inside platform</td></tr>
+        <tr><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1)">Coinbase / Binance</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Trading fees</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Fast, complex</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">~1%+</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t3)">Fragmented crypto rails</td></tr>
+        <tr><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1)">TikTok Shop</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Commerce fees</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t2)">Limited</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--red)">None</td><td style="padding:11px 14px;border-bottom:1px solid var(--bdr);color:var(--t3)">Platform-locked commerce</td></tr>
+        <tr style="background:#ECFDF5"><td style="padding:11px 14px;font-weight:700;color:#065F46">Swop</td><td style="padding:11px 14px;font-weight:700;color:#065F46">0.5% flat</td><td style="padding:11px 14px;font-weight:700;color:#065F46">Instant global</td><td style="padding:11px 14px;font-weight:700;color:#065F46">Efficient</td><td style="padding:11px 14px;font-weight:700;color:#065F46">Unified programmable payment infrastructure</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- S5: THE FIX -->
+<div class="sl d" id="s5">
+  <p class="lbl">Chapter 3 — The solution</p>
+  <h1 class="f-display" style="color:var(--dk1)">We built<br><span class="teal">the fix.</span></h1>
+  <p class="f-lead">Swop is a self-custody DeFi wallet and social trading platform — the first to combine identity, payments, trading, prediction markets, and AI agents in one unified experience.</p>
+  <div class="g2" style="margin-bottom:10px">
+    <div class="cdk" style="text-align:center"><p style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;color:var(--dk1);margin-bottom:4px">Free.</p><p style="font-size:11.5px;color:var(--dk3t)">Sub-penny transactions</p></div>
+    <div class="cdk" style="text-align:center"><p style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;color:var(--dk1);margin-bottom:4px">Instant.</p><p style="font-size:11.5px;color:var(--dk3t)">Global settlement</p></div>
+    <div class="cdk" style="text-align:center"><p style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;color:var(--dk1);margin-bottom:4px">Simple.</p><p style="font-size:11.5px;color:var(--dk3t)">Built for tokenization</p></div>
+    <div class="cdk" style="text-align:center;border-color:var(--gb);background:var(--gd)"><p style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;color:var(--green);margin-bottom:4px">X402.</p><p style="font-size:11.5px;color:rgba(0,194,120,.6)">Agentic settlement</p></div>
+    <div class="cdk" style="text-align:center;border-color:var(--gb);background:var(--gd)"><p style="font-family:'Instrument Serif',Georgia,serif;font-size:22px;color:var(--green);margin-bottom:4px">Smartsite.</p><p style="font-size:11.5px;color:rgba(0,194,120,.6)">Your on-chain identity</p></div>
+  </div>
+</div>
+
+<!-- S6: THE STACK -->
+<div class="sl l" id="s6">
+  <p class="lbl">Chapter 3 — The product</p>
+  <h2 class="f-h2">Identity · Wallet · Commerce.</h2>
+  <p class="f-lead-lt">Three layers working as one unified programmable system.</p>
+  <div class="g3">
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#EFF6FF;border-bottom:1px solid var(--bdr);padding:12px 16px"><p style="font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#3B82F6;margin-bottom:3px">Layer 1</p><p class="f-h3" style="color:#1D4ED8">Identity — Smartsite</p></div>
+      <div style="padding:14px 16px">
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Personalized Smartsite profile</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Unified social + wallet identity</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Shareable everything link (Swop.ID)</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Built-in messaging + reputation</p></div>
+      </div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#ECFDF5;border-bottom:1px solid var(--bdr);padding:12px 16px"><p style="font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--green);margin-bottom:3px">Layer 2</p><p class="f-h3" style="color:#065F46">Wallet — Payments</p></div>
+      <div style="padding:14px 16px">
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Send + receive stablecoins globally</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">QR + NFC tap-to-pay</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Cross-chain asset management</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Built-in escrow + transaction tools</p></div>
+      </div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#FFFBEB;border-bottom:1px solid var(--bdr);padding:12px 16px"><p style="font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:#B45309;margin-bottom:3px">Layer 3</p><p class="f-h3" style="color:#92400E">Commerce — Programmable</p></div>
+      <div style="padding:14px 16px">
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Orders — on-chain purchases</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Blinks — shareable transaction links</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Escrow — trustless payments</p></div>
+        <div class="br"><div class="bdm"></div><p style="font-size:13px;color:var(--t2)">Agents — automated cross-chain</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S7: SOCIAL LAYER -->
+<div class="sl d" id="s7">
+  <div class="g-split">
+    <div>
+      <p class="lbl">Chapter 3 — The differentiator</p>
+      <h2 class="f-h2" style="color:var(--dk1)">Nobody else has the <em class="teal" style="font-style:normal">social layer.</em></h2>
+      <p class="f-lead" style="margin-bottom:16px">Phantom has 17M users but no social feed. Rainbow has great design but no trading. Swop is the first self-custody wallet where the social experience is the product.</p>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">See what top traders are buying — one tap to copy-trade their entire position</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Share your portfolio, earn followers, build your verifiable on-chain reputation</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Buy tokenized products directly from the social feed with one tap</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Predict market outcomes via Polymarket — integrated natively in the wallet</p></div>
+    </div>
+    <div>
+      <div class="cdk" style="margin-bottom:10px"><p class="f-cap" style="color:var(--dk3t);margin-bottom:7px">vs Phantom</p><p class="f-body-dk">Great wallet, 17M users, $171M revenue. No social feed. No copy-trading. Users swap in silence.</p></div>
+      <div class="cdk" style="margin-bottom:10px"><p class="f-cap" style="color:var(--dk3t);margin-bottom:7px">vs Rainbow</p><p class="f-body-dk">Beautiful UX. No trading. No prediction markets. No social identity layer.</p></div>
+      <div style="background:var(--gd);border:1px solid var(--gb);border-radius:12px;padding:16px 18px"><p class="f-cap" style="color:var(--green);margin-bottom:7px">Swop</p><p style="font-size:13.5px;color:var(--dk1)">Social feed + copy-trade + wallet + commerce + prediction markets + AI agents. One app. One identity. One network.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S8: TRACTION -->
+<div class="sl d" id="s8">
+  <p class="lbl">Chapter 4 — The proof</p>
+  <h2 class="f-h2" style="color:var(--dk1)">People are already showing up.</h2>
+  <div class="g3" style="margin-bottom:14px">
+    <div class="cdk" style="text-align:center;padding:22px 14px">
+      <p class="n-xl teal" style="margin-bottom:8px">1,222</p>
+      <p style="font-size:13px;font-weight:500;color:var(--dk1);margin-bottom:3px">Total users</p>
+      <p class="f-cap" style="color:var(--dk3t)">April 2026</p>
+    </div>
+    <div class="cdk" style="text-align:center;padding:22px 14px">
+      <p class="n-xl amb" style="margin-bottom:8px">34%</p>
+      <p style="font-size:13px;font-weight:500;color:var(--dk1);margin-bottom:3px">Monthly growth</p>
+      <p class="f-cap" style="color:var(--dk3t)">Fully organic</p>
+    </div>
+    <div class="cdk" style="text-align:center;padding:22px 14px">
+      <p class="n-xl teal" style="margin-bottom:8px">600+</p>
+      <p style="font-size:13px;font-weight:500;color:var(--dk1);margin-bottom:3px">App Store reviews</p>
+      <p class="f-cap" style="color:var(--dk3t)">Solana community</p>
+    </div>
+  </div>
+  <div style="background:var(--gd);border:1px solid var(--gb);border-radius:12px;padding:18px 20px">
+    <p style="font-size:15px;color:var(--green);font-weight:500;line-height:1.6">Zero paid acquisition. Zero marketing. Still in testing. The social trading network hasn't even launched yet.</p>
+  </div>
+</div>
+
+<!-- S9: BUSINESS MODEL -->
+<div class="sl l" id="s9">
+  <p class="lbl">Chapter 4 — How we make money</p>
+  <h2 class="f-h2">Simple. Scalable. Autonomous.</h2>
+  <p class="f-lead-lt">Every swap, transfer, and purchase generates a fee — algorithmically, 24/7, without human involvement.</p>
+  <div class="clt" style="margin-bottom:14px;padding:18px">
+    <div style="display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:14px;text-align:center">
+      <div><p class="n-lg" style="color:var(--t1);margin-bottom:5px">$10B</p><p class="f-cap" style="color:var(--t4);margin-bottom:2px">Projected volume</p></div>
+      <p style="font-size:22px;color:var(--bdr)">×</p>
+      <div><p class="n-lg" style="color:var(--t1);margin-bottom:5px">0.5%</p><p class="f-cap" style="color:var(--t4);margin-bottom:2px">Exchange fee</p></div>
+      <p style="font-size:22px;color:var(--bdr)">=</p>
+      <div><p class="n-lg" style="color:#059669;margin-bottom:5px">$50M</p><p class="f-cap" style="color:var(--t4);margin-bottom:2px">ARR potential</p></div>
+    </div>
+  </div>
+  <div class="g3">
+    <div class="bg-g"><p class="f-h3" style="color:#065F46">Exchange fees</p><p style="font-size:12.5px;color:#047857;line-height:1.6">0.5% on every swap, transfer, and purchase. Earns 24/7 automatically.</p></div>
+    <div class="bg-b"><p class="f-h3" style="color:#1D4ED8">Subscriptions</p><p style="font-size:12.5px;color:#2563EB;line-height:1.6">$7.99/month per Swop.ID — advanced tools, Smartsites, AI agents.</p></div>
+    <div class="bg-a"><p class="f-h3" style="color:#92400E">Commerce ads</p><p style="font-size:12.5px;color:#B45309;line-height:1.6">Businesses promote tokenized products inside the social feed.</p></div>
+  </div>
+</div>
+
+<!-- S10: LIVE CALCULATOR -->
+<div class="sl l" id="s10">
+  <div class="g-split">
+    <div onclick="event.stopPropagation()" style="cursor:default">
+      <div style="display:inline-flex;align-items:center;gap:7px;margin-bottom:12px">
+        <span style="width:7px;height:7px;border-radius:50%;background:var(--green);display:inline-block;animation:pulse 2s infinite"></span>
+        <span style="font-family:'DM Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--green)">Live calculator</span>
+      </div>
+      <h2 class="f-h2" style="margin-bottom:12px">See exactly how much <em style="font-style:normal;color:var(--green)">your business</em> saves.</h2>
+      <p class="f-lead-lt" style="margin-bottom:14px">Pull the slider to your revenue. Type your current fee. The math updates instantly.</p>
+      <div class="bg-g" style="margin-bottom:14px"><p style="font-size:13px;color:#047857;line-height:1.65"><strong style="color:#065F46">Swop charges 0.5% flat</strong> — 3–7× lower than Visa, Stripe, or PayPal. Stake $SWOP tokens and your effective rate drops even further.</p></div>
+      <p style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--t4);letter-spacing:.08em;text-transform:uppercase">Swipe left to continue</p>
+    </div>
+    <div onclick="event.stopPropagation()" style="cursor:default">
+      <div class="clt" style="margin-bottom:10px;padding:16px 18px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px">
+          <span style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--t4);letter-spacing:.08em;text-transform:uppercase">Annual revenue</span>
+          <span style="font-family:'Instrument Serif',Georgia,serif;font-size:20px;color:var(--t1)" id="cd-rev">$10,000,000</span>
+        </div>
+        <div style="position:relative;margin-bottom:4px">
+          <div id="cd-trk" style="position:absolute;top:50%;left:0;height:4px;transform:translateY(-50%);background:var(--green);border-radius:2px;pointer-events:none;width:1%"></div>
+          <input id="cd-sl" type="range" min="100000" max="1000000000" value="10000000" step="100000">
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:6px">
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4)">$100K</span>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4)">$10M</span>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4)">$100M</span>
+          <span style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4)">$1B</span>
+        </div>
+      </div>
+      <div class="g2" style="margin-bottom:10px">
+        <div style="background:#FFF5F5;border:1px solid #FECACA;border-radius:12px;padding:14px 16px">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:rgba(239,68,68,.7);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px">Your current fee</p>
+          <input id="cd-fee" value="3.5" min="0.1" max="15" step="0.1" type="number">
+          <p style="font-size:11px;color:var(--t4)">% per transaction</p>
+        </div>
+        <div style="background:#ECFDF5;border:1px solid #A7F3D0;border-radius:12px;padding:14px 16px">
+          <p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:7px;opacity:.7">With Swop</p>
+          <p style="font-family:'Instrument Serif',Georgia,serif;font-size:28px;color:var(--green);line-height:1;margin-bottom:3px">0.5%</p>
+          <p style="font-size:11px;color:var(--t3)">per transaction</p>
+        </div>
+      </div>
+      <div class="g3" style="gap:8px;margin-bottom:10px">
+        <div style="background:#FEF2F2;border-radius:10px;padding:11px 12px"><p style="font-family:'DM Mono',monospace;font-size:8.5px;color:#991B1B;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px">Today</p><p style="font-family:'Instrument Serif',Georgia,serif;font-size:18px;color:var(--red);line-height:1" id="cd-old">$350K</p></div>
+        <div style="background:#ECFDF5;border-radius:10px;padding:11px 12px"><p style="font-family:'DM Mono',monospace;font-size:8.5px;color:#065F46;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px">With Swop</p><p style="font-family:'Instrument Serif',Georgia,serif;font-size:18px;color:var(--green);line-height:1" id="cd-new">$50K</p></div>
+        <div style="background:#ECFDF5;border:1px solid #A7F3D0;border-radius:10px;padding:11px 12px"><p style="font-family:'DM Mono',monospace;font-size:8.5px;color:#065F46;letter-spacing:.09em;text-transform:uppercase;margin-bottom:5px">Savings</p><p style="font-family:'Instrument Serif',Georgia,serif;font-size:18px;color:#059669;line-height:1" id="cd-pct">86%</p></div>
+      </div>
+      <div style="background:#ECFDF5;border:1px solid #A7F3D0;border-radius:12px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px">
+        <div><p style="font-family:'DM Mono',monospace;font-size:9px;color:#065F46;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px">Annual savings</p><p style="font-size:11.5px;color:var(--t3)" id="cd-sub">86% lower than 3.5%</p></div>
+        <p style="font-family:'Instrument Serif',Georgia,serif;font-size:30px;color:var(--green);white-space:nowrap" id="cd-save">$300K</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- S11: BENCHMARK -->
+<div class="sl l" id="s11">
+  <p class="lbl">Chapter 4 — The benchmark</p>
+  <h2 class="f-h2">Phantom makes $171M a year without the social layer.</h2>
+  <p class="f-lead-lt" style="margin-bottom:16px">Here's what a wallet at scale looks like. Swop's bull case is a fraction of Phantom's current run rate.</p>
+  <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:14px;padding:18px;margin-bottom:14px">
+    <p style="font-family:'DM Mono',monospace;font-size:9.5px;font-weight:500;letter-spacing:.11em;text-transform:uppercase;color:var(--blue);margin-bottom:14px">Phantom — live data (DeFiLlama, 2025)</p>
+    <div class="g4" style="gap:10px">
+      <div><p class="n-md" style="color:var(--blue);margin-bottom:5px">$171M</p><p style="font-size:11.5px;color:var(--blue);opacity:.75">Annualized revenue</p></div>
+      <div><p class="n-md" style="color:var(--blue);margin-bottom:5px">17M</p><p style="font-size:11.5px;color:var(--blue);opacity:.75">Monthly active users</p></div>
+      <div><p class="n-md" style="color:var(--blue);margin-bottom:5px">0.85%</p><p style="font-size:11.5px;color:var(--blue);opacity:.75">Swap fee (vs Swop 0.5%)</p></div>
+      <div><p class="n-md" style="color:var(--blue);margin-bottom:5px">$3B</p><p style="font-size:11.5px;color:var(--blue);opacity:.75">Valuation, Jan 2025</p></div>
+    </div>
+  </div>
+  <div class="g2">
+    <div class="clt"><p class="f-body" style="line-height:1.7">Phantom peaked at <strong style="color:var(--t1)">$44M in a single week.</strong> Swop's entire $50M ARR target is less than what Phantom earns in two peak weeks.</p></div>
+    <div class="clt"><p class="f-body" style="line-height:1.7">Swop's bull case needs <strong style="color:var(--t1)">1M users</strong> — just 6% of Phantom's base. Social trading drives 3–5× more transactions per user than a standard wallet.</p></div>
+  </div>
+</div>
+
+<!-- S12: REVENUE PROJECTIONS -->
+<div class="sl d" id="s12">
+  <p class="lbl">Chapter 4 — The path</p>
+  <h2 class="f-h2" style="color:var(--dk1)">The path to $50M ARR.</h2>
+  <div class="g3">
+    <div class="cdk">
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:10px">Conservative</p>
+      <p class="n-lg" style="color:var(--dk1);margin-bottom:4px">$2.5M</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:12px">ARR</p>
+      <div style="border-top:1px solid var(--dk4);padding-top:12px">
+        <div class="kv"><span style="color:var(--dk3t);font-size:12px">Active users</span><span style="color:var(--dk2t);font-size:12px">50K</span></div>
+        <div class="kv"><span style="color:var(--dk3t);font-size:12px">Annual volume</span><span style="color:var(--dk2t);font-size:12px">$500M</span></div>
+        <div class="kv"><span style="color:var(--dk3t);font-size:12px">Fee rate</span><span style="color:var(--dk2t);font-size:12px">0.5%</span></div>
+      </div>
+    </div>
+    <div class="cdk" style="border-color:#1E4A7A">
+      <p class="f-cap" style="color:var(--blue);margin-bottom:10px">Base case</p>
+      <p class="n-lg" style="color:var(--blue);margin-bottom:4px">$10M</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:12px">ARR</p>
+      <div style="border-top:1px solid var(--dk4);padding-top:12px">
+        <div class="kv"><span style="color:var(--dk3t);font-size:12px">Active users</span><span style="color:var(--dk2t);font-size:12px">200K</span></div>
+        <div class="kv"><span style="color:var(--dk3t);font-size:12px">Annual volume</span><span style="color:var(--dk2t);font-size:12px">$2B</span></div>
+        <div class="kv"><span style="color:var(--dk3t);font-size:12px">Fee rate</span><span style="color:var(--dk2t);font-size:12px">0.5%</span></div>
+      </div>
+    </div>
+    <div style="background:var(--gd);border:1px solid var(--gb);border-radius:12px;padding:16px 18px">
+      <p class="f-cap" style="color:var(--green);margin-bottom:10px">Bull — target</p>
+      <p class="n-lg teal" style="margin-bottom:4px">$50M</p>
+      <p class="f-cap" style="color:var(--dk3t);margin-bottom:12px">ARR</p>
+      <div style="border-top:1px solid var(--gb);padding-top:12px">
+        <div class="kv"><span style="color:rgba(0,194,120,.6);font-size:12px">Active users</span><span style="color:var(--green);font-size:12px">1M</span></div>
+        <div class="kv"><span style="color:rgba(0,194,120,.6);font-size:12px">Annual volume</span><span style="color:var(--green);font-size:12px">$10B</span></div>
+        <div class="kv"><span style="color:rgba(0,194,120,.6);font-size:12px">Fee rate</span><span style="color:var(--green);font-size:12px">0.5%</span></div>
+      </div>
+    </div>
+  </div>
+  <p style="font-size:12px;color:var(--dk3t);font-style:italic;margin-top:12px">Bull case = 6% of Phantom's current user base. Subscriptions, Aave lending, perpetuals not included above.</p>
+</div>
+
+<!-- S13: CASE STUDY -->
+<div class="sl l" id="s13">
+  <p class="lbl">Chapter 4 — Real-world proof</p>
+  <h2 class="f-h2">Even the disruptors are still expensive.</h2>
+  <p class="f-lead-lt">The demand is proven. The alternative has never existed — until now.</p>
+  <div class="g2" style="margin-bottom:12px">
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="padding:16px 18px 0"><p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px">bKash — Bangladesh</p><p class="f-h3" style="margin-bottom:8px">Mobile money for 65 million people.</p><p class="f-body" style="margin-bottom:12px;line-height:1.68">Won against banks by being faster and cheaper. Still charges 1–2% on every transfer at 65M users because users have no alternative. The fee has never dropped.</p></div>
+      <div class="bg-r" style="margin:0;border-radius:0;border-left:none;border-right:none;border-bottom:none"><p style="font-size:12.5px;color:#991B1B;font-weight:500">Incumbents never drop fees at scale.</p></div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="padding:16px 18px 0"><p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:7px">Shwopno — Bangladesh</p><p class="f-h3" style="margin-bottom:8px">$270M revenue. $5.4M of it is fees.</p><p class="f-body" style="margin-bottom:12px;line-height:1.68">Bangladesh's largest supermarket pays 2% on every transaction. $270M × 2% = $5.4M/yr in pure overhead. With Swop + staking: 2% → 0.5% → 0%.</p></div>
+      <div class="bg-g" style="margin:0;border-radius:0;border-left:none;border-right:none;border-bottom:none"><p style="font-size:12.5px;color:#065F46;font-weight:500">Swop eliminates $5.4M in annual overhead.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S14: MARKET -->
+<div class="sl d" id="s14">
+  <p class="lbl">Chapter 4 — The market</p>
+  <h2 class="f-h2" style="color:var(--dk1)">The opportunity is enormous.</h2>
+  <p class="f-lead" style="margin-bottom:20px">We're entering at exactly the right time — as stablecoins hit mainstream and AI agents need to pay each other.</p>
+  <div class="g2" style="margin-bottom:10px">
+    <div class="cdk" style="text-align:center"><p class="n-md amb" style="margin-bottom:6px">$13T</p><p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Digital payments</p><p style="font-size:11.5px;color:var(--dk3t)">Annual global volume</p></div>
+    <div class="cdk" style="text-align:center"><p class="n-md amb" style="margin-bottom:6px">$500B</p><p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Fees paid annually</p><p style="font-size:11.5px;color:var(--dk3t)">By merchants and consumers</p></div>
+  </div>
+  <div class="g2">
+    <div class="cdk" style="text-align:center"><p class="n-md amb" style="margin-bottom:6px">$120B</p><p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Industry revenue</p><p style="font-size:11.5px;color:var(--dk3t)">Growing 20% annually</p></div>
+    <div class="cdk" style="text-align:center"><p class="n-md amb" style="margin-bottom:6px">$11B</p><p class="f-cap" style="color:var(--dk3t);margin-bottom:3px">Online trading</p><p style="font-size:11.5px;color:var(--dk3t)">Platform revenue</p></div>
+  </div>
+</div>
+
+<!-- S15: TEAM -->
+<div class="sl l" id="s15">
+  <p class="lbl">Chapter 5 — The team</p>
+  <h2 class="f-h2">14 people building<br>the future of money.</h2>
+  <div class="g3" style="margin-bottom:12px">
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#EFF6FF;padding:14px 16px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:50%;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#1D4ED8;flex-shrink:0">TH</div><div><p style="font-size:14px;font-weight:600;color:var(--t1);margin-bottom:1px">Travis Herron</p><p style="font-size:11.5px;color:var(--green);font-weight:500">Co-Founder + CEO</p></div></div>
+      <div style="padding:14px 16px"><p class="f-body" style="line-height:1.68">Crypto entrepreneur with deep expertise in product infrastructure and real-world blockchain applications. Architects Swop's vision.</p></div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#ECFDF5;padding:14px 16px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:50%;background:#D1FAE5;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#065F46;flex-shrink:0">AN</div><div><p style="font-size:14px;font-weight:600;color:var(--t1);margin-bottom:1px">Arjo Neel</p><p style="font-size:11.5px;color:var(--green);font-weight:500">Co-Founder + COO</p></div></div>
+      <div style="padding:14px 16px"><p class="f-body" style="line-height:1.68">Business analyst specializing in organic consumer acquisition. Background in Business Analytics. Leads GTM and operations.</p></div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#FFFBEB;padding:14px 16px;border-bottom:1px solid var(--bdr);display:flex;align-items:center;gap:12px"><div style="width:38px;height:38px;border-radius:50%;background:#FEF3C7;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#92400E;flex-shrink:0">SS</div><div><p style="font-size:14px;font-weight:600;color:var(--t1);margin-bottom:1px">Salman H. Saikote</p><p style="font-size:11.5px;color:var(--green);font-weight:500">Co-Founder + CTO</p></div></div>
+      <div style="padding:14px 16px"><p class="f-body" style="line-height:1.68">Leads engineering and offshore development. Responsible for full tech architecture and managing the 11-person technical team.</p></div>
+    </div>
+  </div>
+  <div style="background:#F8FAFC;border:1px solid var(--bdr2);border-radius:10px;padding:12px 16px"><p style="font-size:12px;color:var(--t3)"><strong style="color:var(--t2)">Extended team (11):</strong> Lead Backend · Lead Frontend · Head of Design · Web Developer · Frontend Developer · HR Admin · Business Analyst · SQA Engineer · Senior Designer · 2× Junior Engineers</p></div>
+</div>
+
+<!-- S16: MILESTONES -->
+<div class="sl d" id="s16">
+  <p class="lbl">Chapter 5 — Momentum</p>
+  <h2 class="f-h2" style="color:var(--dk1)">Here's what we've already built.</h2>
+  <div class="g2">
+    <div>
+      <p class="f-cap" style="color:var(--green);margin-bottom:14px">Shipped — live now</p>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">iOS + Android app (Expo / React Native)</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Polygon + Solana wallets — self-custody, no KYC</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Token swapping via LiFi + Jupiter aggregators</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Social feed + real-time messaging</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Polymarket prediction markets (CLOB API)</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Smartsite identity + X402 agentic settlement</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Gas subsidy — frictionless onboarding</p></div>
+    </div>
+    <div>
+      <p class="f-cap" style="color:var(--amber);margin-bottom:14px">2026 Roadmap</p>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Social trading network launch <span style="color:var(--dk3t);font-size:11.5px">— Now</span></p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">20 university ambassadors <span style="color:var(--dk3t);font-size:11.5px">— H1 2026</span></p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Aave lending + perpetuals <span style="color:var(--dk3t);font-size:11.5px">— Q2</span></p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Trading campaign — 3 launch cities <span style="color:var(--dk3t);font-size:11.5px">— Q3</span></p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Full RWA tokenization flow <span style="color:var(--dk3t);font-size:11.5px">— Q4</span></p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">AI agent toolkit (Astro AI) <span style="color:var(--dk3t);font-size:11.5px">— Q3–Q4</span></p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S17: VALUATION -->
+<div class="sl l" id="s17">
+  <p class="lbl">Chapter 6 — The deal</p>
+  <h2 class="f-h2">$46M. Here's why it's fair.</h2>
+  <div class="g-split-r">
+    <div>
+      <div class="clt" style="margin-bottom:12px">
+        <p style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--t4);letter-spacing:.09em;text-transform:uppercase;margin-bottom:10px">Why $46M is justified</p>
+        <div class="br"><div class="bdm"></div><p class="f-body" style="line-height:1.65"><strong style="color:var(--t1)">4.6× base-case ARR ($10M)</strong> — Phantom trades at 17.6× ARR at Series C.</p></div>
+        <div class="br"><div class="bdm"></div><p class="f-body" style="line-height:1.65"><strong style="color:var(--t1)">Live product, 14 people, 34% monthly growth</strong> — most seed deals are just a deck.</p></div>
+        <div class="br" style="margin-bottom:0"><div class="bdm"></div><p class="f-body" style="line-height:1.65"><strong style="color:var(--t1)">Rainbow raised ~$88M pre-revenue.</strong> Phantom's Series A at less traction than Swop has today.</p></div>
+      </div>
+      <div class="bg-a">
+        <p style="font-family:'DM Mono',monospace;font-size:9px;color:#92400E;letter-spacing:.09em;text-transform:uppercase;margin-bottom:8px">Return potential</p>
+        <div class="kv-lt"><span style="font-size:12px;color:#92400E">Base ($10M ARR × 10×)</span><span style="font-size:12px;font-weight:600;color:#92400E">2.2× return</span></div>
+        <div class="kv-lt"><span style="font-size:12px;color:#92400E">At Phantom-level (1M users)</span><span style="font-size:12px;font-weight:600;color:#92400E">10×+ return</span></div>
+      </div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="padding:12px 16px;border-bottom:1px solid var(--bdr)"><p style="font-family:'DM Mono',monospace;font-size:9.5px;color:var(--t4);letter-spacing:.09em;text-transform:uppercase">Comparable exits</p></div>
+      <table style="width:100%;border-collapse:collapse">
+        <tbody>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);font-size:13px">Phantom</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:13px;color:var(--t2)">$3B</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:12px;color:var(--t3)">$171M ARR, 17M MAUs</td></tr>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);font-size:13px">Rainbow</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:13px;color:var(--t2)">~$88M</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:12px;color:var(--t3)">Consumer DeFi seed</td></tr>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);font-size:13px">Jupiter</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:13px;color:var(--t2)">$700M+</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:12px;color:var(--t3)">$30B+ swap volume</td></tr>
+          <tr><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-weight:600;color:var(--t1);font-size:13px">Uniswap</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:13px;color:var(--t2)">$1.66B</td><td style="padding:10px 14px;border-bottom:1px solid var(--bdr);font-size:12px;color:var(--t3)">$1T+ lifetime volume</td></tr>
+          <tr><td style="padding:10px 14px;font-weight:600;color:var(--t1);font-size:13px">Bridge.xyz</td><td style="padding:10px 14px;font-size:13px;color:var(--t2)">$1.1B</td><td style="padding:10px 14px;font-size:12px;color:var(--t3)">Stripe M&A exit</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- S18: THE ASK -->
+<div class="sl d" id="s18">
+  <p class="lbl">Chapter 6 — The ask</p>
+  <p class="n-xl teal" style="margin-bottom:6px">$4.6M</p>
+  <p style="font-family:'Instrument Serif',Georgia,serif;font-size:clamp(16px,4vw,26px);color:var(--dk2t);margin-bottom:26px;letter-spacing:-.01em">Seed round · $46M valuation · 10% equity</p>
+  <div class="g2">
+    <div>
+      <p class="f-cap" style="color:var(--green);margin-bottom:14px">Use of funds</p>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">City rollout — 3 high-adoption launch cities</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Founder + sales team salaries</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Scale Interact-to-Earn (the viral engine)</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">AI support for devs + operations</p></div>
+      <div class="br"><div class="bd"></div><p class="f-body-dk">Treasury — protocol reserves</p></div>
+    </div>
+    <div>
+      <p class="f-cap" style="color:var(--amber);margin-bottom:14px">What this unlocks</p>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Social trading network — full public launch</p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">First meaningful swap volume + fee revenue</p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Partnership-tier credibility in fintech</p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Full tokenization flow shipped</p></div>
+      <div class="br"><div class="bda"></div><p class="f-body-dk">Series A positioning in 18 months</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S19: THE FUTURE -->
+<div class="sl l" id="s19">
+  <p class="lbl">Chapter 6 — The exit</p>
+  <h2 class="f-h2">Three paths to liquidity.<br>All of them large.</h2>
+  <div class="g3">
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#EFF6FF;border-bottom:2px solid var(--blue);padding:14px 16px"><p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--blue);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Strategic M&A · 2–4 yr</p><p class="f-h3" style="color:#1D4ED8">$100–250M acquisition</p></div>
+      <div style="padding:14px 16px"><p class="f-body" style="margin-bottom:10px;line-height:1.68">Swop's unified social + payment + commerce stack is the missing layer for every major fintech entering DeFi.</p><p style="font-size:12px;color:var(--blue);font-weight:500">Precedent: Stripe × Bridge.xyz ($1.1B)</p></div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#F8FAFC;border-bottom:2px solid var(--t4);padding:14px 16px"><p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--t4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">IPO · 5–7 yr</p><p class="f-h3" style="color:var(--t2)">Tokenization infra play</p></div>
+      <div style="padding:14px 16px"><p class="f-body" style="margin-bottom:10px;line-height:1.68">Position as the UX layer for a $16T+ tokenized asset market. The Coinbase of social DeFi for public markets.</p><p style="font-size:12px;color:var(--t3);font-weight:500">Comps: Coinbase, Stripe, Circle</p></div>
+    </div>
+    <div class="clt" style="padding:0;overflow:hidden">
+      <div style="background:#ECFDF5;border-bottom:2px solid var(--green);padding:14px 16px"><p style="font-family:'DM Mono',monospace;font-size:9px;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px">Protocol DAO · Ongoing</p><p class="f-h3" style="color:#065F46">$SWOP token appreciation</p></div>
+      <div style="padding:14px 16px"><p class="f-body" style="margin-bottom:10px;line-height:1.68">Decentralize governance. Protocol fees flow to token stakers. Revenue is algorithmic — no humans required.</p><p style="font-size:12px;color:var(--green);font-weight:500">Equity holders retain residual on fees</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- S20: CONTACT -->
+<div class="sl d" id="s20">
+  <div class="accent-line"></div>
+  <p class="lbl">Let's build this together</p>
+  <h1 class="f-display" style="color:var(--dk1);margin-bottom:16px">Join us in building the settlement layer for the <em class="teal" style="font-style:normal">tokenized world.</em></h1>
+  <p class="f-lead" style="margin-bottom:24px">$4.6M seed · $46M valuation · 10% equity · Social trading launching now.</p>
+  <div class="g3" style="margin-bottom:20px">
+    <div class="cdk" style="padding:14px 18px"><p class="f-cap" style="color:var(--dk3t);margin-bottom:5px">Email</p><p style="font-size:14px;font-weight:500;color:var(--dk1)">Travis@Swopme.Co</p></div>
+    <div class="cdk" style="padding:14px 18px"><p class="f-cap" style="color:var(--dk3t);margin-bottom:5px">Phone</p><p style="font-size:14px;font-weight:500;color:var(--dk1)">+1 (336) 587-9493</p></div>
+    <div class="cdk" style="padding:14px 18px"><p class="f-cap" style="color:var(--dk3t);margin-bottom:5px">Website</p><p style="font-size:14px;font-weight:500;color:var(--dk1)">Swopme.Co</p></div>
+  </div>
+  <div><span class="tag">1,222 users · 34% growth</span><span class="tag">App live iOS + Android</span><span class="tag">Social trading launching now</span></div>
+</div>
+
+<!-- Nav -->
+<div id="bar"></div>
+<div id="cnt">1 / 21</div>
+<div id="prev-btn">←</div>
+<div id="next-btn">→</div>
+
+</div>
+<script>
+var c=0,n=21;
+var slides=[].slice.call(document.querySelectorAll('.sl'));
+var bar=document.getElementById('bar');
+var cnt=document.getElementById('cnt');
+var pb=document.getElementById('prev-btn');
+var nb=document.getElementById('next-btn');
+
+for(var i=0;i<n;i++){
+  var d=document.createElement('div');
+  d.className='dot'+(i===0?' on':'');
+  (function(x){d.onclick=function(e){e.stopPropagation();goTo(x);};})(i);
+  bar.appendChild(d);
+}
+
+function goTo(t){
+  slides[c].classList.remove('on');
+  bar.children[c].classList.remove('on');
+  c=Math.max(0,Math.min(n-1,t));
+  slides[c].classList.add('on');
+  bar.children[c].classList.add('on');
+  cnt.textContent=(c+1)+' / '+n;
+  pb.style.display=c>0?'flex':'none';
+  nb.style.display=c<n-1?'flex':'none';
+  /* Reset scroll position on new slide */
+  slides[c].scrollTop=0;
+}
+function next(){if(c<n-1)goTo(c+1);}
+function prev(){if(c>0)goTo(c-1);}
+
+pb.onclick=function(e){e.stopPropagation();prev();};
+nb.onclick=function(e){e.stopPropagation();next();};
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' ')next();
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')prev();
+});
+
+/* Desktop click */
+document.getElementById('deck').addEventListener('click',function(e){
+  if('ontouchstart' in window)return;
+  if(e.target.closest('#prev-btn')||e.target.closest('#next-btn')||e.target.closest('#bar')||e.target.closest('#s10'))return;
+  next();
+});
+
+/* Touch: swipe + tap */
+var tX=0,tY=0,tMoved=false;
+var deck=document.getElementById('deck');
+
+deck.addEventListener('touchstart',function(e){
+  tX=e.touches[0].clientX;tY=e.touches[0].clientY;tMoved=false;
+},{passive:true});
+
+deck.addEventListener('touchmove',function(e){tMoved=true;},{passive:true});
+
+deck.addEventListener('touchend',function(e){
+  var el=e.target;
+  if(el.closest('#prev-btn')){prev();return;}
+  if(el.closest('#next-btn')){next();return;}
+  if(el.closest('#bar'))return;
+  var dx=e.changedTouches[0].clientX-tX;
+  var dy=e.changedTouches[0].clientY-tY;
+  var absDx=Math.abs(dx),absDy=Math.abs(dy);
+  if(absDx>60&&absDx>absDy*1.6){
+    /* Horizontal swipe — navigate regardless of slide */
+    if(dx<0)next();else prev();
+  } else if(!el.closest('#s10')&&(!tMoved||(absDx<12&&absDy<12))){
+    /* Tap on non-calculator slides */
+    next();
+  }
+},{passive:true});
+
+/* Fix height for mobile browsers */
+function setH(){
+  var h=window.innerHeight+'px';
+  deck.style.height=h;
+  slides.forEach(function(s){s.style.height=h;});
+}
+setH();
+window.addEventListener('resize',function(){setTimeout(setH,100);});
+
+goTo(0);
+
+/* Calculator */
+function cdfmt(v){
+  if(v>=1e9)return'$'+(v/1e9).toFixed(2).replace(/\.?0+$/,'')+'B';
+  if(v>=1e6)return'$'+(v/1e6).toFixed(2).replace(/\.?0+$/,'')+'M';
+  if(v>=1e3)return'$'+(v/1e3).toFixed(0)+'K';
+  return'$'+Math.round(v).toLocaleString();
+}
+function cdCalc(){
+  var rev=parseFloat(document.getElementById('cd-sl').value)||0;
+  var fee=parseFloat(document.getElementById('cd-fee').value)||3.5;
+  var old=rev*(fee/100),nw=rev*.005,saved=old-nw;
+  var pct=old>0?Math.round(((old-nw)/old)*100):0;
+  var tp=((rev-100000)/(1e9-100000))*100;
+  document.getElementById('cd-trk').style.width=Math.max(tp,.5)+'%';
+  document.getElementById('cd-rev').textContent='$'+Math.round(rev).toLocaleString();
+  document.getElementById('cd-old').textContent=cdfmt(old);
+  document.getElementById('cd-new').textContent=cdfmt(nw);
+  document.getElementById('cd-save').textContent=cdfmt(saved);
+  document.getElementById('cd-pct').textContent=pct+'%';
+  document.getElementById('cd-sub').textContent=pct+'% lower than '+fee.toFixed(1)+'%';
+}
+document.getElementById('cd-sl').addEventListener('input',cdCalc);
+document.getElementById('cd-fee').addEventListener('input',cdCalc);
+document.getElementById('cd-fee').addEventListener('blur',function(){
+  var v=parseFloat(this.value);
+  if(isNaN(v)||v<0.1)this.value='0.1';
+  if(v>15)this.value='15';
+  cdCalc();
+});
+cdCalc();
+</script>
+</body>
+</html>
