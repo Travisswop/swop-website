@@ -11,6 +11,7 @@
 - [Web app](https://swopme.app): the Swop wallet in the browser
 - [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
 - [Agentic trading launch](https://www.swopme.co/blog/agentic-trading-is-live): how Swop's AI agent and its confirmation model work
+- [Self-custody wallet, explained](https://www.swopme.co/blog/self-custody-wallet-solana): what self-custody means on Solana and what to check before choosing a wallet
 - [Support](https://support.swop.id): help and documentation
 - [About](https://www.swopme.co/about.html): company and team
 
