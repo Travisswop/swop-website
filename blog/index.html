@@ -26,13 +26,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/blog/swop-blog.css">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
 </head>
 <body>
 <nav>
 <div class="wrap nav-inner">
-<a class="brand" href="/blog">SWOP</a>
-<a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
 </div>
 </nav>
 
@@ -104,9 +104,10 @@
 
 <footer class="foot">
 <div class="wrap foot-inner">
-<a class="brand" href="/blog">SWOP</a>
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
 <span class="mono cr">© 2026 Swop</span>
 </div>
 </footer>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
 </body>
 </html>

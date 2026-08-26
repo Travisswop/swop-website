@@ -11,9 +11,10 @@ a:hover{color:var(--ink)}
 
 nav{position:sticky;top:0;z-index:50;background:rgba(245,245,243,.72);backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:66px}
-.brand{display:flex;align-items:center;font-family:'Inter Tight','Inter',sans-serif;font-weight:900;font-size:19px;letter-spacing:.34em;color:var(--ink)}
-.brand:hover{opacity:.65;color:var(--ink)}
-.foot .brand{font-size:22px}
+.brand{display:flex;align-items:center}
+.brand img{height:20px;width:auto;display:block}
+.brand:hover{opacity:.65}
+.foot .brand img{height:26px}
 .nav-links{display:flex;align-items:center;gap:26px;font-size:14px;font-weight:500;margin-left:14px}
 .nav-links a{color:var(--mut)}
 .nav-links a:hover,.nav-links a.on{color:var(--ink)}
