@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Agentic trading is live — Swop</title>
+<meta name="description" content="Astro reads the book, sizes the position, and asks before it acts. How Swop built an agent for spot, perps, and prediction markets that confirms before it moves money.">
+<link rel="canonical" href="https://www.swopme.co/blog/agentic-trading-is-live">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Agentic trading is live: your wallet can now hold an opinion">
+<meta property="og:description" content="Astro reads the book, sizes the position, and asks before it acts. We spent nine months making an agent that is boring in exactly the right places.">
+<meta property="og:url" content="https://www.swopme.co/blog/agentic-trading-is-live">
+<meta property="article:published_time" content="2026-08-19">
+<meta property="article:author" content="Myron Kaplan">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Agentic trading is live: your wallet can now hold an opinion">
+<meta name="twitter:description" content="Astro reads the book, sizes the position, and asks before it acts.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Agentic trading is live: your wallet can now hold an opinion",
+  "description": "Astro reads the book, sizes the position, and asks before it acts. We spent nine months making an agent that is boring in exactly the right places.",
+  "datePublished": "2026-08-19",
+  "author": {"@type": "Person", "name": "Myron Kaplan", "jobTitle": "Co-founder", "worksFor": {"@type": "Organization", "name": "Swop"}},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/agentic-trading-is-live"
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog">SWOP</a>
+<a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Product</span></div>
+<h1 class="tight">Agentic trading is live: your wallet can now hold an opinion</h1>
+<p class="art-dek">Astro reads the book, sizes the position, and asks before it acts. We spent nine months making an agent that is boring in exactly the right places.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">MK</span><span class="nm">Myron Kaplan</span><span class="sep"></span><span class="mono">Aug 19, 2026</span><span class="sep"></span><span class="mono">11 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Agentic%20trading%20is%20live%20on%20Swop&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fagentic-trading-is-live" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Agentic%20trading%20is%20live%20on%20Swop&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fagentic-trading-is-live" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What shipped</a>
+<a href="#s2">Why an agent, and why now</a>
+<a href="#s3">The confirmation model</a>
+<a href="#s4">What it will not do</a>
+<a href="#s5">What's next</a>
+</aside>
+<article class="prose">
+<p>Most crypto automation to date has been a script with a marketing page. You set a trigger, it fires, and you find out what happened when your balance changes. That model works right up until the market does something the script has never seen, which is roughly every third week.</p>
+<p>Astro is our attempt at the other thing: an agent that carries context between sessions, forms a position on what it is looking at, and comes back to you before it moves money. It has been running in private beta since March. Today it is available to everyone on Swop.</p>
+
+<h2 id="s1">What shipped</h2>
+<p>Three surfaces, all backed by the same agent. You can reach it from the wallet home screen, from any market page, and from Messenger — the context follows you between them.</p>
+<ul>
+<li><strong>Position sizing.</strong> Tell Astro your risk tolerance once. It sizes every proposal against your actual balance, not a percentage you have to compute in your head.</li>
+<li><strong>Market reads.</strong> Ask about a pair, a perp, or a prediction market and get depth, funding, and the last four hours of flow, summarized in a paragraph rather than a dashboard.</li>
+<li><strong>Standing intents.</strong> "If SOL funding flips negative for six hours, tell me." The agent watches; it does not act on its own.</li>
+</ul>
+
+<div class="figures">
+<div><div class="n">9 mo</div><div class="l">In development</div></div>
+<div><div class="n">41k</div><div class="l">Beta proposals</div></div>
+<div><div class="n">400ms</div><div class="l">Median response</div></div>
+</div>
+
+<h2 id="s2">Why an agent, and why now</h2>
+<p>The honest answer is that the interface stopped scaling. A wallet that holds spot, perps, prediction markets, and yield positions has too many surfaces for a person to check with any discipline. We watched beta users open the app, glance at four screens, and close it without having actually understood anything. That is a design failure, and no amount of chart polish fixes it.</p>
+<p class="pull">An agent is not a feature we added to the wallet. It is the admission that the wallet had become too big to read.</p>
+<p>The second reason is that models finally got good enough at the boring part. Not at picking trades — at reading state. Astro's job is mostly reconciliation: what do you hold, what changed since you last looked, what does that imply about the thing you said you cared about last week. That is a task where being reliable matters far more than being clever, and it is the task we optimized for.</p>
+
+<h2 id="s3">The confirmation model</h2>
+<p>Every action that moves value goes through the same gate. Astro drafts the transaction, shows you the exact amounts, the slippage assumption, and the reasoning in two sentences. Nothing signs without a tap.</p>
+<p>We debated an autonomous mode for months and did not ship one. The failure mode is not that the agent makes a bad trade — humans make those constantly. It is that a bad autonomous trade is unattributable. You cannot learn from a decision you did not watch being made.</p>
+<div class="note"><span class="k">Security note</span>Astro never holds keys. Proposals are unsigned transaction objects rendered in the app; signing happens locally in your wallet, exactly as it does when you tap Swap. Revoking the agent's read access takes one toggle in Settings and takes effect immediately.</div>
+
+<h3>What the gate looks like in practice</h3>
+<p>A proposal card carries four things: the action, the size, the assumption it is built on, and the thing that would make it wrong. That last field was the hardest to get right, and it is the one beta users told us they read first.</p>
+
+<h2 id="s4">What it will not do</h2>
+<p>Astro will not open positions unprompted, will not compound without asking, and will not recommend an asset because someone paid us. There is no sponsored inventory in the agent and there will not be. If that ever changes, it will change in a post like this one, before it ships.</p>
+<p>It is also not a research terminal. It reads state and explains it. For deep fundamental work, use a tool built for that — we would rather Astro be exactly right about your portfolio than approximately right about everything.</p>
+
+<h2 id="s5">What's next</h2>
+<p>Multi-step intents are in testing: chains of conditional actions that still confirm at every value-moving step. After that, shared agents for teams, so a fund's operator and its analyst can look at the same context without sharing a seed phrase.</p>
+<p>If you find a case where Astro is confidently wrong, send it to us. Those reports shaped most of what made the release.</p>
+
+<div class="art-end">
+<span class="ini">MK</span>
+<div>
+<div class="nm">Myron Kaplan</div>
+<p class="bio">Co-founder at Swop. Writes about product decisions, market structure, and the parts of building an exchange nobody warns you about.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog">SWOP</a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/agentic-trading-is-live').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+</body>
+</html>
