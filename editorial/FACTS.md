@@ -12,6 +12,7 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Chains live | "Swop runs on Solana, Ethereum, Base, and Polygon." | swopme.co landing (live ticker) | 2026-08-26 |
 | Checkout fee | "SwopPay checkout charges a 0.5% fee." | Travis, 2026-08-26 | 2026-08-26 |
 | Platforms | iOS App Store + Google Play + web app at swopme.app | store listings | 2026-08-26 |
+| App Store rating | "Swop is rated 5.0 out of 5 on the iOS App Store." (don't cite the ratings count — 35, still small; link the listing) | apps.apple.com listing | 2026-08-26 |
 | AI agent model | "Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys." | /blog/agentic-trading-is-live | 2026-08-26 |
 
 ## Needs verification (do NOT cite until moved up)
