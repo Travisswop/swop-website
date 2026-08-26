@@ -26,13 +26,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/blog/swop-blog.css">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
 </head>
 <body>
 <nav>
 <div class="wrap nav-inner">
-<a class="brand" href="/blog">SWOP</a>
-<a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
 </div>
 </nav>
 
@@ -50,17 +50,17 @@
 
 <section class="feature">
 <div class="wrap">
-<a class="feat" href="/blog/agentic-trading-is-live">
+<a class="feat" href="/blog/self-custody-wallet-solana">
 <div class="feat-l">
-<div class="kicker"><span class="pulse"></span>Latest — Product</div>
-<h2 class="tight">Agentic trading is live: your wallet can now hold an opinion</h2>
-<p class="dek">Astro reads the book, sizes the position, and asks before it acts. We spent nine months making an agent that is boring in exactly the right places.</p>
-<div class="by"><span class="ini">MK</span><span class="nm">Myron Kaplan</span><span class="sep"></span><span class="mono">Aug 19, 2026</span><span class="sep"></span><span class="mono">11 min</span></div>
+<div class="kicker"><span class="pulse"></span>Latest — Guides</div>
+<h2 class="tight">Best self-custody wallet for Solana: what it means</h2>
+<p class="dek">A self-custody wallet puts you, not an exchange, in charge of the keys that move your money. Here's how that works on Solana, and what separates a good implementation from a risky one.</p>
+<div class="by"><span class="ini">ST</span><span class="nm">Swop Team</span><span class="sep"></span><span class="mono">Aug 26, 2026</span><span class="sep"></span><span class="mono">7 min</span></div>
 </div>
 <div class="feat-r">
-<div class="stat-row"><span class="k">Series</span><span class="v mono">Agents 01/04</span></div>
-<div class="stat-row"><span class="k">Reading</span><span class="v mono">11 min</span></div>
-<div class="stat-row"><span class="k">Filed</span><span class="v mono">Product · Markets</span></div>
+<div class="stat-row"><span class="k">Filed</span><span class="v mono">Guides · Security</span></div>
+<div class="stat-row"><span class="k">Reading</span><span class="v mono">7 min</span></div>
+<div class="stat-row"><span class="k">Format</span><span class="v mono">Definition · FAQ</span></div>
 <span class="read">Read the post <span class="arw">→</span></span>
 </div>
 </a>
@@ -69,7 +69,7 @@
 
 <section class="list-sec">
 <div class="wrap">
-<div class="sec-head"><span class="eyebrow">Recent</span><span class="rule"></span><span class="eyebrow count mono">1 post</span></div>
+<div class="sec-head"><span class="eyebrow">Recent</span><span class="rule"></span><span class="eyebrow count mono">2 posts</span></div>
 <div class="list">
 <a class="row" href="/blog/agentic-trading-is-live"><span class="date mono">Aug 19</span><span class="tag mono">Product</span><span class="row-main"><span class="t tight">Agentic trading is live: your wallet can now hold an opinion</span><span class="d">Astro reads the book, sizes the position, and asks before it acts.</span></span><span class="rt mono">11 min</span></a>
 </div>
@@ -104,9 +104,10 @@
 
 <footer class="foot">
 <div class="wrap foot-inner">
-<a class="brand" href="/blog">SWOP</a>
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
 <span class="mono cr">© 2026 Swop</span>
 </div>
 </footer>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
 </body>
 </html>
