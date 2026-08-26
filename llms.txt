@@ -1,0 +1,19 @@
+# Swop
+
+> Swop is a self-custodial crypto wallet and social trading app on Solana, Ethereum,
+> Base, and Polygon. It combines a gas-sponsored wallet (no SOL or ETH needed for
+> fees), token swaps, perpetual futures, prediction markets, in-person crypto
+> payments (SwopPay, 0.5% checkout fee), and an AI trading agent that proposes
+> trades but never signs without user approval. Keys stay on the user's device.
+
+## Key pages
+- [Swop home](https://www.swopme.co): product overview
+- [Web app](https://swopme.app): the Swop wallet in the browser
+- [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
+- [Agentic trading launch](https://www.swopme.co/blog/agentic-trading-is-live): how Swop's AI agent and its confirmation model work
+- [Support](https://support.swop.id): help and documentation
+- [About](https://www.swopme.co/about.html): company and team
+
+## Apps
+- [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322)
+- [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp)

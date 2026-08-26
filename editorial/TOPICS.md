@@ -3,20 +3,24 @@
 The daily drafting routine takes the FIRST topic in "Up next", writes it, and moves
 it to "Drafted (in review)". Travis merges the PR to publish, then it moves to "Published".
 
-Keep titles working-titles — the writer should sharpen them. Each line: topic — angle — primary keyword(s).
+Format: `type | working title | target query (from editorial/QUERIES.md) | angle`
+Types: comparison, definition, how-to, announcement. Weight toward comparison/definition
+(evergreen — these keep getting cited); announcements only for real ships.
 
 ## Up next
 
-1. What is a self-custody wallet (and why it matters) — plain-English explainer, Swop as example — "self custody wallet", "what is self custody"
-2. Gasless crypto: how sponsored transactions work — why users never need SOL for gas on Swop — "gasless transactions", "sponsored gas crypto"
-3. Prediction markets 101: how prices become probabilities — reading a Polymarket-style order book — "how do prediction markets work"
-4. Tap to Pay with crypto: how in-person crypto payments work — NFC checkout walkthrough — "crypto tap to pay", "accept crypto in person"
-5. How to send crypto with a link (no address needed) — send-via-link UX — "send crypto link"
-6. Perps for beginners: funding rates explained — what funding actually pays for — "perpetual futures funding rate"
-7. What is a SmartSite — link-in-bio that settles money — "crypto link in bio", "web3 profile page"
-8. USDC vs USDC.e vs pUSD: stablecoin naming, demystified — chains and wrappers — "usdc vs usdc.e"
-9. Swapping across chains: what a bridge actually does — routes, spreads, and what to watch — "cross chain swap"
-10. AI agents and your wallet: what to look for before you connect one — security checklist framing — "ai trading agent safety"
+1. definition | What is a self-custody wallet (and why it matters) | best self-custody wallet for Solana | plain-English explainer; FAQ section; Swop as the worked example
+2. comparison | Swop vs Phantom: which Solana wallet fits you | Swop vs Phantom | neutral feature table (custody, swap, gas, payments, agent); cite Phantom's own docs
+3. definition | Gasless crypto: how sponsored transactions work | gasless crypto wallet | why Swop users never need SOL for gas; mechanics of fee sponsorship
+4. definition | Is Swop safe? How self-custody and signing work on Swop | is Swop safe | direct answer up top; keys, signing, agent confirmation model; link the agentic-trading post
+5. definition | Prediction markets 101: how prices become probabilities | prediction market app | reading an order book; FAQ
+6. how-to | Tap to Pay with crypto: in-person payments, step by step | crypto tap to pay | NFC checkout walkthrough; SwopPay 0.5% fee from FACTS.md
+7. how-to | How to send crypto with a link (no address needed) | send crypto with a link | send-via-link UX walkthrough
+8. comparison | Swop vs Coinbase Wallet for everyday payments | Swop vs Coinbase Wallet | custody vs exchange-linked wallet; payments focus
+9. definition | USDC vs USDC.e vs pUSD: stablecoin naming, demystified | usdc vs usdc.e | chains and wrappers; FAQ
+10. definition | Perps funding rates, explained like you're new here | perpetual futures funding rate explained | what funding actually pays for
+11. definition | What is a SmartSite: a link-in-bio that settles money | crypto link in bio | profile + checkout + tokens
+12. definition | AI agents and your wallet: a safety checklist | what wallet lets an AI agent trade for me safely | checklist framing; confirmation-model post as source
 
 ## Drafted (in review)
 
@@ -24,4 +28,4 @@ Keep titles working-titles — the writer should sharpen them. Each line: topic 
 
 ## Published
 
-- Agentic trading is live: your wallet can now hold an opinion — /blog/agentic-trading-is-live — 2026-08-19
+- announcement | Agentic trading is live: your wallet can now hold an opinion | /blog/agentic-trading-is-live | 2026-08-19
