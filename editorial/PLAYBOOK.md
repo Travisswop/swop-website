@@ -32,6 +32,5 @@ The 8 daily steps. Every routine run and every human review checks against this 
 ## Weekly human loop (Travis)
 - Refill `QUERIES.md` / reorder `TOPICS.md` (what are people actually asking?)
 - Verify or strike rows in `FACTS.md`; resolve `[NEEDS FACT]` markers in open PRs
-- Merge approved drafts, then deploy (CLI `vercel deploy --prod` until the Vercel
-  Git integration is reconnected)
+- Merge approved drafts — merging to main auto-deploys production
 - Post the distribution kits for anything merged
