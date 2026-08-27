@@ -48,12 +48,26 @@ Announcements only when something actually shipped.
    140-160 chars answering the query; canonical https://www.swopme.co/blog/<slug>;
    OG + Twitter tags; Article JSON-LD; FAQPage JSON-LD when there is an FAQ section.
 4. Share links (copy-link / X / Farcaster) updated to the new URL.
-4b. Banner image: run `python3 editorial/make-og.py <slug> "<title>" "<Tag>"` to
-   generate `blog/<slug>/og.png` (1200×630; Pillow required, fonts are committed in
-   editorial/fonts/). Add `og:image` (+ width/height) and `twitter:image` with the
-   ABSOLUTE https://www.swopme.co URL, and `twitter:card` = `summary_large_image`.
-   If Pillow is unavailable in your environment, still add the meta tags and flag
-   "og.png needs generating" in the PR body.
+4b. Banner (converting-thumbnail style — REQUIRED). Author `blog/<slug>/og.html`,
+   a self-contained 1200×630 page in the house banner style. Copy an existing
+   banner source as your base — `blog/self-custody-wallet-solana/og.html` (big
+   object + hook), `blog/swop-vs-phantom/og.html` (versus split), or
+   `blog/agentic-trading-is-live/og.html` (story scene) — and follow these rules:
+   - ONE focal graphic: a giant emoji-as-object (300-400px) with a green radial
+     glow (`rgba(46,194,126,…)`) and drop-shadow; 1-2 small supporting emoji with
+     blur for depth. Comparisons use the split layout (our green #0d2a1c side vs
+     competitor-color side, huge white VS).
+   - HOOK, not title: 3-5 words, Inter Tight 900, ~100px, second line in #3ef58f.
+     Open a curiosity gap the article answers ("GAS FEES: GONE", not the h1).
+   - Keep the fixed chrome: white wordmark top-left (copy the base64 img from an
+     existing og.html), `swopme.co/blog` bottom-left, CATEGORY bottom-right in
+     accent mono. Background stays ink #0a0a0c. Readable at 120px wide.
+   Then: if headless Chrome is available, render with `editorial/render-og.sh
+   blog/<slug>`; otherwise ALSO generate a placeholder og.png via
+   `python3 editorial/make-og.py <slug> "<title>" "<Tag>"` (Pillow) and flag
+   "og.html needs local render" in the PR body — a reviewer renders it pre-merge.
+   Either way add `og:image` (+ width/height 1200×630) and `twitter:image` with
+   the ABSOLUTE https://www.swopme.co URL and `twitter:card` = `summary_large_image`.
 5. Update blog/index.html (new post featured, previous featured into Recent, bump
    count) and sitemap.xml (add URL with lastmod).
 6. Move the topic line in editorial/TOPICS.md to "Drafted (in review)".
