@@ -20,6 +20,15 @@ The 8 daily steps. Every routine run and every human review checks against this 
   for Solana", "is Swop safe"). The first paragraph of the targeting post must be a
   liftable, self-contained answer to it.
 
+## Daily review loop (Claude, on each morning's PR)
+1. Fact-check any claims the drafter flagged (live web sources)
+2. Render the banner: `editorial/render-og.sh blog/<slug>` (drafter authors og.html;
+   its sandbox has no Chrome) and push to the PR branch
+3. Travis merges -> auto-deploys swopme.co
+4. Cross-publish to the SmartSite Blog tab: author a spec JSON (SmartSite-length
+   adaptation of the article, allowed tags only, canonical link at the end) and run
+   `cd ../swop-app-backend && node ../swop-website/editorial/smartsite-publish.js <spec>`
+
 ## Weekly human loop (Travis)
 - Refill `QUERIES.md` / reorder `TOPICS.md` (what are people actually asking?)
 - Verify or strike rows in `FACTS.md`; resolve `[NEEDS FACT]` markers in open PRs
