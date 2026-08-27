@@ -34,8 +34,20 @@ increments daily from #78.
 Tight, builder-first, crypto-native, zero hype. No financial advice language.
 Numbers only from checkable sources; platform stats stay [TBD] until Travis provides.
 
-## Output
+## Output (v3 — Resend broadcast, automatic)
 1. Write the HTML to iCloud: `.../Documents/Claude/Projects/Swop/Swop_Daily_Newsletter_YYYY-MM-DD.html`
-2. Create a Gmail DRAFT to travis@swopme.co — subject `Swop Daily #N — <hook>`.
-   Never send; Travis reviews, fills the [TBD] stats (or provides them for a
-   re-draft), and sends himself.
+2. Sync the audience (Privy-bound Swop users, minus deleted accounts; Resend
+   owns unsubscribes):
+   `cd ../swop-app-backend && node ../swop-website/editorial/newsletter-audience-sync.js`
+   The summary JSON includes `new_wallets_24h` — use it for the bento's
+   "New wallets" tile. Because sends are automatic, the bento must never ship
+   a literal `[TBD]`: use stats from the sync summary or checkable sources,
+   and render an em dash for anything Travis hasn't supplied.
+3. Send as a Resend Broadcast to the "Swop Daily" audience:
+   `node editorial/newsletter-send.js --html <issue.html> --subject "Swop Daily #N — <hook>" --send`
+   The script injects a Resend unsubscribe footer if the HTML lacks one.
+   Use `--test travis@swopme.co` first when the template changed structurally,
+   and plain draft mode (no `--send`) if anything about the issue is uncertain.
+4. Gmail drafts are no longer part of the flow (v2 behavior); Travis receives
+   the real broadcast like any subscriber. Broadcast stats surface on the
+   Beachhead Audience tab.
