@@ -144,6 +144,11 @@ nav{position:sticky;top:0;z-index:50;background:rgba(245,245,243,.72);backdrop-f
 .prose strong{font-weight:650;color:var(--ink)}
 .prose a.link{color:var(--ink);box-shadow:inset 0 -1px 0 0 var(--accent)}
 .prose a.link:hover{background:rgba(60,180,110,.12)}
+.prose .tbl-wrap{overflow-x:auto;margin:28px 0}
+.prose table{width:100%;min-width:520px;border-collapse:collapse;font-size:15.5px}
+.prose th,.prose td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.prose thead th{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);font-weight:600;border-bottom:1px solid var(--ink)}
+.prose tbody th{font-weight:650;color:var(--ink);white-space:nowrap;text-align:left}
 .pull{font-family:'Inter Tight';font-weight:700;font-size:28px;line-height:1.25;letter-spacing:-.025em;color:var(--ink);margin:44px 0;padding-left:26px;border-left:2px solid var(--accent);text-wrap:pretty}
 .note{background:var(--paper-2);border-radius:16px;padding:26px 28px;margin:40px 0;font-size:16px;line-height:1.62;color:#3a3a3a}
 .note .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:10px}
