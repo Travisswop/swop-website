@@ -48,6 +48,12 @@ Announcements only when something actually shipped.
    140-160 chars answering the query; canonical https://www.swopme.co/blog/<slug>;
    OG + Twitter tags; Article JSON-LD; FAQPage JSON-LD when there is an FAQ section.
 4. Share links (copy-link / X / Farcaster) updated to the new URL.
+4b. Banner image: run `python3 editorial/make-og.py <slug> "<title>" "<Tag>"` to
+   generate `blog/<slug>/og.png` (1200×630; Pillow required, fonts are committed in
+   editorial/fonts/). Add `og:image` (+ width/height) and `twitter:image` with the
+   ABSOLUTE https://www.swopme.co URL, and `twitter:card` = `summary_large_image`.
+   If Pillow is unavailable in your environment, still add the meta tags and flag
+   "og.png needs generating" in the PR body.
 5. Update blog/index.html (new post featured, previous featured into Recent, bump
    count) and sitemap.xml (add URL with lastmod).
 6. Move the topic line in editorial/TOPICS.md to "Drafted (in review)".
