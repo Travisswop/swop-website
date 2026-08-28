@@ -1,6 +1,6 @@
 {
   "audienceName": "Swop Daily",
-  "audienceId": "",
   "from": "Swop Daily <news@news.swopme.co>",
-  "replyTo": "travis@swopme.co"
+  "replyTo": "travis@swopme.co",
+  "audienceId": "709b94d8-2b24-4bb6-ab2c-5804db24eff0"
 }
