@@ -21,10 +21,11 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Drafted (in review)
 
-- comparison | Swop vs Phantom: which Solana wallet fits you | Swop vs Phantom | blog/swop-vs-phantom
-- definition | What is a self-custody wallet (and why it matters) | best self-custody wallet for Solana | blog/self-custody-wallet-solana
-- definition | Gasless crypto: how sponsored transactions work | gasless crypto wallet | blog/gasless-crypto-wallet
+(none)
 
 ## Published
 
+- definition | Gasless crypto: how sponsored transactions work | /blog/gasless-crypto-wallet | 2026-08-28
+- comparison | Swop vs Phantom: which Solana wallet fits you | /blog/swop-vs-phantom | 2026-08-27
+- definition | What is a self-custody wallet (and why it matters) | /blog/self-custody-wallet-solana | 2026-08-26
 - announcement | Agentic trading is live: your wallet can now hold an opinion | /blog/agentic-trading-is-live | 2026-08-19
