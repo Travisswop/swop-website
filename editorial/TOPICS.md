@@ -9,7 +9,6 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Up next
 
-1. definition | Gasless crypto: how sponsored transactions work | gasless crypto wallet | why Swop users never need SOL for gas; mechanics of fee sponsorship
 3. definition | Is Swop safe? How self-custody and signing work on Swop | is Swop safe | direct answer up top; keys, signing, agent confirmation model; link the agentic-trading post
 4. definition | Prediction markets 101: how prices become probabilities | prediction market app | reading an order book; FAQ
 5. how-to | Tap to Pay with crypto: in-person payments, step by step | crypto tap to pay | NFC checkout walkthrough; SwopPay 0.5% fee from FACTS.md
@@ -24,6 +23,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 - comparison | Swop vs Phantom: which Solana wallet fits you | Swop vs Phantom | blog/swop-vs-phantom
 - definition | What is a self-custody wallet (and why it matters) | best self-custody wallet for Solana | blog/self-custody-wallet-solana
+- definition | Gasless crypto: how sponsored transactions work | gasless crypto wallet | blog/gasless-crypto-wallet
 
 ## Published
 
