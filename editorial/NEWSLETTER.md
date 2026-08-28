@@ -30,7 +30,10 @@ increments daily from #78.
    Feed posts 24h — all from the audience-sync summary JSON; plus Market mover
    (verified top mover). Swap volume/counts have NO live ledger — don't invent them.
 4. Big story: single most important crypto/fintech headline of the 24h + 3 tags
-5. Move of the day: notable pair move or setup, "illustrative only, not advice"
+5. Token of the day: the fetcher's `tokenOfTheDay` (hottest trending non-major,
+   $50M+ mcap) — pair title, 24h% + price, metric chips (mcap, 24h vol,
+   vol/mcap, rank), then a WebSearch-sourced "why it moved" paragraph.
+   Always ends "Illustrative only, not advice."
 6. Article 01 Fintech pulse: macro/regulatory/institutional story, 2 tight paragraphs
 7. Article 02 From the Journal (see above)
 8. Article 03 Day ahead: 📅 Macro Calendar (3-5 items) / ⚖️ Court Watch (2-4) /

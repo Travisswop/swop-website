@@ -42,10 +42,42 @@ const pct = (n) => (n >= 0 ? '+' : '') + n.toFixed(n >= 10 || n <= -10 ? 1 : n >
     };
   }
 
+  // Token of the day: hottest trending NON-major with real size ($50M+ mcap).
+  // Feeds the "Token of the day" card — symbol, %, price, mcap, volume,
+  // vol/mcap turnover, rank. The story ("why it moved") still needs WebSearch.
+  const MAJORS = new Set(['BTC', 'ETH', 'SOL', 'BNB', 'XRP', 'DOGE', 'ADA']);
+  let tokenOfTheDay = null;
+  try {
+    const trending = await (await fetch('https://api.coingecko.com/api/v3/search/trending', { headers: UA })).json();
+    const parseUsd = (v) => typeof v === 'number' ? v : Number(String(v).replace(/[$,]/g, '')) || 0;
+    const cands = (trending.coins || [])
+      .map((c) => c.item)
+      .filter((i) => i && !MAJORS.has(i.symbol?.toUpperCase()) && i.data)
+      .map((i) => ({
+        symbol: i.symbol?.toUpperCase(), name: i.name, rank: i.market_cap_rank,
+        rawPrice: parseUsd(i.data.price),
+        rawChange: i.data.price_change_percentage_24h?.usd ?? 0,
+        rawMcap: parseUsd(i.data.market_cap), rawVol: parseUsd(i.data.total_volume),
+      }))
+      .filter((t) => t.rawMcap >= 50e6)
+      .sort((a, b) => Math.abs(b.rawChange) - Math.abs(a.rawChange));
+    const t = cands[0];
+    if (t) {
+      tokenOfTheDay = {
+        symbol: t.symbol, name: t.name, rank: t.rank,
+        price: usd(t.rawPrice), change: pct(t.rawChange),
+        mcap: '$' + (t.rawMcap / 1e9 >= 1 ? (t.rawMcap / 1e9).toFixed(2) + 'B' : Math.round(t.rawMcap / 1e6) + 'M'),
+        vol24h: '$' + (t.rawVol / 1e9 >= 1 ? (t.rawVol / 1e9).toFixed(2) + 'B' : Math.round(t.rawVol / 1e6) + 'M'),
+        volOverMcap: (t.rawVol / t.rawMcap).toFixed(1) + 'x',
+      };
+    }
+  } catch { /* card falls back to the biggest non-major move among the four majors' peers */ }
+
   console.log(JSON.stringify({
     fetchedAt: new Date().toISOString(),
     crypto: coins,
     mover: { symbol: mover[0], ...mover[1] },
+    tokenOfTheDay,
     indices,
   }, null, 2));
 })().catch((e) => { console.error(e.message); process.exit(1); });
