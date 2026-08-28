@@ -19,9 +19,13 @@ layout, section HTML comments as anchors. Generate each issue by string-replacin
 its content sections (Python), never hand-assembling the frame. Issue number
 increments daily from #78.
 
-## Daily content (all last-24h; use WebSearch, cite-checkable facts only)
+## Daily content (all last-24h; cite-checkable facts only)
 1. Market row: BTC/ETH/SOL/BNB price + 24h% (green pill #0c2818/#22c55e, red #2a0c0c/#ef4444)
 2. Index row: S&P/Nasdaq/Dow/Russell last close + %
+   Rows 1-2 + the Market mover tile come ONLY from
+   `node editorial/newsletter-market-data.js` (CoinGecko + Yahoo) — never
+   hand-type a price, in tiles OR prose (issue #78 shipped ETH $12,507).
+   WebSearch is for the stories, not the numbers.
 3. Bento (pulled, never [TBD]): Swop wallets total, Agent trade actions 24h,
    Feed posts 24h — all from the audience-sync summary JSON; plus Market mover
    (verified top mover). Swap volume/counts have NO live ledger — don't invent them.
