@@ -26,9 +26,11 @@ increments daily from #78.
    `node editorial/newsletter-market-data.js` (CoinGecko + Yahoo) — never
    hand-type a price, in tiles OR prose (issue #78 shipped ETH $12,507).
    WebSearch is for the stories, not the numbers.
-3. Bento (pulled, never [TBD]): Swop wallets total, Agent trade actions 24h,
-   Feed posts 24h — all from the audience-sync summary JSON; plus Market mover
-   (verified top mover). Swap volume/counts have NO live ledger — don't invent them.
+3. Bento (pulled, never [TBD]): Swop wallets total, Winnings paid 24h ($ +
+   claim count), Winners paid 7d — all from the audience-sync summary JSON
+   (confirmed predictionclaimattempts); plus Market mover (verified top mover).
+   Money moving beats activity counts (Travis, Aug 27). Swap volume/counts
+   have NO live ledger — don't invent them; agent/feed counts are out.
 4. Big story: single most important crypto/fintech headline of the 24h + 3 tags
 5. Token of the day: the fetcher's `tokenOfTheDay` (hottest trending non-major,
    $50M+ mcap) — pair title, 24h% + price, metric chips (mcap, 24h vol,

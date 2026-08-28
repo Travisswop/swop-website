@@ -109,11 +109,19 @@ async function listAllContacts(key, audienceId) {
   const dayAgo = new Date(Date.now() - 24 * 3600 * 1000);
   const newWallets24h = await db.collection('users').countDocuments({ createdAt: { $gte: dayAgo } });
   // Bento stats (see NEWSLETTER.md): only ledgers that are actually written today.
+  const weekAgo = new Date(Date.now() - 7 * 24 * 3600 * 1000);
+  const claims = async (since) => (await db.collection('predictionclaimattempts').aggregate([
+    { $match: { createdAt: { $gte: since }, status: 'confirmed' } },
+    { $group: { _id: null, n: { $sum: 1 }, usd: { $sum: '$amountUsd' } } },
+  ]).toArray())[0] || { n: 0, usd: 0 };
+  const [c24, c7d] = [await claims(dayAgo), await claims(weekAgo)];
   const stats = {
     wallets_total: await db.collection('users').estimatedDocumentCount(),
     new_wallets_24h: newWallets24h,
-    feed_posts_24h: await db.collection('swopfeedposts').countDocuments({ createdAt: { $gte: dayAgo }, isDeleted: { $ne: true } }),
-    agent_trade_actions_24h: await db.collection('agenttradejournals').countDocuments({ createdAt: { $gte: dayAgo }, action: { $exists: true } }),
+    winnings_paid_24h_usd: Math.round(c24.usd),
+    winners_24h: c24.n,
+    winnings_paid_7d_usd: Math.round(c7d.usd),
+    winners_7d: c7d.n,
   };
   await mongoose.disconnect();
 
