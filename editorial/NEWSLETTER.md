@@ -22,7 +22,9 @@ increments daily from #78.
 ## Daily content (all last-24h; use WebSearch, cite-checkable facts only)
 1. Market row: BTC/ETH/SOL/BNB price + 24h% (green pill #0c2818/#22c55e, red #2a0c0c/#ef4444)
 2. Index row: S&P/Nasdaq/Dow/Russell last close + %
-3. Bento: Swop volume [TBD], Swop swaps [TBD], New wallets [TBD] (Travis supplies), Market mover (verified top mover)
+3. Bento (pulled, never [TBD]): Swop wallets total, Agent trade actions 24h,
+   Feed posts 24h — all from the audience-sync summary JSON; plus Market mover
+   (verified top mover). Swap volume/counts have NO live ledger — don't invent them.
 4. Big story: single most important crypto/fintech headline of the 24h + 3 tags
 5. Move of the day: notable pair move or setup, "illustrative only, not advice"
 6. Article 01 Fintech pulse: macro/regulatory/institutional story, 2 tight paragraphs

@@ -108,12 +108,19 @@ async function listAllContacts(key, audienceId) {
 
   const dayAgo = new Date(Date.now() - 24 * 3600 * 1000);
   const newWallets24h = await db.collection('users').countDocuments({ createdAt: { $gte: dayAgo } });
+  // Bento stats (see NEWSLETTER.md): only ledgers that are actually written today.
+  const stats = {
+    wallets_total: await db.collection('users').estimatedDocumentCount(),
+    new_wallets_24h: newWallets24h,
+    feed_posts_24h: await db.collection('swopfeedposts').countDocuments({ createdAt: { $gte: dayAgo }, isDeleted: { $ne: true } }),
+    agent_trade_actions_24h: await db.collection('agenttradejournals').countDocuments({ createdAt: { $gte: dayAgo }, action: { $exists: true } }),
+  };
   await mongoose.disconnect();
 
   if (DRY && !key) {
     console.log(JSON.stringify({
       dryRun: true, resend: 'skipped (no RESEND_API_KEY)',
-      eligible: eligible.size, new_wallets_24h: newWallets24h,
+      eligible: eligible.size, ...stats,
     }));
     return;
   }
@@ -149,7 +156,7 @@ async function listAllContacts(key, audienceId) {
     console.log(JSON.stringify({
       dryRun: true, audienceId, eligible: eligible.size, alreadyPresent: existing.size,
       wouldAdd: toAdd.length, wouldRemoveDeleted: toRemove.length, unsubscribed,
-      new_wallets_24h: newWallets24h,
+      ...stats,
     }));
     return;
   }
@@ -173,6 +180,6 @@ async function listAllContacts(key, audienceId) {
   console.log(JSON.stringify({
     audienceId, eligible: eligible.size, added, removedDeleted: removed,
     nowInAudience: existing.size + added - removed, unsubscribed,
-    new_wallets_24h: newWallets24h,
+    ...stats,
   }));
 })().catch((e) => { console.error(e.message); process.exit(1); });
