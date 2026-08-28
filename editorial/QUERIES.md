@@ -27,6 +27,7 @@ until they are moved up.
 - how does Swop make money
 - can I use crypto for in-person payments
 - what wallet lets an AI agent trade for me safely
+- ERC-8196 agent policy / verifiable AI trading agent
 
 ## Proposed (agent may append; Travis promotes)
 (none yet)

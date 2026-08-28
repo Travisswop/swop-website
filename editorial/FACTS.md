@@ -14,6 +14,10 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Platforms | iOS App Store + Google Play + web app at swopme.app | store listings | 2026-08-26 |
 | App Store rating | "Swop is rated 5.0 out of 5 on the iOS App Store." (don't cite the ratings count — 35, still small; link the listing) | apps.apple.com listing | 2026-08-26 |
 | AI agent model | "Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys." | /blog/agentic-trading-is-live | 2026-08-26 |
+| Agent policy layer | "Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log." | Travis, 2026-08-28 | 2026-08-28 |
+| Policy exits always open | "Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out." | Travis, 2026-08-28 | 2026-08-28 |
+| Policy enforcement seam (honest framing) | "Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee." | Travis, 2026-08-28 | 2026-08-28 |
+| Policy rollout stage | "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows." | Travis, 2026-08-28 | 2026-08-28 |
 
 ## Needs verification (do NOT cite until moved up)
 | Claim | Notes |
