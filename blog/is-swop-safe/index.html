@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Is Swop Safe? How Self-Custody and Signing Work</title>
+<meta name="description" content="Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you.">
+<link rel="canonical" href="https://www.swopme.co/blog/is-swop-safe">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Is Swop Safe? How Self-Custody and Signing Work">
+<meta property="og:description" content="Your keys stay on your device, every transaction needs your signature, and Swop's AI agent proposes but never signs for you. Here's the actual safety model.">
+<meta property="og:url" content="https://www.swopme.co/blog/is-swop-safe">
+<meta property="og:image" content="https://www.swopme.co/blog/is-swop-safe/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-08-29">
+<meta property="article:modified_time" content="2026-08-29">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/is-swop-safe/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Is Swop Safe? How Self-Custody and Signing Work">
+<meta name="twitter:description" content="Your keys stay on your device, every transaction needs your signature, and Swop's AI agent proposes but never signs for you.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Is Swop Safe? How Self-Custody and Signing Work",
+  "description": "Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you.",
+  "datePublished": "2026-08-29",
+  "dateModified": "2026-08-29",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/is-swop-safe"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Swop custodial or non-custodial?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Non-custodial. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That means Swop's servers being down, hacked, or shut off has no bearing on whether you can access your funds, because the funds were never in Swop's custody to begin with."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can Swop or its team move my funds without me?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Every transaction on Swop has to be signed with a key that lives only on your device, and Swop never holds a copy of it. There is no admin action, support ticket, or backend process that can move funds out of your wallet without that signature."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does Swop's AI agent trade on its own?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Agent-initiated transactions additionally run under a policy layer, but the approval step is the same one every manual transaction goes through."}
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I lose my phone?",
+      "acceptedAnswer": {"@type": "Answer", "text": "As with any self-custodial wallet, the key that controls your funds lives on your device, so losing that device without a backup in place means losing access — no company holds a spare copy to restore from. [NEEDS FACT: Swop's specific device-backup or recovery flow] — check Swop's own support documentation for the current backup steps before you rely on a single device."}
+    },
+    {
+      "@type": "Question",
+      "name": "Has Swop been audited by a third party?",
+      "acceptedAnswer": {"@type": "Answer", "text": "[NEEDS FACT: third-party security audit status and report link]. What is verifiable today: Swop's agent policy layer writes every enforcement decision to a per-vault hash-chained audit log, and enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — which makes any violation provable after the fact, though it is not an on-chain guarantee."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">Is Swop safe? How self-custody and signing work</h1>
+<p class="art-dek">"Safe" means something specific for a self-custodial wallet with an AI agent attached. Here's who holds the keys, what requires your signature, and what Swop's agent can and can't do without you.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Aug 29, 2026</span><span class="sep"></span><span class="mono">Updated Aug 29, 2026</span><span class="sep"></span><span class="mono">6 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Is%20Swop%20safe%3F%20How%20self-custody%20and%20signing%20actually%20work&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fis-swop-safe" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Is%20Swop%20safe%3F%20How%20self-custody%20and%20signing%20actually%20work&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fis-swop-safe" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What "safe" means here</a>
+<a href="#s2">Who holds the keys</a>
+<a href="#s3">Nothing moves without your tap</a>
+<a href="#s4">The AI agent's confirmation model</a>
+<a href="#s5">What to verify yourself</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>Swop is safe in the specific ways that matter for a self-custodial wallet: your keys are generated and held only on your device, every transaction requires your signature before it moves, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — self-custody means you are your own recovery plan, and no wallet, Swop included, can undo a transaction you approved by mistake.</p>
+
+<h2 id="s1">What "safe" means here</h2>
+<p>"Is this wallet safe" usually bundles together three different questions, and it's worth separating them before answering any of them. First: can the company behind the wallet lose or misuse your funds, the way an exchange can? Second: can a transaction move your money without your explicit approval? Third, if the wallet has any automation or AI feature, can that automation act on its own? A wallet can score well on one of these and poorly on another, so "is it safe" only means something once you know which question you're asking.</p>
+<p>This post answers all three for Swop, in order, and points to where you can check each claim yourself rather than take our word for it.</p>
+
+<h2 id="s2">Who holds the keys</h2>
+<p>Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That single fact answers the first question above: Swop's servers going down, getting hacked, or a support agent making a mistake cannot result in your funds being lost or frozen, because your funds were never in Swop's custody. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies across all four — there's no chain where Swop holds a spare key on your behalf.</p>
+<p>The tradeoff is the standard one for any self-custodial wallet: if the key on your device is gone and you have no backup, nobody — including Swop — has a copy to restore from. Self-custody removes the risk of a third party controlling your funds by making you the only party who can.</p>
+
+<h2 id="s3">Nothing moves without your tap</h2>
+<p>The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens locally, on your device, when you tap to confirm. An interface can show you whatever it wants; nothing actually moves until that signature exists, and the signature can only be produced where the key lives.</p>
+<p>That's also true for transactions Swop sponsors the gas on. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but gas sponsorship only changes who pays the network fee, not who authorizes the transaction. Signing and paying are separate steps, and Swop's sponsorship only ever touches the second one.</p>
+
+<h2 id="s4">The AI agent's confirmation model</h2>
+<p>The third question is the one people ask most often once a wallet ships an AI feature: can it trade for you without asking? On Swop, the answer is the same across manual and agent-initiated actions. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. A trade proposal from the agent goes through the identical signature gate described above — it just arrives with the agent's reasoning attached instead of your own. <a class="link" href="/blog/agentic-trading-is-live">We covered that confirmation model in more depth when agentic trading shipped.</a></p>
+<p>Since then, agent-initiated transactions have picked up an additional layer. Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. In plain terms: the agent operates inside limits you set, widening those limits needs your cryptographic sign-off, and every decision the policy layer makes is logged in a way that can't be quietly edited afterward.</p>
+<div class="note"><span class="k">What the policy layer doesn't do</span>Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out. A policy can restrict what the agent opens; it cannot trap you inside a position.</div>
+<p>It's worth being precise about what this guarantees and what it doesn't. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee. That's an honest tradeoff, not a marketing gap: the policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks, with enforcement mode following once that data confirms the rules behave as intended.</p>
+
+<h2 id="s5">What to verify yourself</h2>
+<p>Don't take a wallet's own safety claims at face value — verify what you can independently. Swop is available on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a> and <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and as a web app at <a class="link" href="https://swopme.app">swopme.app</a>; Swop is rated 5.0 out of 5 on the <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS App Store</a>, which you can check directly on the listing. For deeper technical questions — key storage specifics, backup and recovery flows, or [NEEDS FACT: third-party security audit status and report link] — the authoritative source is <a class="link" href="https://support.swop.id">Swop's support documentation</a>, not this post; docs get updated more often than a blog article should be trusted to track.</p>
+<p>The general rule holds for any wallet, not just Swop: "self-custodial" and "audited" and "the AI can't move funds alone" are three separate claims. Check each one on its own terms before deciding a wallet is safe for what you intend to do with it.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>Is Swop custodial or non-custodial?</h3>
+<p>Non-custodial. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That means Swop's servers being down, hacked, or shut off has no bearing on whether you can access your funds, because the funds were never in Swop's custody to begin with.</p>
+<h3>Can Swop or its team move my funds without me?</h3>
+<p>No. Every transaction on Swop has to be signed with a key that lives only on your device, and Swop never holds a copy of it. There is no admin action, support ticket, or backend process that can move funds out of your wallet without that signature.</p>
+<h3>Does Swop's AI agent trade on its own?</h3>
+<p>No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Agent-initiated transactions additionally run under a policy layer, but the approval step is the same one every manual transaction goes through.</p>
+<h3>What happens if I lose my phone?</h3>
+<p>As with any self-custodial wallet, the key that controls your funds lives on your device, so losing that device without a backup in place means losing access — no company holds a spare copy to restore from. [NEEDS FACT: Swop's specific device-backup or recovery flow] — check Swop's own support documentation for the current backup steps before you rely on a single device.</p>
+<h3>Has Swop been audited by a third party?</h3>
+<p>[NEEDS FACT: third-party security audit status and report link]. What is verifiable today: Swop's agent policy layer writes every enforcement decision to a per-vault hash-chained audit log, and enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — which makes any violation provable after the fact, though it is not an on-chain guarantee.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/is-swop-safe').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
