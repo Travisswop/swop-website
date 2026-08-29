@@ -28,6 +28,7 @@ until they are moved up.
 - can I use crypto for in-person payments
 - what wallet lets an AI agent trade for me safely
 - ERC-8196 agent policy / verifiable AI trading agent
+- what is x402 / x402 payment protocol  <!-- promoted by Travis 2026-08-28 for the 9/2 post -->
 
 ## Proposed (agent may append; Travis promotes)
 (none yet)
