@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ERC-8196 in production: how Swop polices its trading agent — Swop</title>
+<meta name="description" content="ERC-8196 standardizes policy-bound AI agent wallets. Here's how Swop's trading agent runs under an ERC-8196-inspired policy layer — versioned policies, EIP-712 owner signatures, and a hash-chained audit log.">
+<link rel="canonical" href="https://www.swopme.co/blog/erc-8196-agent-policy">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="ERC-8196 in production: how Swop polices its trading agent">
+<meta property="og:description" content="An AI agent that trades needs rules it can't rewrite. How Swop applies ERC-8196's ideas to its trading agent: versioned policies, owner signatures, and a tamper-evident audit log.">
+<meta property="og:url" content="https://www.swopme.co/blog/erc-8196-agent-policy">
+<meta property="og:image" content="https://www.swopme.co/blog/erc-8196-agent-policy/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-08-31">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/erc-8196-agent-policy/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="ERC-8196 in production: how Swop polices its trading agent">
+<meta name="twitter:description" content="An AI agent that trades needs rules it can't rewrite.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "ERC-8196 in production: how Swop polices its trading agent",
+  "description": "ERC-8196 standardizes policy-bound AI agent wallets. How Swop's trading agent runs under an ERC-8196-inspired policy layer — versioned policies, EIP-712 owner signatures, and a hash-chained audit log.",
+  "datePublished": "2026-08-31",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/erc-8196-agent-policy"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is ERC-8196?", "acceptedAnswer": {"@type": "Answer", "text": "ERC-8196 is a finalized Ethereum standard for AI-agent-authenticated wallets: a wallet that executes an agent's transaction only when it comes with verifiable proof that the action complies with a policy the asset owner defined. Policies cover allowed actions, contract allowlists, value caps, and time windows; actions are bound to a specific policy with EIP-712 typed signatures, and activity is written to a hash-chained audit trail."},
+    {"@type": "Question", "name": "Does Swop implement ERC-8196 exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Swop's trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee."},
+    {"@type": "Question", "name": "Can the policy layer lock me out of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out."},
+    {"@type": "Question", "name": "Does Swop's agent hold my keys?", "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them."},
+    {"@type": "Question", "name": "Is the policy layer enforcing today?", "acceptedAnswer": {"@type": "Answer", "text": "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows."}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Engineering</span></div>
+<h1 class="tight">ERC-8196 in production: how Swop polices its trading agent</h1>
+<p class="art-dek">An AI agent that trades needs rules it cannot rewrite. Here is the standard that defines those rules, and how Swop applies its ideas in production.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><span class="nm">Swop Team</span><span class="sep"></span><span class="mono">Aug 31, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=ERC-8196%20in%20production%20on%20Swop&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ferc-8196-agent-policy" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=ERC-8196%20in%20production%20on%20Swop&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ferc-8196-agent-policy" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What ERC-8196 standardizes</a>
+<a href="#s2">Why an agent needs a policy layer</a>
+<a href="#s3">How Swop applies it</a>
+<a href="#s4">What the policy can never do</a>
+<a href="#s5">Where it stands today</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>ERC-8196 is a finalized Ethereum standard for AI-agent-authenticated wallets: a wallet that will execute an agent's transaction only when it arrives with verifiable proof that the action complies with a policy the asset owner defined. Swop's trading agent runs under an ERC-8196-inspired policy layer in production — each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. This post explains what the standard says, what we adopted from it, and where our implementation is honest about differing.</p>
+
+<h2 id="s1">What ERC-8196 standardizes</h2>
+<p>The standard (<a href="https://eips.ethereum.org/EIPS/eip-8196" target="_blank" rel="noopener">EIP-8196</a>, Standards Track, status Final) defines a policy structure and the cryptography that binds an agent to it. A policy spells out what an agent may do: allowed actions, contract allowlists and blocklists, per-transaction value caps, and time windows in which the delegation is valid. Agent actions are bound to a specific policy through EIP-712 typed signatures carrying the policy's hash, so an action under one policy cannot be replayed under another.</p>
+<p>Two pieces matter most for anyone evaluating agent wallets. First, the policy is the owner's artifact — the agent operates inside it and cannot expand it. Second, the standard mandates a hash-chained audit trail: every entry carries the hash of the previous one, so a record that has been deleted or edited after the fact is detectable by anyone replaying the chain.</p>
+
+<h2 id="s2">Why an agent needs a policy layer</h2>
+<p>An agent that can propose trades is a convenience. An agent whose boundaries exist only in its prompt is a liability — prompts drift, models update, and "the agent decided to" is not an acceptable root cause when money moved. The point of a policy layer is that the boundary lives outside the agent, in a place the agent cannot reach, and that every decision the boundary makes leaves a record neither the agent nor the operator can quietly rewrite.</p>
+<p class="pull">The boundary has to live outside the agent, in a place the agent cannot reach.</p>
+<p>This is the same design conclusion we shipped with <a href="/blog/agentic-trading-is-live">agentic trading</a>: Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. The policy layer extends that from the signing moment backward into everything the agent is allowed to even propose and route for signing.</p>
+
+<h2 id="s3">How Swop applies it</h2>
+<p>Swop's implementation is ERC-8196-inspired rather than a byte-for-byte implementation of the interface, and the differences are deliberate:</p>
+<ul>
+<li><strong>Versioned policies per vault.</strong> Each vault carries a versioned policy. The standard identifies policies by immutable hash; we keep the hash binding and add explicit versioning so a vault's policy history reads as a sequence, not a pile of hashes.</li>
+<li><strong>Owner signatures to expand authority.</strong> Expanding a policy's authority requires the owner's EIP-712 signature. Narrowing it does not — reducing what the agent may do never needs ceremony.</li>
+<li><strong>A per-vault hash-chained audit log.</strong> Every enforcement decision — allowed, flagged, or blocked — is appended to the vault's chain, exactly in the standard's tamper-evident spirit.</li>
+</ul>
+<div class="note"><span class="k">Honest framing</span>Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee. ERC-8196 describes wallets that verify policy proofs on-chain; our enforcement point is our infrastructure, and the audit chain is what makes us accountable to it.</div>
+
+<h2 id="s4">What the policy can never do</h2>
+<p>A policy layer that can strand your funds is worse than no policy layer. So one rule sits above every policy, in every version, and cannot be configured away: risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out.</p>
+<p>The policy constrains what the agent may start, never what the owner may stop. If the two ever seem to conflict, the exit wins.</p>
+
+<h2 id="s5">Where it stands today</h2>
+<p>The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows. Shadow mode means the layer evaluates every agent action against the vault's policy and writes its verdict to the audit chain without yet blocking — so by the time enforcement turns on, the decision history already exists to check it against.</p>
+<p>Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>What is ERC-8196?</h3>
+<p>A finalized Ethereum standard for AI-agent-authenticated wallets: transactions execute only with verifiable proof they comply with an owner-defined policy — allowed actions, contract allowlists, value caps, time windows — bound by EIP-712 signatures and recorded in a hash-chained audit trail.</p>
+<h3>Does Swop implement ERC-8196 exactly?</h3>
+<p>No — and we say so. Swop's trading agent runs under an ERC-8196-inspired policy layer: versioned per-vault policies, EIP-712 owner signatures to expand authority, and a per-vault hash-chained audit log, enforced at Swop's backend signing seam rather than on-chain.</p>
+<h3>Can the policy layer lock me out of my funds?</h3>
+<p>No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out.</p>
+<h3>Does Swop's agent hold my keys?</h3>
+<p>No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.</p>
+<h3>Is the policy layer enforcing today?</h3>
+<p>It shipped Aug 28, 2026 in shadow (observe-and-log) mode while it soaks; enforcement mode follows.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm">Swop Team</div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/erc-8196-agent-policy').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
