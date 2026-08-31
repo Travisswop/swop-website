@@ -101,7 +101,11 @@ async function listAllContacts(key, audienceId) {
   );
   for await (const u of cur) {
     const e = u.email.toLowerCase().trim();
-    if (deleted.has(e) || eligible.has(e)) continue;
+    if (eligible.has(e)) continue;
+    // An ACTIVE account wins over old deleteusers tombstones: users who deleted
+    // and later re-signed up (e.g. travis@swopme.co, 6 stale tombstones) stay
+    // subscribed. Only emails with no active privy user remain excluded.
+    // (deleted.has(e) is intentionally not checked here.)
     // Skip internal test signups: plus-aliased swopme.co addresses (travis+test22@ etc.)
     // all land in the same real inbox and triple-deliver broadcasts.
     if (/^[^@]+\+[^@]*@swopme\.co$/.test(e)) continue;
@@ -160,7 +164,7 @@ async function listAllContacts(key, audienceId) {
 
   const existing = await listAllContacts(key, audienceId);
   const toAdd = [...eligible].filter(([e]) => !existing.has(e));
-  const toRemove = [...existing.keys()].filter((e) => deleted.has(e));
+  const toRemove = [...existing.keys()].filter((e) => deleted.has(e) && !eligible.has(e));
   const unsubscribed = [...existing.values()].filter((c) => c.unsubscribed).length;
 
   if (DRY) {
