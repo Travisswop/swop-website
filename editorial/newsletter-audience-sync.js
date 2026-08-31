@@ -102,6 +102,9 @@ async function listAllContacts(key, audienceId) {
   for await (const u of cur) {
     const e = u.email.toLowerCase().trim();
     if (deleted.has(e) || eligible.has(e)) continue;
+    // Skip internal test signups: plus-aliased swopme.co addresses (travis+test22@ etc.)
+    // all land in the same real inbox and triple-deliver broadcasts.
+    if (/^[^@]+\+[^@]*@swopme\.co$/.test(e)) continue;
     const parts = String(u.name || '').trim().split(/\s+/);
     eligible.set(e, { firstName: parts[0] || '', lastName: parts.slice(1).join(' ') });
   }
