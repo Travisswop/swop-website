@@ -32,6 +32,13 @@ The 8 daily steps. Every routine run and every human review checks against this 
    adaptation of the article, allowed tags only, canonical link at the end) and run
    `cd ../swop-app-backend && node ../swop-website/editorial/smartsite-publish.js <spec>`
 
+## Calendar mirror (cloud drafter workaround)
+The cloud drafting sandbox cannot reach beachhead.swopme.co (egress policy), so
+the drafter reads `editorial/calendar-mirror.json` — a read-only snapshot of the
+blog channel. ANY session that edits the Beachhead calendar must immediately run
+`MARKETING_TOKEN=... editorial/refresh-calendar-mirror.sh` and commit+push the
+updated mirror. The live calendar stays the source of truth.
+
 ## Banner style (og.html) — "clickable thumbnail", not a text card
 Travis's standing direction (2026-08-28): banners should look like a high-CTR
 thumbnail, not a quiet title card. Reference: `blog/gasless-crypto-wallet/og.html`.
