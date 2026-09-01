@@ -59,12 +59,12 @@
     {
       "@type": "Question",
       "name": "What happens if I lose my phone?",
-      "acceptedAnswer": {"@type": "Answer", "text": "As with any self-custodial wallet, the key that controls your funds lives on your device, so losing that device without a backup in place means losing access — no company holds a spare copy to restore from. [NEEDS FACT: Swop's specific device-backup or recovery flow] — check Swop's own support documentation for the current backup steps before you rely on a single device."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose — the key is yours, not Swop's. That said, an exported private key is only as safe as wherever you store it, so treat it like cash."}
     },
     {
       "@type": "Question",
       "name": "Has Swop been audited by a third party?",
-      "acceptedAnswer": {"@type": "Answer", "text": "[NEEDS FACT: third-party security audit status and report link]. What is verifiable today: Swop's agent policy layer writes every enforcement decision to a per-vault hash-chained audit log, and enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — which makes any violation provable after the fact, though it is not an on-chain guarantee."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Swop has not commissioned a third-party security audit to date — we'd rather say that plainly than imply otherwise. What is verifiable today: Swop's agent policy layer writes every enforcement decision to a per-vault hash-chained audit log, and enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — which makes any violation provable after the fact, though it is not an on-chain guarantee."}
     }
   ]
 }
@@ -127,7 +127,7 @@
 <p>It's worth being precise about what this guarantees and what it doesn't. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee. That's an honest tradeoff, not a marketing gap: the policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks, with enforcement mode following once that data confirms the rules behave as intended.</p>
 
 <h2 id="s5">What to verify yourself</h2>
-<p>Don't take a wallet's own safety claims at face value — verify what you can independently. Swop is available on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a> and <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and as a web app at <a class="link" href="https://swopme.app">swopme.app</a>; Swop is rated 5.0 out of 5 on the <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS App Store</a>, which you can check directly on the listing. For deeper technical questions — key storage specifics, backup and recovery flows, or [NEEDS FACT: third-party security audit status and report link] — the authoritative source is <a class="link" href="https://support.swop.id">Swop's support documentation</a>, not this post; docs get updated more often than a blog article should be trusted to track.</p>
+<p>Don't take a wallet's own safety claims at face value — verify what you can independently. Swop is available on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a> and <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and as a web app at <a class="link" href="https://swopme.app">swopme.app</a>; Swop is rated 5.0 out of 5 on the <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS App Store</a>, which you can check directly on the listing. For deeper technical questions — key storage specifics or backup and recovery flows — the authoritative source is <a class="link" href="https://support.swop.id">Swop's support documentation</a>, not this post; docs get updated more often than a blog article should be trusted to track.</p>
 <p>The general rule holds for any wallet, not just Swop: "self-custodial" and "audited" and "the AI can't move funds alone" are three separate claims. Check each one on its own terms before deciding a wallet is safe for what you intend to do with it.</p>
 
 <h2 id="faq">FAQ</h2>
@@ -138,9 +138,9 @@
 <h3>Does Swop's AI agent trade on its own?</h3>
 <p>No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Agent-initiated transactions additionally run under a policy layer, but the approval step is the same one every manual transaction goes through.</p>
 <h3>What happens if I lose my phone?</h3>
-<p>As with any self-custodial wallet, the key that controls your funds lives on your device, so losing that device without a backup in place means losing access — no company holds a spare copy to restore from. [NEEDS FACT: Swop's specific device-backup or recovery flow] — check Swop's own support documentation for the current backup steps before you rely on a single device.</p>
+<p>Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose — the key is yours, not Swop's. That said, an exported private key is only as safe as wherever you store it, so treat it like cash.</p>
 <h3>Has Swop been audited by a third party?</h3>
-<p>[NEEDS FACT: third-party security audit status and report link]. What is verifiable today: Swop's agent policy layer writes every enforcement decision to a per-vault hash-chained audit log, and enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — which makes any violation provable after the fact, though it is not an on-chain guarantee.</p>
+<p>Swop has not commissioned a third-party security audit to date — we'd rather say that plainly than imply otherwise. What is verifiable today: Swop's agent policy layer writes every enforcement decision to a per-vault hash-chained audit log, and enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — which makes any violation provable after the fact, though it is not an on-chain guarantee.</p>
 
 <div class="art-end">
 <span class="ini">ST</span>
