@@ -64,7 +64,7 @@
     {
       "@type": "Question",
       "name": "Does Swop use x402?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Swop doesn't currently implement x402. Swop's AI trading agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — a human-in-the-loop confirmation model, which is a different design choice from x402's machine-to-machine, fully autonomous payment flow. Both are ways of giving software access to money; they solve for different amounts of autonomy."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes — on the commerce side. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. Swop's AI trading agent is the deliberate opposite: it proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Selling to autonomous buyers, but keeping a human in the loop when it's your own money moving."}
     }
   ]
 }
@@ -86,7 +86,7 @@
 <div class="wrap">
 <div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
 <h1 class="tight">What is x402? The payment protocol for AI agents</h1>
-<p class="art-dek">A status code from 1997 that nobody used, repurposed to let software pay for an API call in a single HTTP round trip. Here's the mechanism, and how it differs from how Swop's own agent handles money.</p>
+<p class="art-dek">A status code from 1997 that nobody used, repurposed to let software pay for an API call in a single HTTP round trip. Here's the mechanism — and where Swop already runs it in production.</p>
 <div class="art-meta">
 <span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Sep 2, 2026</span><span class="sep"></span><span class="mono">Updated Sep 2, 2026</span><span class="sep"></span><span class="mono">6 min read</span></span>
 <span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=What%20is%20x402%3F%20The%20payment%20protocol%20for%20AI%20agents&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhat-is-x402" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=What%20is%20x402%3F%20The%20payment%20protocol%20for%20AI%20agents&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhat-is-x402" target="_blank" rel="noopener">Farcaster</a></span>
@@ -130,8 +130,8 @@
 <p>x402 solves the payment plumbing — proving a specific payment happened for a specific request, without an account. It does not decide what an agent should buy, verify that the resource matches what was advertised, or provide any dispute process once a payment settles; those remain problems for whatever is built on top of it.</p>
 
 <h2 id="s5">Where Swop fits</h2>
-<p>Swop doesn't currently implement x402. Swop's AI agent model is built around a different tradeoff: <a class="link" href="/blog/agentic-trading-is-live">Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.</a> x402's whole premise is the opposite end of that spectrum — a fully machine-to-machine payment with no human in the loop at all, which is the right design for a $0.001 API call and the wrong one for a trade that moves your position.</p>
-<p>The two aren't competing for the same job. x402 is a protocol for paying for a resource; Swop's agent is a decision-support layer that still asks before it acts. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon, on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>.</p>
+<p>Swop implements x402 where it makes sense: commerce. Every SmartSite is an x402 storefront — any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. An agent that discovers a product on a swop.id page can complete the purchase in the same HTTP flow described above, no account or checkout form involved.</p>
+<p>Swop's AI <em>trading</em> agent is the deliberate opposite end of the autonomy spectrum: <a class="link" href="/blog/agentic-trading-is-live">Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.</a> Full machine autonomy is the right design for buying a product or a $0.01 API call, and the wrong one for a trade that moves your position. Swop ships both, on the side of the transaction where each belongs. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon, on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>.</p>
 
 <h2 id="faq">FAQ</h2>
 <h3>What does the "402" in x402 mean?</h3>
@@ -143,7 +143,7 @@
 <h3>Who created x402, and who maintains it now?</h3>
 <p>Coinbase released x402 as an open, permissionless protocol in May 2025. It's since moved to independent, multi-party governance under the x402 Foundation, operating within the Linux Foundation, so no single company controls the spec going forward.</p>
 <h3>Does Swop use x402?</h3>
-<p>Swop doesn't currently implement x402. Swop's AI trading agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — a human-in-the-loop confirmation model, which is a different design choice from x402's machine-to-machine, fully autonomous payment flow. Both are ways of giving software access to money; they solve for different amounts of autonomy.</p>
+<p>Yes — on the commerce side. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. Swop's AI trading agent is the deliberate opposite: it proposes; you approve. Nothing signs without a tap, and the agent never holds keys — selling to autonomous buyers, while keeping a human in the loop when it's your own money moving.</p>
 
 <div class="art-end">
 <span class="ini">ST</span>
