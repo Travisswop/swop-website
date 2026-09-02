@@ -8,8 +8,8 @@
    "t": "What is x402? The payment protocol for AI agents, explained",
    "k": "content",
    "ch": "blog",
-   "note": "Blog · definition · query: what is x402 / x402 payment protocol · educational explainer; no Swop-supports-x402 claims unless a Verified FACTS.md row exists · PR: https://github.com/Travisswop/swop-website/pull/10 · reviewed 9/2, ready to merge",
-   "done": false
+   "note": "Blog · definition · query: what is x402 / x402 payment protocol · educational explainer; no Swop-supports-x402 claims unless a Verified FACTS.md row exists · PR: https://github.com/Travisswop/swop-website/pull/10 · reviewed 9/2, ready to merge · published 9/2 (PR #10)",
+   "done": true
   },
   {
    "id": "cb004",
@@ -49,7 +49,7 @@
   },
   {
    "id": "cb007",
-   "d": "2026-09-08",
+   "d": "2026-09-09",
    "t": "USDC vs USDC.e vs pUSD: stablecoin naming, demystified",
    "k": "content",
    "ch": "blog",
@@ -58,7 +58,7 @@
   },
   {
    "id": "cb008",
-   "d": "2026-09-09",
+   "d": "2026-09-10",
    "t": "Perps funding rates, explained like you're new here",
    "k": "content",
    "ch": "blog",
@@ -67,7 +67,7 @@
   },
   {
    "id": "cb009",
-   "d": "2026-09-10",
+   "d": "2026-09-11",
    "t": "What is a SmartSite: a link-in-bio that settles money",
    "k": "content",
    "ch": "blog",
@@ -76,7 +76,7 @@
   },
   {
    "id": "cb010",
-   "d": "2026-09-11",
+   "d": "2026-09-14",
    "t": "AI agents and your wallet: a safety checklist",
    "k": "content",
    "ch": "blog",
