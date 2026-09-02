@@ -12,21 +12,21 @@
    "done": true
   },
   {
-   "id": "cb004",
+   "id": "cb013",
    "d": "2026-09-03",
+   "t": "Your link-in-bio is now a store AI agents can buy from",
+   "k": "content",
+   "ch": "blog",
+   "note": "Blog · definition · query: crypto link in bio / web3 link in bio · x402 storefront angle; FACTS row verified 9/2; follow-up to /blog/what-is-x402",
+   "done": false
+  },
+  {
+   "id": "cb004",
+   "d": "2026-09-04",
    "t": "Tap to Pay with crypto: in-person payments, step by step",
    "k": "content",
    "ch": "blog",
    "note": "Blog · how-to · query: crypto tap to pay",
-   "done": false
-  },
-  {
-   "id": "cb005",
-   "d": "2026-09-04",
-   "t": "How to send crypto with a link (no address needed)",
-   "k": "content",
-   "ch": "blog",
-   "note": "Blog · how-to · query: send crypto with a link",
    "done": false
   },
   {
@@ -81,6 +81,15 @@
    "k": "content",
    "ch": "blog",
    "note": "Blog · definition · query: what wallet lets an AI agent trade for me safely",
+   "done": false
+  },
+  {
+   "id": "cb005",
+   "d": "2026-09-15",
+   "t": "How to send crypto with a link (no address needed)",
+   "k": "content",
+   "ch": "blog",
+   "note": "Blog · how-to · query: send crypto with a link",
    "done": false
   }
  ]
