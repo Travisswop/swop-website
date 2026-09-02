@@ -2,6 +2,10 @@
 
 The ONLY numbers and claims the writer may state about Swop. Anything not on this list
 gets a `[NEEDS FACT: description]` marker in the draft instead of a made-up value.
+**Negative claims count too:** never assert Swop LACKS or "doesn't implement/support"
+something unless a Verified row says so — absence of a row is not evidence of absence
+(a post shipped 2026-09-02 wrongly claiming "Swop doesn't implement x402" when every
+SmartSite is an x402 storefront). Unknown either way → [NEEDS FACT] marker.
 Each row has a source and a verified-on date. Travis adds/verifies rows; the agent never does.
 
 ## Verified
