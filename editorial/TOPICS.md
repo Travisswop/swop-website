@@ -20,6 +20,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Drafted (in review)
 
+- definition | What is x402? The payment protocol for AI agents | what is x402 / x402 payment protocol | blog/what-is-x402 (from Beachhead calendar item cb012, not previously in this file)
 - definition | Is Swop safe? How self-custody and signing work on Swop | is Swop safe | blog/is-swop-safe
 - comparison | Swop vs Phantom: which Solana wallet fits you | Swop vs Phantom | blog/swop-vs-phantom
 - definition | What is a self-custody wallet (and why it matters) | best self-custody wallet for Solana | blog/self-custody-wallet-solana

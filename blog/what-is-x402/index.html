@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>What Is x402? The Payment Protocol for AI Agents</title>
+<meta name="description" content="x402 is an open protocol that lets software pay for API access over HTTP using stablecoins — no accounts, API keys, or credit cards. Here's how it works.">
+<link rel="canonical" href="https://www.swopme.co/blog/what-is-x402">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="What Is x402? The Payment Protocol for AI Agents">
+<meta property="og:description" content="A dormant HTTP status code, revived. Here's how x402 lets an AI agent pay for a resource in one request-response cycle, with no account or checkout form.">
+<meta property="og:url" content="https://www.swopme.co/blog/what-is-x402">
+<meta property="og:image" content="https://www.swopme.co/blog/what-is-x402/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-09-02">
+<meta property="article:modified_time" content="2026-09-02">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/what-is-x402/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="What Is x402? The Payment Protocol for AI Agents">
+<meta name="twitter:description" content="How a 1997 HTTP status code became the way AI agents pay for API access — no accounts, no checkout forms.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is x402? The Payment Protocol for AI Agents",
+  "description": "x402 is an open protocol that lets software pay for API access over HTTP using stablecoins — no accounts, API keys, or credit cards. Here's how it works.",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/what-is-x402"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does the \"402\" in x402 mean?",
+      "acceptedAnswer": {"@type": "Answer", "text": "402 is an HTTP status code — Payment Required — that was reserved in the original HTTP/1.1 specification but never standardized or used in practice. x402 is the name of the protocol that finally puts that status code to work: a server returns 402 to say a resource requires payment before it will respond, instead of the request just failing or requiring a manual account setup."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account or API key to use x402?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No — that's the specific problem x402 is designed to remove. A client (typically an AI agent or another piece of software) constructs and signs a stablecoin payment authorization on the fly and attaches it to the retried request. There's no signup form, stored credit card, or provisioned API key involved in the payment step itself."}
+    },
+    {
+      "@type": "Question",
+      "name": "What currency does x402 use, and on which blockchain?",
+      "acceptedAnswer": {"@type": "Answer", "text": "x402 payments are typically made in a stablecoin such as USDC. Coinbase's original implementation launched on Base, but x402 is chain-agnostic by design, and other networks — including Solana — have since shipped support. The specific chain and asset a given resource accepts are stated in that server's 402 response, not fixed by the protocol."}
+    },
+    {
+      "@type": "Question",
+      "name": "Who created x402, and who maintains it now?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Coinbase released x402 as an open, permissionless protocol in May 2025. It's since moved to independent, multi-party governance under the x402 Foundation, operating within the Linux Foundation, so no single company controls the spec going forward."}
+    },
+    {
+      "@type": "Question",
+      "name": "Does Swop use x402?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Swop doesn't currently implement x402. Swop's AI trading agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — a human-in-the-loop confirmation model, which is a different design choice from x402's machine-to-machine, fully autonomous payment flow. Both are ways of giving software access to money; they solve for different amounts of autonomy."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">What is x402? The payment protocol for AI agents</h1>
+<p class="art-dek">A status code from 1997 that nobody used, repurposed to let software pay for an API call in a single HTTP round trip. Here's the mechanism, and how it differs from how Swop's own agent handles money.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Sep 2, 2026</span><span class="sep"></span><span class="mono">Updated Sep 2, 2026</span><span class="sep"></span><span class="mono">6 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=What%20is%20x402%3F%20The%20payment%20protocol%20for%20AI%20agents&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhat-is-x402" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=What%20is%20x402%3F%20The%20payment%20protocol%20for%20AI%20agents&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhat-is-x402" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What x402 actually is</a>
+<a href="#s2">How the payment flow works</a>
+<a href="#s3">Why this matters for AI agents</a>
+<a href="#s4">Where it's live, and what it doesn't solve</a>
+<a href="#s5">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>x402 is an open payment protocol that lets a piece of software — an AI agent, a script, or another server — pay for access to an API or a piece of content directly over HTTP, using the dormant "402 Payment Required" status code instead of a login, an API key, or a stored credit card. A server that wants payment responds to a request with 402 and a machine-readable description of what it costs; the client signs a stablecoin payment authorization and retries the request, and a third party called a facilitator verifies and settles it on-chain before the server hands back the resource. Coinbase released x402 in May 2025, and it's since moved to open, multi-party governance under the x402 Foundation.</p>
+
+<h2 id="s1">What x402 actually is</h2>
+<p>HTTP has had a "402 Payment Required" status code since the original HTTP/1.1 specification in the late 1990s. It was explicitly reserved "for future use" and then never actually used — every browser and server treats a paywall the way it always has, with a redirect to a signup page or a 403 Forbidden. x402 is the protocol that finally does something with that reserved code: instead of blocking a request outright, a server can respond 402 and say, in a structured way, exactly what it costs to get the resource, in what asset, on what network, and to which address.</p>
+<p>That matters because a paywall built for humans assumes a human is there to see it — to read a pricing page, enter a card number, and wait for a receipt. Software making thousands of API calls a day has no interface for that. x402 turns "pay to continue" into something a program can parse and act on in the same request cycle that hit the paywall in the first place, without a separate account or subscription being provisioned in advance.</p>
+
+<h2 id="s2">How the payment flow works</h2>
+<p>The exchange runs in four steps, all within ordinary HTTP:</p>
+<ul>
+<li><strong>Request.</strong> The client asks for a resource — an API endpoint, a dataset, a piece of content — exactly as it would with no payment involved.</li>
+<li><strong>402 response.</strong> If the resource is paid, the server responds with a 402 status and payment requirements: the price, the accepted asset (typically a stablecoin like USDC), and the chain and address to pay it on.</li>
+<li><strong>Signed retry.</strong> The client constructs a payment authorization — on EVM chains this is built on the <a class="link" href="https://eips.ethereum.org/EIPS/eip-3009">EIP-3009 "transferWithAuthorization"</a> standard — signs it locally, and retries the original request with the signed payload attached as a header.</li>
+<li><strong>Verification and settlement.</strong> A facilitator checks the signature, confirms the payer has sufficient balance, and guards against the payload being replayed, then submits the transaction on-chain. Once it settles, the server returns the resource the client originally asked for.</li>
+</ul>
+<div class="note"><span class="k">What a facilitator can't do</span>A facilitator exists to spare a resource server from running blockchain infrastructure directly — it verifies and broadcasts, and in most implementations it also covers the network gas fee. It cannot redirect the payment to a different address or change the amount; those are fixed by the client's signature before the facilitator ever sees the payload.</div>
+
+<h2 id="s3">Why this matters for AI agents</h2>
+<p>An AI agent that reads market data, calls a research API, or pulls from a paid dataset needs a way to pay per request without a person filling out a checkout form for every call. Subscriptions and provisioned API keys work when a human sets them up ahead of time for a known set of services, but they break down for an agent that discovers a new resource mid-task and needs to pay for exactly one call to it. x402 collapses "discover the price, agree to it, and pay" into the same HTTP exchange that would otherwise have just failed with an error, which is what makes it a fit for machine-to-machine commerce specifically rather than a general checkout replacement.</p>
+
+<h2 id="s4">Where it's live, and what it doesn't solve</h2>
+<p>x402 shipped as a <a class="link" href="https://www.coinbase.com/developer-platform/discover/launches/x402">Coinbase project in May 2025</a> and was <a class="link" href="https://www.linuxfoundation.org/press/linux-foundation-announces-operational-launch-of-x402-foundation-to-standardize-internet-native-payments-for-ai-agents-and-applications">handed to independent governance</a> under the x402 Foundation, operating within the Linux Foundation — a deliberate move away from single-company control of the spec. At the foundation's operational launch on July 14, 2026, 40 organizations had joined, with AWS, Cloudflare, Coinbase, Google, Mastercard, Shopify, Solana Foundation, Stripe, and Visa among the premier members. Working implementations you can point at today include <a class="link" href="https://blog.cloudflare.com/x402/">Cloudflare's Agents SDK and MCP servers</a>, Stripe's Machine Payments preview, x402 support at the edge in AWS CloudFront and WAF, and <a class="link" href="https://docs.coingecko.com/ai-integration/x402">CoinGecko's paid data endpoints</a>, which charge a flat $0.01 in USDC per API call with no account or key.</p>
+<p>x402 solves the payment plumbing — proving a specific payment happened for a specific request, without an account. It does not decide what an agent should buy, verify that the resource matches what was advertised, or provide any dispute process once a payment settles; those remain problems for whatever is built on top of it.</p>
+
+<h2 id="s5">Where Swop fits</h2>
+<p>Swop doesn't currently implement x402. Swop's AI agent model is built around a different tradeoff: <a class="link" href="/blog/agentic-trading-is-live">Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.</a> x402's whole premise is the opposite end of that spectrum — a fully machine-to-machine payment with no human in the loop at all, which is the right design for a $0.001 API call and the wrong one for a trade that moves your position.</p>
+<p>The two aren't competing for the same job. x402 is a protocol for paying for a resource; Swop's agent is a decision-support layer that still asks before it acts. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon, on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>What does the "402" in x402 mean?</h3>
+<p>402 is an HTTP status code — Payment Required — that was reserved in the original HTTP/1.1 specification but never standardized or used in practice. x402 is the name of the protocol that finally puts that status code to work: a server returns 402 to say a resource requires payment before it will respond, instead of the request just failing or requiring a manual account setup.</p>
+<h3>Do I need an account or API key to use x402?</h3>
+<p>No — that's the specific problem x402 is designed to remove. A client (typically an AI agent or another piece of software) constructs and signs a stablecoin payment authorization on the fly and attaches it to the retried request. There's no signup form, stored credit card, or provisioned API key involved in the payment step itself.</p>
+<h3>What currency does x402 use, and on which blockchain?</h3>
+<p>x402 payments are typically made in a stablecoin such as USDC. Coinbase's original implementation launched on Base, but x402 is chain-agnostic by design, and other networks — including Solana — have since shipped support. The specific chain and asset a given resource accepts are stated in that server's 402 response, not fixed by the protocol.</p>
+<h3>Who created x402, and who maintains it now?</h3>
+<p>Coinbase released x402 as an open, permissionless protocol in May 2025. It's since moved to independent, multi-party governance under the x402 Foundation, operating within the Linux Foundation, so no single company controls the spec going forward.</p>
+<h3>Does Swop use x402?</h3>
+<p>Swop doesn't currently implement x402. Swop's AI trading agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — a human-in-the-loop confirmation model, which is a different design choice from x402's machine-to-machine, fully autonomous payment flow. Both are ways of giving software access to money; they solve for different amounts of autonomy.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/what-is-x402').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
