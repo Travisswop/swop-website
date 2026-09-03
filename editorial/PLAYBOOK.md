@@ -31,6 +31,10 @@ The 8 daily steps. Every routine run and every human review checks against this 
 5. Cross-publish to the SmartSite Blog tab: author a spec JSON (SmartSite-length
    adaptation of the article, allowed tags only, canonical link at the end) and run
    `cd ../swop-app-backend && node ../swop-website/editorial/smartsite-publish.js <spec>`
+6. Share the blog into the Swop feed (Travis's request, 2026-09-03): run
+   `cd ../swop-app-backend && node ../swop-website/editorial/feed-share-blog.js "<title substring>" "<caption>"`
+   — creates the composer-equivalent blogCard post; it no-ops if the blog was
+   already shared (dedupe by blogId).
 
 ## Calendar mirror (cloud drafter workaround)
 The cloud drafting sandbox cannot reach beachhead.swopme.co (egress policy), so
