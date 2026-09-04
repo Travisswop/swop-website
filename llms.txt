@@ -10,9 +10,11 @@
 - [Swop home](https://www.swopme.co): product overview
 - [Web app](https://swopme.app): the Swop wallet in the browser
 - [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
+- [Crypto link in bio](https://www.swopme.co/blog/crypto-link-in-bio): what a crypto link-in-bio storefront is, and how AI agents can buy from one over x402
 - [Agentic trading launch](https://www.swopme.co/blog/agentic-trading-is-live): how Swop's AI agent and its confirmation model work
 - [Self-custody wallet, explained](https://www.swopme.co/blog/self-custody-wallet-solana): what self-custody means on Solana and what to check before choosing a wallet
 - [Gasless crypto, explained](https://www.swopme.co/blog/gasless-crypto-wallet): how sponsored-transaction ("gasless") wallets actually work, and what to check before trusting one
+- [Is Swop safe?](https://www.swopme.co/blog/is-swop-safe): who holds the keys, what requires your signature, and what Swop's AI agent can and can't do without you
 - [Swop vs Phantom](https://www.swopme.co/blog/swop-vs-phantom): a neutral feature comparison — custody, chains, gas fees, in-person payments, and AI agent design
 - [Support](https://support.swop.id): help and documentation
 - [About](https://www.swopme.co/about.html): company and team
