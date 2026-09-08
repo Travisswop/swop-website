@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "What is x402? HTTP has had a \"402 Payment Required\" status code since the 90s. It was reserved for future use and then never actually used. x402 is the protocol that finally does something with it — and it's how AI agents now pay for API calls 🧵",
+    "1/ The problem it solves: a paywall built for humans assumes a human is there — to read a pricing page, type a card number, wait for a receipt. Software making thousands of API calls a day has no interface for any of that.",
+    "2/ The flow, all inside ordinary HTTP: client requests a resource → server answers 402 with the price, asset, chain and address → client signs a stablecoin payment authorization and retries with it attached → server returns the resource. No account, no API key.",
+    "3/ On EVM chains that signature is EIP-3009 transferWithAuthorization. A \"facilitator\" verifies it, checks the balance, guards against replay, and settles on-chain — usually paying the gas. It can't change the amount or the recipient; the signature fixes both.",
+    "4/ Coinbase shipped it May 2025; it now runs under the x402 Foundation inside the Linux Foundation, 40 member orgs at the July 2026 launch. Live today: Cloudflare's Agents SDK, AWS CloudFront, Stripe's Machine Payments, CoinGecko at $0.01 USDC a call with no key.",
+    "5/ Swop doesn't implement x402. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — the opposite end of the autonomy spectrum. Right for a trade, wrong for a $0.001 API call. Both explained: https://www.swopme.co/blog/what-is-x402"
+  ]
+}

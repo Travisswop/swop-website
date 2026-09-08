@@ -2,6 +2,10 @@
 
 The ONLY numbers and claims the writer may state about Swop. Anything not on this list
 gets a `[NEEDS FACT: description]` marker in the draft instead of a made-up value.
+**Negative claims count too:** never assert Swop LACKS or "doesn't implement/support"
+something unless a Verified row says so — absence of a row is not evidence of absence
+(a post shipped 2026-09-02 wrongly claiming "Swop doesn't implement x402" when every
+SmartSite is an x402 storefront). Unknown either way → [NEEDS FACT] marker.
 Each row has a source and a verified-on date. Travis adds/verifies rows; the agent never does.
 
 ## Verified
@@ -15,6 +19,9 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | App Store rating | "Swop is rated 5.0 out of 5 on the iOS App Store." (don't cite the ratings count — 35, still small; link the listing) | apps.apple.com listing | 2026-08-26 |
 | AI agent model | "Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys." | /blog/agentic-trading-is-live | 2026-08-26 |
 | Agent policy layer | "Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log." | Travis, 2026-08-28 | 2026-08-28 |
+| x402 SmartSite storefront | "Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller." | Travis, 2026-09-02 (backend v5 x402 storefront, live) | 2026-09-02 |
+| Phone loss / recovery | "Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose." | Travis, 2026-09-01 | 2026-09-01 |
+| No third-party audit (honest) | "Swop has not commissioned a third-party security audit to date." (state plainly when the topic comes up; never imply an audit exists) | Travis, 2026-09-01 | 2026-09-01 |
 | Policy exits always open | "Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out." | Travis, 2026-08-28 | 2026-08-28 |
 | Policy enforcement seam (honest framing) | "Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee." | Travis, 2026-08-28 | 2026-08-28 |
 | Policy rollout stage | "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows." | Travis, 2026-08-28 | 2026-08-28 |
