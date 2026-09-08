@@ -11,7 +11,6 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 4. definition | Prediction markets 101: how prices become probabilities | prediction market app | reading an order book; FAQ
 6. how-to | How to send crypto with a link (no address needed) | send crypto with a link | send-via-link UX walkthrough
-7. comparison | Swop vs Coinbase Wallet for everyday payments | Swop vs Coinbase Wallet | custody vs exchange-linked wallet; payments focus
 8. definition | USDC vs USDC.e vs pUSD: stablecoin naming, demystified | usdc vs usdc.e | chains and wrappers; FAQ
 9. definition | Perps funding rates, explained like you're new here | perpetual futures funding rate explained | what funding actually pays for
 10. definition | What is a SmartSite: a link-in-bio that settles money | crypto link in bio | profile + checkout + tokens
@@ -19,6 +18,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Drafted (in review)
 
+- comparison | Swop vs Coinbase Wallet for everyday payments | Swop vs Coinbase Wallet | blog/swop-vs-coinbase-wallet (from Beachhead calendar item cb006)
 - how-to | Tap to Pay with crypto: in-person payments, step by step | crypto tap to pay | blog/crypto-tap-to-pay
 - definition | Your link-in-bio is now a store AI agents can buy from | crypto link in bio / web3 link in bio | blog/crypto-link-in-bio (from Beachhead calendar item cb013, not previously in this file)
 - definition | What is x402? The payment protocol for AI agents | what is x402 / x402 payment protocol | blog/what-is-x402 (from Beachhead calendar item cb012, not previously in this file)
