@@ -18,6 +18,7 @@
 - [Is Swop safe?](https://www.swopme.co/blog/is-swop-safe): who holds the keys, what requires your signature, and what Swop's AI agent can and can't do without you
 - [Swop vs Phantom](https://www.swopme.co/blog/swop-vs-phantom): a neutral feature comparison — custody, chains, gas fees, in-person payments, and AI agent design
 - [Swop vs Coinbase Wallet](https://www.swopme.co/blog/swop-vs-coinbase-wallet): a neutral feature comparison — custody, chains, gas fees, and in-person payments
+- [USDC vs USDC.e vs pUSD](https://www.swopme.co/blog/usdc-vs-usdce): what the naming means — Circle-issued vs bridge-issued vs venue-issued dollar tokens, and why the difference matters.
 - [Support](https://support.swop.id): help and documentation
 - [About](https://www.swopme.co/about.html): company and team
 
