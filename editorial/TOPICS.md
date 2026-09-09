@@ -9,9 +9,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Up next
 
-4. definition | Prediction markets 101: how prices become probabilities | prediction market app | reading an order book; FAQ
 6. how-to | How to send crypto with a link (no address needed) | send crypto with a link | send-via-link UX walkthrough
-8. definition | USDC vs USDC.e vs pUSD: stablecoin naming, demystified | usdc vs usdc.e | chains and wrappers; FAQ
 9. definition | Perps funding rates, explained like you're new here | perpetual futures funding rate explained | what funding actually pays for
 10. definition | What is a SmartSite: a link-in-bio that settles money | crypto link in bio | profile + checkout + tokens
 11. definition | AI agents and your wallet: a safety checklist | what wallet lets an AI agent trade for me safely | checklist framing; confirmation-model post as source
@@ -26,6 +24,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 - comparison | Swop vs Phantom: which Solana wallet fits you | Swop vs Phantom | blog/swop-vs-phantom
 - definition | What is a self-custody wallet (and why it matters) | best self-custody wallet for Solana | blog/self-custody-wallet-solana
 - definition | Gasless crypto: how sponsored transactions work | gasless crypto wallet | blog/gasless-crypto-wallet
+- definition | USDC vs USDC.e vs pUSD: stablecoin naming, demystified | usdc vs usdc.e | blog/usdc-vs-usdce (from Beachhead calendar item cb007, via calendar-mirror.json)
 
 ## Published
 
