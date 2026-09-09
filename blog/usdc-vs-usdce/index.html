@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>USDC vs USDC.e vs pUSD: What's the Difference?</title>
+<meta name="description" content="USDC is Circle's native dollar token. USDC.e is a bridged copy from a third-party bridge, not Circle. pUSD is Polymarket's own 1:1-backed settlement token.">
+<link rel="canonical" href="https://www.swopme.co/blog/usdc-vs-usdce">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="USDC vs USDC.e vs pUSD: What's the Difference?">
+<meta property="og:description" content="Same $1, three different tickers. Here's who actually backs each one, and why the difference matters the moment you move money between chains.">
+<meta property="og:url" content="https://www.swopme.co/blog/usdc-vs-usdce">
+<meta property="og:image" content="https://www.swopme.co/blog/usdc-vs-usdce/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-09-09">
+<meta property="article:modified_time" content="2026-09-09">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/usdc-vs-usdce/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="USDC vs USDC.e vs pUSD: What's the Difference?">
+<meta name="twitter:description" content="Same $1, three different tickers — and three different answers to \"who's actually backing this.\"">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "USDC vs USDC.e vs pUSD: What's the Difference?",
+  "description": "USDC is Circle's native dollar token. USDC.e is a bridged copy from a third-party bridge, not Circle. pUSD is Polymarket's own 1:1-backed settlement token.",
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/usdc-vs-usdce"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is USDC.e and how is it different from USDC?",
+      "acceptedAnswer": {"@type": "Answer", "text": "USDC is minted directly by Circle through a Circle-controlled contract on each chain it supports, and is redeemable 1:1 through Circle. USDC.e is a bridged representation created by a third-party bridge, not by Circle: USDC is locked on one chain and a wrapped copy is minted on another. USDC.e exists mainly on chains where a bridge deployed dollar liquidity before Circle shipped a native version there."}
+    },
+    {
+      "@type": "Question",
+      "name": "Is USDC.e still worth $1?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It's designed to be, as long as the bridge holding the underlying USDC collateral remains solvent and uncompromised. That's the actual difference from native USDC: native USDC's backing is Circle's reserves, while USDC.e's backing is whatever bridge minted it, and a bridge exploit or insolvency is a real, historically demonstrated risk that doesn't apply to Circle-issued USDC in the same way."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is pUSD, and why did Polymarket create it?",
+      "acceptedAnswer": {"@type": "Answer", "text": "pUSD (Polymarket USD) is Polymarket's own ERC-20 settlement token on Polygon, backed 1:1 by USDC under its own smart contract. Polymarket migrated its collateral from USDC.e to pUSD on April 28, 2026, alongside a CTF Exchange V2 upgrade, to hold its own onchain-enforced backing instead of depending on a third-party bridge's. Day to day, traders still deposit and withdraw USDC; pUSD is the token that sits inside open positions in between."}
+    },
+    {
+      "@type": "Question",
+      "name": "How can I tell whether a \"USDC\" balance is native or a wrapped or venue-specific version?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Check the token's contract address, not the symbol a wallet or app displays. Circle publishes the official native USDC contract address for every chain it supports; a balance sitting at a different address with the same \"USDC\" label is a bridged or venue-issued copy, and it may not move freely off that chain or that platform without first unwrapping or redeeming it through wherever it was issued."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">USDC vs USDC.e vs pUSD: stablecoin naming, demystified</h1>
+<p class="art-dek">Same $1, three different tickers. Here's who actually backs each one, and why the difference matters the moment you try to move money between chains.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Sep 9, 2026</span><span class="sep"></span><span class="mono">Updated Sep 9, 2026</span><span class="sep"></span><span class="mono">6 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=USDC%20vs%20USDC.e%20vs%20pUSD%3A%20what%27s%20the%20difference%3F&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fusdc-vs-usdce" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=USDC%20vs%20USDC.e%20vs%20pUSD%3A%20what%27s%20the%20difference%3F&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fusdc-vs-usdce" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What USDC actually is</a>
+<a href="#s2">USDC.e: what "bridged" means</a>
+<a href="#s3">pUSD: Polymarket's own settlement token</a>
+<a href="#s4">How to tell which one you're holding</a>
+<a href="#s5">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>USDC is the dollar-pegged stablecoin Circle issues directly, redeemable 1:1 through Circle's own reserves. USDC.e is a different token: a bridged, wrapped copy of USDC created by a third-party bridge on chains where Circle hadn't yet deployed a native version, backed by whatever collateral that bridge holds rather than by Circle's reserves directly. pUSD is a third kind of dollar token again — Polymarket's own in-house settlement asset, backed 1:1 by USDC under Polymarket's own contract rather than issued by Circle or a generic bridge. All three are meant to trade at $1. Only one of them is actually issued by the company whose name is on the ticker.</p>
+
+<h2 id="s1">What USDC actually is</h2>
+<p>Circle mints USDC directly through a Circle-controlled smart contract on each chain it supports, and every native unit is meant to correspond to a dollar of reserves Circle holds at regulated custodians. Circle publishes the official contract address for native USDC on every chain it's deployed to — that address, not the "USDC" label a wallet shows you, is what actually determines whether a balance is real native USDC.</p>
+<p>Native USDC can also move chain to chain through Circle's own bridge, <a class="link" href="https://www.circle.com/blog/bridged-usdc-standard">CCTP</a>: it burns USDC on the source chain and mints new native USDC on the destination chain, with no wrapped token and no third-party bridge contract sitting in between. That matters because it's the mechanism that keeps native USDC fungible across chains — the same asset, the same backing, wherever it lands.</p>
+
+<h2 id="s2">USDC.e: what "bridged" means</h2>
+<p>Bridged USDC exists because plenty of chains built out an ecosystem before Circle deployed a native version there. A generic token bridge would lock USDC on one chain and mint a wrapped representation on the destination chain so builders had dollar liquidity on day one — that wrapped token is what typically gets labeled USDC.e. It isn't issued by Circle, and Circle doesn't back it directly: its peg depends on the bridge's own locked collateral being solvent and uncompromised, which is a materially different trust assumption than "Circle holds a dollar in reserve for every token," even though both show up in a wallet as "USDC."</p>
+<p>Getting from USDC.e back to native USDC on the same chain usually means bridging back through the same route it came from, or swapping through a venue that holds both — it isn't a 1:1 relabeling. That extra step, and the bridge-risk it carries, is the whole reason <a class="link" href="https://www.usdc.com/learn/whats-the-difference-between-usdc-and-usdce">Circle has pushed native issuance and CCTP</a> as the long-term replacement for bridged USDC on the chains where it's now available.</p>
+
+<h2 id="s3">pUSD: Polymarket's own settlement token</h2>
+<p>pUSD — short for Polymarket USD — is a third pattern again: a token issued by a single application, not a chain-bridging protocol. It's an ERC-20 token on Polygon, backed 1:1 by USDC held under Polymarket's own smart contract, with that backing enforced onchain rather than resting on an algorithmic peg or a fractional reserve. Polymarket <a class="link" href="https://help.polymarket.com/en/articles/14762452-polymarket-exchange-upgrade-april-28-2026">migrated its collateral asset from USDC.e to pUSD on April 28, 2026</a>, alongside a smart-contract upgrade to its exchange, replacing a third party's bridged token with one Polymarket backs and controls itself.</p>
+<p>Practically, this changes less than it sounds like for a trader: <a class="link" href="https://docs.polymarket.com/v2-migration">deposits and withdrawals still happen in USDC</a>, and settlement continues in native USDC. pUSD is the token that actually sits inside an open position in between — which means if you've held a Polymarket balance since the migration, part of what you're holding isn't USDC or USDC.e at all, even though the dollar amount reads the same.</p>
+
+<h2 id="s4">How to tell which one you're holding</h2>
+<p>The display label in a wallet or app is the least reliable signal — "USDC" is used loosely for all three of these. What actually distinguishes them is the contract address (on EVM chains) or mint address (on Solana) the balance lives at:</p>
+<ul>
+<li><strong>Native USDC.</strong> Sits at the address Circle publishes for that specific chain. Movable via CCTP with no wrapping involved.</li>
+<li><strong>USDC.e / bridged USDC.</strong> Sits at a bridge contract's address, distinct from Circle's. Redeeming it as native USDC generally means routing back through the same bridge, or swapping through a venue that holds both.</li>
+<li><strong>pUSD / other venue-issued dollar tokens.</strong> Sits at that venue's own contract. It typically isn't meant to circulate outside the app that issued it — it's collateral for a specific product, not a general-purpose bridged asset.</li>
+</ul>
+<div class="note"><span class="k">The one habit that avoids surprises</span>Before assuming a "$1 balance" behaves identically everywhere, check what it's actually backed by and where it can move. A dollar-denominated token that can't leave the platform it was minted on is a different asset than one that can, even when both display the same number.</div>
+
+<h2 id="s5">Where Swop fits</h2>
+<p>Swop runs on Solana, Ethereum, Base, and Polygon, and is fully self-custodial — keys are generated and held on your device; Swop never holds them. Because Swop spans multiple chains, the distinction in this post is a practical one, not just trivia: a dollar balance you hold on one chain and a dollar balance you hold on another aren't automatically the same token underneath, and moving value between chains or off Swop entirely is where that difference actually surfaces. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but that doesn't change what a given dollar token is backed by or where it can go once it leaves the chain it's on.</p>
+<p>If you use prediction markets and want the mechanics of how their prices work, see <a class="link" href="/blog/prediction-markets-101">Prediction markets 101</a>. Swop is available on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a> and <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and as a web app at <a class="link" href="https://swopme.app">swopme.app</a>.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>What is USDC.e and how is it different from USDC?</h3>
+<p>USDC is minted directly by Circle through a Circle-controlled contract on each chain it supports, and is redeemable 1:1 through Circle. USDC.e is a bridged representation created by a third-party bridge, not by Circle: USDC is locked on one chain and a wrapped copy is minted on another. USDC.e exists mainly on chains where a bridge deployed dollar liquidity before Circle shipped a native version there.</p>
+<h3>Is USDC.e still worth $1?</h3>
+<p>It's designed to be, as long as the bridge holding the underlying USDC collateral remains solvent and uncompromised. That's the actual difference from native USDC: native USDC's backing is Circle's reserves, while USDC.e's backing is whatever bridge minted it, and a bridge exploit or insolvency is a real, historically demonstrated risk that doesn't apply to Circle-issued USDC in the same way.</p>
+<h3>What is pUSD, and why did Polymarket create it?</h3>
+<p>pUSD (Polymarket USD) is Polymarket's own ERC-20 settlement token on Polygon, backed 1:1 by USDC under its own smart contract. Polymarket migrated its collateral from USDC.e to pUSD on April 28, 2026, alongside a CTF Exchange V2 upgrade, to hold its own onchain-enforced backing instead of depending on a third-party bridge's. Day to day, traders still deposit and withdraw USDC; pUSD is the token that sits inside open positions in between.</p>
+<h3>How can I tell whether a "USDC" balance is native or a wrapped or venue-specific version?</h3>
+<p>Check the token's contract address, not the symbol a wallet or app displays. Circle publishes the official native USDC contract address for every chain it supports; a balance sitting at a different address with the same "USDC" label is a bridged or venue-issued copy, and it may not move freely off that chain or that platform without first unwrapping or redeeming it through wherever it was issued.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/usdc-vs-usdce').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
