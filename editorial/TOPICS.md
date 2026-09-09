@@ -11,13 +11,13 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 4. definition | Prediction markets 101: how prices become probabilities | prediction market app | reading an order book; FAQ
 6. how-to | How to send crypto with a link (no address needed) | send crypto with a link | send-via-link UX walkthrough
-8. definition | USDC vs USDC.e vs pUSD: stablecoin naming, demystified | usdc vs usdc.e | chains and wrappers; FAQ
 9. definition | Perps funding rates, explained like you're new here | perpetual futures funding rate explained | what funding actually pays for
 10. definition | What is a SmartSite: a link-in-bio that settles money | crypto link in bio | profile + checkout + tokens
 11. definition | AI agents and your wallet: a safety checklist | what wallet lets an AI agent trade for me safely | checklist framing; confirmation-model post as source
 
 ## Drafted (in review)
 
+- definition | USDC vs USDC.e vs pUSD: stablecoin naming, demystified | usdc vs usdc.e | blog/usdc-vs-usdc-e (from Beachhead calendar item cb007)
 - comparison | Swop vs Coinbase Wallet for everyday payments | Swop vs Coinbase Wallet | blog/swop-vs-coinbase-wallet (from Beachhead calendar item cb006)
 - how-to | Tap to Pay with crypto: in-person payments, step by step | crypto tap to pay | blog/crypto-tap-to-pay
 - definition | Your link-in-bio is now a store AI agents can buy from | crypto link in bio / web3 link in bio | blog/crypto-link-in-bio (from Beachhead calendar item cb013, not previously in this file)

@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  body {
+    font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+    background: radial-gradient(120% 140% at 82% 30%, #103524 0%, #0b1512 42%, #070709 75%);
+    color:#fff; position:relative;
+  }
+  @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
+  @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
+
+  .blob { position:absolute; border-radius:50%; filter:blur(90px); opacity:.55; }
+  .b1 { width:520px; height:520px; right:-80px; top:-120px; background:#2ec27e; opacity:.28; }
+  .b2 { width:380px; height:380px; left:-120px; bottom:-160px; background:#1a6d47; opacity:.35; }
+
+  .stripes { position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(255,255,255,.025) 90px 92px); }
+
+  .wrap { position:absolute; inset:0; padding:56px 72px; display:flex; }
+
+  .left { width:660px; display:flex; flex-direction:column; justify-content:flex-start; z-index:2; }
+  .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:26px; letter-spacing:.45em; margin-bottom:24px; }
+  .kick { display:inline-flex; align-items:center; gap:12px; background:rgba(46,194,126,.14);
+    border:1.5px solid rgba(46,194,126,.6); color:#5ff0ab; font-family:'JetBrains Mono';
+    font-size:21px; font-weight:700; letter-spacing:.12em; padding:10px 20px; border-radius:999px;
+    width:max-content; margin-bottom:26px; text-transform:uppercase; }
+  .dot { width:12px; height:12px; border-radius:50%; background:#2ec27e; box-shadow:0 0 14px #2ec27e; }
+
+  h1 { font-size:98px; line-height:.98; font-weight:900; letter-spacing:-.025em;
+       text-shadow:0 8px 40px rgba(0,0,0,.6); }
+  h1 .zero { color:#5ff0ab; -webkit-text-stroke:2px #2ec27e; text-shadow:0 0 46px rgba(46,194,126,.75); }
+  .sub { margin-top:24px; font-size:28px; font-weight:700; color:rgba(255,255,255,.82); white-space:nowrap; }
+  .sub b { color:#5ff0ab; }
+
+  .right { position:absolute; right:0; top:0; width:560px; height:630px; z-index:1;
+    display:flex; align-items:center; justify-content:center; }
+  .coin {
+    width:400px; height:400px; border-radius:50%;
+    background: radial-gradient(circle at 34% 30%, #37e394, #17914f 58%, #0a5c30);
+    box-shadow: 0 0 0 14px rgba(46,194,126,.18), 0 0 120px rgba(46,194,126,.55), inset 0 -22px 60px rgba(0,0,0,.45), inset 0 20px 40px rgba(255,255,255,.28);
+    display:flex; align-items:center; justify-content:center;
+    transform:rotate(-6deg);
+  }
+  .coin span { font-size:210px; line-height:1; font-weight:900; color:#0a2a1a;
+    filter:drop-shadow(0 8px 18px rgba(0,0,0,.25)); }
+  .stamp { position:absolute; right:56px; top:118px; background:#ff2e2e; color:#fff;
+    font-weight:900; font-size:34px; padding:14px 28px; border-radius:14px; transform:rotate(-14deg);
+    box-shadow:0 12px 40px rgba(255,46,46,.45); letter-spacing:.03em; }
+  .stamp2 { position:absolute; right:36px; bottom:130px; background:rgba(0,0,0,.45); color:#5ff0ab;
+    font-family:'JetBrains Mono'; font-weight:700; font-size:24px; padding:10px 22px; border-radius:10px;
+    border:1.5px solid rgba(46,194,126,.6); transform:rotate(5deg); letter-spacing:.06em; }
+
+  .url { position:absolute; left:72px; bottom:34px; font-family:'JetBrains Mono';
+    font-size:20px; color:rgba(255,255,255,.5); letter-spacing:.06em; }
+  .cat { position:absolute; right:72px; bottom:34px; font-family:'JetBrains Mono';
+    font-size:20px; color:#5ff0ab; letter-spacing:.14em; text-transform:uppercase; }
+</style></head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="stripes"></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="logo">SWOP</div>
+      <div class="kick"><div class="dot"></div>Guides</div>
+      <h1>SAME $.<br><span class="zero">DIFFERENT</span><br>COIN.</h1>
+      <div class="sub">USDC vs <b>USDC.e</b> vs pUSD</div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="coin"><span>$</span></div>
+    <div class="stamp">COPY</div>
+    <div class="stamp2">CHECK THE CONTRACT</div>
+  </div>
+  <div class="url">swopme.co/blog</div>
+  <div class="cat">Stablecoins</div>
+</body></html>
