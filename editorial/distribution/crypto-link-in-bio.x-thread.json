@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "Your link-in-bio can now be a real store — and AI agents can buy from it directly, paying in USDC with no card, account, or checkout form. Here's how 🧵",
+    "1/ Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. No setup, no gate — add a product, you're agent-payable.",
+    "2/ Under the hood it's the x402 flow we covered yesterday: the agent hits your product URL, gets an HTTP 402 with the price, signs a USDC payment authorization, retries — and a facilitator verifies and settles on-chain before the order confirms.",
+    "3/ Why it matters: the next wave of buyers isn't people scrolling — it's agents running errands. \"Find me X under $50 and buy it\" only works if stores speak a protocol agents can pay over. Your swop.id page already does.",
+    "4/ And the human side is unchanged: Swop is fully self-custodial — keys are generated and held on your device — and sellers get paid straight on-chain, no platform holding the money in between.",
+    "5/ Set one up: add a product to your SmartSite and it's live to agents. Full walkthrough: https://www.swopme.co/blog/crypto-link-in-bio"
+  ]
+}

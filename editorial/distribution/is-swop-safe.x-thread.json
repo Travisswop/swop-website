@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "Is Swop safe? Your keys stay on your device, every transaction needs your tap to sign, and its AI agent can propose trades but never sign for you. Here's the actual safety model 🧵",
+    "1/ Self-custody, literally: Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Gas sponsorship doesn't change that: someone paying the network fee gets no control over the transaction.",
+    "2/ One approval gate for everything. Whether you start a swap or the agent proposes a trade: the agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.",
+    "3/ Lose your phone? Log in with your email on any phone and your wallet comes back with it. You can also save your private key and open your assets in any wallet you choose — the key is yours, not Swop's.",
+    "4/ The honest part: Swop has not commissioned a third-party security audit to date. What IS verifiable: every agent enforcement decision lands in a per-vault hash-chained audit log — provable after the fact, not an on-chain guarantee.",
+    "5/ \"Self-custodial,\" \"audited,\" and \"the AI can't move funds alone\" are three separate claims. Check each one. Full breakdown: https://www.swopme.co/blog/is-swop-safe"
+  ]
+}

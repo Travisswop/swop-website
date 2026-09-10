@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "An AI agent that trades your money needs rules it can't rewrite. ERC-8196 — now Final on Ethereum — standardizes exactly that. And it's running in production on Swop 🧵",
+    "1/ ERC-8196 defines agent-authenticated wallets: an agent's tx only executes with verifiable proof it complies with a policy the OWNER defined. Allowed actions, allowlists, value caps, time windows — bound with EIP-712 sigs. https://eips.ethereum.org/EIPS/eip-8196",
+    "2/ Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding its authority requires the owner's EIP-712 signature, and every enforcement decision lands in a per-vault hash-chained audit log.",
+    "3/ Being honest about the seam: enforcement happens at Swop's backend signing point — every agent tx must pass it to get signed — and the audit chain makes any violation provable. It's not an on-chain guarantee.",
+    "4/ One rule no policy can override: exits, cancels, and withdrawals back to the owner are NEVER blocked. The policy constrains what the agent may start, never what the owner may stop.",
+    "5/ Shipped Aug 28, running in shadow (observe-and-log) mode while it soaks; enforcement mode follows. Full writeup: https://www.swopme.co/blog/erc-8196-agent-policy"
+  ]
+}

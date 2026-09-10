@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "A prediction market share trading at 62¢ is the market telling you: 62% chance this happens. That's the whole trick — and once you see it, you can't unsee it 🧵",
+    "1/ Every market is a yes/no contract that settles at $1 if the event happens, $0 if it doesn't. So the price IS the implied probability. No odds formats, no vig math — 62¢ means 62%.",
+    "2/ Who sets the number? Nobody. The order book does: buyers who think the true odds are higher lift the ask, sellers who think they're lower hit the bid. Price settles where disagreement balances — a live poll where everyone pays to vote.",
+    "3/ What moves it: news, obviously — but also position sizes, resolution deadlines approaching, and traders cashing out early. A price drifting with no news is information too.",
+    "4/ The fun part: comparing prediction-market prices to sportsbook lines. Books shade lines to manage risk and take vig; prediction markets just price. Where the two diverge is where somebody's wrong.",
+    "5/ It's CPI-and-FOMC week — the entire market is one big probability repricing right now. Full guide to reading it: https://www.swopme.co/blog/prediction-markets-101"
+  ]
+}

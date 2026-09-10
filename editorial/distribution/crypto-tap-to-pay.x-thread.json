@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "Tap your phone. Settle on-chain. Crypto tap to pay uses the same NFC tech as Apple Pay — except you're spending a balance YOU hold, not a bank-linked card. How it works 🧵",
+    "1/ The tap hands your wallet a payment request: amount, asset, destination. Same radio, different rails — instead of a card network authorizing against your bank, your wallet signs a transaction from a balance you custody.",
+    "2/ You approve on your device. The signature never leaves your phone — same as any self-custodial transaction. Then it settles on-chain.",
+    "3/ The merchant side varies: some setups receive crypto straight to a wallet, others route through a card processor so the merchant gets ordinary fiat and never touches crypto. The shopper's wallet is what has to speak the protocol.",
+    "4/ Two things that usually bite first-timers: gas (most wallets need the chain's native token on top of what you're spending) and reversibility (on-chain payments are final — no chargebacks). Transactions on Swop are gas-sponsored, so the first one doesn't apply.",
+    "5/ Swop's in-person feature is SwopPay — 0.5% checkout fee, fully self-custodial, gas-sponsored, on Solana, Ethereum, Base and Polygon. Full walkthrough: https://www.swopme.co/blog/crypto-tap-to-pay"
+  ]
+}

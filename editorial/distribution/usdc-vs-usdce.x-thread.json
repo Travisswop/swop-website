@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "Three tokens on your screen all say they're worth $1: USDC, USDC.e, and pUSD. They are not the same asset, and the difference is who's holding the dollar behind it 🧵",
+    "1/ USDC is the original: issued by Circle, redeemable 1:1 out of Circle's own reserves. When you hold it, your claim is on Circle.",
+    "2/ USDC.e is a bridged copy. A third-party bridge locked real USDC on one chain and minted a wrapped version on another — created for chains where Circle hadn't deployed natively yet. Your claim is on the bridge, not on Circle. Same ticker energy, different counterparty.",
+    "3/ pUSD is a third pattern: a token issued by one application, not a bridge. It's an ERC-20 on Polygon backed 1:1 by USDC inside Polymarket's own contract — enforced onchain, no algorithmic peg. Polymarket moved its collateral from USDC.e to pUSD on Apr 28, 2026.",
+    "4/ Why it matters: these can trade at slightly different prices, need converting before some apps accept them, and carry different risk. \"$1\" is the target, not a guarantee that all three are interchangeable.",
+    "5/ Rule of thumb: check the issuer, not the ticker. Circle-issued, bridge-issued, and venue-issued dollars are three different promises. Full breakdown: https://www.swopme.co/blog/usdc-vs-usdce"
+  ]
+}
