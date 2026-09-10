@@ -73,8 +73,14 @@ thumbnail, not a quiet title card. Reference: `blog/gasless-crypto-wallet/og.htm
 - **Keep:** SWOP wordmark top-left, kicker pill, `swopme.co/blog` small at bottom.
 - **Never:** dense text, more than ~10 words total, misleading claims not backed by
   the article, off-palette rainbow colors (red is reserved for the "bad thing" prop).
+- **Required furniture, every banner** (the drafter keeps omitting these — fixed by
+  hand on 2026-09-02, 09-09 and 09-10): SWOP wordmark top-left, the kicker PILL
+  (`.kick` with the green dot) under it, hook, optional one-line subtitle, and
+  `swopme.co/blog` bottom-left. There is NO bottom-right kicker tag — if the draft
+  has a `.tagk` element, delete it.
 - Layout QA: everything inside 56–72px margins, no overlapping elements — always view
-  the rendered PNG before pushing.
+  the rendered PNG before pushing. Watch the hook/subtitle gap specifically: a 3-line
+  hook at `bottom:120px` collides with a subtitle at `bottom:110px`.
 
 ## Weekly human loop (Travis)
 - Refill `QUERIES.md` / reorder `TOPICS.md` (what are people actually asking?)

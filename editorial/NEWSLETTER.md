@@ -59,6 +59,18 @@ Also re-read the Day-ahead block each day: Macro Calendar / Court Watch / Tonigh
 Games are carried forward and go stale silently (a "today's Journal post covers it"
 line survived a week before it was noticed).
 
+## Token of the day — editorial check required
+`newsletter-market-data.js` picks the trending non-major with the largest ABSOLUTE
+24h move, so it can hand you a crash, and it applies no editorial filter at all. On
+2026-09-10 it returned a politically-charged memecoin ("Hunter Biden's Laptop",
+-63%) — do not ship that. Rules:
+- Never feature a politically charged, partisan, or offensive token name. Take the
+  next viable candidate; re-run the trending list and pick by hand if needed.
+- A faller is fine to feature, but frame it honestly as a faller — do not write a
+  crash up as momentum.
+- Best case: close a loop on a token the newsletter already covered, and say what
+  we said last time.
+
 ## Voice
 Tight, builder-first, crypto-native, zero hype. No financial advice language.
 Numbers only from checkable sources; platform stats stay [TBD] until Travis provides.
