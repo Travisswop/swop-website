@@ -35,6 +35,20 @@ The 8 daily steps. Every routine run and every human review checks against this 
    `cd ../swop-app-backend && node ../swop-website/editorial/feed-share-blog.js "<title substring>" "<caption>"`
    — creates the composer-equivalent blogCard post; it no-ops if the blog was
    already shared (dedupe by blogId).
+7. X thread: author `editorial/distribution/<slug>.x-thread.json`, dry-run then
+   `node editorial/post-to-x.js --thread <file> --live`.
+8. LinkedIn (Travis's request, 2026-09-10): write the caption to
+   `editorial/distribution/<slug>.linkedin.txt`, then
+   `cd editorial/social && node post.js --platforms linkedin --text "$(cat ../distribution/<slug>.linkedin.txt)" --live`
+   (dry-run first — omit `--live`). Put the post URL on its own last line: LinkedIn
+   builds its preview card from the page's own og:image/og:title, so the thumbnail
+   banner carries over and no `--image` is needed.
+   **LinkedIn caption register** — it is not X. No thread, no 🧵, no hook-bait.
+   3-5 short paragraphs, plain professional English, lead with the reader's problem
+   or the concrete fact, end with the link. At most one or two hashtags, or none.
+   **This posts as Travis's PERSONAL profile** (`urn:li:person:FMaENLESr2`), not the
+   Swop company Page — Page posting needs LinkedIn's Community Management API, which
+   is not set up. Write in a voice that makes sense coming from Travis personally.
 
 ## Calendar mirror (cloud drafter workaround)
 The cloud drafting sandbox cannot reach beachhead.swopme.co (egress policy), so
