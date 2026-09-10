@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "A perpetual future never expires. That's the pitch — and it creates a problem nobody explains before you're already paying for it 🧵",
+    "1/ A normal futures contract has an expiry, and expiry is what drags its price back to spot. Remove the expiry and nothing forces the perp to track the real asset anymore. It can just... drift.",
+    "2/ The fix is the funding rate: a recurring payment between traders, every few hours. Perp trading ABOVE spot? Longs pay shorts. Perp BELOW spot? Shorts pay longs. Paying to hold the crowded side is what pulls the price back.",
+    "3/ Two things people get wrong. It's not an exchange fee — the money moves between traders. And it's charged on POSITION size, not your margin, so leverage multiplies what you pay.",
+    "4/ Which means a position can be flat on price and still bleed. If you're on the paying side of funding long enough, that's the whole loss — no bad call required, just rent on a crowded trade.",
+    "5/ It's also the cleanest sentiment gauge there is: persistently positive funding = everyone is leaning long, and someone is paying for the privilege. Full explainer: https://www.swopme.co/blog/perps-funding-rate-explained"
+  ]
+}

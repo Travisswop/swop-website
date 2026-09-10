@@ -1,0 +1,9 @@
+A perpetual future never expires. That sounds like a feature — and it creates a problem most people only discover after they're already paying for it.
+
+Normal futures have an expiry date, and that expiry is what drags the contract's price back toward the real asset. Take the expiry away and nothing anchors it. So perps use a funding rate instead: a recurring payment between traders every few hours. When the perp trades above spot, longs pay shorts. When it trades below, shorts pay longs. Paying to sit on the crowded side is what pulls the price back in line.
+
+Two details worth knowing before you hold one overnight. Funding isn't an exchange fee — the money moves between traders. And it's charged on your position size, not your margin, which means leverage multiplies it. A position can be perfectly flat on price and still bleed, purely from being on the paying side long enough.
+
+It's also the cleanest sentiment gauge in crypto: when funding stays positive, the whole market is leaning long and somebody is paying rent for the privilege.
+
+Full explainer on the Swop Journal 👇
