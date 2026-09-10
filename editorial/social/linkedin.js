@@ -120,9 +120,26 @@ async function checkCreds() {
   return out;
 }
 
-async function createPost(token, { author, text, images = [], reshareOf }) {
+async function createPost(token, { author, text, images = [], reshareOf, article }) {
   let content;
-  if (images.length === 1) {
+  if (article && article.source) {
+    // A URL in the commentary does NOT produce a preview card on API-created
+    // posts — LinkedIn just shortens it to lnkd.in as plain text (verified
+    // 2026-09-10 on urn:li:share:7503855565555634176). The card only renders
+    // when the post carries an explicit article object. thumbnail must be an
+    // uploaded image URN, not a URL.
+    const thumb = article.thumbnailPath
+      ? await uploadImage(token, author, article.thumbnailPath)
+      : undefined;
+    content = {
+      article: {
+        source: article.source,
+        ...(article.title ? { title: article.title } : {}),
+        ...(article.description ? { description: article.description } : {}),
+        ...(thumb ? { thumbnail: thumb } : {}),
+      },
+    };
+  } else if (images.length === 1) {
     const imageUrn = await uploadImage(token, author, images[0]);
     content = { media: { id: imageUrn, title: '' } };
   } else if (images.length > 1) {
@@ -149,7 +166,7 @@ async function createPost(token, { author, text, images = [], reshareOf }) {
      reshare: boolean       — default true in org mode; reshares the Page post
                               to the member's personal feed
      reshareText: string    — optional commentary on the personal reshare */
-async function publish({ text, images = [], as, reshare, reshareText }, live) {
+async function publish({ text, images = [], as, reshare, reshareText, article }, live) {
   const { LINKEDIN_ACCESS_TOKEN } = creds();
   const token = LINKEDIN_ACCESS_TOKEN;
   const me = await whoAmI(token);
@@ -171,10 +188,11 @@ async function publish({ text, images = [], as, reshare, reshareText }, live) {
       willResharePersonally: doReshare,
       text,
       images,
+      article: article || null,
     };
   }
 
-  const post = await createPost(token, { author, text, images });
+  const post = await createPost(token, { author, text, images, article });
   const result = { live: true, platform: 'linkedin', postedAs: mode, author, urn: post.urn, posted: post.raw };
 
   if (doReshare) {

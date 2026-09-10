@@ -40,9 +40,12 @@ The 8 daily steps. Every routine run and every human review checks against this 
 8. LinkedIn (Travis's request, 2026-09-10): write the caption to
    `editorial/distribution/<slug>.linkedin.txt`, then
    `cd editorial/social && node post.js --platforms linkedin --text "$(cat ../distribution/<slug>.linkedin.txt)" --live`
-   (dry-run first — omit `--live`). Put the post URL on its own last line: LinkedIn
-   builds its preview card from the page's own og:image/og:title, so the thumbnail
-   banner carries over and no `--image` is needed.
+   (dry-run first — omit `--live`). **A bare URL in the caption does NOT produce a
+   preview card on API-created posts** — LinkedIn just shortens it to `lnkd.in` as
+   plain text (verified 2026-09-10 on the first live post). To get the banner card,
+   pass the link explicitly:
+   `--link <post URL> --link-title "<title>" --link-thumb blog/<slug>/og.png`
+   (the thumbnail is uploaded and referenced as an image URN; a URL will not work).
    **LinkedIn caption register** — it is not X. No thread, no 🧵, no hook-bait.
    3-5 short paragraphs, plain professional English, lead with the reader's problem
    or the concrete fact, end with the link. At most one or two hashtags, or none.

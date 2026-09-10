@@ -14,6 +14,9 @@
                                      Page) when LINKEDIN_ORG_URN is configured
        [--no-linkedin-reshare]       skip the automatic personal-profile reshare
        [--linkedin-reshare-text "..."]  commentary on that personal reshare
+       [--link URL]                  LinkedIn: render a real preview card for URL
+                                     (a bare URL in --text does NOT make a card)
+       [--link-title "..."] [--link-desc "..."] [--link-thumb path]
        [--live]                  actually publish; default is dry-run
 
    "swop" posts to Swop's own native in-app Feed (see ../feed-publish.js) —
@@ -101,6 +104,14 @@ async function run() {
               as: arg('--linkedin-as') || undefined,
               reshare: has('--no-linkedin-reshare') ? false : undefined,
               reshareText: arg('--linkedin-reshare-text') || undefined,
+              article: arg('--link')
+                ? {
+                    source: arg('--link'),
+                    title: arg('--link-title') || undefined,
+                    description: arg('--link-desc') || undefined,
+                    thumbnailPath: arg('--link-thumb') || undefined,
+                  }
+                : undefined,
             },
             live
           );
