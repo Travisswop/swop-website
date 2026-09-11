@@ -237,6 +237,9 @@
         color: var(--muted);
         line-height: 1.8;
       }
+      .section-text + .section-text {
+        margin-top: 14px;
+      }
 
       .section-text a {
         color: var(--green);
@@ -488,7 +491,7 @@
         <div class="hero-eyebrow">Legal &amp; Disclosures</div>
         <h1>Legal Notices</h1>
         <div class="effective-date">
-          Effective date — <span>July 14, 2026</span>
+          Effective date — <span>September 11, 2026</span>
         </div>
       </section>
 
@@ -536,10 +539,12 @@
               <p class="section-text">
                 Swop provides self-custodial software. You alone control your
                 wallets, private keys, and digital assets. Swop does not take
-                possession of user funds, cannot access or recover your keys,
-                and cannot reverse transactions once they are confirmed
-                on-chain. Losing access to your keys or recovery credentials
-                may result in the permanent loss of your assets.
+                possession of the funds in your wallets, cannot access or
+                recover your keys, and cannot reverse transactions once they
+                are confirmed on-chain. Losing access to your keys or recovery
+                credentials may result in the permanent loss of your assets.
+                Card payments are the exception and are not self-custodial: see
+                the next section.
               </p>
             </div>
           </div>
@@ -547,6 +552,31 @@
           <!-- Section 4 -->
           <div class="policy-section">
             <div class="section-num">04</div>
+            <div class="section-body">
+              <div class="section-title">Card Payment Disclosure</div>
+              <p class="section-text">
+                Sellers on Swop may accept card payments alongside crypto. Card
+                payments are not self-custodial. Swop is the settlement merchant
+                for card charges: the card is charged by Swop through its
+                payment processor, Stripe, and Swop then pays the seller. A
+                buyer who cannot resolve a card purchase with the seller may
+                dispute the charge with their card issuer, and that dispute is
+                raised against Swop. Card payments can be refunded to the
+                original card, in whole or in part; crypto payments cannot be
+                reversed. Card details are entered into Stripe's own form and
+                never reach Swop. Sellers must complete Stripe's identity
+                verification before they can be paid by card &mdash; a
+                requirement that applies to card payments only, never to crypto
+                or x402 payments. The full terms are in our
+                <a href="./terms.html">Terms &amp; Conditions</a> and our
+                <a href="./privacy.html">Privacy Policy</a>.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 5 -->
+          <div class="policy-section">
+            <div class="section-num">05</div>
             <div class="section-body">
               <div class="section-title">Risk Disclosure</div>
               <p class="section-text">
@@ -560,9 +590,9 @@
             </div>
           </div>
 
-          <!-- Section 5 -->
+          <!-- Section 6 -->
           <div class="policy-section">
-            <div class="section-num">05</div>
+            <div class="section-num">06</div>
             <div class="section-body">
               <div class="section-title">No Financial, Legal, or Tax Advice</div>
               <p class="section-text">
@@ -576,9 +606,9 @@
             </div>
           </div>
 
-          <!-- Section 6 -->
+          <!-- Section 7 -->
           <div class="policy-section">
-            <div class="section-num">06</div>
+            <div class="section-num">07</div>
             <div class="section-body">
               <div class="section-title">Intellectual Property</div>
               <p class="section-text">
@@ -592,9 +622,9 @@
             </div>
           </div>
 
-          <!-- Section 7 -->
+          <!-- Section 8 -->
           <div class="policy-section">
-            <div class="section-num">07</div>
+            <div class="section-num">08</div>
             <div class="section-body">
               <div class="section-title">Copyright Complaints</div>
               <p class="section-text">
@@ -608,9 +638,9 @@
             </div>
           </div>
 
-          <!-- Section 8 -->
+          <!-- Section 9 -->
           <div class="policy-section">
-            <div class="section-num">08</div>
+            <div class="section-num">09</div>
             <div class="section-body">
               <div class="section-title">Contact</div>
               <p class="section-text">
@@ -781,7 +811,7 @@
         <div class="fbento-bar">
           <span class="fbento-copy">&copy; 2026 Swop &middot; swopme.app</span>
           <span class="fbento-copy" style="opacity: 0.35"
-            >Self-custody &middot; No KYC &middot; Built on-chain</span
+            >Self-custody &middot; No KYC to pay in crypto &middot; Built on-chain</span
           >
         </div>
       </section>

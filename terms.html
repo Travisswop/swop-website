@@ -221,6 +221,9 @@
         color: var(--muted);
         line-height: 1.8;
       }
+      .section-text + .section-text {
+        margin-top: 14px;
+      }
       .section-text a {
         color: var(--green);
         text-decoration: none;
@@ -458,7 +461,7 @@
         <div class="hero-eyebrow">Legal &amp; Compliance</div>
         <h1>Terms &amp; Conditions</h1>
         <div class="effective-date">
-          Effective date — <span>May 21, 2025</span>
+          Effective date — <span>September 11, 2026</span>
         </div>
       </section>
 
@@ -472,9 +475,16 @@
               <p class="section-text">
                 Swop provides infrastructure for users to create, share, and
                 transact digital and physical goods using blockchain and
-                traditional payment methods. Swop does not act as a custodian,
-                financial intermediary, or legal representative for any
-                transaction made through the platform.
+                traditional payment methods. For crypto transactions, Swop does
+                not act as a custodian, financial intermediary, or legal
+                representative: funds move directly between the parties' own
+                wallets. Card payments are different. Swop is the settlement
+                merchant for card charges &mdash; the card is charged by Swop
+                through its payment processor, and Swop then pays the seller.
+                Section 06 sets out what that means for buyers and sellers. In
+                both cases the sale of the goods or services is between the
+                buyer and the seller, who is responsible for delivering what
+                was offered.
               </p>
             </div>
           </div>
@@ -487,8 +497,10 @@
                 You, the user, are fully responsible for: managing your wallet
                 and private keys, protecting your passwords and access devices,
                 verifying the trustworthiness of counterparties, and reviewing
-                and understanding all transaction terms before confirming. Swop
-                does not control or reverse any transaction once completed.
+                and understanding all transaction terms before confirming.
+                Swop cannot reverse a crypto transaction once it is confirmed
+                on-chain. Card payments can be refunded and can be disputed
+                &mdash; see section 06.
               </p>
             </div>
           </div>
@@ -538,17 +550,87 @@
           <div class="policy-section">
             <div class="section-num">06</div>
             <div class="section-body">
-              <div class="section-title">No Refund Guarantee</div>
+              <div class="section-title">Card Payments and Pricing</div>
               <p class="section-text">
-                Swop does not offer refunds. All disputes and refund requests
-                must be handled directly between buyer and seller, based on
-                their mutually agreed terms.
+                <strong>The price is the price.</strong> A buyer pays exactly the
+                amount the seller entered, whether the buyer pays by card or in
+                crypto. Tax, where it applies, is the only thing ever added on
+                top. Swop's fee is deducted from the seller's proceeds, not
+                added to the buyer's total. Checkout links created before
+                September 10, 2026 kept the earlier arrangement, in which the
+                fee was added to the buyer's total; those links show the fee to
+                the buyer before payment.
+              </p>
+              <p class="section-text">
+                <strong>One link, two ways to pay.</strong> A checkout link may
+                offer both card and crypto. The buyer chooses at checkout, and
+                the amount is the same either way. Crypto checkout settles in
+                USDC on the chain the buyer pays from, directly to the seller's
+                wallet; Swop does not hold those funds.
+              </p>
+              <p class="section-text">
+                <strong>Card details never reach Swop.</strong> They are entered
+                into the payment processor's own form or payment sheet. Swop
+                does not receive or store card numbers.
+              </p>
+              <p class="section-text">
+                <strong>Sellers must be verified to accept cards.</strong>
+                Identity verification is carried out by Swop's payment processor
+                before a seller can be paid by card. This applies to the card
+                rail only: selling for crypto on Swop has never required
+                identity verification and still does not.
+              </p>
+              <p class="section-text">
+                <strong>Payouts.</strong> Card proceeds are paid to the bank
+                account or eligible debit card the seller registers with the
+                processor, on the schedule the processor applies to that
+                account. New seller accounts are set up with weekly payouts and
+                a seven-day delay, so a first payment takes longer to arrive
+                than later ones. Card proceeds are never paid into a Swop
+                wallet.
+              </p>
+              <p class="section-text">
+                <strong>Current limits.</strong> Card payments are available to
+                sellers in the United States, for physical goods and services,
+                up to $1,000 per purchase and $5,000 per seller in any rolling
+                24 hours. Swop may change these limits.
               </p>
             </div>
           </div>
 
           <div class="policy-section">
             <div class="section-num">07</div>
+            <div class="section-body">
+              <div class="section-title">Refunds, Disputes, and Chargebacks</div>
+              <p class="section-text">
+                <strong>Crypto payments are final.</strong> Swop cannot reverse
+                them. Refund requests on a crypto sale must be handled directly
+                between buyer and seller, on their mutually agreed terms, and
+                Swop does not guarantee a refund.
+              </p>
+              <p class="section-text">
+                <strong>Card payments can be refunded.</strong> A seller can
+                refund a card payment through Swop, in whole or in part, back to
+                the card that was charged. A refund cannot be sent anywhere
+                else. Buyers should contact the seller first.
+              </p>
+              <p class="section-text">
+                <strong>Card disputes come to Swop.</strong> A buyer who cannot
+                resolve a card purchase with the seller may dispute the charge
+                with their card issuer. Because Swop is the settlement merchant
+                for card charges, the dispute is raised against Swop, and Swop
+                bears the loss where the dispute is decided against the seller
+                and the amount cannot be recovered from them. Sellers must
+                provide, promptly and on request, the evidence needed to respond
+                to a dispute, and are liable to Swop for chargebacks, refunds,
+                and related costs on their sales. Swop may recover those amounts
+                from a seller's pending or future proceeds.
+              </p>
+            </div>
+          </div>
+
+          <div class="policy-section">
+            <div class="section-num">08</div>
             <div class="section-body">
               <div class="section-title">Changes to Terms</div>
               <p class="section-text">
@@ -559,7 +641,7 @@
           </div>
 
           <div class="policy-section">
-            <div class="section-num">08</div>
+            <div class="section-num">09</div>
             <div class="section-body">
               <div class="section-title">Contact</div>
               <p class="section-text">
@@ -733,7 +815,7 @@
         <div class="fbento-bar">
           <span class="fbento-copy">&copy; 2026 Swop &middot; swopme.app</span>
           <span class="fbento-copy" style="opacity: 0.35"
-            >Self-custody &middot; No KYC &middot; Built on-chain</span
+            >Self-custody &middot; No KYC to pay in crypto &middot; Built on-chain</span
           >
         </div>
       </section>
