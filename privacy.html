@@ -237,6 +237,9 @@
         color: var(--muted);
         line-height: 1.8;
       }
+      .section-text + .section-text {
+        margin-top: 14px;
+      }
 
       .section-text a {
         color: var(--green);
@@ -488,7 +491,7 @@
         <div class="hero-eyebrow">Legal &amp; Transparency</div>
         <h1>Privacy &amp; Policy</h1>
         <div class="effective-date">
-          Effective date — <span>May 21, 2025</span>
+          Effective date — <span>September 11, 2026</span>
         </div>
       </section>
 
@@ -520,8 +523,11 @@
                 posts, views, clicks, redemptions); metadata shared through Swop
                 services (device/browser info, IPs, referral sources); and
                 optional profile information you provide (email, name, avatar,
-                etc.). No biometric, financial account credentials, or invasive
-                tracking is collected.
+                etc.). Swop itself collects no biometric data, no card numbers,
+                and no bank account credentials, and runs no invasive tracking.
+                Card payments and seller verification are handled by Stripe,
+                which does collect identity and financial details directly &mdash;
+                see section 07.
               </p>
             </div>
           </div>
@@ -551,7 +557,11 @@
                 You own your data. Swop believes in data portability and user
                 sovereignty. You may export, delete, or control the use of your
                 data at any time. Swop will not restrict access to the platform
-                based on data preferences.
+                based on data preferences. The one exception is payment,
+                refund, dispute, and seller-verification records: Swop keeps
+                those for as long as its financial, tax, and legal obligations
+                require, and cannot delete them on request while those
+                obligations are still running.
               </p>
             </div>
           </div>
@@ -566,7 +576,12 @@
                 ecosystem development, governance processes to shape platform
                 direction, and analytics tools operated by Swop or its
                 community. All sharing is done in alignment with Swop's goal to
-                support public benefit, not private profit.
+                support public benefit, not private profit. Separately from
+                that, Swop shares data with the service providers that operate
+                the platform &mdash; cloud hosting, email delivery, media
+                storage, and payment processing, including Stripe for card
+                payments and seller verification (section 07) &mdash; and where
+                required by law.
               </p>
             </div>
           </div>
@@ -588,6 +603,75 @@
           <div class="policy-section">
             <div class="section-num">07</div>
             <div class="section-body">
+              <div class="section-title">Card Payments and Seller Verification</div>
+              <p class="section-text">
+                Sellers on Swop can accept card payments alongside crypto. Card
+                payments are processed by
+                <a href="https://stripe.com" target="_blank" rel="noopener"
+                  >Stripe</a
+                >. This section applies only to card payments &mdash; crypto and
+                x402 payments on Swop are not identity-verified and nothing here
+                applies to them.
+              </p>
+              <p class="section-text">
+                <strong>If you pay by card.</strong> You enter your card details
+                directly into Stripe's own payment form on the web, or Stripe's
+                payment sheet in the Swop mobile app, on app versions that
+                support it. Those details go to Stripe,
+                not to Swop. Swop never receives, processes, or stores your card
+                number, expiry date, or security code, and does not store your
+                card brand or last four digits either. Swop keeps the reference
+                Stripe provides for the payment, the amount, the currency, and
+                the status of the payment and of any refund or dispute. Your
+                name and billing address, where Stripe collects them, stay with
+                Stripe.
+              </p>
+              <p class="section-text">
+                <strong>If you sell and accept card payments.</strong> Stripe
+                verifies your identity before you can be paid, on Stripe's own
+                hosted pages. Stripe collects what it needs to meet its legal
+                obligations &mdash; typically your legal name, date of birth,
+                address, a government-issued identity document, a selfie taken
+                for liveness checking, your business details, your tax
+                identification number, and the bank account or debit card you
+                want to be paid into. Stripe collects and holds all of it. Swop
+                never receives the document images, the selfie, your bank
+                details, or your tax identification number.
+              </p>
+              <p class="section-text">
+                <strong>What Swop keeps about a verified seller</strong> is a
+                summary of the outcome, not the evidence behind it: whether you
+                are verified, whether you can currently accept charges and
+                receive payouts, your two-letter country, coded descriptions of
+                anything Stripe is still waiting on, a reference used to look
+                your account up with Stripe, and records of payouts sent to you
+                &mdash; amount, currency, status, and arrival date, never the
+                bank account they landed in.
+              </p>
+              <p class="section-text">
+                <strong>Stripe's own role.</strong> Stripe handles this data for
+                its own legal and regulatory purposes as well as on Swop's
+                instructions, so Stripe's privacy terms govern what Stripe does
+                with it. Read them at
+                <a href="https://stripe.com/privacy" target="_blank" rel="noopener"
+                  >stripe.com/privacy</a
+                >. Deleting your Swop account does not by itself delete records
+                Stripe is required to keep.
+              </p>
+              <p class="section-text">
+                <strong>How long Swop keeps it.</strong> Payment records,
+                verification status, and the underlying accounting entries are
+                kept while your account is open, and afterwards for as long as
+                they are needed to complete refunds and disputes, keep accurate
+                financial records, and meet legal and tax obligations.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 8 -->
+          <div class="policy-section">
+            <div class="section-num">08</div>
+            <div class="section-body">
               <div class="section-title">Updates to Policy</div>
               <p class="section-text">
                 We may update this policy to reflect evolving community norms or
@@ -599,9 +683,9 @@
             </div>
           </div>
 
-          <!-- Section 8 -->
+          <!-- Section 9 -->
           <div class="policy-section">
-            <div class="section-num">08</div>
+            <div class="section-num">09</div>
             <div class="section-body">
               <div class="section-title">Contact</div>
               <p class="section-text">
@@ -771,7 +855,7 @@
         <div class="fbento-bar">
           <span class="fbento-copy">&copy; 2026 Swop &middot; swopme.app</span>
           <span class="fbento-copy" style="opacity: 0.35"
-            >Self-custody &middot; No KYC &middot; Built on-chain</span
+            >Self-custody &middot; No KYC to pay in crypto &middot; Built on-chain</span
           >
         </div>
       </section>
