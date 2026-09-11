@@ -58,6 +58,37 @@ const UNSUB_FOOTER =
   "You're receiving Swop Daily because you have a Swop account. " +
   '<a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#8a8a93">Unsubscribe</a></p>';
 
+
+/* Plain-text alternative. A bulk HTML-only message is a long-standing spam-filter
+   penalty (Gmail and Outlook both score multipart/alternative more favourably),
+   and issues #78-#87 all shipped HTML-only. Derive the text part from the issue
+   HTML rather than hand-writing one, so it can never drift from what was sent. */
+function htmlToText(html) {
+  let t = html;
+  t = t.replace(/<!--[\s\S]*?-->/g, '');
+  t = t.replace(/<(script|style)[\s\S]*?<\/\1>/gi, '');
+  // keep the destination of real links: "label (url)"
+  t = t.replace(/<a\b[^>]*href="([^"]*)"[^>]*>([\s\S]*?)<\/a>/gi, (m, href, label) => {
+    const clean = label.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    if (!clean) return '';
+    if (href.startsWith('{{{') || href === '#') return clean;
+    return `${clean} (${href})`;
+  });
+  t = t.replace(/<img\b[^>]*alt="([^"]*)"[^>]*>/gi, (m, alt) => (alt ? `[${alt}]\n` : ''));
+  t = t.replace(/<\/(div|p|td|tr|table|h[1-6]|li)>/gi, '\n');
+  t = t.replace(/<br\s*\/?>/gi, '\n');
+  t = t.replace(/<[^>]+>/g, '');
+  const ents = { '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"',
+    '&mdash;': '—', '&ndash;': '–', '&middot;': '·', '&rsquo;': '\u2019', '&lsquo;': '\u2018',
+    '&ldquo;': '\u201c', '&rdquo;': '\u201d', '&bull;': '•', '&hellip;': '…' };
+  for (const [k, v] of Object.entries(ents)) t = t.replaceAll(k, v);
+  t = t.replace(/&#(\d+);/g, (m, n) => String.fromCodePoint(Number(n)));
+  t = t.replace(/[ \t]+/g, ' ');
+  t = t.replace(/ *\n */g, '\n');
+  t = t.replace(/\n{3,}/g, '\n\n');
+  return t.trim();
+}
+
 (async () => {
   const htmlPath = arg('--html');
   const subject = arg('--subject');
@@ -78,7 +109,7 @@ const UNSUB_FOOTER =
   const testTo = arg('--test');
   if (has('--dry-run')) {
     console.log(JSON.stringify({
-      dryRun: true, subject, htmlBytes: html.length, audienceId: cfg.audienceId,
+      dryRun: true, subject, htmlBytes: html.length, textBytes: htmlToText(html).length, audienceId: cfg.audienceId,
       from: cfg.from, mode: testTo ? `test->${testTo}` : has('--send') ? 'send' : 'draft',
     }, null, 2));
     return;
@@ -89,6 +120,7 @@ const UNSUB_FOOTER =
       from: cfg.from, to: [testTo], reply_to: cfg.replyTo,
       subject: `[TEST] ${subject}`,
       html: html.replaceAll('{{{RESEND_UNSUBSCRIBE_URL}}}', 'https://swopme.co'),
+      text: htmlToText(html.replaceAll('{{{RESEND_UNSUBSCRIBE_URL}}}', 'https://swopme.co')),
     });
     console.log(JSON.stringify({ test: true, to: testTo, id: res.id }));
     return;
@@ -96,7 +128,7 @@ const UNSUB_FOOTER =
 
   const broadcast = await resend(key, 'POST', '/broadcasts', {
     audience_id: cfg.audienceId, from: cfg.from, reply_to: cfg.replyTo,
-    subject, html, name: subject,
+    subject, html, text: htmlToText(html), name: subject,
   });
 
   if (has('--send')) {

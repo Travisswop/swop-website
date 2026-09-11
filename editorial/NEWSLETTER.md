@@ -71,6 +71,20 @@ line survived a week before it was noticed).
 - Best case: close a loop on a token the newsletter already covered, and say what
   we said last time.
 
+## Deliverability (do not regress)
+- **Every send is multipart** — `newsletter-send.js` derives a plain-text part from
+  the issue HTML (`htmlToText`) and sends it as `text` alongside `html`. Issues
+  #78-#87 shipped HTML-only, which is a standing spam-filter penalty at Gmail and
+  Outlook. Never send `html` without `text`.
+- **Auth is correct and verified — don't "fix" it.** DKIM at
+  `resend._domainkey.news.swopme.co`; SPF + the feedback MX at `send.news.swopme.co`
+  (the Return-Path domain, which is where SPF is actually evaluated — it is NOT
+  supposed to be on `news.swopme.co`). Resend reports all three verified.
+- **Open/click tracking is intentionally OFF.** Turning it on rewrites every link
+  through a tracking domain, which costs more in spam score than the stats are worth.
+- Known gap needing Travis + DNS access: `swopme.co` has no DMARC record of its own
+  (`news.swopme.co` publishes `p=none`). See the deliverability note in memory.
+
 ## Voice
 Tight, builder-first, crypto-native, zero hype. No financial advice language.
 Numbers only from checkable sources; platform stats stay [TBD] until Travis provides.
