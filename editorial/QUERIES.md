@@ -17,6 +17,7 @@ until they are moved up.
 - usdc vs usdc.e
 - perpetual futures funding rate explained
 - copy trading crypto Solana
+- what is a smartsite / crypto profile page  <!-- added 2026-09-11 at Travis's direction; distinct from "crypto link in bio", which /blog/crypto-link-in-bio already targets -->
 
 ## AEO decision prompts (what people ask AI assistants)
 - best self-custody wallet for Solana

@@ -1,0 +1,9 @@
+A link in bio points somewhere else. That's the whole job description — it's a directory that hands the visitor off to a platform that owns the relationship and the checkout.
+
+A SmartSite is the somewhere else. It lives at your own handle, and it's tabbed rather than a stack of buttons: Portfolio, Feed, Positions, Tokens, Blog. Each tab is its own section holding real blocks — socials, posts, audio, video, products, redeemable links, referrals — so a visitor picks what they came for instead of scrolling past nine things to find the one.
+
+The part that actually changes the math is that it settles money. Products on a SmartSite are x402-enabled by default, which means a buyer — or an AI agent carrying a wallet — can pay on the page in USDC, without being routed to a checkout on somebody else's domain. And sections can be gated, so members-only material sits on the same page as the public work instead of behind a separate subscription product.
+
+What it isn't: a website builder, or a storefront platform with real inventory operations. It's an identity page that happens to be payable.
+
+Full breakdown on the Swop Journal 👇
