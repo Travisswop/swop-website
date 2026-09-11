@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "A link in bio points somewhere else. A SmartSite is the somewhere else — a profile page at your own handle that can take the payment itself 🧵",
+    "1/ It lives at a swop.id handle — travis.swop.id — and it's tabbed, not a stack of buttons. Portfolio, Feed, Positions, Tokens, Blog. Each tab is its own section, so a visitor picks what they came for instead of scrolling a list.",
+    "2/ Tabs hold real blocks, not just links: socials, posts, audio, video, products, redeemable links, referrals, an ENS domain, a marketplace. The page is the container, not a redirect.",
+    "3/ The part that's actually different: it settles money. Products on a SmartSite are x402-enabled by default, so a buyer — or an AI agent with a wallet — can pay over the page in USDC without a checkout flow on somebody else's domain.",
+    "4/ Sections can be gated. You mark a tab as gated and it stays closed until whatever you set as the gate is satisfied — so paid or members-only material lives on the same page as the public stuff.",
+    "5/ What it doesn't replace: it isn't a website builder, and it isn't a storefront platform with inventory ops. It's an identity page that happens to be payable. Full breakdown: https://www.swopme.co/blog/what-is-a-smartsite"
+  ]
+}
