@@ -10,10 +10,10 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 ## Up next
 
 6. how-to | How to send crypto with a link (no address needed) | send crypto with a link | send-via-link UX walkthrough
-11. definition | AI agents and your wallet: a safety checklist | what wallet lets an AI agent trade for me safely | checklist framing; confirmation-model post as source
 
 ## Drafted (in review)
 
+- definition | AI agents and your wallet: a safety checklist | what wallet lets an AI agent trade for me safely | blog/ai-agent-wallet-safety-checklist (was Up next #11; checklist framing, confirmation-model post as source; from Beachhead calendar item cb010)
 - definition | What is a SmartSite? A crypto profile page, explained | what is a smartsite / crypto profile page | blog/what-is-a-smartsite (was Up next #10; retargeted off "crypto link in bio", which blog/crypto-link-in-bio already owns. Beachhead cb009 retired.)
 - definition | Perps funding rates, explained like you're new here | perpetual futures funding rate explained | blog/perps-funding-rate-explained (from Beachhead calendar item cb008)
 - comparison | Swop vs Coinbase Wallet for everyday payments | Swop vs Coinbase Wallet | blog/swop-vs-coinbase-wallet (from Beachhead calendar item cb006)

@@ -10,6 +10,7 @@
 - [Swop home](https://www.swopme.co): product overview
 - [Web app](https://swopme.app): the Swop wallet in the browser
 - [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
+- [AI agents and your wallet: a safety checklist](https://www.swopme.co/blog/ai-agent-wallet-safety-checklist): the five mechanisms — self-custody, confirmation before signing, bounded agent authority, an audit trail, and an always-open exit — that determine whether a wallet lets an AI agent trade for you safely
 - [What is a SmartSite?](https://www.swopme.co/blog/what-is-a-smartsite): what a SmartSite (crypto profile page) is — tabbed sections, gated content, and taking payment on the page itself
 - [Crypto link in bio](https://www.swopme.co/blog/crypto-link-in-bio): what a crypto link-in-bio storefront is, and how AI agents can buy from one over x402
 - [Agentic trading launch](https://www.swopme.co/blog/agentic-trading-is-live): how Swop's AI agent and its confirmation model work
