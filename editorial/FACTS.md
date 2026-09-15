@@ -30,8 +30,31 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Claim | Notes |
 |---|---|
 | Solana dApp Store review count | Get the real number + link before citing |
-| Swap fee / pricing details beyond checkout | Confirm public wording with Travis |
+| Swap fee / pricing details beyond checkout | Confirm public wording with Travis. **Blocks cb201 "How does Swop make money?" (Mon 9/22).** |
 | User / transaction counts | No public number exists yet — never estimate |
+| SWOP token — any claim at all | **No token row exists. Blocks cb204 "Copy trading on Solana" (Tue 9/23) and the parked "Swop is the people's network" post.** Proposed wording below — Travis to confirm, correct, or reject each line, then they move up to Verified. |
+
+### Proposed token rows — awaiting Travis (drafted 2026-09-15)
+
+Researched against `swop-app-backend/docs/REWARDS_ARCHITECTURE.md`. **Nothing here may be
+published until Travis promotes it.** Note the conflict flagged on 2026-09-11: the
+"swap buyback" model is no longer current, so the people's-network post cannot be
+written the way it was originally described.
+
+| Proposed claim | Draft wording | Basis |
+|---|---|---|
+| Swap fee | "Swaps on Swop carry a 0.5% fee." | REWARDS_ARCHITECTURE.md |
+| Fee split | "Of that 0.5%, half is paid to the copied trader as a reward and half is retained by Swop." | REWARDS_ARCHITECTURE.md (0.25% / 0.25%) |
+| Who earns | "Users earn SWOP by being copy-traded — the earner is the trader being copied, not the person doing the swap." | Product rule confirmed with owner, 2026-07-01 |
+| Buyback mechanism | "Each copy-trade reward payout buys SWOP on the open market via Jupiter before it is paid out." | Per-payout Jupiter buyback, signed by a Privy server wallet |
+| Ordinary swaps (negative claim) | "Ordinary swaps do not earn SWOP." | Fee-pool batch buyback was REMOVED 2026-07-01. Required because negative claims need a Verified row too. |
+| Token identity | Mint `GAehkgN1ZDNvavX81FmzCcwRnzekKMkSyUNq8WkMsjX1`, 9 decimals, Solana | REWARDS_ARCHITECTURE.md |
+| Staking | **Do not mention.** Exists only as unmerged branch `origin/wt/swop-staking`. | Not shipped |
+
+Two editorial constraints that apply once these are promoted: keep buyback/value-accrual
+framing **mechanical** (how fees route) with no price, return, or appreciation language —
+it is investment-adjacent otherwise; and any competitor comparison (Coinbase et al.) must
+cite that competitor's own published fee documentation, never our characterisation of it.
 
 ## Primary sources to link in posts
 - Product: https://www.swopme.co · Web app: https://swopme.app
