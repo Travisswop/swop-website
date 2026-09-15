@@ -1,0 +1,11 @@
+You can send crypto to someone without ever knowing their wallet address.
+
+The normal way means pasting a long alphanumeric string that nobody has memorized and everybody can mistype — which is the single step that makes sending crypto feel unlike sending money to a person. A claim link removes it. You fund the transfer from your wallet, get back a shareable link or QR code, and send it however you already talk to that person. They open it and claim the funds into their own wallet, creating one in the same flow if they don't have one yet.
+
+Mechanically, the funds move into a pending, claimable state the moment the link exists — either held at an intermediate address whose spending key is embedded in the link, or marked pending against a claim credential the link encodes. Either way the link is the thing that unlocks the transfer, and nothing reaches its final destination until someone claims it.
+
+Which leads to the part people underestimate: an unclaimed claim link is a bearer instrument. Whoever holds it, or scans the QR, can claim the funds — the same way holding a gift card code lets you redeem it. Possession is what matters, not who you intended to send it to. So don't post one publicly, and treat it with the care you'd give cash rather than a casual text.
+
+Most apps that offer this set an expiration that returns unclaimed funds to the sender, but the window — and whether you can cancel a link manually — varies. Worth checking yours before you rely on it for anything time-sensitive.
+
+Full explainer on the Swop Journal 👇

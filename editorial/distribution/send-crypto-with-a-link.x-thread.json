@@ -1,0 +1,10 @@
+{
+  "posts": [
+    "You can send crypto to someone without ever knowing their wallet address. You fund a link, text it to them, and they claim it into their own wallet — creating one on the spot if they don't have one 🧵",
+    "1/ The normal way means pasting a long alphanumeric address that nobody has memorized and everybody can mistype. A claim link removes that step entirely: the transfer goes behind a link instead of behind an address.",
+    "2/ Mechanically, your funds move into a pending, claimable state the moment you create the link — held at an intermediate address whose spending key is embedded in the link, or marked pending against a claim credential the link encodes. The link is what unlocks it.",
+    "3/ When the recipient opens it, the app checks the link is still valid, has them connect a wallet or spin up a new one, and routes the funds there under their own keys. Nothing reaches its destination until it's claimed — you're sending to a person, not a string.",
+    "4/ The part people miss: an unclaimed link is a BEARER INSTRUMENT. Whoever holds it or scans the QR can claim it, like a gift card code. Possession is what matters, not who you meant to send it to. Don't post one publicly.",
+    "5/ Unclaimed links don't sit forever in most apps — there's usually an expiry that returns funds to the sender. The window, and whether you can cancel manually, varies by app. Check yours before anything time-sensitive: https://www.swopme.co/blog/send-crypto-with-a-link"
+  ]
+}
