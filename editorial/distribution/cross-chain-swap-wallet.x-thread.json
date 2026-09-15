@@ -1,0 +1,11 @@
+{
+  "posts": [
+    "When your wallet says it \"moved your SOL to Base,\" nothing moved. No transaction has ever crossed the boundary between two blockchains. Here's what actually happens instead 🧵",
+    "1/ Inside one chain, a swap is atomic: one contract holds both assets, one transaction trades them, and the chain enforces all-or-nothing. Across two chains that guarantee is just gone. Solana can't read Ethereum's state. Neither can hold the other accountable.",
+    "2/ So a cross-chain swap is assembled from two independent halves — a payment in on one chain, a payout on the other — plus something in the middle that makes the second half reliably follow the first. A same-chain swap is one transaction. This is two transactions and a promise.",
+    "3/ Your SOL didn't travel. It went to an address on Solana and stayed there, now owned by someone else. Something that already had funds on Base paid you there. That's the whole trick.",
+    "4/ Three shapes, three failure modes. Lock-and-mint bridges lock your asset and mint a wrapper — the locked pool becomes a permanent target. Liquidity networks pay you from inventory they hold — real asset, but quotes move. Aggregated routes inherit every leg's risk.",
+    "5/ Which is why bridges have been the most exploited component in crypto. It's structural: a lock-and-mint bridge concentrates everyone's locked value into one contract, making it the highest-value target on either chain.",
+    "6/ Ask three things. Who holds your funds mid-route — a contract or a company? How long is the window, and what if the destination leg fails? And do you get the real asset or a wrapped claim? Full explainer: https://www.swopme.co/blog/cross-chain-swap-wallet"
+  ]
+}

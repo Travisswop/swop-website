@@ -12,6 +12,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Drafted (in review)
 
+- definition | Cross-chain swap wallet: how swapping between chains actually works | cross chain swap wallet | blog/cross-chain-swap-wallet (written 2026-09-15 to fill the gap left when cb005 published a day early; query was unclaimed. Swop section cites verified rows only — chains, self-custody, gas sponsorship — and makes no cross-chain routing claim.)
 - how-to | Send crypto with a link (no wallet address needed) | send crypto with a link | blog/send-crypto-with-a-link (was Up next #6; drafted as PR #13 on 2026-09-04, ported onto fresh main and published 2026-09-14. Swop-specific claim-link expiry/cancel behaviour still has NO FACTS row — the post deliberately makes no Swop claim-link claim.)
 - definition | AI agents and your wallet: a safety checklist | what wallet lets an AI agent trade for me safely | blog/ai-agent-wallet-safety-checklist (was Up next #11; checklist framing, confirmation-model post as source; from Beachhead calendar item cb010)
 - definition | What is a SmartSite? A crypto profile page, explained | what is a smartsite / crypto profile page | blog/what-is-a-smartsite (was Up next #10; retargeted off "crypto link in bio", which blog/crypto-link-in-bio already owns. Beachhead cb009 retired.)

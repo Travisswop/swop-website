@@ -13,7 +13,7 @@ until they are moved up.
 - send crypto with a link / send crypto without wallet address
 - prediction market app
 - crypto link in bio / web3 link in bio
-- cross chain swap wallet
+- cross chain swap wallet  <!-- claimed 2026-09-15 by /blog/cross-chain-swap-wallet; distinct from "Solana wallet with built-in swap" (same-chain, in-wallet) -->
 - usdc vs usdc.e
 - perpetual futures funding rate explained
 - copy trading crypto Solana

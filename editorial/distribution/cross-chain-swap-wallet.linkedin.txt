@@ -1,0 +1,13 @@
+When a wallet tells you it moved your SOL to Base, nothing moved.
+
+No transaction has ever crossed the boundary between two blockchains — that isn't how they work. Solana has no way to read Ethereum's state, and Ethereum has no way to verify anything that happened on Solana. Neither can hold the other accountable.
+
+So a cross-chain swap gets assembled out of two independent halves: a payment in on one chain, a payout on the other, plus something in the middle that makes the second half reliably follow the first. A same-chain swap is one atomic transaction. A cross-chain swap is two transactions and a promise — and the design of that promise is what you are actually choosing between.
+
+There are three shapes, and they fail differently. Lock-and-mint bridges lock your asset on the origin chain and mint a wrapped representation on the destination, which means the locked pool becomes a permanent and growing target, and you now hold a claim on a contract rather than the original asset. Liquidity networks pay you out of inventory they already hold on both sides — you get the real destination asset, but the route is only as good as the inventory at that moment. Aggregated routers stitch several legs together to connect pairs nobody serves directly, inheriting every intermediate step's risk and fees at once.
+
+This is also why bridges have historically been the most exploited component in crypto. It is structural rather than coincidental: a lock-and-mint bridge concentrates the locked value of everyone who ever crossed it into a single contract, which makes it the highest-value target on either chain.
+
+Three questions cut through most of it. Who is holding your funds mid-route, and is it a contract or a company? How long is that exposure window, and what happens if the destination leg fails? And when it lands, are you receiving the real destination asset or a wrapped claim on the bridge that carried it?
+
+Full explainer on the Swop Journal 👇
