@@ -1,0 +1,11 @@
+{
+  "posts": [
+    "Every wallet with an AI feature says it's \"safe.\" Five mechanisms decide whether that's true — and you can check all five yourself before connecting anything 🧵",
+    "1/ Self-custody. Keys generated and held only on your device — not by the agent, not by the company. If the platform can technically move your funds without you, no amount of \"the AI won't do that\" changes what's structurally possible.",
+    "2/ Confirmation before signing. The agent drafts a proposal — amounts, the assumption behind it, what would make it wrong — and waits for a tap. An agent trade shouldn't get a shortcut around the gate a manual trade goes through.",
+    "3/ Bounded authority, not just alerts. A notification after a large trade is not a safeguard. A policy that needs your cryptographic sign-off before the agent's spending cap or position size can widen is. Enforced vs merely reported is the whole distinction.",
+    "4/ An audit trail per decision — what the agent tried, what limit applied, whether it was allowed — logged so it can't be quietly edited after. And 5/ an exit that's never blocked: closing, cancelling, withdrawing to yourself must never be something policy can trap you out of.",
+    "Where Swop lands, honestly: self-custodial ✅, agent proposes and you approve ✅, hash-chained audit log ✅, exits always open ✅. The policy layer shipped Aug 28 but is still in shadow (observe-and-log) mode — so by our own checklist, score it \"reported,\" not \"enforced.\"",
+    "We also haven't commissioned a third-party security audit, and say so rather than implying one exists. The checklist only works if wallets describe their own mechanisms accurately. Full post: https://www.swopme.co/blog/ai-agent-wallet-safety-checklist"
+  ]
+}

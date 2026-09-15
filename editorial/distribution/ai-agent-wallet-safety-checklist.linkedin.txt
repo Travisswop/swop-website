@@ -1,0 +1,11 @@
+Every wallet that has added an AI feature now describes itself as "safe." That word is doing a lot of work, and almost none of it is checkable from a product page.
+
+The useful reframing is that trust isn't the thing to evaluate — architecture is. An agent's intentions don't matter if the system around it can't enforce a limit. So here are the five mechanisms that actually decide the answer, in the order they matter.
+
+Self-custody: keys generated and held only on your device, not by the agent and not by the company running it. Confirmation before signing: the agent drafts a proposal with the amounts and the reasoning, and waits for a tap — an agent trade should not get a shortcut around the gate a manual trade goes through. Bounded authority rather than alerts: a notification after a large trade is not a safeguard; a policy requiring your cryptographic sign-off before the spending cap or position size widens is. An audit trail per decision, logged so it cannot be quietly edited afterward. And an exit that is never blocked — closing a position or withdrawing to yourself must never be something the policy layer can trap you out of.
+
+Where Swop lands, measured against its own checklist: self-custodial, agent proposes and you approve, per-vault hash-chained audit log, exits always open. The policy layer shipped on August 28 but is still running in shadow (observe-and-log) mode while it soaks — so by the standard above it belongs on the "reported" side of the line rather than the "enforced" side until that flips. We also have not commissioned a third-party security audit, and we say so rather than implying one exists.
+
+That kind of precision is the whole point. The checklist only works if wallets describe their own mechanisms accurately, including ours.
+
+Full post on the Swop Journal 👇
