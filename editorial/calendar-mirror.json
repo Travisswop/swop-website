@@ -21,49 +21,85 @@
    "done": false
   },
   {
-   "id": "cb201",
-   "d": "2026-09-17",
-   "t": "How does Swop make money?",
-   "k": "content",
-   "ch": "blog",
-   "note": "Blog · definition · query: how does Swop make money",
-   "done": false
-  },
-  {
-   "id": "cb202",
-   "d": "2026-09-18",
-   "t": "Cross-chain swaps without opening a bridge",
-   "k": "content",
-   "ch": "blog",
-   "note": "Blog · definition · query: cross chain swap wallet",
-   "done": false
-  },
-  {
-   "id": "cb203",
-   "d": "2026-09-21",
-   "t": "Best wallet for prediction markets: what to look for",
-   "k": "content",
-   "ch": "blog",
-   "note": "Blog · comparison · query: best wallet for prediction markets",
-   "done": false
-  },
-  {
-   "id": "cb204",
-   "d": "2026-09-22",
-   "t": "Copy trading on Solana: how it works, what to check",
-   "k": "content",
-   "ch": "blog",
-   "note": "Blog · definition · query: copy trading crypto Solana",
-   "done": false
-  },
-  {
    "id": "cb205",
-   "d": "2026-09-23",
+   "d": "2026-09-17",
    "t": "Self-custody where banking rails are thin",
    "k": "content",
    "ch": "blog",
    "note": "Blog · definition · query: self-custody crypto wallet Bangladesh",
    "done": false
+  },
+  {
+   "id": "cb202",
+   "d": "2026-09-18",
+   "t": "Prediction market apps and wallets: what to look for",
+   "k": "content",
+   "ch": "blog",
+   "note": "Blog · definition+comparison · primary query: prediction market app · secondary: best wallet for prediction markets. RETARGETED 2026-09-15: its old query \"cross chain swap wallet\" was claimed by /blog/cross-chain-swap-wallet. cb203 was merged in here rather than shipped as a near-duplicate three days apart.",
+   "done": false
+  },
+  {
+   "id": "cb206",
+   "d": "2026-09-21",
+   "t": "Recover a crypto wallet without a seed phrase",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · definition · query: recover crypto wallet without seed phrase — ⏳ PENDING QUERY PROMOTION. Appended to QUERIES.md under \"Proposed\"; Travis must move it up before this can be written (standing rule: no post may target a query not promoted in QUERIES.md). Writable from the verified phone-loss/recovery row (email login on any phone + private-key export). Strongest of the new proposals."
+  },
+  {
+   "id": "cb201",
+   "d": "2026-09-22",
+   "t": "How does Swop make money?",
+   "k": "content",
+   "ch": "blog",
+   "note": "Blog · definition · query: how does Swop make money — ⚠️ BLOCKED on FACTS. Only the 0.5% SwopPay checkout fee is citable; \"Swap fee / pricing details beyond checkout\" sits under Needs verification. Travis must verify the full fee picture by 2026-09-21 or this slips again.",
+   "done": false
+  },
+  {
+   "id": "cb204",
+   "d": "2026-09-23",
+   "t": "Copy trading on Solana: how it works, what to check",
+   "k": "content",
+   "ch": "blog",
+   "note": "Blog · definition · query: copy trading crypto Solana — ⚠️ BLOCKED on FACTS. FACTS.md has ZERO token rows. Per REWARDS_ARCHITECTURE.md the fee-pool swap buyback was removed 2026-07-01 and copy-trade is the only live SWOP reward path (0.25% to the copied trader / 0.25% retained). Needs Travis-verified rows by 2026-09-22. Unblocks the parked \"peoples network\" post too.",
+   "done": false
+  },
+  {
+   "id": "cb207",
+   "d": "2026-09-24",
+   "t": "What is a wrapped token?",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · definition · query: what is a wrapped token — ⏳ PENDING QUERY PROMOTION. Appended to QUERIES.md under \"Proposed\"; Travis must move it up before this can be written (standing rule: no post may target a query not promoted in QUERIES.md). Pairs with /blog/cross-chain-swap-wallet and /blog/usdc-vs-usdce — the \"claim on a bridge, not on the issuer\" idea gets its own page."
+  },
+  {
+   "id": "cb208",
+   "d": "2026-09-25",
+   "t": "How to accept crypto payments as a freelancer",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · definition · query: accept crypto payments freelancer — ⏳ PENDING QUERY PROMOTION. Appended to QUERIES.md under \"Proposed\"; Travis must move it up before this can be written (standing rule: no post may target a query not promoted in QUERIES.md). Writable from verified rows: x402 SmartSite storefront, 0.5% SwopPay fee, gas sponsorship, no KYC on the crypto rail."
+  },
+  {
+   "id": "cb209",
+   "d": "2026-09-28",
+   "t": "Best Solana wallet for beginners",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · definition · query: best Solana wallet for beginners — ⏳ PENDING QUERY PROMOTION. Appended to QUERIES.md under \"Proposed\"; Travis must move it up before this can be written (standing rule: no post may target a query not promoted in QUERIES.md). Writable from verified rows. Broad head term; complements the existing self-custody post rather than repeating it."
+  },
+  {
+   "id": "cb210",
+   "d": "2026-09-29",
+   "t": "Sell digital products for crypto",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · definition · query: sell digital products for crypto — ⏳ PENDING QUERY PROMOTION. Appended to QUERIES.md under \"Proposed\"; Travis must move it up before this can be written (standing rule: no post may target a query not promoted in QUERIES.md). Creator-side framing of the x402 storefront; distinct from the freelancer/services angle in cb208."
   }
  ]
 }
