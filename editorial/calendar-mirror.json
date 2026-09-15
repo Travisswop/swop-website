@@ -12,8 +12,17 @@
    "done": true
   },
   {
-   "id": "cb200",
+   "id": "cb211",
    "d": "2026-09-16",
+   "t": "The CLARITY Act vote: what actually happened, and what the bill does",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · news-analysis · query: CLARITY Act / crypto market structure bill (promoted by Travis 2026-09-15). ⚠️ WRITE THE OUTCOME, DO NOT ASSUME IT. The cloture vote was set for Tue 9/15 2:15pm ET and needed 60 votes against a 53-seat majority; prediction markets priced passage in 2026 near 16%. VERIFY what actually happened before writing a word — cloture carried, failed, or was pulled — and cite a primary source (Senate roll call, or Reuters/CNBC/The Block reporting it). Angle: explain what the bill actually does so the post keeps earning after the news cycle — the three fights that held it up (ethics rules on the President's crypto income, DeFi developer liability under Section 604, the stablecoin yield provision), and what each outcome means for self-custody and for builders. NO Swop product claims beyond Verified FACTS rows, and no predictions about what Congress does next. Note FOMC lands the same day — the newsletter covers that, not this post."
+  },
+  {
+   "id": "cb200",
+   "d": "2026-09-17",
    "t": "Solana wallet with a built-in swap: why it matters",
    "k": "content",
    "ch": "blog",
@@ -22,7 +31,7 @@
   },
   {
    "id": "cb205",
-   "d": "2026-09-17",
+   "d": "2026-09-18",
    "t": "Self-custody where banking rails are thin",
    "k": "content",
    "ch": "blog",
@@ -31,7 +40,7 @@
   },
   {
    "id": "cb202",
-   "d": "2026-09-18",
+   "d": "2026-09-21",
    "t": "Prediction market apps and wallets: what to look for",
    "k": "content",
    "ch": "blog",
@@ -40,7 +49,7 @@
   },
   {
    "id": "cb206",
-   "d": "2026-09-21",
+   "d": "2026-09-22",
    "t": "Recover a crypto wallet without a seed phrase",
    "k": "content",
    "ch": "blog",
@@ -49,25 +58,25 @@
   },
   {
    "id": "cb201",
-   "d": "2026-09-22",
+   "d": "2026-09-23",
    "t": "How does Swop make money?",
    "k": "content",
    "ch": "blog",
-   "note": "Blog · definition · query: how does Swop make money — ⚠️ BLOCKED on FACTS. Only the 0.5% SwopPay checkout fee is citable; \"Swap fee / pricing details beyond checkout\" sits under Needs verification. Travis must verify the full fee picture by 2026-09-21 or this slips again.",
+   "note": "Blog · definition · query: how does Swop make money — ⚠️ BLOCKED on FACTS. Only the 0.5% SwopPay checkout fee is citable; \"Swap fee / pricing details beyond checkout\" sits under Needs verification. Travis must verify the full fee picture by 2026-09-22 or this slips again.",
    "done": false
   },
   {
    "id": "cb204",
-   "d": "2026-09-23",
+   "d": "2026-09-24",
    "t": "Copy trading on Solana: how it works, what to check",
    "k": "content",
    "ch": "blog",
-   "note": "Blog · definition · query: copy trading crypto Solana — ⚠️ BLOCKED on FACTS. FACTS.md has ZERO token rows. Per REWARDS_ARCHITECTURE.md the fee-pool swap buyback was removed 2026-07-01 and copy-trade is the only live SWOP reward path (0.25% to the copied trader / 0.25% retained). Needs Travis-verified rows by 2026-09-22. Unblocks the parked \"peoples network\" post too.",
+   "note": "Blog · definition · query: copy trading crypto Solana — ⚠️ BLOCKED on FACTS. FACTS.md has ZERO token rows. Per REWARDS_ARCHITECTURE.md the fee-pool swap buyback was removed 2026-07-01 and copy-trade is the only live SWOP reward path (0.25% to the copied trader / 0.25% retained). Needs Travis-verified rows by 2026-09-23. Unblocks the parked \"peoples network\" post too.",
    "done": false
   },
   {
    "id": "cb207",
-   "d": "2026-09-24",
+   "d": "2026-09-25",
    "t": "What is a wrapped token?",
    "k": "content",
    "ch": "blog",
@@ -76,7 +85,7 @@
   },
   {
    "id": "cb208",
-   "d": "2026-09-25",
+   "d": "2026-09-28",
    "t": "How to accept crypto payments as a freelancer",
    "k": "content",
    "ch": "blog",
@@ -85,7 +94,7 @@
   },
   {
    "id": "cb209",
-   "d": "2026-09-28",
+   "d": "2026-09-29",
    "t": "Best Solana wallet for beginners",
    "k": "content",
    "ch": "blog",
@@ -94,7 +103,7 @@
   },
   {
    "id": "cb210",
-   "d": "2026-09-29",
+   "d": "2026-09-30",
    "t": "Sell digital products for crypto",
    "k": "content",
    "ch": "blog",
