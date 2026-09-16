@@ -25,11 +25,17 @@ const { mimeFor } = require('./lib/multipart');
 
 const API = 'https://api.linkedin.com';
 // LinkedIn expires versioned-API dates after ~1 year and returns 426
-// NONEXISTENT_VERSION once yours lapses. 202401 had already expired by
-// 2026-09-10 (nothing versioned had ever actually been called — whoami only
-// hits the unversioned /v2/userinfo, so the rot went unnoticed). Probe with a
-// cheap GET when this breaks: active dates as of 2026-09-10 were 202503 and 202509.
-const VERSION = process.env.LINKEDIN_API_VERSION || '202509';
+// NONEXISTENT_VERSION once yours lapses. This WILL recur — budget for it.
+//   2026-09-10: 202401 had already expired (nothing versioned had ever actually
+//     been called, since whoami only hits the unversioned /v2/userinfo, so the
+//     rot went unnoticed). Pinned 202509.
+//   2026-09-16: 202509 expired too, six days later — the window is short, and it
+//     fails mid-publish on the image upload, not on whoami. Pinned 202609.
+// To re-probe: GET /rest/posts/<any urn> with a candidate LinkedIn-Version.
+//   426 = that version does not exist. 403 = version is live (you just lack read
+//   scope for that call), which is the signal you want. On 2026-09-16 the active
+//   band was 202510..202609; 202610+ and 202512 and older all returned 426.
+const VERSION = process.env.LINKEDIN_API_VERSION || '202609';
 
 function creds() {
   return loadCreds('linkedin', ['LINKEDIN_ACCESS_TOKEN']);
