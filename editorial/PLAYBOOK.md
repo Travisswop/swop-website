@@ -76,6 +76,16 @@ thumbnail, not a quiet title card. Reference: `blog/gasless-crypto-wallet/og.htm
 - **Keep:** SWOP wordmark top-left, kicker pill, `swopme.co/blog` small at bottom.
 - **Never:** dense text, more than ~10 words total, misleading claims not backed by
   the article, off-palette rainbow colors (red is reserved for the "bad thing" prop).
+- **Never use `-webkit-text-stroke` on the headline.** At weight 900 the renderer
+  strokes the font's INTERIOR contours too, printing ghost outlines through the
+  letters. It is subtle at full size and obvious at feed size. Caught and fixed by
+  hand twice (2026-09-14 ai-agent banner, 2026-09-16 clarity banner) before anyone
+  noticed it shipped in `gasless-crypto-wallet/og.html` and `crypto-link-in-bio/og.html`,
+  which still carry it. Use `text-shadow` for the accent glow instead.
+- **The hook must argue the post's actual thesis.** If the piece's argument changes in
+  review, the banner is part of the article, not decoration — rewrite it. (2026-09-16:
+  a "BLOCKED" banner had to be rebuilt when the CLARITY post was retargeted from
+  reporting a failed vote to arguing why statute beats agency guidance.)
 - **Required furniture, every banner** (the drafter keeps omitting these — fixed by
   hand on 2026-09-02, 09-09 and 09-10): SWOP wordmark top-left, the kicker PILL
   (`.kick` with the green dot) under it, hook, optional one-line subtitle, and
