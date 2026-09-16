@@ -1,0 +1,15 @@
+The CLARITY Act cloture vote failed 49–50 yesterday — eleven short of the 60 required, and one short of even a simple majority. The reflex reading is that crypto just lost its shot at rules. That isn't what happened, and the real situation is more worth understanding.
+
+First, it didn't break on the market-structure framework. It broke on ethics language covering officials' crypto holdings. No voting Democrat supported the motion and four Republicans opposed it.
+
+Second, the agencies never waited. The SEC's Project Crypto has been building a token taxonomy, and in August it proposed Regulation Crypto Assets — a tailored offering regime the Commission says is partly intended to reduce the incentive for issuers to organize offshore. The CFTC has gone further in practice: listed spot crypto products began trading on federally regulated U.S. markets in December 2025, and a joint release in March named sixteen assets as digital commodities. Anyone claiming the U.S. has no crypto policy is describing 2022.
+
+So why does legislation still matter? Because a rule and a statute can say identical things and be worth different amounts to the person deciding where to put money or where to incorporate. A future commission can supersede a rule. A court can vacate it. Congress can disapprove it. A proposal can simply never be finalized. None of that requires bad faith — it is ordinary administrative law working as designed. Changing a statute takes both chambers and a signature.
+
+That difference is priced. A fund committing to a ten-year vehicle underwrites a regulatory regime across a horizon longer than any single administration, and new venture fund formation just hit its lowest quarterly total since 2020. Founders choose a jurisdiction against the rules they expect at exit, not the rules today — which is why offshore structuring persisted through a friendlier turn in Washington.
+
+And the property most worth making durable is self-custody. The World Bank's Global Findex 2025 counts 1.3 billion adults with no financial account, while 86% of adults own a mobile phone. That gap is not technological, it is permissional: a self-custodial wallet is an account nobody has to grant you. Meanwhile $33 trillion in stablecoin transfers settled on public chains in 2025, up 72% year over year, and 71% of Latin American firms now use them for cross-border settlement, while remittances into Sub-Saharan Africa still average over 6% in fees. People are not waiting for permission to join a better rail.
+
+Which is why Section 604 — whether publishing non-custodial software makes you a money transmitter — is the stake that matters most. Settled in guidance, it can be resettled. Leaving it unresolved protects no one; it exports the work.
+
+Full piece on the Swop Journal 👇
