@@ -12,6 +12,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Drafted (in review)
 
+- definition | Tokenizing real-world assets: treasuries, gold, stocks and collectibles | tokenized real world assets / RWA tokenization | blog/tokenized-real-world-assets (from Beachhead calendar item cb212, not previously in this file; drafted 2026-09-17)
 - news-analysis | The CLARITY Act vote: what actually happened, and what the bill does | CLARITY Act / crypto market structure bill | blog/clarity-act-vote-explained (from Beachhead calendar item cb211, not previously in this file; Senate cloture vote failed 49-50 on 2026-09-15)
 - definition | Cross-chain swap wallet: how swapping between chains actually works | cross chain swap wallet | blog/cross-chain-swap-wallet (written 2026-09-15 to fill the gap left when cb005 published a day early; query was unclaimed. Swop section cites verified rows only — chains, self-custody, gas sponsorship — and makes no cross-chain routing claim.)
 - how-to | Send crypto with a link (no wallet address needed) | send crypto with a link | blog/send-crypto-with-a-link (was Up next #6; drafted as PR #13 on 2026-09-04, ported onto fresh main and published 2026-09-14. Swop-specific claim-link expiry/cancel behaviour still has NO FACTS row — the post deliberately makes no Swop claim-link claim.)
