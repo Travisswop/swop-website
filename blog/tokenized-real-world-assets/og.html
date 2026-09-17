@@ -33,6 +33,12 @@
     box-shadow: 0 0 0 14px rgba(46,194,126,.18), 0 0 120px rgba(46,194,126,.4), inset 0 -22px 60px rgba(0,0,0,.45), inset 0 20px 40px rgba(255,255,255,.35);
     display:flex; align-items:center; justify-content:center;
     transform:rotate(-8deg); }
+  .bar { width:250px; height:132px; border-radius:12px;
+    background: linear-gradient(150deg,#ffe07a 0%,#f5c542 26%,#d9a41f 55%,#b8860b 100%);
+    box-shadow: 0 26px 60px rgba(0,0,0,.55), inset 0 6px 14px rgba(255,255,255,.55), inset 0 -10px 18px rgba(0,0,0,.28);
+    transform: rotate(-9deg); position:relative; display:flex; align-items:center; justify-content:center; }
+  .bar:before { content:''; position:absolute; inset:14px 18px; border-radius:6px; border:2px solid rgba(120,80,10,.28); }
+  .bar b { font-family:'JetBrains Mono'; font-size:30px; font-weight:800; color:#6b4a06; letter-spacing:.08em; }
   .coin span { font-size:220px; line-height:1; transform:rotate(8deg);
     filter:drop-shadow(0 8px 18px rgba(0,0,0,.4)); }
   .prop1 { position:absolute; font-size:110px; right:90px; top:56px; opacity:.9;
@@ -58,7 +64,7 @@
   </div>
   <div class="right">
     <div class="prop1">📜</div>
-    <div class="coin"><span>🪙</span></div>
+    <div class="coin"><div class="bar"><b>1 oz Au</b></div></div>
     <div class="prop2">🏛️</div>
     <div class="tag">REDEMPTION RIGHT</div>
   </div>
