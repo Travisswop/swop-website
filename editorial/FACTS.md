@@ -34,6 +34,27 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | User / transaction counts | No public number exists yet — never estimate |
 | SWOP token — any claim at all | **No token row exists. Blocks cb204 "Copy trading on Solana" (Tue 9/23) and the parked "Swop is the people's network" post.** Proposed wording below — Travis to confirm, correct, or reject each line, then they move up to Verified. |
 
+### Proposed RWA row — awaiting Travis (drafted 2026-09-17)
+
+The 9/17 RWA post had to ship with a deliberately generic Swop section, because no
+row covers this. Worse, the draft originally asserted the NEGATIVE ("Swop does not
+currently list, support, or custody any specific tokenized real-world asset") — which
+was caught in review and, on checking, is **false**.
+
+**Evidence gathered 2026-09-17:** a live swap quote through Swop's own engine routed
+PAXG → USDC on Ethereum (LiFi, via Bitget), 1 PAXG ≈ 4,355 USDC. So PAXG is at minimum
+quotable and routable in-app today.
+
+| Proposed claim | Draft wording | Basis |
+|---|---|---|
+| RWA tokens are swappable | "Tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain." | Live quote, 2026-09-17 |
+
+Travis to confirm the wording and how broadly to state it (PAXG specifically vs "any
+ERC-20/SPL on a supported chain"), and whether holding/receiving — as distinct from
+swapping — should be claimed. Once promoted, `/blog/tokenized-real-world-assets`
+should have its "Where Swop fits" section rewritten from generic infrastructure to
+something concrete.
+
 ### Proposed token rows — awaiting Travis (drafted 2026-09-15)
 
 Researched against `swop-app-backend/docs/REWARDS_ARCHITECTURE.md`. **Nothing here may be
