@@ -1,0 +1,15 @@
+{
+  "posts": [
+    "Tokenized real-world assets are having a moment, and almost every explainer skips the only question that matters: the token isn't the asset. It's a claim on one. What that claim is actually worth varies enormously 🧵",
+    "1/ \"Backed by\" and \"1:1\" are not the same claim. A token can be fully backed without being 1:1 — over-collateralized, with a buffer the issuer funds. And a token can say 1:1 while the redemption right behind it is narrow or hard to exercise.",
+    "2/ Ondo's USDY is the over-collateralized case: backed mainly by short-term US Treasuries and bank deposits, with roughly a 3% first-loss buffer Ondo funds itself. That's arguably a stronger promise than a bare peg — but it is a different one.",
+    "3/ OUSG is the institutional version: 24/7 mint and redeem, restricted to qualified purchasers, holding BlackRock's tokenized BUIDL fund as its core asset.",
+    "4/ Equities: Ondo Stocks now lists 440+ tokenized US stocks and ETFs across Ethereum, BNB Chain and Solana, past $1B. Their SEC-registered broker-dealer got FINRA authorization in July to offer tokenized equities to US investors.",
+    "5/ Gold is where \"1:1\" is both true and precisely documented. Each PAXG = one fine troy ounce of allocated LBMA Good Delivery gold, vaulted in London under Paxos Trust.",
+    "6/ But read the redemption floor. Physical delivery starts around 430 PAXG — because London Good Delivery bars run 370–430 oz and Paxos can't cut a bar in half. Real redemption, with a real minimum. Both halves are true.",
+    "7/ Collectibles are the other direction: not fractionalizing an asset, but attaching provenance to it. The Aura Consortium — LVMH, Prada, OTB, Mercedes-Benz, Cartier — issues digital IDs at manufacture, so authenticity travels with the object.",
+    "8/ That's the counterfeiting angle. Provenance fraud is often put above $500B/yr industry-wide. A chain of custody that moves with the item, and survives resale, is a genuinely better primitive than a paper certificate.",
+    "9/ And the efficiency case is real but narrower than the pitch. Roland Berger's study with Keyrock put up to €4.6B — about 24% — in annual equity-trading cost savings once tokenized infrastructure scales. Worth having. Not magic.",
+    "10/ Totals for the whole RWA market range from under $1B to tens of billions depending on what a report counts. Treat any single number with suspicion. Full breakdown: https://www.swopme.co/blog/tokenized-real-world-assets"
+  ]
+}
