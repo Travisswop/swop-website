@@ -341,7 +341,20 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
   </div>
 </div></section>
 
-<section id="live" data-screen-label="available now"><div class="wrap">
+<section id="checkout" data-screen-label="checkout"><div class="wrap">
+      <div class="sechead"><span class="eyebrow"><b></b>Checkout</span>
+        <h2>Pay without leaving.</h2>
+        <p>Swop checkout runs inside this page. Nothing redirects, and the card and stablecoin rails are the same ones the Swop app uses.</p>
+      </div>
+      <div id="embedHost" style="min-height:520px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--paper)">
+        <div id="embedFallback" style="padding:40px;text-align:center">
+          <p class="cdesc" style="margin:0 0 16px">Loading secure checkout…</p>
+          <a class="btn" href="https://www.swopme.app/sp/travis.swop.id">Open the store instead</a>
+        </div>
+      </div>
+    </div></section>
+
+    <section id="live" data-screen-label="available now"><div class="wrap">
       <div class="sechead"><span class="eyebrow"><b></b>Available now</span>
         <h2>Buy these today.</h2>
         <p>These two are live in the Swop store right now and check out through Swop — paid in USDC on Base, settled straight to the seller. Everything below is the wider lineup, coming as stock lands.</p>
@@ -650,4 +663,37 @@ document.querySelectorAll('.add').forEach(function(b){
 });
 </script>
 </body>
+<script>
+/* Embedded Swop checkout.
+   The token is minted server-side by /api/embed-token, because the merchant key
+   that mints it must never reach the browser. If anything fails — not
+   configured, origin not registered, Swop unreachable — we leave the link
+   fallback in place rather than showing an empty frame. */
+(async function () {
+  var host = document.getElementById('embedHost');
+  var fallback = document.getElementById('embedFallback');
+  if (!host) return;
+  function giveUp(msg) {
+    if (fallback) fallback.querySelector('p').textContent = msg;
+  }
+  try {
+    var r = await fetch('/api/embed-token', { method: 'POST' });
+    var b = await r.json().catch(function () { return {}; });
+    if (!r.ok || !b.token) {
+      giveUp(b.error || 'Checkout is not available here yet.');
+      return;
+    }
+    var f = document.createElement('iframe');
+    f.src = 'https://www.swopme.app/sp/' + encodeURIComponent(b.handle) +
+            '/cart?embed_token=' + encodeURIComponent(b.token);
+    f.style.cssText = 'width:100%;height:760px;border:0;display:block';
+    f.setAttribute('title', 'Swop checkout');
+    f.setAttribute('allow', 'payment');
+    host.innerHTML = '';
+    host.appendChild(f);
+  } catch (e) {
+    giveUp('Could not reach checkout. Use the store link above.');
+  }
+})();
+</script>
 </html>
