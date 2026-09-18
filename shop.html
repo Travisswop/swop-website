@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shop — Swop</title>
+<meta name="description" content="Buy Swop products with USDC on Base. Human or agent — the same link works for both.">
+<link rel="icon" href="/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#010108; --surface:#0a0a16; --border:rgba(255,255,255,.06);
+  --border-bright:rgba(255,255,255,.12); --blue:#38bdf8; --purple:#7b5cfa;
+  --green:#00ff88; --amber:#f5c842; --text:#fff; --muted:#555577; --dim:#333355;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:Figtree,system-ui,sans-serif;
+  -webkit-font-smoothing:antialiased;line-height:1.6}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+  background:rgba(1,1,8,.8);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:800;letter-spacing:-.02em;font-size:1.1rem}
+.nav-cta{font-size:.9rem;font-weight:600;padding:8px 16px;border-radius:999px;
+  border:1px solid var(--border-bright);transition:.2s}
+.nav-cta:hover{border-color:var(--blue);color:var(--blue)}
+.hero{padding:72px 0 40px;text-align:center}
+.hero h1{font-size:clamp(2.2rem,6vw,3.4rem);font-weight:900;letter-spacing:-.03em;line-height:1.05}
+.hero p{color:var(--muted);margin-top:14px;font-size:1.05rem}
+.chip{display:inline-flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;
+  font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--green);
+  border:1px solid rgba(0,255,136,.25);background:rgba(0,255,136,.06);
+  padding:6px 12px;border-radius:999px;margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;padding:24px 0 72px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:18px;
+  overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.card:hover{border-color:var(--border-bright);transform:translateY(-3px)}
+.shot{aspect-ratio:4/3;background:#06060f;display:block;width:100%;object-fit:cover}
+.body{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.title{font-size:1.25rem;font-weight:700;letter-spacing:-.01em}
+.blurb{color:var(--muted);font-size:.93rem;flex:1}
+.meta{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.05em;
+  text-transform:uppercase;color:var(--dim);border:1px solid var(--border);
+  padding:4px 9px;border-radius:6px}
+.price-row{display:flex;align-items:baseline;justify-content:space-between;
+  border-top:1px solid var(--border);padding-top:14px;margin-top:2px}
+.price{font-size:1.5rem;font-weight:800;letter-spacing:-.02em}
+.price small{font-family:'Space Mono',monospace;font-size:.7rem;color:var(--muted);
+  font-weight:400;margin-left:6px;letter-spacing:.05em}
+.ship{font-size:.8rem;color:var(--muted)}
+.buy{display:block;text-align:center;font-weight:700;font-size:.95rem;padding:13px;
+  border-radius:11px;background:linear-gradient(135deg,var(--blue),var(--purple));
+  color:#020208;transition:.2s}
+.buy:hover{filter:brightness(1.1)}
+.note{border:1px solid var(--border);background:var(--surface);border-radius:14px;
+  padding:22px;margin-bottom:64px;color:var(--muted);font-size:.9rem}
+.note strong{color:var(--text);font-weight:600}
+.note code{font-family:'Space Mono',monospace;font-size:.82rem;color:var(--blue);
+  background:rgba(56,189,248,.08);padding:2px 6px;border-radius:5px}
+footer{border-top:1px solid var(--border);padding:28px 0;color:var(--dim);font-size:.85rem;
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+@media(max-width:560px){.hero{padding:48px 0 28px}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="/" class="brand">Swop</a>
+  <a href="https://swopme.app/wallet" class="nav-cta">Launch App ↗</a>
+</div></header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="chip">● Paid in USDC on Base</div>
+    <h1>Shop</h1>
+    <p>Checkout runs on Swop. Settles in USDC — no card required.</p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <img class="shot" loading="lazy"
+        src="https://res.cloudinary.com/bayshore/image/upload/v1788052406/eugtpqa7vg00wrfms020.jpg"
+        alt="Swop Digital Card — NFC business card">
+      <div class="body">
+        <h2 class="title">Swop Digital Card</h2>
+        <p class="blurb">The NFC business card that never goes out of date. Tap any phone to share
+          your live SmartSite — socials, wallet, links. Update it anytime; the card is never stale
+          because it isn't printed.</p>
+        <div class="meta">
+          <span class="tag">Physical</span><span class="tag">Black / White</span><span class="tag">50 available</span>
+        </div>
+        <div class="price-row">
+          <div class="price">$0.50<small>USDC</small></div>
+          <div class="ship">+ $1.00 shipping</div>
+        </div>
+        <a class="buy" href="https://www.swopme.app/p/travis.swop.id/6a9383f9e8ae0b38e225c45b">Buy now</a>
+      </div>
+    </article>
+
+    <article class="card">
+      <img class="shot" loading="lazy"
+        src="https://res.cloudinary.com/bayshore/image/upload/v1786733216/dwm3kmxiot17hidzqdf7.png"
+        alt="Cabal Card — access pass">
+      <div class="body">
+        <h2 class="title">Cabal Card</h2>
+        <p class="blurb">Access to the Cabal's group chat, and the ability to post on the feed.
+          Delivered as an access pass tied to your purchase receipt.</p>
+        <div class="meta">
+          <span class="tag">Digital</span><span class="tag">Instant delivery</span><span class="tag">No shipping</span>
+        </div>
+        <div class="price-row">
+          <div class="price">$1.00<small>USDC</small></div>
+          <div class="ship">delivered instantly</div>
+        </div>
+        <a class="buy" href="https://www.swopme.app/p/travis.swop.id/6a7f63002e22feb6ad48dd7c">Buy now</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="note">
+    <strong>Agents can buy these too.</strong> Every product link speaks
+    <code>x402</code>: a person gets a product page, an AI agent with a wallet gets a payment
+    challenge and can complete the purchase on its own. Same URL, both audiences.
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© 2026 Swop</span>
+  <span><a href="/terms.html">Terms</a> · <a href="/privacy.html">Privacy</a> · <a href="/support.html">Support</a></span>
+</footer>
+</body>
+</html>

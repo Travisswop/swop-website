@@ -156,6 +156,27 @@
 .nav-logo-img { height: 32px; width: auto; object-fit: contain; }
 */
 
+      .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 22px;
+      }
+      .nav-link {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        opacity: 0.8;
+        transition: opacity 0.2s, color 0.2s;
+      }
+      .nav-link:hover {
+        opacity: 1;
+        color: var(--green);
+      }
+      @media (max-width: 480px) {
+        .nav-right { gap: 14px; }
+        .nav-link { font-size: 0.9rem; }
+      }
       .nav-cta {
         background: var(--green) !important;
         color: #000 !important;
@@ -1891,8 +1912,11 @@
         />
       </a>
 
-      <!-- Single CTA button — no menu needed -->
-      <a href="https://swopme.app/wallet" class="nav-cta">Launch App ↗</a>
+      <!-- Shop + CTA, grouped so the nav's space-between keeps them together -->
+      <div class="nav-right">
+        <a href="/shop.html" class="nav-link">Shop</a>
+        <a href="https://swopme.app/wallet" class="nav-cta">Launch App ↗</a>
+      </div>
     </nav>
 
     <!-- Global TX counter (top right, desktop only) -->
