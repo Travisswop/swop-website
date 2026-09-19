@@ -66,11 +66,23 @@ export default async function handler(req, res) {
     });
     const body = await upstream.json().catch(() => ({}));
     if (!upstream.ok) {
-      // Pass Swop's message through — 403 means the key lacks
-      // commerce.checkout, 404 means a product is not ours. Both actionable.
-      return res.status(upstream.status).json({
-        error: body?.message || 'Swop could not create this checkout.',
-      });
+      const upstreamMessage = body?.message || 'Swop could not create this checkout.';
+
+      // A 401/403 here is OUR configuration being wrong — a missing, revoked or
+      // wrongly-scoped key. The buyer cannot act on that, and telling them
+      // "Invalid or revoked merchant API key" both confuses them and narrates
+      // our key state to anyone who asks. Log the real reason, show a neutral
+      // one.
+      if (upstream.status === 401 || upstream.status === 403) {
+        console.error('[checkout] merchant key rejected by Swop:', upstreamMessage);
+        return res.status(503).json({
+          error: 'Checkout is temporarily unavailable. Please try again shortly.',
+        });
+      }
+
+      // Everything else is about the cart itself — an unknown product, a bad
+      // quantity — and the buyer or the integrator can act on it.
+      return res.status(upstream.status).json({ error: upstreamMessage });
     }
 
     const d = body?.data || {};
