@@ -344,13 +344,12 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 <section id="checkout" data-screen-label="checkout"><div class="wrap">
       <div class="sechead"><span class="eyebrow"><b></b>Checkout</span>
         <h2>Pay without leaving.</h2>
-        <p>Swop checkout runs inside this page. Nothing redirects, and the card and stablecoin rails are the same ones the Swop app uses.</p>
+        <p>Your cart, checked out here. Swop settles it in USDC on Base and sends the receipt — you are never redirected.</p>
       </div>
-      <div id="embedHost" style="min-height:520px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--paper)">
-        <div id="embedFallback" style="padding:40px;text-align:center">
-          <p class="cdesc" style="margin:0 0 16px">Loading secure checkout…</p>
-          <a class="btn" href="https://www.swopme.app/sp/travis.swop.id">Open the store instead</a>
-        </div>
+      <div id="coBox" style="border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:26px">
+        <div id="coEmpty" class="cdesc">Your cart is empty. Add something from Available now.</div>
+        <div id="coCart" hidden></div>
+        <div id="coPay" hidden style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line2)"></div>
       </div>
     </div></section>
 
@@ -366,7 +365,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
             <div class="ctop"><h3>Swop Digital Card</h3><span class="price">$1.50</span></div>
             <p class="cdesc">The NFC business card that never goes out of date. Tap any phone to share your live SmartSite — socials, wallet, links. Update it anytime; it is never stale because it is not printed.</p>
             <div class="spec"><span>Ships worldwide</span><span>Black / White</span><span>50 in stock</span></div>
-            <div class="buy"><span class="cdesc" style="margin:0">$0.50 + $1.00 shipping</span><a class="btn add" href="https://www.swopme.app/p/travis.swop.id/6a9383f9e8ae0b38e225c45b">Buy now</a></div>
+            <div class="buy"><span class="cdesc" style="margin:0">$0.50 + $1.00 shipping</span><button class="btn add" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card">Add to cart</button></div>
           </div>
         </article>
         <article class="card">
@@ -375,7 +374,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
             <div class="ctop"><h3>Cabal Card</h3><span class="price">$1.00</span></div>
             <p class="cdesc">Access to the Cabal's group chat and the ability to post on the feed. Delivered instantly as an access pass tied to your purchase receipt.</p>
             <div class="spec"><span>Digital</span><span>Instant delivery</span><span>No shipping</span></div>
-            <div class="buy"><span class="cdesc" style="margin:0">Delivered instantly</span><a class="btn add" href="https://www.swopme.app/p/travis.swop.id/6a7f63002e22feb6ad48dd7c">Buy now</a></div>
+            <div class="buy"><span class="cdesc" style="margin:0">Delivered instantly</span><button class="btn add" data-sku="6a7f63002e22feb6ad48dd7c" data-name="Cabal Card">Add to cart</button></div>
           </div>
         </article>
       </div>
@@ -664,36 +663,91 @@ document.querySelectorAll('.add').forEach(function(b){
 </script>
 </body>
 <script>
-/* Embedded Swop checkout.
-   The token is minted server-side by /api/embed-token, because the merchant key
-   that mints it must never reach the browser. If anything fails — not
-   configured, origin not registered, Swop unreachable — we leave the link
-   fallback in place rather than showing an empty frame. */
-(async function () {
-  var host = document.getElementById('embedHost');
-  var fallback = document.getElementById('embedFallback');
-  if (!host) return;
-  function giveUp(msg) {
-    if (fallback) fallback.querySelector('p').textContent = msg;
-  }
-  try {
-    var r = await fetch('/api/embed-token', { method: 'POST' });
-    var b = await r.json().catch(function () { return {}; });
-    if (!r.ok || !b.token) {
-      giveUp(b.error || 'Checkout is not available here yet.');
+/* Headless Swop checkout.
+   The cart lives here, on this page. Creating the checkout happens on OUR
+   server (/api/checkout), because the merchant key that authorises it must
+   never reach a browser. We send SKUs and quantities only — prices are
+   resolved from the Swop catalogue, and a price sent from here is rejected
+   rather than honoured. */
+(function () {
+  var cart = [];
+  var els = {
+    box: document.getElementById('coBox'),
+    empty: document.getElementById('coEmpty'),
+    cart: document.getElementById('coCart'),
+    pay: document.getElementById('coPay'),
+    count: document.getElementById('cartN'),
+  };
+  var money = function (n) { return '$' + Number(n).toFixed(2); };
+
+  function render() {
+    var total = cart.reduce(function (t, i) { return t + i.qty; }, 0);
+    if (els.count) els.count.textContent = String(total);
+    if (!cart.length) {
+      els.empty.hidden = false; els.cart.hidden = true; els.pay.hidden = true;
       return;
     }
-    var f = document.createElement('iframe');
-    f.src = 'https://www.swopme.app/sp/' + encodeURIComponent(b.handle) +
-            '/cart?embed_token=' + encodeURIComponent(b.token);
-    f.style.cssText = 'width:100%;height:760px;border:0;display:block';
-    f.setAttribute('title', 'Swop checkout');
-    f.setAttribute('allow', 'payment');
-    host.innerHTML = '';
-    host.appendChild(f);
-  } catch (e) {
-    giveUp('Could not reach checkout. Use the store link above.');
+    els.empty.hidden = true; els.cart.hidden = false;
+    els.cart.innerHTML =
+      cart.map(function (i) {
+        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line2)">' +
+          '<span><b>' + i.name + '</b> <span class="cdesc">x' + i.qty + '</span></span>' +
+          '<button data-rm="' + i.sku + '" class="cdesc" style="background:none;border:0;cursor:pointer;text-decoration:underline">remove</button>' +
+          '</div>';
+      }).join('') +
+      '<div style="margin-top:16px"><button class="btn" id="coGo">Pay with USDC</button>' +
+      '<span class="cdesc" style="margin-left:12px">Total is calculated by Swop from your catalogue</span></div>';
   }
+
+  function add(sku, name) {
+    var found = cart.filter(function (i) { return i.sku === sku; })[0];
+    if (found) found.qty += 1; else cart.push({ sku: sku, name: name, qty: 1 });
+    render();
+    document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var addBtn = e.target.closest('[data-sku]');
+    if (addBtn) { add(addBtn.dataset.sku, addBtn.dataset.name || 'Item'); return; }
+    var rm = e.target.closest('[data-rm]');
+    if (rm) { cart = cart.filter(function (i) { return i.sku !== rm.dataset.rm; }); render(); return; }
+    if (e.target && e.target.id === 'coGo') { pay(); }
+  });
+
+  async function pay() {
+    var go = document.getElementById('coGo');
+    if (go) { go.disabled = true; go.textContent = 'Creating checkout...'; }
+    els.pay.hidden = false;
+    els.pay.innerHTML = '<p class="cdesc">Creating your checkout...</p>';
+    try {
+      var r = await fetch('/api/checkout', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          items: cart.map(function (i) { return { productId: i.sku, quantity: i.qty }; }),
+        }),
+      });
+      var b = await r.json().catch(function () { return {}; });
+      if (!r.ok || !b.paymentRequest) {
+        els.pay.innerHTML = '<p class="cdesc">' + (b.error || 'Could not create the checkout.') + '</p>';
+        if (go) { go.disabled = false; go.textContent = 'Pay with USDC'; }
+        return;
+      }
+      var pr = b.paymentRequest;
+      els.pay.innerHTML =
+        '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">' +
+        '<span><b>Total due</b></span><span class="price">' + money(b.total != null ? b.total : pr.amount) + '<small>USDC</small></span></div>' +
+        '<a class="btn" href="' + pr.url + '">Open your wallet to pay</a>' +
+        '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC on Base. ' +
+        'Your order, receipt and email are created automatically once the payment lands — nothing else to do here.</p>' +
+        '<p class="cdesc" style="margin-top:6px;word-break:break-all;font-size:12px">Or pay to: ' + pr.recipient + '</p>';
+    } catch (err) {
+      els.pay.innerHTML = '<p class="cdesc">Could not reach checkout. Please try again.</p>';
+      if (go) { go.disabled = false; go.textContent = 'Pay with USDC'; }
+    }
+  }
+
+  render();
 })();
 </script>
 </html>
