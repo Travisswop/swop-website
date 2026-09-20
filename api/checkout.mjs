@@ -74,7 +74,21 @@ export default async function handler(req, res) {
       // our key state to anyone who asks. Log the real reason, show a neutral
       // one.
       if (upstream.status === 401 || upstream.status === 403) {
-        console.error('[checkout] merchant key rejected by Swop:', upstreamMessage);
+        // Log EVERYTHING Swop told us. A 403 body carries grantedScopes and
+        // effectiveScopes — exactly what a merchant needs to see why their key
+        // was refused — and the buyer-safe response below deliberately throws
+        // it away. Without this line the answer costs a deploy cycle to find,
+        // which it did once.
+        console.error(
+          '[checkout] merchant key rejected by Swop',
+          JSON.stringify({
+            status: upstream.status,
+            code: body?.code || null,
+            message: upstreamMessage,
+            grantedScopes: body?.grantedScopes || null,
+            effectiveScopes: body?.effectiveScopes || null,
+          }),
+        );
         return res.status(503).json({
           error: 'Checkout is temporarily unavailable. Please try again shortly.',
         });
