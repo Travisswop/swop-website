@@ -24,6 +24,10 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | No third-party audit (honest) | "Swop has not commissioned a third-party security audit to date." (state plainly when the topic comes up; never imply an audit exists) | Travis, 2026-09-01 | 2026-09-01 |
 | Policy exits always open | "Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out." | Travis, 2026-08-28 | 2026-08-28 |
 | Policy enforcement seam (honest framing) | "Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee." | Travis, 2026-08-28 | 2026-08-28 |
+| Built-in swap | "Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site." | Travis, 2026-09-21 (live quote endpoint) | 2026-09-21 |
+| Swap routing | "Swop routes Solana swaps through Jupiter and EVM swaps through LiFi." | Travis, 2026-09-21 | 2026-09-21 |
+| Default slippage | "Swop quotes Solana swaps with a 50 bps default slippage tolerance." (a DEFAULT, not a cap — don't imply it can't be changed) | Travis, 2026-09-21 | 2026-09-21 |
+| RWA tokens swappable | "Tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain." | Travis, 2026-09-21 (live quote 2026-09-17) | 2026-09-21 |
 | Policy rollout stage | "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows." | Travis, 2026-08-28 | 2026-08-28 |
 
 ## Needs verification (do NOT cite until moved up)
@@ -33,49 +37,6 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Swap fee / pricing details beyond checkout | Confirm public wording with Travis. **Blocks cb201 "How does Swop make money?" (Mon 9/22).** |
 | User / transaction counts | No public number exists yet — never estimate |
 | SWOP token — any claim at all | **No token row exists. Blocks cb204 "Copy trading on Solana" (Tue 9/23) and the parked "Swop is the people's network" post.** Proposed wording below — Travis to confirm, correct, or reject each line, then they move up to Verified. |
-
-### Proposed in-wallet swap rows — awaiting Travis (drafted 2026-09-21)
-
-Today's post is *about* built-in swaps and cannot say Swop has one, because no row
-covers it. The "Where Swop fits" section therefore only implies it ("current swap
-pairs, quotes and fees...changes"), which is weaker than the truth.
-
-**Evidence gathered 2026-09-21**, live through Swop's own quote endpoint:
-- Solana, via Jupiter: 1 SOL → 119.217854 USDC, slippage 50bps, price impact 0.
-  The response says the user completes the swap in the Swop app.
-- EVM, via LiFi (2026-09-17): 1 PAXG → ~4,355 USDC on Ethereum.
-
-| Proposed claim | Draft wording | Basis |
-|---|---|---|
-| Built-in swap | "Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site." | Live quote endpoint |
-| Routing | "Swop routes Solana swaps through Jupiter and EVM swaps through LiFi." | Quote responses name both |
-| Default slippage | "Swop quotes Solana swaps with a 50 bps default slippage tolerance." | `slippageBps: 50` in the quote |
-
-Travis to confirm wording, and to say whether the routing partners (Jupiter/LiFi) may
-be named publicly — that is a product/partnership call, not a factual one. Promoting
-these lets `/blog/solana-wallet-with-built-in-swap` state the thing it is about, and
-strengthens `/blog/tokenized-real-world-assets` at the same time.
-
-### Proposed RWA row — awaiting Travis (drafted 2026-09-17)
-
-The 9/17 RWA post had to ship with a deliberately generic Swop section, because no
-row covers this. Worse, the draft originally asserted the NEGATIVE ("Swop does not
-currently list, support, or custody any specific tokenized real-world asset") — which
-was caught in review and, on checking, is **false**.
-
-**Evidence gathered 2026-09-17:** a live swap quote through Swop's own engine routed
-PAXG → USDC on Ethereum (LiFi, via Bitget), 1 PAXG ≈ 4,355 USDC. So PAXG is at minimum
-quotable and routable in-app today.
-
-| Proposed claim | Draft wording | Basis |
-|---|---|---|
-| RWA tokens are swappable | "Tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain." | Live quote, 2026-09-17 |
-
-Travis to confirm the wording and how broadly to state it (PAXG specifically vs "any
-ERC-20/SPL on a supported chain"), and whether holding/receiving — as distinct from
-swapping — should be claimed. Once promoted, `/blog/tokenized-real-world-assets`
-should have its "Where Swop fits" section rewritten from generic infrastructure to
-something concrete.
 
 ### Proposed token rows — awaiting Travis (drafted 2026-09-15)
 
