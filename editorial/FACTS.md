@@ -34,6 +34,28 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | User / transaction counts | No public number exists yet — never estimate |
 | SWOP token — any claim at all | **No token row exists. Blocks cb204 "Copy trading on Solana" (Tue 9/23) and the parked "Swop is the people's network" post.** Proposed wording below — Travis to confirm, correct, or reject each line, then they move up to Verified. |
 
+### Proposed in-wallet swap rows — awaiting Travis (drafted 2026-09-21)
+
+Today's post is *about* built-in swaps and cannot say Swop has one, because no row
+covers it. The "Where Swop fits" section therefore only implies it ("current swap
+pairs, quotes and fees...changes"), which is weaker than the truth.
+
+**Evidence gathered 2026-09-21**, live through Swop's own quote endpoint:
+- Solana, via Jupiter: 1 SOL → 119.217854 USDC, slippage 50bps, price impact 0.
+  The response says the user completes the swap in the Swop app.
+- EVM, via LiFi (2026-09-17): 1 PAXG → ~4,355 USDC on Ethereum.
+
+| Proposed claim | Draft wording | Basis |
+|---|---|---|
+| Built-in swap | "Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site." | Live quote endpoint |
+| Routing | "Swop routes Solana swaps through Jupiter and EVM swaps through LiFi." | Quote responses name both |
+| Default slippage | "Swop quotes Solana swaps with a 50 bps default slippage tolerance." | `slippageBps: 50` in the quote |
+
+Travis to confirm wording, and to say whether the routing partners (Jupiter/LiFi) may
+be named publicly — that is a product/partnership call, not a factual one. Promoting
+these lets `/blog/solana-wallet-with-built-in-swap` state the thing it is about, and
+strengthens `/blog/tokenized-real-world-assets` at the same time.
+
 ### Proposed RWA row — awaiting Travis (drafted 2026-09-17)
 
 The 9/17 RWA post had to ship with a deliberately generic Swop section, because no
