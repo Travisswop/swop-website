@@ -1,0 +1,12 @@
+{
+  "posts": [
+    "A wallet that \"supports swaps\" and a wallet with a built-in swap are not the same product. One of them still makes you leave 🧵",
+    "1/ The common version: copy your address, open a browser, connect the same wallet to a site you've never audited, and hope the interface matches the contract it claims to. That's not a swap feature — it's a wallet that happens to be compatible with one, elsewhere.",
+    "2/ Built-in means the quote, the review screen and the signing prompt all live inside the app already holding your funds. The trade is identical on-chain. What changes is that you're not evaluating a brand-new surface at the moment you're about to sign.",
+    "3/ Why it matters: every extra transfer is another chance to send to the wrong address, the wrong network, or a custodian you didn't mean to trust. Removing a step removes a failure mode.",
+    "4/ Under the hood, nothing exotic: the trade fills against on-chain liquidity — a pool-based AMM, or a router checking several pools for the best price. Solana helps specifically: one transaction can bundle instructions atomically, so a multi-pool route is still one signature.",
+    "5/ What doesn't change: a swap button is a UI decision, not a custody decision. Your keys still authorize the trade. The wallet can propose; it cannot move funds without your signature.",
+    "6/ Five things to check before trusting one: does custody actually stay with you (a signed tx, not a deposit into a pooled account)? Does the quote you're shown match what executes? Which chains and tokens does the SWAP cover, separately from what the wallet holds?",
+    "7/ And: is the fee disclosed before you sign, or found in the gap between quoted and received? Plus — do you need the chain's gas token to execute, or does the wallet sponsor it? https://www.swopme.co/blog/solana-wallet-with-built-in-swap"
+  ]
+}

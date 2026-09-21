@@ -1,0 +1,15 @@
+A wallet that "supports swaps" and a wallet with a built-in swap are not the same product.
+
+The common version still makes you leave. You copy your address, open a browser, connect the same wallet to a site you have never audited, and hope the interface in front of you matches the contract it claims to be calling. That is not a swap feature. It is a wallet that happens to be compatible with one, somewhere else.
+
+Built-in means something narrower and more useful: the quote, the review screen and the signing prompt all live inside the app that already holds your funds. The trade itself is unchanged — it is still a transaction posted on-chain — but the surface you are trusting for the price, the slippage setting and the confirmation is the same surface that already holds your keys, rather than a new one you are evaluating in the moment you are about to sign.
+
+The practical case is mostly about removing steps, because each removed step is a removed failure mode. Sending funds to an exchange to trade and then sending the result back is two more opportunities to mistype an address or pick the wrong network. And on a self-custodial wallet, an in-app swap does not require handing funds to an intermediary before you even see a price.
+
+Underneath, nothing exotic is happening. The trade fills against on-chain liquidity — typically a pool-based automated market maker, or a router that checks several pools and picks the best price across them. Solana helps in one specific way: a single transaction can bundle multiple instructions and execute them atomically, so a swap routed across more than one pool is still one signature rather than a sequence of approvals.
+
+What does not change is custody. A swap button is a UI decision, not a custody decision — the wallet can propose a trade, but it cannot move your funds without your signature.
+
+Five things worth checking before trusting any of them: does custody actually stay with you, as a signed transaction rather than a deposit into a pooled account the app controls; does the quote you are shown match what executes, within the stated slippage; which chains and tokens the swap covers, checked separately from what the wallet can merely hold; whether the fee is visible before you sign; and whether you need the network's gas token to execute it at all.
+
+Full explainer on the Swop Journal 👇
