@@ -12,6 +12,7 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 
 ## Drafted (in review)
 
+- definition | Solana wallet with a built-in swap: why it matters | Solana wallet with built-in swap | blog/solana-wallet-with-built-in-swap (from Beachhead calendar item cb200, not previously in this file; drafted 2026-09-21)
 - definition | Self-custody where banking rails are thin | self-custody crypto wallet Bangladesh | blog/self-custody-wallet-bangladesh (from Beachhead calendar item cb205, not previously in this file; drafted 2026-09-18. Bangladesh Bank currently prohibits cryptocurrency trading outright, so the post answers the query honestly — self-custody explained, the regulatory reality stated plainly, Swop framing kept generic and law-compliant.)
 - definition | Tokenizing real-world assets: treasuries, gold, stocks and collectibles | tokenized real world assets / RWA tokenization | blog/tokenized-real-world-assets (from Beachhead calendar item cb212, not previously in this file; drafted 2026-09-17)
 - news-analysis | The CLARITY Act vote: what actually happened, and what the bill does | CLARITY Act / crypto market structure bill | blog/clarity-act-vote-explained (from Beachhead calendar item cb211, not previously in this file; Senate cloture vote failed 49-50 on 2026-09-15)
