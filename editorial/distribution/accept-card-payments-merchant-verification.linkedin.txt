@@ -1,0 +1,19 @@
+Every account you have on the internet is built on an email address. Not because email is good at being an identity — it is a routing address for messages, invented to move text between university computers — but because it was the only universal identifier anyone agreed on.
+
+And it cannot do anything. An email address cannot hold value, cannot be paid, cannot prove a single fact about the person behind it. Every capability we needed beyond "deliver a message here" got bolted on by somebody else: a payment processor for money, an identity vendor for verification, a platform for reputation. The account itself stayed inert.
+
+Email made one assumption that has quietly shaped everything since — that identity and capability are separate concerns. The address says where you are. Everything you actually want to do happens somewhere else, mediated by a third party who now holds a copy of your information. That assumption is the layer being replaced, not the mailbox.
+
+A handle that resolves to payment routing is a different primitive. It can be the counterparty to a transaction directly, including with software on the other side. When an AI agent runs an errand and needs to pay for something, it needs an address that accepts money, not a mailbox it can write to.
+
+But an account that transacts will constantly be asked to prove things. Is this a real business? Is this person over 18? Are they allowed to buy this here? Today, answering any of those means surrendering far more than the question asked. The question was one bit; the answer was your whole file.
+
+Crypto's instinctive fix — put the credential on-chain — is worse rather than better. A public chain is permanent and globally readable. A verification status written there cannot be revoked, corrected or forgotten, and can be correlated with every transaction that address ever makes. Verification status changes; chains do not forget. Which is why Swop never writes verification data to ENS, an NFT, or any public chain.
+
+The missing piece is a way to answer exactly the question asked and nothing more. That is what we are building as ZeroProof: a site asks for one fact, you see who is asking and approve it, and it receives a short-lived credential carrying that single yes/no answer. No name, no wallet, no document. Issued per-verifier, so two sites cannot compare notes and link you. Expires in minutes. Revocable. Never written to a chain.
+
+Why that is load-bearing rather than a privacy nicety: an account primitive only becomes universal if it is safe to use everywhere. Handing someone your email address costs you almost nothing. An identity that carries money and history is a much heavier thing to hand over — and minimum disclosure is what makes a heavy identity light enough to present casually.
+
+Stated plainly: ZeroProof is not live. It is in development and disabled in production. And today's design is a signed, short-lived, per-verifier credential rather than a cryptographic zero-knowledge proof — circuit-friendly attestation work is in progress, and we will not call it ZK until it is. We would rather describe it accurately while it is unfinished than announce it and quietly redefine the word later.
+
+Full piece on the Swop Journal 👇
