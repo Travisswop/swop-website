@@ -2,6 +2,8 @@
 
 The ONLY numbers and claims the writer may state about Swop. Anything not on this list
 gets a `[NEEDS FACT: description]` marker in the draft instead of a made-up value.
+**Never publish internal implementation detail.** The KYC/identity work is documented internally with environment variable names, OIDC scopes, service endpoints, infra (ECS/RDS/ALB), code paths and signing key ids. None of that belongs in a post. Describe behaviour, never configuration.
+
 **Negative claims count too:** never assert Swop LACKS or "doesn't implement/support"
 something unless a Verified row says so — absence of a row is not evidence of absence
 (a post shipped 2026-09-02 wrongly claiming "Swop doesn't implement x402" when every
@@ -28,6 +30,12 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Swap routing | "Swop routes Solana swaps through Jupiter and EVM swaps through LiFi." | Travis, 2026-09-21 | 2026-09-21 |
 | Default slippage | "Swop quotes Solana swaps with a 50 bps default slippage tolerance." (a DEFAULT, not a cap — don't imply it can't be changed) | Travis, 2026-09-21 | 2026-09-21 |
 | RWA tokens swappable | "Tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain." | Travis, 2026-09-21 (live quote 2026-09-17) | 2026-09-21 |
+| Card payments live | "Swop accepts card payments, and Tap to Pay is live on Android." (iOS Tap to Pay is NOT live — dev distribution only. Never claim it.) | Travis, 2026-09-23 (CONNECT_CARD_MODE=live since 2026-09-17; Android build 8.4.72, 2026-09-18) | 2026-09-23 |
+| Two rails, one rule | "Crypto and x402 payments on Swop are never identity-gated — a seller is payable in USDC the moment they list a product. Only the card rail requires merchant verification." | Travis, 2026-08-31 / 2026-09-23 | 2026-09-23 |
+| Who holds the documents | "Card-rail verification runs through Stripe. Stripe holds the identity documents; Swop keeps only a revocable record of the decision, not the evidence behind it." | Travis, 2026-09-23 | 2026-09-23 |
+| Card proceeds | "Card proceeds never touch a Swop wallet — Stripe holds the fiat balance and pays the merchant's bank." | Travis, 2026-09-23 | 2026-09-23 |
+| Nothing on-chain | "Swop never writes verification data to ENS, an NFT, or any public chain." | Travis, 2026-09-23 | 2026-09-23 |
+| ZeroProof status (honest) | "ZeroProof is not live. It is in development and disabled in production." Describe it only in the future tense, and never call it a zero-knowledge proof — today's design is a signed, short-lived, per-verifier credential; circuit-friendly attestation work is in progress. | Travis, 2026-09-23 | 2026-09-23 |
 | Policy rollout stage | "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows." | Travis, 2026-08-28 | 2026-08-28 |
 
 ## Needs verification (do NOT cite until moved up)

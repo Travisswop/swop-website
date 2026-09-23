@@ -1,0 +1,14 @@
+{
+  "posts": [
+    "Every account you have on the internet is built on an email address — not because email is good at being an identity, but because it was the only universal identifier anyone agreed on. And it cannot do anything 🧵",
+    "1/ An email address can't hold value, can't be paid, can't prove a single fact about the person behind it. Every capability beyond \"deliver a message here\" got bolted on by someone else — a processor for money, a vendor for identity, a platform for reputation.",
+    "2/ Email made one assumption that shaped everything since: identity and capability are separate concerns. The address says where you are. Everything you want to DO happens elsewhere, through a third party who now holds a copy of your information.",
+    "3/ A handle that resolves to payment routing is a different primitive. It can be the counterparty to a transaction — including with software. When an AI agent runs an errand and needs to pay, it needs an address that accepts money, not a mailbox it can write to.",
+    "4/ But an account that transacts gets asked to prove things constantly. Real business? Over 18? Allowed to buy this here? Today answering means surrendering far more than the question asked. The question was one bit. The answer was your whole file.",
+    "5/ Crypto's instinct — put the credential on-chain — is worse, not better. A public chain is permanent and globally readable. A verification status written there can't be revoked, corrected or forgotten, and correlates with every transaction that address ever makes.",
+    "6/ So: Swop never writes verification data to ENS, an NFT, or any public chain. The handle and its payment routing are public because they're meant to be. What you've proven about yourself is not part of that record.",
+    "7/ The missing piece is answering exactly the question asked. That's ZeroProof: a site asks one fact, you approve, it gets a short-lived credential with that yes/no and nothing else. Per-verifier, so two sites can't link you. Expires in minutes. Revocable. Never on a chain.",
+    "8/ Why it's load-bearing, not a nicety: an account primitive only goes universal if it's safe to use everywhere. Handing someone your email costs nothing. An identity carrying money and history is heavy — minimum disclosure is what makes it light enough to hand over casually.",
+    "9/ Status, plainly: ZeroProof is NOT live — in development, disabled in production. And it isn't a cryptographic ZK proof today; circuit work is in progress. We'd rather be accurate while it's unfinished: https://www.swopme.co/blog/accept-card-payments-merchant-verification"
+  ]
+}

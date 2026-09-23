@@ -31,6 +31,7 @@ until they are moved up.
 - ERC-8196 agent policy / verifiable AI trading agent
 - what is x402 / x402 payment protocol  <!-- promoted by Travis 2026-08-28 for the 9/2 post -->
 - CLARITY Act / crypto market structure bill  <!-- promoted by Travis 2026-09-15 for the 9/16 post on the Senate cloture vote -->
+- accept card payments / merchant verification for sellers  <!-- promoted by Travis 2026-09-23 for the card-rail launch post -->
 - tokenized real world assets / RWA tokenization  <!-- promoted by Travis 2026-09-16 for the 9/17 post (Ondo, PAXG, tokenized equities, collectibles) -->
 
 ## Proposed (agent may append; Travis promotes)
