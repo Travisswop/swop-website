@@ -3,55 +3,43 @@
 <style>
   * { margin:0; padding:0; box-sizing:border-box; }
   html,body { width:1200px; height:630px; overflow:hidden; }
-  body {
-    font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
-    background: radial-gradient(120% 140% at 82% 30%, #103524 0%, #0b1512 42%, #070709 75%);
-    color:#fff; position:relative;
-  }
   @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
   @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
-
-  .blob { position:absolute; border-radius:50%; filter:blur(90px); opacity:.55; }
-  .b1 { width:520px; height:520px; right:-80px; top:-120px; background:#2ec27e; opacity:.28; }
+  body { font-family:'Inter Tight','Inter',-apple-system,sans-serif;
+    background: radial-gradient(120% 140% at 80% 30%, #103524 0%, #0b1512 42%, #070709 75%);
+    color:#fff; position:relative; }
+  .blob { position:absolute; border-radius:50%; filter:blur(90px); }
+  .b1 { width:520px; height:520px; right:-80px; top:-120px; background:#2ec27e; opacity:.26; }
   .b2 { width:380px; height:380px; left:-120px; bottom:-160px; background:#1a6d47; opacity:.35; }
-
   .stripes { position:absolute; inset:0;
     background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(255,255,255,.025) 90px 92px); }
-
   .wrap { position:absolute; inset:0; padding:56px 72px; display:flex; }
-
-  .left { width:640px; display:flex; flex-direction:column; justify-content:flex-start; z-index:2; }
+  .left { width:640px; display:flex; flex-direction:column; z-index:2; }
   .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:26px; letter-spacing:.45em; margin-bottom:24px; }
   .kick { display:inline-flex; align-items:center; gap:12px; background:rgba(46,194,126,.14);
     border:1.5px solid rgba(46,194,126,.6); color:#5ff0ab; font-family:'JetBrains Mono';
     font-size:21px; font-weight:700; letter-spacing:.12em; padding:10px 20px; border-radius:999px;
     width:max-content; margin-bottom:26px; text-transform:uppercase; }
   .dot { width:12px; height:12px; border-radius:50%; background:#2ec27e; box-shadow:0 0 14px #2ec27e; }
-
-  h1 { font-size:98px; line-height:.97; font-weight:900; letter-spacing:-.025em;
+  h1 { font-size:74px; line-height:.97; font-weight:900; letter-spacing:-.025em;
        text-shadow:0 8px 40px rgba(0,0,0,.6); }
   h1 .hl { color:#5ff0ab; text-shadow:0 0 46px rgba(46,194,126,.75); }
-  .sub { margin-top:24px; font-size:27px; font-weight:700; color:rgba(255,255,255,.82); }
+  .sub { margin-top:22px; font-size:26px; font-weight:700; color:rgba(255,255,255,.82); }
   .sub b { color:#5ff0ab; }
-
   .right { position:absolute; right:0; top:0; width:560px; height:630px; z-index:1;
     display:flex; align-items:center; justify-content:center; }
-  .coin {
-    width:400px; height:400px; border-radius:50%;
-    background: radial-gradient(circle at 34% 30%, #37e394, #17914f 58%, #0a5c30);
-    box-shadow: 0 0 0 14px rgba(46,194,126,.18), 0 0 120px rgba(46,194,126,.55), inset 0 -22px 60px rgba(0,0,0,.45), inset 0 20px 40px rgba(255,255,255,.28);
-    display:flex; align-items:center; justify-content:center;
-    transform:rotate(-8deg);
-  }
-  .coin span { font-size:220px; line-height:1; transform:rotate(8deg);
-    filter:drop-shadow(0 8px 18px rgba(0,0,0,.4)); }
-  .slash { position:absolute; width:400px; height:26px; background:linear-gradient(90deg,#ff5d5d,#ff2e2e);
-    border-radius:14px; transform:rotate(-28deg); box-shadow:0 0 46px rgba(255,46,46,.7);
-    right:58px; top:300px; z-index:3; }
-  .tag { position:absolute; right:56px; top:64px; z-index:4; background:#ff2e2e; color:#fff;
-    font-weight:900; font-size:28px; padding:12px 24px; border-radius:14px; transform:rotate(-6deg); white-space:nowrap;
-    box-shadow:0 12px 40px rgba(255,46,46,.45); letter-spacing:.02em; }
-
+  .disc { width:430px; height:430px; border-radius:50%;
+    background: radial-gradient(circle at 38% 32%, rgba(55,227,148,.30), rgba(10,92,48,.18) 62%, transparent 72%);
+    display:flex; align-items:center; justify-content:center; }
+  .mkt { width:320px; background:#0e1a14; border:2px solid rgba(46,194,126,.5); border-radius:20px;
+    padding:20px; box-shadow:0 26px 64px rgba(0,0,0,.6); }
+  .q { font-size:20px; font-weight:800; line-height:1.25; margin-bottom:16px; }
+  .side { display:flex; justify-content:space-between; align-items:center;
+    border-radius:12px; padding:13px 16px; margin-bottom:10px; font-family:'JetBrains Mono'; font-size:21px; font-weight:700; }
+  .yes { background:#2ec27e; color:#07120c; }
+  .no { background:rgba(255,255,255,.07); color:#9fb3a8; }
+  .keys { margin-top:14px; display:flex; align-items:center; gap:9px;
+    font-family:'JetBrains Mono'; font-size:16px; color:#5ff0ab; }
   .url { position:absolute; left:72px; bottom:34px; font-family:'JetBrains Mono';
     font-size:20px; color:rgba(255,255,255,.5); letter-spacing:.06em; }
 </style></head>
@@ -62,14 +50,19 @@
     <div class="left">
       <div class="logo">SWOP</div>
       <div class="kick"><div class="dot"></div>Guides</div>
-      <h1>CHECK THE<br>APP<br><span class="hl">FIRST.</span></h1>
-      <div class="sub">Before you trade <b>prediction markets</b></div>
+      <h1>CHECK THE<br>WALLET.<br><span class="hl">NOT THE ODDS.</span></h1>
+      <div class="sub">Picking an app for <b>prediction markets</b></div>
     </div>
   </div>
   <div class="right">
-    <div class="coin"><span>🎯</span></div>
-    <div class="tag">HIDDEN FEES</div>
-    <div class="slash"></div>
+    <div class="disc">
+      <div class="mkt">
+        <div class="q">Will it settle before Friday?</div>
+        <div class="side yes"><span>YES</span><span>62&cent;</span></div>
+        <div class="side no"><span>NO</span><span>38&cent;</span></div>
+        <div class="keys">&#128273; your keys, your position</div>
+      </div>
+    </div>
   </div>
   <div class="url">swopme.co/blog</div>
 </body></html>
