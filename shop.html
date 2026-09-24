@@ -729,6 +729,7 @@ document.querySelectorAll('.add').forEach(function(b){
     var k = e.target && e.target.dataset && e.target.dataset.buyer;
     if (k && k in buyer) buyer[k] = e.target.value;
   });
+  var LABEL = { name: 'name', email: 'email', line1: 'address', city: 'city', postalCode: 'postal code', country: 'country' };
   function buyerMissing() {
     var need = ['name', 'email'];
     if (cartShips()) need = need.concat(['line1', 'city', 'postalCode', 'country']);
@@ -755,7 +756,7 @@ document.querySelectorAll('.add').forEach(function(b){
     var missing = buyerMissing();
     if (missing.length) {
       els.pay.hidden = false;
-      els.pay.innerHTML = '<p class="cdesc">Please fill in: ' + missing.join(', ') + '.</p>';
+      els.pay.innerHTML = '<p class="cdesc">Please fill in: ' + missing.map(function (k) { return LABEL[k] || k; }).join(', ') + '.</p>';
       var first = document.querySelector('[data-buyer="' + missing[0] + '"]');
       if (first) first.focus();
       return;
