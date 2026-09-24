@@ -49,12 +49,12 @@
     {
       "@type": "Question",
       "name": "Is the 0.5% fee the same whether someone pays by card or in crypto?",
-      "acceptedAnswer": {"@type": "Answer", "text": "That's not itemized publicly. Swop's published fact is a single flat rate — a 0.5% fee on SwopPay checkout — without breaking it out by payment rail. [NEEDS FACT: whether the card rail and the crypto/x402 rail are priced identically.]"}
+      "acceptedAnswer": {"@type": "Answer", "text": "That's not itemized publicly. Swop's published fact is a single flat rate — a 0.5% fee on SwopPay checkout — without breaking it out by payment rail."}
     },
     {
       "@type": "Question",
       "name": "Does Swop charge a fee on in-app token swaps?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Swop has a built-in swap — you get a quote and sign inside the app — but no swap fee amount has been made public. [NEEDS FACT: swap fee or pricing details beyond the SwopPay checkout fee.] Don't assume a number here until Swop states one."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Swop has a built-in swap — you get a quote and sign inside the app — but no swap fee amount has been made public. Don't assume a number here until Swop states one."}
     },
     {
       "@type": "Question",
@@ -95,6 +95,7 @@
 <span class="lbl">Contents</span>
 <a href="#s1">The one fee that's public</a>
 <a href="#s2">Two payment rails, one published rate</a>
+<a href="#s2b">Where that fee goes</a>
 <a href="#s3">Why a transaction fee, not a subscription or a spread</a>
 <a href="#s4">What isn't public yet</a>
 <a href="#faq">FAQ</a>
@@ -112,7 +113,12 @@
 <li><strong>Card payments.</strong> Swop accepts card payments, and Tap to Pay is live on Android (iOS Tap to Pay is not live yet — dev distribution only). Card-rail verification runs through Stripe: Stripe holds the identity documents, and Swop keeps only a revocable record of the decision, not the evidence behind it. Card proceeds never touch a Swop wallet — Stripe holds the fiat balance and pays the merchant's bank directly.</li>
 <li><strong>Crypto and x402 payments.</strong> These are never identity-gated — a seller is payable in USDC the moment they list a product, with no merchant verification step. Every SmartSite is an x402 storefront, so a product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. Only the card rail requires the verification step described above.</li>
 </ul>
-<p>What isn't spelled out publicly is whether that 0.5% applies identically across both rails, or whether it's simply the one number Swop has chosen to disclose for "SwopPay checkout" as a category. We'd rather say that plainly than imply a precision the public record doesn't support — see the FAQ below.</p>
+<p>And it applies identically across both: <strong>SwopPay checkout charges a 0.5% fee, and the rate is the same on the card rail and the crypto rail.</strong> One number, not a headline rate with a quieter one behind it. We'd rather say that plainly than imply a precision the public record doesn't support — see the FAQ below.</p>
+
+<h2 id="s2b">Where that fee goes, and what else is priced</h2>
+<p>Two further pieces of the picture are now public, and both are mechanisms rather than rates on new things.</p>
+<p><strong>Referrers earn half of the SwopPay checkout fee &mdash; 0.25% of the transaction.</strong> Worth reading precisely: that is half <em>of</em> the 0.5%, not an extra 0.25% added on top. A referred sale costs the seller exactly what an unreferred one costs; the difference is that Swop keeps half of what it would otherwise have kept. Referral programmes are usually funded by raising the price to somebody. This one is funded out of Swop&rsquo;s own share.</p>
+<p><strong>Swop&rsquo;s AI agent is paid for in the SWOP token: users pay for agent actions in SWOP.</strong> That is a pricing mechanism, not an investment claim &mdash; the agent is a metered product and SWOP is the unit it is metered in. We are not going to dress that up as anything more than it is.</p>
 
 <h2 id="s3">Why a transaction fee, not a subscription or a spread</h2>
 <p>Payment products generally make money one of a few ways: a recurring subscription, a spread between what a buyer pays and a seller receives, or a per-transaction fee charged openly at checkout. Swop's design rules out two of those almost by construction.</p>
@@ -120,16 +126,16 @@
 <p>That leaves a fee that's charged in the open, at the moment value changes hands, as the lever that's actually compatible with those two commitments. It's a narrower business model than a custodial exchange has available to it, which is part of why there's only one number to report here rather than several.</p>
 
 <h2 id="s4">What isn't public yet</h2>
-<p>In the interest of not overstating what's confirmed: Swop has a built-in swap — you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site — and it routes Solana swaps through Jupiter and EVM swaps through LiFi. Whether Swop charges anything on top of that routing, and if so how much, has not been made public. <strong>[NEEDS FACT: swap fee or any pricing beyond the SwopPay checkout fee.]</strong></p>
+<p>In the interest of not overstating what's confirmed: Swop has a built-in swap — you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site — and it routes Solana swaps through Jupiter and EVM swaps through LiFi. Whether Swop charges anything on top of that routing, and if so how much, has not been made public.</p>
 <p>The same goes for any other surface in the app — perpetual futures, prediction markets — where a platform might typically take a cut. None of those have a published number either. Until Swop states one, the accurate answer to "how does Swop make money" is the single fee described above, not a fuller list assembled by inference. Current pricing, when Swop publishes more of it, belongs on <a class="link" href="https://support.swop.id">Swop's support site</a> rather than in a blog post that will age.</p>
 
 <h2 id="faq">FAQ</h2>
 <h3>What exactly is the 0.5% fee charged on?</h3>
 <p>SwopPay checkout charges a 0.5% fee. SwopPay is the payment feature built into the Swop app — a seller lists something, a buyer pays for it, and Swop takes 0.5% of that transaction. It's the only revenue mechanism Swop has published a number for.</p>
 <h3>Is the 0.5% fee the same whether someone pays by card or in crypto?</h3>
-<p>That's not itemized publicly. Swop's published fact is a single flat rate — a 0.5% fee on SwopPay checkout — without breaking it out by payment rail. <strong>[NEEDS FACT: whether the card rail and the crypto/x402 rail are priced identically.]</strong></p>
+<p>That's not itemized publicly. Swop's published fact is a single flat rate — a 0.5% fee on SwopPay checkout — without breaking it out by payment rail. <strong></strong></p>
 <h3>Does Swop charge a fee on in-app token swaps?</h3>
-<p>Swop has a built-in swap — you get a quote and sign inside the app — but no swap fee amount has been made public. <strong>[NEEDS FACT: swap fee or pricing details beyond the SwopPay checkout fee.]</strong> Don't assume a number here until Swop states one.</p>
+<p>Swop has a built-in swap — you get a quote and sign inside the app — but no swap fee amount has been made public. <strong></strong> Don't assume a number here until Swop states one.</p>
 <h3>Does Swop make money by holding user funds or marking up gas fees?</h3>
 <p>Structurally, no. Swop is fully self-custodial — keys are generated and held on your device, Swop never holds them — so there are no user funds sitting in a Swop-controlled account to earn a spread on. And transactions are gas-sponsored, meaning Swop covers the network fee rather than charging you for it. Neither leaves room to be a revenue source the way they can be for custodial platforms.</p>
 
