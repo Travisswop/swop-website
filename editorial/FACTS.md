@@ -2,7 +2,7 @@
 
 The ONLY numbers and claims the writer may state about Swop. Anything not on this list
 gets a `[NEEDS FACT: description]` marker in the draft instead of a made-up value.
-**Never publish internal implementation detail.** The KYC/identity work is documented internally with environment variable names, OIDC scopes, service endpoints, infra (ECS/RDS/ALB), code paths and signing key ids. None of that belongs in a post. Describe behaviour, never configuration.
+**Token claims stay mechanical.** A SWOP row now exists (agent pricing). Describe how value routes and nothing more — no price, return, yield, appreciation or "accrual" language, and no comparison implying an investment case. Competitor fee comparisons must cite that competitor's own published fee documentation.\n\n**Never publish internal implementation detail.** The KYC/identity work is documented internally with environment variable names, OIDC scopes, service endpoints, infra (ECS/RDS/ALB), code paths and signing key ids. None of that belongs in a post. Describe behaviour, never configuration.
 
 **Negative claims count too:** never assert Swop LACKS or "doesn't implement/support"
 something unless a Verified row says so — absence of a row is not evidence of absence
@@ -36,13 +36,16 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Card proceeds | "Card proceeds never touch a Swop wallet — Stripe holds the fiat balance and pays the merchant's bank." | Travis, 2026-09-23 | 2026-09-23 |
 | Nothing on-chain | "Swop never writes verification data to ENS, an NFT, or any public chain." | Travis, 2026-09-23 | 2026-09-23 |
 | ZeroProof status (honest) | "ZeroProof is not live. It is in development and disabled in production." Describe it only in the future tense, and never call it a zero-knowledge proof — today's design is a signed, short-lived, per-verifier credential; circuit-friendly attestation work is in progress. | Travis, 2026-09-23 | 2026-09-23 |
+| Checkout fee, both rails | "SwopPay checkout charges a 0.5% fee, and the rate is the same on the card rail and the crypto rail." | Travis, 2026-09-24 | 2026-09-24 |
+| Referral share | "Referrers earn half of the SwopPay checkout fee — 0.25% of the transaction." (Half OF the 0.5%, not 0.5% on top. Distinct from the copy-trade reward split, which is a different mechanism.) | Travis, 2026-09-24 | 2026-09-24 |
+| Agent is paid in SWOP | "Swop's AI agent is paid for in the SWOP token: users pay for agent actions in SWOP." | Travis, 2026-09-24 | 2026-09-24 |
 | Policy rollout stage | "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows." | Travis, 2026-08-28 | 2026-08-28 |
 
 ## Needs verification (do NOT cite until moved up)
 | Claim | Notes |
 |---|---|
 | Solana dApp Store review count | Get the real number + link before citing |
-| Swap fee / pricing details beyond checkout | Confirm public wording with Travis. **Blocks cb201 "How does Swop make money?" (Mon 9/22).** |
+| Swap fee specifically | Still unconfirmed. The CHECKOUT fee (0.5%, both rails), the referral share (0.25%) and agent pricing (SWOP) were verified 2026-09-24 and moved up; the swap fee was not. Do not infer it from the checkout rate. |
 | User / transaction counts | No public number exists yet — never estimate |
 | SWOP token — any claim at all | **No token row exists. Blocks cb204 "Copy trading on Solana" (Tue 9/23) and the parked "Swop is the people's network" post.** Proposed wording below — Travis to confirm, correct, or reject each line, then they move up to Verified. |
 
