@@ -243,6 +243,30 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
   footer .sp{margin-left:0;width:100%}
 }
 @media(max-width:480px){.facts{grid-template-columns:repeat(2,auto)}.demo{height:420px}.tapcard{width:184px}.rings{left:150px;bottom:104px}.phone{width:196px}}
+
+/* cart drawer */
+.cd-overlay{position:fixed;inset:0;background:rgba(15,14,19,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:80}
+.cd-overlay.on{opacity:1;pointer-events:auto}
+.cd{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:#fff;z-index:81;transform:translateX(100%);transition:transform .24s;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(15,14,19,.16)}
+.cd.on{transform:none}
+.cd-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line2)}
+.cd-head h3{margin:0;font-size:18px}
+.cd-x{background:none;border:0;font-size:22px;cursor:pointer;line-height:1;padding:6px}
+.cd-body{flex:1;overflow:auto;padding:18px 22px}
+.cd-foot{padding:16px 22px 22px;border-top:1px solid var(--line2)}
+.cd-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line2)}
+.cd-qty{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px}
+.cd-qty button{background:none;border:0;width:32px;height:32px;cursor:pointer;font-size:16px}
+.cd-qty b{min-width:20px;text-align:center;font-family:var(--mono);font-size:13px}
+.cd-in{padding:10px 12px;border:1px solid var(--line2);border-radius:10px;font:inherit;width:100%;background:#fff}
+.cd-lbl{display:block}
+.cd-lbl span{display:block;margin:0 0 4px}
+.cd-grid{display:grid;gap:10px;grid-template-columns:1fr 1fr}
+.cd-wide{grid-column:1/-1}
+.cd-link{background:none;border:0;cursor:pointer;text-decoration:underline;padding:0;font:inherit}
+.cd-toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:999px;font-size:14px;opacity:0;pointer-events:none;transition:.2s;z-index:82;display:flex;gap:14px;align-items:center}
+.cd-toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.cd-toast button{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer;font:inherit}
 </style>
 </head>
 <body>
@@ -250,7 +274,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
   <a class="brand" href="#"><img src="data:image/png;base64,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" alt="Swop"><span class="sfx">shop</span></a>
   <div class="navlinks"><a href="#products">Products</a><a href="#stickers">QR stickers</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
   <div class="nav-right">
-    <a class="cartbtn" href="https://www.swopme.app/sp/travis.swop.id" title="Open the Swop store to check out"><span>Cart</span><span class="n" id="cartN">0</span></a>
+    <button class="cartbtn" type="button" data-cart-open title="Your cart"><span>Cart</span><span class="n" id="cartN">0</span></button>
     <a class="btn" href="#products">Shop chips</a>
   </div>
 </div></nav>
@@ -346,10 +370,12 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
         <h2>Pay without leaving.</h2>
         <p>Your cart, checked out here. Swop settles it in USDC and sends the receipt — you are never redirected.</p>
       </div>
-      <div id="coBox" style="border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:26px">
-        <div id="coEmpty" class="cdesc">Your cart is empty. Add something from Available now.</div>
-        <div id="coCart" hidden></div>
-        <div id="coPay" hidden style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line2)"></div>
+      <div style="border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:26px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
+        <div>
+          <b>Add what you want, then open your cart.</b>
+          <p class="cdesc" style="margin:6px 0 0">Adjust quantities, enter your details, and pay with USDC from any Solana wallet. Prices come from the Swop catalogue at checkout.</p>
+        </div>
+        <button class="btn" type="button" data-cart-open>Open cart</button>
       </div>
     </div></section>
 
@@ -652,17 +678,16 @@ document.querySelectorAll('.qty').forEach(function(q){
   btns[0].onclick=function(){v.textContent=Math.max(1,+v.textContent-1)};
   btns[1].onclick=function(){v.textContent=Math.min(99,+v.textContent+1)};
 });
-var n=0,cartN=document.getElementById('cartN');
-document.querySelectorAll('.add').forEach(function(b){
-  b.addEventListener('click',function(){
-    var box=b.closest('.cbody,.dbody'),q=box&&box.querySelector('.qty b');
-    n+=q?+q.textContent:1; // real products have no stepper: one each
-    cartN.textContent=n;
-    var t=b.textContent;b.textContent='Added ✓';setTimeout(function(){b.textContent=t},1200);
-  });
 });
 </script>
 </body>
+<div class="cd-overlay" data-cart-close></div>
+<aside class="cd" id="cartDrawer" aria-hidden="true" aria-label="Your cart">
+  <div class="cd-head"><h3 id="cdTitle">Your cart</h3><button class="cd-x" type="button" data-cart-close aria-label="Close">&times;</button></div>
+  <div class="cd-body" id="cdBody"></div>
+  <div class="cd-foot" id="cdFoot"></div>
+</aside>
+<div class="cd-toast" id="cartToast"><span id="cartToastText">Added to cart</span><button type="button" data-cart-open>View cart</button></div>
 <script>
 /* Headless Swop checkout.
    The cart lives here, on this page. Creating the checkout happens on OUR
@@ -672,51 +697,64 @@ document.querySelectorAll('.add').forEach(function(b){
    rather than honoured. */
 (function () {
   var cart = [];
-  var els = {
-    box: document.getElementById('coBox'),
-    empty: document.getElementById('coEmpty'),
-    cart: document.getElementById('coCart'),
-    pay: document.getElementById('coPay'),
-    count: document.getElementById('cartN'),
-  };
-  var money = function (n) { return '$' + Number(n).toFixed(2); };
-
-  function render() {
-    var total = cart.reduce(function (t, i) { return t + i.qty; }, 0);
-    if (els.count) els.count.textContent = String(total);
-    if (!cart.length) {
-      els.empty.hidden = false; els.cart.hidden = true; els.pay.hidden = true;
-      return;
-    }
-    els.empty.hidden = true; els.cart.hidden = false;
-    els.cart.innerHTML =
-      cart.map(function (i) {
-        return '<div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line2)">' +
-          '<span><b>' + i.name + '</b> <span class="cdesc">x' + i.qty + '</span></span>' +
-          '<button data-rm="' + i.sku + '" class="cdesc" style="background:none;border:0;cursor:pointer;text-decoration:underline">remove</button>' +
-          '</div>';
-      }).join('') +
-      buyerForm() +
-      '<div style="margin-top:16px"><button class="btn" id="coGo">Pay with USDC</button>' +
-      '<span class="cdesc" style="margin-left:12px">Total is calculated by Swop from your catalogue</span></div>';
-  }
-
-  // Who is buying, and where it goes. Kept outside render() so a re-render
-  // (add, remove) never wipes what the buyer has typed.
+  var step = 'cart'; // cart -> details -> pay
+  var payment = null; // the Swop payment request once one exists
   var buyer = { name: '', email: '', phone: '', line1: '', line2: '', city: '', state: '', postalCode: '', country: '' };
-  var IN = 'padding:10px 12px;border:1px solid var(--line2);border-radius:10px;font:inherit;width:100%;background:#fff';
-  function field(key, label, type, wide) {
-    return '<label style="display:block' + (wide ? ';grid-column:1/-1' : '') + '"><span class="cdesc" style="display:block;margin:0 0 4px">' + label + '</span>' +
-      '<input data-buyer="' + key + '" type="' + (type || 'text') + '" value="' + String(buyer[key]).replace(/"/g, '&quot;') + '" style="' + IN + '"></label>';
+  var LABEL = { name: 'name', email: 'email', line1: 'address', city: 'city', postalCode: 'postal code', country: 'country' };
+  var $ = function (id) { return document.getElementById(id); };
+  var money = function (n) { return '$' + Number(n).toFixed(2); };
+  var esc = function (v) { return String(v).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;'); };
+  var toastTimer;
+
+  function count() { return cart.reduce(function (t, i) { return t + i.qty; }, 0); }
+  function ships() { return cart.some(function (i) { return i.ships; }); }
+  function badge() { $('cartN').textContent = String(count()); }
+
+  function toast(text) {
+    $('cartToastText').textContent = text;
+    $('cartToast').classList.add('on');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { $('cartToast').classList.remove('on'); }, 3200);
   }
-  function cartShips() { return cart.some(function (i) { return i.ships; }); }
-  function buyerForm() {
-    var ships = cartShips();
-    return '<div style="margin-top:18px;display:grid;gap:10px;grid-template-columns:1fr 1fr">' +
+
+  function open() {
+    $('cartDrawer').classList.add('on');
+    $('cartDrawer').setAttribute('aria-hidden', 'false');
+    document.querySelector('.cd-overlay').classList.add('on');
+    $('cartToast').classList.remove('on');
+    render();
+  }
+  function close() {
+    $('cartDrawer').classList.remove('on');
+    $('cartDrawer').setAttribute('aria-hidden', 'true');
+    document.querySelector('.cd-overlay').classList.remove('on');
+  }
+
+  function add(sku, name, itemShips, btn) {
+    var found = cart.filter(function (i) { return i.sku === sku; })[0];
+    if (found) found.qty += 1; else cart.push({ sku: sku, name: name, qty: 1, ships: !!itemShips });
+    if (step === 'pay') { step = 'cart'; payment = null; } // the old checkout no longer matches
+    badge();
+    if (btn) { var t = btn.textContent; btn.textContent = 'Added ✓'; setTimeout(function () { btn.textContent = t; }, 1200); }
+    toast(name + ' added to cart');
+  }
+  function setQty(sku, delta) {
+    cart.forEach(function (i) { if (i.sku === sku) i.qty = Math.max(0, Math.min(99, i.qty + delta)); });
+    cart = cart.filter(function (i) { return i.qty > 0; });
+    if (step === 'pay') { step = 'cart'; payment = null; }
+    badge(); render();
+  }
+
+  function field(key, label, type, wide) {
+    return '<label class="cd-lbl' + (wide ? ' cd-wide' : '') + '"><span class="cdesc">' + label + '</span>' +
+      '<input class="cd-in" data-buyer="' + key + '" type="' + (type || 'text') + '" value="' + esc(buyer[key]) + '"></label>';
+  }
+  function detailsForm() {
+    return '<div class="cd-grid" style="margin-top:6px">' +
       field('name', 'Name', 'text', true) +
       field('email', 'Email — your receipt goes here', 'email', true) +
-      (ships
-        ? '<p class="cdesc" style="grid-column:1/-1;margin:6px 0 0">Something in your cart ships, so we need a delivery address.</p>' +
+      (ships()
+        ? '<p class="cdesc cd-wide" style="margin:6px 0 0">Something in your cart ships, so we need a delivery address.</p>' +
           field('line1', 'Address', 'text', true) +
           field('line2', 'Apartment, suite (optional)', 'text', true) +
           field('city', 'City') + field('state', 'State / region') +
@@ -725,45 +763,62 @@ document.querySelectorAll('.add').forEach(function(b){
         : '') +
       '</div>';
   }
-  document.addEventListener('input', function (e) {
-    var k = e.target && e.target.dataset && e.target.dataset.buyer;
-    if (k && k in buyer) buyer[k] = e.target.value;
-  });
-  var LABEL = { name: 'name', email: 'email', line1: 'address', city: 'city', postalCode: 'postal code', country: 'country' };
-  function buyerMissing() {
+  function missing() {
     var need = ['name', 'email'];
-    if (cartShips()) need = need.concat(['line1', 'city', 'postalCode', 'country']);
+    if (ships()) need = need.concat(['line1', 'city', 'postalCode', 'country']);
     return need.filter(function (k) { return !String(buyer[k] || '').trim(); });
   }
 
-  function add(sku, name, ships) {
-    var found = cart.filter(function (i) { return i.sku === sku; })[0];
-    if (found) found.qty += 1; else cart.push({ sku: sku, name: name, qty: 1, ships: !!ships });
-    render();
-    document.getElementById('checkout').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  function itemsHtml(editable) {
+    return cart.map(function (i) {
+      return '<div class="cd-item"><div><b>' + esc(i.name) + '</b>' +
+        (i.ships ? '<div class="cdesc" style="margin:2px 0 0">Ships to you</div>' : '<div class="cdesc" style="margin:2px 0 0">Delivered instantly</div>') + '</div>' +
+        (editable
+          ? '<div style="display:flex;align-items:center;gap:10px"><span class="cd-qty"><button type="button" data-qty="-1" data-sku="' + i.sku + '" aria-label="Fewer">–</button><b>' + i.qty + '</b><button type="button" data-qty="1" data-sku="' + i.sku + '" aria-label="More">+</button></span>' +
+            '<button class="cd-link cdesc" type="button" data-rm="' + i.sku + '">remove</button></div>'
+          : '<span class="cdesc">x' + i.qty + '</span>') +
+        '</div>';
+    }).join('');
   }
 
-  document.addEventListener('click', function (e) {
-    var addBtn = e.target.closest('[data-sku]');
-    if (addBtn) { add(addBtn.dataset.sku, addBtn.dataset.name || 'Item', addBtn.dataset.ships === '1'); return; }
-    var rm = e.target.closest('[data-rm]');
-    if (rm) { cart = cart.filter(function (i) { return i.sku !== rm.dataset.rm; }); render(); return; }
-    if (e.target && e.target.id === 'coGo') { pay(); }
-  });
-
-  async function pay() {
-    var go = document.getElementById('coGo');
-    var missing = buyerMissing();
-    if (missing.length) {
-      els.pay.hidden = false;
-      els.pay.innerHTML = '<p class="cdesc">Please fill in: ' + missing.map(function (k) { return LABEL[k] || k; }).join(', ') + '.</p>';
-      var first = document.querySelector('[data-buyer="' + missing[0] + '"]');
-      if (first) first.focus();
+  function render() {
+    var body = $('cdBody'), foot = $('cdFoot'), title = $('cdTitle');
+    if (!cart.length) {
+      title.textContent = 'Your cart';
+      body.innerHTML = '<p class="cdesc">Your cart is empty.</p>';
+      foot.innerHTML = '<button class="btn alt" type="button" data-cart-close>Keep browsing</button>';
       return;
     }
-    if (go) { go.disabled = true; go.textContent = 'Creating checkout...'; }
-    els.pay.hidden = false;
-    els.pay.innerHTML = '<p class="cdesc">Creating your checkout...</p>';
+    if (step === 'cart') {
+      title.textContent = 'Your cart (' + count() + ')';
+      body.innerHTML = itemsHtml(true);
+      foot.innerHTML = '<button class="btn" type="button" id="cdCheckout" style="width:100%">Checkout</button>' +
+        '<p class="cdesc" style="margin:10px 0 0;text-align:center">Total is calculated by Swop from the catalogue at checkout.</p>';
+    } else if (step === 'details') {
+      title.textContent = 'Your details';
+      body.innerHTML = itemsHtml(false) + detailsForm() + '<div id="cdMsg"></div>';
+      foot.innerHTML = '<button class="btn" type="button" id="cdPay" style="width:100%">Continue to payment</button>' +
+        '<p style="margin:10px 0 0;text-align:center"><button class="cd-link cdesc" type="button" id="cdBack">Back to cart</button></p>';
+    } else {
+      title.textContent = 'Pay';
+      body.innerHTML = itemsHtml(false) + '<div id="cdPayBox" style="margin-top:16px"><p class="cdesc">Creating your checkout…</p></div>';
+      foot.innerHTML = '<p style="margin:0;text-align:center"><button class="cd-link cdesc" type="button" id="cdBack">Back to cart</button></p>';
+      if (payment) paymentHtml(payment);
+    }
+  }
+
+  function paymentHtml(b) {
+    var pr = b.paymentRequest;
+    var net = pr.rail === 'solana_pay' ? 'Solana' : (/evm|base/i.test(pr.rail || '') ? 'Base' : '');
+    $('cdPayBox').innerHTML =
+      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 14px"><b>Total due</b><span class="price">' + money(b.total != null ? b.total : pr.amount) + '<small>USDC</small></span></div>' +
+      '<a class="btn" style="width:100%" href="' + pr.url + '">Open your wallet to pay</a>' +
+      '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC' + (net ? ' on ' + net : '') + '. Your order, receipt and email are created automatically once the payment lands — nothing else to do here.</p>' +
+      '<p class="cdesc" style="margin-top:6px;word-break:break-all;font-size:12px">Or pay to: ' + pr.recipient + '</p>';
+  }
+
+  async function pay() {
+    step = 'pay'; payment = null; render();
     try {
       var r = await fetch('/api/checkout', {
         method: 'POST',
@@ -778,29 +833,46 @@ document.querySelectorAll('.add').forEach(function(b){
       });
       var b = await r.json().catch(function () { return {}; });
       if (!r.ok || !b.paymentRequest) {
-        els.pay.innerHTML = '<p class="cdesc">' + (b.error || 'Could not create the checkout.') + '</p>';
-        if (go) { go.disabled = false; go.textContent = 'Pay with USDC'; }
+        $('cdPayBox').innerHTML = '<p class="cdesc">' + esc(b.error || 'Could not create the checkout.') + '</p>';
         return;
       }
-      var pr = b.paymentRequest;
-      // The rail is whatever Swop returned; never hard-code a chain here.
-      var net = pr.rail === 'solana_pay' ? 'Solana' : (/evm|base/i.test(pr.rail || '') ? 'Base' : '');
-      // The checkout exists now; the create button has done its job.
-      if (go && go.parentNode) go.parentNode.hidden = true;
-      els.pay.innerHTML =
-        '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">' +
-        '<span><b>Total due</b></span><span class="price">' + money(b.total != null ? b.total : pr.amount) + '<small>USDC</small></span></div>' +
-        '<a class="btn" href="' + pr.url + '">Open your wallet to pay</a>' +
-        '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC' + (net ? ' on ' + net : '') + '. ' +
-        'Your order, receipt and email are created automatically once the payment lands — nothing else to do here.</p>' +
-        '<p class="cdesc" style="margin-top:6px;word-break:break-all;font-size:12px">Or pay to: ' + pr.recipient + '</p>';
+      payment = b;
+      paymentHtml(b);
     } catch (err) {
-      els.pay.innerHTML = '<p class="cdesc">Could not reach checkout. Please try again.</p>';
-      if (go) { go.disabled = false; go.textContent = 'Pay with USDC'; }
+      $('cdPayBox').innerHTML = '<p class="cdesc">Could not reach checkout. Please try again.</p>';
     }
   }
 
-  render();
+  document.addEventListener('click', function (e) {
+    var t = e.target;
+    if (t.closest('[data-cart-open]')) { open(); return; }
+    if (t.closest('[data-cart-close]')) { close(); return; }
+    var addBtn = t.closest('.add[data-sku]');
+    if (addBtn) { add(addBtn.dataset.sku, addBtn.dataset.name || 'Item', addBtn.dataset.ships === '1', addBtn); return; }
+    var q = t.closest('[data-qty]');
+    if (q) { setQty(q.dataset.sku, Number(q.dataset.qty)); return; }
+    var rm = t.closest('[data-rm]');
+    if (rm) { setQty(rm.dataset.rm, -99); return; }
+    if (t.id === 'cdCheckout') { step = 'details'; render(); return; }
+    if (t.id === 'cdBack') { step = 'cart'; payment = null; render(); return; }
+    if (t.id === 'cdPay') {
+      var m = missing();
+      if (m.length) {
+        $('cdMsg').innerHTML = '<p class="cdesc" style="margin-top:10px">Please fill in: ' + m.map(function (k) { return LABEL[k] || k; }).join(', ') + '.</p>';
+        var first = document.querySelector('[data-buyer="' + m[0] + '"]');
+        if (first) first.focus();
+        return;
+      }
+      pay();
+    }
+  });
+  document.addEventListener('input', function (e) {
+    var k = e.target && e.target.dataset && e.target.dataset.buyer;
+    if (k && k in buyer) buyer[k] = e.target.value;
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+
+  badge();
 })();
 </script>
 </html>
