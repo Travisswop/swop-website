@@ -60,6 +60,9 @@ export default async function handler(req, res) {
       headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${key}` },
       body: JSON.stringify({
         items: clean,
+        // Offer card when Swop says this merchant and basket qualify; Swop
+        // falls back to crypto-only otherwise and publishes the request.
+        paymentRail: 'buyer_choice',
         customerInfo: req.body?.buyer || undefined,
         description: req.body?.description || undefined,
       }),
@@ -109,6 +112,9 @@ export default async function handler(req, res) {
       // Helius webhook sees the transfer and creates the order, deriving the
       // payer from the chain. This page never needs to confirm anything.
       paymentRequest: d.paymentRequest || null,
+      // True when the buyer may pick card. Then paymentRequest is null until
+      // a rail is chosen through /api/pay.
+      cardOffered: Boolean(d.cardOffered),
       expiresAt: d.expiresAt || null,
     });
   } catch {

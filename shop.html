@@ -806,18 +806,143 @@ document.querySelectorAll('.qty').forEach(function(q){
     }
   }
 
+  // ---- paying: card (Stripe) or USDC (Solana Pay), then "paid"
+  var LIBS = {};
+  function loadScript(src) {
+    if (!LIBS[src]) {
+      LIBS[src] = new Promise(function (ok, fail) {
+        var el = document.createElement('script'); el.src = src; el.async = true;
+        el.onload = ok; el.onerror = function () { delete LIBS[src]; fail(new Error('Could not load ' + src)); };
+        document.head.appendChild(el);
+      });
+    }
+    return LIBS[src];
+  }
+  var pollTimer = null, stripeEls = null;
+  function stopPolling() { clearTimeout(pollTimer); pollTimer = null; }
+  async function api(action) {
+    var r = await fetch('/api/pay', {
+      method: 'POST', headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ intentId: payment.intentId, action: action }),
+    });
+    var b = await r.json().catch(function () { return {}; });
+    if (!r.ok) throw new Error(b.error || 'Something went wrong.');
+    return b;
+  }
+  var PAID_STATUS = { paid: 1, settled: 1 };
+  var PAID_CARD = { transfer_pending: 1, transfer_in_progress: 1, transferred: 1 };
+  function totalHtml(b) {
+    return b.total != null
+      ? '<div style="display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 14px"><b>Total due</b><span class="price">' + money(b.total) + '<small>USDC</small></span></div>'
+      : '';
+  }
+  function waitingHtml(text) { return '<p class="cdesc" style="margin-top:12px;text-align:center">' + text + '</p>'; }
+  function paidHtml() {
+    return '<div style="padding:22px;border:1px solid var(--line2);border-radius:14px;text-align:center"><b style="font-size:18px">Payment received ✓</b>' +
+      '<p class="cdesc" style="margin:8px 0 0">Your order is confirmed' + (buyer.email ? ' and the receipt is on its way to ' + esc(buyer.email) : '') + '.</p></div>';
+  }
+  async function pollStatus() {
+    stopPolling();
+    var box = $('cdPayBox');
+    if (!box || !payment) return;
+    try {
+      var s = await api('status');
+      if (PAID_STATUS[s.status] || PAID_CARD[s.cardState]) {
+        box.innerHTML = paidHtml();
+        cart = []; badge(); step = 'cart'; payment = null; stripeEls = null;
+        return;
+      }
+      if (s.status === 'expired' || s.status === 'cancelled') {
+        box.innerHTML = '<p class="cdesc">This checkout has ' + s.status + '. Go back to your cart and try again.</p>';
+        return;
+      }
+      if (!payment.paymentRequest && s.paymentRequest && payment.rail === 'crypto') {
+        payment.paymentRequest = s.paymentRequest; paymentHtml(payment); return;
+      }
+    } catch (err) { /* transient; keep waiting */ }
+    pollTimer = setTimeout(pollStatus, 4000);
+  }
+
   function paymentHtml(b) {
+    var box = $('cdPayBox');
+    if (!box) return;
+    if (b.cardOffered && !b.rail) {
+      box.innerHTML = totalHtml(b) +
+        '<button class="btn" type="button" style="width:100%" id="cdCard">Pay with card</button>' +
+        '<button class="btn alt" type="button" style="width:100%;margin-top:10px" id="cdCrypto">Pay with USDC</button>' +
+        '<p class="cdesc" style="margin-top:12px;text-align:center">Card through Stripe, or USDC from any Solana wallet.</p>';
+      return;
+    }
+    if (b.rail === 'card') {
+      box.innerHTML = totalHtml(b) + '<div id="cdCardEl"></div>' +
+        '<button class="btn" type="button" style="width:100%;margin-top:14px" id="cdCardPay" disabled>Pay ' + money(b.total) + '</button>' +
+        '<p class="cdesc" id="cdCardMsg" style="margin-top:10px"></p>' +
+        '<p style="margin:8px 0 0;text-align:center"><button class="cd-link cdesc" type="button" id="cdCrypto">Pay with USDC instead</button></p>';
+      mountCard();
+      return;
+    }
     var pr = b.paymentRequest;
+    if (!pr) { box.innerHTML = totalHtml(b) + waitingHtml('Preparing your payment…'); pollStatus(); return; }
     var net = pr.rail === 'solana_pay' ? 'Solana' : (/evm|base/i.test(pr.rail || '') ? 'Base' : '');
-    $('cdPayBox').innerHTML =
-      '<div style="display:flex;align-items:baseline;justify-content:space-between;margin:6px 0 14px"><b>Total due</b><span class="price">' + money(b.total != null ? b.total : pr.amount) + '<small>USDC</small></span></div>' +
+    box.innerHTML = totalHtml(b) +
       '<a class="btn" style="width:100%" href="' + pr.url + '">Open your wallet to pay</a>' +
-      '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC' + (net ? ' on ' + net : '') + '. Your order, receipt and email are created automatically once the payment lands — nothing else to do here.</p>' +
-      '<p class="cdesc" style="margin-top:6px;word-break:break-all;font-size:12px">Or pay to: ' + pr.recipient + '</p>';
+      '<div id="cdQr" style="display:flex;justify-content:center;margin:16px 0 6px"></div>' +
+      '<p class="cdesc" style="text-align:center;margin:0">Or scan with the wallet on your phone</p>' +
+      '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC' + (net ? ' on ' + net : '') + '. Your order, receipt and email are created automatically once the payment lands.</p>' +
+      '<p class="cdesc" style="margin-top:6px;word-break:break-all;font-size:12px">Or pay to: ' + pr.recipient + '</p>' +
+      waitingHtml('Waiting for your payment…');
+    loadScript('https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js').then(function () {
+      var q = $('cdQr');
+      if (q && window.QRCode) new window.QRCode(q, { text: pr.url, width: 168, height: 168 });
+    }).catch(function () {});
+    pollStatus();
+  }
+
+  async function mountCard() {
+    var msg = $('cdCardMsg');
+    try {
+      var c = await api('card');
+      if (!c.clientSecret || !c.publishableKey) throw new Error('Card is unavailable for this checkout.');
+      await loadScript('https://js.stripe.com/v3/');
+      var stripe = window.Stripe(c.publishableKey);
+      var elements = stripe.elements({ clientSecret: c.clientSecret, appearance: { theme: 'stripe' } });
+      var el = elements.create('payment');
+      el.mount('#cdCardEl');
+      el.on('ready', function () { var b = $('cdCardPay'); if (b) b.disabled = false; });
+      stripeEls = { stripe: stripe, elements: elements };
+    } catch (err) {
+      if (msg) msg.textContent = (err && err.message) || 'Card is unavailable right now. Try USDC instead.';
+    }
+  }
+  async function confirmCard() {
+    if (!stripeEls || !payment) return;
+    var btn = $('cdCardPay'), msg = $('cdCardMsg');
+    btn.disabled = true; btn.textContent = 'Paying…';
+    var confirmParams = { return_url: location.origin + location.pathname + '?paid=' + encodeURIComponent(payment.intentId) };
+    if (buyer.email) confirmParams.receipt_email = buyer.email;
+    var res = await stripeEls.stripe.confirmPayment({ elements: stripeEls.elements, confirmParams: confirmParams, redirect: 'if_required' });
+    if (res.error) {
+      if (msg) msg.textContent = res.error.message || 'Card payment was not completed.';
+      btn.disabled = false; btn.textContent = 'Pay ' + money(payment.total);
+      return;
+    }
+    $('cdPayBox').innerHTML = totalHtml(payment) + waitingHtml('Confirming your payment…');
+    pollStatus();
+  }
+  async function chooseRail(rail) {
+    if (!payment) return;
+    payment.rail = rail;
+    stripeEls = null; stopPolling();
+    if (rail === 'crypto' && !payment.paymentRequest) {
+      paymentHtml(payment);
+      try { await api('crypto'); } catch (err) { $('cdPayBox').innerHTML = '<p class="cdesc">' + esc(err.message) + '</p>'; }
+      return; // pollStatus picks the request up
+    }
+    paymentHtml(payment);
   }
 
   async function pay() {
-    step = 'pay'; payment = null; render();
+    step = 'pay'; payment = null; stripeEls = null; stopPolling(); render();
     try {
       var r = await fetch('/api/checkout', {
         method: 'POST',
@@ -831,12 +956,13 @@ document.querySelectorAll('.qty').forEach(function(q){
         }),
       });
       var b = await r.json().catch(function () { return {}; });
-      if (!r.ok || !b.paymentRequest) {
+      if (!r.ok || (!b.paymentRequest && !b.cardOffered)) {
         $('cdPayBox').innerHTML = '<p class="cdesc">' + esc(b.error || 'Could not create the checkout.') + '</p>';
         return;
       }
       payment = b;
-      paymentHtml(b);
+      payment.rail = b.cardOffered ? null : 'crypto';
+      paymentHtml(payment);
     } catch (err) {
       $('cdPayBox').innerHTML = '<p class="cdesc">Could not reach checkout. Please try again.</p>';
     }
@@ -853,7 +979,10 @@ document.querySelectorAll('.qty').forEach(function(q){
     var rm = t.closest('[data-rm]');
     if (rm) { setQty(rm.dataset.rm, -99); return; }
     if (t.id === 'cdCheckout') { step = 'details'; render(); return; }
-    if (t.id === 'cdBack') { step = 'cart'; payment = null; render(); return; }
+    if (t.id === 'cdBack') { step = 'cart'; payment = null; stripeEls = null; stopPolling(); render(); return; }
+    if (t.id === 'cdCard') { chooseRail('card'); return; }
+    if (t.id === 'cdCrypto') { chooseRail('crypto'); return; }
+    if (t.id === 'cdCardPay') { confirmCard(); return; }
     if (t.id === 'cdPay') {
       var m = missing();
       if (m.length) {
@@ -872,6 +1001,18 @@ document.querySelectorAll('.qty').forEach(function(q){
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
 
   badge();
+
+  // Back from a card authentication step (3-D Secure): Stripe returns the
+  // buyer here with ?paid=<intent>. Show the outcome, not an empty cart.
+  var back = new URLSearchParams(location.search).get('paid');
+  if (back && /^co_[A-Za-z0-9_-]{4,40}$/.test(back)) {
+    history.replaceState(null, '', location.pathname);
+    step = 'pay'; payment = null; open();
+    payment = { intentId: back, rail: 'card', total: null };
+    $('cdTitle').textContent = 'Pay';
+    $('cdBody').innerHTML = '<div id="cdPayBox">' + waitingHtml('Confirming your payment…') + '</div>';
+    pollStatus();
+  }
 })();
 </script>
 </html>
