@@ -655,7 +655,8 @@ document.querySelectorAll('.qty').forEach(function(q){
 var n=0,cartN=document.getElementById('cartN');
 document.querySelectorAll('.add').forEach(function(b){
   b.addEventListener('click',function(){
-    n+=+b.closest('.cbody,.dbody').querySelector('.qty b').textContent;
+    var box=b.closest('.cbody,.dbody'),q=box&&box.querySelector('.qty b');
+    n+=q?+q.textContent:1; // real products have no stepper: one each
     cartN.textContent=n;
     var t=b.textContent;b.textContent='Added ✓';setTimeout(function(){b.textContent=t},1200);
   });
