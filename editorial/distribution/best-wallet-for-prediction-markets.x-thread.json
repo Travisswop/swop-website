@@ -1,0 +1,11 @@
+{
+  "posts": [
+    "Choosing an app for prediction markets, most people compare the odds. The odds are the same everywhere — they're set by the order book. What differs is everything wrapped around the trade 🧵",
+    "1/ Custody first. Is the app self-custodial, or is your position sitting in a pooled balance you don't hold the keys to? A resolved winning contract you can't withdraw is not a win. That question has nothing to do with which market you picked.",
+    "2/ Gas. Some apps require you to acquire a separate native token before you can place a single trade. That's a real barrier disguised as a technicality — you came to price an outcome, not to first buy a different asset to pay for the privilege.",
+    "3/ Depth, not just price. A yes/no share at 62¢ means the market says 62%. But can you actually get filled at 62¢, or does your size walk the book? Full order-book depth before you commit funds is the difference between a quoted price and your price.",
+    "4/ Fees. Where do they sit — in the spread, in a per-trade charge, in the withdrawal? All three are legitimate; undisclosed is not. You should be able to see the number before you commit, not infer it from what arrived.",
+    "5/ And if the app ships an AI agent: does it propose and wait for you, or is it allowed to act alone? An agent that can open a position without your signature is a different product from one that drafts and asks.",
+    "6/ None of these are exotic. They're the same questions you'd ask of any wallet — they just matter more once real money is riding on an outcome that resolves. Full checklist: https://www.swopme.co/blog/best-wallet-for-prediction-markets"
+  ]
+}

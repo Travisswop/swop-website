@@ -10,6 +10,7 @@
 - [Swop home](https://www.swopme.co): product overview
 - [Web app](https://swopme.app): the Swop wallet in the browser
 - [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
+- [Best wallet for prediction markets](https://www.swopme.co/blog/best-wallet-for-prediction-markets): the checklist for evaluating a prediction-market app or wallet — custody, fees and gas, order-book depth, and how an AI agent (if any) confirms trades
 - [Solana wallet with a built-in swap](https://www.swopme.co/blog/solana-wallet-with-built-in-swap): what it means for a wallet to swap tokens without leaving the app, how an in-wallet swap actually works on-chain, and what to check before trusting one
 - [Tokenizing real-world assets](https://www.swopme.co/blog/tokenized-real-world-assets): how RWA tokens are actually backed — Ondo's Treasuries and equities, Paxos's allocated gold, and a luxury-brand provenance consortium — and why a token is only as good as its redemption right
 - [AI agents and your wallet: a safety checklist](https://www.swopme.co/blog/ai-agent-wallet-safety-checklist): the five mechanisms — self-custody, confirmation before signing, bounded agent authority, an audit trail, and an always-open exit — that determine whether a wallet lets an AI agent trade for you safely

@@ -1,0 +1,15 @@
+When people compare apps for prediction markets, they compare the odds. But the odds are largely the same everywhere — they are set by the order book, not by the app. What actually differs is everything wrapped around the trade.
+
+Custody comes first. Is the app self-custodial, or is your position sitting in a pooled balance whose keys you do not hold? A winning contract that resolves correctly and cannot be withdrawn is not a win. That question has nothing to do with which market you chose, and everything to do with whether you own the outcome.
+
+Then gas. Some apps require you to acquire a separate native token before you can place a single trade — a genuine barrier dressed up as a technicality. You arrived to price an outcome, not to first buy a different asset for the privilege of doing so.
+
+Then depth, which is where most comparisons stop too early. A yes/no share trading at 62 cents means the market is saying 62%. The useful question is whether you can actually be filled at 62 cents, or whether your size walks the book. Seeing full order-book depth before you commit funds is the difference between a quoted price and your price.
+
+Then fees, and specifically where they sit: in the spread, in a per-trade charge, or in the withdrawal. All three are legitimate. Undisclosed is not — you should be able to see the number before committing rather than infer it from what arrived.
+
+And if the app ships an AI trading agent, one question settles it: does the agent propose and wait for you, or is it permitted to act on its own? An agent that can open a position without your signature is a fundamentally different product from one that drafts a trade and asks.
+
+None of this is exotic. These are the same questions worth asking of any wallet. They simply matter more once real money is riding on an outcome that will resolve.
+
+Full checklist on the Swop Journal 👇
