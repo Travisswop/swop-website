@@ -54,6 +54,11 @@ export default async function handler(req, res) {
     }
 
     if (action === 'crypto') {
+      // Opening the card form claims the rail (Swop refuses a second payment
+      // path while a card attempt exists). Release it first — this cancels the
+      // Stripe PaymentIntent and re-opens the checkout — and treat "nothing to
+      // release" as fine, which is the case when the buyer never chose card.
+      await swop(`/api/v5/checkout-intents/${intentId}/card-payment/release`, NO_BODY_POST).catch(() => ({}));
       const r = await swop(`/api/v5/checkout-intents/${intentId}/select-crypto`, NO_BODY_POST);
       if (!r.ok) return res.status(r.status).json({ error: r.body?.message || 'Could not switch to USDC.' });
       // The request now lives on the intent; fall through and read it back.
