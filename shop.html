@@ -344,7 +344,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 <section id="checkout" data-screen-label="checkout"><div class="wrap">
       <div class="sechead"><span class="eyebrow"><b></b>Checkout</span>
         <h2>Pay without leaving.</h2>
-        <p>Your cart, checked out here. Swop settles it in USDC on Base and sends the receipt — you are never redirected.</p>
+        <p>Your cart, checked out here. Swop settles it in USDC and sends the receipt — you are never redirected.</p>
       </div>
       <div id="coBox" style="border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:26px">
         <div id="coEmpty" class="cdesc">Your cart is empty. Add something from Available now.</div>
@@ -356,7 +356,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
     <section id="live" data-screen-label="available now"><div class="wrap">
       <div class="sechead"><span class="eyebrow"><b></b>Available now</span>
         <h2>Buy these today.</h2>
-        <p>These two are live in the Swop store right now and check out through Swop — paid in USDC on Base, settled straight to the seller. Everything below is the wider lineup, coming as stock lands.</p>
+        <p>These two are live in the Swop store right now and check out through Swop — paid in USDC from any Solana wallet, settled straight to the seller. Everything below is the wider lineup, coming as stock lands.</p>
       </div>
       <div class="grid">
         <article class="card">
@@ -735,11 +735,15 @@ document.querySelectorAll('.add').forEach(function(b){
         return;
       }
       var pr = b.paymentRequest;
+      // The rail is whatever Swop returned; never hard-code a chain here.
+      var net = pr.rail === 'solana_pay' ? 'Solana' : (/evm|base/i.test(pr.rail || '') ? 'Base' : '');
+      // The checkout exists now; the create button has done its job.
+      if (go && go.parentNode) go.parentNode.hidden = true;
       els.pay.innerHTML =
         '<div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:14px">' +
         '<span><b>Total due</b></span><span class="price">' + money(b.total != null ? b.total : pr.amount) + '<small>USDC</small></span></div>' +
         '<a class="btn" href="' + pr.url + '">Open your wallet to pay</a>' +
-        '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC on Base. ' +
+        '<p class="cdesc" style="margin-top:12px">Paying sends ' + money(pr.amount) + ' USDC' + (net ? ' on ' + net : '') + '. ' +
         'Your order, receipt and email are created automatically once the payment lands — nothing else to do here.</p>' +
         '<p class="cdesc" style="margin-top:6px;word-break:break-all;font-size:12px">Or pay to: ' + pr.recipient + '</p>';
     } catch (err) {
