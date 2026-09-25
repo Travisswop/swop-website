@@ -31,6 +31,7 @@ until they are moved up.
 - ERC-8196 agent policy / verifiable AI trading agent
 - what is x402 / x402 payment protocol  <!-- promoted by Travis 2026-08-28 for the 9/2 post -->
 - CLARITY Act / crypto market structure bill  <!-- promoted by Travis 2026-09-15 for the 9/16 post on the Senate cloture vote -->
+- recover crypto wallet without seed phrase  <!-- promoted by Travis 2026-09-23, scheduled for the 9/24 catch-up post -->
 - accept card payments / merchant verification for sellers  <!-- promoted by Travis 2026-09-23 for the card-rail launch post -->
 - tokenized real world assets / RWA tokenization  <!-- promoted by Travis 2026-09-16 for the 9/17 post (Ondo, PAXG, tokenized equities, collectibles) -->
 
@@ -41,9 +42,6 @@ on it (id in brackets) — promoting a line unblocks that day's post. Each was c
 because it is writable from EXISTING Verified FACTS rows, so none of them needs new
 fact-gathering from Travis.
 
-- recover crypto wallet without seed phrase  [cb206 · Mon 9/21] — rests on the verified
-  phone-loss row: email login on any phone, plus private-key export. Strong intent, and
-  we can answer it honestly where most wallets can't.
 - what is a wrapped token  [cb207 · Thu 9/24] — gives the "a wrapped token is a claim on
   the bridge, not on the issuer" idea its own page; feeds /blog/cross-chain-swap-wallet
   and /blog/usdc-vs-usdce rather than repeating them.

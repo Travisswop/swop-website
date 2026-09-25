@@ -1,0 +1,19 @@
+"Can I recover my wallet without the seed phrase?" The honest answer depends on which wallet you have, and for many people it is bad news.
+
+In a classic seed-phrase wallet, the phrase is the key. Not a password to the key — the thing itself, in a human-readable encoding. Lose it and there is no reset link, no support line, and no company that could help even if it wanted to. That is not a gap in the product; it is the product working exactly as designed.
+
+Which is also why recovery scams are the most reliable fraud in crypto. Nobody legitimate will ever ask for your seed phrase — not support, not a recovery service, not a wallet developer. A request for it is proof of fraud, without exception.
+
+But "wallets have seed phrases" describes one design, not self-custody in general. The phrase exists because a private key is a long random number that is impractical to write down accurately, and encoding it as words made it transcribable with no server involved. That property is the entire design goal — and it is precisely why nobody can help you when it is gone.
+
+Three approaches replace it, and they fail differently. Multi-party key shares split the key so no single party ever holds a complete one. Smart-contract accounts with social recovery let guardians you nominate collectively authorise a key change while none of them can move funds alone. Passkey or device-bound keys live in your device's secure hardware, backed up through the platform's encrypted keychain. None of these remove the tradeoff; they relocate it, from "can you protect a secret forever" to "who else is in the recovery path, and what could they do."
+
+Which means seed phrase versus no seed phrase is the wrong axis entirely. Self-custody is about whether anyone else can move your funds, not about whether you memorised twelve words. The revealing question is narrower: can any single party reconstruct my key on their own? If the provider can, alone and without your device, you are custodial regardless of the marketing. If none can, you are self-custodial regardless of how you sign in.
+
+A second question is nearly as useful: can I leave? A recovery model you cannot exit is a lock-in mechanism wearing a convenience feature's clothes.
+
+On Swop, losing your phone does not mean losing your funds — log in with your email on any phone and your wallet comes back with it, and you can save your private key and open your assets in any wallet you choose. Worth naming the trade rather than selling it as a free upgrade: email-based recovery makes your email account part of your security perimeter. Usually the right trade, but a trade.
+
+Whatever you use, do the thing almost nobody does: test the recovery path once, with a small amount. The worst time to discover your backup is wrong is the moment you need it.
+
+Full guide on the Swop Journal 👇

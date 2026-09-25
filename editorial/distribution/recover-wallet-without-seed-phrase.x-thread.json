@@ -1,0 +1,14 @@
+{
+  "posts": [
+    "\"Can I recover my wallet without the seed phrase?\" The honest answer depends on which wallet you have, and for a lot of people it's bad news 🧵",
+    "1/ In a classic seed-phrase wallet, the phrase IS the key. Not a password to the key — the thing itself, in human-readable encoding. Lose it and there's no reset link, no support line, no company that could help if it wanted to. That's the design working as intended.",
+    "2/ Which is why recovery scams are the most reliable scam in crypto. Nobody legitimate will ever ask for your seed phrase — not support, not a recovery service, not a wallet developer. A request for it is proof of fraud, without exception.",
+    "3/ But \"wallets have seed phrases\" describes ONE design, not self-custody in general. The phrase existed to make a long random number transcribable by a human with no server involved. That property is also exactly why nobody can help you.",
+    "4/ Three things replace it. Key shares (MPC): the key is split so no single party holds a whole one. Social recovery: nominated guardians can collectively restore access but none can act alone. Passkeys: the key sits in your device's secure hardware.",
+    "5/ None of them remove the tradeoff — they relocate it. From \"can you protect a secret forever\" to \"who else is in the recovery path, and what could they do.\"",
+    "6/ So the seed-phrase-vs-not framing is the wrong axis. Self-custody is about whether anyone else can move your funds, not whether you memorized twelve words. Ask instead: can any SINGLE party reconstruct my key alone? If yes, you're custodial whatever the marketing says.",
+    "7/ Second question, nearly as useful: can I leave? A recovery model you can't exit is lock-in wearing a convenience feature's clothes. Being able to export the key and open your assets elsewhere is what keeps it honest.",
+    "8/ On Swop: lose your phone, log in with your email on any phone and your wallet comes back. You can also save your private key and open your assets in any wallet you choose — that's the exit. Trade-off worth naming: your email is now part of your security perimeter.",
+    "9/ Whatever you use, do the one thing almost nobody does — test the recovery path once, with a small amount. The worst time to find out your backup is wrong is the moment you need it. https://www.swopme.co/blog/recover-wallet-without-seed-phrase"
+  ]
+}
