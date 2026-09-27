@@ -19,7 +19,12 @@
 
    Default is a DRY RUN: resolves the target smartsite, reports what would be
    uploaded/posted, saves nothing. --live uploads images (if local) and
-   creates the FeedPost document. */
+   creates the FeedPost document. Deduped: if this SmartSite posted the same
+   text in the last 7 days, both modes report alreadyPosted and do nothing.
+
+   For posting as the account linked to the Swop MCP connector, prefer the
+   connector's swop_create_feed_post tool: it goes through the backend API
+   (validation, cache invalidation, @mention notifications) instead of Mongo. */
 const fs = require('fs');
 const path = require('path');
 
@@ -55,6 +60,26 @@ const DEFAULT_ENS = 'support.swop.id';
   const ens = spec.ens || DEFAULT_ENS;
   const smartsite = await Microsite.findOne({ ens }).select('name ens profilePic parentId').lean();
   if (!smartsite) throw new Error(`no microsite found with ens "${ens}"`);
+
+  // Safe to re-run: the same text from the same SmartSite within a week is the
+  // post already made (a retry, or the loop running twice), not a new one.
+  // Checked before any upload so a re-run doesn't orphan Cloudinary assets.
+  const existing = await PostV2.findOne({
+    smartsiteId: smartsite._id,
+    postType: 'post',
+    'content.title': spec.text,
+    isDeleted: { $ne: true },
+    createdAt: { $gte: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) },
+  })
+    .select('_id')
+    .lean();
+  if (existing) {
+    const result = { alreadyPosted: { id: String(existing._id) } };
+    console.log('already posted to feed:', String(existing._id));
+    console.log('RESULT_JSON:' + JSON.stringify(result));
+    await mongoose.disconnect();
+    return;
+  }
 
   if (!live) {
     const result = {
