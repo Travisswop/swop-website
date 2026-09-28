@@ -8,8 +8,10 @@ The mechanics are the same whether a centralised custodian or a decentralised br
 
 The naming convention is a giveaway once you know to look: a "w" prefix — wBTC, wETH, wSOL — usually signals a wrapped representation rather than the native asset. Usually. It is a convention nobody enforces, which is exactly why the contract address matters more than the ticker.
 
-So the useful question is never "is this the real asset." It isn't. The question is who holds the lock, whether the reserves are independently verifiable, and what happens to your claim if that party fails. It is the same concentration risk that makes bridges the most-exploited component in crypto: the wrapper sits downstream of whatever secures the lock.
+So the useful question is never "is this the real asset." It isn't. The question is who holds the lock, whether the reserves are independently verifiable, and what happens to your claim if that party fails. It is the same concentration risk that has made bridges the source of some of the largest single exploits in crypto: the wrapper sits downstream of whatever secures the lock.
 
 None of which means avoid wrapped tokens. A great deal of DeFi runs on them, and they are why assets can move between chains at all. It means reading the ticker as a label rather than a guarantee, and knowing whose promise you are holding.
 
 Full explainer on the Swop Journal 👇
+
+https://www.swopme.co/blog/what-is-a-wrapped-token
