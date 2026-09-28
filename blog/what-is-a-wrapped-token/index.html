@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>What Is a Wrapped Token? A Claim on a Bridge</title>
+<meta name="description" content="A wrapped token represents another asset on a different chain, minted when a bridge locks the original. It's a claim on the bridge, not on the original issuer.">
+<link rel="canonical" href="https://www.swopme.co/blog/what-is-a-wrapped-token">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="What is a wrapped token? A claim on a bridge, not the issuer">
+<meta property="og:description" content="It has the same ticker and the same price target as the original asset. What it doesn't have is the same backing.">
+<meta property="og:url" content="https://www.swopme.co/blog/what-is-a-wrapped-token">
+<meta property="og:image" content="https://www.swopme.co/blog/what-is-a-wrapped-token/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-09-28">
+<meta property="article:modified_time" content="2026-09-28">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/what-is-a-wrapped-token/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="What is a wrapped token? A claim on a bridge, not the issuer">
+<meta name="twitter:description" content="Same ticker, same price target. Different backing — and that's the part that matters.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What is a wrapped token? A claim on a bridge, not the issuer",
+  "description": "A wrapped token represents another asset on a different chain, minted when a bridge locks the original. It's a claim on the bridge, not on the original issuer.",
+  "datePublished": "2026-09-28",
+  "dateModified": "2026-09-28",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/what-is-a-wrapped-token"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is a wrapped token?", "acceptedAnswer": {"@type": "Answer", "text": "A wrapped token is a token minted on one blockchain to represent an asset that actually lives on a different chain. A bridge or custodian locks the original asset and mints a matching token elsewhere, carrying the same ticker convention (like WBTC for Bitcoin) and tracking the same price, but issued by the bridge rather than by whoever created the original asset."}},
+    {"@type": "Question", "name": "What backs a wrapped token?", "acceptedAnswer": {"@type": "Answer", "text": "Whatever the bridge or custodian is holding as collateral for the original asset it locked — not the original issuer or protocol. For a custodial wrapped asset that's typically a named custodian holding the real asset in reserve; for a bridge-minted wrapped asset it's the funds locked in that bridge's contract. Either way, the backing is a separate promise from the asset it represents."}},
+    {"@type": "Question", "name": "Does a wrapped token always trade at the same price as the original asset?", "acceptedAnswer": {"@type": "Answer", "text": "It's designed to, through a redemption mechanism that lets holders burn the wrapped token for the locked original (or vice versa), which keeps arbitrage pulling the price back to parity. That mechanism only works as long as the custodian or bridge is solvent and the redemption path is actually open — when either breaks, the wrapped token can trade below the asset it claims to represent even though the original asset itself hasn't moved."}},
+    {"@type": "Question", "name": "What happens to a wrapped token if the bridge behind it is hacked or becomes insolvent?", "acceptedAnswer": {"@type": "Answer", "text": "The wrapped token can lose its peg or become worthless even though the underlying original asset is untouched, because the wrapped token's value depends on the bridge's collateral, not on the original asset directly. Bridge exploits are the most common cause: an attacker drains the locked collateral, and every wrapped token that collateral was backing loses its claim to redeem."}},
+    {"@type": "Question", "name": "How can I tell if the token I'm holding is wrapped rather than native?", "acceptedAnswer": {"@type": "Answer", "text": "Check the contract address (or mint address on Solana), not the symbol a wallet displays. The asset's original issuer or chain typically publishes the official native contract address; a balance sitting at a different address with the same ticker is a wrapped or bridged representation, and it may need to be unwrapped or redeemed before it can move somewhere the wrapped version isn't recognized."}}
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">What is a wrapped token? A claim on a bridge, not the issuer</h1>
+<p class="art-dek">It carries the same ticker and tracks the same price as the asset it represents. What it doesn't carry is the same backing &mdash; and that gap is invisible in a wallet balance.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Sep 28, 2026</span><span class="sep"></span><span class="mono">Updated Sep 28, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=What%20is%20a%20wrapped%20token%3F%20A%20claim%20on%20a%20bridge%2C%20not%20the%20issuer&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhat-is-a-wrapped-token" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=What%20is%20a%20wrapped%20token%3F&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhat-is-a-wrapped-token" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What a wrapped token is</a>
+<a href="#s2">How lock-and-mint works</a>
+<a href="#s3">Wrapped tokens you've probably seen</a>
+<a href="#s4">What backs it, and what breaks it</a>
+<a href="#s5">What to check before trusting one</a>
+<a href="#s6">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>A wrapped token is a token minted on one blockchain to represent an asset that actually lives on a different chain, created when a bridge or custodian locks the original and issues a matching token elsewhere. It carries the original's ticker convention and is designed to track its price, but its backing is whoever holds that lock &mdash; not the protocol or company that created the original asset. That distinction doesn't show up anywhere in a wallet balance, and it's the whole difference between holding an asset and holding a promise about one.</p>
+
+<h2 id="s1">What a wrapped token is</h2>
+<p>Every wrapped token is built around the same idea: take an asset that only exists on chain A, and make a version of it usable on chain B, where it otherwise couldn't go. The wrapped version is a 1:1 claim &mdash; in principle, one wrapped unit is always redeemable for one unit of the original &mdash; issued through a smart contract or a named custodian rather than through whatever created the asset in the first place.</p>
+<p>The naming is usually a giveaway once you know to look for it: a "w" prefix (wBTC, wETH, wSOL) almost always signals a wrapped representation rather than the native asset. That's a convention, not a rule enforced anywhere, which is part of why checking the actual contract matters more than reading the ticker &mdash; more on that in the FAQ.</p>
+
+<h2 id="s2">How lock-and-mint works</h2>
+<p>The mechanics are the same whether a centralized custodian or a decentralized bridge is doing the wrapping:</p>
+<ul>
+<li><strong>Lock.</strong> The original asset is deposited with a custodian or sent into a bridge contract on its native chain, where it sits untouched.</li>
+<li><strong>Mint.</strong> An equivalent amount of the wrapped token is created on the destination chain and sent to the depositor. Total wrapped supply is meant to always equal the amount locked.</li>
+<li><strong>Redeem.</strong> To get the original back, the holder sends the wrapped token back to be burned, and the custodian or contract releases the matching amount of the locked original.</li>
+</ul>
+<p>Wrapped Bitcoin (WBTC) is the clearest illustration of the custodial version: BitGo holds the actual Bitcoin, and a DAO of merchants and custodians governs minting and burning, with reserves published for anyone to check against the wrapped supply on Ethereum. A bridge-run version works the same way mechanically, just with a smart contract standing in for the custodian &mdash; deposits are locked in a contract on the source chain, and validators or guardians attest to that lock before the wrapped token mints on the destination.</p>
+<div class="note"><span class="k">The short version</span>Locking never destroys the original asset. It sits, unspendable, as collateral for a second token that trades somewhere the first one can't reach.</div>
+
+<h2 id="s3">Wrapped tokens you've probably seen</h2>
+<p>Wrapped tokens show up constantly, often without being labeled that way:</p>
+<ul>
+<li><strong>WBTC on Ethereum.</strong> Lets Bitcoin's value participate in Ethereum's DeFi contracts, which native Bitcoin's own chain can't run.</li>
+<li><strong>wETH.</strong> Ether itself isn't an ERC-20 token — wETH wraps it into one so it can be used in contracts that expect that standard.</li>
+<li><strong>wSOL.</strong> Same idea on Solana: native SOL isn't an SPL token, so contracts that need an SPL-token interface use wrapped SOL instead.</li>
+<li><strong>Bridged stablecoins.</strong> A "USDC" balance on a chain Circle hasn't natively deployed to is often a bridge-minted wrapped copy rather than Circle-issued USDC — a distinction covered in detail in <a class="link" href="/blog/usdc-vs-usdce">USDC vs USDC.e vs pUSD</a>.</li>
+</ul>
+<p>Every cross-chain swap that produces a wrapped asset on the receiving end is doing exactly this under the hood. <a class="link" href="/blog/cross-chain-swap-wallet">Cross-chain swap wallet: how swapping between chains actually works</a> goes through that routing layer in more detail; this post is about the token that comes out the other end of it.</p>
+
+<h2 id="s4">What backs it, and what breaks it</h2>
+<p>A wrapped token's price is supposed to track the original through arbitrage: if the wrapped version trades below the original, someone can buy the wrapped token, redeem it for the real asset, and pocket the difference &mdash; a trade that pushes the price back toward parity. That mechanism depends entirely on redemption actually working.</p>
+<p>Three things break it. First, the custodian or bridge contract can be exploited &mdash; an attacker drains the locked collateral, and every wrapped token it was backing loses its claim to redeem, even though nothing happened to the original asset sitting elsewhere. Bridges concentrate locked value into a single contract, which is exactly why they're consistently the most exploited component in crypto. Second, a custodian can become insolvent or freeze redemptions, which has the same effect without requiring a hack. Third, more wrapped tokens can end up minted than collateral actually locked &mdash; a bookkeeping failure rather than a theft, but one with the same result: a wrapped token that can no longer be redeemed 1:1.</p>
+<p class="pull">The original asset is never at risk from any of this. What's at risk is your claim on it.</p>
+
+<h2 id="s5">What to check before trusting one</h2>
+<ul>
+<li><strong>Who holds the lock.</strong> A named, regulated custodian and an anonymous multisig carry very different risk, even when both mint a token that says the same thing on the label.</li>
+<li><strong>Is redemption actually open.</strong> A wrapped token you can't redeem for the original is a wrapped token you can only exit by selling to someone else, at whatever price the market will bear.</li>
+<li><strong>Is the collateral verifiable.</strong> Reserve or proof-of-reserve data that's public and checkable beats a claim you can't audit.</li>
+<li><strong>The contract address, not the ticker.</strong> Two tokens can both display as "wBTC" while sitting at different addresses with different backing.</li>
+</ul>
+
+<h2 id="s6">Where Swop fits</h2>
+<p>Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them &mdash; and runs on Solana, Ethereum, Base, and Polygon. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site, and Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. That routing treats any token that already exists on a supported chain the same way it treats any other token on that chain — the same pattern used for tokenized real-world assets like PAXG, as covered in <a class="link" href="/blog/tokenized-real-world-assets">Tokenizing real-world assets</a>. Transactions on Swop are gas-sponsored, so getting a wrapped asset onto a new chain doesn't also require hunting down that chain's gas token first.</p>
+<div class="note"><span class="k">[NEEDS FACT]</span>Whether a specific wrapped asset is supported for swapping or receiving on Swop, and whether any particular route surfaces a wrapped intermediate token, is a live product detail rather than something this post can state generally &mdash; check the app or <a class="link" href="https://support.swop.id">support.swop.id</a> for current token support.</div>
+
+<h2 id="faq">FAQ</h2>
+<h3>What is a wrapped token?</h3>
+<p>A token minted on one blockchain to represent an asset that actually lives on a different chain. A bridge or custodian locks the original asset and mints a matching token elsewhere, carrying the same ticker convention (like WBTC for Bitcoin) and tracking the same price, but issued by the bridge rather than by whoever created the original asset.</p>
+<h3>What backs a wrapped token?</h3>
+<p>Whatever the bridge or custodian is holding as collateral for the original asset it locked &mdash; not the original issuer or protocol. For a custodial wrapped asset that's typically a named custodian holding the real asset in reserve; for a bridge-minted wrapped asset it's the funds locked in that bridge's contract. Either way, the backing is a separate promise from the asset it represents.</p>
+<h3>Does a wrapped token always trade at the same price as the original asset?</h3>
+<p>It's designed to, through a redemption mechanism that lets holders burn the wrapped token for the locked original (or vice versa), which keeps arbitrage pulling the price back to parity. That only works as long as the custodian or bridge is solvent and the redemption path is actually open &mdash; when either breaks, the wrapped token can trade below the asset it claims to represent even though the original asset itself hasn't moved.</p>
+<h3>What happens to a wrapped token if the bridge behind it is hacked or becomes insolvent?</h3>
+<p>The wrapped token can lose its peg or become worthless even though the underlying original asset is untouched, because the wrapped token's value depends on the bridge's collateral, not on the original asset directly. Bridge exploits are the most common cause: an attacker drains the locked collateral, and every wrapped token that collateral was backing loses its claim to redeem.</p>
+<h3>How can I tell if the token I'm holding is wrapped rather than native?</h3>
+<p>Check the contract address (or mint address on Solana), not the symbol a wallet displays. The asset's original issuer or chain typically publishes the official native contract address; a balance sitting at a different address with the same ticker is a wrapped or bridged representation, and it may need to be unwrapped or redeemed before it can move somewhere the wrapped version isn't recognized.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed &mdash; see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/what-is-a-wrapped-token').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
