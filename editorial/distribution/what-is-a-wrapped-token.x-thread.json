@@ -1,0 +1,13 @@
+{
+  "posts": [
+    "A wrapped token carries the same ticker and tracks the same price as the asset it represents. What it doesn't carry is the same backing — and that gap is completely invisible in a wallet balance 🧵",
+    "1/ What it actually is: a token minted on one chain to represent an asset that lives on another. A bridge or custodian locks the original, mints a matching token elsewhere. In principle 1:1 redeemable.",
+    "2/ The part that matters: it's issued by whoever holds that lock — not by whatever created the original asset. Holding wBTC is not holding Bitcoin. It's holding a claim, from a specific issuer, that they'll give you Bitcoin.",
+    "3/ Lock, mint, redeem. The original sits untouched with a custodian or in a bridge contract. An equivalent amount is minted on the destination chain. Send the wrapped token back to burn it, and the original is released.",
+    "4/ Total wrapped supply is meant to always equal the amount locked. \"Meant to\" is doing real work in that sentence — it's an accounting invariant maintained by the issuer, not a law of the chain.",
+    "5/ The naming convention is a giveaway once you look for it: a \"w\" prefix (wBTC, wETH, wSOL) usually signals a wrapped representation. Usually. It's a convention nobody enforces, which is why the contract address matters more than the ticker.",
+    "6/ So the question is never \"is this the real asset\" — it isn't. The question is who holds the lock, whether the reserves are verifiable, and what happens to your claim if that party fails.",
+    "7/ Same idea we hit in cross-chain swaps: a bridge concentrates everyone's locked value into one contract, which makes it the highest-value target on either chain. The wrapper is downstream of that risk.",
+    "8/ None of this means avoid wrapped tokens — most of DeFi runs on them. It means read the ticker as a label, not a guarantee, and know whose promise you're holding. https://www.swopme.co/blog/what-is-a-wrapped-token"
+  ]
+}
