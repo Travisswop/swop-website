@@ -8,8 +8,8 @@
    "t": "What is a wrapped token?",
    "k": "content",
    "ch": "blog",
-   "done": false,
-   "note": "Blog · definition · query: what is a wrapped token — ⏳ PENDING QUERY PROMOTION. Appended to QUERIES.md under \"Proposed\"; Travis must move it up before this can be written (standing rule: no post may target a query not promoted in QUERIES.md). Pairs with /blog/cross-chain-swap-wallet and /blog/usdc-vs-usdce — the \"claim on a bridge, not on the issuer\" idea gets its own page."
+   "done": true,
+   "note": "Published /blog/what-is-a-wrapped-token (PR #28). Query promoted at review since the drafter had already written to it. Distributed to SmartSite (25), feed, X 9 posts, LinkedIn."
   },
   {
    "id": "cb208",
