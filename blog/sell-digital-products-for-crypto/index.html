@@ -73,6 +73,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+@media(max-width:720px){.ig svg{border-radius:12px}}
+</style>
+
 </head>
 <body>
 <nav>
@@ -100,6 +107,7 @@
 <span class="lbl">Contents</span>
 <a href="#s1">What actually has to exist</a>
 <a href="#s2">Settling payment and delivering the file are different problems</a>
+<a href="#s2b">What people actually sell</a>
 <a href="#s3">Buyers don't have to be human anymore</a>
 <a href="#s4">What to check before you rely on it</a>
 <a href="#s5">Where Swop fits</a>
@@ -108,6 +116,53 @@
 <article class="prose">
 <p>Selling a digital product for crypto means pricing it in a stablecoin, listing it on a storefront that can accept a wallet payment directly, and getting paid the moment the buyer's payment settles on-chain — instead of routing the sale through a card processor that holds the funds and pays out on its own schedule. The buyer, a person or increasingly a piece of software, signs the payment from their own wallet rather than entering a card number. What changes from a conventional digital-goods platform is custody and speed: the money lands in a wallet the seller controls, not in a merchant account someone else is holding on their behalf.</p>
 
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 300" role="img" aria-label="A digital sale settling on-chain: the seller lists a product priced in USDC, a human or an AI agent pays from their own wallet, settlement on-chain is itself the confirmation, and the file is released." xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#17a35c"/>
+    </marker>
+  </defs>
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <rect x="8" y="78" width="196" height="118" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="30" y="110" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">01 · SELLER</text>
+    <text x="30" y="140" font-size="19" font-weight="700" fill="#0a0a0c">Lists the product</text>
+    <text x="30" y="166" font-size="14.5" fill="#6b6b6b">Price fixed in USDC,</text>
+    <text x="30" y="184" font-size="14.5" fill="#6b6b6b">so neither side guesses.</text>
+
+    <line x1="212" y1="137" x2="268" y2="137" stroke="#17a35c" stroke-width="2" marker-end="url(#ar)"/>
+
+    <rect x="276" y="22" width="196" height="106" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="298" y="52" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">02a · A PERSON</text>
+    <text x="298" y="80" font-size="18" font-weight="700" fill="#0a0a0c">Taps to confirm</text>
+    <text x="298" y="104" font-size="14.5" fill="#6b6b6b">Signs from their wallet.</text>
+
+    <rect x="276" y="146" width="196" height="106" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="298" y="176" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">02b · AN AI AGENT</text>
+    <text x="298" y="204" font-size="18" font-weight="700" fill="#0a0a0c">Pays over x402</text>
+    <text x="298" y="228" font-size="14.5" fill="#6b6b6b">No checkout form.</text>
+
+    <line x1="480" y1="75" x2="536" y2="128" stroke="#17a35c" stroke-width="2" marker-end="url(#ar)"/>
+    <line x1="480" y1="199" x2="536" y2="146" stroke="#17a35c" stroke-width="2" marker-end="url(#ar)"/>
+
+    <rect x="544" y="78" width="196" height="118" rx="14" fill="#eeeeea" stroke="rgba(10,10,12,.12)"/>
+    <text x="566" y="110" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">03 · SETTLEMENT</text>
+    <text x="566" y="140" font-size="19" font-weight="700" fill="#0a0a0c">Lands on-chain</text>
+    <text x="566" y="166" font-size="14.5" fill="#6b6b6b">The settlement IS the</text>
+    <text x="566" y="184" font-size="14.5" fill="#6b6b6b">confirmation.</text>
+
+    <line x1="748" y1="137" x2="804" y2="137" stroke="#17a35c" stroke-width="2" marker-end="url(#ar)"/>
+
+    <rect x="812" y="78" width="160" height="118" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="834" y="110" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">04 · DELIVERY</text>
+    <text x="834" y="140" font-size="19" font-weight="700" fill="#0a0a0c">File released</text>
+    <text x="834" y="166" font-size="14.5" fill="#6b6b6b">Paid straight to a</text>
+    <text x="834" y="184" font-size="14.5" fill="#6b6b6b">wallet you control.</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">No processor in the middle, and no payout schedule &mdash; the money arrives when the payment settles.</figcaption>
+</figure>
+
 <h2 id="s1">What actually has to exist</h2>
 <p>Three pieces have to be in place before "sell for crypto" is more than an idea. First, the product needs a fixed price stated in an asset both sides can actually hold — almost always a stablecoin like USDC, so neither side is guessing at a dollar value that might move before the sale closes. Second, the listing needs a payment destination a wallet can pay directly: an address, or a storefront built to generate one per sale, rather than a "DM me your wallet" arrangement that depends on someone remembering to follow up. Third, something has to confirm the payment actually landed before the product is released — on-chain settlement is itself that confirmation, which is the part that differs from waiting on a card network to clear a charge.</p>
 <p>None of this requires the seller to run blockchain infrastructure personally. The job of a crypto storefront tool is to handle the second and third pieces, so a seller only has to do the first: set a price and list the item.</p>
@@ -115,6 +170,56 @@
 <h2 id="s2">Settling payment and delivering the file are different problems</h2>
 <p>A crypto storefront settles the payment. It doesn't, by itself, hand over the file. Delivery still has to be wired up separately — typically an access-gated download link or an automated message that fires once the on-chain payment is confirmed, the same basic pattern a conventional digital-goods platform uses to unlock a download after a card charge clears. The difference is what triggers the unlock: a webhook watching a card network's settlement, versus a listener watching for a specific on-chain payment to a specific address.</p>
 <p>Worth checking before relying on any platform for a real sale: does delivery actually fire automatically off the payment, or does it depend on the seller doing something manually after the fact? A storefront that gets the first part right and leaves the second part to a Discord DM isn't finished yet.</p>
+
+<h2 id="s2b">What people actually sell</h2>
+<p>&ldquo;Digital product&rdquo; sounds abstract until you notice how much of it is already being sold badly &mdash; through DMs, screenshots of payment apps, and a trust-me-I&rsquo;ll-send-it-after arrangement. Four shapes come up constantly, and they share one trait: the thing being sold is small, immediate, and worth far less than the friction of a traditional checkout.</p>
+
+<figure class="ig" aria-labelledby="ig2-cap">
+<svg viewBox="0 0 980 232" role="img" aria-label="Four things people sell: betting picks, trade calls, written and recorded content, and files or templates." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <rect x="6" y="14" width="232" height="204" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="28" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">PICKS</text>
+    <text x="28" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Betting picks</text>
+    <text x="28" y="116" font-size="14.5" fill="#6b6b6b">Time-sensitive and</text>
+    <text x="28" y="136" font-size="14.5" fill="#6b6b6b">worthless once the</text>
+    <text x="28" y="156" font-size="14.5" fill="#6b6b6b">game starts. Needs to</text>
+    <text x="28" y="176" font-size="14.5" fill="#6b6b6b">settle in seconds, not</text>
+    <text x="28" y="196" font-size="14.5" fill="#6b6b6b">business days.</text>
+
+    <rect x="254" y="14" width="232" height="204" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="276" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">CALLS</text>
+    <text x="276" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Your trades</text>
+    <text x="276" y="116" font-size="14.5" fill="#6b6b6b">A thesis, an entry, a</text>
+    <text x="276" y="136" font-size="14.5" fill="#6b6b6b">level. The audience</text>
+    <text x="276" y="156" font-size="14.5" fill="#6b6b6b">already holds a wallet,</text>
+    <text x="276" y="176" font-size="14.5" fill="#6b6b6b">which removes the</text>
+    <text x="276" y="196" font-size="14.5" fill="#6b6b6b">usual payment step.</text>
+
+    <rect x="502" y="14" width="232" height="204" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="524" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">CONTENT</text>
+    <text x="524" y="84" font-size="19" font-weight="700" fill="#0a0a0c">What you make</text>
+    <text x="524" y="116" font-size="14.5" fill="#6b6b6b">Essays, research, a</text>
+    <text x="524" y="136" font-size="14.5" fill="#6b6b6b">recording, a newsletter</text>
+    <text x="524" y="156" font-size="14.5" fill="#6b6b6b">issue &mdash; priced per</text>
+    <text x="524" y="176" font-size="14.5" fill="#6b6b6b">item instead of behind</text>
+    <text x="524" y="196" font-size="14.5" fill="#6b6b6b">a subscription.</text>
+
+    <rect x="750" y="14" width="224" height="204" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="772" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">FILES</text>
+    <text x="772" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Files &amp; templates</text>
+    <text x="772" y="116" font-size="14.5" fill="#6b6b6b">Presets, models,</text>
+    <text x="772" y="136" font-size="14.5" fill="#6b6b6b">spreadsheets, design</text>
+    <text x="772" y="156" font-size="14.5" fill="#6b6b6b">files. The oldest digital</text>
+    <text x="772" y="176" font-size="14.5" fill="#6b6b6b">product there is, and</text>
+    <text x="772" y="196" font-size="14.5" fill="#6b6b6b">still the most common.</text>
+  </g>
+</svg>
+<figcaption id="ig2-cap">Four common shapes. What they share is that the friction of a card checkout costs more than the item is worth.</figcaption>
+</figure>
+
+<p><strong>Betting picks and trade calls</strong> are the clearest case for settling in seconds, because both decay. A pick is worth something before kickoff and nothing after it; an entry level is worth something before the move. Any payment rail that takes days to clear, or that can reverse weeks later, is a poor fit for a product whose entire value is that it arrived in time. It also helps that the audience for both already holds a wallet, so the thing that usually kills a small sale &mdash; make an account, enter a card &mdash; is already solved.</p>
+<p><strong>Content and files</strong> run on a different logic: not urgency, but price. Charging two dollars for one essay, one recording or one template is uneconomic on a rail with fixed per-transaction costs and a minimum that makes small sales pointless. Pricing per item rather than per month only works if the overhead of a single sale is near zero.</p>
+<div class="note"><span class="k">The honest caveat</span>Selling information about betting or trading is subject to the rules where you and your buyer live, and in some places promoting picks is regulated activity. A payment rail does not change that, and nothing here is a view on whether a given product is permitted in your jurisdiction. The rail settles the sale; it does not license the business.</div>
 
 <h2 id="s3">Buyers don't have to be human anymore</h2>
 <p>The newer part of this is who — or what — can be the buyer. A protocol called <a class="link" href="/blog/what-is-x402">x402</a> lets a storefront quote a price to software directly: a purchase attempt that arrives without payment gets a structured response describing exactly what it costs, in what asset, on what chain, and an AI agent can sign the payment and complete the purchase in the same request, with no account or checkout form involved. That matters for a seller of digital goods specifically, because an agent restocking a dataset, sourcing training material, or shopping on someone's behalf is a far more plausible buyer for a digital file than it is for a physical one that still needs to be shipped.</p>
