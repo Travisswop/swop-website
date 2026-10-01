@@ -1,10 +1,19 @@
 # Swop
 
-> Swop is a self-custodial crypto wallet and social trading app on Solana, Ethereum,
-> Base, and Polygon. It combines a gas-sponsored wallet (no SOL or ETH needed for
+> Swop lets anyone sell to people and AI agents and get paid in USDC, with a
+> self-custodial wallet on Solana, Ethereum, Base, and Polygon. It combines a gas-sponsored wallet (no SOL or ETH needed for
 > fees), token swaps, perpetual futures, prediction markets, in-person crypto
 > payments (SwopPay, 0.5% checkout fee), and an AI trading agent that proposes
 > trades but never signs without user approval. Keys stay on the user's device.
+
+## For AI agents
+- MCP server: https://mcp.swopme.co/mcp/commerce (Streamable HTTP; commerce tools; public tools need no auth,
+  account tools use OAuth 2.1). Full toolset: https://mcp.swopme.co/mcp. Registry name: io.github.Travisswop/swop
+- Sell: create a product and get one link that serves people a Buy page and agents an
+  x402 (HTTP 402, USDC) payment challenge. Sellers need no KYC to be paid in USDC.
+- Buy: any Swop seller's store is listed by swop_get_store; each product has an x402
+  buyUrl. GET it, pay the 402 challenge, retry with X-PAYMENT, receive a receipt.
+- Setup guide: https://github.com/Travisswop/swop-mcp/blob/main/docs/add-swop-to-your-ai.md
 
 ## Key pages
 - [Swop home](https://www.swopme.co): product overview
