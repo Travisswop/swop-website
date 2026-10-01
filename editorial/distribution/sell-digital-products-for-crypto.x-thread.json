@@ -1,0 +1,14 @@
+{
+  "posts": [
+    "Most digital products are already being sold badly — through DMs, screenshots of payment apps, and a trust-me-I'll-send-it-after arrangement. The thing being sold is usually worth less than the friction of checking out 🧵",
+    "1/ Four shapes come up constantly: betting picks, your trades, content you make, and files or templates. What they share isn't a category — it's that a card checkout costs more than the item is worth.",
+    "2/ Picks and trade calls are the clearest case for settling in seconds, because both DECAY. A pick is worth something before kickoff and nothing after. An entry level is worth something before the move.",
+    "3/ Any rail that takes days to clear — or can reverse weeks later — is a poor fit for a product whose entire value is that it arrived in time.",
+    "4/ And the audience for both already holds a wallet. So the thing that usually kills a small sale — make an account, enter a card — is already solved before you start.",
+    "5/ Content and files run on different logic: not urgency, price. Charging $2 for one essay or one template is uneconomic on a rail with fixed per-transaction costs. Per-item pricing only works if the overhead of a single sale is near zero.",
+    "6/ Mechanically: price it in a stablecoin so neither side guesses, list it somewhere a wallet can pay directly, and let on-chain settlement BE the confirmation — rather than waiting on a card network to clear.",
+    "7/ One thing most write-ups skip: settling the payment and delivering the file are different problems. A storefront that nails the first and leaves the second to a Discord DM isn't finished.",
+    "8/ And buyers increasingly aren't human. Every SmartSite is an x402 storefront — a product you add is automatically payable by AI agents in USDC, with payout going on-chain to you. No checkout form to fill in.",
+    "9/ Caveat worth stating: selling info about betting or trading is subject to the rules where you and your buyer live. The rail settles the sale; it doesn't license the business. https://www.swopme.co/blog/sell-digital-products-for-crypto"
+  ]
+}
