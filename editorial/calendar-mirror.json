@@ -10,6 +10,24 @@
    "ch": "blog",
    "done": true,
    "note": "Published /blog/sell-digital-products-for-crypto with Travis's use cases (betting picks, trades, content, files) and TWO inline SVG infographics. X thread + LinkedIn shipped. SmartSite + Swop feed BLOCKED — MongoDB Atlas is refusing this Mac's IP (76.38.74.130 not whitelisted); needs re-running once"
+  },
+  {
+   "id": "cb211b",
+   "d": "2026-10-02",
+   "t": "How to accept crypto payments as a freelancer",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · ALREADY WRITTEN — PR #29, drafted 2026-09-29 but never shipped. Needs rebasing onto main (it predates several merges) and the query \"accept crypto payments freelancer\" promoted from Proposed. Do NOT re-draft it."
+  },
+  {
+   "id": "cb212b",
+   "d": "2026-10-05",
+   "t": "Best Solana wallet for beginners",
+   "k": "content",
+   "ch": "blog",
+   "done": false,
+   "note": "Blog · ALREADY WRITTEN — PR #30, drafted 2026-09-30 but never shipped. Needs rebasing and the query \"best Solana wallet for beginners\" promoted from Proposed. Do NOT re-draft it."
   }
  ]
 }
