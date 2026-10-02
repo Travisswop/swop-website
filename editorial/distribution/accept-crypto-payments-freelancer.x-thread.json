@@ -1,0 +1,13 @@
+{
+  "posts": [
+    "A freelancer can accept crypto payments today with a self-custody wallet and a payment link. No business bank account, no merchant processor, no identity verification — because the payment settles on-chain to your wallet instead of through a bank 🧵",
+    "1/ The honest catch first: your client needs a wallet too. This replaces a merchant account, not the conversation about how they intend to pay. If they only have a card, you need the card rail.",
+    "2/ Two shapes depending on how you bill. One-off work: a payment link or QR for a fixed amount. Repeat work: a storefront page where rates live as listed items, so you're not rebuilding a link every time.",
+    "3/ Settlement is the actual difference. Funds land in a wallet you control, immediately — not in a merchant account someone else holds and releases on their schedule. No payout delay because there's no payout step.",
+    "4/ The identity question is where the rails genuinely differ. On Swop, crypto and x402 payments are never identity-gated: you're payable in USDC the moment you list a product. Only the card rail requires merchant verification.",
+    "5/ For a freelancer with no LLC, no registered entity and no business bank account, that's the real edge — you skip the step that usually stops you before you've invoiced anyone.",
+    "6/ Pricing: SwopPay checkout charges 0.5%, and it's the same on the card rail and the crypto rail. No separate higher rate for an individual versus a registered business.",
+    "7/ When the card rail is still the right answer: your client wants to pay by card. Swop accepts card payments and Tap to Pay is live on Android. That path does require Stripe verification — Stripe holds the documents, not Swop.",
+    "8/ And keeping it once it lands: self-custodial, so it isn't in a platform account. Gas-sponsored, so moving it doesn't mean first buying a gas token. Four chains, so one client's choice doesn't lock you in. https://www.swopme.co/blog/accept-crypto-payments-freelancer"
+  ]
+}
