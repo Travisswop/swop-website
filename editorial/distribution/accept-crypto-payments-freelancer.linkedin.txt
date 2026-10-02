@@ -1,0 +1,17 @@
+A freelancer can accept crypto payments today with nothing more than a self-custody wallet and somewhere to send a client a payment link. No business bank account, no merchant processor, no identity verification — because a crypto payment settles directly on-chain to a wallet address rather than through a bank intermediary.
+
+The honest catch, stated first: your client needs a wallet too. This replaces a merchant account, not the conversation about how the client intends to pay. If they only have a card, you need the card rail.
+
+Two shapes, depending on how you bill. One-off work suits a payment link or QR code for a fixed amount. Repeat work suits a storefront page where your rates live as listed items, so you are not rebuilding a link every time someone asks.
+
+Settlement is the real difference. The funds land in a wallet you control, immediately — not in a merchant account somebody else holds and releases on their own schedule. There is no payout delay because there is no payout step.
+
+The identity question is where the two rails genuinely diverge. On Swop, crypto and x402 payments are never identity-gated: a seller is payable in USDC the moment they list a product. Only the card rail requires merchant verification. For a freelancer with no registered entity and no business bank account, that is the practical edge — it removes the step that usually stops you before you have invoiced anyone.
+
+On pricing, SwopPay checkout charges a 0.5% fee, and the rate is the same on the card rail and the crypto rail. There is no separate, higher rate for an individual versus a registered business.
+
+When the card rail is still the right answer: when your client simply wants to pay by card. Swop accepts card payments and Tap to Pay is live on Android. That path does require verification through Stripe, which holds the identity documents — Swop keeps only a revocable record of the decision.
+
+And keeping the money once it arrives: it is self-custodial, so it is not sitting in a platform-controlled account. Transactions are gas-sponsored, so moving or converting it does not require separately acquiring a network's gas token. And it runs across Solana, Ethereum, Base and Polygon, so whichever chain one client pays on does not lock you into that chain afterwards.
+
+Full guide on the Swop Journal 👇
