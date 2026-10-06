@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sent crypto to the wrong address or wrong network</title>
+<meta name="description" content="A confirmed on-chain transfer can't be reversed, but irreversible isn't the same as lost. What you can recover depends on who controls the destination address.">
+<link rel="canonical" href="https://www.swopme.co/blog/sent-crypto-to-wrong-address">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Sent crypto to the wrong address or wrong network">
+<meta property="og:description" content="Irreversible is not the same as lost. One of the most common versions of this mistake — right address, wrong network — is usually recoverable. Work out which case you're in first.">
+<meta property="og:url" content="https://www.swopme.co/blog/sent-crypto-to-wrong-address">
+<meta property="og:image" content="https://www.swopme.co/blog/sent-crypto-to-wrong-address/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/sent-crypto-to-wrong-address/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Sent crypto to the wrong address or wrong network">
+<meta name="twitter:description" content="Irreversible is not the same as lost. What you can recover depends on who controls the destination address.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Sent crypto to the wrong address or wrong network",
+  "description": "A confirmed on-chain transfer can't be reversed, but irreversible isn't the same as lost. What you can recover depends on who controls the destination address.",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/sent-crypto-to-wrong-address"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can a crypto transaction be reversed or cancelled?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Not once it is confirmed. A settled on-chain transfer is final by design: there is no chargeback mechanism and no administrator who can rewind it. The only way funds come back is if whoever controls the destination address sends them back. A transaction that is still unconfirmed and pending is a different situation, but on fast chains that window is usually seconds long."}
+    },
+    {
+      "@type": "Question",
+      "name": "I sent tokens to the right address but the wrong network. Are they gone?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Usually not. Ethereum, Base and Polygon are all EVM chains, and the same private key produces the same address on every one of them. If you own that address on one of those networks, you own it on the others too, so the tokens are sitting at an address you control — they are just on a chain your wallet may not be displaying yet. Sending between address formats that differ, such as a Solana address and an EVM address, is a different and much worse case."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can a wallet's support team recover crypto sent to the wrong address?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Not on a settled transfer. With a self-custodial wallet there is no central party holding your funds to hand back — the keys live on your device. Swop is fully self-custodial: keys are generated and held on your device, and Swop never holds them. Support can help you understand what happened and where the funds landed, but no provider can reverse a confirmed on-chain payment."}
+    },
+    {
+      "@type": "Question",
+      "name": "Someone messaged me offering to recover my lost crypto. Is that real?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Recovery services that contact you after a loss are a scam without meaningful exception. They cannot reverse a transaction any more than you can, and the offer exists to extract an upfront fee, a seed phrase, or a wallet connection. Nobody who can genuinely help will ask for your seed phrase or a payment in advance."}
+    },
+    {
+      "@type": "Question",
+      "name": "How do I stop this from happening again?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Reduce the number of transfers you make and the number of addresses you handle by hand. Send a small test amount first on anything large or unfamiliar, verify the network as carefully as the address, and prefer flows that don't require pasting an address at all. Every hop you remove is a hop that cannot go wrong."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+@media(max-width:720px){.ig svg{border-radius:12px}}
+</style>
+
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">Sent crypto to the wrong address or wrong network</h1>
+<p class="art-dek">Irreversible is not the same as lost. What you can get back depends entirely on who controls the destination — and the most common version of this mistake is usually recoverable.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 5, 2026</span><span class="sep"></span><span class="mono">Updated Oct 5, 2026</span><span class="sep"></span><span class="mono">6 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Sent%20crypto%20to%20the%20wrong%20address%20or%20wrong%20network&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fsent-crypto-to-wrong-address" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Sent%20crypto%20to%20the%20wrong%20address%20or%20wrong%20network&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fsent-crypto-to-wrong-address" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">Which mistake did you actually make</a>
+<a href="#s2">What &ldquo;irreversible&rdquo; actually means</a>
+<a href="#s3">Wrong network, right address</a>
+<a href="#s4">When the funds are genuinely gone</a>
+<a href="#s5">Everyone offering to recover it is lying</a>
+<a href="#s6">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>If you sent crypto to the wrong address, the transfer cannot be reversed — no wallet, no company, and no blockchain can undo a confirmed transaction. But irreversible is not the same as lost. Whether the funds are recoverable depends entirely on <em>who controls the destination address</em>, and one of the most common versions of this mistake — sending to the right address on the wrong network — usually ends with the money still yours. Work out which case you are in before you do anything else, and ignore anyone who contacts you offering to recover it for a fee.</p>
+
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 232" role="img" aria-label="Four versions of a misdirected transfer: someone else controls the address, the right address on the wrong network, the wrong token variant, and an address nobody controls." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <rect x="6" y="14" width="232" height="204" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="28" y="52" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">SOMEONE ELSE</text>
+    <text x="28" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Wrong recipient</text>
+    <text x="28" y="116" font-size="14.5" fill="#6b6b6b">A real address, just</text>
+    <text x="28" y="136" font-size="14.5" fill="#6b6b6b">not the one you meant.</text>
+    <text x="28" y="166" font-size="13" font-weight="700" fill="#6b6b6b" font-family="JetBrains Mono, monospace">ASK THEM</text>
+    <text x="28" y="192" font-size="13.5" fill="#6b6b6b">Only they can return it.</text>
+
+    <rect x="254" y="14" width="232" height="204" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="276" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">WRONG NETWORK</text>
+    <text x="276" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Right address</text>
+    <text x="276" y="116" font-size="14.5" fill="#6b6b6b">Same key, same address,</text>
+    <text x="276" y="136" font-size="14.5" fill="#6b6b6b">a different EVM chain.</text>
+    <text x="276" y="166" font-size="13" font-weight="700" fill="#17a35c" font-family="JetBrains Mono, monospace">USUALLY FINE</text>
+    <text x="276" y="192" font-size="13.5" fill="#6b6b6b">You still control it.</text>
+
+    <rect x="502" y="14" width="232" height="204" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="524" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">WRONG VARIANT</text>
+    <text x="524" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Not a loss</text>
+    <text x="524" y="116" font-size="14.5" fill="#6b6b6b">Bridged vs native token.</text>
+    <text x="524" y="136" font-size="14.5" fill="#6b6b6b">It arrived, under a</text>
+    <text x="524" y="156" font-size="14.5" fill="#6b6b6b">name you didn&rsquo;t expect.</text>
+    <text x="524" y="186" font-size="13" font-weight="700" fill="#17a35c" font-family="JetBrains Mono, monospace">NOTHING TO FIX</text>
+
+    <rect x="750" y="14" width="224" height="204" rx="14" fill="#eeeeea" stroke="rgba(10,10,12,.12)"/>
+    <text x="772" y="52" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">NOBODY</text>
+    <text x="772" y="84" font-size="19" font-weight="700" fill="#0a0a0c">Unowned address</text>
+    <text x="772" y="116" font-size="14.5" fill="#6b6b6b">A valid address with no</text>
+    <text x="772" y="136" font-size="14.5" fill="#6b6b6b">known private key.</text>
+    <text x="772" y="166" font-size="13" font-weight="700" fill="#6b6b6b" font-family="JetBrains Mono, monospace">GONE</text>
+    <text x="772" y="192" font-size="13.5" fill="#6b6b6b">No one can sign for it.</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">The same mistake has four very different endings. Identify yours before acting.</figcaption>
+</figure>
+
+<h2 id="s1">Which mistake did you actually make</h2>
+<p>&ldquo;Sent it to the wrong address&rdquo; covers several situations that look identical in a wallet and resolve completely differently. Before anything else, open the transaction in a block explorer and confirm three things: which chain it settled on, which address received it, and which token actually arrived. Most of the panic in this situation comes from not having those three facts yet.</p>
+<ul>
+<li><strong>A real address belonging to someone else.</strong> You pasted a valid address that isn't the one you intended — an old entry, a wrong contact, a clipboard that changed under you. The funds are under someone's control, just not yours.</li>
+<li><strong>The right address on the wrong network.</strong> You sent to the correct address, but selected Polygon when the recipient expected Base. On chains that share an address format, this is the recoverable case, and it is covered below.</li>
+<li><strong>The wrong version of the right token.</strong> Nothing went to the wrong place at all — a bridged token arrived where you expected a native one, so your balance shows an unfamiliar name. This is not a loss and needs no recovery; it is explained in <a class="link" href="/blog/usdc-vs-usdce">USDC vs USDC.e</a>.</li>
+<li><strong>An address nobody controls.</strong> A mistyped or truncated address that is still structurally valid. No private key exists for it, so nothing can ever move out.</li>
+<li><strong>An exchange or contract deposit address.</strong> Sending an unsupported token, or the right token on an unsupported network, to a centralised exchange deposit address. This is not on-chain-final in the usual sense — the institution controls the address, so it becomes a support request governed by their recovery policy, which may or may not exist.</li>
+</ul>
+
+<h2 id="s2">What &ldquo;irreversible&rdquo; actually means</h2>
+<p>Card payments are reversible because a card network sits in the middle and can decide, after the fact, to move money back. That intermediary is the thing doing the reversing — not the payment itself. A blockchain has no equivalent. Once a transfer is confirmed, it is part of a shared ledger that every participant agrees on, and there is no administrator with a button that rewrites it. This is deliberate: the same property that stops anyone from clawing back a payment you legitimately received is the property that stops you undoing one you sent by accident.</p>
+<p>So the honest framing is narrower than &ldquo;your money is gone.&rdquo; The transfer is permanent. The <em>funds</em> are wherever they landed, and they can still move — but only if someone with the private key for that address signs a transaction sending them back. That is why the entire question is who holds the key, and why the first useful step is identifying the destination rather than contacting anyone.</p>
+<div class="note"><span class="k">Act fast only in one case</span>If the transaction is still unconfirmed, some chains let you replace it with a higher-fee transaction to the correct destination. On fast networks that window is often a few seconds, so in practice it has usually closed before you notice the mistake. Don't count on it.</div>
+
+<h2 id="s3">Wrong network, right address</h2>
+<p>This is the version worth understanding properly, because it is common and it usually is not a loss. Ethereum, Base and Polygon are all EVM chains, which means they share an address format and derive addresses the same way. The same private key produces the same address on all of them. If you control an address on one of those networks, you control it on the others — so tokens sent to &ldquo;your address on the wrong chain&rdquo; are sitting at an address you already own.</p>
+<p>What's usually missing is visibility, not control. A wallet showing you one network's balances will not display tokens that landed on another, which is exactly what makes this feel like a disappearance. The fix is to look at the right chain: check the address on a block explorer for the network the transaction actually settled on, and add or switch to that network in a wallet that supports it. The tokens were never anywhere else.</p>
+<p>Two caveats keep this from being universal. First, moving the tokens onward requires that chain's native gas token in that same address, which you may not have. Second, and more seriously, this only holds between chains that share an address format. A Solana address and an EVM address are different shapes derived differently, so a transfer between those two worlds does not land at &ldquo;your address on the other chain&rdquo; — it lands somewhere unowned, which is the case in the next section.</p>
+
+<h2 id="s4">When the funds are genuinely gone</h2>
+<p>Two situations have no recovery path, and it is better to know quickly than to spend weeks hoping.</p>
+<p>An address nobody holds the key to is the first. Blockchain addresses are not checksummed the way a bank account number is validated against a name — a typo can produce a different address that is perfectly valid and simply has no owner. Nothing can ever be signed from it. The second is a transfer to a recipient who controls the address but will not return the funds. There is a real distinction here that people conflate: this one is not technically unrecoverable, it is socially unrecoverable. The key exists, someone has it, and your only mechanism is asking.</p>
+<p>If the amount is large enough to matter, the useful steps are mundane: save the transaction hash, note the destination address, and if the destination turns out to belong to an identifiable business or exchange, contact them through their official support channel — found on their own site, never through a search ad or a direct message. Everything beyond that is outside what a payment rail can fix.</p>
+
+<h2 id="s5">Everyone offering to recover it is lying</h2>
+<p>Within hours of posting about a lost transfer anywhere public, you will be contacted by accounts offering recovery. Treat every one of them as a scam, because effectively all of them are. The reasoning is simple and worth internalising: reversing a confirmed on-chain transfer is not a service that exists. Nobody has that capability — not a wallet provider, not a &ldquo;blockchain forensics expert,&rdquo; not a developer with special access. An offer to do the impossible is an offer to take a second loss from someone who just took a first one.</p>
+<p>The mechanics are always one of three. An upfront fee for work that cannot be performed. A request for your seed phrase or private key, which hands over everything you still have. Or a link asking you to connect your wallet and sign, which drains the balance that survived the original mistake. The rule that covers all three without needing to evaluate anything: nobody who can genuinely help will ever ask for your seed phrase, and no legitimate party asks for payment in advance of recovering funds. If a reply to your post arrives within minutes, that speed is itself the tell.</p>
+
+<h2 id="s6">Where Swop fits</h2>
+<p>Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. The honest consequence is the same one that applies to every self-custodial wallet: there is no central balance for anyone to reverse a payment out of, so a transfer you sign is one you need to get right the first time. What self-custody does give you is the lever that matters in the recoverable case. Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose — which is precisely how you reach tokens that settled on a chain you weren't expecting.</p>
+<p>Swop runs on Solana, Ethereum, Base, and Polygon. Three of those four are EVM chains sharing one address format, so the wrong-network mistake on Swop is usually the recoverable kind rather than the permanent kind — worth knowing before you panic.</p>
+<p>The better protection, though, is structural: make fewer transfers. Every hop between a wallet and somewhere else is a place to paste the wrong address or pick the wrong chain, which is one of the real arguments for a <a class="link" href="/blog/solana-wallet-with-built-in-swap">wallet with a built-in swap</a> — Swop has a built-in swap, so you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site. Transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH to transact, which removes the specific errand — buying gas on a chain you barely use — that produces a lot of these mistakes. And for the cases where you'd otherwise hand someone an address at all, <a class="link" href="/blog/send-crypto-with-a-link">sending crypto with a link</a> covers the broader pattern of moving funds without anyone transcribing a string of characters.</p>
+<p>Swop is on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>. If you're working through a transfer that went somewhere unexpected and want help reading what happened, <a class="link" href="https://support.swop.id">support.swop.id</a> is the official channel — and it is the only one. Anyone contacting you first is not us.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>Can a crypto transaction be reversed or cancelled?</h3>
+<p>Not once it is confirmed. A settled on-chain transfer is final by design: there is no chargeback mechanism and no administrator who can rewind it. The only way funds come back is if whoever controls the destination address sends them back. A transaction that is still unconfirmed and pending is a different situation, but on fast chains that window is usually seconds long.</p>
+<h3>I sent tokens to the right address but the wrong network. Are they gone?</h3>
+<p>Usually not. Ethereum, Base and Polygon are all EVM chains, and the same private key produces the same address on every one of them. If you own that address on one of those networks, you own it on the others too, so the tokens are sitting at an address you control — they are just on a chain your wallet may not be displaying yet. Sending between address formats that differ, such as a Solana address and an EVM address, is a different and much worse case.</p>
+<h3>Can a wallet's support team recover crypto sent to the wrong address?</h3>
+<p>Not on a settled transfer. With a self-custodial wallet there is no central party holding your funds to hand back — the keys live on your device. Swop is fully self-custodial: keys are generated and held on your device, and Swop never holds them. Support can help you understand what happened and where the funds landed, but no provider can reverse a confirmed on-chain payment.</p>
+<h3>Someone messaged me offering to recover my lost crypto. Is that real?</h3>
+<p>No. Recovery services that contact you after a loss are a scam without meaningful exception. They cannot reverse a transaction any more than you can, and the offer exists to extract an upfront fee, a seed phrase, or a wallet connection. Nobody who can genuinely help will ask for your seed phrase or a payment in advance.</p>
+<h3>How do I stop this from happening again?</h3>
+<p>Reduce the number of transfers you make and the number of addresses you handle by hand. Send a small test amount first on anything large or unfamiliar, verify the network as carefully as the address, and prefer flows that don't require pasting an address at all. Every hop you remove is a hop that cannot go wrong.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Fewer hops, fewer ways to get it wrong.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/sent-crypto-to-wrong-address').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
