@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "co.swopme.eldorado",
+        "sha256_cert_fingerprints": ["C9:9F:7A:7E:73:66:87:5F:76:79:D9:75:B7:E3:0A:53:06:1E:EB:FF:8A:27:56:EB:B7:9B:AF:7C:A3:68:E3:75"]
+      }
+    }]
