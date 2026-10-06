@@ -1,0 +1,7 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/eldorado", "destination": "https://el-dorado-xi.vercel.app/eldorado" },
+    { "source": "/eldorado/:path*", "destination": "https://el-dorado-xi.vercel.app/eldorado/:path*" }
+  ]
+}
