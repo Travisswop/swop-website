@@ -10,6 +10,28 @@ something unless a Verified row says so — absence of a row is not evidence of 
 SmartSite is an x402 storefront). Unknown either way → [NEEDS FACT] marker.
 Each row has a source and a verified-on date. Travis adds/verifies rows; the agent never does.
 
+## ⛔ Publication hold — one row, while a prod bug contradicts it
+
+**"Policy exits always open" (row below) is ON HOLD as of 2026-10-02. Do not publish it,
+quote it, or paraphrase it in any new post, newsletter, social copy or meta description
+until the hold is lifted.**
+
+The row is not wrong and it is not being unverified — the agent has not touched its
+wording, its source or its date, and has no authority to. It is suspended *for use*
+because the `bbeeb20e` MCP daily-cap regression is live in prod: a `reduceOnly` close is
+exempt from the cap reserve but still counted in every read, so a user trying to **exit**
+a perp position can be blocked by a cap their close does not consume. For as long as that
+is true, "The owner can always get out." is a sentence we cannot publish.
+
+- **Who lifts it:** whoever confirms FORGE's one-predicate `reduceOnly` fix is in prod
+  (staged, CRITIC-reviewed and fast-forward-verified as of 2026-10-02; APEX priority #2).
+  Lifting the hold is deleting this block — nothing else changes.
+- **Why a hold and not an edit:** the claim is a correct product commitment. Weakening the
+  row to match a bug we are fixing inside the week is the wrong trade.
+- **Already-published occurrences are a separate problem** — five of them, across three
+  live posts, one inside FAQPage JSON-LD. A hold stops *new* leakage only. See
+  `editorial/CLAIM-RISK-2026-10-01-exits-always-open.md`.
+
 ## Verified
 | Claim | Exact wording to use | Source | Verified |
 |---|---|---|---|
@@ -24,7 +46,7 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | x402 SmartSite storefront | "Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller." | Travis, 2026-09-02 (backend v5 x402 storefront, live) | 2026-09-02 |
 | Phone loss / recovery | "Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose." | Travis, 2026-09-01 | 2026-09-01 |
 | No third-party audit (honest) | "Swop has not commissioned a third-party security audit to date." (state plainly when the topic comes up; never imply an audit exists) | Travis, 2026-09-01 | 2026-09-01 |
-| Policy exits always open | "Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out." | Travis, 2026-08-28 | 2026-08-28 |
+| Policy exits always open ⛔ **ON HOLD 2026-10-02 — do not publish, see notice above the table** | "Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out." | Travis, 2026-08-28 | 2026-08-28 |
 | Policy enforcement seam (honest framing) | "Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee." | Travis, 2026-08-28 | 2026-08-28 |
 | Built-in swap | "Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site." | Travis, 2026-09-21 (live quote endpoint) | 2026-09-21 |
 | Swap routing | "Swop routes Solana swaps through Jupiter and EVM swaps through LiFi." | Travis, 2026-09-21 | 2026-09-21 |
