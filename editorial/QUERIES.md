@@ -35,6 +35,7 @@ until they are moved up.
 - sell digital products for crypto  <!-- promoted 2026-10-01 at Travis's direction, with the betting-picks / trades / content / files use cases -->
 - what is a wrapped token  <!-- promoted 2026-09-28: Travis scheduled cb207 and the drafter wrote to it; promoting to keep QUERIES the source of truth -->
 - accept card payments / merchant verification for sellers  <!-- promoted by Travis 2026-09-23 for the card-rail launch post -->
+- banking the unbanked with crypto / self-custody financial inclusion  <!-- promoted by Travis 2026-10-06; new thesis lane: tokenization, where the world is going, banking the unbanked -->
 - tokenized real world assets / RWA tokenization  <!-- promoted by Travis 2026-09-16 for the 9/17 post (Ondo, PAXG, tokenized equities, collectibles) -->
 
 ## Proposed (agent may append; Travis promotes)

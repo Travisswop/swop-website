@@ -1,0 +1,15 @@
+{
+  "posts": [
+    "Two numbers from the same World Bank survey. 1.3 billion adults have no financial account. 86% of adults own a mobile phone. Put those side by side and the usual explanation falls apart 🧵",
+    "1/ Whatever is keeping a billion people out of the financial system, it isn't that they lack a device — and it hasn't been for years. The honest answer is less comfortable than a technology gap. It's arithmetic.",
+    "2/ A bank account costs a fixed amount to open and run. Identity verification, compliance, servicing. Those costs don't shrink with the balance — verifying a customer with $40 costs about what it costs to verify one with $40,000.",
+    "3/ So below a certain balance every account is a small recurring loss. Nobody is excluded out of malice. They're excluded by a spreadsheet.",
+    "4/ Mobile money moved that threshold down a lot. But it moved the threshold — it didn't remove it. There's still an institution deciding if you clear a bar, still a counterparty holding the balance.",
+    "5/ A self-custodial wallet is a keypair. Issuing one more costs ~nothing, needs nobody's approval, has no minimum. The economics that excluded a billion people stop applying. Whether the result is USEFUL is a separate question.",
+    "6/ And for most of crypto's history the honest answer was \"not very.\" Telling someone on an uncertain income they can hold something that might fall 40% in a month isn't inclusion. It's a different exclusion with better branding.",
+    "7/ That's what tokenization changed. Stablecoins put dollars in the wallet. Ondo's USDY (~$2.1B) puts short-term Treasuries in it. PAX Gold puts one troy ounce of allocated LBMA gold in it. Ondo's stock products span 440+ US equities and ETFs.",
+    "8/ So the pitch stops being \"hold this volatile asset\" and becomes \"hold the same things wealthy people hold to store value — dollars, Treasuries, gold — in an account nobody had to approve.\"",
+    "9/ It's already happening without permission: ~$33T of stablecoin transfers settled on public chains in 2025, +72% y/y, and 71% of LatAm firms use them for cross-border settlement.",
+    "10/ Honestly, what a wallet still can't do: no credit, no recourse, no chargeback. And key loss is real — recovery design is the weakest part of this industry-wide. Any version of this argument that skips that is selling something. https://www.swopme.co/blog/banking-the-unbanked-self-custody"
+  ]
+}
