@@ -1,0 +1,19 @@
+Two numbers from the same World Bank survey. 1.3 billion adults have no account at a bank, a financial institution, or a mobile money provider. 86% of adults worldwide own a mobile phone.
+
+Put those side by side and the usual explanation falls apart. Whatever is keeping a billion people out of the financial system, it is not that they lack a device, and it has not been for years.
+
+The honest answer is less comfortable than a technology gap. It is arithmetic. Opening an account requires identity verification, sanctions screening and ongoing compliance monitoring, and those costs are close to fixed — verifying a customer with forty dollars costs roughly what it costs to verify one with forty thousand. Add servicing and overhead and the economics only work above a balance threshold. Below it, every account is a small recurring loss. Nobody is being excluded out of malice. They are being excluded by a spreadsheet.
+
+Mobile money moved that threshold down considerably, which is why account ownership has climbed for fifteen years. But it moved the threshold; it did not remove it. There is still an institution deciding whether you clear a bar.
+
+A self-custodial wallet is a keypair. Issuing one more costs effectively nothing, requires nobody's approval, and carries no minimum balance. The economics that excluded a billion people simply stop applying. Whether the resulting thing is useful is a separate question — and for most of crypto's history, the honest answer was "not very." Telling someone living on an uncertain income that they can now hold an asset that might fall 40% in a month is not financial inclusion. It is a different kind of exclusion with better branding.
+
+That is what tokenization changed. Stablecoins put dollars in the wallet. Tokenized Treasuries put government debt in it — Ondo's USDY runs to roughly $2.1 billion, backed mainly by short-term US Treasuries. Tokenized gold puts allocated metal in it: each PAX Gold token represents one fine troy ounce of LBMA Good Delivery gold vaulted in London. Tokenized equities put index exposure in it.
+
+So the proposition stops being "hold this volatile asset" and becomes "hold the same instruments wealthy people use to store value, in an account nobody had to approve." That is a materially different argument, and it is the one that makes financial inclusion serious rather than aspirational. It is also already happening: roughly $33 trillion in stablecoin transfers settled on public blockchains in 2025, up 72% year over year.
+
+What a wallet still cannot do, stated plainly: it extends no credit, offers no recourse, and has no chargeback. And key loss is real — recovery design remains the weakest part of this story industry-wide. Any version of "self-custody banks the unbanked" that treats that as a footnote is selling something.
+
+Which is why the honest framing is a ledger entry you control, rather than a bank in your pocket. It does fewer things than a bank. It does them for everyone.
+
+Full piece on the Swop Journal 👇
