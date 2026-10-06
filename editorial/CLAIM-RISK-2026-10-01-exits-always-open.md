@@ -211,3 +211,34 @@ These are smaller, unrelated to the claim risk above, and safe to fix in the sam
 3. Minor: the `<meta name="description">` still says the 0.5% checkout fee is Swop's
    "only published revenue source", which the page's own "Where that fee goes" section
    now contradicts. Reword to match the body.
+
+---
+
+## Resolution 2026-10-06 — step 1, not step 2. No copy was changed.
+
+The code fix shipped. Verified before touching anything:
+
+- `src/controllers/v5/mcpPerpsController.js` now reads `reduceOnly` **before** the policy
+  check and exempts a close from the spend cap entirely:
+  `mayExecute = isReduceOnly ? closeAuthorized : policy.allowed && policy.autoExecute`,
+  and `if (!isReduceOnly) reserveForPreview(...)` — a close reserves nothing and "must
+  succeed even at the cap". The comment names the exact regression this filing described.
+- Fix commit `4fcde1d3` (2026-10-01 23:14) is an **ancestor of `origin/production`**, and
+  `origin/production` itself carries the carve-out. Per SwopLive CLAUDE.md, `main` and
+  `production` are the same SHA in practice for this repo and `deploy-prod.sh` builds
+  `origin/production` verbatim.
+
+So the published claim is true again, and the recommendation's own step 1 applies: **fix
+the code, do not touch the copy.** The five published occurrences stay exactly as written,
+including the FAQPage JSON-LD and the `is-swop-safe` `.note` box. No retraction, no
+narrowing, no FAQPage mismatch risk.
+
+**Hold lifted** in `FACTS.md`: the notice block is deleted and the `⛔ ON HOLD` marker is
+removed from the row's label cell. The row's *Exact wording*, source and verified date were
+never modified at any point — by QUILL or here.
+
+Note for the record: the patch in this filing was never applied, so there is nothing to
+revert and no TOPICS.md revert note is needed. Step 2 triggered on 2026-10-02 by its own
+terms and sat unexecuted until 2026-10-06 — during which the claim was already true again.
+The lag is the lesson: the hold had a lift *condition* but no owner watching for it.
+
