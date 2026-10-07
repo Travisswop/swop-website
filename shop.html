@@ -832,6 +832,22 @@ document.querySelectorAll('.qty').forEach(function(q){
     return b;
   }
   var PAID_STATUS = { paid: 1, settled: 1 };
+  // Statuses that END the poll without being a sale. CheckoutIntent.status has TEN
+  // values (swop-app-backend/src/models/CheckoutIntent.js:484); only 'active' and
+  // 'pending_payment' are worth waiting on. Everything not listed here or in
+  // PAID_STATUS / expired / cancelled keeps polling - deliberately, so a status we
+  // have never seen shows a neutral wait rather than a confident wrong answer.
+  //
+  // Without this table a buyer whose USDC has already left sits on
+  // 'Waiting for your payment...' forever, with no error, no reference and nothing
+  // for support to search on, because conversion_failed and settlement_failed are
+  // both set AFTER a payment is claimed.
+  var STUCK_STATUS = {
+    conversion_failed: 'We have your payment but could not finish converting it.',
+    settlement_failed: 'We have your payment but could not pay the seller yet.',
+    refunding: 'This checkout is being refunded.',
+    refunded: 'This checkout has been refunded.',
+  };
   var PAID_CARD = { transfer_pending: 1, transfer_in_progress: 1, transferred: 1 };
   function totalHtml(b) {
     return b.total != null
@@ -839,6 +855,11 @@ document.querySelectorAll('.qty').forEach(function(q){
       : '';
   }
   function waitingHtml(text) { return '<p class="cdesc" style="margin-top:12px;text-align:center">' + text + '</p>'; }
+  function stuckHtml(text, ref) {
+    return '<div style="padding:22px;border:1px solid var(--line2);border-radius:14px"><b style="font-size:17px">Your order needs a hand</b>' +
+      '<p class="cdesc" style="margin:8px 0 0">' + esc(text) + '</p>' +
+      '<p class="cdesc" style="margin:10px 0 0">Email <a href="mailto:support@swopme.co">support@swopme.co</a> quoting reference <code style="word-break:break-all">' + esc(ref) + '</code> and we will sort it out.</p></div>';
+  }
   function paidHtml() {
     return '<div style="padding:22px;border:1px solid var(--line2);border-radius:14px;text-align:center"><b style="font-size:18px">Payment received ✓</b>' +
       '<p class="cdesc" style="margin:8px 0 0">Your order is confirmed' + (buyer.email ? ' and the receipt is on its way to ' + esc(buyer.email) : '') + '.</p></div>';
@@ -852,6 +873,22 @@ document.querySelectorAll('.qty').forEach(function(q){
       if (PAID_STATUS[s.status] || PAID_CARD[s.cardState]) {
         box.innerHTML = paidHtml();
         cart = []; badge(); step = 'cart'; payment = null; stripeEls = null;
+        return;
+      }
+      var stuck = STUCK_STATUS[s.status];
+      if (stuck) {
+        // NEVER say 'you were not charged' here. s.funded only proves a payment is
+        // ON FILE; it is written after the fact, so false means 'no record yet', not
+        // 'no money moved'. Vague costs the buyer nothing. Confidently wrong costs
+        // them their money and us the trust. Hence two hedged messages, no denial.
+        box.innerHTML = stuckHtml(stuck + ' ' + (s.funded
+          ? 'There is nothing more to pay. We can see this and will finish your order or refund you.'
+          : 'If your wallet shows the payment left, nothing is lost - quote the reference below. If it does not, go back to your cart and try again.'),
+          payment.intentId);
+        // Clear the cart only once a payment is on file, so nobody pays a second
+        // time while we are the ones who owe them an outcome. With no record the
+        // cart stays intact, because retrying is then the right move.
+        if (s.funded) { cart = []; badge(); step = 'cart'; payment = null; stripeEls = null; }
         return;
       }
       if (s.status === 'expired' || s.status === 'cancelled') {

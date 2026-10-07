@@ -90,6 +90,15 @@ export default async function handler(req, res) {
       paymentRequest: d.paymentRequest || null,
       total: d.fees?.totalDueAmount ?? d.amount?.value ?? null,
       cardState,
+      // Has Swop RECORDED a payment against this checkout? A boolean only:
+      // serializeIntent returns the whole payment subdocument, including the
+      // payer wallet, and none of that belongs on a public shop page.
+      //
+      // Read it as 'we have a payment on file', never as 'the buyer was charged'.
+      // The record is written after the fact by a webhook or sweeper, and the
+      // card rail stamps txHash with the Stripe paymentRef, so false means
+      // 'no record yet' on either rail - it does NOT mean no money moved.
+      funded: Boolean(d.payment?.txHash),
     });
   } catch {
     return res.status(502).json({ error: 'Could not reach Swop.' });
