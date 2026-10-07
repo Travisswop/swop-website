@@ -1,0 +1,16 @@
+{
+  "posts": [
+    "Tokenization gets discussed as if the asset were the point. Gold on a chain, Treasuries on a chain. That makes it sound like packaging — and it's the reason people reasonably ask what the difference is 🧵",
+    "1/ The difference isn't the asset. It's the clock. A traditional securities trade settles two business days after you agree to it. A token transfer settles in seconds.",
+    "2/ And two days was never a technology limit. Nobody sat down and decided that's how long moving ownership should take. T+2 is the residue of a batch process built around paper certificates and end-of-day netting.",
+    "3/ The paper went away. The cycle stayed, because the cycle had become the system.",
+    "4/ To be fair to it: netting is genuinely useful. Buy and sell the same security repeatedly in a day and settling only the net means a fraction of the payments actually happen. The delay buys something real.",
+    "5/ But here's what it costs. During settlement, funds belong to nobody usable — the sender has parted with them, the recipient can't spend them. For a business that's working capital locked inside a process instead of deployed in the business.",
+    "6/ And it's worst for whoever can least carry it. A large company borrows against the gap. A freelancer waiting on an invoice just waits.",
+    "7/ Measured, where anyone has: JPMorgan reported ~79% lower transaction costs and ~71% fewer failed payments on its tokenized platform. Roland Berger with Keyrock put equity-trading savings at up to €4.6B/yr, ~24% of current costs.",
+    "8/ So why hasn't it been fixed? Because float is revenue. Money held between payer and payee earns interest for whoever's holding it. Compressing settlement doesn't just cost intermediaries a product — it removes a balance they were earning on.",
+    "9/ Which is why the push comes from outside. The parties able to collapse settlement are the ones whose economics depend on it not collapsing.",
+    "10/ What instant gives up, stated plainly: reversibility. The settlement window is also the window where a mistake gets unwound — that's what a chargeback is. On-chain settlement is final, which is exactly why it's fast.",
+    "11/ Ondo's institutional Treasury product does 24/7 mint and redeem — unremarkable until you notice the underlying Treasury market keeps business hours and the token doesn't. The asset didn't change. The clock did. https://www.swopme.co/blog/settlement-is-the-product"
+  ]
+}

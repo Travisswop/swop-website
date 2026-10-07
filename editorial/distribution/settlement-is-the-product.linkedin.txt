@@ -1,0 +1,19 @@
+Tokenization is usually discussed as if the asset were the point — gold on a chain, Treasuries on a chain, a building on a chain. That framing makes it sound like a packaging exercise, and it is why a lot of people hear "tokenized" and reasonably ask what the difference is.
+
+The difference is not the asset. It is the clock. A traditional securities trade settles two business days after you agree to it. A token transfer settles in seconds. And the first number was never a technology limit — nobody ever sat down and decided that two days was how long it should take to move ownership of something.
+
+T+2 is the residue of a batch process designed around paper. Certificates moved physically, records lived in different institutions' books, and the only sane way to handle volume was to let trades accumulate and square up at the end of the cycle. The paper went away. The cycle stayed, because the cycle had become the system.
+
+To be fair to it: netting is genuinely useful. If a broker buys and sells the same security many times in a day, settling only the net position means a fraction of the payments actually have to be made. The settlement window also functions as a review period — mistakes get caught, failed trades get resolved.
+
+But the cost shows up in someone's life rather than in a systems diagram. During settlement, funds belong to nobody usable: the sender has parted with them, and the recipient cannot spend them. For a business that is working capital locked inside a process instead of deployed in the business — and the smaller the business, the more it hurts, because a large company can borrow against the gap while a freelancer waiting on an invoice simply waits.
+
+Where anyone has measured it, the numbers are large. JPMorgan reported roughly 79% lower transaction costs and 71% fewer failed payments on its tokenized platform versus traditional systems. Roland Berger, in a study with Keyrock, put the equity-trading saving at up to €4.6 billion a year — about 24% of current costs — once tokenized infrastructure scales.
+
+So why has the existing system not simply compressed the cycle? Partly because netting is useful. But mostly because float is revenue. Money held between a payer and a payee earns interest for whoever is holding it, and at market scale that is a meaningful income line belonging to exactly the intermediaries best positioned to shorten the cycle. The parties with the technical ability to collapse settlement are the ones whose economics depend on it not collapsing.
+
+What instant settlement gives up is worth stating plainly: reversibility. A settlement window is also the window in which a mistake can be unwound — that is what a chargeback is. On-chain settlement is final, which is precisely why it is fast, and finality means a wrong address has no administrative remedy. That is a real trade, not a detail.
+
+Tokenization's interesting property was never that an asset could be represented as a token. It is that representing it that way makes the two-day gap unnecessary — and the gap was always where the cost was.
+
+Full piece on the Swop Journal 👇

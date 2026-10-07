@@ -1,0 +1,62 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
+  @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
+  body { font-family:'Inter Tight','Inter',-apple-system,sans-serif;
+    background: radial-gradient(120% 140% at 80% 30%, #103524 0%, #0b1512 42%, #070709 75%);
+    color:#fff; position:relative; }
+  .blob { position:absolute; border-radius:50%; filter:blur(90px); }
+  .b1 { width:540px; height:540px; right:-100px; top:-130px; background:#2ec27e; opacity:.26; }
+  .b2 { width:400px; height:400px; left:-130px; bottom:-170px; background:#1a6d47; opacity:.34; }
+  .stripes { position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(255,255,255,.025) 90px 92px); }
+  .wrap { position:absolute; inset:0; padding:56px 72px; display:flex; }
+  .left { width:640px; display:flex; flex-direction:column; z-index:2; }
+  .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:26px; letter-spacing:.45em; margin-bottom:24px; }
+  .kick { display:inline-flex; align-items:center; gap:12px; background:rgba(46,194,126,.14);
+    border:1.5px solid rgba(46,194,126,.6); color:#5ff0ab; font-family:'JetBrains Mono';
+    font-size:21px; font-weight:700; letter-spacing:.12em; padding:10px 20px; border-radius:999px;
+    width:max-content; margin-bottom:26px; text-transform:uppercase; }
+  .dot { width:12px; height:12px; border-radius:50%; background:#2ec27e; box-shadow:0 0 14px #2ec27e; }
+  h1 { font-size:86px; line-height:.98; font-weight:900; letter-spacing:-.028em;
+       text-shadow:0 8px 40px rgba(0,0,0,.6); }
+  h1 .hl { color:#5ff0ab; text-shadow:0 0 46px rgba(46,194,126,.72); }
+  .sub { margin-top:24px; font-size:26px; font-weight:700; color:rgba(255,255,255,.82); }
+  .sub b { color:#5ff0ab; }
+  .right { position:absolute; right:0; top:0; width:560px; height:630px; z-index:1;
+    display:flex; align-items:center; justify-content:center; }
+  .stack { display:flex; flex-direction:column; gap:20px; align-items:center; }
+  .pill { width:300px; border-radius:18px; padding:18px 24px; box-shadow:0 22px 56px rgba(0,0,0,.55); }
+  .old { background:#0e1a14; border:2px solid rgba(255,255,255,.14); }
+  .new { background:#2ec27e; }
+  .lbl { font-family:'JetBrains Mono'; font-size:14px; letter-spacing:.14em; text-transform:uppercase; }
+  .old .lbl { color:#7d8b84; } .new .lbl { color:#0a3a26; }
+  .big { font-size:48px; font-weight:900; letter-spacing:-1.5px; line-height:1.05; margin-top:6px; }
+  .old .big { color:#fff; } .new .big { color:#07120c; }
+  .arrow { font-size:38px; color:#5ff0ab; line-height:1; }
+  .url { position:absolute; left:72px; bottom:34px; font-family:'JetBrains Mono';
+    font-size:20px; color:rgba(255,255,255,.5); letter-spacing:.06em; }
+</style></head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="stripes"></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="logo">SWOP</div>
+      <div class="kick"><div class="dot"></div>Perspective</div>
+      <h1>NOBODY<br>CHOSE<br><span class="hl">TWO DAYS.</span></h1>
+      <div class="sub">Settlement is <b>the product</b></div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="stack">
+      <div class="pill old"><div class="lbl">Traditional</div><div class="big">T+2</div></div>
+      <div class="arrow">&#8595;</div>
+      <div class="pill new"><div class="lbl">Tokenized</div><div class="big">Seconds</div></div>
+    </div>
+  </div>
+  <div class="url">swopme.co/blog</div>
+</body></html>
