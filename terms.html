@@ -461,7 +461,7 @@
         <div class="hero-eyebrow">Legal &amp; Compliance</div>
         <h1>Terms &amp; Conditions</h1>
         <div class="effective-date">
-          Effective date — <span>September 11, 2026</span>
+          Effective date — <span>October 7, 2026</span>
         </div>
       </section>
 
@@ -475,10 +475,12 @@
               <p class="section-text">
                 Swop provides infrastructure for users to create, share, and
                 transact digital and physical goods using blockchain and
-                traditional payment methods. For crypto transactions, Swop does
-                not act as a custodian, financial intermediary, or legal
-                representative: funds move directly between the parties' own
-                wallets. Card payments are different. Swop is the settlement
+                traditional payment methods. Swop does not act as a legal
+                representative for any transaction. Many crypto payments move
+                directly between the parties' own wallets; some crypto checkout
+                payments are instead received into a settlement wallet
+                controlled by Swop, converted to USDC where needed, and then
+                forwarded to the seller. Card payments are different again. Swop is the settlement
                 merchant for card charges &mdash; the card is charged by Swop
                 through its payment processor, and Swop then pays the seller.
                 Section 06 sets out what that means for buyers and sellers. In
@@ -498,8 +500,13 @@
                 and private keys, protecting your passwords and access devices,
                 verifying the trustworthiness of counterparties, and reviewing
                 and understanding all transaction terms before confirming.
-                Swop cannot reverse a crypto transaction once it is confirmed
-                on-chain. Card payments can be refunded and can be disputed
+                Swop wallets are embedded wallets provided through Privy; Swop
+                does not hold your private keys. If you choose to grant Swop a
+                delegated signing permission (for example, for an agent or
+                automation), Swop can sign the transactions that permission
+                allows until you revoke it, and you are responsible for what you
+                authorize. Swop cannot reverse a crypto transaction once it is
+                confirmed on-chain. Card payments can be refunded and can be disputed
                 &mdash; see section 06.
               </p>
             </div>
@@ -525,11 +532,12 @@
             <div class="section-body">
               <div class="section-title">Escrow and Smart Contracts</div>
               <p class="section-text">
-                Some transactions on Swop may use escrow or smart contract
-                functionality. These are automated tools that hold funds until
-                predefined conditions are met. However, you understand that
-                these systems are decentralized and not controlled by Swop after
-                deployment.
+                Some transactions on Swop use escrow, settlement wallets, or
+                smart contracts that hold funds until predefined conditions are
+                met. Some of these are operated by Swop (for example, the
+                settlement wallet used for certain crypto checkouts) and some
+                are third-party protocols that Swop does not control. Any of
+                them may fail, be delayed, or behave unexpectedly.
               </p>
             </div>
           </div>
@@ -562,11 +570,16 @@
                 the buyer before payment.
               </p>
               <p class="section-text">
-                <strong>One link, two ways to pay.</strong> A checkout link may
-                offer both card and crypto. The buyer chooses at checkout, and
-                the amount is the same either way. Crypto checkout settles in
-                USDC on the chain the buyer pays from, directly to the seller's
-                wallet; Swop does not hold those funds.
+                <strong>Card payments are not yet available to every
+                seller.</strong> Swop is introducing them gradually; the card
+                terms below apply wherever Swop has enabled them.
+              </p>
+              <p class="section-text">
+                <strong>One link, two ways to pay.</strong> Where card payments
+                are enabled, a checkout link may offer both card and crypto. The buyer chooses at checkout, and
+                the amount is the same either way. Crypto checkout pays the
+                seller in USDC on the chain the buyer pays from, either directly
+                or through Swop's settlement wallet as described in section 01.
               </p>
               <p class="section-text">
                 <strong>Card details never reach Swop.</strong> They are entered
@@ -577,9 +590,9 @@
                 <strong>Sellers must be verified to accept cards.</strong>
                 Identity verification is carried out by Swop's payment processor
                 before a seller can be paid by card. This applies to the card
-                rail only: selling for crypto on Swop has never required
-                identity verification and still does not. Sellers who accept
-                cards also accept the
+                rail only: selling for crypto on Swop does not require identity
+                verification. Sellers who accept cards also accept the
+                <a href="https://stripe.com/connect-account/legal" target="_blank" rel="noopener">Stripe Connected Account Agreement</a> and the
                 <a
                   href="https://www.swopme.app/legal/card-seller-agreement"
                   target="_blank"
@@ -597,10 +610,11 @@
                 wallet.
               </p>
               <p class="section-text">
-                <strong>Current limits.</strong> Card payments are available to
-                sellers in the United States, for physical goods and services,
-                up to $1,000 per purchase and $5,000 per seller in any rolling
-                24 hours. Swop may change these limits.
+                <strong>Limits.</strong> When enabled, card payments are
+                initially limited to sellers based in the United States, for
+                physical goods and services, up to $1,000 per purchase and
+                $5,000 per seller in any rolling 24 hours. Swop may change these
+                limits.
               </p>
             </div>
           </div>
@@ -639,10 +653,25 @@
           <div class="policy-section">
             <div class="section-num">08</div>
             <div class="section-body">
-              <div class="section-title">Changes to Terms</div>
+              <div class="section-title">Changes and Additional Terms</div>
               <p class="section-text">
-                Swop may update these Terms of Service at any time. Continued
-                use of the platform constitutes acceptance of any changes.
+                Swop may update these Terms. Each version is posted here with
+                its effective date, which is never earlier than the day it is
+                posted, and Swop will give notice of a material change on this
+                site and, where it has your contact details, in the app or by
+                email before it takes effect. Continuing to use Swop after that
+                date means you accept the new version. This version replaces the
+                version effective May 21, 2025; it adds the card-payment terms
+                (sections 06 and 07) and clarifies how checkout fees are
+                charged.
+              </p>
+              <p class="section-text">
+                If you use the Swop app (swopme.app or the Swop mobile apps),
+                the
+                <a href="https://www.swopme.app/terms-of-service" target="_blank" rel="noopener">Swop Terms of Service</a>
+                also apply, including their risk disclosures, limitation of
+                liability, indemnity, and governing-law terms. Where they
+                conflict with these Terms, the Swop Terms of Service govern.
               </p>
             </div>
           </div>

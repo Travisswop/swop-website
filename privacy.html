@@ -491,7 +491,7 @@
         <div class="hero-eyebrow">Legal &amp; Transparency</div>
         <h1>Privacy &amp; Policy</h1>
         <div class="effective-date">
-          Effective date — <span>September 11, 2026</span>
+          Effective date — <span>October 7, 2026</span>
         </div>
       </section>
 
@@ -523,8 +523,12 @@
                 posts, views, clicks, redemptions); metadata shared through Swop
                 services (device/browser info, IPs, referral sources); and
                 optional profile information you provide (email, name, avatar,
-                etc.). Swop itself collects no biometric data, no card numbers,
-                and no bank account credentials, and runs no invasive tracking.
+                etc.); sign-in identifiers processed by Privy, which provides
+                Swop's login and embedded wallets; and what you send to Ask Swop
+                and Swop's agent features, which third-party AI model providers
+                process to generate a response. Swop itself collects no
+                biometric data, no card numbers, and no bank account
+                credentials, and runs no invasive tracking.
                 Card payments and seller verification are handled by Stripe,
                 which does collect identity and financial details directly &mdash;
                 see section 07.
@@ -578,10 +582,16 @@
                 community. All sharing is done in alignment with Swop's goal to
                 support public benefit, not private profit. Separately from
                 that, Swop shares data with the service providers that operate
-                the platform &mdash; cloud hosting, email delivery, media
-                storage, and payment processing, including Stripe for card
-                payments and seller verification (section 07) &mdash; and where
-                required by law.
+                the platform &mdash; cloud hosting (such as Amazon Web Services
+                and Vercel), sign-in and embedded wallets (Privy), email
+                delivery, live video, media storage, AI model providers for AI
+                features, and payment processing, including Stripe for card
+                payments and seller verification (section 07) &mdash; with
+                swap, bridge, prediction-market, and perpetuals venues you
+                choose to use, which receive your wallet address and order
+                details, and where required by law. Swop does not sell personal
+                information or share it for cross-context behavioral
+                advertising.
               </p>
             </div>
           </div>
@@ -605,8 +615,9 @@
             <div class="section-body">
               <div class="section-title">Card Payments and Seller Verification</div>
               <p class="section-text">
-                Sellers on Swop can accept card payments alongside crypto. Card
-                payments are processed by
+                Card payments are being introduced gradually and are not yet
+                available to every seller. Where enabled, sellers can accept
+                card payments alongside crypto. Card payments are processed by
                 <a href="https://stripe.com" target="_blank" rel="noopener"
                   >Stripe</a
                 >. This section applies only to card payments &mdash; crypto and
@@ -628,15 +639,26 @@
               </p>
               <p class="section-text">
                 <strong>If you sell and accept card payments.</strong> Stripe
-                verifies your identity before you can be paid, on Stripe's own
-                hosted pages. Stripe collects what it needs to meet its legal
-                obligations &mdash; typically your legal name, date of birth,
-                address, a government-issued identity document, a selfie taken
-                for liveness checking, your business details, your tax
+                verifies your identity before you can be paid and collects what
+                it needs to meet its legal obligations &mdash; typically your
+                legal name, date of birth, address, contact details, a
+                government-issued identity document, in some cases a selfie
+                taken for liveness checking, your business details, your tax
                 identification number, and the bank account or debit card you
-                want to be paid into. Stripe collects and holds all of it. Swop
-                never receives the document images, the selfie, your bank
-                details, or your tax identification number.
+                want to be paid into. You provide some of it on Stripe's own
+                hosted pages and some in the Swop app. When you provide it in
+                the Swop app, your name, date of birth, addresses, phone, email,
+                business details, and the last four digits of a national
+                identity number pass through Swop's servers to Stripe and are
+                not stored by Swop. Identity documents are uploaded from your
+                device directly to Stripe, and your full identity number, tax
+                identification number, and bank or card numbers are turned into
+                single-use Stripe tokens on your device, so Swop does not
+                receive those values. The app shows you the bank or card name
+                and last four digits of your payout accounts, read live from
+                Stripe and not stored by Swop. If you accept Stripe's terms in
+                the app, Swop passes the date, IP address, and device details of
+                that acceptance to Stripe.
               </p>
               <p class="section-text">
                 <strong>What Swop keeps about a verified seller</strong> is a
@@ -672,13 +694,39 @@
           <div class="policy-section">
             <div class="section-num">08</div>
             <div class="section-body">
-              <div class="section-title">Updates to Policy</div>
+              <div class="section-title">Your Rights, Transfers, and Age</div>
               <p class="section-text">
-                We may update this policy to reflect evolving community norms or
-                legal obligations. Material changes will be posted at
-                <a href="https://swopme.co" target="_blank" rel="noopener"
-                  >https://swopme.co</a
-                >.
+                <strong>Your rights.</strong> Depending on where you live (for
+                example, under the EU and UK GDPR or California and other U.S.
+                state privacy laws), you may have the right to know what
+                personal information Swop holds, and to access, correct,
+                delete, or receive a portable copy of it, to object to or
+                restrict certain processing, to withdraw consent where Swop
+                relies on it, and to appeal a decision on your request. Email
+                <a href="mailto:support@swopme.co">support@swopme.co</a> to
+                exercise them; Swop may need to verify your identity first.
+                Swop will not discriminate against you for exercising these
+                rights, and you may complain to your local data-protection
+                authority. Data written to a public blockchain cannot be deleted
+                by anyone.
+              </p>
+              <p class="section-text">
+                <strong>International transfers.</strong> Swop and its service
+                providers operate in the United States and other countries, so
+                your information may be processed outside the country where you
+                live. Where the law requires it, Swop relies on appropriate
+                safeguards for those transfers, such as standard contractual
+                clauses.
+              </p>
+              <p class="section-text">
+                <strong>Age.</strong> Swop is intended for people aged 18 and
+                over. Swop does not knowingly collect personal information from
+                anyone under 18 and will delete it if it learns that it has.
+              </p>
+              <p class="section-text">
+                <strong>Security.</strong> No system is perfectly secure, and
+                Swop cannot guarantee the security of information sent to or
+                stored by it.
               </p>
             </div>
           </div>
@@ -686,6 +734,26 @@
           <!-- Section 9 -->
           <div class="policy-section">
             <div class="section-num">09</div>
+            <div class="section-body">
+              <div class="section-title">Updates to Policy</div>
+              <p class="section-text">
+                Swop may update this policy. Each version is posted here with
+                its effective date, which is never earlier than the day it is
+                posted, and Swop will give notice of a material change on this
+                site and, where it has your contact details, in the app or by
+                email before it takes effect. This version replaces the version
+                effective May 21, 2025; it adds how card payments and seller
+                verification handle your data (section 07), names Swop's main
+                service providers, and adds section 08. The
+                <a href="https://www.swopme.app/privacy-policy" target="_blank" rel="noopener">Swop app Privacy Policy</a>
+                also applies to the Swop app.
+              </p>
+            </div>
+          </div>
+
+          <!-- Section 10 -->
+          <div class="policy-section">
+            <div class="section-num">10</div>
             <div class="section-body">
               <div class="section-title">Contact</div>
               <p class="section-text">

@@ -491,7 +491,7 @@
         <div class="hero-eyebrow">Legal &amp; Disclosures</div>
         <h1>Legal Notices</h1>
         <div class="effective-date">
-          Effective date — <span>September 11, 2026</span>
+          Effective date — <span>October 7, 2026</span>
         </div>
       </section>
 
@@ -543,14 +543,22 @@
             <div class="section-body">
               <div class="section-title">Self-Custody Disclosure</div>
               <p class="section-text">
-                Swop provides self-custodial software. You alone control your
-                wallets, private keys, and digital assets. Swop does not take
-                possession of the funds in your wallets, cannot access or
-                recover your keys, and cannot reverse transactions once they
-                are confirmed on-chain. Losing access to your keys or recovery
-                credentials may result in the permanent loss of your assets.
-                Card payments are the exception and are not self-custodial: see
-                the next section.
+                Swop provides self-custodial software. Swop wallets are embedded
+                wallets provided through Privy. Swop does not take possession of
+                the funds in your wallets, does not hold your private keys,
+                cannot recover them, and cannot reverse transactions once they
+                are confirmed on-chain. If you choose to grant Swop a delegated
+                signing permission (for example, for an agent or automation),
+                Swop can sign the transactions that permission allows until you
+                revoke it. Losing access to your login or recovery credentials
+                may result in the permanent loss of your assets.
+              </p>
+              <p class="section-text">
+                Two kinds of checkout payment are not self-custodial: card
+                payments (see the next section) and crypto checkout payments
+                that are received into a Swop-controlled settlement wallet,
+                converted to USDC where needed, and then forwarded to the
+                seller.
               </p>
             </div>
           </div>
@@ -561,8 +569,10 @@
             <div class="section-body">
               <div class="section-title">Card Payment Disclosure</div>
               <p class="section-text">
-                Sellers on Swop may accept card payments alongside crypto. Card
-                payments are not self-custodial. Swop is the settlement merchant
+                Card payments are being introduced gradually and are not yet
+                available to every seller. Where Swop has enabled them, sellers
+                may accept card payments alongside crypto. Card payments are not
+                self-custodial. Swop is the settlement merchant
                 for card charges: the card is charged by Swop through its
                 payment processor, Stripe, and Swop then pays the seller. A
                 buyer who cannot resolve a card purchase with the seller may
@@ -571,8 +581,10 @@
                 original card, in whole or in part; crypto payments cannot be
                 reversed. Card details are entered into Stripe's own form and
                 never reach Swop. Sellers must complete Stripe's identity
-                verification before they can be paid by card &mdash; a
-                requirement that applies to card payments only, never to crypto
+                verification, and accept the
+                <a href="https://stripe.com/connect-account/legal" target="_blank" rel="noopener">Stripe Connected Account Agreement</a>
+                and the <a href="https://www.swopme.app/legal/card-seller-agreement" target="_blank" rel="noopener">Seller Agreement for Card Payments</a>, before they can be paid by card &mdash;
+                requirements that apply to card payments only, never to crypto
                 or x402 payments. The full terms are in our
                 <a href="./terms.html">Terms &amp; Conditions</a> and our
                 <a href="./privacy.html">Privacy Policy</a>.
@@ -587,11 +599,21 @@
               <div class="section-title">Risk Disclosure</div>
               <p class="section-text">
                 Digital assets are volatile and may lose some or all of their
-                value. Blockchain transactions are irreversible, and smart
-                contracts — including escrow contracts used by Swop — may
-                contain bugs or behave unexpectedly. Past performance of any
+                value, and a stablecoin can lose its peg. Blockchain
+                transactions are irreversible, and smart contracts, bridges,
+                swap routers, and escrow or settlement arrangements &mdash;
+                including those used by Swop &mdash; may contain bugs, be
+                exploited, or behave unexpectedly. Past performance of any
                 asset is not indicative of future results. You should only
                 transact with funds you can afford to lose.
+              </p>
+              <p class="section-text">
+                Prediction-market and perpetual-futures features route orders
+                to third-party venues (such as Polymarket and Hyperliquid) that
+                Swop does not operate, and their own rules apply.
+                Prediction-market positions can expire worthless and you can
+                lose your entire stake; leveraged positions can be liquidated.
+                Output from Swop's AI features can be wrong and is not advice.
               </p>
             </div>
           </div>
@@ -650,6 +672,9 @@
             <div class="section-body">
               <div class="section-title">Contact</div>
               <p class="section-text">
+                This version replaces the version effective July 14, 2026; it
+                adds the card-payment disclosure and the Seller Agreement for
+                Card Payments, and expands the custody and risk disclosures.
                 For legal inquiries, notices, or questions about these
                 disclosures, contact:
                 <a href="mailto:support@swopme.co">support@swopme.co</a>
