@@ -156,12 +156,20 @@ Nothing here is guesswork; this is the full path from staged to live.
    page. Keep `index.html` and `og.html`.
 3. **Decide the R1 link** (see the warning above): keep it if R1 ships too, otherwise remove
    the one `<a>` in §s2.
-4. **Render the banner.** `editorial/render-og.sh blog/token-not-showing-in-wallet` if headless
-   Chrome is available; otherwise
-   `python3 editorial/make-og.py token-not-showing-in-wallet "Token not showing in your wallet" "Guides"`
-   for a placeholder and flag "og.html needs local render" in the PR body. **This is the only
-   hard gate that needs a shell** — the `og:image` and `twitter:image` tags already point at
-   `og.png`, so publishing without rendering it ships a broken preview image.
+4. ⚠️ **RE-RENDER THE BANNER — the existing `og.png` is off-brand and must not ship.**
+   Corrected 2026-10-07 (QUILL). The 10-06 run rendered `og.png` *in place* inside
+   `editorial/drafts/`, where the old single `@font-face` path `../../editorial/fonts/…`
+   resolved to the non-existent `editorial/editorial/fonts/`. Chrome fell back silently, so the
+   committed banner is system sans rather than Inter Tight + JetBrains Mono. Same defect as R1,
+   same cause. **The file existing is not evidence the gate is cleared.**
+
+   Root cause fixed: `og.html` now carries a dual `src` list
+   (`url('../../editorial/fonts/…'),url('../../fonts/…')`) and renders identically from
+   `editorial/drafts/<slug>/` **and** `blog/<slug>/`, so **there is no ordering constraint**:
+   `editorial/render-og.sh blog/token-not-showing-in-wallet`
+   Re-rendering was denied in this sandbox (headless Chrome blocked) and still needs a shell
+   that can run Chrome. After rendering, confirm the logo is monospaced — compare against the
+   published `blog/usdc-vs-usdce/og.png`.
    The banner reads **NOT MISSING. / JUST NOT SHOWN.** over a 🔍 focal object, house style,
    copied from the R1 base.
 5. **Move `distribution.md`** to `editorial/distribution/token-not-showing-in-wallet.md`.

@@ -50,8 +50,138 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
 > worth more together (the R2 README documents the single `<a>` to drop if only one ships).
 > The one hard gate on each is rendering `og.png`, which needs a shell this sandbox lacks.
 >
+> **Update 2026-10-06 (QUILL): the last hard gate on both posts is gone.** `og.png` is now
+> rendered in **both** draft folders — `sent-crypto-to-wrong-address/og.png` and
+> `token-not-showing-in-wallet/og.png`. Their READMEs each said the one thing needing a shell
+> was the banner; that is done. **Both posts are now complete and publish-ready, and the only
+> remaining blocker on each is one promoted line in QUERIES.md.** Filed as today's permit.
+> Still do not re-draft either post, and still do not move either into `blog/` before its
+> query is promoted.
+>
+> **Update 2026-10-06, later (QUILL): R3 is written too — and it is this week's long-form SEO
+> guide.** Staged at `editorial/drafts/crypto-transaction-still-pending/` ("Why is my crypto
+> transaction still pending?"). Same discipline — not in `blog/`, not in the sitemap, not queued
+> below. Written because the weekly long-form guide had not shipped this week and R3 is the
+> deepest retention query writable with **zero new FACTS rows** (R4 needs a row, R5 is
+> hold-conflicted). Fact-checked (8 Swop sentences, all Verified rows), hold-compliant
+> (exit claims grep-absent, **and zero perps/positions references at all** — deliberate, since
+> "a transaction that won't complete" sits one step from the held claim), duplication-checked
+> against post bodies, TOC and FAQ/JSON-LD parity verified. Publish checklist in its README.
+>
+> **R3 is the hub the other two were missing.** R1 and R2 are both downstream of the pending
+> moment — the reader checks the explorer and learns either "it went elsewhere" (R1) or "it
+> arrived and isn't showing" (R2). R3 triages and links out to both. Promote all three lines and
+> the blog gets a complete cross-linked retention cluster in one session.
+>
+> ⚠️ **R3 has one gate R1 and R2 no longer have: `og.png` is not rendered.** Both
+> `render-og.sh` and `make-og.py` were denied in this sandbox today. `og.html` is authored in
+> house style. **Render it after moving the folder into `blog/`, not before** — the
+> `@font-face` paths are `../../editorial/fonts/…`, which resolve from `blog/<slug>/` and not
+> from `editorial/drafts/<slug>/`, so rendering in place silently falls back to system fonts.
+> That ordering applies to R1 and R2's banners too if they are ever re-rendered.
+>
+> **Do not re-draft R1, R2 or R3.**
+>
 > ⛔ Do **not** queue R5 (perps liquidation) until the FACTS.md publication hold is lifted —
 > reason in QUERIES.md.
+>
+> **Update 2026-10-07 (QUILL): R4 is written too — the cluster is complete at four.** Staged at
+> `editorial/drafts/crypto-swap-failed/` ("Crypto swap failed? Where your money actually went").
+> Same discipline — not in `blog/`, not in the sitemap, not queued below.
+>
+> **R4 was the one QUERIES.md said needed a new FACTS row, and that rating was half wrong.** The
+> question "what happens to the funds when a swap fails" has two answers, and the
+> already-Verified *Swap routing* row decides which: a **same-chain** swap is one transaction, so
+> a chain applies both legs or neither — "the swap failed and my input is gone" is not a state a
+> single chain produces, and saying so is a general fact about atomicity, not a Swop claim. Only
+> **cross-chain** is genuinely non-atomic, and §s4 says so plainly. The row would still add the
+> Swop-specific remediation answer (retries, refunds, what support can retrieve); the post
+> declines that in its copy instead. **Row downgraded blocker → improvement; zero new rows
+> needed.** Full reasoning in the draft README and the 10-07 update in QUERIES.md.
+>
+> Verified before staging: 8 Swop sentences all traced to Verified rows, hold-compliant (exit
+> claims grep-absent, **zero perps/liquidation references** — deliberate, since §s2's "a refused
+> trade is a protection working" sits one sentence from the held exit claim), **no swap-fee claim**
+> (that row is explicitly unverified and this post is the one most exposed to the trap),
+> duplication-checked against post bodies **including the two prod-only posts fetched by URL**,
+> TOC parity 6/6, FAQ/JSON-LD parity 5/5.
+>
+> ⚠️ **R4 has the same `og.png` gate as R3** — `render-og.sh` and `make-og.py` are both denied in
+> this sandbox. `og.html` is authored in house style. **Render it after moving the folder into
+> `blog/`**, for the `@font-face` path reason given above.
+>
+> ⚠️ This is the first post in the cluster carrying a **number** (50 bps, from the *Default
+> slippage* row, verbatim). Deliberate and row-exact; see the draft README before editing it.
+>
+> **Do not re-draft R1, R2, R3 or R4.**
+>
+> **Correction 2026-10-07 (QUILL): "the blog has not published since 10-01" above is stale, and
+> it was stale because it was measured from the local repo.** Prod has published twice since:
+> `banking-the-unbanked-self-custody` (10-06) and `settlement-is-the-product` (10-07), both
+> verified live by fetching the canonical URLs. Neither exists in this working copy — the local
+> `blog/` tree is behind prod, so `ls blog/` is **not** a valid answer to "did a post ship?"
+> Check the canonical URL instead. The newsletter consequence is the important one: the Journal
+> slot was **not** starved today, and an agent trusting the local tree would have wrongly
+> fallen back to Spotlight. The R1/R2/R3 blockage below is unaffected and still real — those
+> three remain unpublished and still need one promoted QUERIES.md line each.
+>
+> ---
+>
+> ### 🚩 Update 2026-10-07, evening (QUILL) — the cluster was NOT publish-ready. Two banners are off-brand.
+>
+> **R1's and R2's `og.png` are system-font fallbacks and must be re-rendered before either
+> ships.** The 10-06 note above — *"the last hard gate on both posts is gone"* — was wrong, and
+> the way it was wrong is worth keeping, because the file it pointed at **does exist**; it is
+> simply incorrect. An existing artifact was read as a cleared gate without anyone looking at it.
+>
+> Cause: `og.html` carried a single `@font-face` path, `../../editorial/fonts/…`. From
+> `blog/<slug>/` that resolves to `editorial/fonts/` ✓. From `editorial/drafts/<slug>/` it
+> resolves to `editorial/editorial/fonts/`, which does not exist — so Chrome fell back to
+> `-apple-system` **silently**, with no error and a perfectly valid-looking PNG. The 10-06 run
+> rendered both in place and the gate was marked cleared. Confirmed by eye against the published
+> `blog/usdc-vs-usdce/og.png`: the logo, eyebrow and URL are not JetBrains Mono and the headline
+> is not Inter Tight Black.
+>
+> **Root cause fixed in all four drafts.** `og.html` now carries a dual `src` list —
+> `url('../../editorial/fonts/…'),url('../../fonts/…')` — which resolves from **both**
+> locations, so the banner renders identically wherever it is run.
+> **The "render only after moving into `blog/`" rule in the notes above is therefore obsolete;
+> all four draft READMEs have been updated.** Re-rendering itself still needs a shell that can
+> run Chrome — denied here — so it is four commands for whoever publishes, with no ordering
+> constraint, and one visual check: **the SWOP logo must be monospaced.**
+>
+> ### Reconciliation against the live sitemap (do not redo this from the local tree)
+>
+> Prod `sitemap.xml` fetched directly. **30 live posts; the local `blog/` tree has 27.** Three
+> have never existed in this working copy — `settlement-is-the-product` (10-07),
+> `banking-the-unbanked-self-custody` (10-06) and **`accept-crypto-payments-freelancer` (10-02),
+> which the 10-07 note above missed** (it reconciled two, not three).
+>
+> **All three were fetched and duplication-checked against R1–R4: no conflict.** The single
+> brush is in `settlement-is-the-product`, which says *"finality means a wrong address or a
+> wrong amount has no administrative remedy. There is no department to call."* That is R1's
+> territory in one rhetorical aside inside an essay on settlement time — not a treatment of the
+> query, so R1 is still unclaimed. **It also does not contradict R1**, which was checked line by
+> line: R1's recoverable cases are recoverable because *the reader holds the key*, never because
+> an administrator intervenes, and R1's FAQ states plainly that support cannot reverse a settled
+> transfer. The two posts agree, and R1 is the deeper answer. Ship it.
+>
+> **Internal links validated against the live sitemap, not the local tree.** All seven
+> out-of-cluster links in the four drafts resolve to live prod slugs: `usdc-vs-usdce`,
+> `ai-agent-wallet-safety-checklist`, `solana-wallet-with-built-in-swap`, `send-crypto-with-a-link`,
+> `cross-chain-swap-wallet`, `recover-wallet-without-seed-phrase`, `gasless-crypto-wallet`.
+> Zero broken links. (`/blog/swop-blog.css` in each file is the stylesheet, not a post link.)
+>
+> **⚠️ The cluster cross-links in one direction, so partial approval has a safe subset.**
+> R1 links out to nothing in the cluster; R2 → R1; R3 → R1, R2; R4 → R1, R2, R3. Publishing a
+> post whose targets are still in `drafts/` ships live 404s. **Safe subsets are prefixes of
+> R1 → R2 → R3 → R4**: R1 alone, R1+R2, R1+R2+R3, or all four. Never R4 alone. Each draft's
+> README documents the `<a>` to drop if its target is held back.
+>
+> **True publishing cadence** (from the live index, not the local tree): 10-01, 10-02, 10-06,
+> 10-07. The dark days were **10-03, 10-04 and 10-05** — exactly the span in which R1 and R2
+> were written and staged. The blog resumed on essays that bypass this queue entirely; the
+> query-driven SEO pipeline is still stalled at four finished posts. That is the thing to fix.
 
 - maintenance | Claim-risk remediation: "The owner can always get out" | (no new query — edits existing posts) | see `editorial/CLAIM-RISK-2026-10-01-exits-always-open.md` (queued 2026-10-01 by QUILL. **Check this first, before drafting anything.** Needs no new facts and no new query. The "exits are never blocked / the owner can always get out" claim is NOT merely a draft risk — it is ALREADY PUBLISHED in five places across three live posts (`erc-8196-agent-policy` ×3 incl. FAQPage JSON-LD, `ai-agent-wallet-safety-checklist`, `is-swop-safe`), and `is-swop-safe` goes further with "it cannot trap you inside a position", which is a direct description of the live `bbeeb20e` reduceOnly regression published as a denial of it.
   **Status 2026-10-02 12:43 EDT (QUILL):** fix is **NOT in prod** — staged, green and fast-forward-verified, waiting on Travis's deploy sitting before 20:00 EDT (APEX log, floor 11). So step (3) has NOT triggered yet; it triggers at end of day if the sitting doesn't land. **A publication hold is now on the `FACTS.md` row** so the claim can't leak into new copy in the meantime — see the 2026-10-02 addendum in the claim-risk doc. **Two things revert when the fix ships, not one: the five-location copy patch (if it was ever applied) AND the FACTS.md hold block.** The hold is the one that will rot quietly if forgotten, because nothing breaks when a true claim goes unused.
@@ -69,7 +199,24 @@ Types: comparison, definition, how-to, announcement. Weight toward comparison/de
   cannot leak into new copy meanwhile — that is the control doing its job, and it is the
   cheap half. Newsletter #93 was written with every exit claim absent, grep-verified.
   **What this needs is one line from someone who can read prod, not more copy work.**
-  **Order of operations, do not skip:** (1) Check whether FORGE's reduceOnly fix is in prod. (2) If it IS — do nothing to the copy, delete the FACTS.md hold block, tick this item closed, and note the date. The published claim is a correct product commitment; don't weaken it to match a bug we fixed. (3) If it is NOT, and it is end of day 2026-10-02 or later, apply the five-location patch in the claim-risk doc, then revert it once the fix ships. The patch is mechanical and pre-written.
+  **✅ RESOLVED 2026-10-06 (QUILL) — step (3) taken, patch applied. Do not re-do this item.**
+  Step (1) was answered with evidence this time, not a log line: FORGE's queue-durability
+  snapshot captured **today** (`war-room/queue-snapshots/2026-10-06/README.md`) shows the
+  reduceOnly fix is **still an uncommitted staged patch** — base `e5ca89c7`, **75 commits
+  behind main**, snapshot headline **"Commits authored: 0"** — and backend `origin/production`
+  (`f39984f5`) is 9 commits behind main with **none of the nine** being the fix. Not in prod,
+  and not even committed. That contradicts LEDGER's "reviewed and pushed" logs (10-03 and
+  again 10-06 13:01/15:05 UTC), which are exactly what the 10-04 note below relied on to defer.
+  **The five-location patch is now applied**, plus the three `how-does-swop-make-money` defects
+  (and a fourth found while checking: `twitter:description` carried the same stale "only
+  published revenue source" line as the meta description — the claim-risk doc named only the
+  meta tag). A new `fact-drift.sh` rule **`F-EXIT-HOLD`** now enforces the hold mechanically,
+  verified at zero hits so it gates clean.
+  ⚠️ **Three things revert when the fix ships, not two:** the copy patch, the `FACTS.md` hold
+  block, and the `F-EXIT-HOLD` rule. See the banner at the top of the claim-risk doc.
+  Everything is in the working tree, uncommitted — **it needs Travis to review and deploy.**
+
+  **Original order of operations (kept for the revert path):** (1) Check whether FORGE's reduceOnly fix is in prod. (2) If it IS — do nothing to the copy, delete the FACTS.md hold block, tick this item closed, and note the date. The published claim is a correct product commitment; don't weaken it to match a bug we fixed. (3) If it is NOT, and it is end of day 2026-10-02 or later, apply the five-location patch in the claim-risk doc, then revert it once the fix ships. The patch is mechanical and pre-written.
   Same PR can carry the three small `how-does-swop-make-money` defects listed at the bottom of that doc (JSON-LD/visible-FAQ mismatch on the swap-fee answer, two empty `<strong></strong>` artifacts, stale meta description). Its body is otherwise correctly current against the 9/24–9/25 FACTS rows — don't rewrite it.)
 
 ### ⚠️ Correction to the 2026-10-01 queue note (read before trusting the line below it)

@@ -25,7 +25,15 @@ is true, "The owner can always get out." is a sentence we cannot publish.
 
 - **Who lifts it:** whoever confirms FORGE's one-predicate `reduceOnly` fix is in prod
   (staged, CRITIC-reviewed and fast-forward-verified as of 2026-10-02; APEX priority #2).
-  Lifting the hold is deleting this block — nothing else changes.
+- ⚠️ **Lifting the hold is no longer "delete this block and nothing else changes" — that was
+  true until 2026-10-06, and is now wrong.** As of 2026-10-06 the claim was also patched out
+  of five published locations and a `fact-drift.sh` BLOCK rule was added to enforce the hold.
+  **Three things revert together:** (1) this block, (2) the five-location copy patch,
+  (3) the `F-EXIT-HOLD` rule in `editorial/fact-drift.sh`. Full detail and the exact revert
+  wording are in the banner at the top of `editorial/CLAIM-RISK-2026-10-01-exits-always-open.md`.
+- **Status 2026-10-06:** the fix is **not in prod and not committed** — FORGE's war-room queue
+  snapshot of that date records it as a staged patch 75 commits behind main, "Commits authored: 0".
+  The hold stands.
 - **Why a hold and not an edit:** the claim is a correct product commitment. Weakening the
   row to match a bug we are fixing inside the week is the wrong trade.
 - **Already-published occurrences are a separate problem** — five of them, across three

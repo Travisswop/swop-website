@@ -137,13 +137,22 @@ is. `role="img"` + full `aria-label` + `figcaption` as per the house pattern.
 1. `mv editorial/drafts/sent-crypto-to-wrong-address blog/sent-crypto-to-wrong-address`
    — then delete this README and move `distribution.md` to
    `editorial/distribution/sent-crypto-to-wrong-address.md`.
-2. **Render the banner.** `og.html` is written and its `@font-face` paths
-   (`../../editorial/fonts/`) are correct *for the final `blog/` location*, so render after the
-   move: `editorial/render-og.sh blog/sent-crypto-to-wrong-address`, or
-   `python3 editorial/make-og.py sent-crypto-to-wrong-address "Sent crypto to the wrong address or wrong network" "Guides"`
-   for the Pillow placeholder. **This has not been run** — headless Chrome and `python3` with
-   args are both denied here. `og.png` does not exist yet, and `index.html` already references it,
-   so rendering is a hard gate: merging without it ships a broken `og:image`.
+2. ⚠️ **RE-RENDER THE BANNER — the existing `og.png` is off-brand and must not ship.**
+   Corrected 2026-10-07 (QUILL). An earlier run on 10-06 rendered `og.png` *in place* inside
+   `editorial/drafts/`, where the old single `@font-face` path `../../editorial/fonts/…`
+   resolved to the non-existent `editorial/editorial/fonts/`. Chrome fell back silently, so the
+   committed banner is set in system sans instead of Inter Tight + JetBrains Mono. Verified by
+   eye against the published `blog/usdc-vs-usdce/og.png`: the logo, eyebrow and URL are
+   visibly not JetBrains Mono and the headline is not Inter Tight Black.
+   The file's **age is not evidence it is correct** — it exists and it is wrong.
+
+   The root cause is now fixed: `og.html` carries a dual `src` list
+   (`url('../../editorial/fonts/…'),url('../../fonts/…')`), so it renders identically from
+   `editorial/drafts/<slug>/` **and** from `blog/<slug>/`. **There is no longer any ordering
+   constraint** — render before or after the move, whichever is convenient:
+   `editorial/render-og.sh blog/sent-crypto-to-wrong-address`
+   Re-rendering was denied in this sandbox (headless Chrome is blocked), so it still needs a
+   shell that can run Chrome. Confirm after rendering that the logo is monospaced.
    Hook is `WRONG CHAIN. / NOT GONE.` with `💸` focal + `❓` prop + `USUALLY FIXABLE` tag.
 3. Update `blog/index.html` — new post featured, previous featured (`sell-digital-products-for-crypto`)
    down into Recent, bump the post count (27 → 28).

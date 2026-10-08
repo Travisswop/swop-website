@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Crypto swap failed? Where your money actually went</title>
+<meta name="description" content="A same-chain swap is one transaction: it does both sides or neither. If it failed, your input token never moved. Here is how to confirm that yourself.">
+<link rel="canonical" href="https://www.swopme.co/blog/crypto-swap-failed">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Crypto swap failed? Where your money actually went">
+<meta property="og:description" content="A swap that fails is a swap that did nothing &mdash; both sides are discarded together. The case worth worrying about is the one that succeeded at a price you didn&rsquo;t expect.">
+<meta property="og:url" content="https://www.swopme.co/blog/crypto-swap-failed">
+<meta property="og:image" content="https://www.swopme.co/blog/crypto-swap-failed/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-07">
+<meta property="article:modified_time" content="2026-10-07">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/crypto-swap-failed/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Crypto swap failed? Where your money actually went">
+<meta name="twitter:description" content="Both sides of a swap are discarded together, so a failed one leaves you holding your input. The scarier case is a swap that worked at a worse price.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Crypto swap failed? Where your money actually went",
+  "description": "A same-chain swap is one transaction: it does both sides or neither. If it failed, your input token never moved. Here is how to confirm that yourself.",
+  "datePublished": "2026-10-07",
+  "dateModified": "2026-10-07",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/crypto-swap-failed"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "My crypto swap failed. Where did my money go?",
+      "acceptedAnswer": {"@type": "Answer", "text": "If the swap happened on a single chain, nowhere — it is still yours, in the token you were trying to spend. A same-chain swap is one transaction containing both sides of the trade, and a chain applies a transaction completely or not at all. When it fails, the chain discards the whole thing, which means the leg that would have taken your input token is discarded along with the leg that would have delivered the output. You may have paid a network fee for the attempt on chains that charge for one. A fee is not the trade amount."}
+    },
+    {
+      "@type": "Question",
+      "name": "Why do crypto swaps fail?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Most often because the price moved while the transaction was in flight and the result fell outside the slippage tolerance the quote was built with, so the trade refused itself rather than fill at a worse number. The other common causes are a quote or route that expired before the transaction was included, a balance that no longer covers the input once fees are accounted for, and tokens that carry transfer restrictions or unusual mechanics the route did not anticipate. A revert from the first cause is a guardrail working, not a defect."}
+    },
+    {
+      "@type": "Question",
+      "name": "I got fewer tokens than the quote showed. Was that a failed swap?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No — that is a swap that succeeded. A quote is a price at a moment, and slippage tolerance is the range you agreed to accept around it before signing. Filling at the bottom of that range is a completed trade at a worse rate, not a failure, and it is the single most common reason a swap feels like it lost money when the chain records it as fine. The distinction matters because the two have opposite remedies: a reverted swap can simply be tried again, while a disappointing fill is already final."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can a failed swap take my money?",
+      "acceptedAnswer": {"@type": "Answer", "text": "A failed same-chain swap cannot, because there is no state in which one half of a single transaction survives and the other does not. The scenario where value is genuinely in flight is a cross-chain swap, which is not one transaction: the source side settles on one chain and a separate destination side has to settle on another, so there is a real window in which your funds have left and not yet arrived. That window is why cross-chain routes deserve more patience than same-chain ones, and why it is worth knowing which of the two you are doing before you sign."}
+    },
+    {
+      "@type": "Question",
+      "name": "Should I retry a failed swap?",
+      "acceptedAnswer": {"@type": "Answer", "text": "For a reverted same-chain swap, yes — nothing happened, so there is no first attempt to collide with. Get a fresh quote rather than resubmitting the old one, since the old one is stale by definition. If it reverts repeatedly, the price is moving faster than your tolerance allows and retrying harder will not fix that. What you should not do is retry a cross-chain route whose source side has already confirmed, because that side did happen and sending again starts a second transfer rather than finishing the first."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+@media(max-width:720px){.ig svg{border-radius:12px}}
+</style>
+
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">Crypto swap failed? Where your money actually went</h1>
+<p class="art-dek">A swap that fails is a swap that did nothing &mdash; both sides are discarded together. The case actually worth worrying about is the one that succeeded, at a price you didn&rsquo;t expect.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 7, 2026</span><span class="sep"></span><span class="mono">Updated Oct 7, 2026</span><span class="sep"></span><span class="mono">8 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Crypto%20swap%20failed%3F%20Where%20your%20money%20actually%20went&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcrypto-swap-failed" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Crypto%20swap%20failed%3F%20Where%20your%20money%20actually%20went&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcrypto-swap-failed" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">A failed swap is an all-or-nothing event</a>
+<a href="#s2">Why swaps refuse themselves</a>
+<a href="#s3">The one that hurts: it worked, at a worse price</a>
+<a href="#s4">When your funds really are in flight</a>
+<a href="#s5">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>If a swap on a single chain failed, your money is where it started: in the token you were trying to spend. That is not reassurance, it is the mechanism. A same-chain swap is one transaction that contains both halves of the trade, and a chain either applies a transaction completely or applies none of it. There is no state in which the half that takes your input token succeeded and the half that delivers the output did not. So a failed swap is not a trade that went wrong halfway &mdash; it is a trade that declined to happen, and the balance it would have spent is still sitting at your address waiting for you to look.</p>
+
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 232" role="img" aria-label="Three outcomes people describe as a failed swap: reverted, meaning the whole transaction was discarded and the input token never moved; filled low, meaning the swap actually succeeded but at the edge of the slippage tolerance so fewer tokens arrived; and half-routed, which happens only on cross-chain swaps where the source side settled and the destination side has not yet." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <rect x="6" y="14" width="300" height="204" rx="14" fill="#eeeeea" stroke="rgba(10,10,12,.12)"/>
+    <text x="30" y="52" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">REVERTED</text>
+    <text x="30" y="86" font-size="19" font-weight="700" fill="#0a0a0c">It did nothing</text>
+    <text x="30" y="120" font-size="14.5" fill="#6b6b6b">Both sides discarded</text>
+    <text x="30" y="140" font-size="14.5" fill="#6b6b6b">together. Your input</text>
+    <text x="30" y="160" font-size="14.5" fill="#6b6b6b">token never moved.</text>
+    <text x="30" y="192" font-size="13" font-weight="700" fill="#6b6b6b" font-family="JetBrains Mono, monospace">TRY AGAIN SAFELY</text>
+
+    <rect x="340" y="14" width="300" height="204" rx="14" fill="#0a0a0c"/>
+    <text x="364" y="52" font-size="11" letter-spacing="2" fill="#5ff0ab" font-family="JetBrains Mono, monospace">FILLED LOW</text>
+    <text x="364" y="86" font-size="19" font-weight="700" fill="#ffffff">It worked</text>
+    <text x="364" y="120" font-size="14.5" fill="rgba(255,255,255,.72)">At the edge of your</text>
+    <text x="364" y="140" font-size="14.5" fill="rgba(255,255,255,.72)">tolerance. Fewer tokens,</text>
+    <text x="364" y="160" font-size="14.5" fill="rgba(255,255,255,.72)">and already final.</text>
+    <text x="364" y="192" font-size="13" font-weight="700" fill="#5ff0ab" font-family="JetBrains Mono, monospace">READ THE QUOTE</text>
+
+    <rect x="674" y="14" width="300" height="204" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="698" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">HALF&ndash;ROUTED</text>
+    <text x="698" y="86" font-size="19" font-weight="700" fill="#0a0a0c">Cross-chain only</text>
+    <text x="698" y="120" font-size="14.5" fill="#6b6b6b">Source side settled,</text>
+    <text x="698" y="140" font-size="14.5" fill="#6b6b6b">destination hasn&rsquo;t.</text>
+    <text x="698" y="160" font-size="14.5" fill="#6b6b6b">This one needs patience.</text>
+    <text x="698" y="192" font-size="13" font-weight="700" fill="#17a35c" font-family="JetBrains Mono, monospace">DON&rsquo;T RESEND</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">Three different things get called a failed swap. Only the third one has your money in motion.</figcaption>
+</figure>
+
+<h2 id="s1">A failed swap is an all-or-nothing event</h2>
+<p>A swap is a trade against on-chain liquidity: you hand over one token and receive another, at a rate determined by whatever pool or route fills the order. The detail that governs this entire article is that on a single chain, those two movements are not two events. They are instructions inside one transaction, and transactions are atomic &mdash; the chain&rsquo;s unit of change is the whole thing, so it commits every instruction or it commits nothing and records the attempt as failed.</p>
+<p>That is why &ldquo;the swap failed and my money is gone&rdquo; describes a combination that a single chain does not produce. For your input token to be gone, that instruction would have had to take effect; if it took effect, the transaction committed; if the transaction committed, the output instruction took effect too and you have the other token. The states are welded together. You can end up with a worse price than you wanted, and you can end up having paid a fee for nothing, but you cannot end up having paid the input and received no output.</p>
+<p>So the first move is not to retry and not to contact anyone. It is to find the transaction and read it. Your wallet shows an identifier after you sign &mdash; a hash, signature or txid depending on the chain &mdash; and pasting it into a block explorer gives you the chain&rsquo;s own record rather than an app&rsquo;s interpretation of it. The explorer will say one of three things: the transaction failed or reverted, in which case nothing moved; it succeeded, in which case the tokens moved and the question becomes which ones and how many; or it does not exist, in which case it never reached the network and there is nothing to recover because there was never anything there.</p>
+<div class="note"><span class="k">Why the explorer and not the app</span>An app shows you the last thing it knew, and it can be wrong in both directions &mdash; still spinning on a trade that settled, or showing a balance it hasn&rsquo;t refreshed. The chain is the record. Every claim in this article is something you can check against it yourself, which is the point.</div>
+
+<h2 id="s2">Why swaps refuse themselves</h2>
+<p>Reverts are not mostly bugs. The commonest cause is a protection firing, and it is worth understanding because it reframes the whole experience.</p>
+<p>When you request a swap you get a quote: this much of token A for roughly that much of token B, calculated against liquidity as it exists at that instant. Between that instant and the moment your transaction is included in a block, other people trade. If the price has moved far enough that you would receive materially less than the quote promised, the transaction is built to abort rather than fill. The boundary is your slippage tolerance &mdash; the amount of price movement you implicitly accepted when you signed.</p>
+<p>A revert from that cause is the guardrail doing exactly its job. The alternative is not a better fill; the alternative is being filled at whatever number the market had drifted to, which on an illiquid token can be dramatically worse. The swap refused on your behalf.</p>
+<p>The other causes are more mundane:</p>
+<ul>
+<li><strong>The quote or route expired.</strong> Routes are computed against current liquidity and stop being valid. A transaction signed and then left unsent for a while can be stale by the time it arrives, and stale routes revert.</li>
+<li><strong>The balance no longer covers it.</strong> Between quoting and executing, something else moved the funds, or the input amount plus fees exceeds what is actually there. &ldquo;Max&rdquo; swaps are the usual culprits, because the amount and the fee compete for the same last fraction of the balance.</li>
+<li><strong>The token has mechanics the route didn&rsquo;t expect.</strong> Some tokens take a cut on transfer, restrict who can hold them, or pause transfers entirely. A route built for an ordinary token hits one of those rules and the transaction aborts.</li>
+<li><strong>Liquidity moved.</strong> The specific pool the route planned to use can be drained or rebalanced by a trade that lands before yours, leaving the plan unexecutable.</li>
+</ul>
+<p>All of these share the same consequence, which is the useful part: they abort. None of them is a mechanism for taking your input and keeping it. And a reverted swap is safe to attempt again, because there is no first attempt still live to collide with &mdash; unlike a transfer sitting unconfirmed, where resending is how people accidentally pay twice. That distinction, and what to do while something is still undecided, is <a class="link" href="/blog/crypto-transaction-still-pending">why a crypto transaction sits pending</a>.</p>
+
+<h2 id="s3">The one that hurts: it worked, at a worse price</h2>
+<p>Here is the case that generates most of the searches, and it is not a failure at all.</p>
+<p>You swapped, the transaction succeeded, and you received noticeably less of the output token than the quote led you to expect. Nothing is broken. The quote was a price at a moment and your slippage tolerance was the range around it you agreed to accept; the trade filled somewhere in that range, toward the bad end. The chain records a clean success. Your balance records a disappointment.</p>
+<p>This matters more than the revert case, for an uncomfortable reason: <strong>it is the only one of the three that is final.</strong> A reverted swap costs you a fee and a minute. A cross-chain route that stalls usually completes. A fill at the bottom of your tolerance is a trade you made, at a price you authorised, and there is no mechanism anywhere &mdash; in any wallet, at any support desk, on any chain &mdash; that unwinds a successful trade because you did not like the number. Finality is the property that makes settlement work, and it does not make exceptions for regret.</p>
+<p>Which means the leverage is all before you sign, and it is mostly about one habit: read the output amount on the confirmation screen, not the rate. A rate needs mental arithmetic and a slippage percentage needs more; the quantity of the token you will actually receive is the number that tells you whether the trade is the one you meant to make. If a wallet shows you a minimum received, that figure is the real commitment, because it is the worst outcome you are signing up for.</p>
+<p>Two more things worth knowing before they cost you something:</p>
+<ul>
+<li><strong>A wide tolerance on a thin market is the expensive combination.</strong> Raising slippage to make a stubborn swap go through does make it go through &mdash; by consenting to a worse price. If a swap keeps reverting, the honest reading is that the market is moving faster than the price you want, and widening the window buys execution with value.</li>
+<li><strong>Check which token you received, not just how much.</strong> Tokens with near-identical names and different contracts are a real category of confusion, and arriving in the wrong one of a pair feels identical to a shortfall. <a class="link" href="/blog/usdc-vs-usdce">USDC versus USDC.e</a> is the canonical version of that trap.</li>
+</ul>
+<p>And if the explorer says the swap succeeded but you cannot see the token at all, you have a display question rather than a trade question, which is a much better problem to have &mdash; <a class="link" href="/blog/token-not-showing-in-wallet">a token not showing in your wallet</a> covers it.</p>
+
+<h2 id="s4">When your funds really are in flight</h2>
+<p>Everything above holds because a same-chain swap is one transaction. A cross-chain swap is not, and that is the honest exception to this article&rsquo;s reassurance.</p>
+<p>Moving value between two chains means a transaction on the source chain, something observing that it settled, and a separate transaction on the destination chain. Two chains cannot share one atomic transaction &mdash; there is no single ledger to commit to. So there is a genuine interval in which your funds have left the source side and have not yet appeared on the destination side, and during that interval the all-or-nothing guarantee simply does not apply. Nothing is wrong; it is the shape of the operation.</p>
+<p>The practical consequences are worth separating from the same-chain case:</p>
+<ul>
+<li><strong>Patience is the correct first response</strong>, not retrying. The source side already happened. Sending again does not finish the first route, it starts a second one.</li>
+<li><strong>A stalled destination side is usually still progressing.</strong> Cross-chain routes are the slowest legitimate operation in crypto, and &ldquo;slower than I expected&rdquo; is overwhelmingly more common than &ldquo;broken&rdquo;.</li>
+<li><strong>Arriving with no native token is its own trap.</strong> Funds can land correctly on the destination chain and still feel stuck, because you have nothing there to pay the next fee with. How that process works, and what to check before starting one, is in <a class="link" href="/blog/cross-chain-swap-wallet">cross-chain swap wallets</a>.</li>
+</ul>
+<p>The single most useful thing you can do is know which kind of swap you are making before you sign one. Same-chain, and a failure is a non-event. Cross-chain, and a delay is normal and resending is the mistake.</p>
+<div class="note"><span class="k">Nobody can unstick a route for a fee</span>A public transaction hash attracts replies fast, and they are not from support: the &ldquo;accelerator&rdquo; that wants a payment, the &ldquo;recovery specialist&rdquo; who needs your recovery phrase, the site that asks you to connect and sign something to release the funds. All three are one scheme. No signature and no phrase can move a settled transaction, and handing either over is the actual loss.</div>
+
+<h2 id="s5">Where Swop fits</h2>
+<p>Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site. Swop routes Solana swaps through Jupiter and EVM swaps through LiFi, and Swop runs on Solana, Ethereum, Base, and Polygon. The reason that matters to this article is structural &mdash; a swap you do in place is one transaction to understand, rather than a transfer out, a trade somewhere else, and a transfer back, each with its own way to fail and its own screen to misread.</p>
+<p>On the protection that causes most reverts, the number is published rather than implied: Swop quotes Solana swaps with a 50 bps default slippage tolerance. Fifty basis points is half a percent, and it is the default the quote is built with. That is the figure a Solana quote is measured against, and the mechanism from the section above is what it drives: if the price moves past that boundary while the transaction is in flight, the trade aborts rather than fill at a worse number. Which is to say the refusal is the feature rather than the fault.</p>
+<p>On fees, two things are verified and worth stating exactly. Transactions on Swop are gas-sponsored &mdash; you don&rsquo;t need to hold SOL or ETH to transact. Swop covers the network fee: it is a cost Swop absorbs, not a charge passed through to you. What we are not going to extrapolate from that is a blanket promise that a failed swap can never cost you anything under any condition. That is a wider claim than the one we have actually checked, and the distance between the two is exactly where wallets oversell. The narrow version is the true one and it is still worth having: you should not need to go and acquire a gas token before you can trade.</p>
+<p>We are also not going to tell you what we can retrieve after the fact, because the honest answer is that the chain decides what happened and we read the same record you do. If a swap of yours failed, or filled somewhere you did not expect, the transaction hash is the whole story and <a class="link" href="https://support.swop.id">support.swop.id</a> is where to have it read. That is the official channel and it is the only one &mdash; anyone who messages you first is not us.</p>
+<p>Underneath all of it: Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them. A failed swap is a fact about a transaction, not about an account someone else controls, and your key is what lets you verify that independently of anything we say. If a transfer rather than a trade is what went wrong and it reached the wrong place, that is a different problem with different advice &mdash; <a class="link" href="/blog/sent-crypto-to-wrong-address">sent crypto to the wrong address</a>.</p>
+<p>Swop is on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>My crypto swap failed. Where did my money go?</h3>
+<p>If the swap happened on a single chain, nowhere &mdash; it is still yours, in the token you were trying to spend. A same-chain swap is one transaction containing both sides of the trade, and a chain applies a transaction completely or not at all. When it fails, the chain discards the whole thing, which means the leg that would have taken your input token is discarded along with the leg that would have delivered the output. You may have paid a network fee for the attempt on chains that charge for one. A fee is not the trade amount.</p>
+<h3>Why do crypto swaps fail?</h3>
+<p>Most often because the price moved while the transaction was in flight and the result fell outside the slippage tolerance the quote was built with, so the trade refused itself rather than fill at a worse number. The other common causes are a quote or route that expired before the transaction was included, a balance that no longer covers the input once fees are accounted for, and tokens that carry transfer restrictions or unusual mechanics the route did not anticipate. A revert from the first cause is a guardrail working, not a defect.</p>
+<h3>I got fewer tokens than the quote showed. Was that a failed swap?</h3>
+<p>No &mdash; that is a swap that succeeded. A quote is a price at a moment, and slippage tolerance is the range you agreed to accept around it before signing. Filling at the bottom of that range is a completed trade at a worse rate, not a failure, and it is the single most common reason a swap feels like it lost money when the chain records it as fine. The distinction matters because the two have opposite remedies: a reverted swap can simply be tried again, while a disappointing fill is already final.</p>
+<h3>Can a failed swap take my money?</h3>
+<p>A failed same-chain swap cannot, because there is no state in which one half of a single transaction survives and the other does not. The scenario where value is genuinely in flight is a cross-chain swap, which is not one transaction: the source side settles on one chain and a separate destination side has to settle on another, so there is a real window in which your funds have left and not yet arrived. That window is why cross-chain routes deserve more patience than same-chain ones, and why it is worth knowing which of the two you are doing before you sign.</p>
+<h3>Should I retry a failed swap?</h3>
+<p>For a reverted same-chain swap, yes &mdash; nothing happened, so there is no first attempt to collide with. Get a fresh quote rather than resubmitting the old one, since the old one is stale by definition. If it reverts repeatedly, the price is moving faster than your tolerance allows and retrying harder will not fix that. What you should not do is retry a cross-chain route whose source side has already confirmed, because that side did happen and sending again starts a second transfer rather than finishing the first.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">A swap that refuses itself is a swap protecting you.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/crypto-swap-failed').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>

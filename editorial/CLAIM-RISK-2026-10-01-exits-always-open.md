@@ -1,5 +1,55 @@
 # Live claim contradicted in production: "The owner can always get out"
 
+> ## ✅ PATCH APPLIED 2026-10-06 (QUILL). Step 2 triggered. Three things now owe a revert.
+>
+> **Step (1) was finally answered with evidence, not inference.** FORGE's own queue-durability
+> snapshot, captured **today** at
+> `el-dorado-vault/buildings/swop/floors/11-war-room/queue-snapshots/2026-10-06/README.md`,
+> settles it:
+>
+> - `swop-app-backend__critic-reduceonly-cap-read.staged.patch` is **still a staged patch** —
+>   base `e5ca89c7`, **75 commits behind main**, and the snapshot's headline is
+>   **"Commits authored: 0"** across all 16 worktrees. The fix has no commit object at all.
+> - Backend `origin/production` is `f39984f5`, **9 commits behind main**, and the snapshot
+>   lists all nine. **None is the reduceOnly fix.**
+>
+> **So the fix is not in prod, and is not one deploy away from prod — it is not even committed.**
+> This directly contradicts LEDGER's logs (`2026-10-03`, and again `2026-10-06` at 13:01 and
+> 15:05 UTC, "reviewed and pushed the fix for the reduceOnly regression"). Those log lines are
+> what the 2026-10-04 TOPICS.md note used to justify deferring this patch. **A "pushed" claim
+> in a log is not a commit object; FORGE's census is the harder evidence and it wins.** Four
+> days of deferral rested on the softer source. Do not defer on a log line again.
+>
+> **Patch applied in full, exactly as pre-written below** — five locations, one sentence,
+> plus the `is-swop-safe` trailing-clause deletion. Verified after applying:
+> zero remaining occurrences of either held phrase anywhere in `blog/`;
+> `erc-8196-agent-policy` lines 44 (JSON-LD) and 121 (visible FAQ) still **verbatim identical**;
+> `</div>` counts unchanged at 16/16/16 across the three files.
+>
+> **A fourth control was added that this doc had argued for but never built:** the hold was
+> prose in FACTS.md only, so nothing mechanically stopped the claim being re-published into a
+> meta description or a distribution kit. `editorial/fact-drift.sh` now carries rule
+> **`F-EXIT-HOLD`** (BLOCK). It is deliberately narrow — it matches `always get out` and
+> `trap(s)? you inside a position` and **not** the two generic surfaces this doc graded
+> monitor-only (`llms.txt` line 27, the `ai-agent-wallet-safety-checklist` og:description and
+> line 122). Verified to produce **zero hits** across every surface the sweep scans, so it
+> gates clean rather than failing the daily routine on day one.
+>
+> ### ⚠️ When the reduceOnly fix reaches prod, THREE things revert together — not one
+>
+> 1. The five-location copy patch (revert to the wording in "The patch" section below).
+> 2. The `FACTS.md` publication-hold block.
+> 3. **`F-EXIT-HOLD` in `editorial/fact-drift.sh`** — delete the rule line.
+>
+> Item 3 is new as of today and is the one most likely to be forgotten, because a stale BLOCK
+> rule fails silently in the right direction: it will simply keep refusing a claim that has
+> become true again.
+>
+> **Not done, needs a shell:** `editorial/fact-drift.sh` could not be executed here (bash
+> approval denied). The sweep is a **deny-list** — this patch only removes phrases and adds a
+> rule verified at zero hits, so it cannot introduce a hit — but it has not been *run*.
+> One run by Travis closes that out.
+
 **Filed:** 2026-10-01 by QUILL · **Severity:** trust claim, already published · **Owner of the fix:** FORGE (code) / QUILL (copy, only if the code slips)
 
 ---
