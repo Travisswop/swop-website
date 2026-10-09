@@ -41,7 +41,7 @@
   "mainEntity": [
     {"@type": "Question", "name": "What is ERC-8196?", "acceptedAnswer": {"@type": "Answer", "text": "ERC-8196 is a finalized Ethereum standard for AI-agent-authenticated wallets: a wallet that executes an agent's transaction only when it comes with verifiable proof that the action complies with a policy the asset owner defined. Policies cover allowed actions, contract allowlists, value caps, and time windows; actions are bound to a specific policy with EIP-712 typed signatures, and activity is written to a hash-chained audit trail."},
     {"@type": "Question", "name": "Does Swop implement ERC-8196 exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee."},
-    {"@type": "Question", "name": "Can the policy layer lock me out of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out."},
+    {"@type": "Question", "name": "Can the policy layer lock me out of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The policy layer will not stand between an owner and an exit."},
     {"@type": "Question", "name": "Does Swop's agent hold my keys?", "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them."},
     {"@type": "Question", "name": "Is the policy layer enforcing today?", "acceptedAnswer": {"@type": "Answer", "text": "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows."}
   ]
@@ -105,7 +105,7 @@
 <div class="note"><span class="k">Honest framing</span>Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee. ERC-8196 describes wallets that verify policy proofs on-chain; our enforcement point is our infrastructure, and the audit chain is what makes us accountable to it.</div>
 
 <h2 id="s4">What the policy can never do</h2>
-<p>A policy layer that can strand your funds is worse than no policy layer. So one rule sits above every policy, in every version, and cannot be configured away: risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out.</p>
+<p>A policy layer that can strand your funds is worse than no policy layer. So one rule sits above every policy, in every version, and cannot be configured away: risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The policy layer will not stand between an owner and an exit.</p>
 <p>The policy constrains what the agent may start, never what the owner may stop. If the two ever seem to conflict, the exit wins.</p>
 
 <h2 id="s5">Where it stands today</h2>
@@ -118,7 +118,7 @@
 <h3>Does Swop implement ERC-8196 exactly?</h3>
 <p>No — and we say so. Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: versioned per-vault policies, EIP-712 owner signatures to expand authority, and a per-vault hash-chained audit log, enforced at Swop's backend signing seam rather than on-chain.</p>
 <h3>Can the policy layer lock me out of my funds?</h3>
-<p>No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out.</p>
+<p>No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The policy layer will not stand between an owner and an exit.</p>
 <h3>Does Swop's agent hold my keys?</h3>
 <p>No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.</p>
 <h3>Is the policy layer enforcing today?</h3>

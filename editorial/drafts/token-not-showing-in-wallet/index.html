@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Token not showing in your wallet? Start with the chain</title>
+<meta name="description" content="A token missing from your balance list is usually a display problem, not a lost transfer. One block explorer check tells you which of the two you have.">
+<link rel="canonical" href="https://www.swopme.co/blog/token-not-showing-in-wallet">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Token not showing in your wallet? Start with the chain">
+<meta property="og:description" content="Your balance list is a display layer over the blockchain. When a token is missing from the list, the chain is still the record — and it usually still has your tokens.">
+<meta property="og:url" content="https://www.swopme.co/blog/token-not-showing-in-wallet">
+<meta property="og:image" content="https://www.swopme.co/blog/token-not-showing-in-wallet/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-05">
+<meta property="article:modified_time" content="2026-10-05">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/token-not-showing-in-wallet/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Token not showing in your wallet? Start with the chain">
+<meta name="twitter:description" content="A missing balance is usually a display problem, not a lost transfer. One explorer check tells you which one you have.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Token not showing in your wallet? Start with the chain",
+  "description": "A token missing from your balance list is usually a display problem, not a lost transfer. One block explorer check tells you which of the two you have.",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/token-not-showing-in-wallet"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why is my token not showing in my wallet?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Almost always because the wallet is not looking where the token is. The common causes are that the token arrived on a different network than the one you are viewing, that it is a different variant of the token than the one you expected, or that it is a token the app has no entry for and has not been told to display. In each of those cases the tokens are at your address and the chain can prove it. Check the receiving address on a block explorer for the network the transfer actually settled on before assuming anything is lost."}
+    },
+    {
+      "@type": "Question",
+      "name": "My wallet shows zero but a block explorer shows the tokens. What is wrong?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Nothing is wrong with your funds. That combination is the definition of a display problem: the explorer reads the chain directly, so if it shows a balance at your address, the balance exists and your key controls it. The app is either pointed at a different network, pointed at a different address or account than the one you are checking, or has no entry for that token. Your tokens are not waiting on the app to agree with the chain."}
+    },
+    {
+      "@type": "Question",
+      "name": "Do I have to add a token manually for it to show up?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Sometimes. Wallets display tokens from a curated list plus whatever they can detect automatically, and a new, small or unusual token can fall outside both. Adding it by contract address tells the app where to look. Get that contract address from the block explorer entry for the transfer that actually arrived, or from the project's own documentation — never from a direct message, a search advertisement, or a reply to a post asking for help."}
+    },
+    {
+      "@type": "Question",
+      "name": "I received a token I never bought. Should I try to swap it?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Anyone can send anything to any address, so unexpected tokens appearing in a balance list are routine and are frequently bait. The usual design is a worthless token whose name points at a website that asks you to connect a wallet and sign in order to claim or sell it, and the signature is the actual payload. An unexpected token sitting in your wallet does nothing on its own. Leave it alone."}
+    },
+    {
+      "@type": "Question",
+      "name": "If a token will not display, can I move it with a different wallet?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes, if you hold the key, because the key is what controls the tokens rather than any particular app. A self-custodial wallet whose private key you can export is not a container your assets are trapped inside — the same key opens the same address in any wallet that supports that chain. On Swop, keys are generated and held on your device and you can save your private key, which lets you open your assets in any wallet you choose."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+@media(max-width:720px){.ig svg{border-radius:12px}}
+</style>
+
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">Token not showing in your wallet? Start with the chain</h1>
+<p class="art-dek">Your balance list is a view of the blockchain, not the blockchain itself. When a token is missing from the list, the chain is still the record &mdash; and it usually still has your tokens.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 5, 2026</span><span class="sep"></span><span class="mono">Updated Oct 5, 2026</span><span class="sep"></span><span class="mono">6 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Token%20not%20showing%20in%20your%20wallet%3F%20Start%20with%20the%20chain&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftoken-not-showing-in-wallet" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Token%20not%20showing%20in%20your%20wallet%3F%20Start%20with%20the%20chain&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftoken-not-showing-in-wallet" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">The balance list is not the ledger</a>
+<a href="#s2">The five reasons a token doesn&rsquo;t appear</a>
+<a href="#s3">Tokens your wallet was never told about</a>
+<a href="#s4">When it isn&rsquo;t a display problem</a>
+<a href="#s5">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>If a token isn&rsquo;t showing in your wallet, the overwhelmingly likely explanation is that the app is looking in the wrong place &mdash; not that the tokens are gone. A wallet&rsquo;s balance list is a display built on top of the blockchain, and it can be incomplete while the chain underneath is perfectly correct. So the first move is not to contact support, reinstall the app, or re-send anything. It is to open the receiving address in a block explorer for the network the transfer actually settled on. If the explorer shows the tokens, you have a display problem and your funds are safe. If it doesn&rsquo;t, you have a transfer problem, which is a different article.</p>
+
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 232" role="img" aria-label="One check splits the problem in two: if a block explorer shows the tokens at your address it is a display problem and the funds are safe; if it does not, nothing arrived at that address and it is a transfer problem." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <rect x="6" y="14" width="300" height="204" rx="14" fill="#0a0a0c"/>
+    <text x="30" y="52" font-size="11" letter-spacing="2" fill="#5ff0ab" font-family="JetBrains Mono, monospace">START HERE</text>
+    <text x="30" y="86" font-size="19" font-weight="700" fill="#ffffff">One check first</text>
+    <text x="30" y="120" font-size="14.5" fill="rgba(255,255,255,.72)">Open the receiving</text>
+    <text x="30" y="140" font-size="14.5" fill="rgba(255,255,255,.72)">address in a block</text>
+    <text x="30" y="160" font-size="14.5" fill="rgba(255,255,255,.72)">explorer, on the chain</text>
+    <text x="30" y="180" font-size="14.5" fill="rgba(255,255,255,.72)">it settled on.</text>
+
+    <path d="M316 116 L330 116" stroke="rgba(10,10,12,.25)" stroke-width="1.5"/>
+
+    <rect x="340" y="14" width="300" height="204" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="364" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">EXPLORER SHOWS IT</text>
+    <text x="364" y="86" font-size="19" font-weight="700" fill="#0a0a0c">Display problem</text>
+    <text x="364" y="120" font-size="14.5" fill="#6b6b6b">The tokens are at your</text>
+    <text x="364" y="140" font-size="14.5" fill="#6b6b6b">address and your key</text>
+    <text x="364" y="160" font-size="14.5" fill="#6b6b6b">signs for them.</text>
+    <text x="364" y="192" font-size="13" font-weight="700" fill="#17a35c" font-family="JetBrains Mono, monospace">FIX THE VIEW</text>
+
+    <rect x="674" y="14" width="300" height="204" rx="14" fill="#eeeeea" stroke="rgba(10,10,12,.12)"/>
+    <text x="698" y="52" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">EXPLORER DOESN&rsquo;T</text>
+    <text x="698" y="86" font-size="19" font-weight="700" fill="#0a0a0c">Transfer problem</text>
+    <text x="698" y="120" font-size="14.5" fill="#6b6b6b">Nothing arrived here.</text>
+    <text x="698" y="140" font-size="14.5" fill="#6b6b6b">Find where it did go,</text>
+    <text x="698" y="160" font-size="14.5" fill="#6b6b6b">starting from the hash.</text>
+    <text x="698" y="192" font-size="13" font-weight="700" fill="#6b6b6b" font-family="JetBrains Mono, monospace">DIFFERENT PROBLEM</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">One explorer check separates a cosmetic problem from a real one. Do it before anything else.</figcaption>
+</figure>
+
+<h2 id="s1">The balance list is not the ledger</h2>
+<p>This distinction is the whole article, so it is worth being precise about. Your tokens are not stored in an app. They are entries on a blockchain that say a particular address holds a particular amount, and your private key is what authorises moving them. A wallet app reads those entries and draws you a list. The list is a convenience, and like any convenience it can be wrong, out of date, or pointed somewhere else &mdash; while the entries it is supposed to be describing sit there unchanged.</p>
+<p>That is why a block explorer is the right first stop. An explorer reads the chain directly and has no opinion about which tokens are interesting enough to show you. If you paste your address into the explorer for the correct network and the balance is there, the question is answered: the tokens exist, they are at an address your key controls, and everything that remains is about getting an app to render them. Nobody needs to recover anything.</p>
+<p>Three facts make this check actually useful, and you get all of them from the transaction itself: which chain it settled on, which address received it, and which token contract moved. If someone sent you the funds, ask them for the transaction hash &mdash; it is a single string that answers all three and costs them nothing to share.</p>
+
+<h2 id="s2">The five reasons a token doesn&rsquo;t appear</h2>
+<p>Missing-balance reports cluster into a short list. In rough order of how often they turn out to be the answer:</p>
+<ul>
+<li><strong>It arrived on a different network.</strong> You are looking at one chain and the tokens landed on another. This is the single most common cause, and it is also the most reassuring: on chains that share an address format, the same key produces the same address, so &ldquo;on the wrong chain&rdquo; still means &ldquo;at an address you own.&rdquo; The full version of this case, including when it is genuinely a problem, is in <a class="link" href="/blog/sent-crypto-to-wrong-address">sent crypto to the wrong address or wrong network</a>.</li>
+<li><strong>It is a different variant of the token you expected.</strong> You were watching for USDC and a bridged version arrived under a name you didn&rsquo;t recognise, so your eye skipped it even though the balance was on screen the whole time. Nothing went wrong here at all &mdash; see <a class="link" href="/blog/usdc-vs-usdce">USDC vs USDC.e</a>, which is the specific confusion behind a lot of these reports.</li>
+<li><strong>The app has no entry for it.</strong> Wallets draw from a curated token list plus automatic detection, and a new, thin or obscure token can miss both. The chain knows about it; the app doesn&rsquo;t yet. This is the case that needs the contract address, covered in the next section.</li>
+<li><strong>It hasn&rsquo;t confirmed yet.</strong> A transfer that has been broadcast but not settled is not a balance anywhere. On fast networks this resolves in seconds, so if minutes have passed, this is probably not your answer &mdash; the explorer will tell you either way, because a pending transaction looks different from a settled one.</li>
+<li><strong>You are looking at a different address than the one that received it.</strong> Multiple accounts in one app, a second wallet you set up and forgot, an old install. The address string in the app and the address string in the explorer either match exactly or you have found your problem. Compare the whole thing, not the first and last four characters, which is exactly the shortcut that hides this.</li>
+</ul>
+<div class="note"><span class="k">Don&rsquo;t reinstall first</span>Reinstalling an app or clearing its cache is the instinct, and it is the one step that can turn a cosmetic problem into a real one &mdash; if you can&rsquo;t get back in afterwards, you have added a recovery problem to a display problem. Confirm on the explorer that your funds are fine, and make sure you can actually restore access, before you remove anything.</div>
+
+<h2 id="s3">Tokens your wallet was never told about</h2>
+<p>When the explorer shows a balance that the app refuses to display, the app usually just needs to be told the token exists. Wallets identify tokens by contract address &mdash; the on-chain location of the token itself &mdash; and adding that address to the app makes the balance appear. The mechanics vary by wallet, but the input is always the same: the correct contract address on the correct network.</p>
+<p>Where this goes wrong is in sourcing that address, and the failure is expensive rather than inconvenient. Anyone can deploy a token called USDC. Search results, direct messages and replies to public requests for help are all routinely seeded with contract addresses for impostor tokens, and adding one shows you a balance that looks right and is worthless. Take the contract address from the explorer record of the transfer that actually arrived, or from the project&rsquo;s own site or documentation. Those two sources describe reality; a stranger&rsquo;s message describes whatever they want you to believe.</p>
+<p>The same reasoning covers tokens appearing that you never acquired. Any address can receive anything, so unsolicited tokens are normal background noise, and a share of them are deliberate bait &mdash; named to send you to a site that asks you to connect and sign in order to claim or sell them. The signature is the point of the exercise. A junk token in your list is inert as long as you leave it alone, and there is no version of this where interacting with it makes you money.</p>
+
+<h2 id="s4">When it isn&rsquo;t a display problem</h2>
+<p>If the explorer shows no balance and no incoming transfer at the address you expected, stop troubleshooting the app and work from the transaction hash instead. It will show where the funds actually settled, and that is a different situation with a different set of outcomes &mdash; sometimes recoverable, sometimes not.</p>
+<p>The other case worth naming plainly: if the explorer shows the tokens arriving and then <em>leaving</em>, in a transfer you did not make, that is not a rendering bug and no amount of adding contract addresses will help. Outgoing transfers require a signature, so the question becomes how one was produced &mdash; a key or recovery phrase that was entered somewhere it shouldn&rsquo;t have been, or a token approval granted to a contract that used it. Treat anything still held by that address as exposed, and move it to a wallet whose key has never been shared or pasted. Reviewing what any wallet of yours is approved to spend is worth doing on a calm day rather than this one, and the general version of that discipline is in our <a class="link" href="/blog/ai-agent-wallet-safety-checklist">wallet safety checklist</a>.</p>
+<p>In both of those cases, one rule from the display-problem world still applies: no one who contacts you first can help. Recovery offers that arrive after a public post are a scam essentially without exception, and the ask is always an upfront fee, a recovery phrase, or a signature.</p>
+
+<h2 id="s5">Where Swop fits</h2>
+<p>Swop runs on Solana, Ethereum, Base, and Polygon. A wallet spanning several chains is the ordinary setting for this confusion &mdash; a balance list is always a view of some subset of what you own &mdash; so the explorer habit is worth keeping regardless of which app you hold your keys in. The chain is the record; every app, ours included, is a reader of it.</p>
+<p>What matters more than the list is whether you can act when the list is wrong, and that comes down to who holds the key. Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them. Losing your phone doesn&rsquo;t mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose. That last part is the one that resolves this entire category of problem: if some app will not render a token you own, the key opens the same address somewhere else, because the tokens were never in the app to begin with.</p>
+<p>Two smaller things remove the conditions that create these moments. Transactions on Swop are gas-sponsored, so you don&rsquo;t need to hold SOL or ETH to transact &mdash; which matters here because the standard trap is finding your tokens on a chain where you have no gas to move them with. And Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site. Every transfer you don&rsquo;t make is a chance for a token to arrive somewhere you weren&rsquo;t looking, removed in advance.</p>
+<p>Swop is on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>. If a balance looks wrong and you want a second pair of eyes on the transaction, <a class="link" href="https://support.swop.id">support.swop.id</a> is the official channel &mdash; and it is the only one. Anyone who messages you first is not us.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>Why is my token not showing in my wallet?</h3>
+<p>Almost always because the wallet is not looking where the token is. The common causes are that the token arrived on a different network than the one you are viewing, that it is a different variant of the token than the one you expected, or that it is a token the app has no entry for and has not been told to display. In each of those cases the tokens are at your address and the chain can prove it. Check the receiving address on a block explorer for the network the transfer actually settled on before assuming anything is lost.</p>
+<h3>My wallet shows zero but a block explorer shows the tokens. What is wrong?</h3>
+<p>Nothing is wrong with your funds. That combination is the definition of a display problem: the explorer reads the chain directly, so if it shows a balance at your address, the balance exists and your key controls it. The app is either pointed at a different network, pointed at a different address or account than the one you are checking, or has no entry for that token. Your tokens are not waiting on the app to agree with the chain.</p>
+<h3>Do I have to add a token manually for it to show up?</h3>
+<p>Sometimes. Wallets display tokens from a curated list plus whatever they can detect automatically, and a new, small or unusual token can fall outside both. Adding it by contract address tells the app where to look. Get that contract address from the block explorer entry for the transfer that actually arrived, or from the project&rsquo;s own documentation &mdash; never from a direct message, a search advertisement, or a reply to a post asking for help.</p>
+<h3>I received a token I never bought. Should I try to swap it?</h3>
+<p>No. Anyone can send anything to any address, so unexpected tokens appearing in a balance list are routine and are frequently bait. The usual design is a worthless token whose name points at a website that asks you to connect a wallet and sign in order to claim or sell it, and the signature is the actual payload. An unexpected token sitting in your wallet does nothing on its own. Leave it alone.</p>
+<h3>If a token will not display, can I move it with a different wallet?</h3>
+<p>Yes, if you hold the key, because the key is what controls the tokens rather than any particular app. A self-custodial wallet whose private key you can export is not a container your assets are trapped inside &mdash; the same key opens the same address in any wallet that supports that chain. On Swop, keys are generated and held on your device and you can save your private key, which lets you open your assets in any wallet you choose.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">The chain is the record. Keep the key.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/token-not-showing-in-wallet').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>

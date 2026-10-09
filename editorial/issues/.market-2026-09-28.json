@@ -1,0 +1,64 @@
+{
+  "fetchedAt": "2026-09-28T17:00:38.846Z",
+  "crypto": {
+    "BTC": {
+      "price": "$83,665",
+      "raw": 83665,
+      "change": "-0.9%",
+      "rawChange": -0.8734232673299012
+    },
+    "ETH": {
+      "price": "$2,686",
+      "raw": 2685.9,
+      "change": "+0.0%",
+      "rawChange": 0.005527193557919377
+    },
+    "SOL": {
+      "price": "$119.18",
+      "raw": 119.18,
+      "change": "-2.1%",
+      "rawChange": -2.13747873495343
+    },
+    "BNB": {
+      "price": "$766.56",
+      "raw": 766.56,
+      "change": "-1.2%",
+      "rawChange": -1.1543060833246042
+    }
+  },
+  "mover": {
+    "symbol": "SOL",
+    "price": "$119.18",
+    "raw": 119.18,
+    "change": "-2.1%",
+    "rawChange": -2.13747873495343
+  },
+  "tokenOfTheDay": {
+    "symbol": "HBAR",
+    "name": "Hedera",
+    "rank": 23,
+    "price": "$0.13",
+    "change": "+37.0%",
+    "mcap": "$5.61B",
+    "vol24h": "$1.21B",
+    "volOverMcap": "0.2x"
+  },
+  "indices": {
+    "S&P 500": {
+      "close": "7,696.97",
+      "change": "-0.6%"
+    },
+    "Nasdaq": {
+      "close": "26,873.55",
+      "change": "-0.7%"
+    },
+    "Dow": {
+      "close": "51,575.28",
+      "change": "-0.5%"
+    },
+    "Russell 2K": {
+      "close": "2,822.14",
+      "change": "-0.5%"
+    }
+  }
+}

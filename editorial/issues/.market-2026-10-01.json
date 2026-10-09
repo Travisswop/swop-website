@@ -1,0 +1,64 @@
+{
+  "fetchedAt": "2026-10-01T16:24:15.621Z",
+  "crypto": {
+    "BTC": {
+      "price": "$84,304",
+      "raw": 84304,
+      "change": "-0.1%",
+      "rawChange": -0.1308717339514719
+    },
+    "ETH": {
+      "price": "$2,683",
+      "raw": 2683.09,
+      "change": "-0.3%",
+      "rawChange": -0.2883578607947422
+    },
+    "SOL": {
+      "price": "$117.35",
+      "raw": 117.35,
+      "change": "-2.0%",
+      "rawChange": -2.0316144895782795
+    },
+    "BNB": {
+      "price": "$766.43",
+      "raw": 766.43,
+      "change": "-0.4%",
+      "rawChange": -0.4334838709451886
+    }
+  },
+  "mover": {
+    "symbol": "SOL",
+    "price": "$117.35",
+    "raw": 117.35,
+    "change": "-2.0%",
+    "rawChange": -2.0316144895782795
+  },
+  "tokenOfTheDay": {
+    "symbol": "BP",
+    "name": "Backpack",
+    "rank": 137,
+    "price": "$1.40",
+    "change": "+25.6%",
+    "mcap": "$350M",
+    "vol24h": "$31M",
+    "volOverMcap": "0.1x"
+  },
+  "indices": {
+    "S&P 500": {
+      "close": "7,644.57",
+      "change": "-0.1%"
+    },
+    "Nasdaq": {
+      "close": "26,817.71",
+      "change": "-0.2%"
+    },
+    "Dow": {
+      "close": "50,840.30",
+      "change": "-0.1%"
+    },
+    "Russell 2K": {
+      "close": "2,796.06",
+      "change": "-0.0%"
+    }
+  }
+}

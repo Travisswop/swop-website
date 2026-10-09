@@ -1,0 +1,64 @@
+{
+  "fetchedAt": "2026-10-06T15:27:45.034Z",
+  "crypto": {
+    "BTC": {
+      "price": "$86,337",
+      "raw": 86337,
+      "change": "+0.9%",
+      "rawChange": 0.9305002623919244
+    },
+    "ETH": {
+      "price": "$2,716",
+      "raw": 2716.23,
+      "change": "+0.5%",
+      "rawChange": 0.46590412329873016
+    },
+    "SOL": {
+      "price": "$121.49",
+      "raw": 121.49,
+      "change": "+1.5%",
+      "rawChange": 1.50884995566821
+    },
+    "BNB": {
+      "price": "$785.66",
+      "raw": 785.66,
+      "change": "-0.4%",
+      "rawChange": -0.38785671357147355
+    }
+  },
+  "mover": {
+    "symbol": "SOL",
+    "price": "$121.49",
+    "raw": 121.49,
+    "change": "+1.5%",
+    "rawChange": 1.50884995566821
+  },
+  "tokenOfTheDay": {
+    "symbol": "NMR",
+    "name": "Numeraire",
+    "rank": 262,
+    "price": "$17.15",
+    "change": "+44.4%",
+    "mcap": "$123M",
+    "vol24h": "$149M",
+    "volOverMcap": "1.2x"
+  },
+  "indices": {
+    "S&P 500": {
+      "close": "7,843.08",
+      "change": "+0.9%"
+    },
+    "Nasdaq": {
+      "close": "27,713.13",
+      "change": "+0.9%"
+    },
+    "Dow": {
+      "close": "51,658.02",
+      "change": "+0.8%"
+    },
+    "Russell 2K": {
+      "close": "2,846.83",
+      "change": "-0.0%"
+    }
+  }
+}

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Why is my crypto transaction still pending?</title>
+<meta name="description" content="A pending transaction has been broadcast but not yet settled. Nothing has left your wallet and nothing has arrived. The transaction hash tells you which it is.">
+<link rel="canonical" href="https://www.swopme.co/blog/crypto-transaction-still-pending">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Why is my crypto transaction still pending?">
+<meta property="og:description" content="Pending means the network has your transaction and hasn&rsquo;t decided yet. It is a waiting state, not a loss &mdash; and it has exactly three possible endings.">
+<meta property="og:url" content="https://www.swopme.co/blog/crypto-transaction-still-pending">
+<meta property="og:image" content="https://www.swopme.co/blog/crypto-transaction-still-pending/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-06">
+<meta property="article:modified_time" content="2026-10-06">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/crypto-transaction-still-pending/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Why is my crypto transaction still pending?">
+<meta name="twitter:description" content="Pending is a waiting state, not a loss. Here is what the network is doing, and the one thing not to do while it does it.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Why is my crypto transaction still pending?",
+  "description": "A pending transaction has been broadcast but not yet settled. Nothing has left your wallet and nothing has arrived. The transaction hash tells you which it is.",
+  "datePublished": "2026-10-06",
+  "dateModified": "2026-10-06",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/crypto-transaction-still-pending"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What does pending mean for a crypto transaction?",
+      "acceptedAnswer": {"@type": "Answer", "text": "It means you have signed the transaction and sent it to the network, and the network has not yet written it into a block. Until that happens the transfer has not taken effect in either direction: the funds have not left the sending address and they have not arrived at the receiving one. Pending is the gap between asking and being answered, and the only thing that closes it is the network including the transaction, dropping it, or recording it as failed."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long should a crypto transaction take?",
+      "acceptedAnswer": {"@type": "Answer", "text": "On a fast network, seconds. On a congested fee-market network, a transaction that offered a low fee can wait minutes or hours, because inclusion is priced rather than queued in order of arrival. Cross-chain transfers are the slowest legitimate case, since the destination side cannot begin until the source side has settled. If something has sat for longer than that and the explorer shows no progress at all, treat it as dropped rather than slow."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can I cancel a pending crypto transaction?",
+      "acceptedAnswer": {"@type": "Answer", "text": "You cannot delete one, because it is already in the hands of the network. On fee-market chains like Ethereum you can usually replace it: a second transaction from the same account with the same sequence number and a higher fee supersedes the first, and wallets package this as speed up or cancel. On chains where transactions expire instead of waiting, there is nothing to cancel because an unincluded transaction stops being valid on its own. What you should not do is send the same payment again as a brand new transaction, which is a second payment rather than a replacement."}
+    },
+    {
+      "@type": "Question",
+      "name": "I re-sent a pending transaction. Will it go through twice?",
+      "acceptedAnswer": {"@type": "Answer", "text": "If the second attempt was a true replacement, no — only one can be included, because both claim the same sequence number. If it was a new transfer, then yes, both can settle and you have paid twice. This is the most common way a pending transaction turns into a real loss, and it is self-inflicted rather than caused by the network. Check the explorer for the receiving address before sending anything a second time."}
+    },
+    {
+      "@type": "Question",
+      "name": "My transaction says failed. Where is my money?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Where it started. A failed transaction is one the network processed and rejected, so its effects were discarded: no transfer happened and the balance it was going to move is still at the sending address. On chains that charge for the attempt you will have paid a network fee for a transfer that did not occur, which is annoying but is not the transfer amount. Failed is a much better outcome than it sounds, and it is categorically different from funds arriving somewhere you did not intend."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+@media(max-width:720px){.ig svg{border-radius:12px}}
+</style>
+
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">Why is my crypto transaction still pending?</h1>
+<p class="art-dek">Pending means the network has your transaction and hasn&rsquo;t decided yet. Nothing has left and nothing has arrived &mdash; and there are only three ways it can end.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 6, 2026</span><span class="sep"></span><span class="mono">Updated Oct 6, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Why%20is%20my%20crypto%20transaction%20still%20pending%3F&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcrypto-transaction-still-pending" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Why%20is%20my%20crypto%20transaction%20still%20pending%3F&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcrypto-transaction-still-pending" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What &ldquo;pending&rdquo; actually means</a>
+<a href="#s2">Why it sits there</a>
+<a href="#s3">The one mistake that turns waiting into losing</a>
+<a href="#s4">When pending stops being pending</a>
+<a href="#s5">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>A pending transaction is one you have signed and handed to the network, which has not yet written it into a block. That is the entire condition. It is not a transfer that half-happened, and it is not money in transit the way a bank wire is in transit: the funds have not left the sending address and they have not arrived at the receiving one. Nothing is recoverable because nothing has moved. Paste the transaction hash into a block explorer and the chain will tell you which of three states you are actually in &mdash; still waiting, settled, or rejected &mdash; and each of those has a different and specific thing to do next.</p>
+
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 232" role="img" aria-label="One transaction hash has three possible answers: still pending, meaning the network has it but has not included it and no funds have moved; confirmed, meaning it settled on the chain; or failed and dropped, meaning it did not execute and the funds are still at the sending address." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <rect x="6" y="14" width="300" height="204" rx="14" fill="#0a0a0c"/>
+    <text x="30" y="52" font-size="11" letter-spacing="2" fill="#5ff0ab" font-family="JetBrains Mono, monospace">STILL PENDING</text>
+    <text x="30" y="86" font-size="19" font-weight="700" fill="#ffffff">Not decided yet</text>
+    <text x="30" y="120" font-size="14.5" fill="rgba(255,255,255,.72)">The network has it and</text>
+    <text x="30" y="140" font-size="14.5" fill="rgba(255,255,255,.72)">hasn&rsquo;t included it. The</text>
+    <text x="30" y="160" font-size="14.5" fill="rgba(255,255,255,.72)">balance hasn&rsquo;t moved.</text>
+    <text x="30" y="192" font-size="13" font-weight="700" fill="#5ff0ab" font-family="JetBrains Mono, monospace">WAIT, DON&rsquo;T RESEND</text>
+
+    <rect x="340" y="14" width="300" height="204" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="364" y="52" font-size="11" letter-spacing="2" fill="#17a35c" font-family="JetBrains Mono, monospace">CONFIRMED</text>
+    <text x="364" y="86" font-size="19" font-weight="700" fill="#0a0a0c">It settled</text>
+    <text x="364" y="120" font-size="14.5" fill="#6b6b6b">It is on the chain. If you</text>
+    <text x="364" y="140" font-size="14.5" fill="#6b6b6b">still can&rsquo;t see it, that is</text>
+    <text x="364" y="160" font-size="14.5" fill="#6b6b6b">a display question.</text>
+    <text x="364" y="192" font-size="13" font-weight="700" fill="#17a35c" font-family="JetBrains Mono, monospace">CHECK THE ADDRESS</text>
+
+    <rect x="674" y="14" width="300" height="204" rx="14" fill="#eeeeea" stroke="rgba(10,10,12,.12)"/>
+    <text x="698" y="52" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">FAILED OR DROPPED</text>
+    <text x="698" y="86" font-size="19" font-weight="700" fill="#0a0a0c">It didn&rsquo;t execute</text>
+    <text x="698" y="120" font-size="14.5" fill="#6b6b6b">No transfer happened.</text>
+    <text x="698" y="140" font-size="14.5" fill="#6b6b6b">The amount is still at</text>
+    <text x="698" y="160" font-size="14.5" fill="#6b6b6b">the sending address.</text>
+    <text x="698" y="192" font-size="13" font-weight="700" fill="#6b6b6b" font-family="JetBrains Mono, monospace">NOTHING MOVED</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">Three endings, and two of them are fine. The hash tells you which one you have.</figcaption>
+</figure>
+
+<h2 id="s1">What &ldquo;pending&rdquo; actually means</h2>
+<p>Sending crypto is a two-step act that most interfaces collapse into one. First you sign: your private key produces a signature authorising a specific transfer, which is a local operation and commits nothing. Then the signed transaction is broadcast to the network, where it waits to be picked up by whoever is building the next block. &ldquo;Pending&rdquo; is the name for the second step being incomplete.</p>
+<p>The useful consequence is that a pending transfer is symmetrical. Because the chain has not recorded it, the sender&rsquo;s balance is unchanged and the recipient has received nothing. People reach for the language of lost packages &mdash; where is it, who has it, can it be traced &mdash; and that framing is what makes the moment feel worse than it is. There is no in-between location holding your funds. There is a request the network has not yet acted on, and an address that still holds the balance.</p>
+<p>It also means the app you are staring at is not the authority. A wallet shows you pending because that is the last thing it knows; it can be behind, and it can keep showing pending for a transaction the chain settled minutes ago. The explorer is the record. A transaction hash &mdash; the long identifier your wallet shows after you send, sometimes labelled signature or txid &mdash; is what you look it up with, and it is worth copying before closing the confirmation screen.</p>
+
+<h2 id="s2">Why it sits there</h2>
+<p>Blockchains do not promise to process your transaction immediately, and the reasons they delay are structural rather than mysterious. In rough order of how often they explain a real complaint:</p>
+<ul>
+<li><strong>The fee was below the going rate.</strong> On networks where block space is auctioned, inclusion is priced, not queued. A transaction offering less than what blocks are currently paying for simply waits, and it can wait a long time if demand stays high. Nothing is wrong with it; it has been outbid.</li>
+<li><strong>An earlier transaction from the same account is blocking it.</strong> Accounts on Ethereum-style chains number their transactions in sequence, and the network will not process number five before number four. One stuck transaction therefore freezes everything you send after it, which is why a single underpriced transfer can look like a wallet-wide outage.</li>
+<li><strong>It is a cross-chain transfer, and only half of it has happened.</strong> Moving value between chains involves a source transaction, something watching for it, and a destination transaction. The source side can be confirmed while the destination side has not started. This is the slowest legitimate form of pending, and the one most likely to resolve itself if you leave it alone. What that process is actually doing is covered in <a class="link" href="/blog/cross-chain-swap-wallet">cross-chain swap wallets</a>.</li>
+<li><strong>It expired instead of waiting.</strong> Not every chain keeps unprocessed transactions around. On some, a transaction references a recent block and stops being valid shortly after, so a transfer that was not picked up quickly is dropped rather than queued. Long-lived pending is not really a failure mode there &mdash; if minutes have passed with no confirmation, it probably never landed, and the explorer will have no record of it at all.</li>
+<li><strong>It already settled and the screen hasn&rsquo;t caught up.</strong> Common enough to check first, and free to rule out.</li>
+</ul>
+<p>Two things follow from that list. A transaction waiting on a fee can often be nudged, because it is still replaceable. A transaction that was dropped cannot be nudged, because there is nothing left to replace &mdash; it has to be made again. Telling those apart is the explorer&rsquo;s job: a pending transaction appears with no block, and a dropped one does not appear.</p>
+
+<h2 id="s3">The one mistake that turns waiting into losing</h2>
+<p>Almost every genuinely bad outcome in this situation is created after the fact, by the person waiting, and it is nearly always the same move: sending the payment again.</p>
+<p>There is an important difference between replacing a transaction and repeating one. A replacement reuses the original&rsquo;s sequence number with a higher fee, so the network can include one or the other but never both &mdash; this is what a wallet&rsquo;s &ldquo;speed up&rdquo; or &ldquo;cancel&rdquo; button does. A repeat is a brand new transfer that happens to go to the same place for the same amount, and if the first one eventually confirms, both will have happened. You will have paid twice, and the second payment is a gift to someone who did nothing wrong and has no obligation to return it.</p>
+<div class="note"><span class="k">Before you send anything twice</span>Look up the receiving address on an explorer, not your own transaction history. The receiving side is the only view that answers the question you actually care about, which is whether the money arrived &mdash; and if it did, the problem was never the transfer.</div>
+<p>The second category of self-inflicted damage is the help that arrives unbidden. Posting a stuck transaction hash publicly attracts replies within minutes, and they are not from support. The approaches are consistent: a &ldquo;transaction accelerator&rdquo; that wants a payment, a &ldquo;recovery specialist&rdquo; who needs your recovery phrase, or a site that asks you to connect your wallet and sign something to unstick the transfer. All three are the same scheme wearing different clothes. Nobody can unstick a transaction by holding your phrase, and the signature request is the attack. The reason this one works is that it arrives exactly when you are anxious and primed to accept a confident explanation.</p>
+<p>Reinstalling the app belongs here too. It does nothing to a transaction on the network, and it introduces a risk that did not exist a moment ago: needing to restore access. If you want that lever available, understand how your wallet comes back <em>before</em> you pull it &mdash; <a class="link" href="/blog/recover-wallet-without-seed-phrase">how wallet recovery works</a> is the calm-day version of that reading.</p>
+
+<h2 id="s4">When pending stops being pending</h2>
+<p>Pending always resolves, and the three endings are worth knowing in advance because two of them are good news that sounds like bad news.</p>
+<p><strong>Confirmed.</strong> The transaction is in a block and the transfer has happened. If your balance still looks wrong at this point, you have stopped having a transaction problem and started having a display problem, which is a far better problem and usually means the app is pointed at a different network, a different account, or a token it has no entry for. That is its own article: <a class="link" href="/blog/token-not-showing-in-wallet">token not showing in your wallet</a>.</p>
+<p><strong>Failed, or reverted.</strong> The network processed the transaction and rejected it, so none of its effects were applied. This is the outcome people panic hardest about and it is the one where the money most reliably stays put: the amount you were sending is still at the sending address. On chains that charge for the attempt you will have paid a network fee for a transfer that did not occur. Losing a fee is not losing a transfer. The same logic holds for a swap that reverts &mdash; an on-chain swap either completes both sides or neither, so a failed one leaves you holding what you started with rather than holding nothing.</p>
+<p><strong>Dropped.</strong> The network never included it and has forgotten it. Nothing moved, no fee was charged, and the transaction does not exist as far as the chain is concerned. The fix is to send it again, which here is correct rather than reckless, because there is no first transaction left to double up with.</p>
+<p>There is a fourth case that is not an ending at all, and it is the one worth separating out: the transaction confirmed, but it went somewhere other than where you intended. That is not a pending problem and none of the advice above applies to it &mdash; see <a class="link" href="/blog/sent-crypto-to-wrong-address">sent crypto to the wrong address or wrong network</a>.</p>
+
+<h2 id="s5">Where Swop fits</h2>
+<p>Swop runs on Solana, Ethereum, Base, and Polygon, which between them cover both of the confirmation models described above &mdash; one where unprocessed transactions wait and can be replaced, and one where they expire. That is the practical reason &ldquo;how long should this take&rdquo; has no single answer in any multi-chain wallet, ours included, and why the explorer habit is worth keeping no matter which app you hold your keys in.</p>
+<p>On fees, two things are verified and worth stating exactly. Transactions on Swop are gas-sponsored &mdash; you don&rsquo;t need to hold SOL or ETH to transact. Swop covers the network fee: it is a cost Swop absorbs, not a charge passed through to you. What that removes is a specific and common stumble, the one where a transfer cannot go out because you are holding the asset you want to send and none of the native token needed to pay for sending it. It is also the precise shape of the trap waiting on the far side of a bridge, which is why <a class="link" href="/blog/gasless-crypto-wallet">sponsored transactions</a> matter more than they sound like they should.</p>
+<p>What we are not going to tell you is that this makes a slow confirmation impossible. Whether a transaction is included, and when, is the network&rsquo;s decision rather than any wallet&rsquo;s, and an app promising otherwise is overselling. The honest claim is narrower: you should not have to go and buy a gas token before your money can move.</p>
+<p>Fewer steps also means fewer places to sit waiting. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site &mdash; and Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. A swap you do in place is one transaction to track instead of a transfer out, a trade, and a transfer back, each with its own pending state and its own chance to strand you.</p>
+<p>Underneath all of it, the thing that makes a stuck screen survivable is that the screen is not where your money lives. Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them. Losing your phone doesn&rsquo;t mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose. A pending transaction is a fact about the network, not about the app, and your key is what settles the question either way.</p>
+<p>Swop is on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a>, <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and the web at <a class="link" href="https://swopme.app">swopme.app</a>. If a transfer has been sitting longer than you think it should and you want a second pair of eyes on the hash, <a class="link" href="https://support.swop.id">support.swop.id</a> is the official channel &mdash; and it is the only one. Anyone who messages you first is not us.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>What does pending mean for a crypto transaction?</h3>
+<p>It means you have signed the transaction and sent it to the network, and the network has not yet written it into a block. Until that happens the transfer has not taken effect in either direction: the funds have not left the sending address and they have not arrived at the receiving one. Pending is the gap between asking and being answered, and the only thing that closes it is the network including the transaction, dropping it, or recording it as failed.</p>
+<h3>How long should a crypto transaction take?</h3>
+<p>On a fast network, seconds. On a congested fee-market network, a transaction that offered a low fee can wait minutes or hours, because inclusion is priced rather than queued in order of arrival. Cross-chain transfers are the slowest legitimate case, since the destination side cannot begin until the source side has settled. If something has sat for longer than that and the explorer shows no progress at all, treat it as dropped rather than slow.</p>
+<h3>Can I cancel a pending crypto transaction?</h3>
+<p>You cannot delete one, because it is already in the hands of the network. On fee-market chains like Ethereum you can usually replace it: a second transaction from the same account with the same sequence number and a higher fee supersedes the first, and wallets package this as speed up or cancel. On chains where transactions expire instead of waiting, there is nothing to cancel because an unincluded transaction stops being valid on its own. What you should not do is send the same payment again as a brand new transaction, which is a second payment rather than a replacement.</p>
+<h3>I re-sent a pending transaction. Will it go through twice?</h3>
+<p>If the second attempt was a true replacement, no &mdash; only one can be included, because both claim the same sequence number. If it was a new transfer, then yes, both can settle and you have paid twice. This is the most common way a pending transaction turns into a real loss, and it is self-inflicted rather than caused by the network. Check the explorer for the receiving address before sending anything a second time.</p>
+<h3>My transaction says failed. Where is my money?</h3>
+<p>Where it started. A failed transaction is one the network processed and rejected, so its effects were discarded: no transfer happened and the balance it was going to move is still at the sending address. On chains that charge for the attempt you will have paid a network fee for a transfer that did not occur, which is annoying but is not the transfer amount. Failed is a much better outcome than it sounds, and it is categorically different from funds arriving somewhere you did not intend.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed — see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Pending is a question. The chain answers it.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/crypto-transaction-still-pending').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
