@@ -1,0 +1,19 @@
+Tokenized real-world assets passed $32 billion this year, excluding stablecoins — roughly triple where they sat twelve months earlier.
+
+Here is the part that rarely makes the summary: if you buy the largest category of tokenized asset and then try to move it to a wallet you control, the transfer does not get flagged for review. It reverts, at the contract level, as a matter of code.
+
+Tokenized Treasury funds run an on-chain allowlist. A wallet address is added only after the holder behind it clears identity checks, sanctions screening and investor-eligibility verification. Moving the position to a new self-custody wallet requires getting that address approved first. Peer-to-peer transfer to someone not on the list is not difficult — it is impossible by construction.
+
+It is worth being fair about why. These are regulated securities offerings, and the exemptions they rely on genuinely restrict who may hold them. The allowlist is how a real legal restriction gets enforced in code rather than on paper.
+
+But notice what that means. The restriction used to live in your relationship with a broker. Tokenizing it did not remove the restriction; it compiled it into the asset.
+
+Compare tokenized gold. PAX Gold is an ordinary ERC-20 token — any Ethereum wallet can receive it, hold it and send it on, with no approval step. A person with a phone and no banking relationship at all can hold it. (Not overselling: the contract is centrally administered, with roles that can pause and freeze where law requires, and redemption runs through verified customers at minimum sizes. Permissionlessly held is not the same as unowned.)
+
+So custody is a dial, not a property of being "on-chain." Every tokenized asset answers two separate questions — can the holder be anyone, and can the issuer intervene after the fact — and the technology does not pick the answers. The issuer does.
+
+This matters more than the market-size chart, because every version of the inclusion argument depends on the first answer being "anyone." A tokenized Treasury fund with a qualified-purchaser gate has not widened access to Treasuries. It has made settlement faster for people who already hold Treasuries. That is worth doing. It is not what the inclusion argument promised.
+
+The chain is settled technology. The open question for the next decade of this market is which way issuers set the custody dial — and right now it is mostly being set in favour of the people who were never locked out in the first place.
+
+https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours

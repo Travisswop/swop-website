@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Tokenized Isn&rsquo;t the Same as Yours: Custody Is the Real Variable in RWA Tokenization</title>
+<meta name="description" content="Tokenized real-world assets passed $32 billion in 2026 — and the largest category reverts if you send it to a wallet nobody approved. Custody, not the chain, decides who gets to participate.">
+<link rel="canonical" href="https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Tokenized isn&rsquo;t the same as yours">
+<meta property="og:description" content="The biggest slice of the tokenized-asset market reverts if you move it to a wallet nobody approved. That is a design choice, not a limitation.">
+<meta property="og:url" content="https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours">
+<meta property="og:image" content="https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-09">
+<meta property="article:modified_time" content="2026-10-09">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Tokenized isn&rsquo;t the same as yours">
+<meta name="twitter:description" content="$32 billion on-chain, and most of it can&rsquo;t move to a wallet you control. Custody is the variable that matters.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Tokenized isn't the same as yours: custody is the real variable in RWA tokenization",
+  "description": "Tokenized real-world assets passed $32 billion in 2026 - and the largest category reverts if you send it to a wallet nobody approved. Custody, not the chain, decides who gets to participate.",
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "If an asset is tokenized, can I hold it in my own wallet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes, and it depends entirely on how the issuer designed the token rather than on the chain it runs on. Tokenized Treasury funds such as BlackRock's BUIDL and Ondo's OUSG operate an on-chain allowlist: the issuer or its transfer agent adds a wallet only after that holder clears identity, sanctions and investor-eligibility checks, and a transfer to an address that is not on the list fails at the contract level. Moving BUIDL to a new self-custody wallet means getting that new address approved first. Other tokens, such as Paxos's PAX Gold, can be received and transferred by any ordinary Ethereum wallet without an approval step."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How big is the tokenized real-world asset market in 2026?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roughly $32 billion of on-chain value as of the end of June 2026, excluding stablecoins, up from about $11.8 billion a year earlier, per RWA.xyz. US Treasuries are the largest single category. Commodities are a much smaller slice, and gold is the large majority of it. Be careful comparing headline figures: trackers report both the value actually distributed on-chain and the much larger value of assets merely represented there, and the two numbers are not interchangeable. Totals that include stablecoins are also not comparable."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why do tokenized Treasury funds use an allowlist at all?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because they are regulated securities offerings, and the offering exemption they rely on limits who may hold them. BUIDL is offered to qualified purchasers, a threshold that in practice means institutional-scale investors. The allowlist is how that restriction is enforced on-chain rather than on paper. It is doing a real job - the point is that the restriction travels with the token, so holding it in a wallet you control is not a setting you can change."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does self-custody make a tokenized asset risk-free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Self-custody removes the risk that an intermediary blocks or loses access to your position. It does not remove the issuer. A tokenized gold or Treasury token is a claim, and its value depends on the issuer continuing to hold the asset and continuing to honour redemption - and redemption typically runs through verified accounts and minimum sizes that a small holder may not meet. Holding the token yourself and being able to redeem it yourself are two different things."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I check before treating a tokenized asset as mine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three things. Can the token be transferred to an address the issuer has not pre-approved? Can the issuer freeze or pause balances, and under what conditions? And what does redemption actually require - a verified account, a minimum size, a particular jurisdiction? The answers are in the issuer's own documentation and in the token contract, and they vary widely between assets that are all described as tokenized."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+</style>
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Perspective</span></div>
+<h1 class="tight">Tokenized isn&rsquo;t the same as yours</h1>
+<p class="art-dek">Tokenized real-world assets passed $32 billion this year. The largest category of them reverts if you send it to a wallet nobody approved &mdash; and that is a design choice, not a technical limit. Custody is the variable that decides what tokenization is actually for.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 9, 2026</span><span class="sep"></span><span class="mono">Updated Oct 9, 2026</span><span class="sep"></span><span class="mono">9 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Tokenized%20isn%27t%20the%20same%20as%20yours.&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftokenized-isnt-the-same-as-yours" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Tokenized%20isn%27t%20the%20same%20as%20yours&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftokenized-isnt-the-same-as-yours" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">$32 billion, and most of it can&rsquo;t move</a>
+<a href="#s2">The allowlist is the product</a>
+<a href="#s3">Gold took a different road</a>
+<a href="#s4">Custody is a dial</a>
+<a href="#s5">Why the dial decides who gets in</a>
+<a href="#s6">What self-custody doesn&rsquo;t fix</a>
+<a href="#s7">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>There is a sentence that gets repeated at every tokenization conference, and it is almost right: <em>put the asset on a chain and anyone can own a piece of it.</em></p>
+<p>Almost. The chain is the easy part. What determines whether anyone can own a piece of it is a decision the issuer makes about custody &mdash; and in 2026, for the biggest slice of the market, that decision has gone the other way.</p>
+
+<h2 id="s1">$32 billion, and most of it can&rsquo;t move</h2>
+<p>The numbers are real and they are growing fast. On-chain value across tokenized real-world assets reached about <strong>$32 billion at the end of June 2026</strong>, excluding stablecoins &mdash; up from roughly $11.8 billion a year earlier, according to RWA.xyz. US Treasuries are the largest single category by a wide margin. Commodities are a much smaller slice, and gold is the large majority of that slice. Tokenized equities are small but growing quickly; tokenized real estate, despite being the example everybody reaches for, is still a rounding error.</p>
+<p>One caution about those headline figures, because they get quoted loosely: trackers publish both the value of tokens actually distributed on-chain and the much larger value of assets merely <em>represented</em> there, and the gap between those two measures is enormous. Totals that fold in stablecoins are larger again and not comparable at all. Growth this fast attracts round numbers, and the round numbers are usually measuring different things.</p>
+<p>But the size of the market is not the interesting fact. This is: <strong>if you buy the largest category of tokenized asset and then try to move it to a wallet you control, the transfer fails.</strong></p>
+
+<h2 id="s2">The allowlist is the product</h2>
+<p>Tokenized Treasury funds &mdash; BlackRock&rsquo;s BUIDL, Ondo&rsquo;s OUSG, and their peers &mdash; run an on-chain allowlist. The issuer, or its transfer agent, adds a wallet address to that list only after the holder behind it clears identity checks, sanctions screening and investor-eligibility verification. A transfer to an address that is not on the list does not get flagged for review later. It reverts at the contract level, immediately, as a matter of code.</p>
+<p>The practical consequence is worth stating plainly: move BUIDL to a new self-custody wallet and the transfer fails unless that new address has been approved first. Peer-to-peer transfer to someone who is not on the list is not difficult or discouraged. It is impossible by construction.</p>
+<p>It is important to be fair about why. These are regulated securities offerings, and the exemptions they rely on genuinely restrict who may hold them &mdash; BUIDL is offered to qualified purchasers, a bar that in practice means institutional-scale money. The allowlist is simply how that legal restriction gets enforced in code instead of in a filing cabinet. It is doing a real job, honestly.</p>
+<p>The point is not that the gate is illegitimate. The point is that <strong>the gate now travels with the asset</strong>. In the old world, the restriction lived in your relationship with a broker. Tokenizing it did not remove it; it compiled it into the thing itself.</p>
+
+<h2 id="s3">Gold took a different road</h2>
+<p>Compare Paxos&rsquo;s PAX Gold. It is an ordinary ERC-20 token: any Ethereum wallet can receive it, hold it and send it on, with no approval step and no list to be added to. A person with a phone and no banking relationship at all can hold a token backed by allocated gold.</p>
+<p>That is a meaningfully different design, and it is worth not overselling it. PAXG is <em>permissionlessly held</em>, but it is not an unowned bearer instrument. The contract is centrally administered: per Paxos&rsquo;s own documentation, there are roles that can mint and burn supply, pause transfers and freeze balances where law requires it. And redemption &mdash; the thing that makes the token worth anything &mdash; runs through Paxos&rsquo;s verified customers, with minimum sizes that put physical delivery well out of reach of a small holder.</p>
+<p>So neither of these assets is simply &ldquo;yours.&rdquo; But the difference between them is not cosmetic. In one case you cannot hold the token without permission. In the other you can hold and move it freely, and the issuer&rsquo;s controls sit at the edges &mdash; at issuance, at redemption, and at the legal exceptions. Those are different worlds for anybody who is not already inside the financial system.</p>
+
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 300" role="img" aria-label="A three-position custody dial. Position one, allowlisted security token: transfers to unapproved addresses revert, and self-custody requires issuer approval. Position two, permissionlessly held issuer token: any wallet can hold and transfer it, but the issuer can pause or freeze and controls redemption. Position three, native crypto asset: any wallet can hold and transfer it, and no issuer can intervene, with no redemption claim behind it." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <text x="8" y="24" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">WHO CAN HOLD IT</text>
+
+    <line x1="40" y1="60" x2="940" y2="60" stroke="rgba(10,10,12,.14)" stroke-width="2"/>
+    <circle cx="160" cy="60" r="7" fill="#0a0a0c"/>
+    <circle cx="490" cy="60" r="7" fill="#17a35c"/>
+    <circle cx="820" cy="60" r="7" fill="#0a0a0c"/>
+    <text x="40" y="48" font-size="11.5" fill="#6b6b6b" font-family="JetBrains Mono, monospace">PERMISSIONED</text>
+    <text x="940" y="48" font-size="11.5" fill="#6b6b6b" font-family="JetBrains Mono, monospace" text-anchor="end">UNRESTRICTED</text>
+
+    <rect x="8" y="88" width="300" height="196" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="30" y="122" font-size="17" font-weight="800" fill="#0a0a0c">Allowlisted</text>
+    <text x="30" y="144" font-size="17" font-weight="800" fill="#0a0a0c">security token</text>
+    <text x="30" y="168" font-size="12.5" fill="#6b6b6b" font-family="JetBrains Mono, monospace">BUIDL &middot; OUSG</text>
+    <text x="30" y="200" font-size="13.5" fill="#0a0a0c">Transfer to an unapproved</text>
+    <text x="30" y="219" font-size="13.5" fill="#0a0a0c">address reverts in code</text>
+    <text x="30" y="246" font-size="13.5" fill="#6b6b6b">Self-custody possible only</text>
+    <text x="30" y="265" font-size="13.5" fill="#6b6b6b">after the issuer approves</text>
+
+    <rect x="340" y="88" width="300" height="196" rx="14" fill="#ffffff" stroke="#17a35c" stroke-width="1.5"/>
+    <text x="362" y="122" font-size="17" font-weight="800" fill="#0a0a0c">Permissionlessly</text>
+    <text x="362" y="144" font-size="17" font-weight="800" fill="#0a0a0c">held issuer token</text>
+    <text x="362" y="168" font-size="12.5" fill="#17a35c" font-family="JetBrains Mono, monospace">PAXG</text>
+    <text x="362" y="200" font-size="13.5" fill="#0a0a0c">Any wallet can hold it</text>
+    <text x="362" y="219" font-size="13.5" fill="#0a0a0c">and send it on</text>
+    <text x="362" y="246" font-size="13.5" fill="#6b6b6b">Issuer can pause or freeze;</text>
+    <text x="362" y="265" font-size="13.5" fill="#6b6b6b">redemption is gated</text>
+
+    <rect x="672" y="88" width="300" height="196" rx="14" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="694" y="122" font-size="17" font-weight="800" fill="#0a0a0c">Native crypto</text>
+    <text x="694" y="144" font-size="17" font-weight="800" fill="#0a0a0c">asset</text>
+    <text x="694" y="168" font-size="12.5" fill="#6b6b6b" font-family="JetBrains Mono, monospace">BTC &middot; ETH &middot; SOL</text>
+    <text x="694" y="200" font-size="13.5" fill="#0a0a0c">Any wallet, no approval,</text>
+    <text x="694" y="219" font-size="13.5" fill="#0a0a0c">no issuer to intervene</text>
+    <text x="694" y="246" font-size="13.5" fill="#6b6b6b">And no redemption claim</text>
+    <text x="694" y="265" font-size="13.5" fill="#6b6b6b">behind it either</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">Custody is a dial, not a property of being &ldquo;on-chain.&rdquo; Every tokenized asset sits somewhere on it, by design.</figcaption>
+</figure>
+
+<h2 id="s4">Custody is a dial</h2>
+<p>This is the part that gets lost. &ldquo;On-chain&rdquo; is not one thing. Every tokenized asset makes two separate choices, and only one of them is about blockchains:</p>
+<p><strong>Can the holder be anyone?</strong> Either the token enforces a list of approved addresses, or it does not. This is a binary, it is written in the contract, and it decides whether participation requires a relationship with the issuer.</p>
+<p><strong>Can the issuer intervene after the fact?</strong> Pause, freeze, mint, burn, upgrade. Almost every asset-backed token keeps some of these powers, and for assets with a legal claim behind them, it is hard to see how it could be otherwise.</p>
+<p>A tokenized Treasury fund answers &ldquo;no&rdquo; to the first and &ldquo;yes&rdquo; to the second. It is, functionally, a faster ledger at the same custodian &mdash; which is a genuine improvement for the institutions using it, and almost no change at all for everyone else. Tokenized gold answers &ldquo;yes&rdquo; and &ldquo;yes.&rdquo; A native crypto asset answers &ldquo;yes&rdquo; and &ldquo;no,&rdquo; and pays for it by having no redemption claim at all.</p>
+<p>None of these is the right answer in the abstract. But notice that the technology does not pick. The issuer does.</p>
+
+<h2 id="s5">Why the dial decides who gets in</h2>
+<p>Here is why this matters more than the market-size chart.</p>
+<p>The standard argument for tokenization is inclusion: fractional ownership, lower minimums, global access, a market open on a Sunday. Every part of that argument depends on the first dial being set to &ldquo;anyone can hold it.&rdquo; If the token requires an approved address, then the people it reaches are the people who can already get approved &mdash; which is roughly the set of people who could already buy the asset.</p>
+<p>A tokenized Treasury fund with a qualified-purchaser gate and an institutional minimum has not widened access to Treasuries. It has made Treasury settlement faster for people who already hold Treasuries. That is worth doing. It is just not the thing the inclusion argument promised.</p>
+<p>Whereas a person with a phone, no bank account and no accredited-investor letter can hold tokenized gold today. Not because gold is special, but because somebody designed that token so the holder did not need permission. That is the whole difference.</p>
+
+<figure class="ig" aria-labelledby="ig2-cap">
+<svg viewBox="0 0 980 272" role="img" aria-label="Three questions to ask about a tokenized asset. First: can it be transferred to an address the issuer has not pre-approved. Second: can the issuer freeze or pause balances, and under what conditions. Third: what does redemption actually require in terms of account, size and jurisdiction. All three answers live in the issuer's documentation and the token contract, not in the word tokenized." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <text x="8" y="24" font-size="11" letter-spacing="2" fill="#6b6b6b" font-family="JetBrains Mono, monospace">BEFORE YOU CALL IT YOURS</text>
+
+    <rect x="8" y="44" width="964" height="66" rx="12" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="34" y="78" font-size="26" font-weight="900" fill="#17a35c" font-family="JetBrains Mono, monospace">1</text>
+    <text x="78" y="74" font-size="16.5" font-weight="700" fill="#0a0a0c">Can it move to an address the issuer never approved?</text>
+    <text x="78" y="96" font-size="13.5" fill="#6b6b6b">If no, self-custody is a permission, not a right. Check the contract, not the brochure.</text>
+
+    <rect x="8" y="122" width="964" height="66" rx="12" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="34" y="156" font-size="26" font-weight="900" fill="#17a35c" font-family="JetBrains Mono, monospace">2</text>
+    <text x="78" y="152" font-size="16.5" font-weight="700" fill="#0a0a0c">Can the issuer freeze or pause your balance?</text>
+    <text x="78" y="174" font-size="13.5" fill="#6b6b6b">Usually yes for asset-backed tokens. The question is under what conditions, and who decides.</text>
+
+    <rect x="8" y="200" width="964" height="66" rx="12" fill="#ffffff" stroke="rgba(10,10,12,.12)"/>
+    <text x="34" y="234" font-size="26" font-weight="900" fill="#17a35c" font-family="JetBrains Mono, monospace">3</text>
+    <text x="78" y="230" font-size="16.5" font-weight="700" fill="#0a0a0c">What does redemption actually require?</text>
+    <text x="78" y="252" font-size="13.5" fill="#6b6b6b">A verified account, a minimum size, a jurisdiction. Holding it and redeeming it are not the same.</text>
+  </g>
+</svg>
+<figcaption id="ig2-cap">The word &ldquo;tokenized&rdquo; answers none of these. The issuer&rsquo;s documentation and the token contract answer all three.</figcaption>
+</figure>
+
+<h2 id="s6">What self-custody doesn&rsquo;t fix</h2>
+<p>It would be easy to end here with self-custody as the answer to everything, and that would be dishonest.</p>
+<p>Self-custody removes one specific risk: that an intermediary standing between you and your position blocks it, loses it, or goes away. That is not a small risk, and the last several years have been an extended demonstration of it.</p>
+<p>What self-custody does not remove is the issuer. A tokenized gold or Treasury token is a <em>claim</em>. Its value rests on an entity continuing to hold the real asset and continuing to honour redemption. Hold the token in your own wallet and you have removed the custodian; you have not removed the counterparty. And as noted above, redemption usually runs through verified accounts and minimum sizes that a small holder will not clear &mdash; so for most people, the practical exit is selling the token to someone else, not redeeming it for the thing.</p>
+<p>Self-custody also hands you the key problem. Lose the key and there is no support line that can restore it. That trade-off is the price of the gate being gone, and anyone advocating self-custody who does not say so plainly is selling something.</p>
+
+<h2 id="s7">Where Swop fits</h2>
+<p>Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them. That is the side of the dial we build on, and it is a deliberate choice rather than a technical accident.</p>
+<p>Concretely: tokenized real-world assets that live on Swop&rsquo;s supported chains &mdash; such as PAX Gold on Ethereum &mdash; can be swapped in the Swop app through its existing routing, the same as any other token. Swop runs on Solana, Ethereum, Base and Polygon, and transactions are gas-sponsored, so holding a tokenized asset does not require first acquiring the chain&rsquo;s native token to pay a fee. Swop covers the network fee; it is a cost Swop absorbs, not a charge passed through to you.</p>
+<p>What that adds up to is narrow and worth stating precisely: for the tokenized assets that were designed to be held without permission, Swop lets you hold and move them without a custodian, an approval queue, or a gas balance. It does not get you into an allowlisted fund &mdash; nothing can, except being the kind of holder that fund was offered to. And for completeness, in the spirit of the three questions above: Swop has not commissioned a third-party security audit to date.</p>
+<p>The broader point is the one worth carrying out of this piece. The tokenization story is usually told as though the chain is the interesting part. It isn&rsquo;t. The chain is settled technology. The open question for the next decade of this market is which way issuers set the custody dial &mdash; and that question is being answered, asset by asset, right now, mostly in favour of the people who were never locked out in the first place.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>If an asset is tokenized, can I hold it in my own wallet?</h3>
+<p>Sometimes, and it depends entirely on how the issuer designed the token rather than on the chain it runs on. Tokenized Treasury funds such as BUIDL and OUSG operate an on-chain allowlist: a wallet is added only after that holder clears identity, sanctions and investor-eligibility checks, and a transfer to an address that is not on the list fails at the contract level. Moving BUIDL to a new self-custody wallet means getting that new address approved first. Other tokens, such as PAX Gold, can be received and transferred by any ordinary Ethereum wallet with no approval step.</p>
+<h3>How big is the tokenized real-world asset market in 2026?</h3>
+<p>Roughly $32 billion of on-chain value as of the end of June 2026, excluding stablecoins, up from about $11.8 billion a year earlier, per RWA.xyz. US Treasuries are the largest category; commodities are much smaller, and gold is most of that. Compare headline numbers carefully: trackers report both value actually distributed on-chain and the far larger value of assets merely represented there, and totals including stablecoins are not comparable.</p>
+<h3>Why do tokenized Treasury funds use an allowlist at all?</h3>
+<p>Because they are regulated securities offerings and the exemption they rely on limits who may hold them &mdash; BUIDL is offered to qualified purchasers, which in practice means institutional-scale investors. The allowlist enforces that restriction in code rather than on paper. It is doing a real job; the point is that the restriction now travels with the token.</p>
+<h3>Does self-custody make a tokenized asset risk-free?</h3>
+<p>No. It removes the risk that an intermediary blocks or loses your access. It does not remove the issuer. A tokenized asset is a claim, and that claim depends on the issuer holding the asset and honouring redemption &mdash; and redemption typically requires a verified account and a minimum size a small holder may not meet. Holding it yourself and being able to redeem it yourself are different things.</p>
+<h3>What should I check before treating a tokenized asset as mine?</h3>
+<p>Whether it can be transferred to an address the issuer has not pre-approved; whether the issuer can freeze or pause balances, and under what conditions; and what redemption actually requires. Those answers are in the issuer&rsquo;s documentation and the token contract, and they vary widely between assets all described as &ldquo;tokenized.&rdquo;</p>
+
+<div class="app-cta">
+<div class="app-copy">
+<span class="mono lbl">Self-custody</span>
+<h3>Hold it yourself</h3>
+<p>Swop is self-custodial, runs on Solana, Ethereum, Base and Polygon, and sponsors gas &mdash; so holding a token doesn&rsquo;t mean first buying one to pay a fee.</p>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</article>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">&copy; 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
