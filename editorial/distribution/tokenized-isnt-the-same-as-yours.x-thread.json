@@ -1,0 +1,19 @@
+{
+  "posts": [
+    "Tokenized real-world assets passed $32B this year.",
+    "Here's the part that doesn't make the headlines: if you buy the LARGEST category and try to move it to a wallet you control, the transfer fails.",
+    "Not “gets flagged for review.” Fails. Reverts at the contract level, as a matter of code.",
+    "Tokenized Treasury funds — BUIDL, OUSG and peers — run an on-chain allowlist.\n\nA wallet gets added only after the holder behind it clears identity, sanctions and investor-eligibility checks.\n\nSend to an address that isn't on the list and the contract rejects it.",
+    "Want to move BUIDL to a new self-custody wallet? That address has to be approved first.\n\nPeer-to-peer transfer to someone not on the list isn't discouraged. It's impossible by construction.",
+    "To be fair about why: these are regulated securities offerings. The exemption they use genuinely limits who may hold them. BUIDL is offered to qualified purchasers — institutional-scale money.\n\nThe allowlist enforces that in code instead of in a filing cabinet. Real job.",
+    "But notice what happened.\n\nThe restriction used to live in your relationship with a broker.\n\nTokenizing it didn't remove the restriction. It compiled it into the asset.",
+    "Compare PAX Gold. Ordinary ERC-20. Any Ethereum wallet can receive it, hold it, send it on. No list, no approval step.\n\nA person with a phone and no banking relationship can hold a token backed by allocated gold.",
+    "Not overselling it: PAXG is permissionlessly HELD, not an unowned bearer instrument.\n\nPer Paxos's own docs the contract has roles that can mint, burn, pause transfers and freeze balances where law requires. Redemption runs through verified customers with minimums.",
+    "So neither is simply “yours.” But the difference isn't cosmetic.\n\nOne you can't hold without permission.\n\nThe other you can hold and move freely, with the issuer's controls at the edges.\n\nDifferent worlds if you're not already inside the system.",
+    "Custody is a dial, not a property of being “on-chain.” Two separate questions:\n\n1. Can the holder be anyone?\n2. Can the issuer intervene after the fact?\n\nThe technology doesn't pick. The issuer does.",
+    "Why it matters more than the market-size chart:\n\nEvery version of the inclusion argument — fractional ownership, lower minimums, global access — depends on question 1 being “anyone.”",
+    "A tokenized Treasury fund with a qualified-purchaser gate hasn't widened access to Treasuries.\n\nIt's made Treasury settlement faster for people who already hold Treasuries.\n\nWorth doing. Just not what the inclusion argument promised.",
+    "And self-custody isn't a cure-all. It removes the custodian. It does not remove the issuer.\n\nA tokenized asset is a claim. Lose your key and no support line restores it.\n\nAnyone advocating self-custody who won't say that plainly is selling something.",
+    "The chain is settled technology. It's not the interesting part.\n\nThe open question is which way issuers set the custody dial — and it's mostly being set in favour of people who were never locked out.\n\nhttps://www.swopme.co/blog/tokenized-isnt-the-same-as-yours"
+  ]
+}
