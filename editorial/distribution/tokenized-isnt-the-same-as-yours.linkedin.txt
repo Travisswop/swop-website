@@ -1,0 +1,11 @@
+Tokenized real-world assets passed $32 billion this year, excluding stablecoins — roughly triple where they sat twelve months earlier. Here is the part that rarely makes the summary: if you buy the largest category of tokenized asset and then try to move it to a wallet you control, the transfer does not get flagged for review. It reverts, at the contract level, as a matter of code.
+
+Tokenized Treasury funds run an on-chain allowlist. A wallet is added only after the holder behind it clears identity, sanctions and investor-eligibility checks. To be fair about why: these are regulated securities offerings, and the exemptions they rely on genuinely restrict who may hold them. The allowlist is how a real legal restriction gets enforced in code rather than on paper. But notice what that means — the restriction used to live in your relationship with a broker. Tokenizing it did not remove it; it compiled it into the asset.
+
+Tokenized gold took the other road. PAX Gold is an ordinary ERC-20: any Ethereum wallet can receive it and send it on, with no approval step. Not overselling it — the contract is centrally administered, with roles that can pause and freeze where law requires, and redemption runs through verified customers at minimum sizes. Permissionlessly held is not the same as unowned.
+
+So custody is a dial, not a property of being "on-chain." Every version of the inclusion argument depends on one answer: can the holder be anyone? A tokenized Treasury fund with a qualified-purchaser gate has not widened access to Treasuries. It has made settlement faster for people who already hold them. Worth doing — just not what the inclusion argument promised.
+
+The chain is settled technology. The open question for the next decade is which way issuers set the custody dial, and right now it is mostly being set in favour of the people who were never locked out in the first place.
+
+https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours
