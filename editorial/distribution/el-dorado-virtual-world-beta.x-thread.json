@@ -1,0 +1,19 @@
+{
+  "posts": [
+    "El Dorado is live in beta.\n\nIt's a virtual world built on Swop — and you walk into it with a wallet you hold the keys to, not an account somebody can switch off.\n\nhttps://www.swopme.co/eldorado",
+    "You sign in with your swop.id from the Swop app. Not a new game account. Not a new password. The identity you already carry.",
+    "On a headset you don't type anything with a controller.\n\nSign in on your phone, then pair the headset — scan a code via Wallet connections in the Swop app, or enter the short code the headset shows you.",
+    "Why this is different in kind, and not just a feature list:\n\nIn mainstream games, virtual items are granted under a LIMITED LICENCE. You're not buying property. You're buying permission to use something.",
+    "Publishers reserve the right to terminate an account, usually without refund.\n\nA ban doesn't just stop you playing — it freezes the inventory attached to that game.\n\nAn inventory you can't reach has no practical value, whatever the market price says.",
+    "Most publishers also prohibit transferring items or accounts outside their own systems.\n\nSo the exit is controlled by the same party as the entrance.\n\nEVE Online's PLEX is a real exception — but it exists because a publisher chose to allow it, and could choose otherwise.",
+    "El Dorado sets that dial differently at the start.\n\nSwop is fully self-custodial: keys are generated and held on your device, and Swop never holds them.\n\nYour access doesn't depend on an account staying in good standing with one operator.",
+    "Two more things that follow:\n\nTransactions on Swop are gas-sponsored — no holding SOL or ETH before you can take a first action. Swop absorbs the network fee.\n\nAnd Swop runs on Solana, Ethereum, Base and Polygon. Not a per-game balance in one company's ledger.",
+    "Lose the phone and you don't lose the account: log in with your email on any phone and your wallet comes back. You can also export your private key and open your assets in another wallet entirely.",
+    "Now the part most launch posts skip.\n\nSelf-custody is NOT the same as legal ownership.\n\nIt changes what can be done to your ACCESS. It doesn't settle what rights you hold in a virtual good — that depends on the terms and your jurisdiction, and the law is genuinely unsettled.",
+    "Anyone telling you a wallet converts a game item into property in the legal sense is skipping a step.\n\nWe're claiming the custody half, which is real. Not the legal half, which isn't ours to assert.",
+    "Also true, and worth weighing before you put anything into a beta: Swop has not commissioned a third-party security audit to date.",
+    "And it IS a beta. Literally, not as a legal cushion.\n\nThings will change under you. Some will break. Features will move.\n\nImprovements roll out EVERY WEEK — the version you walk into Monday isn't the one there the Monday after.",
+    "Beta is a description, not a disclaimer. It doesn't move the consequences of rough edges onto the people using it. If something behaves badly, that's ours to fix.",
+    "Bring a swop.id. If you don't have one, claim it in the Swop app.\n\nhttps://www.swopme.co/eldorado"
+  ]
+}

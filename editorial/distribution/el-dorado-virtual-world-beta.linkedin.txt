@@ -1,0 +1,19 @@
+El Dorado is live in beta: a virtual world built on Swop.
+
+The part worth paying attention to isn't the world. It's how you get into it. You sign in with your swop.id from the Swop app — the identity and self-custodial wallet you already hold — rather than by creating another game account with another password. On a headset you don't type anything with a controller: you sign in on your phone, then pair the headset with a code.
+
+Here's why that's a structural difference rather than a convenience feature.
+
+For two decades, virtual economies have worked the same way. Virtual items are granted under a limited licence — you are not buying property, you are buying permission to use something, and the terms usually say so outright. Publishers reserve the right to terminate an account, typically without refund. A ban doesn't just stop you playing; it freezes the inventory attached to that game, and an inventory you can't reach has no practical value whatever the market price says. Most publishers also prohibit transferring items or accounts outside their own systems, which means the exit is controlled by the same party as the entrance. EVE Online's PLEX is a genuine exception — and it proves the rule, because it exists at a publisher's discretion.
+
+El Dorado sets that dial differently from the start. Swop is fully self-custodial: keys are generated and held on your device, and Swop never holds them. Transactions are gas-sponsored, so a new player doesn't bounce off a screen demanding they acquire a second token before taking a first action. And the wallet works across Solana, Ethereum, Base and Polygon rather than being a per-game balance inside one company's ledger.
+
+Now the part most launch posts leave out.
+
+Self-custody is not the same as legal ownership. Holding something in a wallet you control changes what can be done to your access — it can't be silently frozen, and it isn't confined to one platform's trading system. It does not settle what legal rights you hold in a virtual good; that still depends on the terms you agreed to and on your jurisdiction, and the law there is genuinely unsettled. We are claiming the custody half, which is real, and not the legal half, which isn't ours to assert. Worth adding plainly: Swop has not commissioned a third-party security audit to date.
+
+And it is a beta — meant literally, not as a legal cushion. Things will change under you, some will break, features will move. Improvements roll out every week. Beta describes the state of the software; it doesn't transfer the consequences of rough edges onto the people using it.
+
+If you want to see it: https://www.swopme.co/eldorado — bring a swop.id, or claim one in the Swop app.
+
+https://www.swopme.co/blog/el-dorado-virtual-world-beta
