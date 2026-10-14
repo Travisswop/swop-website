@@ -1,0 +1,91 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
+  @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
+  body { font-family:'Inter Tight','Inter',-apple-system,sans-serif;
+    background: radial-gradient(1200px 760px at 68% -6%, #1b2f4f 0%, #0d1526 46%, #06080d 78%);
+    color:#eef2f7; position:relative; }
+
+  /* warm horizon glow behind the city */
+  .glow { position:absolute; left:62%; bottom:118px; transform:translateX(-50%);
+    width:1180px; height:420px;
+    background: radial-gradient(60% 100% at 50% 100%, rgba(255,200,87,.52) 0%, rgba(255,160,60,.22) 34%, rgba(91,231,255,.06) 60%, transparent 78%);
+    filter:blur(6px); }
+  .stars { position:absolute; inset:0 0 44% 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,.75) 1px, transparent 1.4px);
+    background-size: 112px 74px; opacity:.2; }
+
+  /* golden skyline */
+  .city { position:absolute; left:0; right:0; bottom:112px; height:360px; z-index:2; }
+  .b { position:absolute; bottom:0; border-radius:3px 3px 0 0;
+       background:linear-gradient(180deg, #FFC857 0%, #E09B2D 42%, #7a4e12 100%);
+       box-shadow:0 0 40px rgba(255,200,87,.3); }
+  .b::after { content:''; position:absolute; inset:9px 7px auto 7px; height:66%;
+       background-image: radial-gradient(circle, rgba(10,8,4,.55) 1.5px, transparent 1.9px);
+       background-size: 14px 19px; }
+  .b.far { background:linear-gradient(180deg, #8a6a2e 0%, #4a3617 60%, #241a0b 100%);
+       box-shadow:none; opacity:.72; }
+  .b.far::after { opacity:.5; }
+
+  /* road leading in */
+  .road { position:absolute; left:64%; bottom:0; transform:translateX(-50%);
+    width:0; height:0; border-left:300px solid transparent; border-right:300px solid transparent;
+    border-bottom:120px solid rgba(255,200,87,.11); z-index:1; }
+  .dash { position:absolute; left:64%; transform:translateX(-50%); background:rgba(255,200,87,.5);
+    border-radius:2px; z-index:3; }
+
+  .scrim { position:absolute; inset:0; z-index:4;
+    background: linear-gradient(100deg, rgba(6,8,13,.94) 0%, rgba(6,8,13,.88) 34%, rgba(6,8,13,.45) 52%, transparent 66%); }
+  .wrap { position:absolute; inset:0; padding:52px 68px; z-index:5; }
+  .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:24px; letter-spacing:.45em; color:#eef2f7; }
+  .kick { display:inline-flex; align-items:center; gap:10px; background:rgba(91,231,255,.1);
+    border:1.5px solid rgba(91,231,255,.45); color:#5BE7FF; font-family:'JetBrains Mono';
+    font-size:18px; font-weight:700; letter-spacing:.11em; padding:8px 17px; border-radius:999px;
+    margin-top:18px; text-transform:uppercase; }
+  h1 { margin-top:30px; font-size:104px; line-height:.93; font-weight:900; letter-spacing:-.034em;
+       white-space:nowrap; text-shadow:0 6px 40px rgba(0,0,0,.8); }
+  h1 .hl { color:#FFC857; text-shadow:0 0 54px rgba(255,200,87,.85), 0 4px 20px rgba(0,0,0,.7); }
+  .sub { margin-top:22px; font-size:25px; font-weight:700; color:rgba(238,242,247,.9);
+         text-shadow:0 2px 16px rgba(0,0,0,.85); }
+  .sub b { color:#5BE7FF; }
+  .url { position:absolute; left:68px; bottom:30px; font-family:'JetBrains Mono';
+    font-size:21px; font-weight:700; color:#FFC857; letter-spacing:.05em; z-index:6;
+    text-shadow:0 2px 16px rgba(0,0,0,.9); }
+</style></head>
+<body>
+  <div class="stars"></div>
+  <div class="glow"></div>
+  <div class="road"></div>
+
+  <div class="city">
+    <!-- distant, low, left of frame -->
+    <div class="b far" style="left:70px;  width:58px; height:92px;"></div>
+    <div class="b far" style="left:168px; width:50px; height:116px;"></div>
+    <div class="b far" style="left:300px; width:56px; height:88px;"></div>
+    <!-- main skyline, right half -->
+    <div class="b far" style="left:556px; width:62px; height:178px;"></div>
+    <div class="b" style="left:636px;  width:84px;  height:250px;"></div>
+    <div class="b" style="left:732px;  width:104px; height:348px;"></div>
+    <div class="b" style="left:848px;  width:72px;  height:214px;"></div>
+    <div class="b" style="left:932px;  width:92px;  height:300px;"></div>
+    <div class="b" style="left:1036px; width:66px;  height:168px;"></div>
+    <div class="b far" style="left:1114px; width:58px; height:122px;"></div>
+  </div>
+
+  <div class="dash" style="bottom:14px;  width:84px; height:11px;"></div>
+  <div class="dash" style="bottom:46px;  width:52px; height:9px;  opacity:.72;"></div>
+  <div class="dash" style="bottom:74px;  width:34px; height:7px;  opacity:.5;"></div>
+  <div class="dash" style="bottom:96px;  width:22px; height:6px;  opacity:.32;"></div>
+
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="logo">SWOP</div>
+    <div class="kick">Now in beta &middot; new drops weekly</div>
+    <h1>EL DORADO<br>IS <span class="hl">OPEN.</span></h1>
+    <div class="sub">A virtual world you enter with <b>your own keys</b></div>
+  </div>
+  <div class="url">swopme.co/eldorado</div>
+</body></html>

@@ -45,6 +45,10 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | Agent credits | "Swop's AI agent runs on credits denominated in the SWOP utility token — users pay for agent actions in SWOP." | Travis, 2026-09-25 | 2026-09-25 |
 | No perps/predictions fee (negative, verified) | "Swop does not charge a fee on perpetual futures or prediction markets today." Travis has verified this negative; he notes it is under consideration, so re-check before reusing. | Travis, 2026-09-25 | 2026-09-25 |
 | Policy rollout stage | "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows." | Travis, 2026-08-28 | 2026-08-28 |
+| El Dorado | "El Dorado is a virtual world built on Swop." | Travis, 2026-10-14 (in chat) | 2026-10-14 |
+| El Dorado status | "El Dorado is in beta, and ships improvements every week." Always say beta when naming it. | Travis, 2026-10-14 (in chat) | 2026-10-14 |
+| El Dorado sign-in | "You enter El Dorado at swopme.co/eldorado by signing in with your swop.id from the Swop app. A second device such as a VR headset is paired by scanning a code via Wallet connections, or by entering a code shown on the headset." | Publicly observable on the live sign-in page at swopme.co/eldorado | 2026-10-14 |
+| El Dorado — what is NOT claimable | Everything else about El Dorado is unverified. Do NOT describe its contents, items, economy, marketplace, membership, agents, or any token without a new row from Travis. Backend route names and env keys are internal implementation detail and are never publishable. | Claude, 2026-10-14 | 2026-10-14 |
 
 ## Needs verification (do NOT cite until moved up)
 | Claim | Notes |
