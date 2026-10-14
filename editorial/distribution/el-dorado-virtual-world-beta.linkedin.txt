@@ -1,3 +1,13 @@
+Some developers spent years reverse-engineering GTA III and Vice City so the games would run properly on modern hardware. The projects shipped no game content — you had to own the original game to use them at all.
+
+In February 2021 Take-Two issued a DMCA notice and GitHub took the code down. A counter-notice got a fork restored. A lawsuit followed that September, the projects came down again in October, and the following month Take-Two shipped its own remasters of both games. The case later settled.
+
+Open the original repository today and GitHub returns HTTP 451 — Unavailable for Legal Reasons. I checked this morning. A status code invented for censorship, named after Fahrenheit 451, returned for a rebuild of a two-decade-old game you needed to own a copy of to run.
+
+You can argue about who was right there. The point is narrower and harder to dodge: owning the game was never the thing that mattered. Everyone who bought it bought a licence, and the city they walked around in existed at someone else's discretion. That is the default condition of every virtual world you have ever entered.
+
+Today we're shipping one that starts from the opposite assumption.
+
 El Dorado is live in beta: a virtual world built on Swop.
 
 The part worth paying attention to isn't the world. It's how you get into it. You sign in with your swop.id from the Swop app — the identity and self-custodial wallet you already hold — rather than by creating another game account with another password. On a headset you don't type anything with a controller: you sign in on your phone, then pair the headset with a code.

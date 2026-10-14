@@ -1,6 +1,10 @@
 {
   "posts": [
-    "El Dorado is live in beta.\n\nIt's a virtual world built on Swop — and you walk into it with a wallet you hold the keys to, not an account somebody can switch off.\n\nhttps://www.swopme.co/eldorado",
+    "Some developers spent years reverse-engineering GTA III and Vice City so the games would run properly on modern machines.\n\nThe projects shipped no game content. You had to own the original game to use them at all.",
+    "Feb 2021: Take-Two files a DMCA notice. GitHub pulls the code.\n\nA counter-notice gets a fork restored. A lawsuit follows that September. The projects come down again in October.\n\nThe next month, Take-Two ships its own remasters of both games. The case later settled.",
+    "Open the original repo today and GitHub returns:\n\nHTTP 451 — UNAVAILABLE FOR LEGAL REASONS\n\nWe checked this morning. A status code invented for censorship, named after Fahrenheit 451, for a rebuild of a 20-year-old game you had to own a copy of to run.",
+    "You can argue about who was right. That's not the point.\n\nThe point is narrower and harder to dodge: owning the game was never the thing that mattered.\n\nEveryone who bought it bought a LICENCE. The city existed at someone else's discretion.",
+    "That is the default condition of every virtual world you have ever entered.\n\nToday we're shipping one that starts from the opposite assumption.\n\nEl Dorado is live in beta — a virtual world built on Swop.\n\nhttps://www.swopme.co/eldorado",
     "You sign in with your swop.id from the Swop app. Not a new game account. Not a new password. The identity you already carry.",
     "On a headset you don't type anything with a controller.\n\nSign in on your phone, then pair the headset — scan a code via Wallet connections in the Swop app, or enter the short code the headset shows you.",
     "Why this is different in kind, and not just a feature list:\n\nIn mainstream games, virtual items are granted under a LIMITED LICENCE. You're not buying property. You're buying permission to use something.",
