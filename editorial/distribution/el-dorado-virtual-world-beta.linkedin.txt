@@ -1,29 +1,23 @@
-Some developers spent years reverse-engineering GTA III and Vice City so the games would run properly on modern hardware. The projects shipped no game content — you had to own the original game to use them at all.
+El Dorado is open.
 
-In February 2021 Take-Two issued a DMCA notice and GitHub took the code down. A counter-notice got a fork restored. A lawsuit followed that September, the projects came down again in October, and the following month Take-Two shipped its own remasters of both games. The case later settled.
+It's a virtual world built on Swop, live in beta right now at swopme.co/eldorado — and you can be inside it in about a minute. Open the page, sign in with your swop.id from the Swop app, approve it on your phone. No new account, no password to invent. If you have a headset, you sign in on your phone and enter the short code the headset shows you, so you never type a password with a controller.
 
-Open the original repository today and GitHub returns HTTP 451 — Unavailable for Legal Reasons. I checked this morning. A status code invented for censorship, named after Fahrenheit 451, returned for a rebuild of a two-decade-old game you needed to own a copy of to run.
+Here's why we built it this way.
 
-You can argue about who was right there. The point is narrower and harder to dodge: owning the game was never the thing that mattered. Everyone who bought it bought a licence, and the city they walked around in existed at someone else's discretion. That is the default condition of every virtual world you have ever entered.
+In almost every game you have ever played, you don't own your stuff. You hold a licence to use it, and the terms usually say so outright. The publisher can close your account, and your inventory goes with it — not because anyone stole it, but because it was never in your hands to begin with. It lived in their database, and your account was the key. Most publishers also forbid selling or moving items outside their own systems, so the way out is controlled by the same people who control the way in.
 
-Today we're shipping one that starts from the opposite assumption.
+The clearest example isn't an economy. It's a city.
 
-El Dorado is live in beta: a virtual world built on Swop.
+A few years ago some developers rebuilt GTA III and Vice City from the outside, reverse-engineering them so the games would run properly on modern machines. The projects shipped no game content at all — you had to own the original game for them to work. They were taken down anyway: a DMCA notice in February 2021, a counter-notice, a lawsuit that September, down again in October, and the following month the publisher released its own remasters. Later settled. Open the original repository today and you get "451 — Unavailable for Legal Reasons," an error code originally meant for censorship. We checked the morning we published.
 
-The part worth paying attention to isn't the world. It's how you get into it. You sign in with your swop.id from the Swop app — the identity and self-custodial wallet you already hold — rather than by creating another game account with another password. On a headset you don't type anything with a controller: you sign in on your phone, then pair the headset with a code.
+You can take either side of that fight. The part that matters is simpler: everyone who bought that game only ever had a licence to it, and the city they drove around in existed because someone else allowed it to. That is the normal condition of virtual worlds, and most people have never had a reason to notice.
 
-Here's why that's a structural difference rather than a convenience feature.
+In El Dorado you arrive holding your own keys. Swop is fully self-custodial — keys are generated and held on your device, and Swop never holds them. Transactions are gas-sponsored, so nobody has to go buy a token before they can do anything. The wallet works across Solana, Ethereum, Base and Polygon rather than being a balance inside one company's game. And losing your phone isn't losing anything: log in with your email on a new phone and your wallet comes back.
 
-For two decades, virtual economies have worked the same way. Virtual items are granted under a limited licence — you are not buying property, you are buying permission to use something, and the terms usually say so outright. Publishers reserve the right to terminate an account, typically without refund. A ban doesn't just stop you playing; it freezes the inventory attached to that game, and an inventory you can't reach has no practical value whatever the market price says. Most publishers also prohibit transferring items or accounts outside their own systems, which means the exit is controlled by the same party as the entrance. EVE Online's PLEX is a genuine exception — and it proves the rule, because it exists at a publisher's discretion.
+What we are not claiming: self-custody is not the same as legal ownership. It changes what can be done to your access — it can't be quietly frozen, and it isn't confined to one platform's trading system. It does not settle what legal rights you hold in a virtual item; that still depends on the terms you agreed to and your jurisdiction, and the law there is unsettled. Also worth stating plainly: Swop has not commissioned a third-party security audit to date.
 
-El Dorado sets that dial differently from the start. Swop is fully self-custodial: keys are generated and held on your device, and Swop never holds them. Transactions are gas-sponsored, so a new player doesn't bounce off a screen demanding they acquire a second token before taking a first action. And the wallet works across Solana, Ethereum, Base and Polygon rather than being a per-game balance inside one company's ledger.
+And it is a beta, meant literally rather than as a legal cushion. Things will change under you, some will break, features will move. Improvements ship every week — we would rather build it in front of you. Beta describes the state of the software; it doesn't move the consequences of rough edges onto the people using it.
 
-Now the part most launch posts leave out.
-
-Self-custody is not the same as legal ownership. Holding something in a wallet you control changes what can be done to your access — it can't be silently frozen, and it isn't confined to one platform's trading system. It does not settle what legal rights you hold in a virtual good; that still depends on the terms you agreed to and on your jurisdiction, and the law there is genuinely unsettled. We are claiming the custody half, which is real, and not the legal half, which isn't ours to assert. Worth adding plainly: Swop has not commissioned a third-party security audit to date.
-
-And it is a beta — meant literally, not as a legal cushion. Things will change under you, some will break, features will move. Improvements roll out every week. Beta describes the state of the software; it doesn't transfer the consequences of rough edges onto the people using it.
-
-If you want to see it: https://www.swopme.co/eldorado — bring a swop.id, or claim one in the Swop app.
+Come in: https://www.swopme.co/eldorado
 
 https://www.swopme.co/blog/el-dorado-virtual-world-beta

@@ -106,9 +106,9 @@
 <div class="wrap">
 <div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Product</span></div>
 <h1 class="tight">El Dorado is live in beta</h1>
-<p class="art-dek">A virtual world built on Swop. You enter it with your swop.id &mdash; the same self-custodial wallet you already hold &mdash; and you can put on a headset to walk around in it. It is a beta, it has rough edges, and it ships improvements every week.</p>
+<p class="art-dek">A virtual world built on Swop, open now in beta. Sign in with your swop.id, put on a headset if you have one, and walk around a world you entered with keys you actually hold. New improvements every week.</p>
 <div class="art-meta">
-<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 14, 2026</span><span class="sep"></span><span class="mono">Updated Oct 14, 2026</span><span class="sep"></span><span class="mono">9 min read</span></span>
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 14, 2026</span><span class="sep"></span><span class="mono">Updated Oct 14, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
 <span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=El%20Dorado%20is%20live%20in%20beta%20%E2%80%94%20a%20virtual%20world%20you%20enter%20with%20a%20wallet%20you%20hold%20the%20keys%20to.&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fel-dorado-virtual-world-beta" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=El%20Dorado%20is%20live%20in%20beta&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fel-dorado-virtual-world-beta" target="_blank" rel="noopener">Farcaster</a></span>
 </div>
 </div>
@@ -118,36 +118,29 @@
 <div class="wrap art-grid">
 <aside class="toc">
 <span class="lbl">Contents</span>
-<a href="#s1">What El Dorado is</a>
-<a href="#s2">You sign in with something you already hold</a>
-<a href="#s3">Every virtual economy has the same problem</a>
-<a href="#s4">What a self-custodial wallet changes</a>
-<a href="#s5">What it doesn&rsquo;t change</a>
-<a href="#s6">It&rsquo;s a beta, and it moves weekly</a>
+<a href="#s1">Getting in</a>
+<a href="#s2">Why we built it this way</a>
+<a href="#s3">The clearest example is a city</a>
+<a href="#s4">What changes in El Dorado</a>
+<a href="#s5">What we're not claiming</a>
+<a href="#s6">It's a beta, and it moves weekly</a>
+<a href="#s7">Come in</a>
 <a href="#faq">FAQ</a>
 </aside>
 <article class="prose">
-<p><strong>El Dorado is live in beta at <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a>.</strong> It is a virtual world built on Swop.</p>
-<p>We shipped it rather than announced it, so the honest version of this post is short on promises and clear about what exists today. Here is what it is, what makes it structurally different from the virtual worlds you have used before, and what it is not yet.</p>
+<p><strong>El Dorado is open.</strong> It is a virtual world built on Swop, it is live in beta right now at <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a>, and you can be inside it in about a minute.</p>
+<p>You can walk in on your laptop, or put on a headset and walk in properly. What you need is a swop.id &mdash; the identity you already have if you use the Swop app. There is no new account to make and no password to invent.</p>
 
-<h2 id="s1">What El Dorado is</h2>
-<p>A virtual world that runs on Swop&rsquo;s rails. That second half is the part worth paying attention to, and it is the reason this post exists on a blog that mostly argues about settlement and custody rather than about games.</p>
-<p>The <a href="/blog/tokenized-isnt-the-same-as-yours">piece we published yesterday</a> made the case that &ldquo;tokenized&rdquo; tells you almost nothing on its own &mdash; that the interesting variable is custody, and that it is set by whoever designs the thing, not by the chain underneath. El Dorado is what it looks like when you set that dial deliberately at the start, in a category where it has almost never been set that way at all.</p>
+<h2 id="s1">Getting in</h2>
+<p>Three steps, and the third one is optional.</p>
+<p><strong>1. Open <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a>.</strong> It asks you to sign in with your swop.id from the Swop app. If you don&rsquo;t have one yet, claim it in the app first &mdash; it takes a moment and it is the same id you use everywhere else in Swop.</p>
+<p><strong>2. Approve it on your phone.</strong> Open the Swop app, go to Wallet settings &rarr; Wallet connections, scan the code on screen, approve. You&rsquo;re in.</p>
+<p><strong>3. If you have a headset, pair it.</strong> You never type a password with a controller. Sign in on your phone, then enter the short code the headset shows you &mdash; or scan from the headset directly. Then you are standing in it rather than looking at it.</p>
 
-<h2 id="s2">You sign in with something you already hold</h2>
-<p>Open <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a> and you are asked to sign in with your <strong>swop.id</strong> from the Swop app. Not a new game account. Not a new password. The identity you already carry.</p>
-<p>If you are going in on a headset, you do not type anything with a controller. Sign in on your phone first, then pair the headset &mdash; either by scanning a code using Wallet connections in the Swop app, or by opening the pairing page on your phone and entering the short code the headset displays. If you do not have a swop.id yet, you claim one in the Swop app and come back.</p>
-<p>That flow is mundane to describe and it is the whole architectural point. The thing you authenticate with is a wallet whose keys live on your device. Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them.</p>
-
-<h2 id="s3">Every virtual economy has the same problem</h2>
-<p>Here is the pattern that has held across two decades of virtual worlds, and it has nothing to do with whether a given game is good.</p>
-<p>In mainstream games, virtual items are granted under a <em>limited licence</em>. You are not buying property; you are buying permission to use something, and the terms usually say so explicitly. Publishers reserve the right to terminate an account, typically without refund. A ban does not just stop you playing &mdash; it freezes the inventory attached to that game, and an inventory you cannot reach has no practical value no matter what the market price says. Most publishers also prohibit transferring items or accounts outside their own systems, which means the exit is controlled by the same party as the entrance.</p>
-<p>The sharpest illustration of this is not a story about an economy at all. It is a story about a city.</p>
-<p>A group of developers spent years reverse-engineering <em>Grand Theft Auto III</em> and <em>Vice City</em> &mdash; rebuilding the games from the outside so they would run properly on modern machines. The projects, re3 and reVC, shipped no game content. <strong>You had to own the original game to use them at all.</strong> They were, in the most literal sense, a tool for people who had already paid.</p>
-<p>In February 2021 Take-Two issued a DMCA notice and GitHub took the code down. A developer filed a counter-notice and a fork came back. A lawsuit followed that September, the projects came down again in October, and the following month Take-Two shipped its own remastered versions of both games. The case was later settled.</p>
-<p>Today, if you open the original repository, GitHub returns <strong>HTTP 451 &mdash; Unavailable for Legal Reasons</strong>. We checked on the morning this post went up. A status code invented for censorship, named after <em>Fahrenheit 451</em>, returned for a rebuild of a two-decade-old game that you needed to own a copy of to run.</p>
-<p>Reasonable people disagree about who was right there, and we are not relitigating it. The point is narrower and harder to argue with: <strong>owning the game was never the thing that mattered.</strong> Every player who bought it still bought a licence, and the city they could walk around in existed at the discretion of someone else. That is the default condition of every virtual world you have ever entered.</p>
-<p>There are exceptions. EVE Online&rsquo;s PLEX is a long-running sanctioned bridge between in-game currency and real money. But the exceptions prove the rule: they exist because a publisher chose to allow them, and could choose otherwise.</p>
+<h2 id="s2">Why we built it this way</h2>
+<p>Here is the part that makes El Dorado different from every virtual world you have been in before, and it is worth two minutes.</p>
+<p>In almost every game you have played, <strong>you do not own your stuff.</strong> You hold a licence to use it. The terms usually say so in plain words. The publisher can close your account, and when that happens your inventory goes with it &mdash; not because anyone stole it, but because it was never in your hands to begin with. It lived in their database, and your account was the key to it.</p>
+<p>Most publishers also forbid selling or moving items outside their own systems. So the way out is controlled by the same people who control the way in.</p>
 
 <figure class="ig" aria-labelledby="ig1-cap">
 <svg viewBox="0 0 980 300" role="img" aria-label="Two models of holding a virtual item. The licence model: the item sits in the publisher's database, the account is the key, a ban freezes the inventory, and transfers outside the platform are prohibited. The self-custody model: the item sits in a wallet whose keys are on the player's device, the player holds the key, access cannot be silently frozen, and it is not confined to one platform's trading system." xmlns="http://www.w3.org/2000/svg">
@@ -178,22 +171,29 @@
 <figcaption id="ig1-cap">The difference is custody, not graphics. Note the last line on the right &mdash; it is the honest limit of the claim.</figcaption>
 </figure>
 
-<h2 id="s4">What a self-custodial wallet changes</h2>
-<p>Three things, concretely, and they follow from Swop&rsquo;s existing properties rather than from anything novel we are asking you to take on faith.</p>
-<p><strong>Your key is yours.</strong> Keys are generated and held on your device; Swop never holds them. The practical consequence is that your access to what you hold does not depend on an account remaining in good standing with a single operator.</p>
-<p><strong>You do not need to pre-buy gas to do anything.</strong> Transactions on Swop are gas-sponsored &mdash; you do not need to hold SOL or ETH to transact, and Swop covers the network fee as a cost it absorbs rather than a charge passed through to you. For a virtual world this matters more than it sounds: the usual on-boarding failure is a new player bouncing off a screen demanding they acquire a second token before they can take a first action.</p>
-<p><strong>It is not confined to one world.</strong> Swop runs on Solana, Ethereum, Base and Polygon, and the wallet you sign in with is the same one you use everywhere else in Swop &mdash; not a per-game balance that only exists inside one company&rsquo;s ledger.</p>
-<p>And losing the phone is not losing the account: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in another wallet entirely.</p>
+<h2 id="s3">The clearest example is a city</h2>
+<p>A few years ago, some developers rebuilt <em>Grand Theft Auto III</em> and <em>Vice City</em> from the outside &mdash; reverse-engineering them so the games would run properly on modern machines. The projects shipped no game content at all. <strong>You had to own the original game for them to work.</strong></p>
+<p>They were taken down anyway. Take-Two filed a DMCA notice in February 2021 and GitHub pulled the code. A counter-notice brought a fork back. A lawsuit followed that September, the projects came down again in October, and the month after that Take-Two released its own remasters of both games. It was later settled.</p>
+<p>Open the original repository today and you get <strong>&ldquo;451 &mdash; Unavailable for Legal Reasons&rdquo;</strong>, an error code originally meant for censorship. We checked the morning this went up.</p>
+<p>You can take either side of that fight. The bit that matters here is simpler: <strong>every person who bought that game still only had a licence to it.</strong> The city they drove around in existed because someone else allowed it to. That is the normal condition of virtual worlds, and most people have never had a reason to notice.</p>
 
-<h2 id="s5">What it doesn&rsquo;t change</h2>
-<p>This is the section most product launch posts leave out, so we will be direct.</p>
-<p><strong>Self-custody is not the same as legal ownership.</strong> Holding an asset in a wallet you control changes what can be done to your <em>access</em>. It does not by itself settle what rights you have in a virtual good &mdash; that still depends on the terms you agreed to and on your jurisdiction, and the law here is genuinely unsettled and varies by country. Anyone telling you that a wallet converts a game item into property in the legal sense is skipping a step. We are claiming the custody half, which is real, and not the legal half, which is not ours to assert.</p>
-<p><strong>Self-custody also hands you the key problem.</strong> That is the trade. Email recovery and key export exist precisely because the honest version of &ldquo;nobody can take it from you&rdquo; is &ldquo;nobody can get it back for you either.&rdquo;</p>
-<p><strong>And Swop has not commissioned a third-party security audit to date.</strong> That is true of the platform El Dorado is built on, it is relevant to anyone deciding how much to put into a beta, and you should weigh it.</p>
+<h2 id="s4">What changes in El Dorado</h2>
+<p>You arrive holding your own keys.</p>
+<p>Swop is fully self-custodial &mdash; keys are generated and held on your device, and Swop never holds them. Your way in is something you control, not an account someone else can switch off.</p>
+<p>A few practical consequences:</p>
+<p><strong>No buying a token before you can do anything.</strong> Transactions on Swop are gas-sponsored. You don&rsquo;t need to hold SOL or ETH to transact &mdash; Swop covers the network fee and absorbs it rather than passing it on.</p>
+<p><strong>It isn&rsquo;t trapped in one world.</strong> The wallet you walk in with is the same one you use across Swop, which runs on Solana, Ethereum, Base and Polygon &mdash; not a balance that only means something inside one company&rsquo;s game.</p>
+<p><strong>Losing your phone isn&rsquo;t losing anything.</strong> Log in with your email on a new phone and your wallet comes back. You can also export your private key and open your assets in a completely different wallet.</p>
 
-<h2 id="s6">It&rsquo;s a beta, and it moves weekly</h2>
-<p>El Dorado is in beta. We mean that literally rather than as a legal cushion: things will change under you, some of them will break, and features will move. <strong>Improvements roll out every week</strong>, so the version you walk into on a Monday is not the version that will be there the Monday after.</p>
-<p>Beta is a description, not a disclaimer. Calling something a beta does not transfer the consequences of its rough edges onto the people using it. If something in El Dorado behaves badly, that is ours to fix, and the weekly cadence is how we intend to fix it in public rather than quietly.</p>
+<h2 id="s5">What we&rsquo;re not claiming</h2>
+<p>Two honest limits, because the overclaim here is easy and we&rsquo;d rather you hear it from us.</p>
+<p><strong>Self-custody isn&rsquo;t the same as legal ownership.</strong> Holding something in a wallet you control changes what can be done to your <em>access</em> &mdash; it can&rsquo;t be quietly frozen, and it isn&rsquo;t stuck inside one platform&rsquo;s trading system. It does not settle what legal rights you have in a virtual item. That still depends on the terms you agreed to and the country you&rsquo;re in, and the law there is genuinely unsettled. Anyone telling you a wallet turns a game item into property in the legal sense is skipping a step.</p>
+<p><strong>And holding your own keys means holding your own keys.</strong> Email recovery and key export exist for a reason, but the honest version of &ldquo;nobody can take this from you&rdquo; is &ldquo;nobody can get it back for you either.&rdquo;</p>
+<p>One more, while we&rsquo;re here: Swop has not commissioned a third-party security audit to date. That is true of the platform El Dorado runs on, and you should weigh it when deciding how much to bring into a beta.</p>
+
+<h2 id="s6">It&rsquo;s a beta, and it moves every week</h2>
+<p>We mean beta literally, not as a legal cushion. Things will change under you. Some things will break. Features will move or disappear.</p>
+<p><strong>Improvements ship every week</strong>, so the El Dorado you walk into this Monday is not the one that will be there next Monday. That is the point of opening it now rather than later &mdash; we would rather build it in front of you.</p>
 
 <figure class="ig" aria-labelledby="ig2-cap">
 <svg viewBox="0 0 980 212" role="img" aria-label="What beta means here. Expect things to change weekly, expect rough edges and some breakage, and expect features to move. What it does not mean: that rough edges are the user's problem, that the custody guarantees are provisional, or that feedback goes unread." xmlns="http://www.w3.org/2000/svg">
@@ -215,19 +215,22 @@
 <figcaption id="ig2-cap">A beta label describes the state of the software. It does not move the consequences onto the person using it.</figcaption>
 </figure>
 
-<p>If you want to see it, it is at <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a>. Bring a swop.id. If you do not have one, claim it in the Swop app first &mdash; and if you want the longer argument for why entering a virtual world with a wallet you control is different in kind from entering one with an account, <a href="/blog/tokenized-isnt-the-same-as-yours">yesterday&rsquo;s post</a> is the place to start.</p>
+<p>Beta describes the state of the software. It doesn&rsquo;t move the consequences of rough edges onto you. If something behaves badly in there, that&rsquo;s ours to fix.</p>
+
+<h2 id="s7">Come in</h2>
+<p><a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a>. Bring a swop.id, or claim one in the Swop app on the way. If you want the longer argument for why entering a world with keys you hold is different in kind from entering one with an account, <a href="/blog/tokenized-isnt-the-same-as-yours">we wrote that up here</a>.</p>
 
 <h2 id="faq">FAQ</h2>
 <h3>What is El Dorado?</h3>
-<p>A virtual world built on Swop. You enter it at <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a> by signing in with your swop.id &mdash; the same identity and self-custodial wallet you already use in the Swop app &mdash; rather than by creating a new game account. It is currently in beta.</p>
-<h3>How do I get in on a VR headset?</h3>
-<p>Sign in on your phone first, then pair the headset: either scan a code using Wallet connections in the Swop app, or open the pairing page on your phone and enter the code the headset shows. No password typing with a controller.</p>
-<h3>Do I need a seed phrase or crypto experience?</h3>
-<p>No. You need a swop.id, claimed in the Swop app. Swop is self-custodial &mdash; keys are generated and held on your device &mdash; but you sign in with your identity rather than by managing a seed phrase, and transactions are gas-sponsored, so you don&rsquo;t need to hold SOL or ETH to transact.</p>
-<h3>Does a self-custodial wallet mean I legally own my virtual items?</h3>
-<p>Not automatically. In mainstream games virtual items are granted under a limited licence rather than sold as property, and publishers reserve the right to terminate accounts. Holding something in a wallet you control changes what can be done to your access &mdash; it can&rsquo;t be silently frozen, and it isn&rsquo;t confined to one platform&rsquo;s trading system &mdash; but legal rights in virtual goods still depend on the terms you agreed to and your jurisdiction. Those are two different questions and we&rsquo;re only claiming the first.</p>
+<p>A virtual world built on Swop, live in beta at <a href="https://www.swopme.co/eldorado">swopme.co/eldorado</a>. You enter it by signing in with your swop.id from the Swop app rather than by making a new game account.</p>
+<h3>How do I get in?</h3>
+<p>Open swopme.co/eldorado, sign in with your swop.id, and approve it in the Swop app (Wallet settings &rarr; Wallet connections &rarr; scan the code). On a headset, sign in on your phone and enter the code the headset shows you &mdash; no typing with a controller.</p>
+<h3>Do I need crypto experience or a seed phrase?</h3>
+<p>No. You need a swop.id, claimed in the Swop app. Swop is self-custodial, so keys are generated and held on your device, but you sign in with your identity rather than by managing a seed phrase. Transactions are gas-sponsored too, so you don&rsquo;t need to hold SOL or ETH to transact.</p>
+<h3>Does this mean I legally own my virtual items?</h3>
+<p>Not automatically. In most games virtual items are granted under a limited licence rather than sold as property, and publishers can close accounts. Holding something in a wallet you control changes what can be done to your access &mdash; it can&rsquo;t be quietly frozen and isn&rsquo;t confined to one platform&rsquo;s trading system &mdash; but legal rights in virtual goods still depend on the terms and your jurisdiction. Those are two different questions, and we&rsquo;re only claiming the first.</p>
 <h3>What does &ldquo;beta&rdquo; mean here?</h3>
-<p>That things will change under you. Improvements ship every week, so expect rough edges and expect features to move. Beta describes the state of the product; it isn&rsquo;t a disclaimer that makes the rough edges yours.</p>
+<p>That it changes under you. Improvements ship every week, so expect rough edges and expect things to move. Beta describes the state of the software; it doesn&rsquo;t make the rough edges your problem.</p>
 
 <div class="app-cta">
 <div class="app-copy">
