@@ -1,0 +1,25 @@
+Starbucks is a bank that sells coffee.
+
+As of 28 June 2026 it reported roughly $1.74 billion in stored value card and loyalty deferred revenue — customers' money, handed over before any coffee was. In that quarter alone, about $3.67 billion was loaded onto cards and Stars.
+
+That's a gift card programme, and it is the most underrated product in retail.
+
+Consider what it does for the issuer. It is paid for before anything is delivered — a normal sale converts inventory into cash at the moment of the transaction, while a prepaid balance collects the cash first and delivers later, sometimes in a different quarter. It is spent where it was issued, so a customer holding $25 of credit at your counter is not comparing you with the shop across the street. And it creates a reason to return, which is the part that matters most and gets discussed least.
+
+Now the correction, because the popular version of this story is wrong in a way that matters.
+
+The money is a liability, not profit. It sits on the balance sheet as deferred revenue because it is customer money owed in product. Starbucks has not earned $1.7 billion; it owes $1.7 billion in coffee. What a large, steady balance does give you is working capital that costs nothing to borrow — money received months before the product is handed over, carrying no interest and no covenant.
+
+The other half of the folklore is breakage, the balances nobody redeems. Starbucks recognised $212.7 million of it in fiscal 2022, against card loads in the billions. Real, but a rounding error next to redeemed volume — and a credit programme designed around money people forget is both bad business and bad faith. The durable value is the visits.
+
+So why doesn't the bakery on your street run one? Because the machinery has always been out of reach: a ledger of balances, issuance, acceptance at the till, somewhere for the liability to live, settlement between locations. For a chain that is a project. For a single counter it was never worth it.
+
+Three pieces on Swop change that. Launchpad is where you launch the token — the instrument credit is denominated in. Geo Bucks are the store credit itself: one Buck is a dollar of credit at your own counter, redeemable only at stores you register, landing in the recipient's Swop wallet. And Drops place that credit at a location — you create one for your counter, people nearby see it on the map, and they claim it in person by scanning the counter code.
+
+That last mechanic has no high-street equivalent. A coupon is something a customer carries to you, and mostly never does. A Drop exists at a place and has to be collected there, so the redemption and the visit are the same event. You are not buying awareness and hoping it converts into footfall — the footfall is the conversion.
+
+Three honest limits. Prepaid credit is a liability and it is regulated: expiry limits, disclosure and unclaimed-property rules differ by country and by state, and this is a description of a mechanic rather than legal advice. Your float is only as useful as your inventory — credit at a counter nobody visits twice is just a slower refund. And Swop has not commissioned a third-party security audit to date.
+
+What's left is still the interesting part: the prepaid balance is one of the few mechanics in retail that improves working capital and footfall at the same time, and it used to be reserved for companies that could afford to build it.
+
+https://www.swopme.co/blog/geo-bucks-drops-store-credit
