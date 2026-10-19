@@ -1,0 +1,24 @@
+{
+  "posts": [
+    "Starbucks is a bank that sells coffee.\n\nAs of June 28 2026 it reported about $1.74 BILLION in stored value card and loyalty deferred revenue — customers' money, handed over before any coffee was.",
+    "In that one quarter, roughly $3.67bn was loaded onto cards and Stars.\n\nPeople pay first. They get the product later. Sometimes much later. Sometimes in a different quarter.",
+    "That's a gift card programme. It's the most underrated product in retail, and for twenty years it's been basically unavailable to anyone who isn't a chain.",
+    "What it actually does for the issuer:\n\n— It's paid for before anything is delivered\n— It's spent where it was issued (no price comparison; the decision is already made)\n— It creates a reason to come back\n\nThat last one matters most and gets discussed least.",
+    "Now the correction, because the popular version of this story is wrong.\n\nThe money is a LIABILITY, not profit. It sits as deferred revenue because it's customer money owed in product.\n\nStarbucks hasn't earned $1.7bn. It owes $1.7bn in coffee.",
+    "What a large steady balance does give you is working capital that costs nothing to borrow. Money received months before the product is handed over funds the business in the interval — no interest, no covenant.",
+    "And the breakage folklore — “the real money is cards nobody redeems”?\n\nStarbucks recognised $212.7M of breakage in FY2022, against card loads in the billions.\n\nReal. Small. And the wrong thing to design for.",
+    "Say that plainly, because it changes what you'd build:\n\nA credit programme designed around money people forget is bad business AND bad faith.\n\nThe durable value is the visits. Someone with a balance at your counter comes back to your counter.",
+    "So why doesn't the bakery on your street run one?\n\nThe machinery was out of reach. A balance ledger, issuance, acceptance at the till, somewhere for the liability to sit, settlement between sites.\n\nFor a chain that's a project. For one counter it was never worth it.",
+    "Three pieces on Swop change that.\n\nLAUNCHPAD — launch the token. That's the instrument credit is denominated in.",
+    "GEO BUCKS — the store credit itself. One Buck is a dollar of credit at your own counter.\n\nRedeemable only at stores you register, so it can't be spent against anyone else's till. Receive some and it lands in your Swop wallet.\n\nThat's the gift card, rebuilt.",
+    "DROPS — the part with no high-street equivalent.\n\nA Drop is credit placed AT A LOCATION. You create one for your counter. People nearby see it on the map. They claim it in person by scanning the counter code.",
+    "Sit with that mechanic for a second.\n\nA coupon is something a customer carries to you — and mostly never does.\n\nA Drop exists at a place and has to be collected there. The redemption and the visit are the same event.",
+    "You're not buying awareness and hoping it converts into footfall.\n\nThe footfall IS the conversion.\n\nAnd unlike a discount, it doesn't train people to wait for a sale — it puts credit in their wallet that's only worth anything at your door.",
+    "Setting it up, in the order the dashboard expects:\n\n1. Launch a token from Launchpad\n2. Register your stores\n3. Fund a Geo Bucks budget — that number is your exposure\n4. Create a Drop against it, pointed at your counter",
+    "No terminal. No integration. No separate gift card vendor. Customer side needs nothing but the Swop app.",
+    "Three honest limits, the kind a vendor usually leaves out:\n\nPrepaid credit is a liability and it's REGULATED — expiry limits, disclosure, unclaimed-property rules, and they differ by country and state. This is a mechanic, not legal advice. Check what applies where you trade.",
+    "Second: your float is only as useful as your inventory. The Starbucks version works because people want coffee repeatedly and predictably. Credit at a counter nobody visits twice is just a slower refund.",
+    "Third: Swop has not commissioned a third-party security audit to date. That's true of the platform underneath all of this and it belongs in the decision.",
+    "What's left after those caveats is still the interesting bit.\n\nThe prepaid balance improves working capital and footfall at once — and until now it was reserved for companies that could afford to build it.\n\nhttps://www.swopme.co/blog/geo-bucks-drops-store-credit"
+  ]
+}
