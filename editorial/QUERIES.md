@@ -50,6 +50,12 @@ fact-gathering from Travis.
   0.5% SwopPay fee, gas sponsorship. Commercial intent.
 - best Solana wallet for beginners  [cb209 · Mon 9/28] — broad head term; complements
   "best self-custody wallet for Solana" (which is the considered-buyer version).
+- what is a stablecoin / are stablecoins tokenized money  [cb214 · Wed 10/21] — the
+  calendar mirror's own suggested phrasing for cb214. No promoted query names
+  stablecoins directly; the 10/21 post tracked against "tokenized real world assets
+  / RWA tokenization" instead and flagged the mismatch in its PR. Promoting this
+  line gives future stablecoin-specific posts (fees, which stablecoin to hold, etc.)
+  their own target instead of overloading the RWA query.
 
 ## Proposed — retention & trust, the post-install gap (QUILL, 2026-10-04)
 
