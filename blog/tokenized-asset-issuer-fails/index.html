@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>What Happens If a Tokenized Asset Issuer Fails?</title>
+<meta name="description" content="If the issuer of a tokenized real-world asset fails, what you recover depends on the legal structure behind the token, not the blockchain it runs on.">
+<link rel="canonical" href="https://www.swopme.co/blog/tokenized-asset-issuer-fails">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="What happens if a tokenized asset's issuer fails?">
+<meta property="og:description" content="Some issuers keep your claim out of their own bankruptcy. Others leave you as just another creditor. The chain doesn't tell you which — the paperwork does.">
+<meta property="og:url" content="https://www.swopme.co/blog/tokenized-asset-issuer-fails">
+<meta property="og:image" content="https://www.swopme.co/blog/tokenized-asset-issuer-fails/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-26">
+<meta property="article:modified_time" content="2026-10-26">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/tokenized-asset-issuer-fails/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="What happens if a tokenized asset's issuer fails?">
+<meta name="twitter:description" content="The chain records your balance. It has no say in what you recover if the issuer behind the token goes under.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What happens if a tokenized asset's issuer fails?",
+  "description": "If the issuer of a tokenized real-world asset fails, what you recover depends on the legal structure behind the token, not the blockchain it runs on.",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/tokenized-asset-issuer-fails"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What happens to a tokenized asset if the issuer goes bankrupt?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends entirely on the legal structure the issuer chose, not on the blockchain the token runs on. If customer assets are held in a segregated, bankruptcy-remote structure that sits outside the issuer's own estate, a regulator or trustee can typically return them to holders directly. If the token instead represents an unsecured claim against the issuer, holders compete with the issuer's other creditors in an ordinary bankruptcy, and that claim can be paused, reduced, or subordinated under the token's own terms."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does holding a tokenized asset in my own wallet protect me if the issuer fails?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No, and this is the most commonly missed point. Self-custody protects you from a custodian or exchange blocking, freezing, or losing your access to the token. It does not protect you from the issuer failing, because the token is a claim on that issuer's promise, and the promise does not get stronger because you hold the key to the wallet it sits in. Whether your claim survives the issuer's bankruptcy is a legal-structure question, settled long before you ever touch the token."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is PAX Gold protected if Paxos becomes insolvent?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Per Paxos's own account, Paxos Trust Company is chartered as a limited-purpose trust company under New York Banking Law and supervised by the New York Department of Financial Services (NYDFS), and it describes customer assets as held in bankruptcy-remote, segregated accounts that are never commingled with Paxos's corporate funds. Paxos says this means customer assets would not pass through ordinary bankruptcy proceedings; instead, the NYDFS Superintendent would return custodied assets to their owners based on Paxos's books and records. This is the company's own description of its structure, not an independent legal verification, and it is specific to NY trust companies rather than to money-transmitter-licensed issuers generally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What should I check before trusting a tokenized asset's issuer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Four things, in the issuer's own documentation rather than its marketing: whether your claim is against a segregated, bankruptcy-remote structure or an unsecured claim on the issuer's general assets; whether the custodian holding the underlying asset is independent of the issuer or self-verified; whether the token document allows redemption to be paused, deferred, or subordinated, and under what conditions; and what minimum size or notice period redemption actually requires. The word \"tokenized\" answers none of these."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">What happens if a tokenized asset&rsquo;s issuer fails?</h1>
+<p class="art-dek">The chain keeps an honest record of your balance. It has no vote in what you actually recover if the issuer behind the token goes under &mdash; that depends on paperwork most holders never read.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 26, 2026</span><span class="sep"></span><span class="mono">Updated Oct 26, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=What%20happens%20if%20a%20tokenized%20asset%27s%20issuer%20fails%3F&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftokenized-asset-issuer-fails" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=What%20happens%20if%20a%20tokenized%20asset%27s%20issuer%20fails%3F&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftokenized-asset-issuer-fails" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">The chain records it. It doesn't decide it</a>
+<a href="#s2">Three structures, three different outcomes</a>
+<a href="#s3">What actually decides the outcome</a>
+<a href="#s4">What self-custody does and doesn't change</a>
+<a href="#s5">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>If the issuer of your tokenized real-world asset goes bankrupt or otherwise fails, what you get back depends on the legal structure behind the token &mdash; not on the blockchain it runs on. Some issuers hold customer assets in a segregated, bankruptcy-remote structure that sits outside their own estate; others leave holders with an unsecured claim that competes with the issuer's other creditors, and whose payout can be paused, reduced, or deferred under the token's own terms. A tokenized asset is a claim on whoever issued it, and that claim is only as strong as the paperwork behind it.</p>
+
+<h2 id="s1">The chain records it. It doesn't decide it</h2>
+<p>It is tempting to treat "it's on-chain" as a safety feature. The blockchain does one thing reliably: it keeps an accurate, tamper-resistant record of who holds how many units of a token. That record will still be perfectly accurate the day an issuer files for bankruptcy. It will also be almost entirely beside the point, because the record answers "who holds the token," not "what is the token actually worth, and to whom."</p>
+<p>We covered the first half of this problem in <a href="/blog/tokenized-isnt-the-same-as-yours">a companion piece on custody</a>: whether you can even move a tokenized asset to a wallet you control is a choice the issuer made, not a property of being on-chain. Issuer failure is the second half, and the harder one, because it survives even when you clear the first hurdle. You can hold a tokenized asset in a wallet nobody but you controls and still be an unsecured creditor the moment its issuer goes under.</p>
+
+<h2 id="s2">Three structures, three different outcomes</h2>
+<p>The clearest real-world example of a deliberately strong structure is Paxos's gold token, PAX Gold (PAXG). According to <a href="https://www.paxos.com/blog/how-paxos-protects-customer-assets-from-bankruptcy">Paxos's own account of its bankruptcy protections</a>, Paxos Trust Company is chartered as a limited-purpose trust company under New York Banking Law and supervised by the NYDFS &mdash; a different regulatory category from an ordinary company or a money-transmitter-licensed issuer. Paxos says customer assets are held in segregated, bankruptcy-remote accounts, never commingled with its own corporate funds, and that this means those assets would not pass through standard bankruptcy procedure at all: the NYDFS Superintendent would instead return custodied assets to their owners directly, based on Paxos's books and records. Paxos contrasts this with money-transmitter-licensed issuers, where it argues a court could rule that customer assets belong to the issuer's general creditors. That is Paxos describing its own structure, not an independent legal audit of it &mdash; worth treating as a company claim, however specific, rather than a settled ruling.</p>
+<p>BlackRock's tokenized Treasury fund, BUIDL, sits on different rails. Per <a href="https://www.businesswire.com/news/home/20240320771318/en/">the fund's 2024 launch announcement</a>, Bank of New York Mellon serves as custodian of the fund's assets and administrator, while Securitize acts as transfer agent and tokenization platform recording who holds the tokenized shares. That is a conventional fund structure with an independent, regulated custodian holding the underlying Treasuries and cash &mdash; a meaningfully different arrangement from an issuer custodying its own backing asset. Whether BUIDL's specific legal claim is formally bankruptcy-remote in the way Paxos describes for PAXG is a question for the fund's own offering documents, which we did not have access to verify directly.</p>
+<p>Not every tokenized asset gets either kind of protection. Industry risk assessments of the broader RWA tokenization market describe a less reassuring pattern elsewhere: pooled custody accounts without clear segregation, commingled cash management, and issuer documentation that explicitly allows redemption claims to be deferred or cancelled, or satisfied only out of whatever "free assets" the issuer happens to have left, if doing so would not otherwise worsen its own insolvency. In that structure, the token's bankruptcy outcome is closer to an ordinary unsecured bond than to a segregated trust account &mdash; and nothing about the token itself tells you which category you are in.</p>
+
+<h2 id="s3">What actually decides the outcome</h2>
+<p>Four questions, answerable only from the issuer's own documents, do the real work:</p>
+<p><strong>Is your claim segregated from the issuer's own balance sheet, or is it a claim against the issuer generally?</strong> Segregated, bankruptcy-remote structures are designed to keep customer assets out of the issuer's estate entirely. A general claim stands in line with every other creditor.</p>
+<p><strong>Who holds the underlying asset, and are they independent of the issuer?</strong> A third-party, regulated custodian holding gold, Treasuries, or cash is a different risk than an issuer that verifies its own holdings.</p>
+<p><strong>Can redemption be paused, deferred, or subordinated, and under what conditions?</strong> Some issuer documents build in exactly this right, specifically to protect the issuer's own solvency at the holder's expense.</p>
+<p><strong>What size or notice period does redemption actually require?</strong> A right to redeem that only applies above an institutional minimum, or after a notice period measured in weeks, is a much weaker protection in a fast-moving failure than same-day liquidity.</p>
+<p>None of these four answers is visible in a token's ticker, its chain, or the word "tokenized" itself. They are contract terms, and they vary enormously between assets that get described identically in marketing copy.</p>
+
+<h2 id="s4">What self-custody does and doesn't change</h2>
+<p>Self-custody is a genuine, specific protection, and it is worth being precise about which risk it actually removes. <strong>Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them.</strong> That removes the risk that an intermediary standing between you and your position blocks it, freezes it, or disappears with it.</p>
+<p>What it does not remove is the issuer. As the companion piece on custody above puts it: holding a tokenized asset in your own wallet means you, not a third party, control the token itself &mdash; it does not change what the token is a claim on, or how strong that claim is if the issuer behind it fails. Those are two separate risks, solved by two separate things, and conflating them is the most common mistake in how tokenized assets get described.</p>
+
+<h2 id="s5">Where Swop fits</h2>
+<p>Swop is not an issuer of tokenized real-world assets, and makes no claim about the bankruptcy structure of any RWA issuer &mdash; that is a question for each issuer's own disclosures, not for a wallet that lets you hold and swap the resulting token. What Swop is responsible for is the part under its own control: <strong>tokenized real-world assets that live on Swop's supported chains &mdash; such as PAX Gold (PAXG) on Ethereum &mdash; can be swapped in the Swop app through its existing routing, the same as any other token on that chain.</strong> Swop runs on Solana, Ethereum, Base, and Polygon, is fully self-custodial, and sponsors gas, so holding one of these tokens does not require first acquiring the chain's native asset to pay a fee.</p>
+<p>That combination removes the custodian between you and the token. It is not, and cannot be, a statement about what happens if PAX Gold's issuer, or any other RWA issuer, were to fail &mdash; that answer lives entirely in the issuer's own trust structure and documentation, which is exactly why checking it is the point of this post. For completeness: Swop has not commissioned a third-party security audit to date.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>What happens to a tokenized asset if the issuer goes bankrupt?</h3>
+<p>It depends entirely on the legal structure the issuer chose, not on the blockchain the token runs on. If customer assets sit in a segregated, bankruptcy-remote structure outside the issuer's own estate, a regulator or trustee can typically return them to holders directly. If the token is instead an unsecured claim against the issuer, holders compete with the issuer's other creditors in an ordinary bankruptcy, and that claim can be paused, reduced, or subordinated under the token's own terms.</p>
+<h3>Does holding a tokenized asset in my own wallet protect me if the issuer fails?</h3>
+<p>No. Self-custody protects you from a custodian or exchange blocking, freezing, or losing your access to the token. It does not protect you from the issuer failing, because the token is a claim on that issuer's promise, and the promise does not get stronger because you hold the key to the wallet it sits in.</p>
+<h3>How is PAX Gold protected if Paxos becomes insolvent?</h3>
+<p>Per Paxos's own account, Paxos Trust Company is a limited-purpose trust company under New York Banking Law, supervised by the NYDFS, and customer assets are held in bankruptcy-remote, segregated accounts never commingled with Paxos's corporate funds &mdash; which Paxos says means those assets bypass ordinary bankruptcy and are returned directly to owners by the NYDFS Superintendent. This is the company's own description, not an independent legal verification.</p>
+<h3>What should I check before trusting a tokenized asset's issuer?</h3>
+<p>Whether your claim is segregated and bankruptcy-remote or a general unsecured claim; whether the custodian holding the underlying asset is independent of the issuer; whether redemption can be paused, deferred, or subordinated, and under what conditions; and what minimum size or notice period redemption actually requires. Those answers are in the issuer's documentation, not in the word "tokenized."</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed &mdash; see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">&copy; 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/tokenized-asset-issuer-fails').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
