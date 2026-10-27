@@ -19,6 +19,11 @@
 - [Swop home](https://www.swopme.co): product overview
 - [Web app](https://swopme.app): the Swop wallet in the browser
 - [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
+- [Somebody made gold in a reactor](https://www.swopme.co/blog/gold-fusion-blockspace-scarcity): a fusion startup's claim to have transmuted mercury into gold, why the quantities are picogram-scale and the tonnage figures are simulated, and the distinction between scarcity observed from cost and scarcity enforced by a published rule
+- [Starbucks runs a $1.7 billion float on gift cards](https://www.swopme.co/blog/geo-bucks-drops-store-credit): how prepaid store credit funds a business and drives repeat in-person visits, and how Geo Bucks, Drops and Launchpad put the same mechanic behind any counter
+- [El Dorado is live in beta](https://www.swopme.co/blog/el-dorado-virtual-world-beta): a virtual world built on Swop that you sign into with your swop.id while holding your own keys — in beta, shipping improvements weekly
+- [Tokenized isn't the same as yours](https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours): why tokenized real-world assets can revert when sent to an unapproved wallet, and how custody rather than the chain decides who can participate
+- [How to accept crypto payments as a freelancer](https://www.swopme.co/blog/accept-crypto-payments-freelancer): accepting crypto with a self-custody wallet and a payment link — no bank, merchant account or ID check on the crypto rail, and the honest catch
 - [Sell digital products for crypto](https://www.swopme.co/blog/sell-digital-products-for-crypto): what has to exist to sell a digital product for crypto — a stablecoin price, a payable storefront, and on-chain settlement — and how x402 lets an AI agent buy one directly
 - [What is a wrapped token?](https://www.swopme.co/blog/what-is-a-wrapped-token): how lock-and-mint wrapping works, why a wrapped token is a claim on a bridge or custodian rather than on the original issuer, and what breaks its peg
 - [Best wallet for prediction markets](https://www.swopme.co/blog/best-wallet-for-prediction-markets): the checklist for evaluating a prediction-market app or wallet — custody, fees and gas, order-book depth, and how an AI agent (if any) confirms trades
