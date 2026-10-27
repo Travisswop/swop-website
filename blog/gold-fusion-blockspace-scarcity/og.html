@@ -1,0 +1,65 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
+  @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
+  body { font-family:'Inter Tight','Inter',-apple-system,sans-serif;
+    background: radial-gradient(130% 150% at 78% 26%, #163a2c 0%, #0b1a15 46%, #070709 80%);
+    color:#fff; position:relative; }
+  .blob { position:absolute; border-radius:50%; filter:blur(95px); }
+  .b1 { width:600px; height:600px; right:-140px; top:-170px; background:#e8bf5a; opacity:.2; }
+  .b2 { width:430px; height:430px; left:-150px; bottom:-190px; background:#1a6d47; opacity:.3; }
+  .stripes { position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(255,255,255,.022) 90px 92px); }
+  .right { position:absolute; right:92px; top:0; height:630px; width:400px; z-index:2;
+    display:flex; align-items:center; justify-content:center; }
+  .nugget { position:relative; width:300px; height:300px; border-radius:50%;
+    background: radial-gradient(circle at 34% 28%, #fff3cf 0%, #ffd874 34%, #d9a93a 66%, #8a6116 100%);
+    box-shadow:0 0 110px rgba(232,191,90,.5), 0 30px 76px rgba(0,0,0,.66), inset 0 0 0 9px rgba(255,255,255,.14); }
+  .orb { position:absolute; border-radius:50%; border:2px solid rgba(95,240,171,.5); }
+  .o1 { width:392px; height:392px; left:-46px; top:-46px; border-style:dashed; }
+  .o2 { width:468px; height:468px; left:-84px; top:-84px; opacity:.4; }
+  .n { position:absolute; width:13px; height:13px; border-radius:50%; background:#5ff0ab;
+       box-shadow:0 0 20px #2ec27e; }
+  .scrim { position:absolute; inset:0; z-index:3;
+    background: linear-gradient(100deg, rgba(7,7,9,.95) 0%, rgba(7,7,9,.87) 38%, rgba(7,7,9,.3) 58%, transparent 72%); }
+  .wrap { position:absolute; inset:0; padding:54px 70px; z-index:5; }
+  .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:25px; letter-spacing:.45em; }
+  .kick { display:inline-flex; align-items:center; gap:11px; background:rgba(46,194,126,.15);
+    border:1.5px solid rgba(46,194,126,.6); color:#5ff0ab; font-family:'JetBrains Mono';
+    font-size:19px; font-weight:700; letter-spacing:.11em; padding:9px 18px; border-radius:999px;
+    margin-top:20px; text-transform:uppercase; }
+  .dot { width:11px; height:11px; border-radius:50%; background:#2ec27e; box-shadow:0 0 14px #2ec27e; }
+  h1 { margin-top:32px; font-size:76px; line-height:.95; font-weight:900; letter-spacing:-.032em;
+       white-space:nowrap; text-shadow:0 6px 38px rgba(0,0,0,.85); }
+  h1 .hl { color:#ffd874; text-shadow:0 0 50px rgba(232,191,90,.85); }
+  .sub { margin-top:26px; font-size:24px; font-weight:700; color:rgba(255,255,255,.86);
+         text-shadow:0 2px 14px rgba(0,0,0,.85); }
+  .sub b { color:#5ff0ab; }
+  .url { position:absolute; left:70px; bottom:32px; font-family:'JetBrains Mono';
+    font-size:20px; color:rgba(255,255,255,.55); letter-spacing:.06em; z-index:6; }
+</style></head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="stripes"></div>
+  <div class="right">
+    <div class="nugget">
+      <div class="orb o1"></div>
+      <div class="orb o2"></div>
+      <div class="n" style="left:-52px; top:120px;"></div>
+      <div class="n" style="left:150px; top:-56px;"></div>
+      <div class="n" style="right:-50px; top:200px;"></div>
+      <div class="n" style="left:60px; bottom:-54px; width:10px; height:10px;"></div>
+    </div>
+  </div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="logo">SWOP</div>
+    <div class="kick"><div class="dot"></div>Perspective</div>
+    <h1>THEY MADE GOLD<br>IN A <span class="hl">REACTOR.</span></h1>
+    <div class="sub">Scarcity was never a promise &mdash; <b>only a price</b></div>
+  </div>
+  <div class="url">swopme.co/blog</div>
+</body></html>
