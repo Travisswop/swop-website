@@ -223,6 +223,83 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .shead h2{font-size:clamp(40px,6vw,84px)}
 .shead p{color:var(--fg2);font-size:clamp(16px,1.7vw,19px);max-width:56ch;line-height:1.5}
 
+
+/* ===== 2. bento ===== */
+#line{padding-block:110px 100px}
+.sent{font-size:clamp(28px,3.8vw,54px);font-weight:900;letter-spacing:-.035em;line-height:1.12;max-width:24ch;margin:18px 0 44px;color:rgba(10,10,12,.35)}
+.sent .ph{color:#0a0a0c;position:relative;cursor:default;transition:background .25s;border-radius:10px;padding:0 .08em;
+  background:linear-gradient(transparent 64%,rgba(63,224,143,.35) 64%,rgba(63,224,143,.35) 92%,transparent 92%)}
+.sent .ph sup{font:700 .32em var(--label);color:#0a9f55;vertical-align:super;margin-right:.15em}
+.sent .ph.hot{background:rgba(63,224,143,.4)}
+.bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:minmax(300px,auto);gap:14px}
+.bt{position:relative;overflow:hidden;border-radius:28px;background:#fff;border:1px solid rgba(10,10,12,.07);padding:24px;display:flex;flex-direction:column;gap:10px;
+  box-shadow:0 1px 2px rgba(10,10,12,.04),0 20px 40px -24px rgba(10,10,12,.18);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.bt:hover,.bt.hot{transform:translateY(-4px);box-shadow:0 1px 2px rgba(10,10,12,.04),0 30px 60px -24px rgba(10,10,12,.28)}
+.bt h3{font-size:clamp(22px,2vw,28px);line-height:1.08;letter-spacing:-.03em;max-width:18ch;color:#0a0a0c}
+.bt p{font:400 15px/1.5 Inter;color:rgba(10,10,12,.6);max-width:42ch}
+.bh{display:flex;justify-content:space-between;align-items:center}
+.bn{width:28px;height:28px;border-radius:9px;background:#0a0a0c;color:#3FE08F;display:grid;place-items:center;font:700 12px var(--label)}
+.t1{grid-column:span 4}.t2{grid-column:span 2}.t3,.t4,.t5{grid-column:span 2}
+@media (max-width:980px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.t1{grid-column:span 2}.t2,.t3,.t4,.t5{grid-column:span 1}}
+@media (max-width:640px){.bento{grid-template-columns:1fr}.t1,.t2,.t3,.t4,.t5{grid-column:span 1}}
+/* t1 feed */
+.t1{background:linear-gradient(160deg,#fff 40%,#effcf5)}
+.feedviz{position:absolute;right:22px;top:22px;bottom:22px;width:min(46%,330px);display:flex;flex-direction:column;gap:9px;overflow:hidden;
+  -webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
+@media (max-width:820px){.feedviz{position:relative;right:auto;top:auto;bottom:auto;width:100%;height:220px;margin-top:6px}}
+.fpost{flex:none;background:#fff;border:1px solid rgba(10,10,12,.07);border-radius:16px;padding:10px 12px;display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;
+  box-shadow:0 6px 16px rgba(10,10,12,.06);animation:fin .6s cubic-bezier(.2,.8,.2,1) both}
+.fpost .fa{width:30px;height:30px;border-radius:50%}
+.fpost b{display:block;font:600 12.5px Inter;color:#0a0a0c}
+.fpost span{display:block;font:400 12px Inter;color:rgba(10,10,12,.6);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.fpost em{font-style:normal;font:600 11.5px "JetBrains Mono";color:#e5484d}
+@keyframes fin{from{opacity:0;transform:translateY(-16px) scale(.97)}to{opacity:1;transform:none}}
+.t1 h3,.t1 p{max-width:min(44%,420px)}
+@media (max-width:820px){.t1 h3,.t1 p{max-width:none}}
+/* t2 triad */
+.t2{background:linear-gradient(180deg,#fff,#f6f4ff)}
+.triad{width:100%;max-width:300px;margin:auto auto 0;overflow:visible}
+.triad path{fill:none;stroke:rgba(10,10,12,.14);stroke-width:2;stroke-dasharray:4 6}
+.triad .flow{fill:#3FE08F;filter:drop-shadow(0 0 6px #3FE08F)}
+.triad .f2{fill:#7c3aed;filter:drop-shadow(0 0 6px #7c3aed)}.triad .f3{fill:#1f6fd1;filter:drop-shadow(0 0 6px #1f6fd1)}
+.tnode{position:absolute;display:grid;justify-items:center;gap:4px;transform:translate(-50%,-50%)}
+.tnode i{font-style:normal;width:52px;height:52px;border-radius:16px;display:grid;place-items:center;font-size:22px;background:#fff;border:1px solid rgba(10,10,12,.08);box-shadow:0 10px 24px rgba(10,10,12,.12)}
+.tnode b{font:700 12px Inter;color:#0a0a0c;background:#fff;padding:1px 6px;border-radius:6px}
+/* t3 id card */
+.t3{background:linear-gradient(170deg,#fff,#f2f7ff)}
+.idcard{margin-top:auto;border-radius:20px;padding:16px;color:#fff;background:linear-gradient(135deg,#0a0a0c 0%,#13261c 60%,#0b3b25 100%);box-shadow:0 20px 40px -12px rgba(10,10,12,.45);position:relative;overflow:hidden}
+.idcard::after{content:"";position:absolute;inset:-40%;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.14) 50%,transparent 60%);animation:sheen 4.5s ease-in-out infinite}
+@keyframes sheen{0%,60%{transform:translateX(-60%)}100%{transform:translateX(60%)}}
+.idtop{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:10px;align-items:center;color:#3FE08F}
+.idav{width:38px;height:38px;border-radius:50%;background:linear-gradient(160deg,#c7f0dc,#a5d8ff)}
+.idtop b{display:block;font:800 15px Inter;color:#fff}
+.idtop small{display:block;font:500 11px Inter;color:rgba(255,255,255,.6)}
+.idrows{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:12px}
+.idrows span{display:flex;justify-content:space-between;font:500 12px Inter;color:rgba(255,255,255,.8);background:rgba(255,255,255,.07);border-radius:9px;padding:6px 9px}
+.idrows b{color:#3FE08F}
+.vault{display:flex;align-items:center;gap:7px;margin-top:10px;font:600 12px Inter;color:rgba(255,255,255,.85)}
+.vault .st{margin-left:auto;color:#c084fc}
+/* t4 earn */
+.t4{background:linear-gradient(170deg,#fff,#effcf5)}
+.earn{margin-top:auto;display:grid;gap:4px}
+.earn small{font:500 12px Inter;color:rgba(10,10,12,.55)}
+.earn>b{font:700 44px "JetBrains Mono";letter-spacing:-.04em;color:#0a0a0c;font-variant-numeric:tabular-nums}
+.ebars{display:grid;gap:9px;margin-top:8px}
+.ebars div{display:grid;gap:4px}
+.ebars span{font:600 12px Inter;color:rgba(10,10,12,.7)}
+.ebars i{display:block;height:8px;border-radius:8px;background:linear-gradient(90deg,#3FE08F,#0a9f55);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.bt.in .ebars i{width:var(--w)}
+/* t5 coin */
+.t5{background:radial-gradient(circle at 50% 75%,#fff6d8,#fff 60%)}
+.coinviz{position:relative;margin-top:auto;height:170px}
+.coin3{position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px;border-radius:50%;display:grid;place-items:center;
+  background:radial-gradient(circle at 35% 30%,#fff3c4,#f5c842 45%,#b7791f 100%);box-shadow:0 14px 30px rgba(183,121,31,.35),inset 0 -6px 12px rgba(0,0,0,.15);animation:flip 6s ease-in-out infinite}
+.coin3 span{font:900 15px var(--display);color:#5a3a06;letter-spacing:.04em}
+@keyframes flip{0%,100%{transform:rotateY(0)}50%{transform:rotateY(180deg)}}
+.cu{position:absolute;font:700 12px Inter;color:#0a0a0c;background:#fff;border:1px solid rgba(10,10,12,.08);border-radius:999px;padding:6px 11px;box-shadow:0 8px 18px rgba(10,10,12,.08);white-space:nowrap;animation:bob 4s ease-in-out infinite}
+.cu.soon{color:#7c3aed;border-style:dashed}
+.u1{left:2%;top:8%}.u2{right:2%;top:14%;animation-delay:.6s}.u3{left:6%;bottom:6%;animation-delay:1.2s}.u4{right:0;bottom:2%;animation-delay:1.8s}
+@keyframes bob{50%{transform:translateY(-6px)}}
 /* ===== 3. meet maya (pinned) ===== */
 #maya{position:relative;min-height:100vh;display:grid;align-items:center;overflow:hidden;padding-block:90px 40px}
 .maya-bgword{position:absolute;top:50%;left:0;transform:translateY(-50%);white-space:nowrap;font-size:clamp(120px,22vw,320px);font-weight:900;letter-spacing:-.05em;
@@ -405,6 +482,70 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .ldetail b{color:#fff}
 
 
+
+/* ===== 5. agent flow ===== */
+#members{padding-block:110px}
+.afhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px}
+.afhead h2{font-size:clamp(40px,5.4vw,78px)}
+.seg{position:relative;display:inline-flex;background:#fff;border:1px solid rgba(10,10,12,.08);border-radius:999px;padding:5px;box-shadow:0 6px 20px rgba(10,10,12,.06)}
+.seg button{position:relative;z-index:1;border:0;background:none;border-radius:999px;padding:11px 20px;font:700 15px Inter;color:rgba(10,10,12,.6);cursor:pointer;transition:color .3s}
+.seg button[aria-selected="true"]{color:#fff}
+.segk{position:absolute;top:5px;bottom:5px;left:5px;border-radius:999px;background:#0a0a0c;transition:transform .45s cubic-bezier(.2,.8,.2,1),width .45s;z-index:0}
+.afstage{position:relative;margin-top:34px;border-radius:36px;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px;padding:40px;
+  background:#f3f6f4;border:1px solid rgba(10,10,12,.06);min-height:560px}
+@media (max-width:900px){.afstage{grid-template-columns:1fr;padding:20px;border-radius:26px}}
+.aurora{position:absolute;inset:0;z-index:0;filter:blur(60px);opacity:.85}
+.aurora i{position:absolute;border-radius:50%;animation:drift 14s ease-in-out infinite alternate}
+.aurora i:nth-child(1){width:55%;height:70%;left:-10%;top:-20%;background:#bdf5d6}
+.aurora i:nth-child(2){width:45%;height:60%;right:-5%;top:10%;background:#dcd3ff;animation-delay:-5s}
+.aurora i:nth-child(3){width:50%;height:50%;left:30%;bottom:-25%;background:#cfe3ff;animation-delay:-9s}
+@keyframes drift{to{transform:translate(6%,8%) scale(1.1)}}
+.afleft,.afright{position:relative;z-index:1;display:flex;flex-direction:column;gap:16px;min-width:0}
+.cmd{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;gap:12px;align-items:center;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.9);
+  border-radius:22px;padding:10px 10px 10px 12px;box-shadow:0 14px 40px rgba(10,10,12,.1)}
+.cmdav{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font:800 13px Inter;color:#fff;background:#0a0a0c}
+.cmdtx{font:600 17px Inter;color:#0a0a0c;min-height:24px}
+.caret{display:inline-block;width:2px;height:18px;background:#0a9f55;margin-left:2px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.cmdgo{width:40px;height:40px;border-radius:50%;background:#0a0a0c;color:#fff;display:grid;place-items:center;font-weight:800}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:0;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.9);border-radius:22px;padding:8px 18px;box-shadow:0 10px 30px rgba(10,10,12,.06)}
+.steps li{position:relative;display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;padding:12px 0;opacity:.35;transition:opacity .4s}
+.steps li+li{border-top:1px solid rgba(10,10,12,.06)}
+.steps li.on,.steps li.done{opacity:1}
+.steps .si{width:26px;height:26px;border-radius:50%;border:2px solid rgba(10,10,12,.15);display:grid;place-items:center;font-size:13px;color:#fff;transition:all .3s}
+.steps li.on .si{border-color:#0a9f55;border-right-color:transparent;animation:spin2 .8s linear infinite}
+.steps li.done .si{background:#0a9f55;border-color:#0a9f55}
+.steps li.done .si::after{content:"✓";font-weight:800}
+@keyframes spin2{to{transform:rotate(360deg)}}
+.steps b{display:block;font:600 15px Inter;color:#0a0a0c}
+.steps code{display:block;font:500 12.5px "JetBrains Mono";color:rgba(10,10,12,.55);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ckpt{border-radius:22px;padding:16px 18px;background:#fff;border:1.5px dashed #0a9f55;box-shadow:0 14px 34px rgba(10,159,85,.14);display:grid;gap:10px;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+.ckpt.show{opacity:1;transform:none}
+.ckh{font:700 11px var(--label);letter-spacing:.14em;text-transform:uppercase;color:#0a9f55;display:flex;align-items:center;gap:8px}
+.ckdot{width:8px;height:8px;border-radius:50%;background:#0a9f55;box-shadow:0 0 0 0 rgba(10,159,85,.5);animation:ping 1.4s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 10px rgba(10,159,85,0)}100%{box-shadow:0 0 0 0 rgba(10,159,85,0)}}
+.ckt{font:500 15px Inter;color:#0a0a0c}
+.ckb{display:flex;gap:8px}
+.ckb span{flex:1;text-align:center;border-radius:14px;padding:11px;font:700 14px Inter}
+.ckno{background:#f1f1ef;color:#0a0a0c}
+.ckyes{background:#0a0a0c;color:#fff;transition:transform .15s,background .3s}
+.ckyes.press{transform:scale(.95);background:#0a9f55}
+.result{flex:1;border-radius:28px;background:#fff;box-shadow:0 30px 70px -20px rgba(10,10,12,.3);padding:24px;display:flex;flex-direction:column;gap:14px;
+  opacity:0;transform:translateY(20px) scale(.97);transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.3,1.2);min-height:320px}
+.result.show{opacity:1;transform:none}
+.rk{font:700 11px var(--label);letter-spacing:.14em;text-transform:uppercase;color:#0a9f55;display:flex;gap:8px;align-items:center}
+.rbig{font:800 clamp(34px,4vw,52px) "JetBrains Mono";letter-spacing:-.04em;color:#0a0a0c;line-height:1}
+.rrow2{display:flex;justify-content:space-between;font:500 14px Inter;color:rgba(10,10,12,.55);padding:9px 0;border-top:1px solid rgba(10,10,12,.06)}
+.rrow2 b{color:#0a0a0c;font-weight:600}
+.rprod{display:grid;grid-template-columns:72px minmax(0,1fr);gap:14px;align-items:center}
+.rprod i{width:72px;height:72px;border-radius:16px;background:linear-gradient(135deg,#0b0b0d,#2b2b33);display:grid;place-items:center}
+.rprod b{display:block;font:700 18px Inter}
+.rprod span{font:500 13px "JetBrains Mono";color:rgba(10,10,12,.55)}
+.rpay{display:flex;flex-wrap:wrap;gap:6px}
+.rpay span{font:600 12px Inter;background:#f1f1ef;border-radius:999px;padding:6px 11px}
+.guard{display:flex;flex-wrap:wrap;gap:8px}
+.guard span{font:600 12.5px Inter;color:#0a0a0c;background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.9);border-radius:999px;padding:7px 12px;backdrop-filter:blur(8px)}
+.afnote{margin-top:16px;font:500 14px Inter;color:rgba(10,10,12,.55)}
 /* ===== 7. the swop system (orrery) ===== */
 #system{position:relative;overflow:hidden;padding-block:110px 90px;background:radial-gradient(ellipse 80% 60% at 70% 40%,#0b1a14 0%,#020208 60%),#020208}
 #stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
@@ -428,40 +569,31 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .spanel .cat{font-family:var(--label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3)}
 .orrery{position:relative;aspect-ratio:1/1;width:100%;max-width:640px;margin:0 auto}
 .orbit{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.1);transition:border-color .35s,opacity .35s}
-.orbit .spin{position:absolute;inset:0;border-radius:50%;animation:orb var(--t) linear infinite}
-.orrery:hover .spin,.orrery:hover .pl b{animation-play-state:paused}
-.orrery .orbit{opacity:0;transform:scale(.55);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.8,.2,1),border-color .35s}
-.orrery.in .orbit{opacity:1;transform:none}
-.orrery .orbit:nth-child(2){transition-delay:.1s}.orrery .orbit:nth-child(3){transition-delay:.2s}.orrery .orbit:nth-child(4){transition-delay:.3s}.orrery .orbit:nth-child(5){transition-delay:.4s}
-.orrery.in .orbit.dim{opacity:.22}
-.orbit.hot{border-color:rgba(255,255,255,.4)}
-.orbit .rlab{display:none;position:absolute;left:50%;top:-9px;transform:translateX(-50%);font-family:var(--label);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg3);background:#05070a;padding:0 6px;white-space:nowrap}
-@keyframes orb{to{transform:rotate(360deg)}}
-.pl{position:absolute;width:0;height:0;border:0;background:none;padding:0;cursor:pointer}
-.pl b{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:5px;animation:orb var(--t) linear infinite reverse}
-.pl i{width:var(--sz,14px);height:var(--sz,14px);border-radius:50%;display:block;
-  background:radial-gradient(circle at 35% 30%,#fff 0 8%,var(--c) 40%,color-mix(in srgb,var(--c) 40%,#000) 100%);box-shadow:0 0 14px color-mix(in srgb,var(--c) 70%,transparent);transition:transform .25s}
-.pl span{font:600 11.5px Inter;color:rgba(255,255,255,.75);white-space:nowrap;background:rgba(2,2,8,.7);padding:1px 6px;border-radius:6px;transition:color .25s}
-.pl:hover i,.pl[aria-pressed="true"] i{transform:scale(1.5)}
-.pl[aria-pressed="true"] span,.pl:hover span{color:#fff}
-.pl.dim{opacity:.18}
+.orbit .rlab{display:none}
+.pl{position:absolute;z-index:4;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.12);background:rgba(8,10,14,.82);
+  backdrop-filter:blur(6px);border-radius:999px;padding:5px 11px 5px 6px;cursor:pointer;transition:border-color .25s,background .25s,opacity .3s;white-space:nowrap}
+.pl i{width:12px;height:12px;border-radius:50%;flex:none;background:radial-gradient(circle at 35% 30%,#fff 0 10%,var(--c) 45%,color-mix(in srgb,var(--c) 45%,#000));box-shadow:0 0 10px var(--c)}
+.pl span{font:600 12.5px Inter;color:rgba(255,255,255,.88)}
+.pl:hover,.pl[aria-pressed="true"]{border-color:var(--c);background:rgba(16,20,26,.95);z-index:6}
+.pl[aria-pressed="true"] span{color:#fff}
+.pl.dim{opacity:.15}
 .sun{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:24%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;z-index:3;
   background:radial-gradient(circle at 40% 35%,#d6ffe9 0%,#3FE08F 28%,#0a9f55 62%,#04331c 100%);box-shadow:0 0 60px rgba(63,224,143,.55),0 0 160px rgba(63,224,143,.25);animation:pulse 4s ease-in-out infinite}
 .sun b{font-size:clamp(11px,1.5vw,16px);font-weight:900;color:#02140a;letter-spacing:-.02em}
 .sun b .green{color:#02140a}
 .sun small{display:block;font-family:var(--label);font-size:8.5px;letter-spacing:.1em;color:rgba(2,20,10,.7);text-transform:uppercase;margin-top:2px}
 @keyframes pulse{50%{box-shadow:0 0 80px rgba(63,224,143,.7),0 0 200px rgba(63,224,143,.3)}}
-@media (max-width:620px){.pl span{display:none;font-size:11px}.pl[aria-pressed="true"] span{display:block}}
-.syslist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:56px}
-.sgrp{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin-top:18px}
-.sgrp h3{font-size:26px}
-.sgrp span{color:var(--fg3);font-size:20px;font-weight:700}
-.scard{border:1px solid var(--line);border-left:3px solid var(--c);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.03);display:grid;gap:4px;cursor:pointer;text-align:left;transition:background .25s,transform .25s}
-.scard:hover,.scard.on{background:rgba(255,255,255,.08);transform:translateY(-2px)}
-.scard b{font-size:16px}
-.scard small{font-family:var(--label);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
-.scard span{color:var(--fg2);font-size:13.5px}
-.scard.dim{opacity:.3}
+@media (max-width:620px){.pl{padding:5px}.pl span{display:none}.pl[aria-pressed="true"]{padding:5px 10px 5px 6px}.pl[aria-pressed="true"] span{display:inline;font-size:11.5px}}
+.syslist{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;margin-top:56px;padding-top:28px;border-top:1px solid rgba(255,255,255,.1)}
+@media (max-width:820px){.syslist{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.scol{display:grid;gap:2px;align-content:start;transition:opacity .3s}
+.scol.dim{opacity:.3}
+.scol h4{font:700 12px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);margin:0 0 8px}
+.scol h4 span{color:var(--fg2)}
+.sitem{display:grid;grid-template-columns:10px minmax(0,1fr);column-gap:10px;text-align:left;border:0;background:none;padding:7px 8px;border-radius:10px;cursor:pointer;font:600 15px Inter;color:#fff;align-items:center}
+.sitem i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+.sitem small{grid-column:2;font:500 11.5px Inter;color:var(--fg3)}
+.sitem:hover,.sitem.on{background:rgba(255,255,255,.07)}
 /* ===== 8. marquee numbers ===== */
 #nums{padding-block:80px;overflow:hidden;border-block:1px solid var(--line)}
 .mq{white-space:nowrap;font-size:clamp(56px,10vw,150px);font-weight:900;letter-spacing:-.05em;line-height:1.02;will-change:transform}
@@ -598,16 +730,50 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   </form>
 </section>
 
-<!-- 2 THE SENTENCE, DECODED -->
+<!-- 2 THE SENTENCE, AS A BENTO -->
 <section id="line" class="gut light" data-ch="03 · What Swop is">
   <div class="wrap">
     <span class="lab">What Swop is, in one sentence</span>
-    <div class="decode" id="decode">
-      <div class="drow"><span class="dn">01</span><h3>The <span class="green">social network</span></h3><p>Profiles, a feed, followers and messages. Your trades, sales and drops show up where your people already are.</p></div>
-      <div class="drow"><span class="dn">02</span><h3>for <span class="green">people, businesses and AI agents</span></h3><p>Three kinds of members on the same rails. A shop can sell to a person or to an AI assistant, the same way.</p></div>
-      <div class="drow"><span class="dn">03</span><h3>where you <span class="green">own your identity and your data</span></h3><p>Your swop.id is your page, your payment address and your login, and your posts, trades and sales history are yours. A personal data vault you control is coming with Swop Chain. <span class="st planned">Planned</span></p></div>
-      <div class="drow"><span class="dn">04</span><h3>and <span class="green">earn from it</span> as you move value</h3><p>Sell anything with a link, take tips, get paid by AI agents, and earn when friends copy your trades. Send, swap and trade from one wallet. <span class="st live">Live</span></p></div>
-      <div class="drow"><span class="dn">05</span><h3>all running on <span class="gold">the SWOP token</span></h3><p>SWOP powers the ecosystem. It pays for AI credits in Ovi, unlocks AI on the web, rewards you when friends copy your trades or join through you, and is the currency of El Dorado. <span class="st live">Live</span> Next: gas and agent bonds on Swop Chain. <span class="st planned">Planned</span></p></div>
+    <p class="sent" id="sent">Swop is <span class="ph" data-t="1"><sup>1</sup>the social network</span> for <span class="ph" data-t="2"><sup>2</sup>people, businesses and AI agents</span> who <span class="ph" data-t="3"><sup>3</sup>own their identity and data</span>, <span class="ph" data-t="4"><sup>4</sup>earn from it</span>, and <span class="ph" data-t="5"><sup>5</sup>run on the SWOP token</span>.</p>
+    <div class="bento" id="bento">
+      <article class="bt t1" data-t="1">
+        <div class="bh"><span class="bn">1</span><span class="st live">Live</span></div>
+        <h3>A social network where money moves.</h3>
+        <p>Profiles, a feed, followers and messages. Trades, sales and drops show up where your people already are.</p>
+        <div class="feedviz" id="feedviz"></div>
+      </article>
+      <article class="bt t2" data-t="2">
+        <div class="bh"><span class="bn">2</span><span class="st live">Live</span></div>
+        <h3>Three kinds of members. One set of rails.</h3>
+        <svg class="triad" viewBox="0 0 300 210" aria-hidden="true">
+          <path id="tp1" d="M150 40 L55 165" /><path id="tp2" d="M55 165 L245 165" /><path id="tp3" d="M245 165 L150 40" />
+          <circle r="5" class="flow"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#tp1"/></animateMotion></circle>
+          <circle r="5" class="flow f2"><animateMotion dur="2.4s" begin=".8s" repeatCount="indefinite"><mpath href="#tp2"/></animateMotion></circle>
+          <circle r="5" class="flow f3"><animateMotion dur="2.4s" begin="1.6s" repeatCount="indefinite"><mpath href="#tp3"/></animateMotion></circle>
+        </svg>
+        <div class="tnode n1"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0a0c" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 14.5-4.5 16 0"/></svg></i><b>People</b></div><div class="tnode n2"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0a0c" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></i><b>Businesses</b></div><div class="tnode n3"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0a0a0c" stroke-width="2" stroke-linecap="round"><rect x="5" y="7" width="14" height="12" rx="3"/><path d="M12 3v4M9 12h.01M15 12h.01M9.5 16h5"/></svg></i><b>AI agents</b></div>
+      </article>
+      <article class="bt t3" data-t="3">
+        <div class="bh"><span class="bn">3</span><span class="st live">Live</span></div>
+        <h3>Your name. Your data.</h3>
+        <div class="idcard">
+          <div class="idtop"><span class="idav"></span><div><b><span class="mName">maya</span>.swop.id</b><small>Verified member</small></div><svg viewBox="0 0 88 18" width="44"><use href="#swop"/></svg></div>
+          <div class="idrows"><span>Page<b>✓</b></span><span>Wallet<b>✓</b></span><span>Login<b>✓</b></span><span>Posts &amp; history<b>✓</b></span></div>
+          <div class="vault"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg>Personal data vault <span class="st planned">Planned</span></div>
+        </div>
+      </article>
+      <article class="bt t4" data-t="4">
+        <div class="bh"><span class="bn">4</span><span class="st live">Live</span></div>
+        <h3>Earn from it.</h3>
+        <div class="earn"><small>Earned this month</small><b id="earnN">$0.00</b>
+          <div class="ebars"><div><span>Sales</span><i style="--w:72%"></i></div><div><span>Tips</span><i style="--w:28%"></i></div><div><span>Copy-trade rewards</span><i style="--w:44%"></i></div></div></div>
+      </article>
+      <article class="bt t5" data-t="5">
+        <div class="bh"><span class="bn">5</span><span class="st live">Live</span></div>
+        <h3>All running on SWOP.</h3>
+        <div class="coinviz"><div class="coin3"><span>SWOP</span></div>
+          <span class="cu u1">AI credits</span><span class="cu u2">Rewards</span><span class="cu u3">El Dorado</span><span class="cu u4 soon">Gas · planned</span></div>
+      </article>
     </div>
   </div>
 </section>
@@ -669,55 +835,27 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   </div>
 </section>
 
-<!-- 5 MEMBERS -->
+<!-- 5 MEMBERS: AGENT FLOW -->
 <section id="members" class="gut light" data-ch="06 · Who it's for">
-  <div class="wrap mem" id="memPin">
-    <div class="memcopy">
-      <span class="lab">Who it's for</span>
-      <h2>Built for people, businesses <span class="green">and AI agents.</span></h2>
-      <div class="memtabs" id="memtabs" role="tablist">
-        <button class="mt" role="tab" data-i="0"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 14.5-4.5 16 0"/></svg></span><span><b>People</b><small>Send to a name, trade with friends, keep one wallet</small></span></button>
-        <button class="mt" role="tab" data-i="1"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span><span><b>Businesses</b><small>Sell with one link, get paid in USDC</small></span></button>
-        <button class="mt" role="tab" data-i="2"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg></span><span><b>AI agents</b><small>A wallet with rules, nothing moves without approval</small></span></button>
+  <div class="wrap">
+    <div class="afhead">
+      <div class="shead"><span class="lab">Who it's for</span><h2>Say what you want.<br><span class="green">Approve. Done.</span></h2>
+        <p>For people, businesses and AI agents. Swop does the steps, shows its work, and nothing moves without your OK.</p></div>
+      <div class="seg" id="afTabs" role="tablist">
+        <button role="tab" data-i="0" aria-selected="true">People</button><button role="tab" data-i="1" aria-selected="false">Businesses</button><button role="tab" data-i="2" aria-selected="false">AI agents</button><i class="segk" id="segk"></i>
       </div>
-      <ul class="membul" id="membul"></ul>
     </div>
-    <div class="memphone"><div class="phone"><div class="scr" style="background:#f4f4f2">
-      <div class="isl"></div>
-      <div class="view mv" data-s="0" style="background:#f4f4f2"><div class="sb" style="background:#f4f4f2"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
-        <div style="padding:6px 14px;display:grid;gap:10px">
-          <div style="display:flex;gap:10px;align-items:center"><span style="width:34px;height:34px;border-radius:12px;border:1px solid rgba(0,0,0,.06);background:#fff;display:grid;place-items:center">‹</span><div><div style="font:600 20px -apple-system,Inter;letter-spacing:-.6px">Send</div><div style="font:400 10.5px Inter;color:#6e6e76">Choose asset, amount, recipient</div></div></div>
-          <div class="mc"><div class="ml">FROM</div><div style="display:flex;gap:10px;align-items:center;margin-top:6px"><span class="tl" style="background:#2775CA;width:32px;height:32px">$</span><div style="flex:1"><div style="font:600 13px Inter">USDC · USD Coin</div><div class="mono" style="font-size:10px;color:#6e6e76">1,240.50 · $1,240.50</div></div>›</div></div>
-          <div class="mc" style="text-align:center;padding:16px 14px"><div class="ml" style="text-align:left">AMOUNT</div><div class="mono" style="font-size:40px;font-weight:600;margin-top:4px">25<span style="font-size:20px;color:#a1a1a8"> USDC</span></div><div class="mono" style="font-size:11px;color:#6e6e76">⇅ ≈ $25.00</div></div>
-          <div class="mc"><div class="ml">TO</div><div style="display:flex;align-items:center;gap:8px;margin-top:6px;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:9px 10px"><span style="font:500 13px Inter;flex:1">maya.swop.id</span><span style="width:22px;height:22px;border-radius:7px;background:rgba(25,169,116,.1);color:#19a974;display:grid;place-items:center"><svg width="13" height="13"><use href="#i-check"/></svg></span></div>
-            <div style="display:flex;gap:10px;align-items:center;padding-top:10px;margin-top:10px;border-top:1px solid rgba(0,0,0,.06)"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(160deg,#c7f0dc,#a5d8ff);display:grid;place-items:center;font:700 12px Inter">M</div><div style="flex:1"><div style="font:600 12.5px Inter">Maya Lee</div><div class="mono" style="font-size:10px;color:#6e6e76">Maya.Swop.Id</div></div>›</div></div>
-          <div class="mc" style="padding:8px 14px"><div class="rrow"><span>Network fee</span><b style="color:#19a974">$0.00 · Sponsored</b></div><div class="rrow"><span>Speed</span><b>~2s</b></div></div>
-          <div style="min-height:46px;border-radius:14px;background:#0a0a0c;color:#fff;font:600 14px Inter;display:grid;place-items:center">Review send</div>
-        </div></div>
-      <div class="view mv off" data-s="1" style="background:rgba(0,0,0,.5)">
-        <div style="position:absolute;inset:0;background:#fff;opacity:.15"></div>
-        <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:30px 30px 0 0;padding:10px 18px 22px">
-          <div style="width:56px;height:4px;border-radius:4px;background:#d9d9d9;margin:0 auto 12px"></div>
-          <div style="display:flex;gap:10px;align-items:center;border-bottom:1px solid #ececec;padding-bottom:12px"><div style="width:40px;height:40px;border-radius:14px;background:#06140d;color:#21c765;font:700 17px Inter;display:grid;place-items:center">M</div><div><div style="font:600 15px Inter">Maya Lee</div><div class="mono" style="font-size:10.5px;color:#9aa0aa">secure checkout · swop pay</div></div></div>
-          <div style="padding:12px 0 6px"><div style="font:600 10px Inter;letter-spacing:.14em;color:#9aa0aa">AMOUNT DUE</div><div class="mono" style="font-size:34px;font-weight:700">$25.00</div></div>
-          <div style="display:grid;gap:8px">
-            <div style="border:1px solid #e3e3e3;border-radius:16px;padding:11px 12px;display:flex;gap:10px;align-items:center"><span style="width:36px;height:36px;border-radius:11px;background:#f2f3f5;display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0c" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span><div><div style="font:600 13px Inter">Card, Apple Pay or Google Pay</div><div style="font:400 11px Inter;color:#6b7280">No wallet needed</div></div></div>
-            <div style="border:1px solid #18a957;border-radius:16px;padding:11px 12px;display:flex;gap:10px;align-items:center;background:#f3fbf6"><span style="width:36px;height:36px;border-radius:11px;background:#eafaf0;display:grid;place-items:center;color:#0f7a3d">◎</span><div><div style="font:600 13px Inter">Crypto wallet</div><div style="font:400 11px Inter;color:#6b7280">Any token · network fee sponsored</div></div></div>
-          </div>
-          <div style="font:400 10.5px Inter;color:#6b7280;margin:10px 0">Same price either way. Swop never adds a fee to what the merchant asked for.</div>
-          <div style="height:54px;border-radius:16px;background:#18a957;color:#fff;font:700 15px Inter;display:grid;place-items:center">Confirm with passkey</div>
-        </div></div>
-      <div class="view mv off" data-s="2" style="background:#08090B;color:#ECEEF2"><div class="sb" style="background:#0B0D10;color:#ECEEF2"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
-        <div style="display:flex;gap:9px;align-items:center;padding:6px 12px 10px;background:#0B0D10;border-bottom:1px solid rgba(255,255,255,.07)"><span style="width:32px;height:32px;border-radius:50%;background:#15171D;color:#3FE08F;font:800 12px Inter;display:grid;place-items:center">$_</span><div><div style="font:700 14px Inter">Astro</div><div style="font:600 10px Inter;color:#9396A0">@astro · trading desk · online</div></div></div>
-        <div style="padding:14px 12px;display:flex;flex-direction:column;gap:8px">
-          <div class="bub me">Swap half my SOL to USDC</div><div class="bub them">Here's the plan. Nothing moves until you approve.</div>
-          <div style="border:1px solid rgba(255,255,255,.07);border-radius:10px;background:rgba(0,0,0,.24);overflow:hidden">
-            <div style="display:flex;gap:10px;align-items:center;padding:9px;border-bottom:1px solid rgba(255,255,255,.07)"><span style="width:34px;height:34px;border-radius:10px;background:rgba(63,224,143,.1);color:#3FE08F;display:grid;place-items:center"><svg width="16" height="16"><use href="#i-swap"/></svg></span><div><div style="font:800 9px Inter;letter-spacing:.8px;color:#3FE08F">SWAP</div><div style="font:800 14px Inter">0.5 SOL to USDC</div><div style="font:600 9.5px Inter;color:#9396A0">≈ 81.20 USDC · within your caps</div></div></div>
-            <div style="display:flex;gap:7px;padding:9px"><span style="flex:1;min-height:38px;border-radius:12px;background:#1B1E25;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font:700 12.5px Inter">Reject</span><span style="flex:1.4;min-height:38px;border-radius:12px;background:#3FE08F;color:#08090B;display:grid;place-items:center;font:800 12.5px Inter">✓ Approve swap</span></div>
-          </div>
-          <div class="bub them">Also works in Claude and ChatGPT through the Swop MCP.</div>
-        </div></div>
-    </div></div></div>
+    <div class="afstage" id="afStage">
+      <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+      <div class="afleft">
+        <div class="cmd"><span class="cmdav" id="afWho"></span><span class="cmdtx"><span id="afIntent"></span><i class="caret"></i></span><span class="cmdgo">↑</span></div>
+        <ol class="steps" id="afSteps"></ol>
+        <div class="ckpt" id="afCk"><div class="ckh"><span class="ckdot"></span>Checkpoint · <span id="afCkWho">needs you</span></div><div class="ckt" id="afCkT"></div>
+          <div class="ckb"><span class="ckno">Not now</span><span class="ckyes" id="afYes">Approve</span></div></div>
+      </div>
+      <div class="afright"><div class="result" id="afRes"></div><div class="guard"><span>✓ Your caps</span><span>✓ Your approval</span><span>✓ Every step shown</span></div></div>
+    </div>
+    <p class="afnote">Ask today in Claude or ChatGPT through the Swop MCP <span class="st live">Live</span>, or in the Swop app.</p>
   </div>
 </section>
 
@@ -729,7 +867,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
       <div class="syscopy">
         <span class="lab">The Swop system</span>
         <h2>Every Swop product, <span class="green">in one orbit.</span></h2>
-        <p class="sysdek"><b id="sysCount">0</b> products around one name, from live today to what's next, sorted by what they do.</p>
+        <p class="sysdek"><b id="sysCount">0</b> products around one name, from live today to what's next. Hover to pause, tap a planet to learn more.</p>
         <div class="legend" id="legend"></div>
         <div class="chips" id="chips"></div>
         <div class="spanel" id="spanel" aria-live="polite"></div>
@@ -843,51 +981,48 @@ $$('#ringd,.ringd2').forEach(r=>['i-x','i-ig','i-tt','i-yt','i-tg','i-globe'].fo
 
 /* ---------- the swop system ---------- */
 const ST={live:['Live today','#3FE08F'],beta:['Beta','#38bdf8'],building:['Building now','#f5c842'],planned:['Planned','#c084fc']};
-const CATS=[{k:'id',n:'Identity & social',r:.42,t:'80s'},{k:'money',n:'Money',r:.6,t:'110s'},{k:'ai',n:'AI',r:.75,t:'140s'},{k:'world',n:'Worlds',r:.85,t:'170s'},{k:'infra',n:'Infrastructure',r:.98,t:'210s'}];
+const CATS=[{k:'id',n:'Identity',r:.40,w:.045},{k:'money',n:'Money',r:.60,w:-.032},{k:'ai',n:'AI & worlds',r:.78,w:.024},{k:'infra',n:'Infrastructure',r:.95,w:-.017}];
 const PR=[
- ['id','swop.id','live','Your name on Swop: your page, your payment address and your login.'],
- ['id','SmartSite','live','Your public page with links, a shop, your feed and your trades.'],
+ ['id','swop.id & SmartSite','live','Your name and your page: links, a shop, your feed and your trades. Pay it, follow it, log in with it.'],
  ['id','Swop app','live','Feed, wallet, messages and profile on iOS, Android and the web.'],
- ['id','Feed & messages','live','Post, follow and message. Trades and sales show up where your people are.'],
  ['id','Swop Live','live','Go live from your phone or browser and sell while you stream.'],
- ['id','NFC cards','live','Tap a card and your SmartSite opens.'],
- ['money','Checkout','live','One link to sell anything. Any token or card in, USDC out, 0.5% fee.'],
- ['money','Agent payments (x402)','live','AI agents pay your links in USDC on their own, inside their owner\u2019s caps.'],
+ ['money','Checkout & x402','live','One link to sell anything. People pay by card or any token; AI agents pay with x402. You get USDC.'],
  ['money','Wallet & send','live','Hold, send and swap on five chains. Pay a name in ~2s, network fee sponsored.'],
- ['money','Trading','live','Swaps, perps and prediction markets in one wallet.'],
- ['money','Copy trade','live','Copy a friend\u2019s trade from your feed; they earn SWOP when you do.'],
- ['money','SWOP token','live','Powers the ecosystem: AI credits, rewards, and El Dorado\u2019s currency.'],
+ ['money','Trading','live','Swaps, perps and prediction markets in one wallet, with copy trading from your feed.'],
+ ['money','SWOP token','live','Powers the ecosystem: AI credits, rewards and El Dorado’s currency.'],
  ['money','Geo Bucks','building','Local store credit and real-world drops from merchants near you.'],
- ['money','Decentrabet','building','Peer-to-peer prediction markets you\u2019ll sign into with your swop.id.'],
+ ['money','Decentrabet','building','Peer-to-peer prediction markets you’ll sign into with your swop.id.'],
  ['ai','Swop MCP','live','Swop inside Claude and ChatGPT: check balances, sell and pay within your caps.'],
- ['ai','In-app agents','beta','Trading-desk and vault agents that propose moves you approve.'],
- ['ai','Ovi','building','Swop\u2019s own AI. Text it to send, swap or ask anything.'],
+ ['ai','Ovi & agents','beta','Swop’s AI and in-app agents that propose moves you approve.'],
+ ['ai','El Dorado','beta','The virtual world of Swop: your page is a house, AI bots run real businesses.'],
  ['ai','Vertical AIs','building','Focused AI products on Swop, like Game Film AI and Chalk.'],
- ['world','El Dorado','beta','The virtual world of Swop: your page is a house, AI bots run real businesses.'],
  ['infra','Swivy','building','Our own login and wallet platform, so one swop.id works in every app.'],
- ['infra','RPC gateway','building','Our own door to the blockchains, replacing rented providers.'],
- ['infra','Own nodes','building','Swop-run blockchain nodes and data indexers.'],
+ ['infra','RPCs & nodes','building','Our own gateway, nodes and indexers, replacing rented providers.'],
  ['infra','Swop Chain','planned','A chain for identity and reputation, with a personal data vault.']];
 const orr=$('#orrery'),planets=[],cards=[];let sysCat=null,sysSel=null;
 $('#sysCount').textContent=PR.length;
 $('#legend').innerHTML=Object.entries(ST).map(([k,[n,c]])=>`<span style="--c:${c}"><i></i>${n} · ${PR.filter(p=>p[2]===k).length}</span>`).join('');
 $('#chips').innerHTML=`<button class="chip" data-k="" aria-pressed="true">All</button>`+CATS.map(c=>`<button class="chip" data-k="${c.k}" aria-pressed="false">${c.n}</button>`).join('');
-CATS.forEach((c,ci)=>{const o=document.createElement('div');o.className='orbit';o.dataset.k=c.k;const d=c.r*100;o.style.width=d+'%';o.style.height=d+'%';o.style.left=o.style.top=(50-d/2)+'%';o.style.setProperty('--t',c.t);
- o.innerHTML=`<span class="rlab">${esc(c.n)}</span><div class="spin"></div>`;orr.insertBefore(o,orr.firstChild);
- const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);const off=ci*0.7;
- items.forEach(([p,i],j)=>{const a=off+j*2*Math.PI/items.length;const b=document.createElement('button');b.type='button';b.className='pl';
-  b.style.left=(50+50*Math.cos(a))+'%';b.style.top=(50+50*Math.sin(a))+'%';b.style.setProperty('--c',ST[p[2]][1]);b.style.setProperty('--t',c.t);b.style.setProperty('--sz',(p[1]==='SWOP token'?18:p[2]==='live'?14:12)+'px');
-  b.innerHTML=`<b><i></i><span>${esc(p[1])}</span></b>`;b.setAttribute('aria-label',p[1]);b.addEventListener('click',()=>selP(i));o.querySelector('.spin').appendChild(b);planets[i]=b})});
+const PL=[];
+CATS.forEach((c,ci)=>{const o=document.createElement('div');o.className='orbit';o.dataset.k=c.k;const d=c.r*100;o.style.width=d+'%';o.style.height=d+'%';o.style.left=o.style.top=(50-d/2)+'%';orr.insertBefore(o,orr.firstChild);
+ const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);const off=[-1.2,-.4,.5,1.4][ci];
+ items.forEach(([p,i],j)=>{const b=document.createElement('button');b.type='button';b.className='pl';b.dataset.k=c.k;b.style.setProperty('--c',ST[p[2]][1]);
+  b.innerHTML=`<i></i><span>${esc(p[1])}</span>`;b.setAttribute('aria-label',p[1]);b.addEventListener('click',()=>selP(i));orr.appendChild(b);planets[i]=b;
+  PL.push({b,r:c.r/2,a:off+j*2*Math.PI/items.length,w:c.w})})});
+let hoverO=false;orr.addEventListener('pointerenter',()=>hoverO=true);orr.addEventListener('pointerleave',()=>hoverO=false);
+let lastT=performance.now();(function spinP(t){const dt=Math.min(.05,(t-lastT)/1000);lastT=t;
+ for(const q of PL){if(!hoverO&&!reduce)q.a+=q.w*dt;q.b.style.left=(50+100*q.r*Math.cos(q.a))+'%';q.b.style.top=(50+100*q.r*Math.sin(q.a))+'%'}
+ requestAnimationFrame(spinP)})(lastT);
 const list=$('#syslist');
-CATS.forEach(c=>{const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);
- list.insertAdjacentHTML('beforeend',`<div class="sgrp" data-k="${c.k}"><h3>${esc(c.n)}</h3><span>(${items.length})</span></div>`);
- items.forEach(([p,i])=>{const b=document.createElement('button');b.type='button';b.className='scard';b.dataset.k=c.k;b.style.setProperty('--c',ST[p[2]][1]);
-  b.innerHTML=`<small>${ST[p[2]][0]}</small><b>${esc(p[1])}</b><span>${esc(p[3])}</span>`;b.addEventListener('click',()=>{selP(i);orr.scrollIntoView({behavior:'smooth',block:'center'})});list.appendChild(b);cards[i]=b})});
+CATS.forEach(c=>{const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);const col=document.createElement('div');col.className='scol';col.dataset.k=c.k;
+ col.innerHTML=`<h4>${esc(c.n)} <span>${items.length}</span></h4>`;
+ items.forEach(([p,i])=>{const b=document.createElement('button');b.type='button';b.className='sitem';b.style.setProperty('--c',ST[p[2]][1]);
+  b.innerHTML=`<i></i>${esc(p[1])}<small>${ST[p[2]][0]}</small>`;b.addEventListener('click',()=>selP(i));col.appendChild(b);cards[i]=b});list.appendChild(col)});
 function selP(i){sysSel=i;const p=PR[i];planets.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));cards.forEach((c,j)=>c.classList.toggle('on',j===i));
  $('#spanel').innerHTML=`<span class="cat">${esc(CATS.find(c=>c.k===p[0]).n)}</span><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h3>${esc(p[1])}</h3><span class="st" style="color:${ST[p[2]][1]}">${ST[p[2]][0]}</span></div><p>${esc(p[3])}</p>`}
 function setCat(k){sysCat=k||null;$$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.k||'')===(k||'')));
  $$('#orrery .orbit').forEach(o=>{o.classList.toggle('dim',!!k&&o.dataset.k!==k);o.classList.toggle('hot',!!k&&o.dataset.k===k)});
- $$('#syslist .scard,#syslist .sgrp').forEach(c=>c.classList.toggle('dim',!!k&&c.dataset.k!==k));
+ $$('#syslist .scol').forEach(c=>c.classList.toggle('dim',!!k&&c.dataset.k!==k));$$('#orrery .pl').forEach(b=>b.classList.toggle('dim',!!k&&b.dataset.k!==k));
  if(k){const first=PR.findIndex(p=>p[0]===k);if(first>=0)selP(first)}}
 $$('#chips .chip').forEach(b=>b.addEventListener('click',()=>setCat(b.dataset.k)));
 selP(0);
@@ -931,6 +1066,58 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
   act.insertAdjacentHTML('afterbegin',row(x,true));while(act.children.length>3)act.lastElementChild.remove();
   const n=parseFloat(x.v.replace('+',''));if(!isNaN(n)){bal+=n;$('#hBal').textContent='$'+bal.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}}
  push();if(!reduce)setInterval(()=>{if(!document.hidden&&scrollY<innerHeight*1.2)push()},2600)})();
+
+/* bento interactions + live visuals */
+(()=>{const link=(t,on)=>{$$(`[data-t="${t}"]`).forEach(e=>e.classList.toggle('hot',on))};
+ $$('#sent .ph,#bento .bt').forEach(e=>{e.addEventListener('mouseenter',()=>link(e.dataset.t,true));e.addEventListener('mouseleave',()=>link(e.dataset.t,false))});
+ const P=[['Kofi','sold out the Night Hoodie in an hour 🎯','#ffd0a6','♥ 48'],['Lena','tipped maya.swop.id 5 USDC','#ffb3c7','♥ 21'],['Dev','opened a SOL perp · 2x','#b9d5ff','♥ 12'],
+  ['Ana','copied Kofi\u2019s trade','#c7f0dc','♥ 33'],['An AI agent','bought a Sunset Print · 12 USDC','#e2d4ff','♥ 9'],['Sam','dropped a new collection','#ffe7a3','♥ 64']];
+ const fv=$('#feedviz');let k=0;function add(){const p=P[k++%P.length];const d=document.createElement('div');d.className='fpost';
+  d.innerHTML=`<span class="fa" style="background:${p[2]}"></span><div><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div><em>${p[3]}</em>`;fv.prepend(d);while(fv.children.length>6)fv.lastElementChild.remove()}
+ for(let i=0;i<4;i++)add();if(!reduce)setInterval(()=>{if(!document.hidden)add()},2200);
+ const t2=$('.t2');
+ const sv=$('.triad');function placeNodes(){const r=sv.getBoundingClientRect(),tr=t2.getBoundingClientRect();const pts=[[150,40],[55,165],[245,165]];
+  $$('.tnode').forEach((n,i)=>{n.style.left=(r.left-tr.left+pts[i][0]/300*r.width)+'px';n.style.top=(r.top-tr.top+pts[i][1]/210*r.height)+'px'})}
+ placeNodes();addEventListener('resize',placeNodes);setTimeout(placeNodes,600);
+
+ const io=new IntersectionObserver((es)=>es.forEach(e=>{if(!e.isIntersecting||e.target.classList.contains('in'))return;e.target.classList.add('in');
+  if(e.target.classList.contains('t4')){const tgt=1284.5,t0=performance.now();(function tick(t){const f=Math.min(1,(t-t0)/1600),v=tgt*(1-Math.pow(1-f,3));
+   $('#earnN').textContent='$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});if(f<1)requestAnimationFrame(tick)})(t0)}
+  if(e.target.classList.contains('t2'))placeNodes()}),{threshold:.3});
+ $$('.bt').forEach(b=>io.observe(b))})();
+
+/* agent-flow infographic */
+(()=>{const CHK='<svg width="16" height="16"><use href="#i-check"/></svg>';
+ const F=[
+ {who:'You',av:'#0a0a0c',intent:'Send Maya $25 for the hoodie',
+  steps:[['Found maya.swop.id','Maya Lee · Solana + EVM wallets'],['Picked USDC from your wallet','balance 1,240.50 USDC'],['Network fee covered','$0.02 → $0.00 · sponsored']],
+  ck:'Send 25 USDC to maya.swop.id?',ckWho:'needs you',yes:'Confirm with passkey',
+  res:`<div class="rk">${CHK} Sent</div><div class="rbig">25.00 USDC</div><div class="rrow2"><span>To</span><b>maya.swop.id</b></div><div class="rrow2"><span>Arrived in</span><b>1.9 seconds</b></div><div class="rrow2"><span>Network fee</span><b style="color:#0a9f55">$0.00</b></div>`},
+ {who:'Shop',av:'#0a9f55',intent:'Sell my Night Hoodie for $25',
+  steps:[['Created the product','Night Hoodie · $25.00 · sizes S–XL'],['Added it to your SmartSite','maya.swop.id › Shop'],['Made one pay link','card · any token · AI agents (x402)']],
+  ck:'Publish Night Hoodie to your page?',ckWho:'needs you',yes:'Publish',
+  res:`<div class="rk">${CHK} Live</div><div class="rprod"><i><svg viewBox="0 0 88 18" width="44" style="color:#3FE08F"><use href="#swop"/></svg></i><div><b>Night Hoodie</b><span>maya.swop.id/hoodie</span></div></div><div class="rpay"><span>Card</span><span>Apple Pay</span><span>Any token</span><span>AI agents · x402</span></div><div class="rrow2"><span>You receive</span><b>USDC</b></div><div class="rrow2"><span>Swop fee</span><b>0.5%, buyer pays list price</b></div>`},
+ {who:'AI',av:'#7c3aed',intent:'Buy Maya’s hoodie in medium',
+  steps:[['Found it on maya.swop.id','Night Hoodie · $25.00 · M in stock'],['Checked the owner’s caps','$25 of $100 daily · per-payment limit OK'],['Prepared an x402 payment','25.00 USDC on Base']],
+  ck:'Owner approves the purchase',ckWho:'owner’s rules',yes:'Approve',
+  res:`<div class="rk">${CHK} Order confirmed</div><div class="rbig">25.00 USDC</div><div class="rrow2"><span>Paid by</span><b>an AI assistant</b></div><div class="rrow2"><span>Method</span><b>x402 · Base</b></div><div class="rrow2"><span>Within caps</span><b style="color:#0a9f55">Yes · $25 of $100</b></div>`}];
+ const tabs=$$('#afTabs button'),segk=$('#segk');let cur=0,run=0,user=false,visible=false;
+ function moveK(i){const b=tabs[i];segk.style.width=b.offsetWidth+'px';segk.style.transform=`translateX(${b.offsetLeft-5}px)`}
+ const sl=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
+ async function play(i){const id=++run;cur=i;tabs.forEach((b,j)=>b.setAttribute('aria-selected',j===i));moveK(i);const f=F[i];
+  $('#afWho').textContent=f.who;$('#afWho').style.background=f.av;$('#afIntent').textContent='';
+  $('#afSteps').innerHTML=f.steps.map(s=>`<li><span class="si"></span><div><b>${esc(s[0])}</b><code>${esc(s[1])}</code></div></li>`).join('');
+  $('#afCk').classList.remove('show');$('#afRes').classList.remove('show');$('#afCkT').textContent=f.ck;$('#afCkWho').textContent=f.ckWho;$('#afYes').textContent=f.yes;$('#afYes').classList.remove('press');
+  for(let k=1;k<=f.intent.length;k++){if(id!==run)return;$('#afIntent').textContent=f.intent.slice(0,k);await sl(34)}
+  await sl(350);const li=$$('#afSteps li');
+  for(const l of li){if(id!==run)return;l.classList.add('on');await sl(850);l.classList.remove('on');l.classList.add('done')}
+  if(id!==run)return;$('#afCk').classList.add('show');await sl(1300);if(id!==run)return;$('#afYes').classList.add('press');await sl(350);
+  $('#afRes').innerHTML=f.res;$('#afRes').classList.add('show');await sl(4200);
+  if(id===run&&!user&&visible&&!reduce)play((i+1)%F.length)}
+ tabs.forEach(b=>b.addEventListener('click',()=>{user=true;play(+b.dataset.i)}));
+ addEventListener('resize',()=>moveK(cur));
+ new IntersectionObserver(es=>{visible=es[0].isIntersecting;if(visible&&run===0)play(0)},{threshold:.35}).observe($('#afStage'));
+ moveK(0)})();
 /* nav background */
 addEventListener('scroll',()=>$('#nav').classList.toggle('solid',scrollY>40),{passive:true});
 
@@ -954,8 +1141,8 @@ if(!mobile){const ft=gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top to
 gsap.timeline({scrollTrigger:{trigger:'#you',start:'top top',end:'+=140%',pin:true,scrub:true,onUpdate:s=>heroP=s.progress}})
  .to('#youTop',{opacity:0,y:-40,duration:.25},.05).to('#formed',{opacity:1,duration:.15},.62).to({},{duration:.25});
 
-/* 2 the sentence, decoded */
-$$('.drow').forEach(r=>gsap.fromTo(r,{opacity:.15,x:-30},{opacity:1,x:0,ease:'none',scrollTrigger:{trigger:r,start:'top 85%',end:'top 55%',scrub:true}}));
+/* 2 bento: staggered reveal */
+gsap.from('.bt',{y:40,opacity:0,duration:.8,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'#bento',start:'top 80%'}});
 
 /* 3 meet maya */
 const mt=gsap.timeline({scrollTrigger:{trigger:'#maya',start:'top top',end:'+=220%',pin:true,scrub:.6,
@@ -982,18 +1169,9 @@ gsap.timeline({scrollTrigger:{trigger:'#dwrap',start:'top top',end:()=>'+='+dist
    $('#balAmt').textContent='$'+(1215.63+24.875*clamp((p-.86)/.1)).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}}})
  .to(track,{x:()=>-dist(),ease:'none'});
 
-/* 5 members: persona switcher */
-const MB=[["Pay friends at their swop.id in ~2s, network fee sponsored","Swaps, perps and predictions in one wallet","Copy a friend's trade straight from your feed"],
- ["Any product becomes a link you can post anywhere","Buyers pay by card, Apple Pay or any token; you get USDC","Checkout on your own site, with webhooks"],
- ["Swop inside Claude and ChatGPT through the Swop MCP · live","Trading and vault agents in the app · beta","Spending caps you set; every move needs your approval"]];
-let memI=-1;function setMem(i){if(i===memI)return;memI=i;$$('#memtabs .mt').forEach((b,j)=>b.setAttribute('aria-selected',j===i));
- $$('#members .mv').forEach(v=>v.classList.toggle('off',+v.dataset.s!==i));$('#membul').innerHTML=MB[i].map(t=>`<li>${esc(t)}</li>`).join('')}
-setMem(0);$$('#memtabs .mt').forEach(b=>b.addEventListener('click',()=>setMem(+b.dataset.i)));
-if(!mobile)ScrollTrigger.create({trigger:'#memPin',start:'top 90px',end:'+=180%',pin:true,onUpdate:s=>setMem(Math.min(2,Math.floor(s.progress*3)))});
-
 /* 7 system: orbits grow in, planets fade in */
 new IntersectionObserver((es,ob)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ob.disconnect()}}),{threshold:.2}).observe($('#orrery'));
-gsap.from('#syslist .scard',{y:24,opacity:0,stagger:.03,duration:.5,ease:'power2.out',scrollTrigger:{trigger:'#syslist',start:'top 85%'}});
+
 
 /* 8 marquee */
 gsap.fromTo('#mq1',{xPercent:0},{xPercent:-30,ease:'none',scrollTrigger:{trigger:'#nums',start:'top bottom',end:'bottom top',scrub:true}});
