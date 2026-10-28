@@ -650,6 +650,48 @@ section.blk{padding-block:110px}
 footer{padding-block:40px 60px;color:var(--fg3);font-size:13px}
 footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 
+
+/* ===== phone pass ===== */
+.hps{display:none}
+.blob{filter:none!important}
+.blob.b1{background:radial-gradient(closest-side,rgba(63,224,143,.38),rgba(63,224,143,0))!important}
+.blob.b2{background:radial-gradient(closest-side,rgba(76,130,255,.2),rgba(76,130,255,0))!important}
+@media (max-width:700px){
+  nav.top .wrap{height:58px;gap:14px}
+  nav.top .btn-g{padding:9px 13px;font-size:11.5px;border-radius:10px}
+  .navshop{font-size:14px}
+  .wm{width:74px;height:16px}
+  .hpl{display:none}.hps{display:inline}
+  .hpill{font-size:12.5px;padding:6px 12px}
+  .h2wrap{padding-top:84px}
+  .htop{gap:18px}
+  .hcta{gap:8px;width:100%}
+  .sbtn{flex:1 1 0;justify-content:center;padding:10px 12px}
+  .sbtn b{font-size:15px}
+  .fan{height:470px;margin-top:28px}
+  .blob.b1{width:120%;height:360px;top:30px}
+  #hero .toasts{width:calc(100vw - 40px);max-width:330px;top:44px}
+  #hero .toast{padding:8px 10px;border-radius:16px}
+  #hero .toast b{font-size:12.5px}#hero .toast span{font-size:11.5px}
+  .hben{margin-top:-30px}
+  .hb b{font-size:19px}
+  /* follow $25: one full-width step per screen */
+  .dpanel{width:100vw;padding-left:20px;padding-right:20px;min-height:0}
+  .dtrack{padding-left:0}
+  .dpanel h3{font-size:clamp(30px,8.6vw,40px)}
+  .dpanel p{font-size:16px}
+  .feeviz{font-size:28px}
+  /* system: map first, then spotlight */
+  .sysgrid{display:flex;flex-direction:column;gap:22px}
+  .syscopy{display:contents}
+  .syscopy>.lab,.syscopy>h2,.syscopy>.sysdek,.syscopy>.legend,.syscopy>.chips{order:0}
+  .orrery{order:1;max-width:100%}
+  .spanel{order:2}
+  .pl span{display:none!important}
+  .pl{padding:4px!important}
+  .sun b{font-size:11px}
+  .syslist{gap:18px;margin-top:30px}
+}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -683,7 +725,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <header id="hero" class="light">
   <div class="h2wrap gut">
     <div class="htop">
-      <span class="hpill"><i></i>The social network for people, businesses &amp; AI agents</span>
+      <span class="hpill"><i></i><span class="hpl">The social network for people, businesses &amp; AI agents</span><span class="hps">For people, businesses &amp; AI agents</span></span>
       <h1 class="hh">Own your identity.<br>Own your data.<br><mark>Earn from it.</mark></h1>
       <div class="hcta">
         <a class="sbtn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
@@ -985,6 +1027,7 @@ $('#claimForm').addEventListener('submit',e=>{e.preventDefault();location.href='
 const cv=$('#pfx'), cx=cv.getContext('2d');
 const N=mobile?1100:2600;
 let W,H,DPR,P=[],textPts=[],heroP=0,rot=0;
+const onScreen={};const watchVis=(el,key)=>{if(!el)return;new IntersectionObserver(es=>{onScreen[key]=es[0].isIntersecting},{rootMargin:'200px'}).observe(el)};
 const COLS=['#00ff88','#00ff88','#00ff88','#7dffc0','#38bdf8','#c084fc','#f5c842'];
 function size(){DPR=Math.min(2,devicePixelRatio||1);W=cv.offsetWidth;H=cv.offsetHeight;cv.width=W*DPR;cv.height=H*DPR;cx.setTransform(DPR,0,0,DPR,0,0);buildText()}
 function initP(){P=[];for(let i=0;i<N;i++){const y=1-(i/(N-1))*2,r=Math.sqrt(1-y*y),th=i*2.399963;
@@ -995,7 +1038,7 @@ function buildText(){if(!W)return;const oc=document.createElement('canvas'),ox=o
   for(let y=0;y<H;y+=step)for(let x=0;x<W;x+=step)if(d[(y*W+x)*4+3]>128)pts.push([x,y]);
   for(let i=pts.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[pts[i],pts[j]]=[pts[j],pts[i]]}
   textPts=pts;P.forEach((p,i)=>{const t=pts.length?pts[i%pts.length]:[W/2,H/2];p.tx=t[0]+(Math.random()-.5)*1.2;p.ty=t[1]+(Math.random()-.5)*1.2})}
-function frame(now){cx.clearRect(0,0,W,H);rot+=reduce?0:0.0022;const t=ease(clamp((heroP-.08)/.62));const R=Math.min(W,H)*(mobile?.34:.28);
+function frame(now){if(onScreen.you===false&&!reduce){watchVis(document.getElementById('you'),'you');requestAnimationFrame(frame);return}cx.clearRect(0,0,W,H);rot+=reduce?0:0.0022;const t=ease(clamp((heroP-.08)/.62));const R=Math.min(W,H)*(mobile?.34:.28);
   const gx=W*.5,gy=H*.5;const cr=Math.cos(rot),sr=Math.sin(rot),tilt=.35,ct=Math.cos(tilt),st=Math.sin(tilt);
   for(const p of P){let x=p.sx*cr-p.sz*sr,z=p.sx*sr+p.sz*cr,y=p.sy;const y2=y*ct-z*st,z2=y*st+z*ct;const pers=1/(1.8-z2*.6);
    const ax=gx+x*R*pers*1.3,ay=gy+y2*R*pers*1.3;const wob=Math.sin(now*.0015+p.j)*1.2*(1-t);
@@ -1060,7 +1103,7 @@ CATS.forEach((c,ci)=>{const o=document.createElement('div');o.className='orbit';
   b.innerHTML=`<i>${svgI(p[4],13)}</i><span>${esc(p[1])}</span>`;b.setAttribute('aria-label',p[1]);b.addEventListener('click',()=>selP(i));orr.appendChild(b);planets[i]=b;
   PL.push({b,i,r:c.r/2,a:(ANG[c.k][j]??(j*360/items.length))*Math.PI/180,ph:ci*1.3})})});
 let hoverO=false;orr.addEventListener('pointerenter',()=>hoverO=true);orr.addEventListener('pointerleave',()=>hoverO=false);
-let simT=0,lastT=performance.now();(function spinP(t){const dt=Math.min(.05,(t-lastT)/1000);lastT=t;if(!hoverO&&!reduce)simT+=dt;
+let simT=0,lastT=performance.now();(function spinP(t){const dt=Math.min(.05,(t-lastT)/1000);lastT=t;if(onScreen.sys===false){requestAnimationFrame(spinP);return}if(!hoverO&&!reduce)simT+=dt;
  for(const q of PL){const a=q.a+0.07*Math.sin(simT*.35+q.ph);q.x=50+100*q.r*Math.cos(a);q.y=50+100*q.r*Math.sin(a);q.b.style.left=q.x+'%';q.b.style.top=q.y+'%';
   if(q.i===sysSel){const L=document.getElementById('sysL');L.setAttribute('x2',q.x);L.setAttribute('y2',q.y)}}
  requestAnimationFrame(spinP)})(lastT);
@@ -1084,7 +1127,7 @@ $$('#chips .chip').forEach(b=>b.addEventListener('click',()=>setCat(b.dataset.k)
 selP(0);
 /* starfield */
 (()=>{const c=$('#stars');if(!c)return;const x=c.getContext('2d');let st=[];function sz(){c.width=c.offsetWidth;c.height=c.offsetHeight;st=Array.from({length:Math.round(c.width*c.height/5000)},()=>[Math.random()*c.width,Math.random()*c.height,Math.random()*1.3+.2,Math.random()*6])}
- sz();addEventListener('resize',sz);function d(t){x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.25+.55*(.5+.5*Math.sin(t*.001+s[3]));x.fillStyle='#fff';x.fillRect(s[0],s[1],s[2],s[2])}if(!reduce)requestAnimationFrame(d)}requestAnimationFrame(d)})();
+ sz();addEventListener('resize',sz);watchVis(document.getElementById('system'),'sys');function d(t){if(onScreen.sys===false){requestAnimationFrame(d);return}x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.25+.55*(.5+.5*Math.sin(t*.001+s[3]));x.fillStyle='#fff';x.fillRect(s[0],s[1],s[2],s[2])}if(!reduce)requestAnimationFrame(d)}requestAnimationFrame(d)})();
 
 /* ---------- FAQ ---------- */
 const QA=[['What is Swop, in one line?','Swop is the social network where people, businesses and AI agents own their identity and move value. One swop.id gives you a page, a wallet and a way to get paid ⚡'],
@@ -1130,7 +1173,7 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
   ['Ana','copied Kofi\u2019s trade','#c7f0dc','♥ 33'],['An AI agent','bought a Sunset Print · 12 USDC','#e2d4ff','♥ 9'],['Sam','dropped a new collection','#ffe7a3','♥ 64']];
  const fv=$('#feedviz');let k=0;function add(){const p=P[k++%P.length];const d=document.createElement('div');d.className='fpost';
   d.innerHTML=`<span class="fa" style="background:${p[2]}"></span><div><b>${esc(p[0])}</b><span>${esc(p[1])}</span></div><em>${p[3]}</em>`;fv.prepend(d);while(fv.children.length>6)fv.lastElementChild.remove()}
- for(let i=0;i<4;i++)add();if(!reduce)setInterval(()=>{if(!document.hidden)add()},2200);
+ for(let i=0;i<4;i++)add();watchVis(fv,'feed');if(!reduce)setInterval(()=>{if(!document.hidden&&onScreen.feed)add()},2200);
  const t2=$('.t2');
  const sv=$('.triad');function placeNodes(){const r=sv.getBoundingClientRect(),tr=t2.getBoundingClientRect();const pts=[[150,40],[55,165],[245,165]];
   $$('.tnode').forEach((n,i)=>{n.style.left=(r.left-tr.left+pts[i][0]/300*r.width)+'px';n.style.top=(r.top-tr.top+pts[i][1]/210*r.height)+'px'})}
@@ -1214,7 +1257,7 @@ mt.fromTo('#mphone',{rotateY:-24,rotateX:8,y:60},{rotateY:0,rotateX:0,y:0,durati
 
 /* 4 follow a dollar: horizontal */
 const track=$('#dtrack');
-const dist=()=>track.scrollWidth-innerWidth+ (innerWidth*.12);
+const dist=()=>track.scrollWidth-innerWidth+(mobile?0:innerWidth*.12);
 const fmt=v=>'$'+v.toFixed(2);
 gsap.timeline({scrollTrigger:{trigger:'#dwrap',start:'top top',end:()=>'+='+dist(),pin:true,scrub:.5,invalidateOnRefresh:true,
   onUpdate:s=>{const p=s.progress;$('#dfill').style.width=(p*100)+'%';
