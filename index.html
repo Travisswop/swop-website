@@ -119,6 +119,8 @@ nav.top .links a:hover,.navshop:hover{color:#fff}
 .toast em{font-style:normal;font:500 11px Inter;color:#777;align-self:start}
 @keyframes tin{from{opacity:0;transform:translateY(-24px) scale(.96)}to{opacity:1;transform:none}}
 @keyframes tout{to{opacity:0;transform:translateY(-14px) scale(.96)}}
+.trow2{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:8px 16px;border-top:1px solid rgba(0,0,0,.06);font-family:Inter}
+.trow2 .tl{width:30px;height:30px}.trow2 b{display:block;font:600 13px Inter}.trow2 small{display:block;font:400 10px 'JetBrains Mono';color:#6e6e76}.trow2 em{font-style:normal;font:600 10.5px 'JetBrains Mono';color:#19a974;background:rgba(25,169,116,.1);border-radius:999px;padding:2px 7px}
 .act{width:40px;height:30px;border-radius:10px;background:#F1F1EF;display:grid;place-items:center;font-size:13px}
 .arow{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 14px;border-top:1px solid rgba(0,0,0,.05);font-family:Inter}
 .arow .ai{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 12px Inter;color:#fff}
@@ -594,6 +596,33 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .sitem i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
 .sitem small{grid-column:2;font:500 11.5px Inter;color:var(--fg3)}
 .sitem:hover,.sitem.on{background:rgba(255,255,255,.07)}
+
+.sysline{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:visible}
+.pl{padding:4px 12px 4px 4px!important}
+.pl i{width:24px!important;height:24px!important;display:grid!important;place-items:center;color:#05070a;border-radius:50%;background:var(--c)!important;box-shadow:0 0 0 3px rgba(5,7,10,.9),0 0 14px var(--c)!important}
+.pl span{font:600 13px Inter!important}
+.spanel{position:relative;overflow:hidden;border-radius:24px;padding:22px!important;gap:14px!important;min-height:0!important;
+  background:linear-gradient(160deg,color-mix(in srgb,var(--cc,#3FE08F) 16%,#0b0d12),#0b0d12 70%)!important;border:1px solid color-mix(in srgb,var(--cc,#3FE08F) 35%,transparent)!important;
+  box-shadow:0 30px 70px -30px color-mix(in srgb,var(--cc,#3FE08F) 45%,transparent)}
+.spanel.swap{animation:spin3 .5s cubic-bezier(.2,.8,.2,1)}
+@keyframes spin3{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.sph{display:flex;align-items:center;gap:14px}
+.spi{width:56px;height:56px;border-radius:16px;display:grid;place-items:center;color:#05070a;background:linear-gradient(135deg,var(--cc),color-mix(in srgb,var(--cc) 55%,#fff));box-shadow:0 10px 30px color-mix(in srgb,var(--cc) 40%,transparent);flex:none}
+.spc{display:block;font:700 10.5px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}
+.sph h3{font-size:28px!important;line-height:1.05}
+.spp{font-size:16px!important;color:var(--fg2)}
+.spf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.spf div{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px;display:grid;gap:3px;align-content:start}
+.spf b{font:800 17px var(--display);letter-spacing:-.02em;color:#fff;line-height:1.1}
+.spf span{font:500 12px Inter;color:var(--fg3);line-height:1.35}
+@media (max-width:520px){.spf{grid-template-columns:1fr}}
+.spx{display:flex;align-items:center;gap:8px;font:600 13px Inter;color:var(--fg2)}
+.spsun{width:14px;height:14px;border-radius:50%;background:#3FE08F;box-shadow:0 0 10px #3FE08F;flex:none}
+.spline{width:34px;height:2px;background:repeating-linear-gradient(90deg,#3FE08F 0 4px,transparent 4px 7px);flex:none}
+.spdot{width:10px;height:10px;border-radius:50%;background:var(--c);flex:none}
+.spt{margin-left:4px}
+.sitem i{width:24px!important;height:24px!important;display:grid!important;place-items:center;border-radius:8px;background:color-mix(in srgb,var(--c) 18%,transparent)!important;color:var(--c);box-shadow:none!important}
+.sitem{grid-template-columns:24px minmax(0,1fr)!important;column-gap:12px!important}
 /* ===== 8. marquee numbers ===== */
 #nums{padding-block:80px;overflow:hidden;border-block:1px solid var(--line)}
 .mq{white-space:nowrap;font-size:clamp(56px,10vw,150px);font-weight:900;letter-spacing:-.05em;line-height:1.02;will-change:transform}
@@ -705,8 +734,13 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
               <div style="display:flex;justify-content:space-between;align-items:start"><div><div style="font:500 11px -apple-system,Inter;color:#6e6e76">Balance</div><div class="mono" id="hBal" style="font-weight:600;font-size:24px;letter-spacing:-.5px;margin-top:4px">$1,215.63</div></div><span class="pill-d">▲ 2.4%</span></div>
               <div style="display:flex;gap:7px;margin-top:8px"><span class="act">➤</span><span class="act">⤓</span><span class="act">⇆</span><span class="act">•••</span></div>
               <svg viewBox="0 0 200 60" style="width:100%;height:60px;margin-top:8px"><defs><linearGradient id="hg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0a0a0c" stop-opacity=".1"/><stop offset="1" stop-color="#0a0a0c" stop-opacity="0"/></linearGradient></defs><path d="M0 50 C25 48,35 40,55 42 S90 26,115 30 S160 12,200 8 V60 H0Z" fill="url(#hg)"/><path d="M0 50 C25 48,35 40,55 42 S90 26,115 30 S160 12,200 8" fill="none" stroke="#0a0a0c" stroke-width="3.5"/></svg>
+              <div style="position:relative;display:flex;justify-content:center;gap:14px;margin-top:8px;font:500 11px 'JetBrains Mono';color:#A6A6A6"><span>1D</span><span style="font-weight:700;color:#0a0a0c">1W</span><span>1M</span><span>1Y</span><span>All</span>
+                <svg style="position:absolute;right:-2px;top:-4px" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-label="Switch to Ovi wallet"><path d="M4 9 3 3l6 3a9 9 0 0 1 6 0l6-3-1 6v6a8 8 0 0 1-16 0Z"/><circle cx="8" cy="11" r="3"/><circle cx="16" cy="11" r="3"/><circle cx="8" cy="11" r=".7" fill="#111"/><circle cx="16" cy="11" r=".7" fill="#111"/><path d="m10.5 15 1.5 2 1.5-2M8 22v-2m8 2v-2"/></svg></div>
             </div>
-            <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;box-shadow:0 8px 14px rgba(10,10,12,.08);overflow:hidden"><div style="padding:10px 14px;font:600 13px Inter;border-bottom:1px solid rgba(0,0,0,.06)">Activity</div><div id="hAct"></div></div>
+            <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;box-shadow:0 8px 14px rgba(10,10,12,.08);overflow:hidden"><div style="padding:11px 16px;font:600 13.5px -apple-system,Inter;border-bottom:1px solid rgba(0,0,0,.06);display:flex;justify-content:space-between">Tokens · 4<span style="font:500 12px Inter;border:1px solid rgba(0,0,0,.06);border-radius:999px;padding:2px 10px">Manage</span></div>
+              <div class="trow2"><span class="tl" style="background:#2775CA">$</span><span><b>USDC</b><small>1,040.88 USDC</small></span><em>+0.0%</em></div>
+              <div class="trow2"><span class="tl" style="background:linear-gradient(135deg,#9945FF,#14F195)">◎</span><span><b>SOL</b><small>0.92 SOL</small></span><em>+6.1%</em></div>
+              <div class="trow2"><span class="tl" style="background:linear-gradient(135deg,#f5c842,#b7791f)">S</span><span><b>SWOP</b><small>12,500 SWOP</small></span><em>+3.4%</em></div></div>
           </div></div></div>
       </div>
     </div>
@@ -983,43 +1017,65 @@ $$('#ringd,.ringd2').forEach(r=>['i-x','i-ig','i-tt','i-yt','i-tg','i-globe'].fo
 const ST={live:['Live today','#3FE08F'],beta:['Beta','#38bdf8'],building:['Building now','#f5c842'],planned:['Planned','#c084fc']};
 const CATS=[{k:'id',n:'Identity',r:.40,w:.045},{k:'money',n:'Money',r:.60,w:-.032},{k:'ai',n:'AI & worlds',r:.78,w:.024},{k:'infra',n:'Infrastructure',r:.95,w:-.017}];
 const PR=[
- ['id','swop.id & SmartSite','live','Your name and your page: links, a shop, your feed and your trades. Pay it, follow it, log in with it.'],
- ['id','Swop app','live','Feed, wallet, messages and profile on iOS, Android and the web.'],
- ['id','Swop Live','live','Go live from your phone or browser and sell while you stream.'],
- ['money','Checkout & x402','live','One link to sell anything. People pay by card or any token; AI agents pay with x402. You get USDC.'],
- ['money','Wallet & send','live','Hold, send and swap on five chains. Pay a name in ~2s, network fee sponsored.'],
- ['money','Trading','live','Swaps, perps and prediction markets in one wallet, with copy trading from your feed.'],
- ['money','SWOP token','live','Powers the ecosystem: AI credits, rewards and El Dorado’s currency.'],
- ['money','Geo Bucks','building','Local store credit and real-world drops from merchants near you.'],
- ['money','Decentrabet','building','Peer-to-peer prediction markets you’ll sign into with your swop.id.'],
- ['ai','Swop MCP','live','Swop inside Claude and ChatGPT: check balances, sell and pay within your caps.'],
- ['ai','Ovi & agents','beta','Swop’s AI and in-app agents that propose moves you approve.'],
- ['ai','El Dorado','beta','The virtual world of Swop: your page is a house, AI bots run real businesses.'],
- ['ai','Vertical AIs','building','Focused AI products on Swop, like Game Film AI and Chalk.'],
- ['infra','Swivy','building','Our own login and wallet platform, so one swop.id works in every app.'],
- ['infra','RPCs & nodes','building','Our own gateway, nodes and indexers, replacing rented providers.'],
- ['infra','Swop Chain','planned','A chain for identity and reputation, with a personal data vault.']];
+ ['id','swop.id & SmartSite','live','Your name and your page: links, a shop, your feed and your trades.','id',[['1 name','page · wallet · login'],['NFC','tap a card to open it'],['Shop','sell from your page']],'It is your swop.id'],
+ ['id','Swop app','live','Feed, wallet, messages and profile in one app.','app',[['3 platforms','iOS, Android, web'],['Feed + wallet','in one place'],['DMs','wallet to wallet']],'Signs you in as your swop.id'],
+ ['id','Swop Live','live','Go live from your phone or browser and sell while you stream.','live',[['Phone or web','go live anywhere'],['Shop live','viewers buy mid-stream'],['Replays','saved for you']],'Streams from your profile'],
+ ['money','Checkout & x402','live','One link to sell anything, to people and to AI agents.','pay',[['0.5%','fee · buyer pays list price'],['USDC','what you receive'],['Card · token · x402','how buyers pay']],'Pays out to the wallet behind your swop.id'],
+ ['money','Wallet & send','live','Hold, send and swap. Pay a name instead of an address.','wallet',[['5 chains','Solana, ETH, Base, Polygon, Arbitrum'],['~2s','to arrive'],['$0','network fees']],'Anyone can pay your swop.id'],
+ ['money','Trading','live','Swaps, perps and prediction markets in one wallet.','trade',[['Swaps','across 5 chains'],['Perps + predictions','same wallet'],['Copy trade','from your feed']],'Trades post to your feed'],
+ ['money','SWOP token','live','The token that powers the ecosystem.','coin',[['AI credits','pay for Ovi'],['Rewards','copy trades and referrals'],['1:1','El Dorado currency']],'Earn it from your activity'],
+ ['money','Geo Bucks','live','Local store credit and real-world drops from shops near you.','pin',[['Local','credit from nearby shops'],['Drops','real-world rewards'],['In the app','live now']],'Credit lands on your swop.id'],
+ ['money','Decentrabet','beta','Peer-to-peer prediction markets anyone can create.','market',[['P2P','you set the odds'],['Embeds','on any page'],['Beta','try it now']],'You’ll sign in with your swop.id'],
+ ['ai','Swop MCP','live','Swop inside Claude and ChatGPT.','plug',[['2 AIs','Claude and ChatGPT'],['Your caps','per payment and daily'],['Sell · pay · check','from any chat']],'Acts as your swop.id, inside your limits'],
+ ['ai','Ovi','beta','Swop’s AI. It proposes trades and payments, and you approve them.','owl',[['Approve first','nothing moves alone'],['SWOP credits','pay for its thinking'],['Your caps','daily AI spend limit']],'Knows your swop.id and your rules'],
+ ['ai','El Dorado','beta','The virtual world of Swop, where AI bots run real businesses.','world',[['Web + Quest','play anywhere'],['Your house','is your SmartSite'],['AI bots','run real shops']],'Only verified swop.ids get in'],
+ ['ai','Vertical AIs','building','Focused AI products built on Swop.','grid',[['Game Film AI','for sports teams'],['Chalk','for coaches'],['Swop login','and payments']],'Sign in and pay with Swop'],
+ ['infra','Swivy','building','Our own login and wallet platform.','key',[['1 login','across every app'],['Same wallet','everywhere'],['Staging','running now']],'Powers Sign in with Swop'],
+ ['infra','RPCs & nodes','building','Our own door to the blockchains.','server',[['Own gateway','running now'],['Own nodes','next'],['Lower cost','and faster']],'Keeps your swop.id fast and reliable'],
+ ['infra','Swop Chain','planned','A chain for identity, reputation and your data.','chain',[['Identity','and reputation'],['Data vault','that you control'],['Planned','not built yet']],'Your swop.id, verified on chain']];
+const IC={id:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.4-4 12.6-4 14 0"/>',app:'<rect x="6.5" y="2.5" width="11" height="19" rx="3"/><path d="M10.5 18.5h3"/>',
+ live:'<rect x="3" y="6" width="13" height="12" rx="3"/><path d="M16 10l5-3v10l-5-3"/>',pay:'<rect x="3" y="6" width="18" height="12" rx="3"/><path d="M3 10h18M7 15h3"/>',
+ wallet:'<rect x="3" y="6" width="18" height="13" rx="3"/><path d="M16 12.5h2M6 6l9-3 1 3"/>',trade:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6"/>',
+ coin:'<circle cx="12" cy="12" r="8.5"/><path d="M14.5 9.5c-.5-1-1.5-1.5-2.5-1.5-1.7 0-2.8.9-2.8 2s1.1 1.7 2.8 2c1.7.3 2.8.9 2.8 2s-1.1 2-2.8 2c-1 0-2-.5-2.5-1.5M12 6.5v11"/>',
+ pin:'<path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',market:'<circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17M12 12l6-5"/>',
+ plug:'<path d="M8 3v5M16 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4"/>',spark:'<path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/><path d="M19 16l.7 2.3L22 19l-2.3.7L19 22l-.7-2.3L16 19l2.3-.7z"/>',
+ world:'<path d="M3 20h18M5 20V9l4-3 4 3v11M13 20v-7l3-2 3 2v7"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
+ key:'<circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>',server:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
+ chain:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
+const svgI=(k,sz=16)=>k==='owl'?`<img src="assets/ovi-owl-256.png" alt="" width="${sz+6}" height="${sz+6}" style="border-radius:50%;display:block">`:`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
+const CATC={id:'#3FE08F',money:'#f5c842',ai:'#c084fc',infra:'#38bdf8'};
+
 const orr=$('#orrery'),planets=[],cards=[];let sysCat=null,sysSel=null;
 $('#sysCount').textContent=PR.length;
 $('#legend').innerHTML=Object.entries(ST).map(([k,[n,c]])=>`<span style="--c:${c}"><i></i>${n} · ${PR.filter(p=>p[2]===k).length}</span>`).join('');
 $('#chips').innerHTML=`<button class="chip" data-k="" aria-pressed="true">All</button>`+CATS.map(c=>`<button class="chip" data-k="${c.k}" aria-pressed="false">${c.n}</button>`).join('');
 const PL=[];
+const ANG={id:[205,-25,95],money:[-115,-60,-5,50,140,170],ai:[-85,15,110,215],infra:[-35,65,160]};
+const lineSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');lineSvg.setAttribute('class','sysline');lineSvg.setAttribute('viewBox','0 0 100 100');lineSvg.setAttribute('preserveAspectRatio','none');
+lineSvg.innerHTML='<defs><linearGradient id="slg" x1="0" x2="1"><stop offset="0" stop-color="#3FE08F" stop-opacity=".9"/><stop offset="1" stop-color="#3FE08F" stop-opacity=".2"/></linearGradient></defs><line id="sysL" x1="50" y1="50" x2="50" y2="50" stroke="url(#slg)" stroke-width=".5" stroke-dasharray="1.2 1"/>';
+orr.appendChild(lineSvg);
 CATS.forEach((c,ci)=>{const o=document.createElement('div');o.className='orbit';o.dataset.k=c.k;const d=c.r*100;o.style.width=d+'%';o.style.height=d+'%';o.style.left=o.style.top=(50-d/2)+'%';orr.insertBefore(o,orr.firstChild);
- const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);const off=[-1.2,-.4,.5,1.4][ci];
+ const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);
  items.forEach(([p,i],j)=>{const b=document.createElement('button');b.type='button';b.className='pl';b.dataset.k=c.k;b.style.setProperty('--c',ST[p[2]][1]);
-  b.innerHTML=`<i></i><span>${esc(p[1])}</span>`;b.setAttribute('aria-label',p[1]);b.addEventListener('click',()=>selP(i));orr.appendChild(b);planets[i]=b;
-  PL.push({b,r:c.r/2,a:off+j*2*Math.PI/items.length,w:c.w})})});
+  b.innerHTML=`<i>${svgI(p[4],13)}</i><span>${esc(p[1])}</span>`;b.setAttribute('aria-label',p[1]);b.addEventListener('click',()=>selP(i));orr.appendChild(b);planets[i]=b;
+  PL.push({b,i,r:c.r/2,a:(ANG[c.k][j]??(j*360/items.length))*Math.PI/180,ph:ci*1.3})})});
 let hoverO=false;orr.addEventListener('pointerenter',()=>hoverO=true);orr.addEventListener('pointerleave',()=>hoverO=false);
-let lastT=performance.now();(function spinP(t){const dt=Math.min(.05,(t-lastT)/1000);lastT=t;
- for(const q of PL){if(!hoverO&&!reduce)q.a+=q.w*dt;q.b.style.left=(50+100*q.r*Math.cos(q.a))+'%';q.b.style.top=(50+100*q.r*Math.sin(q.a))+'%'}
+let simT=0,lastT=performance.now();(function spinP(t){const dt=Math.min(.05,(t-lastT)/1000);lastT=t;if(!hoverO&&!reduce)simT+=dt;
+ for(const q of PL){const a=q.a+0.07*Math.sin(simT*.35+q.ph);q.x=50+100*q.r*Math.cos(a);q.y=50+100*q.r*Math.sin(a);q.b.style.left=q.x+'%';q.b.style.top=q.y+'%';
+  if(q.i===sysSel){const L=document.getElementById('sysL');L.setAttribute('x2',q.x);L.setAttribute('y2',q.y)}}
  requestAnimationFrame(spinP)})(lastT);
 const list=$('#syslist');
 CATS.forEach(c=>{const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);const col=document.createElement('div');col.className='scol';col.dataset.k=c.k;
  col.innerHTML=`<h4>${esc(c.n)} <span>${items.length}</span></h4>`;
  items.forEach(([p,i])=>{const b=document.createElement('button');b.type='button';b.className='sitem';b.style.setProperty('--c',ST[p[2]][1]);
-  b.innerHTML=`<i></i>${esc(p[1])}<small>${ST[p[2]][0]}</small>`;b.addEventListener('click',()=>selP(i));col.appendChild(b);cards[i]=b});list.appendChild(col)});
-function selP(i){sysSel=i;const p=PR[i];planets.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));cards.forEach((c,j)=>c.classList.toggle('on',j===i));
- $('#spanel').innerHTML=`<span class="cat">${esc(CATS.find(c=>c.k===p[0]).n)}</span><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h3>${esc(p[1])}</h3><span class="st" style="color:${ST[p[2]][1]}">${ST[p[2]][0]}</span></div><p>${esc(p[3])}</p>`}
+  b.innerHTML=`<i>${svgI(p[4],14)}</i>${esc(p[1])}<small>${ST[p[2]][0]}</small>`;b.addEventListener('click',()=>selP(i));col.appendChild(b);cards[i]=b});list.appendChild(col)});
+function selP(i){sysSel=i;const p=PR[i];planets.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));cards.forEach((c,j)=>c&&c.classList.toggle('on',j===i));
+ const cc=CATC[p[0]],sc=ST[p[2]][1],cat=CATS.find(c=>c.k===p[0]).n;const sp=$('#spanel');sp.style.setProperty('--cc',cc);
+ sp.innerHTML=`<div class="sph"><span class="spi">${svgI(p[4],28)}</span><div><span class="spc">${esc(cat)}</span><h3>${esc(p[1])}</h3></div><span class="st" style="color:${sc};margin-left:auto">${ST[p[2]][0]}</span></div>
+  <p class="spp">${esc(p[3])}</p>
+  <div class="spf">${p[5].map(f=>`<div><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div>
+  <div class="spx"><span class="spsun"></span><span class="spline"></span><span class="spdot" style="--c:${sc}"></span><span class="spt">${esc(p[6])}</span></div>`;
+ sp.classList.remove('swap');void sp.offsetWidth;sp.classList.add('swap')}
 function setCat(k){sysCat=k||null;$$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.k||'')===(k||'')));
  $$('#orrery .orbit').forEach(o=>{o.classList.toggle('dim',!!k&&o.dataset.k!==k);o.classList.toggle('hot',!!k&&o.dataset.k===k)});
  $$('#syslist .scol').forEach(c=>c.classList.toggle('dim',!!k&&c.dataset.k!==k));$$('#orrery .pl').forEach(b=>b.classList.toggle('dim',!!k&&b.dataset.k!==k));
@@ -1058,12 +1114,12 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
  {i:'♥',c:'#e5484d',t:'lena.swop.id sent you a tip',d:'"love the new drop" · 5 USDC',v:'+5.00',a:'Tip from lena.swop.id',b:'+$5.00'}];
  const box=$('#toasts'),act=$('#hAct');if(!box)return;let bal=1215.63,k=0;
  const row=(x,isNew)=>`<div class="arow${isNew?' new':''}"><span class="ai" style="background:${x.c}">${x.i}</span><span><b>${esc(x.a)}</b><small>just now</small></span><span class="v">${esc(x.b)}</span></div>`;
- act.innerHTML=[{i:'K',c:'#d97706',a:'Kofi.Swop.Id followed you',b:''},{i:'$',c:'#19a974',a:'Sunset Print sold',b:'+$12.00'},{i:'↗',c:'#2775CA',a:'Sent to Sam.Swop.Id',b:'−$40.00'}].map(x=>row(x)).join('').replace(/just now/g,'2h');
+
  function push(){const x=T[k%T.length];k++;const el=document.createElement('div');el.className='toast';
   el.innerHTML=`<span class="ti"><svg viewBox="0 0 88 18" width="24" style="color:#00ff88"><use href="#swop"/></svg></span><span><b>${esc(x.t)}</b><span>${esc(x.d)}</span></span><em>now</em>`;
   box.prepend(el);while(box.children.length>2){const o=box.lastElementChild;o.remove()}
   setTimeout(()=>el.classList.add('out'),3600);
-  act.insertAdjacentHTML('afterbegin',row(x,true));while(act.children.length>3)act.lastElementChild.remove();
+
   const n=parseFloat(x.v.replace('+',''));if(!isNaN(n)){bal+=n;$('#hBal').textContent='$'+bal.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}}
  push();if(!reduce)setInterval(()=>{if(!document.hidden&&scrollY<innerHeight*1.2)push()},2600)})();
 
