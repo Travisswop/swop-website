@@ -23,10 +23,10 @@
   color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0}
-html{background:var(--bg)}
+html{background:var(--bg);overflow-x:clip}
 html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
-body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16px;line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{background:var(--bg);color:var(--fg);font-family:var(--display);font-size:16px;line-height:1.5;overflow-x:clip;-webkit-font-smoothing:antialiased}
 .gut{padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
 .wrap{max-width:1200px;margin:0 auto;width:100%}
 h1,h2,h3{text-wrap:balance;letter-spacing:-.04em;font-weight:900;line-height:.95}
@@ -128,6 +128,81 @@ nav.top .links a:hover,.navshop:hover{color:#fff}
 .arow.new{animation:rowin .6s ease both;background:rgba(25,169,116,.06)}
 @keyframes rowin{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
 @media (max-width:980px){.hgrid{grid-template-columns:1fr;gap:14px}.hphone{order:-1;min-height:0;display:block}.hphone .phone{display:none}.toasts{position:relative;top:auto;left:auto;transform:none;width:100%;min-height:128px}.scrollcue{display:none}#hero .hero-ui{padding-top:92px}}
+
+/* ===== light world (matches the app) ===== */
+.light{--bg:#FAFAFA;--bg2:#ffffff;--glass:#ffffff;--glass2:#f1f1ef;--line:rgba(10,10,12,.09);--fg:#0a0a0c;--fg2:rgba(10,10,12,.66);--fg3:rgba(10,10,12,.46);
+  --green:#0a9f55;--gold:#b7791f;--sky:#1f6fd1;--lilac:#7c3aed;background:var(--bg);color:var(--fg)}
+.light .btn-g{background:#0a0a0c;color:#fff;box-shadow:0 10px 24px rgba(10,10,12,.18)}
+.light .btn-o{background:#fff;border:1px solid var(--line);color:#0a0a0c}
+.light .lab::before{box-shadow:none}
+.light .stp,.light .qlist button{box-shadow:0 1px 2px rgba(10,10,12,.04)}
+.light .cta{background:radial-gradient(ellipse at 50% 0%,rgba(63,224,143,.28),transparent 60%),#fff;border-color:rgba(10,10,12,.08)}
+.light .claim{background:#fff;border-color:var(--line);box-shadow:0 6px 20px rgba(10,10,12,.06)}
+.light .claim input{color:#0a0a0c}
+.light .maya-bgword{-webkit-text-stroke-color:rgba(10,10,12,.07)}
+.light .mstep.on{border-color:rgba(10,159,85,.45);background:rgba(63,224,143,.12)}
+.light .mstep i{color:#fff}
+.light .phone{box-shadow:0 0 0 1.5px #2a2a31,0 0 0 7px #121217,0 40px 80px rgba(10,10,12,.25)}
+footer.light{border-top:1px solid var(--line)}
+footer.light .wm{color:#0a0a0c}
+
+/* nav: light glass */
+nav.top .wm{color:#0a0a0c}
+nav.top .links a,.navshop{color:rgba(10,10,12,.7)}
+nav.top .links a:hover,.navshop:hover{color:#0a0a0c}
+nav.top .btn-g{background:#0a0a0c;color:#fff;box-shadow:none}
+nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
+.rail{background:rgba(10,10,12,.82);backdrop-filter:blur(8px);padding:8px 14px;border-radius:999px;color:#fff}
+.grain{opacity:.035}
+
+/* ===== hero v4 ===== */
+#hero{position:relative;overflow:hidden;background:#FAFAFA}
+.h2wrap{max-width:1240px;margin:0 auto;padding-top:118px}
+.htop{display:grid;justify-items:center;text-align:center;gap:22px}
+.hpill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid rgba(10,10,12,.08);font:600 13px Inter;color:rgba(10,10,12,.7);box-shadow:0 2px 10px rgba(10,10,12,.04)}
+.hpill i{width:7px;height:7px;border-radius:50%;background:#3FE08F;box-shadow:0 0 0 4px rgba(63,224,143,.2)}
+.hh{font-size:clamp(48px,7.6vw,118px);line-height:.92;letter-spacing:-.05em;color:#0a0a0c;font-weight:900}
+.hh mark{background:linear-gradient(transparent 58%,#3FE08F 58%,#3FE08F 92%,transparent 92%);color:inherit;padding:0 .06em}
+.hcta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
+.sbtn{display:inline-flex;align-items:center;gap:11px;background:#0a0a0c;color:#fff;border-radius:14px;padding:11px 22px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 26px rgba(10,10,12,.2)}
+.sbtn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(10,10,12,.26)}
+.sbtn small{display:block;font:500 10.5px Inter;color:rgba(255,255,255,.7);line-height:1}
+.sbtn b{display:block;font:700 17px Inter;line-height:1.25}
+.hfree{font:500 13.5px Inter;color:rgba(10,10,12,.5);margin-top:-8px}
+.hfree a{color:rgba(10,10,12,.75)}
+.fan{position:relative;height:600px;margin-top:56px}
+.fan::after{content:"";position:absolute;left:-20px;right:-20px;bottom:0;height:200px;background:linear-gradient(transparent,#FAFAFA 85%);z-index:6;pointer-events:none}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);z-index:0}
+.blob.b1{width:520px;height:420px;left:50%;top:40px;transform:translateX(-50%);background:rgba(63,224,143,.35)}
+.blob.b2{width:360px;height:300px;left:62%;top:140px;background:rgba(76,130,255,.18)}
+.fp{position:absolute;left:50%;top:0;z-index:2;will-change:transform}
+.fp .phone{transform-origin:top center}
+.fc{z-index:4;transform:translateX(-50%)}
+.fl{transform:translateX(calc(-50% - 270px)) translateY(70px) rotate(-7deg) scale(.86);opacity:.98}
+.fr{transform:translateX(calc(-50% + 270px)) translateY(70px) rotate(7deg) scale(.86);opacity:.98}
+.ringd2 span{position:absolute;width:30px;height:30px;margin:-15px;display:grid;place-items:center}
+.tl{width:30px;height:30px;border-radius:50%;border:2px solid #fff;display:grid;place-items:center;color:#fff;font:800 11px Inter}
+.hben{position:relative;z-index:7;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:-90px auto 0;max-width:980px;padding-bottom:70px}
+.hben div{background:#fff;border:1px solid rgba(10,10,12,.07);border-radius:18px;padding:16px 18px;display:grid;gap:3px;box-shadow:0 10px 30px rgba(10,10,12,.06)}
+.hben b{font:700 16px Inter;color:#0a0a0c}
+.hben span{font:400 14px Inter;color:rgba(10,10,12,.6)}
+#hero .toasts{position:absolute;top:58px;left:50%;transform:translateX(-50%);width:330px;z-index:5;display:grid;gap:8px;pointer-events:none}
+#hero .toast{background:rgba(255,255,255,.9);box-shadow:0 18px 40px rgba(10,10,12,.22);border:1px solid rgba(10,10,12,.06)}
+@media (max-width:900px){
+  .h2wrap{padding-top:96px}
+  .fl,.fr,.blob.b2{display:none}
+  .fan{height:520px;margin-top:36px}
+  .fc{transform:translateX(-50%) scale(.86);transform-origin:top center}
+  .hben{grid-template-columns:1fr;margin-top:-70px;padding-bottom:50px}
+}
+
+/* ===== dark 'claim your name' scene ===== */
+#you{position:relative;height:100vh;height:100svh;min-height:560px;overflow:hidden;background:var(--bg)}
+#you #pfx{position:absolute;inset:0;width:100%;height:100%}
+.youtop{position:absolute;left:0;right:0;top:12%;text-align:center;z-index:2;display:grid;justify-items:center;gap:10px}
+.youtop h2{font-size:clamp(40px,6vw,84px)}
+.youclaim{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);z-index:3;width:min(520px,calc(100% - 40px))}
+#you .formed{bottom:22%}
 /* ===== 2. one-liner ===== */
 #line{padding-block:130px 90px}
 .decode{display:grid;margin-top:26px;border-top:1px solid var(--line)}
@@ -246,6 +321,29 @@ nav.top .links a:hover,.navshop:hover{color:#fff}
 .bub.me{align-self:flex-end;background:#3FE08F;color:#06120B;border-top-right-radius:8px}
 .bub.them{align-self:flex-start;background:#15171D;border:1px solid rgba(255,255,255,.07);border-top-left-radius:8px;color:#ECEEF2}
 
+
+/* ===== members v2 ===== */
+#members{padding-block:90px}
+.mem{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:60px;align-items:center;min-height:calc(100vh - 180px)}
+.memcopy{display:grid;gap:20px;align-content:center}
+.memcopy h2{font-size:clamp(40px,5.2vw,74px)}
+.memtabs{display:grid;gap:10px;margin-top:6px}
+.mt{display:grid;grid-template-columns:48px minmax(0,1fr);gap:14px;align-items:center;text-align:left;padding:16px 18px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;transition:border-color .3s,box-shadow .3s,transform .3s}
+.mt .mi{width:48px;height:48px;border-radius:14px;background:#f1f1ef;display:grid;place-items:center;font-size:22px}
+.mt b{display:block;font:800 22px var(--display);letter-spacing:-.02em;color:#0a0a0c}
+.mt small{display:block;font:400 15px Inter;color:rgba(10,10,12,.6)}
+.mt[aria-selected="true"]{border-color:#0a0a0c;box-shadow:0 14px 40px rgba(10,10,12,.1);transform:translateX(6px)}
+.mt[aria-selected="true"] .mi{background:#3FE08F}
+.membul{list-style:none;padding:0;display:grid;gap:8px;color:var(--fg2);font-size:15.5px;min-height:96px}
+.membul li::before{content:"✓  ";color:#0a9f55;font-weight:800}
+.memphone{position:relative}
+.memphone::before{content:"";position:absolute;inset:10% -20%;background:radial-gradient(circle,rgba(63,224,143,.35),transparent 65%);filter:blur(30px);z-index:0}
+.memphone .phone{position:relative;z-index:1}
+.mc{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;box-shadow:0 8px 14px rgba(10,10,12,.08);padding:12px 14px}
+.ml{font:600 9.5px Inter;letter-spacing:.5px;color:#6e6e76}
+.view{position:absolute;inset:0;transition:opacity .45s ease,transform .45s ease}
+.view.off{opacity:0;transform:translateY(12px);pointer-events:none}
+@media (max-width:900px){.mem{grid-template-columns:1fr;gap:30px;min-height:0}.memphone{justify-self:center;transform:scale(.86);transform-origin:top center;margin-bottom:-80px}}
 /* ===== 6. ecosystem ===== */
 #eco{position:relative}
 .eco-pin{min-height:100vh;display:grid;align-items:center}
@@ -301,6 +399,64 @@ nav.top .links a:hover,.navshop:hover{color:#fff}
 .ldetail{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:var(--glass);font-size:14.5px;color:var(--fg2);display:grid;gap:4px}
 .ldetail b{color:#fff}
 
+
+/* ===== 7. the swop system (orrery) ===== */
+#system{position:relative;overflow:hidden;padding-block:110px 90px;background:radial-gradient(ellipse 80% 60% at 70% 40%,#0b1a14 0%,#020208 60%),#020208}
+#stars{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#system .wrap{position:relative;z-index:1}
+.sysgrid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:40px;align-items:center}
+@media (max-width:960px){.sysgrid{grid-template-columns:1fr}}
+.syscopy{display:grid;gap:18px;align-content:start}
+.syscopy h2{font-size:clamp(40px,5vw,72px)}
+.sysdek{color:var(--fg2);font-size:18px;max-width:42ch}
+.sysdek b{color:#fff}
+.legend{display:grid;grid-template-columns:repeat(2,max-content);gap:8px 24px;font-size:14px;color:var(--fg2)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 10px var(--c)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:8px 15px;font-weight:600;font-size:14px;cursor:pointer;color:var(--fg2);transition:all .25s}
+.chip:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+.chip[aria-pressed="true"]{background:#fff;color:#0a0a0c;border-color:#fff}
+.spanel{border:1px solid var(--line);border-radius:20px;padding:18px 20px;background:rgba(255,255,255,.04);backdrop-filter:blur(6px);display:grid;gap:8px;min-height:150px}
+.spanel h3{font-size:26px}
+.spanel p{color:var(--fg2);font-size:15px}
+.spanel .cat{font-family:var(--label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg3)}
+.orrery{position:relative;aspect-ratio:1/1;width:100%;max-width:640px;margin:0 auto}
+.orbit{position:absolute;border-radius:50%;border:1px solid rgba(255,255,255,.1);transition:border-color .35s,opacity .35s}
+.orbit .spin{position:absolute;inset:0;border-radius:50%;animation:orb var(--t) linear infinite}
+.orrery:hover .spin,.orrery:hover .pl b{animation-play-state:paused}
+.orrery .orbit{opacity:0;transform:scale(.55);transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.8,.2,1),border-color .35s}
+.orrery.in .orbit{opacity:1;transform:none}
+.orrery .orbit:nth-child(2){transition-delay:.1s}.orrery .orbit:nth-child(3){transition-delay:.2s}.orrery .orbit:nth-child(4){transition-delay:.3s}.orrery .orbit:nth-child(5){transition-delay:.4s}
+.orrery.in .orbit.dim{opacity:.22}
+.orbit.hot{border-color:rgba(255,255,255,.4)}
+.orbit .rlab{display:none;position:absolute;left:50%;top:-9px;transform:translateX(-50%);font-family:var(--label);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg3);background:#05070a;padding:0 6px;white-space:nowrap}
+@keyframes orb{to{transform:rotate(360deg)}}
+.pl{position:absolute;width:0;height:0;border:0;background:none;padding:0;cursor:pointer}
+.pl b{position:absolute;left:0;top:0;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:5px;animation:orb var(--t) linear infinite reverse}
+.pl i{width:var(--sz,14px);height:var(--sz,14px);border-radius:50%;display:block;
+  background:radial-gradient(circle at 35% 30%,#fff 0 8%,var(--c) 40%,color-mix(in srgb,var(--c) 40%,#000) 100%);box-shadow:0 0 14px color-mix(in srgb,var(--c) 70%,transparent);transition:transform .25s}
+.pl span{font:600 11.5px Inter;color:rgba(255,255,255,.75);white-space:nowrap;background:rgba(2,2,8,.7);padding:1px 6px;border-radius:6px;transition:color .25s}
+.pl:hover i,.pl[aria-pressed="true"] i{transform:scale(1.5)}
+.pl[aria-pressed="true"] span,.pl:hover span{color:#fff}
+.pl.dim{opacity:.18}
+.sun{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:24%;aspect-ratio:1;border-radius:50%;display:grid;place-items:center;text-align:center;z-index:3;
+  background:radial-gradient(circle at 40% 35%,#d6ffe9 0%,#3FE08F 28%,#0a9f55 62%,#04331c 100%);box-shadow:0 0 60px rgba(63,224,143,.55),0 0 160px rgba(63,224,143,.25);animation:pulse 4s ease-in-out infinite}
+.sun b{font-size:clamp(11px,1.5vw,16px);font-weight:900;color:#02140a;letter-spacing:-.02em}
+.sun b .green{color:#02140a}
+.sun small{display:block;font-family:var(--label);font-size:8.5px;letter-spacing:.1em;color:rgba(2,20,10,.7);text-transform:uppercase;margin-top:2px}
+@keyframes pulse{50%{box-shadow:0 0 80px rgba(63,224,143,.7),0 0 200px rgba(63,224,143,.3)}}
+@media (max-width:620px){.pl span{display:none;font-size:11px}.pl[aria-pressed="true"] span{display:block}}
+.syslist{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:56px}
+.sgrp{grid-column:1/-1;display:flex;align-items:baseline;gap:10px;margin-top:18px}
+.sgrp h3{font-size:26px}
+.sgrp span{color:var(--fg3);font-size:20px;font-weight:700}
+.scard{border:1px solid var(--line);border-left:3px solid var(--c);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,.03);display:grid;gap:4px;cursor:pointer;text-align:left;transition:background .25s,transform .25s}
+.scard:hover,.scard.on{background:rgba(255,255,255,.08);transform:translateY(-2px)}
+.scard b{font-size:16px}
+.scard small{font-family:var(--label);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--c)}
+.scard span{color:var(--fg2);font-size:13.5px}
+.scard.dim{opacity:.3}
 /* ===== 8. marquee numbers ===== */
 #nums{padding-block:80px;overflow:hidden;border-block:1px solid var(--line)}
 .mq{white-space:nowrap;font-size:clamp(56px,10vw,150px);font-weight:900;letter-spacing:-.05em;line-height:1.02;will-change:transform}
@@ -349,66 +505,95 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <nav class="top gut" id="nav" aria-label="Main">
   <div class="wrap">
     <svg class="wm" role="img" aria-label="Swop"><use href="#swop"/></svg>
-    <div class="links"><a href="#maya">How it works</a><a href="#dollar">Get paid</a><a href="#members">Who it's for</a><a href="#eco">Ecosystem</a><a href="#rails">Our rails</a></div>
+    <div class="links"><a href="#maya">How it works</a><a href="#dollar">Get paid</a><a href="#members">Who it's for</a><a href="#system">The Swop system</a></div>
     <a class="navshop" href="/shop.html">Shop</a>
     <a class="btn btn-g" href="https://swopme.app/wallet">Launch App ↗</a>
   </div>
 </nav>
 
-<div class="rail" id="rail" aria-hidden="true"><span id="railTxt">01 · Your name</span><span class="bar"><i id="railBar"></i></span></div>
+<div class="rail" id="rail" aria-hidden="true"><span id="railTxt">01 · Swop</span><span class="bar"><i id="railBar"></i></span></div>
 
 <!-- 1 HERO -->
-<header id="hero">
-  <canvas id="pfx" aria-hidden="true"></canvas>
-  <div class="hero-ui gut" id="heroUi">
-    <div class="wrap hgrid">
-      <div class="hcopy">
-        <span class="lab">The social network for people, businesses &amp; AI agents</span>
-        <h1>Own your identity.<br>Own your data.<br><span class="green">Earn from it.</span></h1>
-        <ul class="perks">
-          <li><b>Get paid by anyone</b><span>People or AI agents, straight to USDC</span></li>
-          <li><b>Send to a name</b><span>maya.swop.id, ~2 seconds, $0 network fees</span></li>
-          <li><b>Earn as you go</b><span>Sell, take tips, earn when friends copy your trades</span></li>
-        </ul>
-        <div class="stores big">
-          <a class="store" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="22" height="24" viewBox="0 0 24 24" fill="#000" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-          <a class="store" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="20" height="22" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00a85a" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#1a8fd6" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#e0a800" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#e33" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
-        </div>
-        <p class="free">Free to join · iPhone, Android and <a href="https://swopme.app/wallet">the web</a></p>
-        <form class="claim" id="claimForm" autocomplete="off">
-          <span class="pre">swop.id/</span>
-          <input id="claimIn" aria-label="Pick your name" value="maya" maxlength="16" spellcheck="false">
-          <button class="btn btn-o" type="submit">Claim your name ↗</button>
-        </form>
+<header id="hero" class="light">
+  <div class="h2wrap gut">
+    <div class="htop">
+      <span class="hpill"><i></i>The social network for people, businesses &amp; AI agents</span>
+      <h1 class="hh">Own your identity.<br>Own your data.<br><mark>Earn from it.</mark></h1>
+      <div class="hcta">
+        <a class="sbtn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
+        <a class="sbtn" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#3FE08F" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#4C82FF" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FFD27A" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#ff5a5f" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
       </div>
-      <div class="hphone">
+      <p class="hfree">Free · iPhone, Android and <a href="https://swopme.app/wallet">web</a></p>
+    </div>
+    <div class="fan" id="fan">
+      <div class="blob b1"></div><div class="blob b2"></div>
+      <!-- left: SmartSite -->
+      <div class="fp fl" id="fpL"><div class="phone"><div class="scr ss">
+        <div class="isl"></div><div class="sb" style="background:#F7F7F9"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+        <div class="orbitwrap" style="transform:scale(.9);margin-top:-6px"><div class="ringd ringd2"></div><div class="ava"></div></div>
+        <div style="text-align:center;display:grid;gap:2px"><div style="font:600 15px Inter">Maya Lee</div><div style="font:400 12px Inter;color:#6b7280">Designer · prints and tees</div>
+          <div style="font:400 11.5px Inter;margin-top:3px"><b style="font-weight:600">2,418</b> <span style="color:#6b7280">Followers</span> &nbsp; <b style="font-weight:600">312</b> <span style="color:#6b7280">Following</span></div></div>
+        <div style="display:flex;justify-content:center;gap:7px;margin-top:9px"><span class="ssbtn">＋ Follow</span><span class="ssbtn">⛓ Share</span></div>
+        <div style="display:flex;gap:6px;padding:11px 14px 0;overflow:hidden"><span class="tabp on">Shop</span><span class="tabp">Feed</span><span class="tabp">Links</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:11px 14px">
+          <div class="prod"><div class="img" style="background:linear-gradient(135deg,#0b0b0d,#2b2b33);display:grid;place-items:center"><svg viewBox="0 0 88 18" width="44" style="color:#3FE08F"><use href="#swop"/></svg></div><div class="b"><div class="t">Night Hoodie</div><div class="p">$25.00</div></div></div>
+          <div class="prod"><div class="img" style="background:linear-gradient(135deg,#ffd6a5,#ff9f80)"></div><div class="b"><div class="t">Sunset Print</div><div class="p">$12.00</div></div></div>
+        </div></div></div></div>
+      <!-- right: feed trade -->
+      <div class="fp fr" id="fpR"><div class="phone"><div class="scr" style="background:#fff">
+        <div class="isl"></div><div class="sb" style="background:#fff"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+        <div style="display:flex;gap:4px;background:#F6F6F6;border-radius:20px;padding:5px;margin:4px 14px 0"><span style="flex:.8;background:#000;color:#fff;border-radius:14px;padding:7px 4px;font:600 11px Inter;text-align:center">Feed</span><span style="flex:1.1;color:#6e6e76;padding:7px 4px;font:600 11px Inter;text-align:center">Trending</span><span style="flex:1.4;color:#6e6e76;padding:7px 4px;font:600 11px Inter;text-align:center">Leaderboard</span></div>
+        <div style="padding:10px 14px 0">
+          <div style="display:flex;gap:8px;align-items:center"><div style="width:34px;height:34px;border-radius:50%;background:linear-gradient(160deg,#ffe0b3,#ffb3c7);display:grid;place-items:center;font:700 12px Inter">K</div>
+            <div style="flex:1"><div style="font:600 13.5px Inter">Kofi <span style="font-weight:500;font-size:12px">· 2m</span></div><div style="font:500 11px Inter;color:#949494">Kofi.Swop.Id</div></div></div>
+          <div style="font:400 12.5px/17px Inter;margin-top:6px">Rotating USDC into SOL before the weekend 👀</div>
+          <div style="background:#fff;border-radius:18px;box-shadow:0 8px 20px rgba(15,23,42,.10),0 1px 3px rgba(15,23,42,.06);overflow:hidden;margin-top:8px">
+            <div style="display:flex;justify-content:space-between;align-items:start;padding:11px 11px 0"><div style="display:flex"><span class="tl" style="background:#2775CA">$</span><span class="tl" style="background:linear-gradient(135deg,#9945FF,#14F195);margin-left:-9px">◎</span></div>
+              <div style="text-align:right"><div class="mono" style="font-size:20px;font-weight:800;line-height:1">$162.40</div><div class="mono" style="font-size:8px;font-weight:800;letter-spacing:2px;color:#9CA3AF">SOL PRICE</div></div></div>
+            <div style="padding:5px 11px 0"><span class="mono" style="font-size:10px;font-weight:800;color:#10875D;background:#E8F7EF;border-radius:999px;padding:3px 9px">+6.12%</span></div>
+            <svg viewBox="0 0 260 90" style="width:100%;height:78px;display:block;margin-top:4px"><defs><linearGradient id="fg2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".16"/><stop offset="1" stop-color="#000" stop-opacity="0"/></linearGradient></defs><path d="M0 70 C20 66,35 72,55 60 S90 58,110 48 S150 52,170 36 S215 30,260 16 V90 H0Z" fill="url(#fg2)"/><path d="M0 70 C20 66,35 72,55 60 S90 58,110 48 S150 52,170 36 S215 30,260 16" fill="none" stroke="#000" stroke-width="2"/></svg>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:8px 11px;border-top:1px solid #F0F0F0"><div class="mono" style="font-size:8.5px;font-weight:800;letter-spacing:1.5px;color:#9CA3AF">BOUGHT <span style="color:#19A974;font-size:11px;letter-spacing:0">3.08 SOL</span></div><span style="background:#F6F6F6;border-radius:10px;padding:6px 14px;font:800 11px Inter">Copy Trade</span></div>
+          </div>
+          <div style="display:flex;justify-content:space-between;margin-top:9px;font:500 11.5px Inter;color:#949494"><span>💬 12</span><span>⟲ 4</span><span style="color:#FF0000">♥ 48</span><span>↗</span></div>
+        </div></div></div></div>
+      <!-- center: wallet with payments landing -->
+      <div class="fp fc" id="fpC">
         <div class="toasts" id="toasts" aria-live="polite"></div>
-        <div class="phone" id="hphone"><div class="scr" style="background:#f4f4f2">
-          <div class="isl"></div>
-          <div class="sb" style="background:#fff"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+        <div class="phone"><div class="scr" style="background:#f4f4f2">
+          <div class="isl"></div><div class="sb" style="background:#fff"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
           <div style="display:flex;align-items:center;justify-content:space-between;background:#fff;padding:4px 14px 9px;border-radius:0 0 15px 15px;box-shadow:0 6px 16px rgba(15,23,42,.10)">
             <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(160deg,#c7f0dc,#a5d8ff)"></div><svg viewBox="0 0 88 18" width="62" style="color:#000"><use href="#swop"/></svg><svg width="19" height="19" viewBox="0 0 24 24"><path d="M6 9a6 6 0 1 1 12 0c0 6 2 7 2 7H4s2-1 2-7M10 20h4" fill="none" stroke="#000" stroke-width="2"/></svg></div>
           <div style="padding:10px 12px;display:grid;gap:10px">
             <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;box-shadow:0 8px 14px rgba(10,10,12,.08);padding:14px 16px">
-              <div style="display:flex;justify-content:space-between;align-items:start"><div><div style="font:500 11px -apple-system,Inter;color:#6e6e76">Balance</div><div class="mono" id="hBal" style="font-weight:600;font-size:24px;letter-spacing:-.5px;margin-top:4px">$1,215.63</div></div><span class="pill-d" id="hDelta">▲ 2.4%</span></div>
+              <div style="display:flex;justify-content:space-between;align-items:start"><div><div style="font:500 11px -apple-system,Inter;color:#6e6e76">Balance</div><div class="mono" id="hBal" style="font-weight:600;font-size:24px;letter-spacing:-.5px;margin-top:4px">$1,215.63</div></div><span class="pill-d">▲ 2.4%</span></div>
               <div style="display:flex;gap:7px;margin-top:8px"><span class="act">➤</span><span class="act">⤓</span><span class="act">⇆</span><span class="act">•••</span></div>
-              <svg viewBox="0 0 200 60" style="width:100%;height:64px;margin-top:8px"><defs><linearGradient id="hg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0a0a0c" stop-opacity=".1"/><stop offset="1" stop-color="#0a0a0c" stop-opacity="0"/></linearGradient></defs><path d="M0 50 C25 48,35 40,55 42 S90 26,115 30 S160 12,200 8 V60 H0Z" fill="url(#hg)"/><path d="M0 50 C25 48,35 40,55 42 S90 26,115 30 S160 12,200 8" fill="none" stroke="#0a0a0c" stroke-width="3.5"/></svg>
+              <svg viewBox="0 0 200 60" style="width:100%;height:60px;margin-top:8px"><defs><linearGradient id="hg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#0a0a0c" stop-opacity=".1"/><stop offset="1" stop-color="#0a0a0c" stop-opacity="0"/></linearGradient></defs><path d="M0 50 C25 48,35 40,55 42 S90 26,115 30 S160 12,200 8 V60 H0Z" fill="url(#hg)"/><path d="M0 50 C25 48,35 40,55 42 S90 26,115 30 S160 12,200 8" fill="none" stroke="#0a0a0c" stroke-width="3.5"/></svg>
             </div>
-            <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;box-shadow:0 8px 14px rgba(10,10,12,.08);overflow:hidden">
-              <div style="padding:10px 14px;font:600 13px Inter;border-bottom:1px solid rgba(0,0,0,.06)">Activity</div>
-              <div id="hAct"></div>
-            </div>
-          </div>
-        </div></div>
+            <div style="background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;box-shadow:0 8px 14px rgba(10,10,12,.08);overflow:hidden"><div style="padding:10px 14px;font:600 13px Inter;border-bottom:1px solid rgba(0,0,0,.06)">Activity</div><div id="hAct"></div></div>
+          </div></div></div>
       </div>
     </div>
+    <div class="hben">
+      <div><b>Get paid by anyone</b><span>People or AI agents, straight to USDC</span></div>
+      <div><b>Send to a name</b><span>maya.swop.id in ~2s, $0 network fees</span></div>
+      <div><b>Earn as you go</b><span>Sales, tips and copy-trade rewards</span></div>
+    </div>
   </div>
-  <div class="formed" id="formed">This is you. Your identity, your data, your earnings.</div>
-  <div class="scrollcue" id="cue"><span>SCROLL</span><i></i></div>
 </header>
 
+<section id="you" data-ch="02 · Your name">
+  <canvas id="pfx" aria-hidden="true"></canvas>
+  <div class="youtop gut" id="youTop"><span class="lab">Everything starts with a name</span><h2>Claim yours.</h2></div>
+  <div class="formed" id="formed">This is you. Your identity, your data, your earnings.</div>
+  <form class="claim youclaim" id="claimForm" autocomplete="off">
+    <span class="pre">swop.id/</span>
+    <input id="claimIn" aria-label="Pick your name" value="maya" maxlength="16" spellcheck="false">
+    <button class="btn btn-g" type="submit">Claim it ↗</button>
+  </form>
+</section>
+
 <!-- 2 THE SENTENCE, DECODED -->
-<section id="line" class="gut" data-ch="02 · What Swop is">
+<section id="line" class="gut light" data-ch="03 · What Swop is">
   <div class="wrap">
     <span class="lab">What Swop is, in one sentence</span>
     <div class="decode" id="decode">
@@ -416,13 +601,13 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
       <div class="drow"><span class="dn">02</span><h3>for <span class="green">people, businesses and AI agents</span></h3><p>Three kinds of members on the same rails. A shop can sell to a person or to an AI assistant, the same way.</p></div>
       <div class="drow"><span class="dn">03</span><h3>where you <span class="green">own your identity and your data</span></h3><p>Your swop.id is your page, your payment address and your login, and your posts, trades and sales history are yours. A personal data vault you control is coming with Swop Chain. <span class="st planned">Planned</span></p></div>
       <div class="drow"><span class="dn">04</span><h3>and <span class="green">earn from it</span> as you move value</h3><p>Sell anything with a link, take tips, get paid by AI agents, and earn when friends copy your trades. Send, swap and trade from one wallet. <span class="st live">Live</span></p></div>
-      <div class="drow"><span class="dn">05</span><h3>on infrastructure <span class="gold">Swop owns end to end</span></h3><p>Wallets, servers, data and payments, brought in-house layer by layer. Half the stack is ours today; the rest is moving now.</p></div>
+      <div class="drow"><span class="dn">05</span><h3>all running on <span class="gold">the SWOP token</span></h3><p>SWOP powers the ecosystem. It pays for AI credits in Ovi, unlocks AI on the web, rewards you when friends copy your trades or join through you, and is the currency of El Dorado. <span class="st live">Live</span> Next: gas and agent bonds on Swop Chain. <span class="st planned">Planned</span></p></div>
     </div>
   </div>
 </section>
 
 <!-- 3 MEET MAYA -->
-<section id="maya" class="gut" data-ch="03 · Your page">
+<section id="maya" class="gut light" data-ch="04 · Your page">
   <div class="maya-bgword" id="bgword" aria-hidden="true">maya.swop.id&nbsp;maya.swop.id</div>
   <div class="wrap maya-grid">
     <div class="mcopy">
@@ -456,7 +641,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 4 FOLLOW A DOLLAR -->
-<section id="dollar" data-ch="04 · Get paid">
+<section id="dollar" data-ch="05 · Get paid">
   <div class="dhead gut"><div class="wrap shead"><span class="lab">Payments · <span class="st live">Live</span></span><h2>Follow <span class="green">$25</span><br>to Maya's wallet.</h2><p>Someone buys her hoodie. Scroll to watch the money move.</p></div></div>
   <div class="dtrack-wrap" id="dwrap">
     <div class="dline"><i id="dfill"></i></div>
@@ -479,62 +664,75 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 5 MEMBERS -->
-<section id="members" data-ch="05 · Who it's for">
-  <div class="mhead gut"><div class="wrap shead"><span class="lab">Who it's for</span><h2>Three kinds of members.<br><span class="green">One set of rails.</span></h2></div></div>
-  <div class="stack-pin" id="stackPin">
-    <div class="cards" id="cards">
-      <article class="mcard" style="--c:var(--sky)"><div class="txt"><span class="lab" style="--c:var(--sky)">People</span><h3>Send money to a name.</h3><p>Pay friends at their swop.id, trade with them watching, and keep your money in one wallet across five chains.</p>
-        <ul><li>Send to maya.swop.id in ~2s, fee sponsored</li><li>Swaps, perps and predictions in one wallet</li><li>Copy a friend's trade from your feed</li></ul></div>
-        <div class="vis"><div class="uiw" style="padding:16px;display:grid;gap:10px;background:#f4f4f2">
-          <div style="font:600 20px -apple-system,Inter;letter-spacing:-.6px">Send</div>
-          <div style="background:#fff;border-radius:18px;padding:14px;text-align:center;border:1px solid rgba(0,0,0,.06)"><div class="mono" style="font-size:38px;font-weight:600">25 <span style="font-size:18px;color:#a1a1a8">USDC</span></div></div>
-          <div style="background:#fff;border-radius:18px;padding:12px 14px;border:1px solid rgba(0,0,0,.06);display:flex;gap:10px;align-items:center"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(160deg,#c7f0dc,#a5d8ff);display:grid;place-items:center;font:700 12px Inter">M</div><div style="flex:1"><div style="font:600 12.5px Inter">Maya Lee</div><div class="mono" style="font-size:10px;color:#6e6e76">Maya.Swop.Id</div></div><span style="color:#19a974"><svg width="16" height="16"><use href="#i-check"/></svg></span></div>
-          <div class="rrow" style="padding:0 4px"><span>Network fee</span><b style="color:#19a974">$0.00 · Sponsored</b></div>
-          <div style="min-height:44px;border-radius:14px;background:#0a0a0c;color:#fff;font:600 14px Inter;display:grid;place-items:center">Review send</div></div></div></article>
-      <article class="mcard" style="--c:var(--green)"><div class="txt"><span class="lab">Businesses</span><h3>Sell with one link.</h3><p>Any product becomes a link you can post anywhere. Buyers pay how they like; you get USDC and the order in one dashboard.</p>
-        <ul><li>Card, Apple Pay or any token</li><li>0.5% fee, buyer pays list price</li><li>Checkout on your own site with webhooks</li></ul></div>
-        <div class="vis"><div class="uiw" style="overflow:hidden">
-          <div style="padding:16px;display:flex;gap:10px;align-items:center;border-bottom:1px solid #ececec"><div style="width:40px;height:40px;border-radius:14px;background:#06140d;color:#21c765;font:700 17px Inter;display:grid;place-items:center">M</div><div><div style="font:600 15px Inter">Maya Lee</div><div class="mono" style="font-size:10.5px;color:#9aa0aa">secure checkout · swop pay</div></div></div>
-          <div style="padding:16px;display:grid;gap:10px"><div style="font:600 10px Inter;letter-spacing:.14em;color:#9aa0aa">AMOUNT DUE</div><div class="mono" style="font-size:36px;font-weight:700;line-height:1">$25.00</div>
-          <div style="border:1px solid #e3e3e3;border-radius:16px;padding:12px;display:flex;gap:10px;align-items:center"><span style="width:36px;height:36px;border-radius:11px;background:#f2f3f5;display:grid;place-items:center">💳</span><div><div style="font:600 13px Inter">Card, Apple Pay or Google Pay</div><div style="font:400 11px Inter;color:#6b7280">No wallet needed</div></div></div>
-          <div style="border:1px solid #e3e3e3;border-radius:16px;padding:12px;display:flex;gap:10px;align-items:center"><span style="width:36px;height:36px;border-radius:11px;background:#eafaf0;display:grid;place-items:center;color:#0f7a3d">◎</span><div><div style="font:600 13px Inter">Crypto wallet</div><div style="font:400 11px Inter;color:#6b7280">Any token. Network fee sponsored</div></div></div>
-          <div style="height:50px;border-radius:16px;background:#18a957;color:#fff;font:700 14px Inter;display:grid;place-items:center">Confirm with passkey</div></div></div></div></article>
-      <article class="mcard" style="--c:var(--violet)"><div class="txt"><span class="lab" style="--c:var(--lilac)">AI agents</span><h3>Agents with a wallet and rules.</h3><p>AI assistants can find products, pay and trade for their owners, always inside caps the owner sets, and nothing moves without approval.</p>
-        <ul><li>Swop inside Claude and ChatGPT <span class="st live">Live</span></li><li>Trading and vault agents in the app <span class="st beta">Beta</span></li><li>Ovi by text <span class="st building">Building</span></li></ul></div>
-        <div class="vis"><div class="uiw" style="background:#08090B;color:#ECEEF2;padding:14px;display:flex;flex-direction:column;gap:8px;border:1px solid rgba(255,255,255,.08)">
-          <div style="display:flex;gap:9px;align-items:center;padding-bottom:8px;border-bottom:1px solid rgba(255,255,255,.07)"><span style="width:30px;height:30px;border-radius:50%;background:#15171D;color:#3FE08F;font:800 12px Inter;display:grid;place-items:center">$_</span><div><div style="font:700 13px Inter">Astro</div><div style="font:600 10px Inter;color:#9396A0">trading desk · online</div></div></div>
+<section id="members" class="gut light" data-ch="06 · Who it's for">
+  <div class="wrap mem" id="memPin">
+    <div class="memcopy">
+      <span class="lab">Who it's for</span>
+      <h2>Built for people, businesses <span class="green">and AI agents.</span></h2>
+      <div class="memtabs" id="memtabs" role="tablist">
+        <button class="mt" role="tab" data-i="0"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 14.5-4.5 16 0"/></svg></span><span><b>People</b><small>Send to a name, trade with friends, keep one wallet</small></span></button>
+        <button class="mt" role="tab" data-i="1"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8h14l-1 12H6z"/><path d="M9 8a3 3 0 0 1 6 0"/></svg></span><span><b>Businesses</b><small>Sell with one link, get paid in USDC</small></span></button>
+        <button class="mt" role="tab" data-i="2"><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></svg></span><span><b>AI agents</b><small>A wallet with rules, nothing moves without approval</small></span></button>
+      </div>
+      <ul class="membul" id="membul"></ul>
+    </div>
+    <div class="memphone"><div class="phone"><div class="scr" style="background:#f4f4f2">
+      <div class="isl"></div>
+      <div class="view mv" data-s="0" style="background:#f4f4f2"><div class="sb" style="background:#f4f4f2"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+        <div style="padding:6px 14px;display:grid;gap:10px">
+          <div style="display:flex;gap:10px;align-items:center"><span style="width:34px;height:34px;border-radius:12px;border:1px solid rgba(0,0,0,.06);background:#fff;display:grid;place-items:center">‹</span><div><div style="font:600 20px -apple-system,Inter;letter-spacing:-.6px">Send</div><div style="font:400 10.5px Inter;color:#6e6e76">Choose asset, amount, recipient</div></div></div>
+          <div class="mc"><div class="ml">FROM</div><div style="display:flex;gap:10px;align-items:center;margin-top:6px"><span class="tl" style="background:#2775CA;width:32px;height:32px">$</span><div style="flex:1"><div style="font:600 13px Inter">USDC · USD Coin</div><div class="mono" style="font-size:10px;color:#6e6e76">1,240.50 · $1,240.50</div></div>›</div></div>
+          <div class="mc" style="text-align:center;padding:16px 14px"><div class="ml" style="text-align:left">AMOUNT</div><div class="mono" style="font-size:40px;font-weight:600;margin-top:4px">25<span style="font-size:20px;color:#a1a1a8"> USDC</span></div><div class="mono" style="font-size:11px;color:#6e6e76">⇅ ≈ $25.00</div></div>
+          <div class="mc"><div class="ml">TO</div><div style="display:flex;align-items:center;gap:8px;margin-top:6px;border:1px solid rgba(0,0,0,.08);border-radius:12px;padding:9px 10px"><span style="font:500 13px Inter;flex:1">maya.swop.id</span><span style="width:22px;height:22px;border-radius:7px;background:rgba(25,169,116,.1);color:#19a974;display:grid;place-items:center"><svg width="13" height="13"><use href="#i-check"/></svg></span></div>
+            <div style="display:flex;gap:10px;align-items:center;padding-top:10px;margin-top:10px;border-top:1px solid rgba(0,0,0,.06)"><div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(160deg,#c7f0dc,#a5d8ff);display:grid;place-items:center;font:700 12px Inter">M</div><div style="flex:1"><div style="font:600 12.5px Inter">Maya Lee</div><div class="mono" style="font-size:10px;color:#6e6e76">Maya.Swop.Id</div></div>›</div></div>
+          <div class="mc" style="padding:8px 14px"><div class="rrow"><span>Network fee</span><b style="color:#19a974">$0.00 · Sponsored</b></div><div class="rrow"><span>Speed</span><b>~2s</b></div></div>
+          <div style="min-height:46px;border-radius:14px;background:#0a0a0c;color:#fff;font:600 14px Inter;display:grid;place-items:center">Review send</div>
+        </div></div>
+      <div class="view mv off" data-s="1" style="background:rgba(0,0,0,.5)">
+        <div style="position:absolute;inset:0;background:#fff;opacity:.15"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;background:#fff;border-radius:30px 30px 0 0;padding:10px 18px 22px">
+          <div style="width:56px;height:4px;border-radius:4px;background:#d9d9d9;margin:0 auto 12px"></div>
+          <div style="display:flex;gap:10px;align-items:center;border-bottom:1px solid #ececec;padding-bottom:12px"><div style="width:40px;height:40px;border-radius:14px;background:#06140d;color:#21c765;font:700 17px Inter;display:grid;place-items:center">M</div><div><div style="font:600 15px Inter">Maya Lee</div><div class="mono" style="font-size:10.5px;color:#9aa0aa">secure checkout · swop pay</div></div></div>
+          <div style="padding:12px 0 6px"><div style="font:600 10px Inter;letter-spacing:.14em;color:#9aa0aa">AMOUNT DUE</div><div class="mono" style="font-size:34px;font-weight:700">$25.00</div></div>
+          <div style="display:grid;gap:8px">
+            <div style="border:1px solid #e3e3e3;border-radius:16px;padding:11px 12px;display:flex;gap:10px;align-items:center"><span style="width:36px;height:36px;border-radius:11px;background:#f2f3f5;display:grid;place-items:center"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0a0c" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></span><div><div style="font:600 13px Inter">Card, Apple Pay or Google Pay</div><div style="font:400 11px Inter;color:#6b7280">No wallet needed</div></div></div>
+            <div style="border:1px solid #18a957;border-radius:16px;padding:11px 12px;display:flex;gap:10px;align-items:center;background:#f3fbf6"><span style="width:36px;height:36px;border-radius:11px;background:#eafaf0;display:grid;place-items:center;color:#0f7a3d">◎</span><div><div style="font:600 13px Inter">Crypto wallet</div><div style="font:400 11px Inter;color:#6b7280">Any token · network fee sponsored</div></div></div>
+          </div>
+          <div style="font:400 10.5px Inter;color:#6b7280;margin:10px 0">Same price either way. Swop never adds a fee to what the merchant asked for.</div>
+          <div style="height:54px;border-radius:16px;background:#18a957;color:#fff;font:700 15px Inter;display:grid;place-items:center">Confirm with passkey</div>
+        </div></div>
+      <div class="view mv off" data-s="2" style="background:#08090B;color:#ECEEF2"><div class="sb" style="background:#0B0D10;color:#ECEEF2"><span>9:41</span><span class="ic"><i style="width:16px;height:9px"></i><i style="width:22px;height:10px;border-radius:3px"></i></span></div>
+        <div style="display:flex;gap:9px;align-items:center;padding:6px 12px 10px;background:#0B0D10;border-bottom:1px solid rgba(255,255,255,.07)"><span style="width:32px;height:32px;border-radius:50%;background:#15171D;color:#3FE08F;font:800 12px Inter;display:grid;place-items:center">$_</span><div><div style="font:700 14px Inter">Astro</div><div style="font:600 10px Inter;color:#9396A0">@astro · trading desk · online</div></div></div>
+        <div style="padding:14px 12px;display:flex;flex-direction:column;gap:8px">
           <div class="bub me">Swap half my SOL to USDC</div><div class="bub them">Here's the plan. Nothing moves until you approve.</div>
-          <div style="border:1px solid rgba(255,255,255,.07);border-radius:10px;background:rgba(0,0,0,.24);padding:9px;display:grid;gap:8px">
-            <div style="display:flex;gap:9px;align-items:center"><span style="width:30px;height:30px;border-radius:9px;background:rgba(63,224,143,.1);color:#3FE08F;display:grid;place-items:center"><svg width="15" height="15"><use href="#i-swap"/></svg></span><div><div style="font:800 9px Inter;color:#3FE08F;letter-spacing:.8px">SWAP</div><div style="font:800 13px Inter">0.5 SOL to USDC</div></div></div>
-            <div style="display:flex;gap:7px"><span style="flex:1;min-height:34px;border-radius:11px;background:#1B1E25;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font:700 12px Inter">Reject</span><span style="flex:1.4;min-height:34px;border-radius:11px;background:#3FE08F;color:#08090B;display:grid;place-items:center;font:800 12px Inter">✓ Approve swap</span></div></div></div></div></article>
-    </div>
+          <div style="border:1px solid rgba(255,255,255,.07);border-radius:10px;background:rgba(0,0,0,.24);overflow:hidden">
+            <div style="display:flex;gap:10px;align-items:center;padding:9px;border-bottom:1px solid rgba(255,255,255,.07)"><span style="width:34px;height:34px;border-radius:10px;background:rgba(63,224,143,.1);color:#3FE08F;display:grid;place-items:center"><svg width="16" height="16"><use href="#i-swap"/></svg></span><div><div style="font:800 9px Inter;letter-spacing:.8px;color:#3FE08F">SWAP</div><div style="font:800 14px Inter">0.5 SOL to USDC</div><div style="font:600 9.5px Inter;color:#9396A0">≈ 81.20 USDC · within your caps</div></div></div>
+            <div style="display:flex;gap:7px;padding:9px"><span style="flex:1;min-height:38px;border-radius:12px;background:#1B1E25;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font:700 12.5px Inter">Reject</span><span style="flex:1.4;min-height:38px;border-radius:12px;background:#3FE08F;color:#08090B;display:grid;place-items:center;font:800 12.5px Inter">✓ Approve swap</span></div>
+          </div>
+          <div class="bub them">Also works in Claude and ChatGPT through the Swop MCP.</div>
+        </div></div>
+    </div></div></div>
   </div>
 </section>
 
-<!-- 6 ECOSYSTEM -->
-<section id="eco" class="gut" data-ch="06 · The ecosystem">
-  <div class="wrap eco-pin" id="ecoPin">
-    <div class="eco">
-      <div style="display:grid;gap:18px;align-content:center">
-        <div class="shead"><span class="lab">The Swop ecosystem</span><h2>One name. <span class="green">Every app.</span></h2><p>Your swop.id is the center. Every Swop product plugs into it, so your name, wallet and reputation come with you.</p></div>
-        <div class="ecount"><b id="ecoN">0</b> of 11 apps connected</div><div class="epanel" id="epanel" aria-live="polite"></div>
+<!-- 7 THE SWOP SYSTEM -->
+<section id="system" class="gut" data-ch="07 · The Swop system">
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="sysgrid">
+      <div class="syscopy">
+        <span class="lab">The Swop system</span>
+        <h2>Every Swop product, <span class="green">in one orbit.</span></h2>
+        <p class="sysdek"><b id="sysCount">0</b> products around one name, from live today to what's next, sorted by what they do.</p>
+        <div class="legend" id="legend"></div>
+        <div class="chips" id="chips"></div>
+        <div class="spanel" id="spanel" aria-live="polite"></div>
       </div>
-      <div class="ecomap" id="ecomap"><svg viewBox="0 0 100 100" id="ecosvg" aria-hidden="true"></svg><div class="hub"><div><b><span class="green mName">maya</span>.swop.id</b><small>name · wallet · login</small></div></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- 7 RAILS -->
-<section id="rails" class="gut" data-ch="07 · Our rails">
-  <div class="wrap rails-pin" id="railsPin">
-    <div class="stackwrap">
-      <div style="display:grid;gap:14px;align-content:center">
-        <div class="shead"><span class="lab" style="--c:var(--gold)">Under the hood</span><h2>Built on rails <span class="gold">we own.</span></h2><p>Most apps rent their wallets, servers and data. We're bringing every layer that holds your keys, identity, data and money in-house.</p></div>
-        <div><div class="ownbar" id="ownbar"></div><div class="ownkey" id="ownkey"></div></div>
-        <div class="ldetail" id="ldetail" aria-live="polite"></div>
+      <div class="orrery" id="orrery" aria-label="Map of Swop products">
+        <div class="sun"><div><b><span class="green mName">maya</span>.swop.id</b><small>powered by SWOP</small></div></div>
       </div>
-      <div style="display:grid;gap:10px"><div class="iso"><div class="slabs" id="slabs"></div></div><div class="layerlist" id="llist"></div></div>
     </div>
+    <div class="syslist" id="syslist"></div>
   </div>
 </section>
 
@@ -546,7 +744,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- STEPS -->
-<section class="blk gut" id="start" data-ch="09 · Get started">
+<section class="blk gut light" id="start" data-ch="09 · Get started">
   <div class="wrap"><div class="shead"><span class="lab">Get started</span><h2>Up and running<br>in a minute.</h2></div>
     <div class="steps">
       <div class="stp" style="--c:var(--green)"><span class="num">01 · CLAIM</span><h3>Pick your swop.id</h3><p>Your name becomes your page, your payment address and your login.</p></div>
@@ -556,12 +754,12 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- FAQ -->
-<section class="blk gut" id="faq" style="padding-top:0" data-ch="10 · Questions">
+<section class="blk gut light" id="faq" style="padding-top:0" data-ch="10 · Questions">
   <div class="wrap"><div class="shead"><span class="lab" style="--c:var(--lilac)">Questions</span><h2>Ask Swop.</h2></div>
     <div class="faq"><div class="qlist" id="qlist"></div><div class="thread" id="thread" aria-live="polite"><div class="bub them" style="font-size:14px;line-height:20px">Hi 👀 Pick a question and I'll answer it.</div></div></div></div>
 </section>
 
-<section class="blk gut" style="padding-top:0">
+<section class="blk gut light" style="padding-top:0">
   <div class="wrap"><div class="cta">
     <span class="lab">Swop</span><h2>Own your name.<br><span class="green">Move value.</span></h2>
     <p style="color:var(--fg2);max-width:52ch">Claim your swop.id in the app. It takes a minute.</p>
@@ -574,7 +772,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   </div></div>
 </section>
 
-<footer class="gut"><div class="wrap" style="display:grid;gap:14px">
+<footer class="gut light"><div class="wrap" style="display:grid;gap:14px">
   <svg class="wm" role="img" aria-label="Swop"><use href="#swop"/></svg>
   <div style="display:flex;flex-wrap:wrap;gap:8px 20px">
     <a href="/blog/">Blog</a><a href="/shop.html">Shop</a><a href="./swop_fee_calculator.html">Fee calculator</a><a href="https://mcp.swopme.co">Swop MCP</a><a href="https://support.swop.id">Support</a>
@@ -619,8 +817,8 @@ function buildText(){if(!W)return;const oc=document.createElement('canvas'),ox=o
   for(let y=0;y<H;y+=step)for(let x=0;x<W;x+=step)if(d[(y*W+x)*4+3]>128)pts.push([x,y]);
   for(let i=pts.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[pts[i],pts[j]]=[pts[j],pts[i]]}
   textPts=pts;P.forEach((p,i)=>{const t=pts.length?pts[i%pts.length]:[W/2,H/2];p.tx=t[0]+(Math.random()-.5)*1.2;p.ty=t[1]+(Math.random()-.5)*1.2})}
-function frame(now){cx.clearRect(0,0,W,H);rot+=reduce?0:0.0022;const t=ease(clamp((heroP-.08)/.62));const R=Math.min(W,H)*(mobile?.36:.3);
-  const gx=W*(mobile?.5:.74),gy=H*(mobile?.66:.5);const cr=Math.cos(rot),sr=Math.sin(rot),tilt=.35,ct=Math.cos(tilt),st=Math.sin(tilt);
+function frame(now){cx.clearRect(0,0,W,H);rot+=reduce?0:0.0022;const t=ease(clamp((heroP-.08)/.62));const R=Math.min(W,H)*(mobile?.34:.28);
+  const gx=W*.5,gy=H*.5;const cr=Math.cos(rot),sr=Math.sin(rot),tilt=.35,ct=Math.cos(tilt),st=Math.sin(tilt);
   for(const p of P){let x=p.sx*cr-p.sz*sr,z=p.sx*sr+p.sz*cr,y=p.sy;const y2=y*ct-z*st,z2=y*st+z*ct;const pers=1/(1.8-z2*.6);
    const ax=gx+x*R*pers*1.3,ay=gy+y2*R*pers*1.3;const wob=Math.sin(now*.0015+p.j)*1.2*(1-t);
    const X=lerp(ax,p.tx,t)+wob,Y=lerp(ay,p.ty,t)+wob;const a=lerp(.25+(z2+1)*.35,.95,t);const s=lerp(p.s*pers*1.1,mobile?1.8:2.2,t);
@@ -634,67 +832,62 @@ requestAnimationFrame(frame);
 
 
 /* ---------- orbit icons ---------- */
-['i-x','i-ig','i-tt','i-yt','i-tg','i-globe'].forEach((id,i)=>{const a=(-120+i*60)*Math.PI/180,R=72;const s=document.createElement('span');
-  s.style.left=`calc(50% + ${Math.cos(a)*R}px)`;s.style.top=`calc(50% + ${Math.sin(a)*R}px)`;s.innerHTML=`<b><svg><use href="#${id}"/></svg></b>`;$('#ringd').appendChild(s)});
+$$('#ringd,.ringd2').forEach(r=>['i-x','i-ig','i-tt','i-yt','i-tg','i-globe'].forEach((id,i)=>{const a=(-120+i*60)*Math.PI/180,R=72;const s=document.createElement('span');
+  s.style.left=`calc(50% + ${Math.cos(a)*R}px)`;s.style.top=`calc(50% + ${Math.sin(a)*R}px)`;s.innerHTML=`<b><svg><use href="#${id}"/></svg></b>`;r.appendChild(s)}));
 
-/* ---------- ecosystem data ---------- */
-const ICON={app:'<rect x="6" y="2.5" width="12" height="19" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M10 18.5h4" stroke="currentColor" stroke-width="1.8"/>',
- page:'<circle cx="12" cy="9" r="3.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M5 20c1.5-4 12.5-4 14 0" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- pay:'<rect x="3" y="6" width="18" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3 10h18" stroke="currentColor" stroke-width="1.8"/>',
- trade:'<path d="M3 17l6-6 4 4 8-8M15 7h6v6" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- ai:'<path d="M12 3v3M12 18v3M3 12h3M18 12h3" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.6" fill="currentColor"/>',
- mcp:'<path d="M8 4v5M16 4v5M6 9h12v3a6 6 0 0 1-12 0zM12 18v3" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- live:'<rect x="3" y="6" width="13" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 10l5-3v10l-5-3" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- world:'<path d="M3 20h18M5 20V9l4-3 4 3v11M13 20v-7l3-2 3 2v7" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- market:'<circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 3.5v17M12 12l6-5" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- vert:'<rect x="3" y="3" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="3" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="3" y="14" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="14" y="14" width="7" height="7" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>',
- key:'<circle cx="8" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 12h9M18 12v3M21 12v2" fill="none" stroke="currentColor" stroke-width="1.8"/>'};
-const CV={g:'#00ff88',y:'#f5c842',s:'#38bdf8',v:'#c084fc',r:'#ef4444'};
-const E=[
- {k:'Swop app',i:'app',c:'g',s:'live',h:'The Swop app',p:'Your feed, wallet, messages and profile in one place, on iOS, Android and the web.',how:'Signs you in with your swop.id · holds your wallet'},
- {k:'SmartSite',i:'page',c:'g',s:'live',h:'SmartSite',p:'Your public page at name.swop.id: links, a shop, your feed and your trades. An NFC card tap opens it.',how:'Lives at your swop.id · sells through Swop checkout'},
- {k:'Payments',i:'pay',c:'g',s:'live',h:'Checkout & x402',p:'One link to sell anything. People pay with any token or a card; AI agents pay with x402. You receive USDC.',how:'Pays out to the wallet behind your swop.id'},
- {k:'Trading',i:'trade',c:'y',s:'live',h:'Trading',p:'Swaps, perps and prediction markets in one wallet, shared to your feed so friends can copy.',how:'Uses your Swop wallet · posts to your feed'},
- {k:'Decentrabet',i:'market',c:'y',s:'building',h:'Decentrabet',p:'Peer-to-peer prediction markets anyone can create and embed. The first outside app you will sign into with your swop.id.',how:'Sign in with Swop · same wallet, your spending caps'},
- {k:'Swop MCP',i:'mcp',c:'s',s:'live',h:'Swop inside any AI',p:'Plug Swop into Claude or ChatGPT. Your assistant can check balances, sell, send and pay, within limits you set.',how:'Acts as your swop.id, inside your caps'},
- {k:'Ovi',i:'ai',c:'v',s:'building',h:'Ovi',p:'Swop’s own AI. Text it to send, swap, check your money or ask questions.',how:'Knows your swop.id · asks before money moves'},
- {k:'Swop Live',i:'live',c:'r',s:'live',h:'Swop Live',p:'Go live from your phone or browser. Viewers chat, follow and buy from your shop while you stream.',how:'Streams from your profile · sells through your SmartSite'},
- {k:'El Dorado',i:'world',c:'s',s:'beta',h:'El Dorado',p:'The virtual world of Swop: a 3D city where your SmartSite is a house and AI bots run real businesses.',how:'Only verified swop.ids get in · web and Meta Quest'},
- {k:'Vertical AIs',i:'vert',c:'v',s:'building',h:'Vertical AIs',p:'Focused AI products built on Swop, like Game Film AI for sports teams and Chalk for coaches.',how:'Sign in and pay with Swop'},
- {k:'Swivy',i:'key',c:'y',s:'building',h:'Swivy',p:'Our own login and wallet platform, so one swop.id logs in with the same wallet across every app on this map.',how:'Powers Sign in with Swop · replaces a rented provider'}];
-const map=$('#ecomap'),svg=$('#ecosvg');let eSel=0;const lines=[],nodes=[];
-E.forEach((e,i)=>{const a=-90+i*360/E.length,R=39,ca=Math.cos(a*Math.PI/180),sa=Math.sin(a*Math.PI/180),x=50+R*ca,y=50+R*sa;
- const l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',50+15.5*ca);l.setAttribute('y1',50+15.5*sa);l.setAttribute('x2',50+(R-4.5)*ca);l.setAttribute('y2',50+(R-4.5)*sa);
- l.setAttribute('stroke',CV[e.c]);l.setAttribute('stroke-opacity','.55');l.setAttribute('stroke-width','.35');const len=R-4.5-15.5;l.setAttribute('stroke-dasharray',len);l.dataset.len=len;svg.appendChild(l);lines.push(l);
- if(!reduce){const d=document.createElementNS('http://www.w3.org/2000/svg','circle');d.setAttribute('r','.8');d.setAttribute('fill',CV[e.c]);const am=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-  am.setAttribute('dur',(2.2+i%4*.5)+'s');am.setAttribute('repeatCount','indefinite');const x1=50+15.5*ca,y1=50+15.5*sa,x2=50+(R-4.5)*ca,y2=50+(R-4.5)*sa;am.setAttribute('path',i%2?`M${x2},${y2} L${x1},${y1}`:`M${x1},${y1} L${x2},${y2}`);d.appendChild(am);svg.appendChild(d)}
- const b=document.createElement('button');b.type='button';b.className='enode';b.style.left=x+'%';b.style.top=y+'%';b.style.setProperty('--c',CV[e.c]);
- b.innerHTML=`<span class="orb" style="color:${CV[e.c]}"><svg viewBox="0 0 24 24">${ICON[e.i]}</svg></span><span class="nm">${esc(e.k)}</span>`;b.addEventListener('click',()=>selEco(i));map.appendChild(b);nodes.push(b)});
-function selEco(i){eSel=i;nodes.forEach((n,j)=>n.setAttribute('aria-pressed',j===i));const e=E[i],p=$('#epanel');p.style.setProperty('--c',CV[e.c]);
- p.innerHTML=`<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><span class="lab" style="--c:${CV[e.c]}">${esc(e.k)}</span><span class="st ${e.s}">${({live:'Live',beta:'Beta',building:'Building',planned:'Planned'})[e.s]}</span></div><h3>${esc(e.h)}</h3><p>${esc(e.p)}</p><div class="how">↳ With your swop.id: ${esc(e.how)}</div>`}
-selEco(0);
-
-/* ---------- rails data ---------- */
-const L=[{n:'L7',nm:'El Dorado',t:'The virtual world',o:'own',d:'Owned. Swop built and runs it.'},
- {n:'L6',nm:'AI: agents, Ovi, MCP',t:'AI that runs your Swop',o:'moving',d:'Our agents and MCP; models are a mix of rented and our own, moving toward our own.'},
- {n:'L5',nm:'Trading',t:'Swaps, perps, predictions',o:'own',d:'Our app and routing. The markets themselves stay external on purpose: that is where the liquidity is.'},
- {n:'L4',nm:'Payments',t:'Checkout, USDC, x402',o:'own',d:'Mostly owned: our checkout and rails, with partners for card onramps and the x402 facilitator.'},
- {n:'L3',nm:'swop.id & social',t:'Names, pages, feed',o:'own',d:'Owned. Swop built and runs it.'},
- {n:'L2',nm:'Swivy',t:'Logins and wallets',o:'moving',d:'Rented today from a wallet provider. Swivy, our replacement, is running in staging.'},
- {n:'L1',nm:'Swop Chain',t:'Identity and reputation chain',o:'none',d:'Planned. When it ships, Swop runs it.'},
- {n:'L0',nm:'Servers, nodes, data',t:'The machines underneath',o:'moving',d:'Mostly rented today. Our own RPC gateway is running; our own nodes and indexers are next.'}];
-const OWN={own:['Owned today','#00ff88'],moving:['Moving in-house','#f5c842'],none:['Not built yet','rgba(255,255,255,.3)']};
-let lSel=4;const slabEls=[];
-(()=>{const c={own:0,moving:0,none:0};L.forEach(l=>c[l.o]++);
- $('#ownbar').innerHTML=['own','moving','none'].map(k=>`<i class="ob" data-w="${c[k]/L.length*100}" style="width:${c[k]/L.length*100}%;background:${OWN[k][1]}"></i>`).join('');
- $('#ownkey').innerHTML=['own','moving','none'].map(k=>`<span style="--c:${OWN[k][1]}">${OWN[k][0]} · ${c[k]} of 8</span>`).join('');
- L.slice().reverse().forEach((l,ri)=>{const i=L.length-1-ri,d=document.createElement('div');d.className='slab';d.style.setProperty('--c',OWN[l.o][1]);d.style.opacity=l.o==='none'?.55:1;
-  d.style.transform=`translateZ(${ri*46}px)`;d.dataset.z=ri*46;d.innerHTML=`<span>${l.n} · ${esc(l.nm)}</span>`;d.addEventListener('click',()=>selLayer(i));$('#slabs').appendChild(d);slabEls[i]=d});
- L.forEach((l,i)=>{const b=document.createElement('button');b.type='button';b.className='lrow';b.style.setProperty('--c',OWN[l.o][1]);
-  b.innerHTML=`<span class="n">${l.n}</span><span><b>${esc(l.nm)}</b><small>${esc(l.t)}</small></span><span class="o" style="color:${OWN[l.o][1]}">${OWN[l.o][0]}</span>`;b.addEventListener('click',()=>selLayer(i));$('#llist').appendChild(b)})})();
-function selLayer(i){lSel=i;$$('#llist .lrow').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));slabEls.forEach((s,j)=>{s.style.boxShadow=j===i?`0 0 60px ${OWN[L[j].o][1]}`:''});
- const l=L[i];$('#ldetail').innerHTML=`<b>${l.n} · ${esc(l.nm)}</b><span>${esc(l.d)}</span>`}
-selLayer(4);
+/* ---------- the swop system ---------- */
+const ST={live:['Live today','#3FE08F'],beta:['Beta','#38bdf8'],building:['Building now','#f5c842'],planned:['Planned','#c084fc']};
+const CATS=[{k:'id',n:'Identity & social',r:.42,t:'80s'},{k:'money',n:'Money',r:.6,t:'110s'},{k:'ai',n:'AI',r:.75,t:'140s'},{k:'world',n:'Worlds',r:.85,t:'170s'},{k:'infra',n:'Infrastructure',r:.98,t:'210s'}];
+const PR=[
+ ['id','swop.id','live','Your name on Swop: your page, your payment address and your login.'],
+ ['id','SmartSite','live','Your public page with links, a shop, your feed and your trades.'],
+ ['id','Swop app','live','Feed, wallet, messages and profile on iOS, Android and the web.'],
+ ['id','Feed & messages','live','Post, follow and message. Trades and sales show up where your people are.'],
+ ['id','Swop Live','live','Go live from your phone or browser and sell while you stream.'],
+ ['id','NFC cards','live','Tap a card and your SmartSite opens.'],
+ ['money','Checkout','live','One link to sell anything. Any token or card in, USDC out, 0.5% fee.'],
+ ['money','Agent payments (x402)','live','AI agents pay your links in USDC on their own, inside their owner\u2019s caps.'],
+ ['money','Wallet & send','live','Hold, send and swap on five chains. Pay a name in ~2s, network fee sponsored.'],
+ ['money','Trading','live','Swaps, perps and prediction markets in one wallet.'],
+ ['money','Copy trade','live','Copy a friend\u2019s trade from your feed; they earn SWOP when you do.'],
+ ['money','SWOP token','live','Powers the ecosystem: AI credits, rewards, and El Dorado\u2019s currency.'],
+ ['money','Geo Bucks','building','Local store credit and real-world drops from merchants near you.'],
+ ['money','Decentrabet','building','Peer-to-peer prediction markets you\u2019ll sign into with your swop.id.'],
+ ['ai','Swop MCP','live','Swop inside Claude and ChatGPT: check balances, sell and pay within your caps.'],
+ ['ai','In-app agents','beta','Trading-desk and vault agents that propose moves you approve.'],
+ ['ai','Ovi','building','Swop\u2019s own AI. Text it to send, swap or ask anything.'],
+ ['ai','Vertical AIs','building','Focused AI products on Swop, like Game Film AI and Chalk.'],
+ ['world','El Dorado','beta','The virtual world of Swop: your page is a house, AI bots run real businesses.'],
+ ['infra','Swivy','building','Our own login and wallet platform, so one swop.id works in every app.'],
+ ['infra','RPC gateway','building','Our own door to the blockchains, replacing rented providers.'],
+ ['infra','Own nodes','building','Swop-run blockchain nodes and data indexers.'],
+ ['infra','Swop Chain','planned','A chain for identity and reputation, with a personal data vault.']];
+const orr=$('#orrery'),planets=[],cards=[];let sysCat=null,sysSel=null;
+$('#sysCount').textContent=PR.length;
+$('#legend').innerHTML=Object.entries(ST).map(([k,[n,c]])=>`<span style="--c:${c}"><i></i>${n} · ${PR.filter(p=>p[2]===k).length}</span>`).join('');
+$('#chips').innerHTML=`<button class="chip" data-k="" aria-pressed="true">All</button>`+CATS.map(c=>`<button class="chip" data-k="${c.k}" aria-pressed="false">${c.n}</button>`).join('');
+CATS.forEach((c,ci)=>{const o=document.createElement('div');o.className='orbit';o.dataset.k=c.k;const d=c.r*100;o.style.width=d+'%';o.style.height=d+'%';o.style.left=o.style.top=(50-d/2)+'%';o.style.setProperty('--t',c.t);
+ o.innerHTML=`<span class="rlab">${esc(c.n)}</span><div class="spin"></div>`;orr.insertBefore(o,orr.firstChild);
+ const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);const off=ci*0.7;
+ items.forEach(([p,i],j)=>{const a=off+j*2*Math.PI/items.length;const b=document.createElement('button');b.type='button';b.className='pl';
+  b.style.left=(50+50*Math.cos(a))+'%';b.style.top=(50+50*Math.sin(a))+'%';b.style.setProperty('--c',ST[p[2]][1]);b.style.setProperty('--t',c.t);b.style.setProperty('--sz',(p[1]==='SWOP token'?18:p[2]==='live'?14:12)+'px');
+  b.innerHTML=`<b><i></i><span>${esc(p[1])}</span></b>`;b.setAttribute('aria-label',p[1]);b.addEventListener('click',()=>selP(i));o.querySelector('.spin').appendChild(b);planets[i]=b})});
+const list=$('#syslist');
+CATS.forEach(c=>{const items=PR.map((p,i)=>[p,i]).filter(([p])=>p[0]===c.k);
+ list.insertAdjacentHTML('beforeend',`<div class="sgrp" data-k="${c.k}"><h3>${esc(c.n)}</h3><span>(${items.length})</span></div>`);
+ items.forEach(([p,i])=>{const b=document.createElement('button');b.type='button';b.className='scard';b.dataset.k=c.k;b.style.setProperty('--c',ST[p[2]][1]);
+  b.innerHTML=`<small>${ST[p[2]][0]}</small><b>${esc(p[1])}</b><span>${esc(p[3])}</span>`;b.addEventListener('click',()=>{selP(i);orr.scrollIntoView({behavior:'smooth',block:'center'})});list.appendChild(b);cards[i]=b})});
+function selP(i){sysSel=i;const p=PR[i];planets.forEach((b,j)=>b.setAttribute('aria-pressed',j===i));cards.forEach((c,j)=>c.classList.toggle('on',j===i));
+ $('#spanel').innerHTML=`<span class="cat">${esc(CATS.find(c=>c.k===p[0]).n)}</span><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap"><h3>${esc(p[1])}</h3><span class="st" style="color:${ST[p[2]][1]}">${ST[p[2]][0]}</span></div><p>${esc(p[3])}</p>`}
+function setCat(k){sysCat=k||null;$$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',(b.dataset.k||'')===(k||'')));
+ $$('#orrery .orbit').forEach(o=>{o.classList.toggle('dim',!!k&&o.dataset.k!==k);o.classList.toggle('hot',!!k&&o.dataset.k===k)});
+ $$('#syslist .scard,#syslist .sgrp').forEach(c=>c.classList.toggle('dim',!!k&&c.dataset.k!==k));
+ if(k){const first=PR.findIndex(p=>p[0]===k);if(first>=0)selP(first)}}
+$$('#chips .chip').forEach(b=>b.addEventListener('click',()=>setCat(b.dataset.k)));
+selP(0);
+/* starfield */
+(()=>{const c=$('#stars');if(!c)return;const x=c.getContext('2d');let st=[];function sz(){c.width=c.offsetWidth;c.height=c.offsetHeight;st=Array.from({length:Math.round(c.width*c.height/5000)},()=>[Math.random()*c.width,Math.random()*c.height,Math.random()*1.3+.2,Math.random()*6])}
+ sz();addEventListener('resize',sz);function d(t){x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.25+.55*(.5+.5*Math.sin(t*.001+s[3]));x.fillStyle='#fff';x.fillRect(s[0],s[1],s[2],s[2])}if(!reduce)requestAnimationFrame(d)}requestAnimationFrame(d)})();
 
 /* ---------- FAQ ---------- */
 const QA=[['What is Swop, in one line?','Swop is the social network where people, businesses and AI agents own their identity and move value. One swop.id gives you a page, a wallet and a way to get paid ⚡'],
@@ -731,14 +924,13 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
   setTimeout(()=>el.classList.add('out'),3600);
   act.insertAdjacentHTML('afterbegin',row(x,true));while(act.children.length>3)act.lastElementChild.remove();
   const n=parseFloat(x.v.replace('+',''));if(!isNaN(n)){bal+=n;$('#hBal').textContent='$'+bal.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}}
- push();if(!reduce)setInterval(()=>{if(!document.hidden&&scrollY<innerHeight)push()},2600)})();
+ push();if(!reduce)setInterval(()=>{if(!document.hidden&&scrollY<innerHeight*1.2)push()},2600)})();
 /* nav background */
 addEventListener('scroll',()=>$('#nav').classList.toggle('solid',scrollY>40),{passive:true});
 
 /* ================= SCROLL STORY ================= */
-if(!hasG||reduce){heroP=.9;$('#heroUi').style.opacity=1;$('#dwrap').style.overflowX='auto';$('#dwrap').style.height='auto';
-  $('#coin').style.display='none';$('.dline').style.display='none';$$('.mstep').forEach(s=>s.classList.add('on'));$$('.mcard').forEach((c,i)=>{c.style.position='relative';c.style.marginBottom='16px'});
-  $('#cards').style.height='auto';$('#stackPin').style.height='auto';$('#ecoN').textContent=E.length;return}
+if(!hasG||reduce){heroP=.9;$('#youTop').style.opacity=0;$('#formed').style.opacity=1;$('#dwrap').style.overflowX='auto';$('#dwrap').style.height='auto';
+  $('#coin').style.display='none';$('.dline').style.display='none';$$('.mstep').forEach(s=>s.classList.add('on'));return}
 
 gsap.registerPlugin(ScrollTrigger);
 let lenis=null;
@@ -746,10 +938,15 @@ if(typeof Lenis!=='undefined'&&!mobile){lenis=new Lenis({lerp:.09,smoothWheel:tr
   $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10})}}))}
 
 
-/* 1 hero: pin, fade UI, particles form name */
-gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'+=140%',pin:true,scrub:true,onUpdate:s=>heroP=s.progress}})
- .to('#heroUi',{opacity:0,y:-60,duration:.3},0).to('#hphone',{scale:.9,duration:.3},0).to('#cue',{opacity:0,duration:.1},0)
- .to('#formed',{opacity:1,duration:.15},.62).to({},{duration:.25});
+/* 1 hero: phones fan out on scroll; entrance */
+gsap.from('#fpC',{y:140,opacity:0,duration:1.1,ease:'power3.out',delay:.15});
+gsap.from('#fpL,#fpR',{y:180,opacity:0,duration:1.2,ease:'power3.out',delay:.35,stagger:.1});
+gsap.from('.htop>*',{y:30,opacity:0,duration:.9,ease:'power3.out',stagger:.08});
+if(!mobile){const ft=gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:.6}});
+ ft.to('#fpL',{x:-90,rotate:-12,y:20},0).to('#fpR',{x:90,rotate:12,y:20},0).to('#fpC',{y:-60},0).to('.htop',{y:-80,opacity:.4},0)}
+/* 1b claim your name: pin, particles form name */
+gsap.timeline({scrollTrigger:{trigger:'#you',start:'top top',end:'+=140%',pin:true,scrub:true,onUpdate:s=>heroP=s.progress}})
+ .to('#youTop',{opacity:0,y:-40,duration:.25},.05).to('#formed',{opacity:1,duration:.15},.62).to({},{duration:.25});
 
 /* 2 the sentence, decoded */
 $$('.drow').forEach(r=>gsap.fromTo(r,{opacity:.15,x:-30},{opacity:1,x:0,ease:'none',scrollTrigger:{trigger:r,start:'top 85%',end:'top 55%',scrub:true}}));
@@ -779,25 +976,18 @@ gsap.timeline({scrollTrigger:{trigger:'#dwrap',start:'top top',end:()=>'+='+dist
    $('#balAmt').textContent='$'+(1215.63+24.875*clamp((p-.86)/.1)).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}}})
  .to(track,{x:()=>-dist(),ease:'none'});
 
-/* 5 members: stacked cards */
-const cards=$$('.mcard');gsap.set(cards,{zIndex:(i)=>i+1});
-const st=gsap.timeline({scrollTrigger:{trigger:'#stackPin',start:'top top',end:'+='+(cards.length*80)+'%',pin:true,scrub:.6}});
-cards.forEach((c,i)=>{if(i===0)return;st.fromTo(c,{yPercent:110,rotate:2},{yPercent:0,rotate:0,duration:1,ease:'power2.out'},i-1)
-  .to(cards[i-1],{scale:.92,yPercent:-4,opacity:.5,duration:1},i-1)});
-st.to({},{duration:.4});
+/* 5 members: persona switcher */
+const MB=[["Pay friends at their swop.id in ~2s, network fee sponsored","Swaps, perps and predictions in one wallet","Copy a friend's trade straight from your feed"],
+ ["Any product becomes a link you can post anywhere","Buyers pay by card, Apple Pay or any token; you get USDC","Checkout on your own site, with webhooks"],
+ ["Swop inside Claude and ChatGPT through the Swop MCP · live","Trading and vault agents in the app · beta","Spending caps you set; every move needs your approval"]];
+let memI=-1;function setMem(i){if(i===memI)return;memI=i;$$('#memtabs .mt').forEach((b,j)=>b.setAttribute('aria-selected',j===i));
+ $$('#members .mv').forEach(v=>v.classList.toggle('off',+v.dataset.s!==i));$('#membul').innerHTML=MB[i].map(t=>`<li>${esc(t)}</li>`).join('')}
+setMem(0);$$('#memtabs .mt').forEach(b=>b.addEventListener('click',()=>setMem(+b.dataset.i)));
+if(!mobile)ScrollTrigger.create({trigger:'#memPin',start:'top 90px',end:'+=180%',pin:true,onUpdate:s=>setMem(Math.min(2,Math.floor(s.progress*3)))});
 
-/* 6 ecosystem: lines draw, nodes pop */
-gsap.set(nodes,{scale:0,opacity:0});lines.forEach(l=>{l.style.strokeDashoffset=l.dataset.len});
-const et=gsap.timeline({scrollTrigger:{trigger:'#ecoPin',start:mobile?'top 75%':'top top',end:mobile?'bottom 60%':'+=170%',pin:!mobile,scrub:.5,
-  onUpdate:s=>{const n=Math.min(E.length,Math.floor(s.progress*1.15*E.length+.0001));$('#ecoN').textContent=n;const k=Math.max(0,n-1);if(k!==eSel)selEco(k)}}});
-E.forEach((e,i)=>{et.to(lines[i],{strokeDashoffset:0,duration:.6},i*.5).to(nodes[i],{scale:1,opacity:1,duration:.4,ease:'back.out(2)'},i*.5+.35)});
-et.to({},{duration:.6});
-
-/* 7 rails: explode stack */
-const rt=gsap.timeline({scrollTrigger:{trigger:'#railsPin',start:mobile?'top 75%':'top top',end:mobile?'bottom 60%':'+=150%',pin:!mobile,scrub:.5,
-  onUpdate:s=>{const i=L.length-1-Math.min(L.length-1,Math.floor(s.progress*L.length));if(i!==lSel)selLayer(i)}}});
-slabEls.forEach((s,i)=>{const ri=L.length-1-i;rt.fromTo(s,{z:0},{z:ri*36,duration:1,ease:'power2.out'},0)});
-rt.fromTo('.ob',{width:0},{width:(i,el)=>el.dataset.w+'%',duration:.8,stagger:.15},.2);
+/* 7 system: orbits grow in, planets fade in */
+new IntersectionObserver((es,ob)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');ob.disconnect()}}),{threshold:.2}).observe($('#orrery'));
+gsap.from('#syslist .scard',{y:24,opacity:0,stagger:.03,duration:.5,ease:'power2.out',scrollTrigger:{trigger:'#syslist',start:'top 85%'}});
 
 /* 8 marquee */
 gsap.fromTo('#mq1',{xPercent:0},{xPercent:-30,ease:'none',scrollTrigger:{trigger:'#nums',start:'top bottom',end:'bottom top',scrub:true}});
@@ -810,7 +1000,7 @@ $$('.shead, .stp, .cta, .faq').forEach(el=>gsap.from(el,{y:50,opacity:0,duration
 const chapters=$$('[data-ch]');
 ScrollTrigger.create({start:0,end:'max',onUpdate:s=>{$('#railBar').style.width=(s.progress*100)+'%';$('#rail').classList.toggle('on',s.progress>.03&&s.progress<.97)}});
 chapters.forEach(c=>ScrollTrigger.create({trigger:c,start:'top 55%',end:'bottom 55%',onToggle:s=>{if(s.isActive)$('#railTxt').textContent=c.dataset.ch}}));
-ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom 55%',onToggle:s=>{if(s.isActive)$('#railTxt').textContent='01 · Your name'}});
+ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom 55%',onToggle:s=>{if(s.isActive)$('#railTxt').textContent='01 · Swop'}});
 addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
