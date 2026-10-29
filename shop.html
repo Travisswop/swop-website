@@ -279,12 +279,6 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .closer p{margin-top:14px;color:rgba(255,255,255,.7);font-size:17px;max-width:46ch}
 .closer .ctas{display:flex;gap:10px;flex-wrap:wrap}
 .closer .btn.alt{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
-footer{border-top:1px solid var(--line);margin-top:100px}
-footer .wrap{padding:26px 40px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;font-size:13.5px;color:var(--mut)}
-footer .flinks{display:flex;flex-wrap:wrap;gap:8px 18px}
-footer a:hover{color:var(--ink)}
-footer .brand svg{height:15px;width:72px}
-footer .sp{margin-left:auto;font:500 11.5px var(--mono)}
 
 /* sticky buy bar (phones) */
 .sbar{position:fixed;left:12px;right:12px;bottom:12px;z-index:45;display:none;align-items:center;gap:12px;background:rgba(255,255,255,.92);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:10px 10px 10px 14px;box-shadow:0 18px 40px rgba(10,10,12,.18);transform:translateY(130%);transition:transform .35s cubic-bezier(.2,.8,.2,1)}
@@ -316,8 +310,6 @@ footer .sp{margin-left:auto;font:500 11.5px var(--mono)}
   .rail{padding:4px 20px 18px;margin:0 -20px;scroll-padding:0 20px}
   .railnav{display:none}
   .closer{grid-template-columns:1fr;padding:40px 24px;border-radius:24px}
-  footer .wrap{padding:22px 20px}
-  footer .sp{margin-left:0;width:100%}
   .sbar{display:flex}
   .aichat{min-height:380px;padding:18px 14px}
 }
@@ -426,9 +418,54 @@ footer .sp{margin-left:auto;font:500 11.5px var(--mono)}
 .cd-toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
 .cd-toast button{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer;font:inherit}
 
+
+/* ===== footer ===== */
+.ft{position:relative;overflow:hidden;background:#050608;color:rgba(255,255,255,.6);padding-block:72px 0;font-size:14px;border-top:0}
+.ft::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(63,224,143,.6),transparent)}
+.ft .wrap{position:relative;z-index:2}
+.ft-top{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.ft-wm svg{width:120px;height:25px;color:#fff;display:block}
+.ft-brand p{margin:18px 0 22px;font:700 clamp(22px,2.2vw,30px)/1.15 var(--display);letter-spacing:-.03em;color:#fff;max-width:20ch}
+.ft-brand p span{color:#3FE08F}
+.ft-apps{display:flex;flex-wrap:wrap;gap:10px}
+.ft-apps .sbtn{height:46px;padding:0 15px 0 12px;border-color:rgba(255,255,255,.22)}
+.ft-apps .sbtn b{font-size:17px}
+.ft-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.ft-cols h4{margin:0 0 14px;font:700 11px var(--label);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.ft-cols a{display:block;width:max-content;padding:5px 0;color:rgba(255,255,255,.82);text-decoration:none;font:500 15px Inter;transition:color .2s,transform .2s}
+.ft-cols a:hover{color:#3FE08F;transform:translateX(3px)}
+.ft-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:22px 0;font-size:12.5px;color:rgba(255,255,255,.42)}
+.ft-socs{display:flex;gap:8px;margin-right:auto}
+.ft-soc{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.14);transition:all .2s}
+.ft-soc:hover{color:#050608;background:#3FE08F;border-color:#3FE08F;transform:translateY(-2px)}
+.ft-c{font-family:var(--label);font-size:11.5px;letter-spacing:.06em}
+.ft-giant{position:relative;z-index:1;margin:0 auto -4.2vw;padding:0 2vw;line-height:0;pointer-events:none}
+.ft-giant svg{width:100%;height:auto;aspect-ratio:88/18;color:transparent;fill:none;display:block;
+  -webkit-mask-image:linear-gradient(#000 20%,transparent 92%);mask-image:linear-gradient(#000 20%,transparent 92%)}
+.ft-giant svg use{color:rgba(255,255,255,.07)}
+.ft-giant::after{content:"";position:absolute;left:20%;right:20%;top:30%;height:40%;background:radial-gradient(closest-side,rgba(63,224,143,.22),transparent);filter:blur(30px);z-index:-1}
+@media(max-width:860px){
+  .ft{padding-block:52px 0}
+  .ft-top{grid-template-columns:1fr;gap:36px;padding-bottom:32px}
+  .ft-cols{grid-template-columns:1fr 1fr;gap:28px 20px}
+  .ft-cols div:last-child{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px 20px;align-items:center}
+  .ft-cols div:last-child h4{width:100%;margin-bottom:6px}
+  .ft-apps .sbtn{flex:1 1 0;justify-content:center;padding:0 10px}
+  .ft-bar{flex-direction:column;align-items:flex-start;gap:16px}
+  .ft-socs{margin-right:0}
+  .ft-soc{width:44px;height:44px}
+}
+.ft .sbtn{display:inline-flex;align-items:center;gap:9px;height:52px;background:#000;color:#fff;border:1px solid #a6a6a6;border-radius:11px;padding:0 18px 0 14px;text-decoration:none;transition:opacity .2s}
+.ft .sbtn:hover{opacity:.82}
+.ft .sbtn small{display:block;font:500 11px -apple-system,BlinkMacSystemFont,"Inter",sans-serif;color:#fff;line-height:1.05;letter-spacing:.01em}
+.ft .sbtn b{display:block;font:600 20px -apple-system,BlinkMacSystemFont,"Inter",sans-serif;line-height:1.05;letter-spacing:-.02em}
+.ft .sbtn .gp small{text-transform:uppercase;font-size:10px;letter-spacing:.04em}
+.ft .wrap{display:block}
+.ft .sbtn small,.ft .sbtn b{white-space:nowrap}
+@media(max-width:860px){.ft .sbtn{gap:7px}.ft .sbtn b{font-size:15.5px}}
 </style>
 </head>
-<body>
+<body id="top">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol>
   <defs><linearGradient id="sg" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3FE08F" stop-opacity=".35"/><stop offset="1" stop-color="#3FE08F" stop-opacity="0"/></linearGradient></defs></svg>
 
@@ -616,12 +653,23 @@ footer .sp{margin-left:auto;font:500 11.5px var(--mono)}
   <div class="ctas"><a class="btn g" href="#card">Get the card</a><a class="btn alt" href="/">What is Swop?</a></div>
 </div></div></section>
 
-<footer><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg viewBox="0 0 88 18"><use href="#swop"/></svg></a>
-  <div class="flinks"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/swop_fee_calculator.html">Fee calculator</a><a href="https://mcp.swopme.co">Swop MCP</a><a href="mailto:support@swopme.co?subject=Bulk%20order">Bulk orders</a><a href="https://support.swop.id">Support</a></div>
-  <div class="flinks"><a href="https://x.com/swoplabs">X</a><a href="https://www.instagram.com/swop.labs">Instagram</a><a href="https://discord.com/invite/axxx4mHePf">Discord</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/legal.html">Legal</a></div>
-  <span class="sp">© 2026 Swop</span>
-</div></footer>
+<footer class="ft"><div class="wrap">
+  <div class="ft-top">
+    <div class="ft-brand">
+      <a href="/" class="ft-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#swop"/></svg></a>
+      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <div class="ft-apps"><a class="sbtn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a class="sbtn" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span class="gp"><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="ft-cols" role="navigation" aria-label="Footer">
+      <div><h4>Product</h4><a href="https://swopme.app/wallet">Web app</a><a href="#top">Shop</a><a href="https://mcp.swopme.co">Swop MCP</a><a href="/swop_fee_calculator.html">Fee calculator</a></div>
+      <div><h4>Company</h4><a href="/blog/">Blog</a><a href="https://support.swop.id">Support</a><a href="mailto:support@swopme.co">Contact</a></div>
+      <div><h4>Legal</h4><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/legal.html">Legal</a></div>
+    </div>
+  </div>
+  <div class="ft-bar"><div class="ft-socs"><a class="ft-soc" href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a class="ft-soc" href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a class="ft-soc" href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a class="ft-soc" href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span>Example names and amounts are illustrative. Status tags show what is live today.</span><span class="ft-c">© 2026 Swop</span></div>
+</div>
+<div class="ft-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#swop"/></svg></div>
+</footer>
 
 <div class="sbar" id="sbar" aria-hidden="true"><span class="mini" id="sbarMini"></span><div><b>Swop Digital Card</b><small><span data-price="6a9383f9e8ae0b38e225c45b">$5.99</span> · <span id="sbarColor">Black</span></small></div><button class="btn" type="button" id="sbarAdd">Add to cart</button></div>
 
