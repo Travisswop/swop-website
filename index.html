@@ -584,96 +584,87 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .guard{display:flex;flex-wrap:wrap;gap:8px}
 .guard span{font:600 12.5px Inter;color:#0a0a0c;background:rgba(255,255,255,.75);border:1px solid rgba(255,255,255,.9);border-radius:999px;padding:7px 12px;backdrop-filter:blur(8px)}
 .afnote{margin-top:16px;font:500 14px Inter;color:rgba(10,10,12,.55)}
-/* ===== Ovi trading agent (pinned, scroll-scrubbed) ===== */
-#agent{position:relative;padding:0}
-.ag-pin{min-height:100vh;display:grid;align-items:center;padding:90px 0 50px;background:radial-gradient(55% 60% at 74% 52%,rgba(63,224,143,.16),transparent 70%)}
-.ag-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
-.ag-copy .shead h2{font-size:clamp(40px,5vw,72px)}
-.ag-steps{list-style:none;padding:0;margin:28px 0 0;display:grid;gap:6px}
-.ag-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 16px;border-radius:16px;opacity:.38;transition:opacity .35s,background .35s,transform .35s}
-.ag-steps li i{font:700 11px var(--label);font-style:normal;color:#0a9f55;padding-top:4px}
-.ag-steps li b{display:block;font:800 19px var(--display);letter-spacing:-.02em;color:#0a0a0c}
-.ag-steps li span{display:block;font:400 14.5px/1.5 Inter;color:rgba(10,10,12,.6);margin-top:4px;max-height:0;overflow:hidden;transition:max-height .45s}
-.ag-steps li.on{opacity:1;background:#fff;box-shadow:0 10px 30px rgba(10,10,12,.07);transform:translateX(4px)}
-.ag-steps li.on span{max-height:90px}
-.ag-bar{height:3px;border-radius:3px;background:rgba(10,10,12,.08);margin-top:18px;overflow:hidden}
-.ag-bar i{display:block;height:100%;width:0;background:#3FE08F}
-.ag-note{margin-top:16px;font:500 12.5px/1.5 Inter;color:rgba(10,10,12,.48);max-width:46ch}
-.ag-stage{position:relative;height:600px;display:grid;place-items:center}
-.ag-orbit{position:absolute;width:640px;height:640px;left:50%;top:50%;margin:-320px 0 0 -320px;pointer-events:none;animation:agspin 28s linear infinite}
-.ag-orbit svg{width:100%;height:100%;overflow:visible}
-.ag-orbit .o1{fill:none;stroke:rgba(10,10,12,.08);stroke-width:.4;stroke-dasharray:1 2.2}
-.ag-orbit .o2{fill:none;stroke:#3FE08F;stroke-width:.8;stroke-linecap:round;stroke-dasharray:0 100;filter:drop-shadow(0 0 3px rgba(63,224,143,.8))}
-.ag-sat{position:absolute;left:50%;top:0;width:12px;height:12px;margin:-6px;border-radius:50%;background:#3FE08F;box-shadow:0 0 0 6px rgba(63,224,143,.18),0 0 24px #3FE08F;opacity:0}
-@keyframes agspin{to{transform:rotate(360deg)}}
-.ag-con{position:relative;z-index:2;width:min(440px,100%);border-radius:28px;background:linear-gradient(160deg,#16171c,#0b0b0e 60%);color:#fff;box-shadow:0 0 0 1px rgba(255,255,255,.06),0 50px 100px -20px rgba(10,10,12,.45),0 0 120px -40px rgba(63,224,143,.6);overflow:hidden}
-.ag-top{display:flex;align-items:center;gap:10px;padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.07)}
-.ag-top img{border-radius:50%}
-.ag-top b{display:block;font:800 15px var(--display)}
-.ag-top small{font:500 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.ag-pill{margin-left:auto;display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;background:rgba(255,255,255,.07);font:600 11px Inter}
-.ag-pill em{font-style:normal}
-.ag-pill i{width:7px;height:7px;border-radius:50%;background:#f5c842}
-.ag-pill.live{background:rgba(63,224,143,.14);color:#3FE08F}.ag-pill.live i{background:#3FE08F;box-shadow:0 0 10px #3FE08F;animation:agblink 1.4s ease-in-out infinite}
-@keyframes agblink{50%{opacity:.35}}
-.ag-scr{position:relative;height:430px}
-.ag-s{position:absolute;inset:0;padding:18px;display:flex;flex-direction:column;gap:12px;opacity:0;transform:translateY(14px)}
-.ag-s1{opacity:1;transform:none}
-.ag-prompt{position:relative;padding:14px 14px 14px 16px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);min-height:96px}
-.ag-you{display:block;font:600 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.ag-prompt p{margin:6px 0 0;font:500 15px/1.45 Inter;color:#fff;display:inline}
-.ag-caret{display:inline-block;width:2px;height:16px;background:#3FE08F;vertical-align:-3px;margin-left:2px;animation:agblink 1s steps(1) infinite}
-.ag-from{display:flex;align-items:center;gap:8px;font:600 12.5px Inter;color:rgba(255,255,255,.7);opacity:0}
-.ag-from img{border-radius:50%}
-.ag-chips{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.ag-chip{padding:10px 12px;border-radius:13px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(10px) scale(.96)}
-.ag-chip small,.ag-k{display:block;font:500 9.5px var(--label);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.ag-chip b{display:block;font:700 13.5px Inter;margin-top:3px;color:#fff}
-.ag-chip:last-child{border-color:rgba(63,224,143,.35);background:rgba(63,224,143,.08)}.ag-chip:last-child b{color:#3FE08F}
-.ag-big{font:800 26px var(--display);letter-spacing:-.02em}
-.ag-cap{padding:14px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:grid;gap:9px}
-.ag-cap small{font:500 11.5px Inter;color:rgba(255,255,255,.5)}
-.ag-capt{display:flex;justify-content:space-between;font:600 13px Inter}.ag-capt b{font:800 18px var(--display);color:#3FE08F}
-.ag-meter{height:8px;border-radius:8px;background:rgba(255,255,255,.08);overflow:hidden}.ag-meter i{display:block;height:100%;width:0;border-radius:8px;background:linear-gradient(90deg,#3FE08F,#a7f3c8)}
-.ag-rows{display:grid;gap:0;border-radius:14px;border:1px solid rgba(255,255,255,.07);overflow:hidden}
-.ag-rows div{display:flex;justify-content:space-between;padding:10px 13px;font:500 13px Inter;color:rgba(255,255,255,.6)}.ag-rows div+div{border-top:1px solid rgba(255,255,255,.06)}.ag-rows b{color:#fff;font-weight:600}
-.ag-approve{position:relative;margin-top:auto;height:50px;border-radius:15px;background:#fff;color:#0a0a0c;overflow:hidden;display:grid;place-items:center;font:700 14px Inter}
-.ag-approve i{position:absolute;left:0;top:0;bottom:0;width:0;background:#3FE08F}
-.ag-approve span{position:relative;grid-area:1/1}.ag-approve .b{opacity:0}
-.ag-pnl{display:flex;justify-content:space-between;align-items:flex-end}
-.ag-pnl b{display:block;font:800 34px var(--display);letter-spacing:-.03em;color:#3FE08F;font-variant-numeric:tabular-nums}
-.ag-risk{text-align:right}.ag-risk b{font-size:16px;color:#fff}
-.ag-chart{position:relative;height:130px;margin:0 -4px}
-.ag-chart svg{width:100%;height:100%;overflow:visible}
-.ag-area{fill:url(#agFill);opacity:0}
-.ag-line{fill:none;stroke:#3FE08F;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;filter:drop-shadow(0 0 6px rgba(63,224,143,.7))}
-.ag-mk{position:absolute;transform:translate(-50%,-50%);opacity:0}
-.ag-mk i{display:block;width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(63,224,143,.35)}
-.ag-mk em{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);white-space:nowrap;font:600 11px Inter;font-style:normal;padding:4px 8px;border-radius:8px;background:#fff;color:#0a0a0c}
-.ag-mk.m2 i{background:#3FE08F}
-.ag-log{display:grid;gap:6px}
-.ag-log div{display:grid;grid-template-columns:42px minmax(0,1fr);gap:8px;font:500 12.5px/1.4 Inter;color:rgba(255,255,255,.8);opacity:0;transform:translateY(8px)}
-.ag-log time{font:500 11px var(--label);color:rgba(255,255,255,.4);padding-top:1px}
-.ag-log .g{color:#3FE08F}.ag-log .ls{color:#c4b5fd}
-.ag-next{margin-top:auto;display:flex;align-items:center;gap:9px;font:500 12px Inter;color:rgba(255,255,255,.55)}
-.ag-next svg{width:18px;height:18px;transform:rotate(-90deg)}.ag-next circle{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2.4}.ag-next .t{stroke:#3FE08F;stroke-dasharray:0 100;stroke-linecap:round}
-.ag-next b{color:#fff;font-variant-numeric:tabular-nums}
-#agent.static .ag-s1,#agent.static .ag-s2{opacity:0}#agent.static .ag-s3{opacity:1;transform:none}
-#agent.static .ag-log div,#agent.static .ag-mk,#agent.static .ag-area{opacity:1;transform:translate(-50%,-50%)}#agent.static .ag-log div{transform:none}
-#agent.static .ag-line{stroke-dashoffset:0}#agent.static .ag-steps li{opacity:1}#agent.static .ag-steps li span{max-height:none}#agent.static .ag-sat{opacity:1}
-@media(max-width:980px){
-  .ag-pin{padding:70px 0 24px}
-  .ag-grid{grid-template-columns:1fr;gap:10px}
-  .ag-copy .shead p,.ag-note{display:none}
-  .ag-copy .shead h2{font-size:clamp(34px,9vw,48px)}
-  .ag-steps{margin-top:14px}
-  .ag-steps li{display:none;opacity:1;background:#fff;box-shadow:0 10px 30px rgba(10,10,12,.07)}
-  .ag-steps li.on{display:grid;transform:none}.ag-steps li span{max-height:none}
-  .ag-bar{display:none}
-  .ag-stage{height:auto;padding:6px 0 0}
-  .ag-orbit{width:520px;height:520px;margin:-260px 0 0 -260px}
-  .ag-scr{height:400px}
-  #agent.static .ag-steps li{display:grid}#agent.static .ag-copy .shead p{display:block}
+/* ===== Ovi trading agent: watch Ovi think (pinned neural graph) ===== */
+#agent{position:relative;padding:0;background:#030407;color:#fff;overflow:hidden}
+#agent::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(transparent,#020208);pointer-events:none;z-index:1}
+.ot-pin{position:relative;min-height:100vh;display:grid;align-items:center;padding:86px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px));
+  background:radial-gradient(50% 55% at 42% 55%,rgba(63,224,143,.10),transparent 70%),
+  linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px}
+.ot-cv{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.ot-wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
+.ot-head{display:grid;gap:12px;max-width:640px}
+.ot-head h2{font-size:clamp(38px,4.6vw,66px);line-height:.98;letter-spacing:-.04em}
+.ot-head p{color:rgba(255,255,255,.62);font-size:clamp(15px,1.4vw,17.5px);line-height:1.5;max-width:52ch}
+.ot-graph{position:relative;height:clamp(360px,52vh,470px);margin-top:4px}
+.ot-n{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:9px;padding:8px 13px 8px 9px;border-radius:999px;background:rgba(14,16,20,.82);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(8px);white-space:nowrap;transition:border-color .4s,box-shadow .4s,opacity .4s;opacity:.55}
+.ot-n i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .4s,box-shadow .4s}
+.ot-n b{font:600 13px Inter}
+.ot-n em{font:500 11.5px var(--label);font-style:normal;color:rgba(255,255,255,.5)}
+.ot-n.on{opacity:1;border-color:rgba(63,224,143,.5);box-shadow:0 0 24px -6px rgba(63,224,143,.6)}
+.ot-n.on i{background:#3FE08F;box-shadow:0 0 10px #3FE08F}
+.ot-n.on em{color:#3FE08F}
+.ot-core{position:absolute;transform:translate(-50%,-50%);width:128px;height:128px;display:grid;place-items:center}
+.ot-core svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.ot-core .r0{fill:rgba(10,12,16,.9);stroke:rgba(255,255,255,.1);stroke-width:1.5}
+.ot-core .r1{fill:none;stroke:#3FE08F;stroke-width:3;stroke-linecap:round;stroke-dasharray:var(--rp,0) 100;filter:drop-shadow(0 0 6px #3FE08F)}
+.ot-core img{position:relative;border-radius:50%;box-shadow:0 0 0 6px rgba(63,224,143,.08),0 0 60px rgba(63,224,143,calc(.15 + var(--glow,0)*.5))}
+.ot-cl{position:absolute;bottom:-24px;font:700 11px var(--label);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.ot-risk{position:absolute;transform:translate(-50%,-50%);width:200px;padding:13px 14px;border-radius:18px;background:rgba(14,16,20,.88);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);display:grid;gap:7px;transition:border-color .4s,box-shadow .4s}
+.ot-risk small{font:600 10px var(--label);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.ot-risk .ck{display:flex;align-items:center;gap:8px;font:500 12.5px Inter;color:rgba(255,255,255,.45);transition:color .3s}
+.ot-risk .ck i{width:15px;height:15px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:grid;place-items:center;font-style:normal;font-size:9px;transition:all .3s}
+.ot-risk .ck.on{color:#fff}.ot-risk .ck.on i{background:#3FE08F;border-color:#3FE08F;color:#03140a}.ot-risk .ck.on i::after{content:"✓";font-weight:800}
+.ot-risk.on{border-color:rgba(63,224,143,.5);box-shadow:0 0 30px -8px rgba(63,224,143,.6)}
+.ot-risk.deny{border-color:rgba(255,90,95,.7);box-shadow:0 0 34px -6px rgba(255,90,95,.7);animation:otshake .4s}
+.ot-block{position:absolute;left:50%;top:-14px;transform:translate(-50%,-100%);white-space:nowrap;font:700 12px Inter;color:#fff;background:#e5484d;padding:6px 11px;border-radius:999px;opacity:0;transition:opacity .25s}
+.ot-risk.deny .ot-block{opacity:1}
+@keyframes otshake{25%{transform:translate(calc(-50% - 5px),-50%)}75%{transform:translate(calc(-50% + 5px),-50%)}}
+.ot-x{position:absolute;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:6px;opacity:.55;transition:opacity .4s}
+.ot-x span{width:44px;height:44px;display:grid;place-items:center;font-size:20px;color:#3FE08F;border-radius:12px;transform:rotate(0);background:rgba(14,16,20,.9);border:1px solid rgba(255,255,255,.12);transition:box-shadow .4s,border-color .4s}
+.ot-x b{font:600 12px Inter;color:rgba(255,255,255,.7)}
+.ot-x.on{opacity:1}.ot-x.on span{border-color:#3FE08F;box-shadow:0 0 30px rgba(63,224,143,.7)}
+.ot-fill{position:absolute;transform:translate(-50%,0) translateY(10px);width:210px;padding:12px 14px;border-radius:16px;background:#3FE08F;color:#03140a;opacity:0;transition:opacity .35s,transform .35s;box-shadow:0 20px 50px -10px rgba(63,224,143,.6)}
+.ot-fill small{font:700 10px var(--label);letter-spacing:.12em;text-transform:uppercase;opacity:.7}
+.ot-fill b{display:block;font:800 19px var(--display);letter-spacing:-.02em;margin-top:2px}
+.ot-fill span{font:600 12px Inter;opacity:.8}
+.ot-fill.on{opacity:1;transform:translate(-50%,0)}
+.ot-wrap{grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:30px}.ot-graph,.ot-note{grid-column:1/-1}
+.ot-ph{flex-direction:column;gap:8px!important;padding-bottom:6px}
+.ot-term{position:absolute;left:60%;bottom:-14px;transform:translateX(-50%);width:min(400px,38%);z-index:3}
+.ot-ph{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.ot-ph li{display:flex;align-items:center;gap:8px;font:600 13.5px Inter;color:rgba(255,255,255,.35);transition:color .3s}
+.ot-ph li i{font:700 10.5px var(--label);font-style:normal;padding:4px 7px;border-radius:7px;border:1px solid rgba(255,255,255,.14)}
+.ot-ph li.on{color:#fff}.ot-ph li.on i{background:#3FE08F;color:#03140a;border-color:#3FE08F}
+.ot-term{border-radius:16px;background:rgba(10,12,16,.82);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(12px);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.ot-tbar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07)}
+.ot-tbar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14)}
+.ot-tbar em{font:500 11px var(--label);font-style:normal;color:rgba(255,255,255,.45);margin-left:6px}
+.ot-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:700 10px var(--label);letter-spacing:.14em;text-transform:uppercase;color:#3FE08F}
+.ot-live i{width:6px;height:6px;border-radius:50%;background:#3FE08F;box-shadow:0 0 8px #3FE08F;animation:otblink 1.3s infinite}
+@keyframes otblink{50%{opacity:.3}}
+.ot-lines{height:128px;padding:10px 14px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;font:500 12.5px/1.45 "JetBrains Mono",monospace;color:rgba(255,255,255,.72)}
+.ot-lines div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-lines .g{color:#3FE08F}.ot-lines .r{color:#ff8a8a}.ot-lines .d{color:rgba(255,255,255,.4)}
+.ot-lines .cur::after{content:"▍";color:#3FE08F;animation:otblink 1s steps(1) infinite}
+.ot-note{margin-top:12px;font:500 11.5px Inter;color:rgba(255,255,255,.38)}
+#agent.static .ot-n,#agent.static .ot-x{opacity:1}
+#agent.static .ot-fill{opacity:1;transform:translate(-50%,0)}
+@media(max-width:900px){
+  .ot-pin{padding-top:66px;padding-bottom:16px}
+  .ot-head p{display:none}
+  .ot-graph{height:min(420px,52vh)}
+  .ot-graph.filled .ot-risk{opacity:0}.ot-risk{transition:opacity .3s,border-color .4s,box-shadow .4s}
+  .ot-head h2{font-size:clamp(32px,9vw,44px)}
+  .ot-n{padding:6px 10px 6px 7px}.ot-n b{font-size:11.5px}.ot-n em{display:none}
+  .ot-core{width:96px;height:96px}.ot-core img{width:48px;height:48px}
+  .ot-risk{width:178px;padding:10px 12px;gap:5px}.ot-risk .ck{font-size:11.5px}
+  .ot-fill{width:180px;padding:10px 12px}.ot-fill b{font-size:16px}
+  .ot-wrap{grid-template-columns:1fr}.ot-ph{flex-direction:row}
+  .ot-term{left:50%;bottom:auto;top:calc(100% + 8px);width:100%}
+  .ot-graph{margin-bottom:96px}
+  .ot-ph li{display:none}.ot-ph li.on{display:flex}
+  .ot-lines{height:74px;font-size:11.5px}
+  .ot-note{display:none}
 }
 /* ===== 7. the swop system (orrery) ===== */
 #system{position:relative;overflow:hidden;padding-block:96px 84px;background:radial-gradient(ellipse 80% 60% at 70% 40%,#0b1a14 0%,#020208 60%),#020208}
@@ -981,55 +972,35 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 7 THE SWOP SYSTEM -->
-<!-- 6B OVI TRADING AGENT -->
-<section id="agent" class="gut light" data-ch="07 · Trading agent"><div class="ag-pin"><div class="wrap ag-grid">
-  <div class="ag-copy">
-    <div class="shead"><span class="lab">Ovi trading agent · <span class="st beta">Beta</span></span>
-      <h2>Write the strategy.<br><span class="green">Ovi runs it.</span></h2>
-      <p>Describe a trade in plain words. Approve the limits once. Ovi checks the market around the clock and only acts inside them.</p></div>
-    <ol class="ag-steps">
-      <li data-s="0"><i>01</i><div><b>Describe it</b><span>Say what you want. Ovi turns it into venues, rules and limits you can read.</span></div></li>
-      <li data-s="1"><i>02</i><div><b>Approve the limits</b><span>Set a daily loss cap and confirm with your passkey. Nothing runs before that.</span></div></li>
-      <li data-s="2"><i>03</i><div><b>It runs on its own</b><span>Every few minutes it checks, trades from its own vault wallet, and logs what it did and why.</span></div></li>
-    </ol>
-    <div class="ag-bar" aria-hidden="true"><i></i></div>
-    <p class="ag-note">Hyperliquid, Polymarket, LI.FI and Aave. The AI suggests; fixed rules enforce your caps. Trading carries risk.</p>
-  </div>
-  <div class="ag-stage" aria-label="Animation: Ovi drafts a BTC strategy, you approve a $50 daily loss cap, and it trades on its own">
-    <div class="ag-orbit" aria-hidden="true"><svg viewBox="0 0 200 200"><circle class="o1" cx="100" cy="100" r="96"/><circle class="o2" cx="100" cy="100" r="96" pathLength="100"/></svg><i class="ag-sat"></i></div>
-    <div class="ag-con" aria-hidden="true">
-      <div class="ag-top"><img src="assets/ovi-owl-256.png" alt="" width="30" height="30"><div><b>Ovi</b><small>Strategy desk</small></div><span class="ag-pill" id="agPill"><i></i><em>Drafting</em></span></div>
-      <div class="ag-scr">
-        <div class="ag-s ag-s1">
-          <div class="ag-prompt"><span class="ag-you">You</span><p id="agType"></p><i class="ag-caret"></i></div>
-          <div class="ag-from"><img src="assets/ovi-owl-256.png" alt="" width="18" height="18">Here's your strategy</div>
-          <div class="ag-chips"><div class="ag-chip"><small>Venue</small><b>Hyperliquid perps</b></div><div class="ag-chip"><small>Asset</small><b>BTC</b></div><div class="ag-chip"><small>Entry</small><b>Funding below 0%</b></div><div class="ag-chip"><small>Exit</small><b>+4% take profit · −2% stop</b></div><div class="ag-chip"><small>Leverage</small><b>3× max</b></div><div class="ag-chip"><small>Daily loss cap</small><b>$50</b></div></div>
-        </div>
-        <div class="ag-s ag-s2">
-          <small class="ag-k">Before it can trade</small>
-          <b class="ag-big">BTC funding flip</b>
-          <div class="ag-cap"><div class="ag-capt"><span>Daily loss cap</span><b>$50</b></div><div class="ag-meter"><i></i></div><small>Ovi stops for the day if losses reach this</small></div>
-          <div class="ag-rows"><div><span>Mode</span><b>Runs on its own</b></div><div><span>Checks</span><b>Every 3 minutes</b></div><div><span>Wallet</span><b>Its own vault</b></div></div>
-          <div class="ag-approve"><i></i><span class="a">Approve with passkey</span><span class="b">Strategy live ✓</span></div>
-        </div>
-        <div class="ag-s ag-s3">
-          <div class="ag-pnl"><div><small class="ag-k">Today</small><b id="agPnl">+$0.00</b></div><div class="ag-risk"><small class="ag-k">Loss used</small><b>$0 of $50</b></div></div>
-          <div class="ag-chart"><svg viewBox="0 0 320 130" preserveAspectRatio="none"><defs><linearGradient id="agFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#3FE08F" stop-opacity=".35"/><stop offset="1" stop-color="#3FE08F" stop-opacity="0"/></linearGradient></defs>
-            <path class="ag-area" d="M0,92 C30,88 50,96 70,94 S110,100 130,96 S160,82 180,76 S220,56 240,52 S280,40 320,34 L320,130 L0,130Z"/>
-            <path class="ag-line" pathLength="100" d="M0,92 C30,88 50,96 70,94 S110,100 130,96 S160,82 180,76 S220,56 240,52 S280,40 320,34"/></svg>
-            <span class="ag-mk m1" style="left:40.6%;top:73.8%"><i></i><em>Long 0.01 BTC</em></span>
-            <span class="ag-mk m2" style="left:75%;top:40%"><i></i><em>Take profit +4.1%</em></span></div>
-          <div class="ag-log">
-            <div><time>14:03</time><span>Funding −0.012%. Entered long 0.01 BTC.</span></div>
-            <div><time>14:41</time><span>Take profit hit. <b class="g">+$2.70</b></span></div>
-            <div><time>14:41</time><span class="ls">Lesson: funding flips reverted within 40 min.</span></div>
-          </div>
-          <div class="ag-next"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="8"/><circle class="t" cx="10" cy="10" r="8" pathLength="100"/></svg><span>Next check in <b id="agNext">3:00</b></span></div>
-        </div>
-      </div>
+
+<!-- 6B OVI TRADING AGENT: WATCH OVI THINK -->
+<section id="agent" data-ch="07 · Trading agent"><div class="ot-pin">
+  <canvas class="ot-cv" aria-hidden="true"></canvas>
+  <div class="wrap ot-wrap">
+    <div class="ot-head">
+      <span class="lab">Ovi trading agent · <span class="st beta">Beta</span></span>
+      <h2>Write a strategy.<br><span class="green">Watch Ovi think.</span></h2>
+      <p>You describe the trade once. Ovi reads the market every few minutes, makes the call, checks it against your rules, and acts on its own.</p>
     </div>
+    <ol class="ot-ph"><li><i>01</i>Listening</li><li><i>02</i>Deciding</li><li><i>03</i>Checking your rules</li><li><i>04</i>Executing</li></ol>
+    <div class="ot-graph" aria-label="Animation: market signals flow into Ovi, which decides, passes your risk rules and executes on Hyperliquid">
+      <div class="ot-n sig" data-id="funding"><i></i><b>Funding</b><em>−0.012%</em></div>
+      <div class="ot-n sig" data-id="price"><i></i><b>Price</b><em>67,420</em></div>
+      <div class="ot-n sig" data-id="volume"><i></i><b>Volume</b><em>+18%</em></div>
+      <div class="ot-n sig" data-id="oi"><i></i><b>Open interest</b><em>rising</em></div>
+      <div class="ot-core" data-id="ovi"><svg viewBox="0 0 120 120"><circle class="r0" cx="60" cy="60" r="54"/><circle class="r1" cx="60" cy="60" r="54" pathLength="100"/></svg><img src="assets/ovi-owl-256.png" alt="" width="64" height="64"><span class="ot-cl">Ovi</span></div>
+      <div class="ot-risk" data-id="risk"><small>Your rules</small><div class="ck" data-k="0"><i></i>Loss used $0 of $50</div><div class="ck" data-k="1"><i></i>Leverage 3× max</div><div class="ck" data-k="2"><i></i>Venue allowed</div><div class="ot-block">✕ 5× leverage blocked</div></div>
+      <div class="ot-x" data-id="exec"><span>◆</span><b>Execute</b></div>
+      <div class="ot-n ven" data-id="hl"><i></i><b>Hyperliquid</b></div>
+      <div class="ot-n ven" data-id="pm"><i></i><b>Polymarket</b></div>
+      <div class="ot-n ven" data-id="lifi"><i></i><b>LI.FI</b></div>
+      <div class="ot-n ven" data-id="aave"><i></i><b>Aave</b></div>
+          <div class="ot-term" aria-hidden="true"><div class="ot-tbar"><span></span><span></span><span></span><em>ovi · strategy desk</em><b class="ot-live"><i></i>live</b></div><div class="ot-lines"></div></div>
+      <div class="ot-fill"><small>Filled · Hyperliquid</small><b>Long 0.01 BTC</b><span>@ 67,420 · TP +4% · SL −2%</span></div>
+    </div>
+    <p class="ot-note">Examples are illustrative. The AI suggests; fixed rules enforce your caps. Trading carries risk.</p>
   </div>
-</div></div></section>
+</div></section>
 
 <section id="system" class="gut" data-ch="08 · The Swop system">
   <canvas id="stars" aria-hidden="true"></canvas>
@@ -1424,44 +1395,89 @@ addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
 <script>
-/* Ovi trading agent: scroll-scrubbed strategy -> approval -> autonomous trading */
+/* Watch Ovi think: canvas particle network + scroll-scrubbed phases */
 (function(){
   var sec=document.getElementById('agent');if(!sec)return;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var q=function(s){return sec.querySelector(s)},qa=function(s){return sec.querySelectorAll(s)};
-  var steps=qa('.ag-steps li'),pill=q('#agPill'),typeEl=q('#agType'),pnl=q('#agPnl'),next=q('#agNext');
-  var PROMPT='Long BTC when funding turns negative. Take profit at +4%, stop at \u22122%. Risk at most $50 a day.';
-  var setStep=function(i){steps.forEach(function(li,j){li.classList.toggle('on',j===i)})};
-  var setPill=function(t){var live=t>=2.85;pill.classList.toggle('live',live);pill.querySelector('em').textContent=live?'Live':t>=2.1?'Awaiting approval':t>=1.25?'Drafted':'Drafting'};
-  if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){sec.classList.add('static');typeEl.textContent=PROMPT;pnl.textContent='+$2.70';pill.classList.add('live');pill.querySelector('em').textContent='Live';return}
-  setStep(0);
-  var st={p:0,cd:0};
-  var tl=gsap.timeline({defaults:{ease:'power2.out'},onUpdate:function(){var t=tl.time();setStep(t<2.1?0:t<3.1?1:2);setPill(t)},
-    scrollTrigger:{trigger:q('.ag-pin'),start:'top top',end:matchMedia('(max-width:980px)').matches?'+=240%':'+=300%',pin:true,scrub:.6}});
-  tl.to(st,{p:1,duration:1.15,ease:'none',onUpdate:function(){typeEl.textContent=PROMPT.slice(0,Math.round(st.p*PROMPT.length))}},0)
-    .to(q('.ag-from'),{opacity:1,duration:.15},1.2)
-    .to(qa('.ag-chip'),{opacity:1,y:0,scale:1,duration:.18,stagger:.1,ease:'back.out(2)'},1.25)
-    .to(q('.ag-orbit .o2'),{strokeDasharray:'34 100',duration:.8,ease:'none'},1.2)
-    .to(q('.ag-s1'),{opacity:0,y:-14,duration:.2},2.1).to(q('.ag-s2'),{opacity:1,y:0,duration:.25},2.15)
-    .to(q('.ag-meter i'),{width:'100%',duration:.35,ease:'power1.inOut'},2.3)
-    .to(q('.ag-approve i'),{width:'100%',duration:.25,ease:'none'},2.6)
-    .to(q('.ag-approve .a'),{opacity:0,duration:.05},2.83).to(q('.ag-approve .b'),{opacity:1,duration:.05},2.85)
-    .to(q('.ag-orbit .o2'),{strokeDasharray:'100 100',duration:.25,ease:'none'},2.6)
-    .to(q('.ag-sat'),{opacity:1,duration:.2},2.85)
-    .to(q('.ag-s2'),{opacity:0,y:-14,duration:.2},3.1).to(q('.ag-s3'),{opacity:1,y:0,duration:.25},3.15)
-    .to(q('.ag-line'),{strokeDashoffset:0,duration:1.7,ease:'none'},3.25)
-    .to(q('.ag-area'),{opacity:1,duration:1.2,ease:'none'},3.4)
-    .to(q('.ag-mk.m1'),{opacity:1,duration:.12},3.75).to(qa('.ag-log div')[0],{opacity:1,y:0,duration:.15},3.75)
-    .to(q('.ag-mk.m2'),{opacity:1,duration:.12},4.55).to(qa('.ag-log div')[1],{opacity:1,y:0,duration:.15},4.55)
-    .to(st,{cd:1,duration:.35,ease:'power1.out',onUpdate:function(){pnl.textContent='+$'+(st.cd*2.7).toFixed(2)}},4.55)
-    .to(qa('.ag-log div')[2],{opacity:1,y:0,duration:.15},4.95)
-    .to(q('.ag-next .t'),{strokeDasharray:'100 100',duration:1.85,ease:'none'},3.25)
-    .to(q('.ag-bar i'),{width:'100%',duration:5.1,ease:'none'},0);
+  var graph=sec.querySelector('.ot-graph'),cv=sec.querySelector('.ot-cv'),ctx=cv.getContext('2d');
+  var N={};sec.querySelectorAll('[data-id]').forEach(function(el){N[el.dataset.id]=el});
+  var phases=sec.querySelectorAll('.ot-ph li'),checks=sec.querySelectorAll('.ot-risk .ck'),risk=N.risk,core=N.ovi,lines=sec.querySelector('.ot-lines'),fill=sec.querySelector('.ot-fill');
+  var LINES=[[.03,'d','› scanning BTC perps…'],[.09,'','› funding −0.012% (8h) · below zero'],[.15,'','› price 67,420 · volume +18% vs 24h'],
+    [.29,'','› thesis: negative funding tends to revert'],[.37,'g','› call: long bias · confidence 0.71'],
+    [.53,'r','› idea: 5× leverage → blocked, your max is 3×'],[.62,'','› loss used $0 of $50 · venue allowed'],[.69,'g','› rules passed'],
+    [.80,'','› order: long 0.01 BTC on Hyperliquid'],[.88,'g','› filled @ 67,420 · TP +4% · SL −2%'],[.95,'d','› next check in 3:00']];
+  /* layout: positions as fractions of the graph box; phones get a vertical layout */
+  var DESK={funding:[.07,.13],price:[.05,.38],volume:[.06,.63],oi:[.09,.88],ovi:[.36,.46],risk:[.58,.36],exec:[.75,.36],hl:[.93,.16],pm:[.95,.39],lifi:[.95,.62],aave:[.93,.85],fill:[.75,.0]};
+  var MOB={funding:[.17,.05],price:[.5,.05],volume:[.83,.05],oi:[.5,.16],ovi:[.5,.36],risk:[.5,.58],exec:[.5,.76],hl:[.2,.93],pm:[.5,.97],lifi:[.8,.93],aave:[.92,.83],fill:[.5,.47]};
+  var L,W,H,dpr,P=reduce?1:0,on=false,t0=performance.now();
+  var EDGES=[['funding','ovi'],['price','ovi'],['volume','ovi'],['oi','ovi'],['ovi','risk'],['risk','exec'],['exec','hl'],['exec','pm'],['exec','lifi'],['exec','aave']];
+  function layout(){
+    L=innerWidth<=900?MOB:DESK;
+    var gr=graph.getBoundingClientRect(),sr=sec.querySelector('.ot-pin').getBoundingClientRect();
+    Object.keys(L).forEach(function(k){var el=k==='fill'?fill:N[k];if(!el)return;el.style.left=(L[k][0]*100)+'%';el.style.top=(L[k][1]*100)+'%'});
+    if(innerWidth<=900){N.aave.style.display='none'}else{N.aave.style.display=''}
+    dpr=Math.min(2,devicePixelRatio||1);W=sr.width;H=sr.height;cv.width=W*dpr;cv.height=H*dpr;
+    var ox=gr.left-sr.left,oy=gr.top-sr.top;
+    pts={};Object.keys(L).forEach(function(k){pts[k]=[ox+L[k][0]*gr.width,oy+L[k][1]*gr.height]});
+  }
+  var pts={},parts=[];
+  function bez(a,b,t){var mob=innerWidth<=900,mx=mob?0:(b[0]-a[0])*.5,my=mob?(b[1]-a[1])*.5:0;
+    var c1=[a[0]+mx,a[1]+my],c2=[b[0]-mx,b[1]-my],u=1-t;
+    return [u*u*u*a[0]+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*b[0],u*u*u*a[1]+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*b[1]]}
+  function act(e){ /* how lit an edge is for the current phase */
+    var a=e[0],b=e[1];
+    if(b==='ovi')return Math.min(1,P/.06);
+    if(a==='ovi')return P<.25?.15:Math.min(1,(P-.25)/.1);
+    if(a==='risk')return P<.7?.1:Math.min(1,(P-.7)/.06);
+    if(b==='hl')return P<.78?.08:Math.min(1,(P-.78)/.06);
+    return P<.78?.06:.18;
+  }
+  var red=null;
+  function frame(now){
+    if(!on){raf=0;return}
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+    var tt=(now-t0)/1000;
+    EDGES.forEach(function(e){
+      var a=pts[e[0]],b=pts[e[1]];if(!a||!b||(e[1]==='aave'&&innerWidth<=900))return;
+      var k=act(e);
+      ctx.beginPath();for(var i=0;i<=40;i++){var p=bez(a,b,i/40);i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])}
+      ctx.strokeStyle='rgba(255,255,255,'+(.06+k*.05)+')';ctx.lineWidth=1;ctx.stroke();
+      if(k>.05){ctx.save();ctx.shadowColor='#3FE08F';ctx.shadowBlur=12*k;ctx.strokeStyle='rgba(63,224,143,'+(.18+k*.45)+')';ctx.lineWidth=1.4;ctx.stroke();ctx.restore()}
+      /* particles: count and speed follow activation */
+      var n=Math.round(k*7);
+      for(var j=0;j<n;j++){var ph=((tt*(.35+k*.4))+j/n+e[0].length*.13)%1,q=bez(a,b,ph);
+        ctx.beginPath();ctx.arc(q[0],q[1],1.6+k*1.6,0,7);ctx.fillStyle='rgba(160,255,205,'+(.5+k*.5)+')';ctx.shadowColor='#3FE08F';ctx.shadowBlur=10;ctx.fill();ctx.shadowBlur=0}
+    });
+    /* the blocked idea: a red pulse that hits the risk gate and bounces back */
+    if(P>.47&&P<.6&&pts.ovi&&pts.risk){var f=(P-.47)/.13,t=f<.6?f/.6:1-(f-.6)/.4*.6,q=bez(pts.ovi,pts.risk,t);
+      ctx.beginPath();ctx.arc(q[0],q[1],5,0,7);ctx.fillStyle='#ff5a5f';ctx.shadowColor='#ff5a5f';ctx.shadowBlur=20;ctx.fill();ctx.shadowBlur=0}
+    /* execution burst */
+    if(P>.82&&pts.hl){var g=Math.min(1,(P-.82)/.08),c=pts.hl;ctx.beginPath();ctx.arc(c[0],c[1],10+g*44,0,7);ctx.strokeStyle='rgba(63,224,143,'+(1-g)*.8+')';ctx.lineWidth=2;ctx.stroke()}
+    raf=requestAnimationFrame(frame);
+  }
+  var raf=0,shown=-1;
+  function render(){ /* DOM state for the current progress */
+    var ph=P<.25?0:P<.47?1:P<.74?2:3;
+    phases.forEach(function(li,i){li.classList.toggle('on',i===ph)});
+    ['funding','price','volume','oi'].forEach(function(k,i){N[k].classList.toggle('on',P>=.02+i*.04)});
+    core.style.setProperty('--rp',(Math.max(0,Math.min(1,(P-.2)/.25))*100).toFixed(1));
+    core.style.setProperty('--glow',Math.min(1,P*2).toFixed(2));
+    risk.classList.toggle('deny',P>.5&&P<.58);
+    checks.forEach(function(c,i){c.classList.toggle('on',P>=.6+i*.04)});
+    risk.classList.toggle('on',P>=.68);
+    N.exec.classList.toggle('on',P>=.76);N.hl.classList.toggle('on',P>=.8);
+    fill.classList.toggle('on',P>=.86);graph.classList.toggle('filled',P>=.86);
+    var n=LINES.filter(function(l){return P>=l[0]}).length;
+    if(n!==shown){shown=n;lines.innerHTML=LINES.slice(Math.max(0,n-6),n).map(function(l,i,a){return '<div class="'+l[1]+(i===a.length-1?' cur':'')+'">'+l[2]+'</div>'}).join('')}
+  }
+  layout();render();addEventListener('resize',function(){layout()});
+  if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){sec.classList.add('static');P=1;layout();render();on=true;frame(performance.now());on=false;return}
+  ScrollTrigger.create({trigger:sec.querySelector('.ot-pin'),start:'top top',end:innerWidth<=900?'+=260%':'+=320%',pin:true,scrub:true,
+    onUpdate:function(self){P=self.progress;render()},onRefresh:function(){layout()}});
+  new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on&&!raf)raf=requestAnimationFrame(frame)}).observe(sec);
   /* refresh in page order (a pin inside a section before the section) so every trigger below a pin counts its spacer */
   ScrollTrigger.sort(function(a,b){var x=a.trigger,y=b.trigger;if(!x||!y||x===y)return 0;if(x.contains(y))return 1;if(y.contains(x))return -1;return x.compareDocumentPosition(y)&Node.DOCUMENT_POSITION_FOLLOWING?-1:1});
   ScrollTrigger.refresh();
-  /* live countdown once the strategy is running */
-  var secs=180;setInterval(function(){if(tl.time()<3.1)return;secs=secs<=1?180:secs-1;next.textContent=Math.floor(secs/60)+':'+String(secs%60).padStart(2,'0')},1000);
 })();
 </script>
 </body>
