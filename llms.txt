@@ -33,6 +33,7 @@
 - [Swop home](https://www.swopme.co): product overview
 - [Web app](https://swopme.app): the Swop wallet in the browser
 - [Blog](https://www.swopme.co/blog): Swop Journal — product, markets, engineering
+- [Stablecoins are the tokenization that already won](https://www.swopme.co/blog/stablecoins-already-won-tokenization): why dollar stablecoins — not tokenized Treasuries or gold — are the largest category of on-chain real-world-asset tokenization by a wide margin, and what that implies about why they won first
 - [Somebody made gold in a reactor](https://www.swopme.co/blog/gold-fusion-blockspace-scarcity): a fusion startup's claim to have transmuted mercury into gold, why the quantities are picogram-scale and the tonnage figures are simulated, and the distinction between scarcity observed from cost and scarcity enforced by a published rule
 - [Starbucks runs a $1.7 billion float on gift cards](https://www.swopme.co/blog/geo-bucks-drops-store-credit): how prepaid store credit funds a business and drives repeat in-person visits, and how Geo Bucks, Drops and Launchpad put the same mechanic behind any counter
 - [El Dorado is live in beta](https://www.swopme.co/blog/el-dorado-virtual-world-beta): a virtual world built on Swop that you sign into with your swop.id while holding your own keys — in beta, shipping improvements weekly
