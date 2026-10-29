@@ -3,26 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Swop Shop — NFC chips, cards & QR stickers</title>
+<title>Swop Shop: NFC cards that open your page</title>
+<meta name="description" content="Swop NFC cards open your SmartSite with one tap. Take payments, issue rewards and collect reviews. Pay by card or USDC.">
+<meta name="theme-color" content="#FAFAFA">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Swop Shop: one tap, your whole business">
+<meta property="og:description" content="NFC cards that open your Swop page. Take payments, issue rewards, collect reviews.">
+<meta property="og:url" content="https://www.swopme.co/shop.html">
+<meta property="og:image" content="https://www.swopme.co/assets/og-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="alternate" type="application/json" href="https://apps.apiswop.co/api/v5/x402/store/travis.swop.id" title="Agent checkout — x402 store listing (USDC on Base)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Figtree:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#0f0e13;--mut:#6a6675;--soft:#4c4956;--line:rgba(15,14,19,.11);--line2:rgba(15,14,19,.06);--violet:#7c4dff;--teal:#12b5a5;--amber:#e0863f;--paper:#fff;--mono:'JetBrains Mono',ui-monospace,monospace}
+:root{--ink:#0a0a0c;--mut:#6b6b72;--soft:#4a4a52;--line:rgba(10,10,12,.1);--line2:rgba(10,10,12,.06);--violet:#0a9f55;--green:#3FE08F;--teal:#0a9f55;--amber:#d97706;--paper:#fff;--mono:'JetBrains Mono',ui-monospace,monospace}
 *{box-sizing:border-box;margin:0;padding:0}
-body{color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;background:radial-gradient(78% 52% at 16% 4%,rgba(150,110,255,.15) 0%,transparent 62%),radial-gradient(70% 52% at 102% 62%,rgba(255,178,150,.13) 0%,transparent 60%),radial-gradient(60% 40% at 88% 3%,rgba(30,190,175,.10) 0%,transparent 62%),linear-gradient(180deg,#f8f6f3 0%,#ecebf4 100%);background-attachment:fixed}
+body{color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5;background:#FAFAFA}
 a{color:var(--ink);text-decoration:none}a:hover{color:var(--violet)}
 button,input,select{font-family:inherit}
 .mono{font-family:var(--mono)}
 .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 48px}
-h2{font-family:'Inter Tight';font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.035em}
-h3{font-family:'Inter Tight';font-weight:800;letter-spacing:-.018em}
+h2{font-family:'Figtree';font-weight:900;font-size:clamp(30px,3.4vw,46px);line-height:1;letter-spacing:-.035em}
+h3{font-family:'Figtree';font-weight:800;letter-spacing:-.018em}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
 .eyebrow b{width:6px;height:6px;border-radius:50%;background:var(--violet);display:inline-block}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--ink);color:#fff;padding:13px 24px;border-radius:999px;font-size:14.5px;font-weight:600;border:0;cursor:pointer;min-height:46px;transition:transform .16s,box-shadow .16s;box-shadow:0 6px 18px rgba(15,14,19,.14)}
 .btn:hover{transform:translateY(-1px);box-shadow:0 10px 26px rgba(15,14,19,.2);color:#fff}
-.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 4px 14px rgba(40,30,90,.07)}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid var(--line);box-shadow:0 4px 14px rgba(10,10,12,.07)}
 .btn.alt:hover{color:var(--ink)}
 .chip{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);backdrop-filter:blur(8px)}
 .pulse{width:7px;height:7px;border-radius:50%;background:var(--teal);animation:pulse 1.8s infinite}
@@ -31,55 +42,55 @@ h3{font-family:'Inter Tight';font-weight:800;letter-spacing:-.018em}
 .ph{position:relative;background:repeating-linear-gradient(135deg,rgba(15,14,19,.05) 0 7px,rgba(15,14,19,.015) 7px 14px),#fff;border:1px solid var(--line2);display:flex;align-items:flex-end;justify-content:flex-start;overflow:hidden}
 .ph span{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#8e8a99;background:rgba(255,255,255,.88);border:1px solid var(--line2);border-radius:6px;padding:4px 8px;margin:10px}
 /* NAV */
-nav{position:sticky;top:0;z-index:40;background:rgba(248,246,243,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
+nav{position:sticky;top:0;z-index:40;background:rgba(250,250,250,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line2)}
 nav .wrap{display:flex;align-items:center;height:76px;gap:18px}
 .brand{display:flex;align-items:center;gap:10px}
-.brand img{display:block;height:24px;width:auto}
-.brand .sfx{font-family:'Inter Tight';font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--mut)}
+.brand svg{display:block;height:18px;width:88px;color:#0a0a0c}
+.brand .sfx{font-family:'Figtree';font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--mut)}
 .navlinks{margin-left:26px;display:flex;gap:22px;font-size:14.5px;font-weight:500;color:var(--mut)}
 .navlinks a{color:var(--mut)}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:14px}
 .cartbtn{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 16px;font-size:14px;font-weight:600;cursor:pointer;min-height:44px}
-.cartbtn .n{font-family:var(--mono);font-size:12px;background:var(--violet);color:#fff;border-radius:999px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center}
+.cartbtn .n{font-family:var(--mono);font-size:12px;background:#0a0a0c;color:#fff;border-radius:999px;min-width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center}
 /* HERO */
 .hero{padding:56px 0 24px}
 .hero .wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:48px;align-items:center}
-h1{font-family:'Inter Tight';font-weight:900;font-size:clamp(44px,5.6vw,82px);line-height:.9;letter-spacing:-.045em;margin:20px 0 0}
-h1 em{font-style:normal;color:var(--violet)}
+h1{font-family:'Figtree';font-weight:900;font-size:clamp(44px,5.6vw,82px);line-height:.9;letter-spacing:-.045em;margin:20px 0 0}
+h1 em{font-style:normal;background:linear-gradient(transparent 58%,var(--green) 58%,var(--green) 92%,transparent 92%);padding:0 .05em}
 .sub{max-width:480px;margin-top:20px;font-size:18.5px;line-height:1.55;color:var(--soft)}
 .herocta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
 .facts{display:grid;grid-template-columns:repeat(3,auto);gap:26px;margin-top:34px;padding-top:24px;border-top:1px solid var(--line);justify-content:start}
-.facts .f .n{font-family:'Inter Tight';font-weight:800;font-size:23px;letter-spacing:-.02em}
+.facts .f .n{font-family:'Figtree';font-weight:800;font-size:23px;letter-spacing:-.02em}
 .facts .f .l{font-family:var(--mono);font-size:10.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--mut);margin-top:4px}
 /* TAP DEMO */
 .demo{position:relative;height:560px;display:flex;align-items:center;justify-content:center}
-.tapcard{position:absolute;left:0;bottom:64px;z-index:3;width:290px;aspect-ratio:1.586;border-radius:18px;border:0;cursor:pointer;padding:0;background:linear-gradient(145deg,#1b1a22 0%,#0f0e13 58%,#191626 100%);box-shadow:0 26px 60px rgba(40,30,90,.32);transform:rotate(-8deg);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.tapcard{position:absolute;left:0;bottom:64px;z-index:3;width:290px;aspect-ratio:1.586;border-radius:18px;border:0;cursor:pointer;padding:0;background:linear-gradient(145deg,#1b1a22 0%,#0f0e13 58%,#191626 100%);box-shadow:0 26px 60px rgba(10,10,12,.32);transform:rotate(-8deg);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
 .tapcard:hover{transform:rotate(-8deg) translateY(-6px) scale(1.02)}
 .tapcard:active{transform:rotate(-8deg) scale(.985)}
 .tcinner{position:absolute;inset:0;padding:20px;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;color:#fff;text-align:left}
 .tcinner .wm{height:14px;width:auto;opacity:.95;filter:brightness(0) invert(1)}
-.tcinner .nm{font-family:'Inter Tight';font-weight:800;font-size:19px;letter-spacing:-.02em}
+.tcinner .nm{font-family:'Figtree';font-weight:800;font-size:19px;letter-spacing:-.02em}
 .tcinner .rl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-top:4px}
 .tchint{position:absolute;right:16px;bottom:18px;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
 .nfcglyph{position:absolute;right:18px;top:18px;width:26px;height:26px;opacity:.85}
 .rings{position:absolute;left:236px;bottom:150px;width:0;height:0;z-index:2;pointer-events:none}
-.rings i{position:absolute;left:0;top:0;width:150px;height:150px;margin:-75px;border-radius:50%;border:1.5px solid rgba(124,77,255,.55);animation:ring 2.6s cubic-bezier(.2,.7,.3,1) infinite}
+.rings i{position:absolute;left:0;top:0;width:150px;height:150px;margin:-75px;border-radius:50%;border:1.5px solid rgba(63,224,143,.55);animation:ring 2.6s cubic-bezier(.2,.7,.3,1) infinite}
 .rings i:nth-child(2){animation-delay:.87s}.rings i:nth-child(3){animation-delay:1.74s}
 @keyframes ring{0%{transform:scale(.35);opacity:0}16%{opacity:.75}100%{transform:scale(1.5);opacity:0}}
-.phone{position:absolute;right:0;top:6px;width:272px;border-radius:40px;background:#0f0e13;padding:8px;box-shadow:0 34px 70px rgba(40,30,90,.26);z-index:4}
+.phone{position:absolute;right:0;top:6px;width:272px;border-radius:40px;background:#0f0e13;padding:8px;box-shadow:0 34px 70px rgba(10,10,12,.26);z-index:4}
 .screen{border-radius:33px;overflow:hidden;background:#fff;aspect-ratio:1320/2700;position:relative}
 .screen::before{content:"";position:absolute;left:50%;top:12px;transform:translateX(-50%);width:70px;height:18px;border-radius:999px;background:#0f0e13;z-index:5}
 .sidle,.slive{position:absolute;inset:0;padding:52px 18px 18px;display:flex;flex-direction:column;transition:opacity .4s,transform .4s}
 .sidle{align-items:center;justify-content:center;gap:14px;text-align:center}
 .sidle .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
-.sidle .big{font-family:'Inter Tight';font-weight:800;font-size:22px;letter-spacing:-.02em;max-width:180px;line-height:1.1}
-.wave{width:76px;height:76px;border-radius:50%;background:rgba(124,77,255,.1);display:flex;align-items:center;justify-content:center;color:var(--violet)}
-.slive{opacity:0;transform:translateY(12px);gap:12px;background:linear-gradient(180deg,#fbfaff,#fff 40%)}
+.sidle .big{font-family:'Figtree';font-weight:800;font-size:22px;letter-spacing:-.02em;max-width:180px;line-height:1.1}
+.wave{width:76px;height:76px;border-radius:50%;background:rgba(63,224,143,.16);display:flex;align-items:center;justify-content:center;color:var(--violet)}
+.slive{opacity:0;transform:translateY(12px);gap:12px;background:linear-gradient(180deg,#f3fbf6,#fff 40%)}
 .demo.on .sidle{opacity:0;transform:scale(.96)}
 .demo.on .slive{opacity:1;transform:none}
 .phead{display:flex;align-items:center;gap:11px}
 .pav{width:46px;height:46px;border-radius:14px;flex-shrink:0}
-.phead .nm{font-family:'Inter Tight';font-weight:800;font-size:16px;letter-spacing:-.02em}
+.phead .nm{font-family:'Figtree';font-weight:800;font-size:16px;letter-spacing:-.02em}
 .phead .hd{font-family:var(--mono);font-size:11px;color:var(--mut);margin-top:2px}
 .pbio{font-size:12.5px;color:var(--soft);line-height:1.45}
 .prow{display:flex;gap:7px}
@@ -111,15 +122,15 @@ section{padding:84px 0}
 .bacol.after .balist div b{color:var(--teal)}
 /* PRODUCTS */
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
-.card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;box-shadow:0 6px 20px rgba(40,30,90,.05)}
-.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(40,30,90,.12)}
+.card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:22px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s;box-shadow:0 6px 20px rgba(10,10,12,.05)}
+.card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(10,10,12,.12)}
 .card .shot{height:210px;border-left:0;border-right:0;border-top:0}
 .card.wide{grid-column:span 2}
 .card.wide .shot{height:210px}
 .cbody{padding:22px;display:flex;flex-direction:column;gap:12px;flex:1}
 .ctop{display:flex;align-items:baseline;gap:12px}
 .ctop h3{font-size:20px}
-.price{margin-left:auto;font-family:'Inter Tight';font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+.price{margin-left:auto;font-family:'Figtree';font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
 .cdesc{font-size:14.5px;color:var(--soft);line-height:1.5}
 .spec{display:flex;flex-wrap:wrap;gap:6px}
 .spec span{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:4px 9px}
@@ -137,7 +148,7 @@ section{padding:84px 0}
 /* SCENES */
 .scenes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:40px}
 .scene{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#fff}
-.scene .sph{height:250px;border:0;border-bottom:1px solid var(--line2)}
+.scene .txt{padding-top:16px}
 .scene .txt{padding:22px}
 .scene h3{font-size:18px}
 .scene p{margin-top:9px;font-size:14.5px;color:var(--soft);line-height:1.5}
@@ -150,7 +161,7 @@ section{padding:84px 0}
 /* FAQ */
 .faq{margin-top:34px;border-top:1px solid var(--line)}
 details{border-bottom:1px solid var(--line);padding:20px 0}
-summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:16px;font-family:'Inter Tight';font-weight:800;font-size:18px;letter-spacing:-.015em}
+summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:16px;font-family:'Figtree';font-weight:800;font-size:18px;letter-spacing:-.015em}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"+";margin-left:auto;font-family:var(--mono);font-weight:400;font-size:19px;color:var(--mut)}
 details[open] summary::after{content:"–"}
@@ -171,7 +182,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 /* CAPABILITIES */
 .caps{padding:70px 0 10px}
 .capgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:26px;border-top:1px solid var(--line);padding-top:30px}
-.cap .ci{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:'Inter Tight';font-weight:800;font-size:17px}
+.cap .ci{width:40px;height:40px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-family:'Figtree';font-weight:800;font-size:17px}
 .cap h3{font-size:18.5px;margin-top:15px}
 .cap p{margin-top:9px;font-size:14.5px;color:var(--soft);line-height:1.5;text-wrap:pretty}
 @media(max-width:1080px){.capgrid{grid-template-columns:1fr 1fr;gap:26px}}
@@ -183,7 +194,7 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 .cbody h3.open:hover{color:var(--violet)}
 .scrim{position:fixed;inset:0;z-index:60;background:rgba(15,14,19,.42);backdrop-filter:blur(6px);display:flex;align-items:flex-start;justify-content:center;padding:36px 24px;overflow-y:auto;opacity:0;pointer-events:none;transition:opacity .22s}
 .scrim.on{opacity:1;pointer-events:auto}
-.sheet{width:100%;max-width:1060px;background:#faf9f7;border-radius:26px;overflow:hidden;box-shadow:0 40px 90px rgba(20,14,50,.34);transform:translateY(18px) scale(.985);transition:transform .28s cubic-bezier(.2,.85,.2,1)}
+.sheet{width:100%;max-width:1060px;background:#faf9f7;border-radius:26px;overflow:hidden;box-shadow:0 40px 90px rgba(10,10,12,.34);transform:translateY(18px) scale(.985);transition:transform .28s cubic-bezier(.2,.85,.2,1)}
 .scrim.on .sheet{transform:none}
 .sheetbar{display:flex;align-items:center;gap:12px;padding:16px 22px;border-bottom:1px solid var(--line2);background:rgba(255,255,255,.7);position:sticky;top:0;z-index:3;backdrop-filter:blur(10px)}
 .crumb{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut)}
@@ -197,9 +208,9 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 .thumbs .ph span{margin:0;font-size:8.5px;text-align:center;line-height:1.25;padding:3px 5px}
 .thumbs .ph[aria-current="true"]{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
 .dbody{padding:26px 30px 30px;display:flex;flex-direction:column;gap:16px}
-.dbody h3{font-family:'Inter Tight';font-weight:900;font-size:31px;letter-spacing:-.035em;line-height:1.02}
+.dbody h3{font-family:'Figtree';font-weight:900;font-size:31px;letter-spacing:-.035em;line-height:1.02}
 .dprice{display:flex;align-items:baseline;gap:12px}
-.dprice .p{font-family:'Inter Tight';font-weight:800;font-size:27px;letter-spacing:-.025em}
+.dprice .p{font-family:'Figtree';font-weight:800;font-size:27px;letter-spacing:-.025em}
 .dprice .note{font-family:var(--mono);font-size:11px;color:var(--mut)}
 .dtag{font-size:16.5px;color:var(--soft);line-height:1.55;text-wrap:pretty}
 .dlab{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:-6px}
@@ -245,11 +256,28 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 }
 @media(max-width:480px){.facts{grid-template-columns:repeat(2,auto)}.demo{height:420px}.tapcard{width:184px}.rings{left:150px;bottom:104px}.phone{width:196px}}
 
+/* coming soon, scenes, footer */
+nav .btn{white-space:nowrap}
+@media(max-width:560px){nav .nav-right .btn{display:none}}
+#live .grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px}
+@media(max-width:820px){#live .grid{grid-template-columns:1fr}}
+.soonrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:34px}
+.soonit{border:1px dashed rgba(10,10,12,.18);border-radius:16px;padding:16px 18px;background:rgba(255,255,255,.6);display:grid;gap:4px}
+.soonit b{font-family:'Figtree';font-weight:800;font-size:16px;letter-spacing:-.015em}
+.soonit span{font-size:13px;color:var(--mut)}
+@media(max-width:900px){.soonrow{grid-template-columns:1fr 1fr}}
+.sicon{padding:22px 22px 0;color:var(--violet)}
+.sicon svg{width:44px;height:44px;padding:11px;border-radius:13px;background:rgba(63,224,143,.16);box-sizing:border-box}
+.agentnote{margin-top:22px;border:1px solid var(--line);border-radius:18px;background:#fff;padding:20px 22px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center}
+.agentnote span{font-family:'Figtree';font-weight:800;font-size:17px}
+.agentnote p{flex:1;min-width:220px;font-size:14.5px;color:var(--soft)}
+footer .flinks{display:flex;flex-wrap:wrap;gap:8px 18px}
+footer .brand svg{height:15px;width:72px}
 /* cart drawer */
 .cd-overlay{position:fixed;inset:0;background:rgba(15,14,19,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:80}
 .cd-overlay.on{opacity:1;pointer-events:auto}
-.cd{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:#fff;z-index:81;transform:translateX(100%);transition:transform .24s;display:flex;flex-direction:column;box-shadow:-12px 0 40px rgba(15,14,19,.16)}
-.cd.on{transform:none}
+.cd{position:fixed;top:0;right:0;height:100%;width:min(440px,100%);background:#fff;z-index:81;transform:translateX(100%);transition:transform .24s,visibility 0s .24s;display:flex;flex-direction:column;box-shadow:none;visibility:hidden}
+.cd.on{transition:transform .24s;transform:none;box-shadow:-12px 0 40px rgba(15,14,19,.16);visibility:visible}
 .cd-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line2)}
 .cd-head h3{margin:0;font-size:18px}
 .cd-x{background:none;border:0;font-size:22px;cursor:pointer;line-height:1;padding:6px}
@@ -271,21 +299,22 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
 <nav><div class="wrap">
-  <a class="brand" href="#"><img src="data:image/png;base64,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" alt="Swop"><span class="sfx">shop</span></a>
-  <div class="navlinks"><a href="#products">Products</a><a href="#stickers">QR stickers</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
+  <a class="brand" href="/" aria-label="Swop home"><svg viewBox="0 0 88 18"><use href="#swop"/></svg><span class="sfx">shop</span></a>
+  <div class="navlinks"><a href="#live">Buy now</a><a href="#soon">Coming soon</a><a href="#how">How it works</a><a href="#faq">FAQ</a></div>
   <div class="nav-right">
     <button class="cartbtn" type="button" data-cart-open title="Your cart"><span>Cart</span><span class="n" id="cartN">0</span></button>
-    <a class="btn" href="#products">Shop chips</a>
+    <a class="btn" href="#live">Buy now</a>
   </div>
 </div></nav>
 
 <header class="hero" data-screen-label="hero"><div class="wrap">
   <div>
-    <span class="chip"><i class="pulse"></i>Ships in 2 business days</span>
+    <span class="chip"><i class="pulse"></i>Swop Digital Card · available now</span>
     <h1>Your whole business, <em>one tap</em> away.</h1>
     <p class="sub">Swop chips do more than hand over a profile. One tap takes a payment, issues a loyalty reward, or drops a customer straight into your review page — plus your menu, booking link and socials. No app. No typing. Nothing to hand over.</p>
-    <div class="herocta"><a class="btn" href="#products">Shop the chips</a><a class="btn alt" href="#demo-tap">Try a tap →</a></div>
+    <div class="herocta"><a class="btn" href="#live">Buy the card</a><a class="btn alt" href="#demo-tap">Try a tap →</a></div>
     <div class="facts">
       <div class="f"><div class="n">No app</div><div class="l">Works out of the box</div></div>
       <div class="f"><div class="n">Unlimited</div><div class="l">Edits after printing</div></div>
@@ -311,13 +340,13 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
         </div>
         <div class="slive">
           <div class="phead">
-            <div class="ph pav"></div>
+            <div class="pav" style="background:radial-gradient(circle at 50% 38%,#f3d2b5 0 22%,transparent 23%),radial-gradient(ellipse 46% 34% at 50% 92%,#1f2937 0 99%,transparent),linear-gradient(160deg,#c7f0dc,#9fe6c0)"></div>
             <div><div class="nm">Nora Beckett</div><div class="hd">swop.id/fernandash</div></div>
           </div>
           <p class="pbio">Third-wave coffee on Bedford Ave. Beans roasted weekly, catering for 10–200.</p>
           <div class="prow"><div class="pb">Save contact</div><div class="pb g">Pay $</div></div>
           <div class="plinks">
-            <div class="pl"><i style="background:rgba(124,77,255,.16)"></i>Menu &amp; today's specials<span class="ar">↗</span></div>
+            <div class="pl"><i style="background:rgba(63,224,143,.16)"></i>Menu &amp; today's specials<span class="ar">↗</span></div>
             <div class="pl"><i style="background:rgba(18,181,165,.18)"></i>Book catering<span class="ar">↗</span></div>
             <div class="pl"><i style="background:rgba(224,134,63,.18)"></i>Leave a Google review<span class="ar">↗</span></div>
             <div class="pl"><i style="background:rgba(63,123,255,.16)"></i>Instagram<span class="ar">↗</span></div>
@@ -329,10 +358,41 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
   </div>
 </div></header>
 
+<section id="live" data-screen-label="available now"><div class="wrap">
+      <div class="sechead"><span class="eyebrow"><b></b>Buy now</span>
+        <h2>Buy these today.</h2>
+        <p>Live in the Swop store right now. Check out on this page by card through Stripe, or with USDC from any Solana wallet. You're never redirected, and your receipt comes by email.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="shotwrap"><img src="https://res.cloudinary.com/bayshore/image/upload/v1788052406/eugtpqa7vg00wrfms020.jpg" alt="Swop Digital Card" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="cbody">
+            <div class="ctop"><h3>Swop Digital Card</h3><span class="price" data-price="6a9383f9e8ae0b38e225c45b"></span></div>
+            <p class="cdesc">The NFC business card that never goes out of date. Tap any phone to share your live SmartSite — socials, wallet, links. Update it anytime; it is never stale because it is not printed.</p>
+            <div class="spec"><span>NFC</span><span>Black / White</span><span>Ships to you</span></div>
+            <div class="buy"><span class="cdesc" style="margin:0" data-ship="6a9383f9e8ae0b38e225c45b"></span><button class="btn add" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card" data-ships="1">Add to cart</button></div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="shotwrap"><img src="https://res.cloudinary.com/bayshore/image/upload/v1786733216/dwm3kmxiot17hidzqdf7.png" alt="Cabal Card" style="width:100%;height:100%;object-fit:cover;display:block"></div>
+          <div class="cbody">
+            <div class="ctop"><h3>Cabal Card</h3><span class="price" data-price="6a7f63002e22feb6ad48dd7c"></span></div>
+            <p class="cdesc">Access to the Cabal's group chat and the ability to post on the feed. Delivered instantly as an access pass tied to your purchase receipt.</p>
+            <div class="spec"><span>Digital</span><span>Instant delivery</span><span>No shipping</span></div>
+            <div class="buy"><span class="cdesc" style="margin:0">Delivered instantly</span><button class="btn add" data-sku="6a7f63002e22feb6ad48dd7c" data-name="Cabal Card">Add to cart</button></div>
+          </div>
+        </article>
+      </div>
+      <div class="agentnote">
+        <span>Your cart</span><p>Adjust quantities and pay in one step. Totals come from the Swop catalogue at checkout.</p><button class="btn" type="button" data-cart-open>Open cart</button>
+      </div>
+      <p class="cdesc" style="margin:14px 0 0">Buying with an AI agent? Every product here is agent-payable over x402 at <a href="https://apps.apiswop.co/api/v5/x402/store/travis.swop.id" style="text-decoration:underline">apps.apiswop.co/api/v5/x402/store/travis.swop.id</a> (USDC on Base, no account needed).</p>
+    </div></section>
+
 <section class="caps" data-screen-label="capabilities"><div class="wrap">
   <span class="eyebrow"><b></b>One tap, four jobs</span>
   <div class="capgrid">
-    <div class="cap"><div class="ci" style="background:rgba(124,77,255,.14);color:var(--violet)">$</div><h3>Take payments</h3><p>The tap opens your checkout with the amount ready. Card, Apple Pay or stablecoin — settled to your account, no terminal to rent.</p></div>
+    <div class="cap"><div class="ci" style="background:rgba(63,224,143,.14);color:var(--violet)">$</div><h3>Take payments</h3><p>The tap opens your checkout with the amount ready. Card or USDC, settled to your account. No terminal to rent.</p></div>
     <div class="cap"><div class="ci" style="background:rgba(18,181,165,.16);color:var(--teal)">★</div><h3>Issue rewards</h3><p>Every tap stamps the customer's loyalty card automatically. Tenth coffee free, no punch card to lose and nothing for staff to remember.</p></div>
     <div class="cap"><div class="ci" style="background:rgba(224,134,63,.16);color:var(--amber)">✦</div><h3>Generate reviews</h3><p>Tap at the counter and they land on your Google or Yelp page while the visit is still fresh. That's when people actually write one.</p></div>
     <div class="cap"><div class="ci" style="background:rgba(63,123,255,.14);color:#3f7bff">↗</div><h3>Share everything else</h3><p>Menu, hours, booking page, socials, contact card. One profile behind every chip and sticker you own.</p></div>
@@ -347,16 +407,14 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
   <div class="ba">
     <div class="bacol">
       <div class="tl">Before</div><h3>Stack of paper</h3>
-      <div class="ph baph"><span>photo: paper cards in a drawer</span></div>
       <div class="balist">
-        <div><b>88%</b><span>of paper business cards are thrown out within a week.</span></div>
+        <div><b>Drawer</b><span>Paper cards get collected, then forgotten.</span></div>
         <div><b>Reprint</b><span>Every new number, price or role means a new print run.</span></div>
         <div><b>Dead end</b><span>No way to know who followed up, or whether they ever looked.</span></div>
       </div>
     </div>
     <div class="bacol after">
       <div class="tl">After one tap</div><h3>A live page, instantly</h3>
-      <div class="ph baph"><span>photo: chip tap at the counter</span></div>
       <div class="balist">
         <div><b>2 sec</b><span>Profile opens on their phone. Nothing to install or scan.</span></div>
         <div><b>Live</b><span>Change hours, menu or links any time — the chip never changes.</span></div>
@@ -366,157 +424,29 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
   </div>
 </div></section>
 
-<section id="checkout" data-screen-label="checkout"><div class="wrap">
-      <div class="sechead"><span class="eyebrow"><b></b>Checkout</span>
-        <h2>Pay without leaving.</h2>
-        <p>Your cart, checked out here. Swop settles it in USDC and sends the receipt — you are never redirected.</p>
-      </div>
-      <div style="border:1px solid var(--line);border-radius:18px;background:var(--paper);padding:26px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between">
-        <div>
-          <b>Add what you want, then open your cart.</b>
-          <p class="cdesc" style="margin:6px 0 0">Adjust quantities, enter your details, and pay with USDC from any Solana wallet. Prices come from the Swop catalogue at checkout.</p>
-        </div>
-        <button class="btn" type="button" data-cart-open>Open cart</button>
-      </div>
-      <p class="cdesc" style="margin:14px 0 0">Buying with an AI agent? The same products are agent-payable over x402 at <a href="https://apps.apiswop.co/api/v5/x402/store/travis.swop.id" style="text-decoration:underline">apps.apiswop.co/api/v5/x402/store/travis.swop.id</a> — USDC on Base, no account needed.</p>
-    </div></section>
-
-    <section id="live" data-screen-label="available now"><div class="wrap">
-      <div class="sechead"><span class="eyebrow"><b></b>Available now</span>
-        <h2>Buy these today.</h2>
-        <p>These two are live in the Swop store right now and check out through Swop — paid in USDC from any Solana wallet, settled straight to the seller. Everything below is the wider lineup, coming as stock lands.</p>
-      </div>
-      <div class="grid">
-        <article class="card">
-          <div class="shotwrap"><img src="https://res.cloudinary.com/bayshore/image/upload/v1788052406/eugtpqa7vg00wrfms020.jpg" alt="Swop Digital Card" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-          <div class="cbody">
-            <div class="ctop"><h3>Swop Digital Card</h3><span class="price">$1.50</span></div>
-            <p class="cdesc">The NFC business card that never goes out of date. Tap any phone to share your live SmartSite — socials, wallet, links. Update it anytime; it is never stale because it is not printed.</p>
-            <div class="spec"><span>Ships worldwide</span><span>Black / White</span><span>50 in stock</span></div>
-            <div class="buy"><span class="cdesc" style="margin:0">$0.50 + $1.00 shipping</span><button class="btn add" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card" data-ships="1">Add to cart</button></div>
-          </div>
-        </article>
-        <article class="card">
-          <div class="shotwrap"><img src="https://res.cloudinary.com/bayshore/image/upload/v1786733216/dwm3kmxiot17hidzqdf7.png" alt="Cabal Card" style="width:100%;height:100%;object-fit:cover;display:block"></div>
-          <div class="cbody">
-            <div class="ctop"><h3>Cabal Card</h3><span class="price">$1.00</span></div>
-            <p class="cdesc">Access to the Cabal's group chat and the ability to post on the feed. Delivered instantly as an access pass tied to your purchase receipt.</p>
-            <div class="spec"><span>Digital</span><span>Instant delivery</span><span>No shipping</span></div>
-            <div class="buy"><span class="cdesc" style="margin:0">Delivered instantly</span><button class="btn add" data-sku="6a7f63002e22feb6ad48dd7c" data-name="Cabal Card">Add to cart</button></div>
-          </div>
-        </article>
-      </div>
-    </div></section>
-
-    <section id="products" data-screen-label="products"><div class="wrap">
-  <div class="sechead"><span class="eyebrow"><b></b>The lineup</span>
-    <h2>Every Swop chip, one profile behind it.</h2>
-    <p>Buy once, reprogram forever. Each chip points at a Swop profile you control, so the hardware outlives every change to your business.</p>
+    <section id="soon" data-screen-label="coming-soon"><div class="wrap">
+  <div class="sechead"><span class="eyebrow"><b></b>Coming soon</span>
+    <h2>More ways to tap.</h2>
+    <p>Same profile behind every one. These join the store as stock lands.</p>
   </div>
-  <div class="grid">
-    <article class="card" data-p="metal">
-      <div class="shotwrap open" role="button" tabindex="0"><span class="badge">Best seller</span><div class="ph shot"><span>photo: metal card, front + edge</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Swop Card — Metal</h3><span class="price" data-base="89">$89</span></div>
-        <p class="cdesc">Brushed stainless with a laser-etched logo. The one you hand to a client you want to impress — it has weight to it.</p>
-        <div class="spec"><span>Stainless steel</span><span>Laser etch</span><span>NTAG 424</span></div>
-        <div class="opts" role="group" aria-label="Finish"><button class="opt" aria-pressed="true">Black</button><button class="opt" aria-pressed="false">Silver</button><button class="opt" aria-pressed="false">Gold</button></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-    <article class="card" data-p="classic">
-      <div class="shotwrap open" role="button" tabindex="0"><div class="ph shot"><span>photo: PVC card, three colorways</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Swop Card — Classic</h3><span class="price" data-base="29">$29</span></div>
-        <p class="cdesc">Matte PVC, full-color print, same chip inside. Cheap enough to give the whole front-of-house team one.</p>
-        <div class="spec"><span>Matte PVC</span><span>Full-color print</span><span>Waterproof</span></div>
-        <div class="opts" role="group" aria-label="Color"><button class="opt" aria-pressed="true">Onyx</button><button class="opt" aria-pressed="false">Bone</button><button class="opt" aria-pressed="false">Violet</button></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-    <article class="card" data-p="tag">
-      <div class="shotwrap open" role="button" tabindex="0"><div class="ph shot"><span>photo: tag on phone back</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Swop Tag</h3><span class="price" data-base="19">$19</span></div>
-        <p class="cdesc">A 25mm adhesive chip for the back of your phone. Your profile is always on you — hand your phone over and tap.</p>
-        <div class="spec"><span>25 mm</span><span>3M adhesive</span><span>Metal-safe</span></div>
-        <div class="opts" role="group" aria-label="Finish"><button class="opt" aria-pressed="true">Matte black</button><button class="opt" aria-pressed="false">Clear</button></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-    <article class="card" data-p="stand">
-      <div class="shotwrap open" role="button" tabindex="0"><div class="ph shot"><span>photo: counter stand beside register</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Swop Stand</h3><span class="price" data-base="49">$49</span></div>
-        <p class="cdesc">A weighted counter stand with tap-and-scan on the same face. Sits by the register collecting reviews and tips while you work.</p>
-        <div class="spec"><span>Weighted base</span><span>Tap + QR</span><span>A6 face</span></div>
-        <div class="opts" role="group" aria-label="Finish"><button class="opt" aria-pressed="true">Walnut</button><button class="opt" aria-pressed="false">Black steel</button></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-    <article class="card wide" data-p="team">
-      <div class="shotwrap open" role="button" tabindex="0"><span class="badge">Save 20%</span><div class="ph shot"><span>photo: five cards fanned, team kit box</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Team Kit — 5 chips</h3><span class="price" data-base="119">$119</span></div>
-        <p class="cdesc">Five Classic cards, each pointed at a different team member, managed from one dashboard. Reassign a chip when someone new starts instead of reprinting.</p>
-        <div class="spec"><span>5 × Classic card</span><span>Shared dashboard</span><span>Logo print included</span></div>
-        <div class="opts" role="group" aria-label="Pack size"><button class="opt" aria-pressed="true">5 chips · $119</button><button class="opt" aria-pressed="false">10 chips · $219</button><button class="opt" aria-pressed="false">25 chips · $479</button></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-  </div>
-</div></section>
-
-<section id="stickers" data-screen-label="qr-stickers"><div class="wrap">
-  <div class="sechead"><span class="eyebrow"><b></b>QR stickers</span>
-    <h2>For every surface a chip can't go.</h2>
-    <p>Window, table, takeaway lid, delivery box. Printed QR codes that resolve to the same Swop profile — so an older phone, a locked screen or a passer-by on the sidewalk still gets there.</p>
-  </div>
-  <div class="grid">
-    <article class="card" data-p="sheet">
-      <div class="shotwrap open" role="button" tabindex="0"><div class="ph shot"><span>photo: sticker sheet, 20 up</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">QR Sticker Sheet</h3><span class="price" data-base="12">$12</span></div>
-        <p class="cdesc">Twenty 40mm vinyl stickers, all pointing at one profile. Stick them on lids, bags, invoices and tip jars.</p>
-        <div class="spec"><span>20 pcs</span><span>40 mm vinyl</span><span>Dishwasher safe</span></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-    <article class="card" data-p="decal">
-      <div class="shotwrap open" role="button" tabindex="0"><div class="ph shot"><span>photo: window decal from street</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Window Decal</h3><span class="price" data-base="16">$16</span></div>
-        <p class="cdesc">A 150mm outward-facing decal with "Scan for menu &amp; hours". Works through glass, readable from the sidewalk.</p>
-        <div class="spec"><span>150 mm</span><span>UV-resistant</span><span>Static cling</span></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-    <article class="card" data-p="talker">
-      <div class="shotwrap open" role="button" tabindex="0"><span class="badge">Tap + scan</span><div class="ph shot"><span>photo: table talker on cafe table</span></div></div>
-      <div class="cbody">
-        <div class="ctop"><h3 class="open" role="button" tabindex="0">Table Talker — 4 pack</h3><span class="price" data-base="34">$34</span></div>
-        <p class="cdesc">Standing table cards with an NFC chip behind the QR. Guests tap or scan to see the menu, order, or leave a review before they've stood up.</p>
-        <div class="spec"><span>4 pcs</span><span>Chip + QR</span><span>Wipe-clean</span></div>
-        <div class="buy"><div class="qty"><button aria-label="Decrease">–</button><b>1</b><button aria-label="Increase">+</button></div><button class="btn add" disabled aria-disabled="true" title="Not in the catalogue yet">Coming soon</button></div>
-      </div>
-    </article>
-  </div>
+  <div class="soonrow"><div class="soonit"><b>Swop Card, Metal</b><span>Brushed stainless, laser-etched</span></div><div class="soonit"><b>Swop Card, Classic</b><span>Matte PVC, full-color print</span></div><div class="soonit"><b>Swop Tag</b><span>Adhesive chip for your phone</span></div><div class="soonit"><b>Swop Stand</b><span>Counter stand, tap and scan</span></div><div class="soonit"><b>Team Kit</b><span>A chip for every team member</span></div><div class="soonit"><b>Table Talkers</b><span>Tap or scan at the table</span></div><div class="soonit"><b>QR Sticker Sheet</b><span>Twenty 40mm vinyl stickers</span></div><div class="soonit"><b>Window Decal</b><span>Scan for menu and hours</span></div></div>
+  <p class="cdesc" style="margin:16px 0 0">Need cards for a whole team now? Email <a href="mailto:support@swopme.co?subject=Bulk%20order" style="text-decoration:underline">support@swopme.co</a>.</p>
 </div></section>
 
 <section data-screen-label="use-cases"><div class="wrap">
   <div class="sechead"><span class="eyebrow"><b></b>In the wild</span><h2>Where the tap actually happens.</h2></div>
   <div class="scenes">
     <div class="scene">
-      <div class="ph sph"><span>photo: handshake, card tap at event</span></div>
-      <div class="txt"><h3>Networking</h3><p>You're two minutes into a conversation. Instead of digging for a card, you tap — and your profile, calendar link and payment handle are on their phone before the handshake ends.</p><div class="q">Swop Card — Metal</div></div>
+      <div class="sicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 11l3-3 3 3 4-4M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0"/></svg></div>
+      <div class="txt"><h3>Networking</h3><p>You're two minutes into a conversation. Instead of digging for a card, you tap — and your profile, calendar link and payment handle are on their phone before the handshake ends.</p></div>
     </div>
     <div class="scene">
-      <div class="ph sph"><span>photo: cafe counter, stand by register</span></div>
-      <div class="txt"><h3>Storefront counter</h3><p>The stand sits next to the register. Customers tap while their card is processing and land on your review page, loyalty signup or tipping link.</p><div class="q">Swop Stand + QR Sticker Sheet</div></div>
+      <div class="sicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16l-1.5-5h-13zM5 10v9h14v-9M10 19v-5h4v5"/></svg></div>
+      <div class="txt"><h3>Storefront counter</h3><p>The stand sits next to the register. Customers tap while their card is processing and land on your review page, loyalty signup or tipping link.</p></div>
     </div>
     <div class="scene">
-      <div class="ph sph"><span>photo: trade show booth, chips on table</span></div>
-      <div class="txt"><h3>Event booth</h3><p>Chips on the table, one per team member. Every tap is a captured lead with a timestamp — no forms, no scanner rental, no transcribing badges afterwards.</p><div class="q">Team Kit — 5 chips</div></div>
+      <div class="sicon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6"/></svg></div>
+      <div class="txt"><h3>Event booth</h3><p>Chips on the table, one per team member. Every tap is a captured lead with a timestamp — no forms, no scanner rental, no transcribing badges afterwards.</p></div>
     </div>
   </div>
 </div></section>
@@ -536,19 +466,20 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
     <details open><summary>Does the person tapping need the Swop app?</summary><p>No. NFC reading is built into iOS and Android — your profile opens in their browser. The app is only for you, to edit what the chip points at.</p></details>
     <details><summary>Which phones can read it?</summary><p>iPhone 7 and newer read chips from the lock screen with no setup. Most Android phones from 2017 on read them the same way. For anything older, or a phone with NFC switched off, the QR on the sticker and stand covers it.</p></details>
     <details><summary>Can I change where a chip points after it's printed?</summary><p>Yes, as often as you like, and the chip itself never changes. Reassign a team chip to a new hire, swap a seasonal menu, or point a sticker batch at a different campaign.</p></details>
-    <details><summary>What about shipping and returns?</summary><p>Orders ship within two business days. Free standard shipping in the US on orders over $50, flat $6 otherwise. Thirty days to return an unprogrammed chip for a full refund.</p></details>
-    <details><summary>Can I put my own logo on it?</summary><p>Logo printing is included on the Classic card and Team Kit, and laser etching is available on the Metal card. Upload artwork at checkout — we send a proof before anything is made.</p></details>
+    <details><summary>What about shipping and returns?</summary><p>Shipping is shown on each product and added in your cart before you pay. For delivery questions or a return, email <a href="mailto:support@swopme.co" style="text-decoration:underline">support@swopme.co</a> with your order reference.</p></details>
+    <details><summary>How do I pay?</summary><p>By card through Stripe, or with USDC from any Solana wallet, right on this page. AI agents can pay in USDC on Base over x402.</p></details>
   </div>
 </div></section>
 
 <section data-screen-label="closer"><div class="closer">
   <div><h2>Order a chip. Tap it once.</h2><p>You'll know in the first two seconds why customers respond to it differently than a card.</p></div>
-  <div class="cl-cta"><a class="btn" href="#products">Shop the chips</a><a class="btn g" href="#stickers">Just the stickers</a></div>
+  <div class="cl-cta"><a class="btn" href="#live">Buy the card</a><a class="btn g" href="/">What is Swop?</a></div>
 </section>
 
 <footer><div class="wrap">
-  <a class="brand" href="#"><img src="data:image/png;base64,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" alt="Swop"></a>
-  <a href="#products">Products</a><a href="#stickers">QR stickers</a><a href="#faq">FAQ</a><a href="#">Bulk orders</a><a href="#">Support</a>
+  <a class="brand" href="/" aria-label="Swop home"><svg viewBox="0 0 88 18"><use href="#swop"/></svg></a>
+  <div class="flinks"><a href="/">Home</a><a href="/blog/">Blog</a><a href="/swop_fee_calculator.html">Fee calculator</a><a href="https://mcp.swopme.co">Swop MCP</a><a href="mailto:support@swopme.co?subject=Bulk%20order">Bulk orders</a><a href="https://support.swop.id">Support</a></div>
+  <div class="flinks"><a href="https://x.com/swoplabs">X</a><a href="https://www.instagram.com/swop.labs">Instagram</a><a href="https://discord.com/invite/axxx4mHePf">Discord</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/legal.html">Legal</a></div>
   <span class="sp">© 2026 Swop</span>
 </div></footer>
 
@@ -680,6 +611,22 @@ document.querySelectorAll('.qty').forEach(function(q){
   btns[0].onclick=function(){v.textContent=Math.max(1,+v.textContent-1)};
   btns[1].onclick=function(){v.textContent=Math.min(99,+v.textContent+1)};
 });
+</script>
+<script>
+/* live prices: read price and shipping from the Swop store feed so the page always matches the store */
+(function(){
+  var money=function(n){return '$'+Number(n).toFixed(2)};
+  fetch('https://apps.apiswop.co/api/v5/x402/store/travis.swop.id',{cache:'no-store'}).then(function(r){return r.json()}).then(function(j){
+    ((j&&j.data&&j.data.products)||[]).forEach(function(p){
+      document.querySelectorAll('[data-price="'+p.sku+'"]').forEach(function(el){el.textContent=money(p.priceUsd)});
+      document.querySelectorAll('[data-ship="'+p.sku+'"]').forEach(function(el){
+        el.textContent=p.shippingRequired?(p.shippingCostUsd>0?money(p.priceUsd)+' + '+money(p.shippingCostUsd)+' shipping':'Free shipping'):'Delivered instantly'});
+    });
+  }).catch(function(){
+    document.querySelectorAll('[data-price]').forEach(function(el){el.textContent=''});
+    document.querySelectorAll('[data-ship]').forEach(function(el){el.textContent='Price shown in your cart'});
+  });
+})();
 </script>
 </body>
 <div class="cd-overlay" data-cart-close></div>
