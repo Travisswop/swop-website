@@ -51,7 +51,8 @@ nav .wrap{display:flex;align-items:center;gap:22px;height:66px}
 .brand{display:flex;align-items:center;gap:9px}
 .brand svg{height:17px;width:84px;color:var(--ink)}
 .brand span{font:800 18px var(--display);color:var(--mut);letter-spacing:-.02em}
-.navlinks{display:flex;gap:24px;margin-left:18px;font-size:14.5px;font-weight:500;color:var(--mut)}
+.navlinks{display:flex;gap:24px;margin-left:18px;font-size:14.5px;font-weight:500;color:var(--mut);white-space:nowrap}
+@media(max-width:1180px){.navlinks a:nth-child(n+5){display:none}}@media(max-width:1040px){.navlinks a:nth-child(n+4){display:none}}
 .navlinks a:hover{color:var(--ink)}
 .navr{margin-left:auto;display:flex;align-items:center;gap:10px}
 .cartbtn{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 15px;font:600 14px Inter;cursor:pointer;min-height:42px}
@@ -111,7 +112,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .pill{display:inline-flex;align-items:center;gap:8px;width:max-content;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font:600 12.5px Inter;color:var(--soft)}
 .pill i{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(63,224,143,.22);animation:pulse 1.8s infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 7px rgba(63,224,143,0)}}
-.buy h1{font-weight:900;font-size:clamp(40px,4.6vw,64px)}
+.buy h1,.buy .h1{font-weight:900;font-size:clamp(40px,4.6vw,64px)}
 .buy .tag{font-size:18px;color:var(--soft);line-height:1.5;max-width:40ch}
 .pricebox{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
 .price{font:900 46px var(--display);letter-spacing:-.04em;line-height:1}
@@ -547,6 +548,113 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .ft .wrap{display:block}
 .ft .sbtn small,.ft .sbtn b{white-space:nowrap}
 @media(max-width:860px){.ft .sbtn{gap:7px}.ft .sbtn b{font-size:15.5px}}
+/* ===== concept wall: one chip, anything ===== */
+.cw{padding:58px 0 30px;position:relative;overflow:hidden}
+.cw::before{content:"";position:absolute;inset:-20% -10% auto;height:620px;background:radial-gradient(50% 50% at 50% 50%,rgba(63,224,143,.16),transparent 70%);pointer-events:none}
+.cw-head{position:relative;text-align:center;display:grid;justify-items:center;gap:18px;margin-bottom:46px}
+.cw-head h1{font-size:clamp(46px,7.4vw,98px);letter-spacing:-.05em;line-height:.92}
+.cw-head h1 em{font-style:normal;color:var(--violet)}
+.cw-head p{font-size:19px;color:var(--soft);max-width:58ch;line-height:1.5}
+.cw-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.cw-stage{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr)) 250px repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,230px);gap:14px}
+.cw-tiles{display:contents}
+.cw-o{position:relative;display:flex;flex-direction:column;text-align:left;padding:14px 15px 15px;border-radius:22px;background:#fff;border:1px solid var(--line);cursor:pointer;font:inherit;color:inherit;transition:border-color .25s,box-shadow .25s,transform .25s}
+.cw-o:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(10,10,12,.07)}
+.cw-o.on{border-color:rgba(10,159,85,.55);box-shadow:0 0 0 4px rgba(63,224,143,.16),0 18px 40px rgba(10,10,12,.08)}
+.cw-o .art{flex:1;display:grid;place-items:center;min-height:0}
+.cw-o svg{width:100%;max-width:150px;height:auto;overflow:visible}
+.cw-o b{display:block;font:800 16px var(--display);letter-spacing:-.02em}
+.cw-o small{display:block;font-size:12.5px;color:var(--mut);line-height:1.35;margin-top:2px}
+.st{position:absolute;top:12px;left:12px;font:500 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:20px;background:#f1f1ef;color:var(--mut)}
+.st.live{background:rgba(63,224,143,.18);color:#087a41}
+.st.concept{background:#f3effc;color:#6d4fc4}
+/* the chip inside every object */
+.cp .c{fill:var(--green)}
+.cp .r{fill:none;stroke:var(--green);stroke-width:1.6;transform-box:fill-box;transform-origin:center;opacity:0;animation:cpr 2.6s cubic-bezier(.2,.7,.3,1) infinite}
+.cp .r2{animation-delay:1.3s}
+.cw-o.on .cp .r{animation-duration:1.4s}.cw-o.on .cp .r2{animation-delay:.7s}
+@keyframes cpr{0%{transform:scale(.4);opacity:0}20%{opacity:.9}100%{transform:scale(2.6);opacity:0}}
+/* the phone that shows what each object opens */
+.cw-ph{grid-column:3;grid-row:1/span 2;width:250px;height:474px;border-radius:42px;background:#0d0d10;padding:9px;box-shadow:0 0 0 1.5px #2a2a31,0 40px 80px rgba(10,10,12,.22);position:relative;z-index:2}
+.cw-scr{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:#fff}
+.cw-scr::before{content:"";position:absolute;left:50%;top:9px;transform:translateX(-50%);width:76px;height:22px;border-radius:20px;background:#000;z-index:6}
+.cw-v{position:absolute;inset:0;background:#fff;padding:80px 16px 16px;display:flex;flex-direction:column;gap:8px;transition:opacity .35s,transform .35s}
+.cw-v.out{opacity:1}.cw-v.in{opacity:0;transform:translateY(12px)}
+.cw-ban{position:absolute;left:8px;right:8px;top:38px;display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:14px;background:rgba(244,244,246,.96);box-shadow:0 6px 18px rgba(10,10,12,.1);font:500 10px Inter;color:var(--soft);z-index:5;white-space:nowrap;transition:transform .45s cubic-bezier(.3,1.4,.5,1),opacity .3s}
+.cw-ban.hide{transform:translateY(-46px);opacity:0}
+.cw-ban i{width:20px;height:20px;border-radius:6px;background:#0a0a0c;color:var(--green);display:grid;place-items:center;flex:none}
+.cw-ban i svg{width:12px;height:12px}
+.cw-ban span{overflow:hidden;text-overflow:ellipsis}.cw-ban b{color:var(--ink);font-weight:700}
+.cw-hd{display:flex;align-items:center;gap:9px;padding-bottom:10px;border-bottom:1px solid #ececee;margin-top:8px}
+.cw-hd i{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;font:900 14px var(--display);font-style:normal;color:var(--green);background:#0b1a12;flex:none}
+.cw-hd b{display:block;font:800 13.5px var(--display)}
+.cw-hd small{font:500 9px var(--mono);letter-spacing:.04em;color:#8a8a93}
+.cw-hd small::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#3fbf6a;margin-right:5px;vertical-align:1px}
+.cw-t{font:900 26px var(--display);letter-spacing:-.035em;line-height:1.02;margin-top:6px}
+.cw-b{font-size:12.5px;color:var(--soft);line-height:1.45}
+.cw-it{display:grid;gap:6px;margin-top:4px}
+.cw-it span{display:flex;justify-content:space-between;align-items:center;padding:9px 11px;border-radius:11px;background:#f4f4f3;font:600 12px Inter}
+.cw-it span::after{content:"↗";color:#b6b6bd}
+.cw-go{margin-top:auto;height:42px;border-radius:12px;background:#52a95f;color:#fff;display:grid;place-items:center;font:700 13px var(--display)}
+.cw-note{margin-top:22px;text-align:center;font-size:13px;color:var(--mut)}
+.cw-note b{color:var(--ink)}
+@media(max-width:1080px){.cw-stage{grid-template-columns:repeat(2,minmax(0,1fr)) 230px repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,214px)}.cw-ph{width:230px;height:442px}}
+@media(max-width:900px){
+  .cw{padding:34px 0 10px}
+  .cw-head{gap:14px;margin-bottom:28px}
+  .cw-head p{font-size:16.5px}
+  .cw-stage{display:block}
+  .cw-ph{width:206px;height:396px;margin:0 auto 18px}
+  .cw-v{padding:74px 13px 13px}.cw-t{font-size:23px}
+  .cw-tiles{display:grid;grid-auto-flow:column;grid-auto-columns:148px;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding:0 20px;padding:4px 20px 14px;margin:0 -20px;scrollbar-width:none}
+  .cw-tiles::-webkit-scrollbar{display:none}
+  .cw-o{scroll-snap-align:start;height:178px;padding:12px}
+  .cw-o b{font-size:14px}.cw-o small{font-size:11px}
+}
+
+/* ===== kit finder ===== */
+.kf{padding:70px 0 40px}
+.kf-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;align-items:start}
+.kf-q{display:grid;gap:26px}
+.kf-q h3{font:800 13px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.kf-q h3 i{font-style:normal;color:var(--violet)}
+.kf-q h3 small{font:500 11px Inter;letter-spacing:0;text-transform:none;color:#9a9aa2}
+.kf-ch{display:flex;flex-wrap:wrap;gap:8px}
+.kf-ch button{min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:600 14.5px Inter;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+.kf-ch button:hover{border-color:rgba(10,10,12,.3)}
+.kf-ch button:active{transform:scale(.97)}
+.kf-ch button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.kf-ch button span{font-size:16px}
+.kf-out{position:sticky;top:86px;border-radius:28px;background:#0a0a0c;color:#fff;padding:26px;overflow:hidden}
+.kf-out::before{content:"";position:absolute;right:-120px;top:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(63,224,143,.28),transparent 65%);pointer-events:none}
+.kf-out .k{font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.kf-out h3{font:900 30px var(--display);letter-spacing:-.035em;margin:8px 0 4px;line-height:1.05}
+.kf-sum{font-size:14px;color:rgba(255,255,255,.62)}
+.kf-list{display:grid;gap:10px;margin:20px 0}
+.kf-it{display:grid;grid-template-columns:62px 1fr;gap:13px;align-items:center;padding:11px;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);animation:kfin .45s cubic-bezier(.2,.8,.3,1) both}
+.kf-it:nth-child(2){animation-delay:.06s}.kf-it:nth-child(3){animation-delay:.12s}.kf-it:nth-child(4){animation-delay:.18s}
+@keyframes kfin{from{opacity:0;transform:translateY(10px)}}
+.kf-it .ic{height:52px;border-radius:12px;background:#f4f4f2;display:grid;place-items:center;padding:4px}
+.kf-it .ic svg{width:100%;height:100%}
+.kf-it b{font:800 15px var(--display);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.kf-it b .st{position:static}
+.kf-it small{display:block;font-size:12.5px;color:rgba(255,255,255,.62);line-height:1.4;margin-top:2px}
+.kf-does{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.kf-does span{font:500 10px var(--mono);letter-spacing:.08em;text-transform:uppercase;padding:6px 9px;border-radius:8px;background:rgba(63,224,143,.12);color:var(--green)}
+.kf-btns{display:grid;gap:8px}
+.kf-btns .btn{width:100%;background:var(--green);color:#0a0a0c;font-weight:700}
+.kf-btns .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.22)}
+.kf-fine{margin-top:12px;font-size:11.5px;color:rgba(255,255,255,.45);line-height:1.45}
+.pdp-intro{padding-top:60px}
+.pdp-intro .sechead{margin-bottom:0}
+@media(max-width:900px){
+  .kf{padding:46px 0 20px}
+  .kf-grid{grid-template-columns:1fr;gap:26px}
+  .kf-out{position:relative;top:0;padding:22px;border-radius:24px}
+  .kf-ch button{font-size:14px;padding:9px 14px}
+  .pdp-intro{padding-top:40px}
+}
+@media(prefers-reduced-motion:reduce){.cp .r{animation:none}.kf-it{animation:none}.cw-v,.cw-ban{transition:none}}
 </style>
 </head>
 <body id="top">
@@ -555,12 +663,55 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 
 <nav><div class="wrap">
   <a class="brand" href="/" aria-label="Swop home"><svg viewBox="0 0 88 18"><use href="#swop"/></svg><span>shop</span></a>
-  <div class="navlinks"><a href="#card">The card</a><a href="#tapstory">How a tap works</a><a href="#ai">Buy with AI</a><a href="#soon">Coming soon</a><a href="#faq">FAQ</a></div>
+  <div class="navlinks"><a href="#ideas">Ideas</a><a href="#finder">Find your kit</a><a href="#card">The card</a><a href="#tapstory">How a tap works</a><a href="#ai">Buy with AI</a><a href="#faq">FAQ</a></div>
   <div class="navr">
     <button class="cartbtn" type="button" data-cart-open title="Your cart"><span>Cart</span><span class="n" id="cartN">0</span></button>
     <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
   </div>
 </div></nav>
+
+<!-- ===== concept wall ===== -->
+<section class="cw" id="ideas"><div class="wrap">
+  <div class="cw-head">
+    <span class="eyebrow"><b></b>The Swop chip</span>
+    <h1>One chip.<br>Put it in <em>anything.</em></h1>
+    <p>A card, a hoodie, a table, a jar. Whatever it's in becomes your storefront: one tap and people pay you, collect a stamp, leave a review or land on your page. No app for them to install.</p>
+    <div class="cw-cta"><a class="btn" href="#finder">Find your kit</a><a class="btn alt" href="#card">Shop the card · <span data-price="6a9383f9e8ae0b38e225c45b">$5.99</span></a></div>
+  </div>
+  <div class="cw-stage" id="cwStage">
+    <div class="cw-ph" aria-live="polite"><div class="cw-scr" id="cwScr">
+      <div class="cw-ban hide" id="cwBan"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></i><span>Opened from <b id="cwFrom"></b></span></div>
+    </div></div>
+    <div class="cw-tiles" id="cwTiles"></div>
+  </div>
+  <p class="cw-note"><b>Available now:</b> the Swop Card. <b>Coming soon:</b> stands, Table Talkers, stickers and decals. <b>Concepts</b> show where a chip could go next.</p>
+</div></section>
+
+<!-- ===== kit finder ===== -->
+<section class="kf" id="finder"><div class="wrap">
+  <div class="sechead"><span class="eyebrow"><b></b>Find your kit</span><h2>What are you building?</h2><p>Answer three questions and we'll put together the chips that fit. Your kit updates as you choose.</p></div>
+  <div class="kf-grid">
+    <div class="kf-q">
+      <div><h3><i>01</i>Who's it for?</h3><div class="kf-ch" data-q="who"></div></div>
+      <div><h3><i>02</i>What should a tap do? <small>Pick any</small></h3><div class="kf-ch" data-q="jobs" data-multi="1"></div></div>
+      <div><h3><i>03</i>Where will people tap?</h3><div class="kf-ch" data-q="where"></div></div>
+    </div>
+    <aside class="kf-out" aria-live="polite">
+      <span class="k">Your kit</span>
+      <h3 id="kfTitle">The café kit</h3>
+      <div class="kf-sum" id="kfSum"></div>
+      <div class="kf-list" id="kfList"></div>
+      <div class="kf-does" id="kfDoes"></div>
+      <div class="kf-btns">
+        <button class="btn add" type="button" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card" data-ships="1" data-opts='{"Color":"Black"}' data-n="1">Start with the Swop Card · <span data-price="6a9383f9e8ae0b38e225c45b">$5.99</span></button>
+        <a class="btn alt" id="kfAsk" href="mailto:support@swopme.co">Ask us about this kit</a>
+      </div>
+      <p class="kf-fine">Every chip opens the same page, so you can start with the card today and add the rest as it lands. Coming-soon items join the store as stock arrives; concepts are ideas, not products yet.</p>
+    </aside>
+  </div>
+</div></section>
+
+<div class="wrap pdp-intro"><div class="sechead"><span class="eyebrow"><b></b>Available now</span><h2>Start with the card.</h2></div></div>
 
 <!-- ===== product hero ===== -->
 <section class="pdp" id="card"><div class="wrap">
@@ -590,7 +741,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 
   <div class="buy" id="buybox">
     <span class="pill"><i></i>Available now · ships to you</span>
-    <h1>Swop Digital Card</h1>
+    <h2 class="h1">Swop Digital Card</h2>
     <p class="tag">The last business card you'll buy. One tap opens your live Swop page on any phone: links, payments, rewards and reviews.</p>
     <div class="pricebox"><span class="price" id="pPrice" data-price="6a9383f9e8ae0b38e225c45b">$5.99</span><span class="ship" id="pShip" data-ship="6a9383f9e8ae0b38e225c45b">+ $4.00 shipping</span></div>
     <div>
@@ -1277,6 +1428,109 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       }
     });
   }).catch(function(){});
+})();
+</script>
+<script>
+/* concept wall and kit finder: every object a chip can live in, and what a tap on it opens */
+(function(){
+  var cp=function(x,y){return '<g class="cp" transform="translate('+x+' '+y+')"><circle class="r" r="7"/><circle class="r r2" r="7"/><circle class="c" r="3.6"/></g>'};
+  var T='font-family="Figtree,system-ui,sans-serif" font-weight="800" text-anchor="middle"';
+  var O={
+    card:{name:'Swop Card',st:'live',where:'In your hand or wallet',from:'a Swop Card',why:'Ships now. Hand it over, set it by the register, or keep it in your wallet.',
+      svg:'<ellipse cx="80" cy="100" rx="52" ry="4" fill="#000" opacity=".07"/><g transform="rotate(-8 80 54)"><rect x="30" y="23" width="100" height="63" rx="8" fill="#141418"/><rect x="40" y="33" width="26" height="5" rx="1.5" fill="#fff"/><rect x="40" y="66" width="34" height="5" rx="1.5" fill="#fff" opacity=".9"/><rect x="40" y="74" width="24" height="3" rx="1.5" fill="#fff" opacity=".45"/><rect x="104" y="62" width="16" height="16" rx="2" fill="#fff" opacity=".85"/></g>'+cp(110,36),
+      v:{who:'Nora Beckett',sub:'nora.swop.id',l:'N',t:'Hi, I’m Nora.',b:'Designer at Fern & Ash. Links, socials and a one-tap contact card.',it:['Save contact','Instagram','Book a call'],go:'Save contact'}},
+    hoodie:{name:'Hoodies & tees',st:'concept',where:'Sewn into the hem tag',from:'a hem tag',why:'Sewn into the tag. Proves it’s the real thing and unlocks the next drop.',
+      svg:'<path d="M52 24 Q80 10 108 24 L136 42 L127 66 L116 60 L116 100 L44 100 L44 60 L33 66 L24 42 Z" fill="#2b2f36"/><path d="M64 22 Q80 42 96 22" fill="none" stroke="#1c1f24" stroke-width="5" stroke-linecap="round"/><path d="M74 31 v15 M86 31 v15" stroke="#e8e8e8" stroke-width="2" stroke-linecap="round"/><path d="M60 76 h40 l6 17 h-52 z" fill="#23272d"/><rect x="101" y="88" width="12" height="9" rx="1.5" fill="#f4efe6"/>'+cp(107,92),
+      v:{who:'Kilo Studio',sub:'drop 03 · swop',l:'K',t:'It’s real. And it’s yours.',b:'Verified Kilo piece, No. 214 of 500. Owners get first access to Drop 04.',it:['See the lookbook','Care guide','Share your fit'],go:'Unlock Drop 04'}},
+    topper:{name:'Table Talkers',st:'soon',where:'On every table',from:'Table 6',why:'One per table. Menu, pay and review without waving down a server.',
+      svg:'<ellipse cx="80" cy="100" rx="60" ry="4" fill="#000" opacity=".07"/><path d="M96 18 L114 98 L121 96 L102 20 Z" fill="#e4e4e0"/><path d="M46 98 L64 18 L96 18 L114 98 Z" fill="#fff" stroke="#d9d9d6"/><text x="80" y="38" '+T+' font-size="10" fill="#0a0a0c">TABLE 6</text><path d="M75 55a7 7 0 0 1 0 14M71 51a12 12 0 0 1 0 22" fill="none" stroke="#c9c9c6" stroke-width="1.6" stroke-linecap="round"/><text x="80" y="90" '+T+' font-size="6.5" letter-spacing="1" fill="#6b6b72">TAP TO PAY</text>'+cp(84,62),
+      v:{who:'Fern & Ash',sub:'table 6 · swop pay',l:'F',t:'Table 6',b:'Two flat whites, one almond croissant.',it:['Today’s menu','Add a tip','Rate your visit'],go:'Pay $14.25'}},
+    stand:{name:'Counter stand',st:'soon',where:'Next to the register',from:'the counter',why:'Sits by the register. Customers tap to pay, no terminal to rent.',
+      svg:'<rect x="44" y="90" width="72" height="9" rx="3" fill="#2a2a30"/><rect x="54" y="16" width="52" height="76" rx="6" fill="#fff" stroke="#d9d9d6"/><rect x="66" y="25" width="28" height="5" rx="1.5" fill="#0a0a0c"/><text x="80" y="82" '+T+' font-size="6.5" letter-spacing="1" fill="#6b6b72">TAP TO PAY</text>'+cp(80,54),
+      v:{who:'Fern & Ash',sub:'counter · swop pay',l:'F',t:'$4.50',b:'Oat flat white. Card or USDC, receipt by email.',it:['Add a tip','Stamp my card'],go:'Pay $4.50'}},
+    sticker:{name:'Sticker sheet',st:'soon',where:'On boxes, bags and jars',from:'the jar label',why:'On the packaging. Tap to reorder, read the story, earn a stamp.',
+      svg:'<ellipse cx="80" cy="100" rx="40" ry="4" fill="#000" opacity=".07"/><rect x="56" y="22" width="48" height="13" rx="4" fill="#3a3a40"/><rect x="52" y="33" width="56" height="66" rx="12" fill="#f2c14e"/><rect x="56" y="38" width="9" height="52" rx="4" fill="#fff" opacity=".25"/><circle cx="80" cy="66" r="19" fill="#fff"/><text x="80" y="58" '+T+' font-size="6" letter-spacing=".8" fill="#0a0a0c">WILD HONEY</text>'+cp(80,70),
+      v:{who:'Wild Honey Co.',sub:'jar 214 · swop',l:'W',t:'Out already?',b:'Raw wildflower honey, 340 g. You’re 3 jars from a free one.',it:['Where it’s from','Rewards · 5 of 8','Gift a jar'],go:'Reorder · $12.00'}},
+    band:{name:'Wristbands',st:'concept',where:'On the wrist',from:'a wristband',why:'On the wrist. Pay at the bar and get in at the gate, no wallet in the crowd.',
+      svg:'<ellipse cx="80" cy="60" rx="52" ry="24" fill="none" stroke="#c4462c" stroke-width="13"/><path d="M28 60a52 24 0 0 0 104 0" fill="none" stroke="#e85d3f" stroke-width="13"/><rect x="64" y="72" width="32" height="20" rx="6" fill="#141418"/>'+cp(80,82),
+      v:{who:'Sundown Fest',sub:'bar 2 · swop pay',l:'S',t:'Two lagers',b:'Paid from your wrist. Your balance and receipts live on your page.',it:['Set times','Find my friends','Lost & found'],go:'Pay $18.00'}},
+    fob:{name:'Key fobs',st:'concept',where:'On a keyring',from:'your key fob',why:'On the keyring. Check in at the door and stamp rewards each visit.',
+      svg:'<circle cx="60" cy="30" r="14" fill="none" stroke="#b9bcc2" stroke-width="4"/><path d="M70 37 C96 32 122 52 118 76 C114 98 86 104 72 88 C60 74 59 47 70 37Z" fill="#141418"/>'+cp(93,70),
+      v:{who:'Lift Studio',sub:'front desk · swop',l:'L',t:'You’re checked in.',b:'Visit 18 this month. Two more and your next smoothie is on us.',it:['Book a class','Rewards · 18 of 20','Bring a friend'],go:'Book tomorrow 7am'}},
+    decal:{name:'Window decal',st:'soon',where:'Readable from the sidewalk',from:'the window',why:'On the glass. Passers-by tap for hours, menu and booking.',
+      svg:'<rect x="22" y="14" width="116" height="86" rx="4" fill="#dbe9f0" stroke="#c9d8e0"/><path d="M30 20 L58 20 L34 94 L26 94Z" fill="#fff" opacity=".45"/><circle cx="94" cy="56" r="27" fill="#0a0a0c"/><text x="94" y="45" '+T+' font-size="7" letter-spacing="1" fill="#fff">OPEN</text>'+cp(94,62),
+      v:{who:'Bloom Salon',sub:'window · swop',l:'B',t:'Chairs open tonight',b:'Cut and finish with Ari or Jules. Tap a time to hold it.',it:['6:15 pm','6:45 pm','7:30 pm'],go:'Book 6:15 pm'}}
+  };
+  var ORDER=['card','hoodie','topper','stand','sticker','band','fob','decal'];
+  var STL={live:'Available now',soon:'Coming soon',concept:'Concept'};
+  var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')};
+  var svg=function(k){return '<svg viewBox="0 0 160 110" aria-hidden="true">'+O[k].svg+'</svg>'};
+
+  /* the wall */
+  var tiles=document.getElementById('cwTiles'), scr=document.getElementById('cwScr'), ban=document.getElementById('cwBan'), from=document.getElementById('cwFrom');
+  if(tiles){
+    tiles.innerHTML=ORDER.map(function(k){var o=O[k];return '<button type="button" class="cw-o" data-o="'+k+'" aria-label="'+esc(o.name)+': see what a tap opens"><span class="st '+o.st+'">'+STL[o.st]+'</span><span class="art">'+svg(k)+'</span><b>'+esc(o.name)+'</b><small>'+esc(o.where)+'</small></button>'}).join('');
+    var cur=null, view=null, timer=null, user=false, inView=false;
+    var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var show=function(k){
+      if(k===cur)return; cur=k; var o=O[k], v=o.v;
+      tiles.querySelectorAll('.cw-o').forEach(function(b){b.classList.toggle('on',b.dataset.o===k)});
+      var el=document.createElement('div'); el.className='cw-v in';
+      el.innerHTML='<div class="cw-hd"><i>'+v.l+'</i><div><b>'+esc(v.who)+'</b><small>'+esc(v.sub)+'</small></div></div><div class="cw-t">'+esc(v.t)+'</div><div class="cw-b">'+esc(v.b)+'</div><div class="cw-it">'+v.it.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div><div class="cw-go">'+esc(v.go)+'</div>';
+      var old=view; view=el; scr.appendChild(el);
+      ban.classList.add('hide');
+      requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.remove('in'); if(old){old.classList.add('out'); setTimeout(function(){old.remove()},400)} from.textContent=o.from; ban.classList.remove('hide')})});
+    };
+    var next=function(){show(ORDER[(ORDER.indexOf(cur)+1)%ORDER.length]); if(tiles.scrollWidth>tiles.clientWidth+4){var b=tiles.querySelector('.cw-o.on'); tiles.scrollTo({left:b.offsetLeft-20,behavior:'smooth'})}};
+    var play=function(){clearInterval(timer); if(!user&&inView&&!reduce)timer=setInterval(next,2800)};
+    tiles.addEventListener('click',function(e){var b=e.target.closest('.cw-o'); if(!b)return; user=true; clearInterval(timer); show(b.dataset.o)});
+    tiles.addEventListener('mouseenter',function(){clearInterval(timer)}); tiles.addEventListener('mouseleave',play);
+    new IntersectionObserver(function(en){inView=en[0].isIntersecting; if(inView)play(); else clearInterval(timer)},{threshold:.35}).observe(document.getElementById('cwStage'));
+    show('card');
+  }
+
+  /* the finder */
+  var Q={
+    who:[['cafe','☕','Café or restaurant'],['shop','🛍️','Shop or salon'],['creator','🎨','Creator or brand'],['events','🎟️','Events'],['gym','🏋️','Gym or studio'],['me','👋','Just me']],
+    jobs:[['pay','💳','Get paid'],['rewards','⭐','Loyalty rewards'],['reviews','💬','More reviews'],['page','🔗','Share my page'],['sell','📦','Sell products'],['contact','📇','Collect contacts']],
+    where:[['counter','🧾','At the counter'],['tables','🍽️','At tables'],['product','🏷️','On my products'],['worn','👕','On clothes or wrists'],['hand','🤝','Hand to hand']]
+  };
+  var pick={who:'cafe',jobs:['pay','rewards','reviews'],where:'counter'};
+  var DOES={pay:'Take payments',rewards:'Stamp rewards',reviews:'Collect reviews',page:'Share your page',sell:'Sell products',contact:'Save contacts'};
+  var KIT={cafe:'The café kit',shop:'The storefront kit',creator:'The creator kit',events:'The event kit',gym:'The studio kit',me:'The networking kit'};
+  var SCORE={
+    where:{counter:{stand:3,decal:2},tables:{topper:3,sticker:1},product:{sticker:3,hoodie:2},worn:{hoodie:3,band:3},hand:{fob:2}},
+    who:{cafe:{topper:2,stand:2,decal:1,sticker:1},shop:{stand:2,decal:2,sticker:1},creator:{hoodie:3,sticker:2},events:{band:3,decal:1},gym:{fob:3,band:1},me:{fob:1,hoodie:1}},
+    jobs:{pay:{stand:1,topper:1,band:1},rewards:{fob:1,sticker:1},reviews:{topper:1,decal:1},page:{decal:1},sell:{sticker:1,hoodie:1},contact:{fob:1}}
+  };
+  var label=function(q,id){return Q[q].filter(function(x){return x[0]===id})[0][2]};
+  var kf=document.getElementById('finder');
+  if(kf){
+    kf.querySelectorAll('.kf-ch').forEach(function(box){
+      var q=box.dataset.q;
+      box.innerHTML=Q[q].map(function(x){return '<button type="button" data-v="'+x[0]+'" aria-pressed="false"><span>'+x[1]+'</span>'+esc(x[2])+'</button>'}).join('');
+      box.addEventListener('click',function(e){
+        var b=e.target.closest('button'); if(!b)return; var v=b.dataset.v;
+        if(box.dataset.multi){var i=pick.jobs.indexOf(v); if(i>-1){if(pick.jobs.length>1)pick.jobs.splice(i,1)} else pick.jobs.push(v)} else pick[q]=v;
+        build();
+      });
+    });
+    var build=function(){
+      kf.querySelectorAll('.kf-ch').forEach(function(box){var q=box.dataset.q;box.querySelectorAll('button').forEach(function(b){var on=q==='jobs'?pick.jobs.indexOf(b.dataset.v)>-1:pick[q]===b.dataset.v;b.setAttribute('aria-pressed',on)})});
+      var s={}; ORDER.forEach(function(k){s[k]=0});
+      var addS=function(m){if(m)for(var k in m)s[k]+=m[k]};
+      addS(SCORE.where[pick.where]); addS(SCORE.who[pick.who]); pick.jobs.forEach(function(j){addS(SCORE.jobs[j])});
+      var top=ORDER.filter(function(k){return k!=='card'&&s[k]>=3}).sort(function(a,b){return s[b]-s[a]||ORDER.indexOf(a)-ORDER.indexOf(b)}).slice(0,3);
+      var kit=['card'].concat(top);
+      document.getElementById('kfTitle').textContent=KIT[pick.who];
+      document.getElementById('kfSum').textContent='For '+label('who',pick.who).toLowerCase()+' · people tap '+label('where',pick.where).toLowerCase();
+      document.getElementById('kfList').innerHTML=kit.map(function(k){var o=O[k];return '<div class="kf-it"><span class="ic">'+svg(k)+'</span><div><b>'+esc(o.name)+'<span class="st '+o.st+'">'+STL[o.st]+'</span></b><small>'+esc(o.why)+'</small></div></div>'}).join('');
+      document.getElementById('kfDoes').innerHTML='<span>Every tap opens</span>'+pick.jobs.map(function(j){return '<span>'+DOES[j]+'</span>'}).join('');
+      var body='Hi Swop,\n\nI’m building '+KIT[pick.who].replace('The ','a ')+'.\nWho it’s for: '+label('who',pick.who)+'\nA tap should: '+pick.jobs.map(function(j){return DOES[j].toLowerCase()}).join(', ')+'\nWhere people tap: '+label('where',pick.where)+'\nSuggested kit: '+kit.map(function(k){return O[k].name}).join(', ')+'\n\nCan you help me set it up?';
+      document.getElementById('kfAsk').href='mailto:support@swopme.co?subject='+encodeURIComponent(KIT[pick.who]+' from the Swop shop')+'&body='+encodeURIComponent(body);
+    };
+    build();
+  }
 })();
 </script>
 </body>
