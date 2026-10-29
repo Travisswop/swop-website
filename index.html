@@ -587,6 +587,7 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .ppop{--c:#3FE08F;position:absolute;z-index:8;width:300px;padding:16px;border-radius:20px;display:grid;gap:12px;
   background:linear-gradient(160deg,color-mix(in srgb,var(--c) 14%,#0b0d12),rgba(11,13,18,.94) 70%);border:1px solid color-mix(in srgb,var(--c) 40%,transparent);
   -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 30px 70px -20px rgba(0,0,0,.7),0 0 0 1px rgba(255,255,255,.03)}
+.ppop[hidden]{display:none}
 .ppop.in{animation:popin .32s cubic-bezier(.2,.9,.25,1.15) both}
 @keyframes popin{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
 .ppx{position:absolute;top:10px;right:10px;width:28px;height:28px;border-radius:9px;border:0;background:rgba(255,255,255,.06);color:var(--fg2);font:400 18px/1 Inter;cursor:pointer}
@@ -1064,22 +1065,22 @@ function placePop(i){if(matchMedia('(max-width:960px)').matches){pop.style.left=
  const px=o.left-g.left+o.width*q.x/100,py=o.top-g.top+o.height*q.y/100,w=pop.offsetWidth,h=pop.offsetHeight,gap=26;
  let x=q.x>50?px-w-gap:px+gap;x=Math.max(o.left-g.left-40,Math.min(x,g.width-w));
  let y=py-h/2;y=Math.max(0,Math.min(y,g.height-h));pop.style.left=x+'px';pop.style.top=y+'px'}
-function selP(i,toggle){const p=PR[i];if(p[0]!==sysCat){setCat(p[0],i);return}
- sysSel=(toggle&&sysSel===i)?null:i;planets.forEach((b,j)=>b&&b.setAttribute('aria-pressed',j===sysSel));
- if(sysSel==null){pop.hidden=true;const L=document.getElementById('sysL');L.setAttribute('x2',50);L.setAttribute('y2',50);return}
+function selP(i,toggle){const p=PR[i];if(toggle&&sysSel===i){closePop();return}if(p[0]!==sysCat){setCat(p[0],i);return}
+ sysSel=i;planets.forEach((b,j)=>b&&b.setAttribute('aria-pressed',j===sysSel));
  pop.style.setProperty('--c',ST[p[2]][1]);
  pop.innerHTML=`<button class="ppx" type="button" aria-label="Close">×</button>
   <div class="pph"><span class="pi">${svgI(p[4],20)}</span><div><b>${esc(p[1])}</b><span class="pps">${ST[p[2]][0]}</span></div></div>
   <p>${esc(p[3])}</p><div class="ppf">${p[5].map(f=>`<div><b>${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div>`;
- pop.querySelector('.ppx').addEventListener('click',()=>selP(i,true));
+ pop.querySelector('.ppx').addEventListener('click',closePop);
  pop.hidden=false;placePop(i);pop.classList.remove('in');void pop.offsetWidth;pop.classList.add('in')}
-function setCat(k,open){sysCat=k;$$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));
- $$('#orrery .orbit').forEach(o=>{o.classList.toggle('dim',o.dataset.k!==k);o.classList.toggle('hot',o.dataset.k===k)});
- $$('#orrery .pl').forEach(b=>b.classList.toggle('dim',b.dataset.k!==k));
- sysSel=null;selP(open??PR.findIndex(p=>p[0]===k))}
+function setCat(k,open){sysCat=k;$$('#chips .chip').forEach(b=>b.setAttribute('aria-pressed',!!k&&b.dataset.k===k));
+ $$('#orrery .orbit').forEach(o=>{o.classList.toggle('dim',!!k&&o.dataset.k!==k);o.classList.toggle('hot',!!k&&o.dataset.k===k)});
+ $$('#orrery .pl').forEach(b=>b.classList.toggle('dim',!!k&&b.dataset.k!==k));
+ sysSel=null;if(k)selP(open??PR.findIndex(p=>p[0]===k))}
+function closePop(){sysSel=null;pop.hidden=true;planets.forEach(b=>b&&b.setAttribute('aria-pressed',false));const L=document.getElementById('sysL');L.setAttribute('x2',50);L.setAttribute('y2',50);setCat(null)}
 $$('#chips .chip').forEach(b=>b.addEventListener('click',()=>setCat(b.dataset.k)));
-orr.addEventListener('click',e=>{if(!e.target.closest('.pl')&&sysSel!=null)selP(sysSel,true)});
-addEventListener('keydown',e=>{if(e.key==='Escape'&&sysSel!=null)selP(sysSel,true)});
+orr.addEventListener('click',e=>{if(!e.target.closest('.pl')&&sysSel!=null)closePop()});
+addEventListener('keydown',e=>{if(e.key==='Escape'&&sysSel!=null)closePop()});
 addEventListener('resize',()=>{if(sysSel!=null)placePop(sysSel)});
 setCat('id');
 /* starfield */
