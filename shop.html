@@ -139,7 +139,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .facts small{font-size:12.5px;color:var(--mut);line-height:1.35}
 .acc{border-top:1px solid var(--line)}
 .acc details{border-bottom:1px solid var(--line);padding:15px 0}
-.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;font:700 15px Inter}
+.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;min-height:44px;font:700 15px Inter}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::after{content:"+";font:400 18px var(--mono);color:var(--mut)}
 .acc details[open] summary::after{content:"–"}
@@ -268,7 +268,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 /* faq + closer + footer */
 .faq{max-width:860px;border-top:1px solid var(--line)}
 .faq details{border-bottom:1px solid var(--line);padding:22px 0}
-.faq summary{cursor:pointer;list-style:none;display:flex;gap:16px;font:800 19px var(--display);letter-spacing:-.015em}
+.faq summary{cursor:pointer;list-style:none;display:flex;gap:16px;align-items:center;min-height:44px;font:800 19px var(--display);letter-spacing:-.015em}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary::after{content:"+";margin-left:auto;font:400 20px var(--mono);color:var(--mut)}
 .faq details[open] summary::after{content:"–"}
@@ -416,6 +416,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   .ts.static .ts-steps li{display:grid}
 }
 @media(max-width:360px){.ts-stage{--k:.72}}
+@media(max-width:900px){.ft-cols a{padding:9px 0}}
 
 /* cart drawer */
 .cd-overlay{position:fixed;inset:0;background:rgba(15,14,19,.45);opacity:0;pointer-events:none;transition:opacity .2s;z-index:80}
@@ -424,7 +425,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .cd.on{transition:transform .24s;transform:none;box-shadow:-12px 0 40px rgba(15,14,19,.16);visibility:visible}
 .cd-head{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--line2)}
 .cd-head h3{margin:0;font-size:18px}
-.cd-x{background:none;border:0;font-size:22px;cursor:pointer;line-height:1;padding:6px}
+.cd-x{background:none;border:0;font-size:22px;cursor:pointer;line-height:1;width:44px;height:44px;margin:-8px -10px -8px 0;display:grid;place-items:center}
 .cd-body{flex:1;overflow:auto;padding:18px 22px}
 .cd-foot{padding:16px 22px 22px;border-top:1px solid var(--line2)}
 .cd-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line2)}
@@ -574,16 +575,16 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
         </div>
         <div class="face back"><svg class="nfc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg><b>Tap to open my page</b><small>swop.id · no app needed</small></div>
       </div>
-      <div class="photo"><img id="photoImg" alt="Swop Digital Card" src="https://res.cloudinary.com/bayshore/image/upload/v1788052406/eugtpqa7vg00wrfms020.jpg"></div>
+      <div class="photo"><img id="photoImg" alt="Swop Digital Card" src="https://res.cloudinary.com/bayshore/image/upload/w_1000,q_auto,f_auto/v1788052406/eugtpqa7vg00wrfms020.jpg"></div>
       <span class="badge3d" id="badge3d">3D · drag me</span>
       <span class="hint" id="hint">Tap the card to flip it</span>
     </div>
     <div class="thumbs" role="group" aria-label="Product views">
       <button type="button" class="t3d" aria-pressed="true" data-view="3d">3D</button>
-      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/v1788052406/eugtpqa7vg00wrfms020.jpg"><img alt="Swop Digital Card, front" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052406/eugtpqa7vg00wrfms020.jpg"></button>
-      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/v1788052415/o7cpyeihq5vjk1iixbz3.jpg"><img alt="Swop Digital Card, angle" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052415/o7cpyeihq5vjk1iixbz3.jpg"></button>
-      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/v1788052421/ad8g0kbz0ihzvs0fvczh.jpg"><img alt="Swop Digital Card, in use" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052421/ad8g0kbz0ihzvs0fvczh.jpg"></button>
-      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/v1788052426/guyhbwp0l2e5li4qogej.jpg"><img alt="Swop Digital Card, detail" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052426/guyhbwp0l2e5li4qogej.jpg"></button>
+      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/w_1000,q_auto,f_auto/v1788052406/eugtpqa7vg00wrfms020.jpg"><img alt="Swop Digital Card, front" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052406/eugtpqa7vg00wrfms020.jpg"></button>
+      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/w_1000,q_auto,f_auto/v1788052415/o7cpyeihq5vjk1iixbz3.jpg"><img alt="Swop Digital Card, angle" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052415/o7cpyeihq5vjk1iixbz3.jpg"></button>
+      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/w_1000,q_auto,f_auto/v1788052421/ad8g0kbz0ihzvs0fvczh.jpg"><img alt="Swop Digital Card, in use" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052421/ad8g0kbz0ihzvs0fvczh.jpg"></button>
+      <button type="button" aria-pressed="false" data-view="https://res.cloudinary.com/bayshore/image/upload/w_1000,q_auto,f_auto/v1788052426/guyhbwp0l2e5li4qogej.jpg"><img alt="Swop Digital Card, detail" loading="lazy" src="https://res.cloudinary.com/bayshore/image/upload/w_240,q_auto,f_auto/v1788052426/guyhbwp0l2e5li4qogej.jpg"></button>
     </div>
   </div>
 
