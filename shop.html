@@ -1666,6 +1666,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   };
   var pick={who:'cafe',jobs:['pay','rewards','reviews'],where:'counter'};
   var DOES={pay:'Take payments',rewards:'Stamp rewards',reviews:'Collect reviews',page:'Share your page',sell:'Sell products',contact:'Save contacts'};
+  var TH={card:'nora-book',hoodie:'kilo-sell',topper:'fern-table-pay',stand:'fern-pay',sticker:'honey-sell',band:'fest-pay',fob:'lift-book',decal:'bloom-book'};
   var KIT={cafe:'The café kit',shop:'The storefront kit',creator:'The creator kit',events:'The event kit',gym:'The studio kit',me:'The networking kit'};
   var SCORE={
     where:{counter:{stand:3,decal:2},tables:{topper:3,sticker:1},product:{sticker:3,hoodie:2},worn:{hoodie:3,band:3},hand:{fob:2}},
@@ -1693,7 +1694,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       var kit=['card'].concat(top);
       document.getElementById('kfTitle').textContent=KIT[pick.who];
       document.getElementById('kfSum').textContent='For '+label('who',pick.who).toLowerCase()+' · people tap '+label('where',pick.where).toLowerCase();
-      document.getElementById('kfList').innerHTML=kit.map(function(k,n){var o=O[k];return '<div class="kf-it"><span class="th"><img src="/assets/screens/fx-'+k+'.jpg" alt="" loading="lazy"></span><div><em>0'+(n+1)+'</em><b>'+esc(o.name)+'</b><span class="ss '+o.st+'"><i></i>'+STL[o.st]+'</span><small>'+esc(o.why)+'</small></div></div>'}).join('');
+      document.getElementById('kfList').innerHTML=kit.map(function(k,n){var o=O[k];return '<div class="kf-it"><span class="th"><img src="/assets/screens/fx-'+TH[k]+'.jpg" alt="" loading="lazy"></span><div><em>0'+(n+1)+'</em><b>'+esc(o.name)+'</b><span class="ss '+o.st+'"><i></i>'+STL[o.st]+'</span><small>'+esc(o.why)+'</small></div></div>'}).join('');
       var cnt={live:0,soon:0,concept:0}; kit.forEach(function(k){cnt[O[k].st]++});
       document.getElementById('kfBar').innerHTML='<div class="bar">'+['live','soon','concept'].map(function(t){return cnt[t]?'<i class="'+t+'" style="flex:'+cnt[t]+'"></i>':''}).join('')+'</div><div class="lg">'+['live','soon','concept'].filter(function(t){return cnt[t]}).map(function(t){return '<span class="'+t+'"><b>'+cnt[t]+'</b> '+STL[t].toLowerCase()+'</span>'}).join('')+'</div>';
       document.getElementById('kfDoes').innerHTML='<span class="k2">Every tap</span>'+pick.jobs.map(function(j){return '<span>'+DOES[j]+'</span>'}).join('<i>·</i>');
@@ -1705,10 +1706,9 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   /* the flow map: objects -> one page -> jobs */
   var JOB=[['pay','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"13\" rx=\"2.5\"/><path d=\"M3 10h18M7 15h3\"/></svg>','Get paid','Card or USDC, settled to you'],['rewards','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z\"/></svg>','Stamp rewards','Loyalty without a punch card'],['reviews','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4A8 8 0 1 1 20 12z\"/></svg>','Collect reviews','While the visit is still fresh'],['contact','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"3.5\"/><path d=\"M5 20a7 7 0 0 1 14 0\"/></svg>','Save contacts','A contact card in one tap'],['book','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2.5\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/></svg>','Take bookings','Tables, chairs and classes'],['sell','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3z\"/><path d=\"M9 8V6.5a3 3 0 0 1 6 0V8\"/></svg>','Sell products','Reorders, merch and drops']];
   /* any chip can route to any job: the screen comes from the job, dressed for the object when we have a matching capture */
-  var GEN={pay:'stand',rewards:'rewards',reviews:'reviews',contact:'card',book:'decal',sell:'sticker'};
-  var OV={card:{contact:'card',book:'card'},hoodie:{sell:'hoodie'},topper:{pay:'topper'},stand:{pay:'stand'},sticker:{sell:'sticker'},band:{pay:'band'},fob:{book:'fob'},decal:{book:'decal'}};
+  var BIZ={card:'nora',hoodie:'kilo',topper:'fern',stand:'fern',sticker:'honey',band:'fest',fob:'lift',decal:'bloom'};
   var PAIRS=[['card','contact'],['hoodie','sell'],['topper','reviews'],['stand','pay'],['sticker','rewards'],['band','pay'],['fob','book'],['decal','book']];
-  var SCR=function(k,j){return (OV[k]&&OV[k][j])||GEN[j]};
+  var SCR=function(k,j){return k==='topper'&&j==='pay'?'fern-table-pay':BIZ[k]+'-'+j};
   var fin=document.getElementById('fxIn'), fout=document.getElementById('fxOut'), map=document.getElementById('fxMap'), lines=document.getElementById('fxLines');
   var scr=document.getElementById('cwScr'), ban=document.getElementById('cwBan'), from=document.getElementById('cwFrom');
   if(fin){
@@ -1737,7 +1737,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       fout.querySelectorAll('.fx-r').forEach(function(r){var on=r.dataset.r===route; r.classList.toggle('on',on); r.setAttribute('aria-pressed',on)});
       fin.querySelectorAll('.fx-o').forEach(function(b){b.classList.toggle('on',b.dataset.o===cur)})};
     var show=function(k,j){
-      var moved=k!==cur; cur=k; route=j; mark();
+      var moved=k!==cur; cur=k; route=j; mark(); preload(k);
       var f=SCR(k,j), o=O[k]; if(f===shot&&!moved)return; 
       if(f!==shot){shot=f; var el=document.createElement('div'); el.className='cw-v cw-shot in'; el.innerHTML='<img src="/assets/screens/fx-'+f+'.jpg" alt="" width="520" height="1125">';
         var old=view; view=el; scr.appendChild(el); void el.offsetWidth; el.classList.remove('in'); if(old)setTimeout(function(){old.remove()},400)}
@@ -1745,7 +1745,8 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       setTimeout(function(){if(cur===k&&route===j){from.textContent=o.from; ban.classList.remove('hide')}},60);
       setTimeout(function(){if(cur===k&&route===j)ban.classList.add('hide')},1900);
     };
-    ORDER.concat(['rewards','reviews']).forEach(function(k){var im=new Image(); im.src='/assets/screens/fx-'+k+'.jpg'});
+    var warm={}, preload=function(k){if(warm[k])return; warm[k]=1; JOB.forEach(function(j){var im=new Image(); im.src='/assets/screens/fx-'+SCR(k,j[0])+'.jpg'})};
+    PAIRS.forEach(function(p){var im=new Image(); im.src='/assets/screens/fx-'+SCR(p[0],p[1])+'.jpg'});
     var pi=0, next=function(){pi=(pi+1)%PAIRS.length; show(PAIRS[pi][0],PAIRS[pi][1])};
     var play=function(){clearInterval(timer); if(!user&&inView&&!reduce)timer=setInterval(next,2800)};
     fin.addEventListener('click',function(e){var b=e.target.closest('.fx-o'); if(!b)return; user=true; clearInterval(timer); show(b.dataset.o,route)});
