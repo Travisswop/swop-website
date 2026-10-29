@@ -195,6 +195,17 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
   <div class="scue" aria-hidden="true">SCROLL<i></i></div>
 </header>
 
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>Decentrabet, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>You set the odds.</h3><p>Anyone writes a question, picks fixed odds and a stake limit, and deploys their own market contract.</p><div class="proof"><em class="st beta">Beta</em> testnet</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>The contract holds the money.</h3><p>Stakes sit in the market contract, not a Swop wallet. The validators you name resolve it, and Swop never runs the book.</p><div class="proof">Majority vote · contract pays out</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Testnet only, for now.</h3><p>Base Sepolia with test USDC, contracts not yet audited, no real money. Legal review and geo-gating come before any real money.</p><div class="proof"><a class="acc" href="https://decentrabet.vercel.app">Try the testnet beta →</a></div></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec gut light" id="quick">
   <div class="wrap x30">
     <span class="lab">S.02 · Decentrabet in 30 seconds</span>
@@ -281,20 +292,29 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
       <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="key" data-s="22"></div><h3>The contract holds the stakes</h3><p>Not Swop, not Decentrabet. Swop provides identity and distribution and never runs the book.</p><div class="viz vault"><span>Your stake</span><i>→</i><span class="c">Market contract</span><i>→</i><span>Payout</span></div></div>
       <div class="bx w4" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>Poker on the same contracts</h3><p>Tables use mental poker: a 2,048-bit encrypted deck and a signed relay, with no trusted dealer. An MCP server lets AI agents take a seat.</p><div class="viz cards"><span>A</span><span class="r">K</span><span class="b">?</span><span class="b">?</span></div></div>
       <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="plug" data-s="22"></div><h3>For AI agents</h3><p>25 poker tools through MCP.</p><div class="viz"><div class="big" data-count="25">25</div></div></div>
-      <div class="bx w6" data-rv><div class="ic" data-ic="pay" data-s="22"></div><h3>Testnet, said plainly</h3><p>Decentrabet runs on the Base Sepolia testnet with test USDC. The contracts haven't been audited yet, and there is no real money in it. Before that ever changes it needs a legal review, geo-gating where markets may run, and a contract audit.</p><div class="viz"><em class="st building">Testnet only</em></div></div>
     </div>
   </div>
 </section>
 
-<section class="sec gut tight">
+<section class="sec gut tight" id="life">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.05 · The life of a market</span><h2>Four states, <span class="acc">all on-chain.</span></h2><p>Every market moves through the same four stages, and anyone can check which one it’s in.</p></div>
-    <div class="flow" style="--n:4">
-      <div class="fs"><div class="dot">01</div><h4>Open</h4><p>People take a side at your odds, up to the stake limit.</p></div>
-      <div class="fs"><div class="dot">02</div><h4>Awaiting validators</h4><p>The market closes and the named validators vote.</p></div>
-      <div class="fs"><div class="dot">03</div><h4>Resolved</h4><p>A majority decides. The result is recorded in the contract.</p></div>
-      <div class="fs"><div class="dot">04</div><h4>Settled</h4><p>The contract pays out and refunds anything unmatched.</p></div>
-    </div>
+    <div class="sh"><span class="lab">S.05 · Where the money goes</span><h2>One market, <span class="acc">start to payout.</span></h2><p>Tap a step, or hover any box to see what it connects to. The money never passes through Swop.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/8","arMobile":"3/7.6","stepMs":3200,
+      "nodes":[
+        {"id":"creator","x":8,"y":22,"mx":26,"my":5,"label":"You, the creator","sub":"question, odds, limit, validators","icon":"id"},
+        {"id":"bettors","x":8,"y":78,"mx":74,"my":20,"label":"Bettors","sub":"stake test USDC at your odds","icon":"pay"},
+        {"id":"contract","x":36,"y":50,"mx":50,"my":40,"label":"Your market contract","sub":"Base Sepolia · holds the stakes","icon":"key","big":true},
+        {"id":"card","x":66,"y":16,"mx":24,"my":59,"label":"Live card","sub":"SmartSite · Swop feed · any site","icon":"market"},
+        {"id":"validators","x":66,"y":84,"mx":76,"my":71,"label":"Validators","sub":"named people · majority vote","icon":"owl"},
+        {"id":"payout","x":91,"y":50,"mx":50,"my":91,"label":"Payout","sub":"winners paid · unmatched refunded","icon":"coin","big":true}],
+      "edges":[
+        {"from":"creator","to":"contract","label":"deploy","step":1},
+        {"from":"contract","to":"card","label":"embed","step":2},
+        {"from":"bettors","to":"contract","label":"stake","step":3},
+        {"from":"validators","to":"contract","label":"vote","step":4},
+        {"from":"contract","to":"payout","label":"settle","step":5}],
+      "steps":["You set the question, the odds, a stake limit and who judges it, then deploy your own market contract.","A live card shows the market anywhere: your SmartSite, the Swop feed, or any website.","People take a side at your odds. Their stakes go into the contract, not a Swop wallet.","When it closes, the validators you named vote. A majority resolves it.","The contract pays the winners and refunds anything unmatched. Swop never runs the book."],
+      "note":"Testnet beta: Base Sepolia, test USDC, contracts not yet audited, no real money."}</script></div>
   </div>
 </section>
 

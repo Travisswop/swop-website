@@ -98,8 +98,8 @@ body{--acc:#ff5d6c;--acc-ink:#2a0006;--acc-dark:#e11d48}
 .dests{display:flex;flex-wrap:wrap;gap:8px}
 .dests span{display:inline-flex;align-items:center;gap:7px;font:600 13px var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--glass2)}
 .dests span::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc-dark)}
-.key{font:500 12.5px var(--mono);padding:12px;border-radius:12px;background:#0b0b13;color:#e6e6ee;display:grid;gap:4px}
-.key i{font-style:normal;color:#ff8a96}
+.skey{font:500 12.5px var(--mono);padding:12px;border-radius:12px;background:#0b0b13;color:#e6e6ee;display:grid;gap:4px}
+.skey i{font-style:normal;color:#ff8a96}
 .wave{display:flex;align-items:flex-end;gap:4px;height:56px}
 .wave i{flex:1;border-radius:3px;background:var(--acc-dark);animation:wv 1.1s ease-in-out infinite;transform-origin:bottom}
 @keyframes wv{50%{transform:scaleY(.35)}}
@@ -195,6 +195,17 @@ body{--acc:#ff5d6c;--acc-ink:#2a0006;--acc-dark:#e11d48}
   <div class="scue" aria-hidden="true">SCROLL<i></i></div>
 </header>
 
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>Swop Live, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>Go live anywhere.</h3><p>Start a stream from your phone or your browser, and bring a co-host on screen with you.</p><div class="proof"><em class="st live">Live</em> in the Swop app and on the web</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>Sell while you stream.</h3><p>Pin a product and viewers buy it mid-stream with Swop checkout. The money lands in your wallet as USDC.</p><div class="proof">0.5% checkout fee on sales, nothing to go live</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Reach every platform.</h3><p>Stream in from OBS, restream out to YouTube and Twitch, and keep the replay afterwards.</p><div class="proof">Replays kept 30 days on free accounts</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec gut tight s30sec" id="s30">
   <div class="wrap">
     <div class="s30">
@@ -215,8 +226,25 @@ body{--acc:#ff5d6c;--acc-ink:#2a0006;--acc-dark:#e11d48}
 
 <section class="sec gut light" id="what">
   <div class="wrap">
-    <span class="lab" style="margin-bottom:28px">S.02 · In one line</span>
-    <p class="scrub" data-scrub>Swop Live puts a <em>camera</em>, a <em>crowd</em> and a <em>checkout</em> on your swop.id, so the people watching can buy while you talk.</p>
+    <div class="sh"><span class="lab">S.02 · How a stream works</span><h2>From your camera <span class="acc">to a sale.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.6","stepMs":3000,
+      "nodes":[
+        {"id":"cam","x":8,"y":22,"mx":22,"my":6,"label":"Phone or browser","sub":"camera, co-hosts","icon":"live"},
+        {"id":"obs","x":8,"y":78,"mx":78,"my":6,"label":"OBS","sub":"or RTMP software","icon":"plug"},
+        {"id":"room","x":34,"y":50,"mx":50,"my":26,"label":"Your Swop Live room","sub":"on your swop.id","icon":"live","big":true},
+        {"id":"viewers","x":58,"y":20,"mx":22,"my":47,"label":"Viewers","sub":"watch and chat","icon":"id"},
+        {"id":"restream","x":58,"y":82,"mx":78,"my":47,"label":"YouTube · Twitch","sub":"restream out","icon":"trade"},
+        {"id":"checkout","x":80,"y":20,"mx":22,"my":70,"label":"Swop checkout","sub":"buy the pinned product","icon":"pay"},
+        {"id":"wallet","x":93,"y":56,"mx":50,"my":93,"label":"Your wallet","sub":"USDC from every sale","icon":"coin","big":true},
+        {"id":"replay","x":80,"y":88,"mx":78,"my":70,"label":"Replay","sub":"saved to download","icon":"live"}],
+      "edges":[
+        {"from":"cam","to":"room","step":1},{"from":"obs","to":"room","label":"RTMP","step":1},
+        {"from":"room","to":"viewers","step":2},{"from":"room","to":"restream","step":2},
+        {"from":"viewers","to":"checkout","label":"Buy","step":3},
+        {"from":"checkout","to":"wallet","label":"USDC","step":4},
+        {"from":"room","to":"replay","step":5}],
+      "steps":["Go live from your phone or browser, or send a feed in from OBS.","Viewers watch and chat in real time; restream the same show to YouTube and Twitch.","You pin a product. A viewer taps Buy without leaving the stream.","Swop checkout takes the payment; USDC lands in your wallet (0.5% fee).","When you end the stream, the replay is saved for you to share or download."],
+      "note":"Replays are kept 30 days on free accounts."}</script></div>
   </div>
 </section>
 
@@ -264,7 +292,7 @@ body{--acc:#ff5d6c;--acc-ink:#2a0006;--acc-dark:#e11d48}
     <div class="sh"><span class="lab">S.04 · Creator tools</span><h2>Built for people <span class="acc">who sell on camera.</span></h2></div>
     <div class="bento">
       <div class="bx w4" data-rv><div class="ic" data-ic="live" data-s="22"></div><h3>Restream everywhere</h3><p>Go live on Swop and send the same stream out to the other places your audience already watches.</p><div class="viz dests"><span>Swop</span><span>YouTube</span><span>Twitch</span><span>Any RTMP destination</span></div></div>
-      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="plug" data-s="22"></div><h3>Bring OBS</h3><p>Stream from OBS or other software.</p><div class="viz key"><span>server <i>rtmp://…</i></span><span>key <i>••••••••</i></span></div></div>
+      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="plug" data-s="22"></div><h3>Bring OBS</h3><p>Stream from OBS or other software.</p><div class="viz skey"><span>server <i>rtmp://…</i></span><span>key <i>••••••••</i></span></div></div>
       <div class="bx" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>Real-time room</h3><p>Viewers and co-hosts at chat speed.</p><div class="viz wave" aria-hidden="true"><i></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.5s"></i><i style="animation-delay:.6s"></i><i style="animation-delay:.7s"></i></div></div>
       <div class="bx w4" data-rv style="--d:.08s"><div class="ic" data-ic="pay" data-s="22"></div><h3>Checkout in the stream</h3><p>Viewers pay the list price. You get USDC on the buyer's chain, minus a 0.5% fee that you, the seller, absorb.</p><div class="viz"><div class="big">0.5%</div></div></div>
       <div class="bx w3" data-rv><div class="ic" data-ic="coin" data-s="22"></div><h3>Replays you keep</h3><p>Recorded automatically, stitched across reconnects, downloadable as MP4.</p></div>

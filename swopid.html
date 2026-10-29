@@ -203,6 +203,17 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
   <div class="scue" aria-hidden="true">SCROLL<i></i></div>
 </header>
 
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>swop.id, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>One name. Page, wallet, login.</h3><p>name.swop.id opens your SmartSite, receives your money and signs you in, all from the same name.</p><div class="proof"><em class="st live">Live</em> in the Swop app and on the web</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>People pay your name.</h3><p>Friends, customers and AI agents send to name.swop.id instead of a long wallet address, on five chains.</p><div class="proof">Solana · Ethereum · Base · Polygon · Arbitrum</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Works where ENS works.</h3><p>It's a real ENS name, so wallets and apps that read ENS can find you. Swop-built apps like El Dorado and Chalk let you sign in with it.</p><div class="proof"><a class="acc" href="https://docs.swopme.co/identity">Resolve a swop.id →</a></div></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec gut light" id="t30">
   <div class="wrap">
     <div class="sh"><span class="lab">S.02 · In 30 seconds</span><h2>swop.id, <span class="acc">in plain words.</span></h2><p>One short name does three jobs that normally need three different accounts.</p></div>
@@ -215,9 +226,9 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
         <div><dt>What you need</dt><dd>The Swop app or <a class="acc" href="https://swopme.app">swopme.app</a>, and a name that isn’t taken. Check yours at the top of this page.</dd></div>
       </dl>
       <div class="steps">
-        <div class="stp" data-rv><div class="shot"><img src="/assets/live/swopid-profile.jpg" alt="A SmartSite profile in the Swop app with a ring of social links around the logo" loading="lazy" decoding="async"></div><span class="n">01 · YOUR PAGE</span><b>A page with your links</b><p>Socials, shop, feed and more in one place.</p></div>
-        <div class="stp" data-rv style="--d:.08s"><div class="shot"><img src="/assets/live/swopid-send.jpg" alt="Send screen in the Swop app: choose a swop.id from your contacts" loading="lazy" decoding="async"></div><span class="n">02 · PAY A NAME</span><b>Get paid by name</b><p>People pick your name, not a long address.</p></div>
-        <div class="stp" data-rv style="--d:.16s"><div class="shot"><img src="/assets/live/swopid-receive.jpg" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
+        <div class="stp" data-rv><div class="device"><img src="/assets/live/swopid-profile.jpg" alt="A SmartSite profile in the Swop app with a ring of social links around the logo" loading="lazy" decoding="async"></div><span class="n">01 · YOUR PAGE</span><b>A page with your links</b><p>Socials, shop, feed and more in one place.</p></div>
+        <div class="stp" data-rv style="--d:.08s"><div class="device"><img src="/assets/live/swopid-send.jpg" alt="Send screen in the Swop app: choose a swop.id from your contacts" loading="lazy" decoding="async"></div><span class="n">02 · PAY A NAME</span><b>Get paid by name</b><p>People pick your name, not a long address.</p></div>
+        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/swopid-receive.jpg" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
       </div>
     </div>
     <p style="margin-top:26px"><span class="real">Real screens from the Swop app today</span></p>
@@ -226,8 +237,25 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut" id="what">
   <div class="wrap">
-    <span class="lab" style="margin-bottom:28px">S.03 · In one line</span>
-    <p class="scrub" data-scrub>A swop.id is a name you own. It opens your <em>page</em>, it receives your <em>money</em>, and it signs you into <em>every app</em> built on Swop.</p>
+    <div class="sh"><span class="lab">How one name connects</span><h2>Everything points to <span class="acc">your name.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.2","stepMs":3000,
+      "nodes":[
+        {"id":"name","x":50,"y":50,"mx":50,"my":50,"label":"maya.swop.id","sub":"one name you own","icon":"id","big":true},
+        {"id":"page","x":14,"y":20,"mx":26,"my":8,"label":"SmartSite page","sub":"links, shop, feed","icon":"grid"},
+        {"id":"card","x":14,"y":80,"mx":74,"my":8,"label":"NFC card tap","sub":"opens your page","icon":"card"},
+        {"id":"pay","x":86,"y":20,"mx":26,"my":30,"label":"Payments in","sub":"people and AI agents","icon":"pay"},
+        {"id":"wallet","x":86,"y":80,"mx":74,"my":30,"label":"Your wallet","sub":"5 chains, one name","icon":"coin"},
+        {"id":"signin","x":50,"y":10,"mx":50,"my":82,"label":"Sign in","sub":"El Dorado, Chalk","icon":"key"},
+        {"id":"ens","x":50,"y":90,"mx":50,"my":96,"label":"Any ENS app","sub":"finds your address","icon":"plug"}],
+      "edges":[
+        {"from":"card","to":"page","step":1},
+        {"from":"page","to":"name","label":"opens","step":1},
+        {"from":"pay","to":"name","label":"pays","step":2},
+        {"from":"name","to":"wallet","label":"lands in","step":2},
+        {"from":"name","to":"signin","step":3},
+        {"from":"ens","to":"name","label":"resolves","step":4}],
+      "steps":["Someone types your name or taps your card, and your SmartSite opens.","People and AI agents pay maya.swop.id; the money lands in your wallet.","Apps built on Swop let you sign in with the same name.","Wallets and apps that read ENS can look your name up too."],
+      "note":"maya is an example name."}</script></div>
   </div>
 </section>
 
@@ -282,7 +310,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
         <div class="realcap"><span class="real">Live page, captured today</span><p>Portfolio, feed, positions, tokens, blog, booking and products: all tabs on one page.</p></div>
       </div>
       <div data-rv style="--d:.1s">
-        <div class="shot"><img src="/assets/live/swopid-dashboard.jpg" alt="The Manage dashboard in the Swop app: Launchpad, Tokens, Products, Orders, Checkout, Forms and Analytics" loading="lazy" decoding="async"></div>
+        <div class="device"><img src="/assets/live/swopid-dashboard.jpg" alt="The Manage dashboard in the Swop app: Launchpad, Tokens, Products, Orders, Checkout, Forms and Analytics" loading="lazy" decoding="async"></div>
         <div class="realcap"><span class="real">Swop app · Manage</span><p>Products, orders, checkout, forms and analytics behind the page.</p></div>
       </div>
     </div>
@@ -303,14 +331,8 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut tight" id="everywhere" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.08 · One name, everywhere</span><h2>Same name. <span class="acc">Every surface.</span></h2><p>Whether someone types it, scans it or taps it, they reach the same you.</p></div>
-    <div class="every">
-      <div class="ev" data-rv><small>Your page</small><code><span class="nmh">maya</span>.swop.id</code><p>Opens your SmartSite in any browser.</p></div>
-      <div class="ev" data-rv style="--d:.06s"><small>Your wallet</small><code>send → <span class="nmh">maya</span>.swop.id</code><p>People on Swop pay you by name.</p></div>
-      <div class="ev" data-rv style="--d:.12s"><small>Your login</small><code>Sign in with <span class="nmh">maya</span>.swop.id</code><p>El Dorado and Chalk today, more apps next.</p></div>
-      <div class="ev" data-rv style="--d:.18s"><small>Your house</small><code>Swop Hills · <span class="nmh">maya</span></code><p>Your El Dorado house shows your SmartSite.</p></div>
-    </div>
-    <div class="dev-strip" data-rv style="margin-top:28px;border-radius:24px;border:1px solid var(--line);background:var(--glass);padding:clamp(22px,3vw,34px);display:grid;gap:6px">
+    <div class="sh"><span class="lab">S.08 · One name, everywhere</span><h2>Build with <span class="acc">swop.id.</span></h2><p>Whether someone types it, scans it or taps it, they reach the same you.</p></div>
+    <div class="dev-strip" data-rv style="margin-top:0;border-radius:24px;border:1px solid var(--line);background:var(--glass);padding:clamp(22px,3vw,34px);display:grid;gap:6px">
       <span class="lab" style="--c:#c084fc">For developers</span>
       <h3 style="margin-top:8px">Resolve any swop.id <span class="acc">from your own app.</span></h3>
       <p style="color:var(--fg2);max-width:60ch">Look up a name, get its wallet addresses and public profile, or resolve it through ENS with viem or ethers.</p>

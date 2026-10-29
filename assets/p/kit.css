@@ -323,7 +323,7 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
 .light .dg-node b i{color:var(--acc-dark,var(--acc))}
 .dg-node small{font:500 11.5px/1.35 var(--body);color:var(--fg3)}
 .dg-node.hot{border-color:color-mix(in srgb,var(--acc) 70%,transparent);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 14%,transparent)}
-.dg-node.dim{opacity:.45}
+.dg-node.dim{opacity:.65}
 .dg-node.big{min-width:150px;padding:16px 18px}
 .dg-node.big b{font-size:17px}
 .dg-steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
@@ -362,4 +362,39 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
     [data-rv]{animation:rvin linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
     @keyframes rvin{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
   }
+}
+
+/* device: one phone frame for every real app screen. Real proportions, sized by --w (scales down to its container).
+   Screens are top-aligned; the frame draws the bezel, side buttons and home bar (the screenshot carries its own status bar). */
+.device{--w:270px;position:relative;width:min(100%,var(--w));aspect-ratio:9/18.6;flex:none;margin-inline:auto;border-radius:calc(var(--w)*.16);padding:calc(var(--w)*.032);
+  background:linear-gradient(150deg,#3a3a44 0%,#15151b 22%,#0b0b10 60%,#26262e 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 3px #08080c,0 1px 0 rgba(255,255,255,.08),0 34px 70px -18px rgba(0,0,0,.55),0 14px 30px -12px rgba(0,0,0,.35)}
+.light .device{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 3px #08080c,0 40px 70px -24px rgba(10,10,12,.35),0 14px 28px -14px rgba(10,10,12,.25)}
+.device::before{content:"";position:absolute;right:-2px;top:26%;width:3px;height:13%;border-radius:2px;background:#2b2b33}
+.device>img,.device>.scrn{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:calc(var(--w)*.13);background:#fafafa;overflow:hidden}
+.device::after{content:"";position:absolute;left:50%;bottom:calc(var(--w)*.05);width:34%;height:4px;margin-left:-17%;border-radius:4px;background:rgba(10,10,12,.55)}
+.device.sm{--w:210px}.device.lg{--w:320px}
+.device+.real,.device+.rt{display:flex;justify-content:center;margin-top:12px}
+
+/* media card: text left, device on the right rising out of the card's bottom edge */
+.bx.media{display:grid;grid-template-columns:minmax(0,1fr) 240px;column-gap:32px;grid-auto-rows:min-content;padding-bottom:0}
+.bx.media>*:not(.viz){grid-column:1}
+.bx.media>.viz{grid-column:2;grid-row:1/span 8;align-self:end;width:240px;margin:0;padding:0;display:flex;flex-direction:column;align-items:center}
+.bx.media>.viz .device{--w:230px;width:230px;border-bottom-left-radius:0;border-bottom-right-radius:0;aspect-ratio:9/14;padding-bottom:0}
+.bx.media>.viz .device::after{display:none}
+.bx.media>.viz .device>img{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.bx.media>.viz .real,.bx.media>.viz .rt{order:-1;margin:0 0 12px}
+.bx.media>p{max-width:34ch}
+@media (max-width:700px){.bx.media{grid-template-columns:1fr}.bx.media>.viz{grid-column:1;grid-row:auto;width:auto;margin-top:18px}.bx.media>.viz .device{--w:230px}}
+.device.mock>div{display:grid;place-items:center;align-content:center;gap:8px;width:100%;height:100%;padding:18px;text-align:center;background:#fafafa;color:#0a0a0c;border-radius:calc(var(--w)*.13)}
+.device.mock .big{font:900 34px/1 var(--display);letter-spacing:-.04em}
+.device.mock small{font:500 12.5px/1.4 var(--body);color:rgba(10,10,12,.6)}
+
+/* step strips with real screens: on phones, a swipeable row of full-size screens instead of tiny thumbnails */
+@media (max-width:700px){
+  .steps:has(.device),.t30 .steps:has(.device){display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:4px 20px 14px;scrollbar-width:none}
+  .steps:has(.device)::-webkit-scrollbar{display:none}
+  .steps>.stp:has(.device){flex:0 0 76%;scroll-snap-align:center;display:grid;grid-template-columns:1fr;grid-template-rows:none;row-gap:8px}
+  .steps>.stp>.device{--w:230px;grid-row:auto;margin-bottom:6px}
+  .steps>.stp .n{padding-top:0}
 }

@@ -182,6 +182,17 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
   <div class="scue" aria-hidden="true">SCROLL<i></i></div>
 </header>
 
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>Swop MCP, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>Paste one URL.</h3><p>Add <b>https://mcp.swopme.co/mcp</b> as a custom connector in ChatGPT, Claude or Grok. That's the whole setup.</p><div class="proof"><em class="st live">Live</em> <a class="acc" href="https://docs.swopme.co/mcp/quickstart">Setup guide →</a></div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>51 Swop tools.</h3><p>Look people up, browse stores and markets, sell, pay, swap, trade and manage your AI agent, all from a chat.</p><div class="proof">27 work with no sign-in</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Your limits, always.</h3><p>You sign in with Swop over OAuth, never a password in chat, and money tools stay inside the caps and consent you set.</p><div class="proof">Settings → AI assistants</div></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec gut light" id="explain">
   <div class="wrap">
     <div class="sh"><span class="lab">S.02 · In 30 seconds</span><h2>The Swop MCP, <span class="acc">in 30 seconds.</span></h2><p>Paste one web address into ChatGPT, Claude or Grok, and that assistant can look people up, sell for you and, if you allow it, pay inside your limits.</p></div>
@@ -194,8 +205,24 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut" id="what">
   <div class="wrap">
-    <span class="lab" style="margin-bottom:28px">S.03 · In one line</span>
-    <p class="scrub" data-scrub>Ovi is our AI. The Swop MCP lets <em>every</em> AI use Swop, with the <em>same tools</em> and <em>your limits</em>.</p>
+    <div class="sh"><span class="lab">S.03 · Follow a request</span><h2>From a chat <span class="acc">to your wallet.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.4","stepMs":3000,
+      "nodes":[
+        {"id":"ai","x":7,"y":50,"mx":50,"my":6,"label":"Your AI","sub":"ChatGPT · Claude · Grok","icon":"id"},
+        {"id":"server","x":28,"y":50,"mx":50,"my":25,"label":"mcp.swopme.co","sub":"one URL, 51 tools","icon":"plug","big":true},
+        {"id":"signin","x":51,"y":16,"mx":27,"my":46,"label":"Sign in with Swop","sub":"OAuth, no password in chat","icon":"key"},
+        {"id":"tools","x":51,"y":84,"mx":73,"my":46,"label":"Swop tools","sub":"look up · sell · pay · trade","icon":"pay"},
+        {"id":"caps","x":73,"y":50,"mx":50,"my":68,"label":"Caps &amp; consent","sub":"Settings → AI assistants","icon":"id","big":true},
+        {"id":"wallet","x":93,"y":50,"mx":50,"my":91,"label":"Your wallet &amp; store","sub":"inside your limits","icon":"coin"}],
+      "edges":[
+        {"from":"ai","to":"server","label":"connector","step":1},
+        {"from":"server","to":"tools","label":"public tools","step":2},
+        {"from":"server","to":"signin","label":"account tools","step":2},
+        {"from":"signin","to":"caps","step":3},
+        {"from":"tools","to":"caps","label":"money tools","step":3},
+        {"from":"caps","to":"wallet","label":"within caps","step":4}],
+      "steps":["Paste https://mcp.swopme.co/mcp into ChatGPT, Claude or Grok as a custom connector.","Public tools (people, stores, markets) work right away. Account tools ask you to sign in with Swop.","Anything that moves money checks your caps and consent first.","It runs on your own wallet or store and shows up in your activity, like any Swop action."],
+      "note":"Turn AI spending off, change caps or disconnect an assistant anytime in Settings → AI assistants."}</script></div>
   </div>
 </section>
 
