@@ -1,29 +1,38 @@
 User-agent: *
 Allow: /
+Disallow: /editorial/
 
 # AI answer engines — explicitly welcome
 User-agent: GPTBot
 Allow: /
+Disallow: /editorial/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /editorial/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /editorial/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /editorial/
 
 User-agent: Claude-User
 Allow: /
+Disallow: /editorial/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /editorial/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /editorial/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /editorial/
 
 Sitemap: https://www.swopme.co/sitemap.xml
