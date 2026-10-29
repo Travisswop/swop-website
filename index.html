@@ -620,87 +620,81 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
   .ft-socs{margin-right:0}
   .ft-soc{width:44px;height:44px}
 }
-/* ===== Ovi trading agent: watch Ovi think (pinned neural graph) ===== */
-#agent{position:relative;padding:0;background:#030407;color:#fff;overflow:hidden}
-#agent::after{content:"";position:absolute;left:0;right:0;bottom:0;height:160px;background:linear-gradient(transparent,#020208);pointer-events:none;z-index:1}
-.ot-pin{position:relative;min-height:100vh;display:grid;align-items:center;padding:86px max(20px,env(safe-area-inset-right,0px)) 40px max(20px,env(safe-area-inset-left,0px));
-  background:radial-gradient(50% 55% at 42% 55%,rgba(63,224,143,.10),transparent 70%),
-  linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px,linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px) 0 0/48px 48px}
-.ot-cv{position:absolute;inset:0;width:100%;height:100%;z-index:0}
-.ot-wrap{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr);gap:8px}
-.ot-head{display:grid;gap:12px;max-width:640px}
-.ot-head h2{font-size:clamp(38px,4.6vw,66px);line-height:.98;letter-spacing:-.04em}
-.ot-head p{color:rgba(255,255,255,.62);font-size:clamp(15px,1.4vw,17.5px);line-height:1.5;max-width:52ch}
-.ot-graph{position:relative;height:clamp(360px,52vh,470px);margin-top:4px}
-.ot-n{position:absolute;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:9px;padding:8px 13px 8px 9px;border-radius:999px;background:rgba(14,16,20,.82);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(8px);white-space:nowrap;transition:border-color .4s,box-shadow .4s,opacity .4s;opacity:.55}
+/* ===== Ovi trading agent: watch Ovi think (3D scene, moving camera) ===== */
+#agent{position:relative;padding:0;background:#020306;color:#fff;overflow:hidden}
+#agent::after{content:"";position:absolute;left:0;right:0;bottom:0;height:140px;background:linear-gradient(transparent,#020208);pointer-events:none;z-index:4}
+.ot-pin{position:relative;height:100vh;height:100svh;min-height:640px;overflow:hidden;
+  background:radial-gradient(60% 60% at 50% 55%,rgba(20,60,42,.35),transparent 70%),radial-gradient(120% 90% at 50% 120%,rgba(63,224,143,.10),transparent 60%),#020306}
+.ot-pin::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;
+  background:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/56px 56px,linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/56px 56px;
+  -webkit-mask-image:radial-gradient(70% 70% at 50% 55%,#000,transparent);mask-image:radial-gradient(70% 70% at 50% 55%,#000,transparent)}
+.ot-cv{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.ot-word{position:absolute;left:0;right:0;top:50%;transform:translateY(-36%);z-index:0;text-align:center;pointer-events:none;white-space:nowrap;
+  font:900 clamp(90px,17vw,260px)/1 var(--display);letter-spacing:-.05em;color:transparent;-webkit-text-stroke:1px rgba(63,224,143,.16)}
+.ot-word span{display:inline-block;transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .5s,filter .6s}
+.ot-word span.out{transform:translateY(40px) scale(.96);opacity:0;filter:blur(8px)}
+.ot-stage{position:absolute;inset:0;z-index:2;pointer-events:none}
+.ot-stage>*{position:absolute;left:0;top:0;will-change:transform,opacity;transform-origin:0 0}
+.ot-n{display:inline-flex;align-items:center;gap:9px;padding:8px 13px 8px 9px;border-radius:999px;background:rgba(12,14,18,.78);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);white-space:nowrap;transition:border-color .4s,box-shadow .4s}
 .ot-n i{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.3);transition:background .4s,box-shadow .4s}
 .ot-n b{font:600 13px Inter}
 .ot-n em{font:500 11.5px var(--label);font-style:normal;color:rgba(255,255,255,.5)}
-.ot-n.on{opacity:1;border-color:rgba(63,224,143,.5);box-shadow:0 0 24px -6px rgba(63,224,143,.6)}
-.ot-n.on i{background:#3FE08F;box-shadow:0 0 10px #3FE08F}
-.ot-n.on em{color:#3FE08F}
-.ot-core{position:absolute;transform:translate(-50%,-50%);width:128px;height:128px;display:grid;place-items:center}
-.ot-core svg{position:absolute;inset:0;transform:rotate(-90deg)}
-.ot-core .r0{fill:rgba(10,12,16,.9);stroke:rgba(255,255,255,.1);stroke-width:1.5}
-.ot-core .r1{fill:none;stroke:#3FE08F;stroke-width:3;stroke-linecap:round;stroke-dasharray:var(--rp,0) 100;filter:drop-shadow(0 0 6px #3FE08F)}
-.ot-core img{position:relative;border-radius:50%;box-shadow:0 0 0 6px rgba(63,224,143,.08),0 0 60px rgba(63,224,143,calc(.15 + var(--glow,0)*.5))}
-.ot-cl{position:absolute;bottom:-24px;font:700 11px var(--label);letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.ot-risk{position:absolute;transform:translate(-50%,-50%);width:200px;padding:13px 14px;border-radius:18px;background:rgba(14,16,20,.88);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);display:grid;gap:7px;transition:border-color .4s,box-shadow .4s}
+.ot-n.on{border-color:rgba(63,224,143,.55);box-shadow:0 0 28px -6px rgba(63,224,143,.7)}
+.ot-n.on i{background:#3FE08F;box-shadow:0 0 10px #3FE08F}.ot-n.on em{color:#3FE08F}
+.ot-core{width:58px;height:58px}
+.ot-core img{display:block;border-radius:50%;box-shadow:0 0 0 2px rgba(255,255,255,.12)}
+.ot-cl{position:absolute;left:50%;top:calc(100% + 54px);transform:translateX(-50%);font:700 11px var(--label);letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.ot-risk{width:206px;padding:13px 14px;border-radius:18px;background:rgba(12,14,18,.84);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px);display:grid;gap:7px;transition:border-color .4s,box-shadow .4s}
 .ot-risk small{font:600 10px var(--label);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}
 .ot-risk .ck{display:flex;align-items:center;gap:8px;font:500 12.5px Inter;color:rgba(255,255,255,.45);transition:color .3s}
 .ot-risk .ck i{width:15px;height:15px;border-radius:50%;border:1.5px solid rgba(255,255,255,.25);display:grid;place-items:center;font-style:normal;font-size:9px;transition:all .3s}
 .ot-risk .ck.on{color:#fff}.ot-risk .ck.on i{background:#3FE08F;border-color:#3FE08F;color:#03140a}.ot-risk .ck.on i::after{content:"✓";font-weight:800}
-.ot-risk.on{border-color:rgba(63,224,143,.5);box-shadow:0 0 30px -8px rgba(63,224,143,.6)}
-.ot-risk.deny{border-color:rgba(255,90,95,.7);box-shadow:0 0 34px -6px rgba(255,90,95,.7);animation:otshake .4s}
-.ot-block{position:absolute;left:50%;top:-14px;transform:translate(-50%,-100%);white-space:nowrap;font:700 12px Inter;color:#fff;background:#e5484d;padding:6px 11px;border-radius:999px;opacity:0;transition:opacity .25s}
+.ot-risk.on{border-color:rgba(63,224,143,.55);box-shadow:0 0 34px -8px rgba(63,224,143,.7)}
+.ot-risk.deny{border-color:rgba(255,90,95,.8);box-shadow:0 0 44px -6px rgba(255,90,95,.8)}
+.ot-block{position:absolute;left:50%;top:-12px;transform:translate(-50%,-100%);white-space:nowrap;font:700 12px Inter;color:#fff;background:#e5484d;padding:6px 11px;border-radius:999px;opacity:0;transition:opacity .25s}
 .ot-risk.deny .ot-block{opacity:1}
-@keyframes otshake{25%{transform:translate(calc(-50% - 5px),-50%)}75%{transform:translate(calc(-50% + 5px),-50%)}}
-.ot-x{position:absolute;transform:translate(-50%,-50%);display:grid;justify-items:center;gap:6px;opacity:.55;transition:opacity .4s}
-.ot-x span{width:44px;height:44px;display:grid;place-items:center;font-size:20px;color:#3FE08F;border-radius:12px;transform:rotate(0);background:rgba(14,16,20,.9);border:1px solid rgba(255,255,255,.12);transition:box-shadow .4s,border-color .4s}
+.ot-x{display:grid;justify-items:center;gap:6px}
+.ot-x span{width:46px;height:46px;display:grid;place-items:center;font-size:20px;color:#3FE08F;border-radius:13px;background:rgba(12,14,18,.9);border:1px solid rgba(255,255,255,.14);transition:box-shadow .4s,border-color .4s}
 .ot-x b{font:600 12px Inter;color:rgba(255,255,255,.7)}
-.ot-x.on{opacity:1}.ot-x.on span{border-color:#3FE08F;box-shadow:0 0 30px rgba(63,224,143,.7)}
-.ot-fill{position:absolute;transform:translate(-50%,0) translateY(10px);width:210px;padding:12px 14px;border-radius:16px;background:#3FE08F;color:#03140a;opacity:0;transition:opacity .35s,transform .35s;box-shadow:0 20px 50px -10px rgba(63,224,143,.6)}
+.ot-x.on span{border-color:#3FE08F;box-shadow:0 0 34px rgba(63,224,143,.8)}
+.ot-fill{width:212px;padding:12px 14px;border-radius:16px;background:#3FE08F;color:#03140a;opacity:0;transition:opacity .35s;box-shadow:0 24px 60px -10px rgba(63,224,143,.7)}
 .ot-fill small{font:700 10px var(--label);letter-spacing:.12em;text-transform:uppercase;opacity:.7}
 .ot-fill b{display:block;font:800 19px var(--display);letter-spacing:-.02em;margin-top:2px}
 .ot-fill span{font:600 12px Inter;opacity:.8}
-.ot-fill.on{opacity:1;transform:translate(-50%,0)}
-.ot-wrap{grid-template-columns:minmax(0,1fr) auto;align-items:end;column-gap:30px}.ot-graph,.ot-note{grid-column:1/-1}
-.ot-ph{flex-direction:column;gap:8px!important;padding-bottom:6px}
-.ot-term{position:absolute;left:60%;bottom:-14px;transform:translateX(-50%);width:min(400px,38%);z-index:3}
-.ot-ph{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 18px}
+.ot-fill.on{opacity:1}
+.ot-ui{position:absolute;inset:0;z-index:3;pointer-events:none;padding:88px max(28px,4vw) 30px;display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr auto;column-gap:30px}
+.ot-ui>*{pointer-events:auto}
+.ot-head{display:grid;gap:12px;max-width:600px;align-content:start}
+.ot-head h2{font-size:clamp(38px,4.4vw,64px);line-height:.98;letter-spacing:-.04em}
+.ot-head p{color:rgba(255,255,255,.62);font-size:clamp(15px,1.3vw,17px);line-height:1.5;max-width:50ch;transition:opacity .5s,transform .5s}
+.ot-head.quiet p{opacity:0;transform:translateY(-6px)}
+.ot-ph{list-style:none;margin:0;padding:6px 0 0;display:flex;flex-direction:column;gap:8px;align-self:start}
 .ot-ph li{display:flex;align-items:center;gap:8px;font:600 13.5px Inter;color:rgba(255,255,255,.35);transition:color .3s}
-.ot-ph li i{font:700 10.5px var(--label);font-style:normal;padding:4px 7px;border-radius:7px;border:1px solid rgba(255,255,255,.14)}
+.ot-ph li i{font:700 10.5px var(--label);font-style:normal;padding:4px 7px;border-radius:7px;border:1px solid rgba(255,255,255,.14);transition:all .3s}
 .ot-ph li.on{color:#fff}.ot-ph li.on i{background:#3FE08F;color:#03140a;border-color:#3FE08F}
-.ot-term{border-radius:16px;background:rgba(10,12,16,.82);border:1px solid rgba(255,255,255,.09);backdrop-filter:blur(12px);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.7)}
+.ot-term{grid-column:2;grid-row:3;width:min(400px,34vw);border-radius:16px;background:rgba(8,10,14,.82);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.8)}
 .ot-tbar{display:flex;align-items:center;gap:6px;padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07)}
 .ot-tbar span{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.14)}
 .ot-tbar em{font:500 11px var(--label);font-style:normal;color:rgba(255,255,255,.45);margin-left:6px}
 .ot-live{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font:700 10px var(--label);letter-spacing:.14em;text-transform:uppercase;color:#3FE08F}
 .ot-live i{width:6px;height:6px;border-radius:50%;background:#3FE08F;box-shadow:0 0 8px #3FE08F;animation:otblink 1.3s infinite}
 @keyframes otblink{50%{opacity:.3}}
-.ot-lines{height:128px;padding:10px 14px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;font:500 12.5px/1.45 "JetBrains Mono",monospace;color:rgba(255,255,255,.72)}
+.ot-lines{height:132px;padding:10px 14px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;font:500 12.5px/1.45 "JetBrains Mono",monospace;color:rgba(255,255,255,.72)}
 .ot-lines div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ot-lines .g{color:#3FE08F}.ot-lines .r{color:#ff8a8a}.ot-lines .d{color:rgba(255,255,255,.4)}
 .ot-lines .cur::after{content:"▍";color:#3FE08F;animation:otblink 1s steps(1) infinite}
-.ot-note{margin-top:12px;font:500 11.5px Inter;color:rgba(255,255,255,.38)}
-#agent.static .ot-n,#agent.static .ot-x{opacity:1}
-#agent.static .ot-fill{opacity:1;transform:translate(-50%,0)}
+.ot-note{grid-column:1;grid-row:3;align-self:end;font:500 11.5px Inter;color:rgba(255,255,255,.38);transition:opacity .4s}.ot-note.quiet{opacity:0}
+#agent.static .ot-fill{opacity:1}
 @media(max-width:900px){
-  .ot-pin{padding-top:66px;padding-bottom:16px}
-  .ot-head p{display:none}
-  .ot-graph{height:min(420px,52vh)}
-  .ot-graph.filled .ot-risk{opacity:0}.ot-risk{transition:opacity .3s,border-color .4s,box-shadow .4s}
+  .ot-ui{padding:68px 20px 18px;grid-template-columns:1fr;grid-template-rows:auto 1fr auto}
+  .ot-head p,.ot-note{display:none}
   .ot-head h2{font-size:clamp(32px,9vw,44px)}
+  .ot-ph{flex-direction:row;padding-top:0}.ot-ph li{display:none}.ot-ph li.on{display:flex}
+  .ot-term{grid-column:1;grid-row:3;width:100%}.ot-lines{height:76px;font-size:11.5px}
   .ot-n{padding:6px 10px 6px 7px}.ot-n b{font-size:11.5px}.ot-n em{display:none}
-  .ot-core{width:96px;height:96px}.ot-core img{width:48px;height:48px}
-  .ot-risk{width:178px;padding:10px 12px;gap:5px}.ot-risk .ck{font-size:11.5px}
-  .ot-fill{width:180px;padding:10px 12px}.ot-fill b{font-size:16px}
-  .ot-wrap{grid-template-columns:1fr}.ot-ph{flex-direction:row}
-  .ot-term{left:50%;bottom:auto;top:calc(100% + 8px);width:100%}
-  .ot-graph{margin-bottom:96px}
-  .ot-ph li{display:none}.ot-ph li.on{display:flex}
-  .ot-lines{height:74px;font-size:11.5px}
-  .ot-note{display:none}
+  .ot-risk{width:176px;padding:10px 12px;gap:5px}.ot-risk .ck{font-size:11.5px}
+  .ot-fill{width:186px;padding:10px 12px}.ot-fill b{font-size:16px}
+  .ot-word{font-size:clamp(70px,24vw,120px);top:58%}
 }
 /* ===== 7. the swop system (orrery) ===== */
 #system{position:relative;overflow:hidden;padding-block:96px 84px;background:radial-gradient(ellipse 80% 60% at 70% 40%,#0b1a14 0%,#020208 60%),#020208}
@@ -1012,28 +1006,29 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <!-- 6B OVI TRADING AGENT: WATCH OVI THINK -->
 <section id="agent" data-ch="07 · Trading agent"><div class="ot-pin">
   <canvas class="ot-cv" aria-hidden="true"></canvas>
-  <div class="wrap ot-wrap">
+  <div class="ot-word" aria-hidden="true"><span>LISTENING</span></div>
+  <div class="ot-stage" aria-label="Animation: market signals flow into Ovi, which decides, passes your risk rules and executes on Hyperliquid">
+    <div class="ot-n sig" data-id="funding"><i></i><b>Funding</b><em>−0.012%</em></div>
+    <div class="ot-n sig" data-id="price"><i></i><b>Price</b><em>67,420</em></div>
+    <div class="ot-n sig" data-id="volume"><i></i><b>Volume</b><em>+18%</em></div>
+    <div class="ot-n sig" data-id="oi"><i></i><b>Open interest</b><em>rising</em></div>
+    <div class="ot-core" data-id="ovi"><img src="assets/ovi-owl-256.png" alt="" width="58" height="58"><span class="ot-cl">Ovi</span></div>
+    <div class="ot-risk" data-id="risk"><small>Your rules</small><div class="ck"><i></i>Loss used $0 of $50</div><div class="ck"><i></i>Leverage 3× max</div><div class="ck"><i></i>Venue allowed</div><div class="ot-block">✕ 5× leverage blocked</div></div>
+    <div class="ot-x" data-id="exec"><span>◆</span><b>Execute</b></div>
+    <div class="ot-n ven" data-id="hl"><i></i><b>Hyperliquid</b></div>
+    <div class="ot-n ven" data-id="pm"><i></i><b>Polymarket</b></div>
+    <div class="ot-n ven" data-id="lifi"><i></i><b>LI.FI</b></div>
+    <div class="ot-n ven" data-id="aave"><i></i><b>Aave</b></div>
+    <div class="ot-fill"><small>Filled · Hyperliquid</small><b>Long 0.01 BTC</b><span>@ 67,420 · TP +4% · SL −2%</span></div>
+  </div>
+  <div class="ot-ui">
     <div class="ot-head">
       <span class="lab">Ovi trading agent · <span class="st beta">Beta</span></span>
       <h2>Write a strategy.<br><span class="green">Watch Ovi think.</span></h2>
       <p>You describe the trade once. Ovi reads the market every few minutes, makes the call, checks it against your rules, and acts on its own.</p>
     </div>
     <ol class="ot-ph"><li><i>01</i>Listening</li><li><i>02</i>Deciding</li><li><i>03</i>Checking your rules</li><li><i>04</i>Executing</li></ol>
-    <div class="ot-graph" aria-label="Animation: market signals flow into Ovi, which decides, passes your risk rules and executes on Hyperliquid">
-      <div class="ot-n sig" data-id="funding"><i></i><b>Funding</b><em>−0.012%</em></div>
-      <div class="ot-n sig" data-id="price"><i></i><b>Price</b><em>67,420</em></div>
-      <div class="ot-n sig" data-id="volume"><i></i><b>Volume</b><em>+18%</em></div>
-      <div class="ot-n sig" data-id="oi"><i></i><b>Open interest</b><em>rising</em></div>
-      <div class="ot-core" data-id="ovi"><svg viewBox="0 0 120 120"><circle class="r0" cx="60" cy="60" r="54"/><circle class="r1" cx="60" cy="60" r="54" pathLength="100"/></svg><img src="assets/ovi-owl-256.png" alt="" width="64" height="64"><span class="ot-cl">Ovi</span></div>
-      <div class="ot-risk" data-id="risk"><small>Your rules</small><div class="ck" data-k="0"><i></i>Loss used $0 of $50</div><div class="ck" data-k="1"><i></i>Leverage 3× max</div><div class="ck" data-k="2"><i></i>Venue allowed</div><div class="ot-block">✕ 5× leverage blocked</div></div>
-      <div class="ot-x" data-id="exec"><span>◆</span><b>Execute</b></div>
-      <div class="ot-n ven" data-id="hl"><i></i><b>Hyperliquid</b></div>
-      <div class="ot-n ven" data-id="pm"><i></i><b>Polymarket</b></div>
-      <div class="ot-n ven" data-id="lifi"><i></i><b>LI.FI</b></div>
-      <div class="ot-n ven" data-id="aave"><i></i><b>Aave</b></div>
-          <div class="ot-term" aria-hidden="true"><div class="ot-tbar"><span></span><span></span><span></span><em>ovi · strategy desk</em><b class="ot-live"><i></i>live</b></div><div class="ot-lines"></div></div>
-      <div class="ot-fill"><small>Filled · Hyperliquid</small><b>Long 0.01 BTC</b><span>@ 67,420 · TP +4% · SL −2%</span></div>
-    </div>
+    <div class="ot-term" aria-hidden="true"><div class="ot-tbar"><span></span><span></span><span></span><em>ovi · strategy desk</em><b class="ot-live"><i></i>live</b></div><div class="ot-lines"></div></div>
     <p class="ot-note">Examples are illustrative. The AI suggests; fixed rules enforce your caps. Trading carries risk.</p>
   </div>
 </div></section>
@@ -1439,86 +1434,111 @@ addEventListener('load',()=>ScrollTrigger.refresh());
 })();
 </script>
 <script>
-/* Watch Ovi think: canvas particle network + scroll-scrubbed phases */
+/* Watch Ovi think: 3D neural scene, scroll-driven camera, particle vortex */
 (function(){
   var sec=document.getElementById('agent');if(!sec)return;
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var graph=sec.querySelector('.ot-graph'),cv=sec.querySelector('.ot-cv'),ctx=cv.getContext('2d');
-  var N={};sec.querySelectorAll('[data-id]').forEach(function(el){N[el.dataset.id]=el});
-  var phases=sec.querySelectorAll('.ot-ph li'),checks=sec.querySelectorAll('.ot-risk .ck'),risk=N.risk,core=N.ovi,lines=sec.querySelector('.ot-lines'),fill=sec.querySelector('.ot-fill');
+  var pin=sec.querySelector('.ot-pin'),cv=sec.querySelector('.ot-cv'),ctx=cv.getContext('2d');
+  var N={};sec.querySelectorAll('.ot-stage [data-id]').forEach(function(el){N[el.dataset.id]=el});
+  var head=sec.querySelector('.ot-head'),note=sec.querySelector('.ot-note'),fill=sec.querySelector('.ot-fill'),phases=sec.querySelectorAll('.ot-ph li'),checks=sec.querySelectorAll('.ot-risk .ck'),lines=sec.querySelector('.ot-lines'),word=sec.querySelector('.ot-word span');
+  var WORDS=['LISTENING','DECIDING','CHECKING','EXECUTING'];
   var LINES=[[.03,'d','› scanning BTC perps…'],[.09,'','› funding −0.012% (8h) · below zero'],[.15,'','› price 67,420 · volume +18% vs 24h'],
     [.29,'','› thesis: negative funding tends to revert'],[.37,'g','› call: long bias · confidence 0.71'],
     [.53,'r','› idea: 5× leverage → blocked, your max is 3×'],[.62,'','› loss used $0 of $50 · venue allowed'],[.69,'g','› rules passed'],
     [.80,'','› order: long 0.01 BTC on Hyperliquid'],[.88,'g','› filled @ 67,420 · TP +4% · SL −2%'],[.95,'d','› next check in 3:00']];
-  /* layout: positions as fractions of the graph box; phones get a vertical layout */
-  var DESK={funding:[.07,.13],price:[.05,.38],volume:[.06,.63],oi:[.09,.88],ovi:[.36,.46],risk:[.58,.36],exec:[.75,.36],hl:[.93,.16],pm:[.95,.39],lifi:[.95,.62],aave:[.93,.85],fill:[.75,.0]};
-  var MOB={funding:[.17,.05],price:[.5,.05],volume:[.83,.05],oi:[.5,.16],ovi:[.5,.36],risk:[.5,.58],exec:[.5,.76],hl:[.2,.93],pm:[.5,.97],lifi:[.8,.93],aave:[.92,.83],fill:[.5,.47]};
-  var L,W,H,dpr,P=reduce?1:0,on=false,t0=performance.now();
+  /* world: x right, y down, z away from camera */
+  var W3={funding:[-560,-210,140],price:[-610,-60,-90],volume:[-560,95,90],oi:[-500,235,-140],ovi:[-150,0,0],risk:[175,-30,70],exec:[380,-30,-30],
+          hl:[640,-220,60],pm:[690,-70,-110],lifi:[660,85,70],aave:[610,225,-80]};
   var EDGES=[['funding','ovi'],['price','ovi'],['volume','ovi'],['oi','ovi'],['ovi','risk'],['risk','exec'],['exec','hl'],['exec','pm'],['exec','lifi'],['exec','aave']];
-  function layout(){
-    L=innerWidth<=900?MOB:DESK;
-    var gr=graph.getBoundingClientRect(),sr=sec.querySelector('.ot-pin').getBoundingClientRect();
-    Object.keys(L).forEach(function(k){var el=k==='fill'?fill:N[k];if(!el)return;el.style.left=(L[k][0]*100)+'%';el.style.top=(L[k][1]*100)+'%'});
-    if(innerWidth<=900){N.aave.style.display='none'}else{N.aave.style.display=''}
-    dpr=Math.min(2,devicePixelRatio||1);W=sr.width;H=sr.height;cv.width=W*dpr;cv.height=H*dpr;
-    var ox=gr.left-sr.left,oy=gr.top-sr.top;
-    pts={};Object.keys(L).forEach(function(k){pts[k]=[ox+L[k][0]*gr.width,oy+L[k][1]*gr.height]});
+  var mob=false,Wd=0,Ht=0,dpr=1,P=reduce?1:0,on=false,raf=0,mx=0,my=0,smx=0,smy=0;
+  var dust=[];for(var i=0;i<(innerWidth<=900?260:620);i++)dust.push(seed({}));
+  function seed(d){d.a=Math.random()*Math.PI*2;d.r=120+Math.random()*760;d.h=(Math.random()-.5)*520;d.s=.0016+Math.random()*.004;d.z=(Math.random()-.5)*600;return d}
+  function W(k){var v=W3[k];return mob?[v[1]*.78,v[0]*.86,v[2]]:v}
+  function size(){mob=innerWidth<=900;var r=pin.getBoundingClientRect();Wd=r.width;Ht=r.height;dpr=Math.min(2,devicePixelRatio||1);cv.width=Wd*dpr;cv.height=Ht*dpr}
+  function lerp(a,b,t){return a+(b-a)*t}
+  function seg(p,a,b){return Math.max(0,Math.min(1,(p-a)/(b-a)))}
+  function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+  /* camera keyframes: [progress, targetX, targetY, zoom, yaw] */
+  var KF=[[0,-260,0,.84,.30],[.22,-200,0,.92,.22],[.40,-150,0,1.18,.06],[.55,140,-20,1.1,-.06],[.72,230,-20,1.0,-.14],[.88,500,-40,1.05,-.26],[1,460,-20,.98,-.22]];
+  function cam(p){var a=KF[0],b=KF[KF.length-1];for(var i=0;i<KF.length-1;i++){if(p>=KF[i][0]&&p<=KF[i+1][0]){a=KF[i];b=KF[i+1];break}}
+    var t=ease(seg(p,a[0],b[0]||1));return {x:lerp(a[1],b[1],t),y:lerp(a[2],b[2],t),z:lerp(a[3],b[3],t),yaw:lerp(a[4],b[4],t)}}
+  var C;
+  function proj(v){ /* world -> screen with yaw + slight pitch and perspective */
+    var x=v[0]-C.x,y=v[1]-C.y,z=v[2];
+    var yaw=C.yaw+smx*.18,pitch=.16+smy*.1;
+    var cx=Math.cos(yaw),sx=Math.sin(yaw),X=x*cx-z*sx,Z=x*sx+z*cx;
+    var cp=Math.cos(pitch),sp=Math.sin(pitch),Y=y*cp-Z*sp;Z=y*sp+Z*cp;
+    var f=1000/(1000+Z),sc=f*C.z*(mob?Wd/560:Math.min(1.15,Wd/1500));
+    return [Wd*.5+X*sc,Ht*.63+Y*sc,f,sc];
   }
-  var pts={},parts=[];
-  function bez(a,b,t){var mob=innerWidth<=900,mx=mob?0:(b[0]-a[0])*.5,my=mob?(b[1]-a[1])*.5:0;
-    var c1=[a[0]+mx,a[1]+my],c2=[b[0]-mx,b[1]-my],u=1-t;
-    return [u*u*u*a[0]+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*b[0],u*u*u*a[1]+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*b[1]]}
-  function act(e){ /* how lit an edge is for the current phase */
-    var a=e[0],b=e[1];
-    if(b==='ovi')return Math.min(1,P/.06);
-    if(a==='ovi')return P<.25?.15:Math.min(1,(P-.25)/.1);
-    if(a==='risk')return P<.7?.1:Math.min(1,(P-.7)/.06);
-    if(b==='hl')return P<.78?.08:Math.min(1,(P-.78)/.06);
-    return P<.78?.06:.18;
+  function projM(v){ /* mobile: vertical flow, yaw becomes a gentle roll */
+    var yT=-150+(C.x+260)/720*390,x=v[0],y=v[1]-yT,z=v[2];var yaw=C.yaw*.6+smx*.12,cx=Math.cos(yaw),sx=Math.sin(yaw),X=x*cx-z*sx,Z=x*sx+z*cx;
+    var f=1000/(1000+Z),sc=f*Math.min(1.1,C.z)*(Wd/720);return [Wd*.5+X*sc,Ht*.55+y*sc,f,sc]}
+  function P3(k){return mob?projM(W(k)):proj(W3[k])}
+  function bez3(a,b,t){var mx=(a[0]+b[0])/2,my=(a[1]+b[1])/2;var c=[mx,my-(mob?0:40),(a[2]+b[2])/2-120];var u=1-t;return [u*u*a[0]+2*u*t*c[0]+t*t*b[0],u*u*a[1]+2*u*t*c[1]+t*t*b[1],u*u*a[2]+2*u*t*c[2]+t*t*b[2]]}
+  function act(e){var a=e[0],b=e[1];
+    if(b==='ovi')return Math.min(1,P/.06)*(P>.74?.55:1);
+    if(a==='ovi')return P<.25?.12:Math.min(1,(P-.25)/.1);
+    if(a==='risk')return P<.7?.08:Math.min(1,(P-.7)/.06);
+    if(b==='hl')return P<.78?.06:Math.min(1,(P-.78)/.06);
+    return P<.78?.05:.16}
+  function draw(now){
+    C=cam(P);smx+=(mx-smx)*.05;smy+=(my-smy)*.05;
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,Wd,Ht);ctx.globalCompositeOperation='lighter';
+    var tt=now/1000,core=P3('ovi');
+    /* vortex dust spiralling into the core */
+    var pull=.4+Math.min(1,P*3)*.9;
+    for(var i=0;i<dust.length;i++){var d=dust[i];d.a+=d.s*(1+pull);d.r-=.35*pull;if(d.r<40)seed(d);
+      var w=W('ovi'),v=[w[0]+Math.cos(d.a)*d.r,w[1]+d.h*(d.r/880),w[2]+Math.sin(d.a)*d.r*.6+d.z*.2],q=mob?projM(v):proj(v);
+      if(q[2]<=0)continue;var al=Math.min(.75,(1-d.r/900)*1.1)*q[2]*.9;ctx.fillStyle='rgba(120,255,190,'+al.toFixed(3)+')';ctx.fillRect(q[0],q[1],1.4*q[2],1.4*q[2])}
+    /* edges and their particles */
+    EDGES.forEach(function(e){var A=W(e[0]),B=W(e[1]),k=act(e);if(mob&&e[1]==='aave')return;
+      ctx.beginPath();for(var s=0;s<=32;s++){var q=mob?projM(bez3(A,B,s/32)):proj(bez3(A,B,s/32));s?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1])}
+      ctx.strokeStyle='rgba(63,224,143,'+(.05+k*.42)+')';ctx.lineWidth=.8+k*1.4;ctx.shadowColor='#3FE08F';ctx.shadowBlur=k*16;ctx.stroke();ctx.shadowBlur=0;
+      var n=Math.round(k*9);for(var j=0;j<n;j++){var ph=(tt*(.28+k*.5)+j/n+e[0].length*.17)%1,q=mob?projM(bez3(A,B,ph)):proj(bez3(A,B,ph)),r=(1.4+k*2.2)*q[2];
+        var g=ctx.createRadialGradient(q[0],q[1],0,q[0],q[1],r*4);g.addColorStop(0,'rgba(200,255,225,.95)');g.addColorStop(1,'rgba(63,224,143,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(q[0],q[1],r*4,0,7);ctx.fill()}});
+    /* the orb */
+    var charge=seg(P,.18,.46),R=(48+charge*14+Math.sin(tt*2.2)*2.5)*core[3]*1.25;
+    var g=ctx.createRadialGradient(core[0],core[1],R*.2,core[0],core[1],R*3.4);g.addColorStop(0,'rgba(63,224,143,'+(.35+charge*.35)+')');g.addColorStop(.35,'rgba(63,224,143,'+(.12+charge*.18)+')');g.addColorStop(1,'rgba(63,224,143,0)');
+    ctx.fillStyle=g;ctx.beginPath();ctx.arc(core[0],core[1],R*3.4,0,7);ctx.fill();
+    for(var rI=0;rI<3;rI++){var rr=R*(1.05+rI*.28),sp=tt*(rI%2?-.9:.7)*(1+charge),len=.5+charge*1.3+rI*.2;
+      ctx.beginPath();ctx.ellipse(core[0],core[1],rr,rr*(.92-rI*.18),rI*.6+tt*.15,sp,sp+len*Math.PI);ctx.strokeStyle='rgba(160,255,205,'+(.55-rI*.12)+')';ctx.lineWidth=(2.2-rI*.5)*core[2];ctx.shadowColor='#3FE08F';ctx.shadowBlur=14;ctx.stroke();ctx.shadowBlur=0}
+    /* red idea hits the gate: projectile then shockwave */
+    if(P>.47&&P<.62){var f=seg(P,.47,.53),rk=P3('risk');if(f<1){var q=mob?projM(bez3(W('ovi'),W('risk'),f)):proj(bez3(W('ovi'),W('risk'),f));ctx.fillStyle='#ff5a5f';ctx.shadowColor='#ff5a5f';ctx.shadowBlur=24;ctx.beginPath();ctx.arc(q[0],q[1],6*q[2],0,7);ctx.fill();ctx.shadowBlur=0}
+      else{var w2=seg(P,.53,.62);ctx.strokeStyle='rgba(255,90,95,'+(1-w2)*.9+')';ctx.lineWidth=3;ctx.beginPath();ctx.arc(rk[0],rk[1],30+w2*160,0,7);ctx.stroke()}}
+    /* execution: light streak into Hyperliquid and a burst */
+    if(P>.79){var f2=seg(P,.79,.85),hl=P3('hl');var tr=[];for(var s2=0;s2<=20;s2++){var tq=Math.max(0,f2-.35)+s2/20*Math.min(f2,.35);tr.push(mob?projM(bez3(W('exec'),W('hl'),tq)):proj(bez3(W('exec'),W('hl'),tq)))}
+      ctx.beginPath();tr.forEach(function(q,ix){ix?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1])});ctx.strokeStyle='rgba(220,255,235,.95)';ctx.lineWidth=3.2;ctx.shadowColor='#3FE08F';ctx.shadowBlur=26;ctx.stroke();ctx.shadowBlur=0;
+      if(f2>=1){var bb=seg(P,.85,.95);ctx.strokeStyle='rgba(63,224,143,'+(1-bb)+')';ctx.lineWidth=2.5;ctx.beginPath();ctx.arc(hl[0],hl[1],14+bb*90,0,7);ctx.stroke()}}
+    ctx.globalCompositeOperation='source-over';
+    place();
   }
-  var red=null;
-  function frame(now){
-    if(!on){raf=0;return}
-    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
-    var tt=(now-t0)/1000;
-    EDGES.forEach(function(e){
-      var a=pts[e[0]],b=pts[e[1]];if(!a||!b||(e[1]==='aave'&&innerWidth<=900))return;
-      var k=act(e);
-      ctx.beginPath();for(var i=0;i<=40;i++){var p=bez(a,b,i/40);i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1])}
-      ctx.strokeStyle='rgba(255,255,255,'+(.06+k*.05)+')';ctx.lineWidth=1;ctx.stroke();
-      if(k>.05){ctx.save();ctx.shadowColor='#3FE08F';ctx.shadowBlur=12*k;ctx.strokeStyle='rgba(63,224,143,'+(.18+k*.45)+')';ctx.lineWidth=1.4;ctx.stroke();ctx.restore()}
-      /* particles: count and speed follow activation */
-      var n=Math.round(k*7);
-      for(var j=0;j<n;j++){var ph=((tt*(.35+k*.4))+j/n+e[0].length*.13)%1,q=bez(a,b,ph);
-        ctx.beginPath();ctx.arc(q[0],q[1],1.6+k*1.6,0,7);ctx.fillStyle='rgba(160,255,205,'+(.5+k*.5)+')';ctx.shadowColor='#3FE08F';ctx.shadowBlur=10;ctx.fill();ctx.shadowBlur=0}
-    });
-    /* the blocked idea: a red pulse that hits the risk gate and bounces back */
-    if(P>.47&&P<.6&&pts.ovi&&pts.risk){var f=(P-.47)/.13,t=f<.6?f/.6:1-(f-.6)/.4*.6,q=bez(pts.ovi,pts.risk,t);
-      ctx.beginPath();ctx.arc(q[0],q[1],5,0,7);ctx.fillStyle='#ff5a5f';ctx.shadowColor='#ff5a5f';ctx.shadowBlur=20;ctx.fill();ctx.shadowBlur=0}
-    /* execution burst */
-    if(P>.82&&pts.hl){var g=Math.min(1,(P-.82)/.08),c=pts.hl;ctx.beginPath();ctx.arc(c[0],c[1],10+g*44,0,7);ctx.strokeStyle='rgba(63,224,143,'+(1-g)*.8+')';ctx.lineWidth=2;ctx.stroke()}
-    raf=requestAnimationFrame(frame);
+  function place(){ /* DOM labels ride the 3D projection */
+    Object.keys(N).forEach(function(k){var el=N[k];if(mob&&k==='aave'){el.style.display='none';return}var q=P3(k),s=Math.max(.55,Math.min(1.25,q[3]*(mob?1.15:1.05)));
+      var w=el.offsetWidth,h=el.offsetHeight;el.style.transform='translate('+(q[0]-w*s/2).toFixed(1)+'px,'+(q[1]-h*s/2).toFixed(1)+'px) scale('+s.toFixed(3)+')';
+      el.style.opacity=k==='ovi'?1:(.35+.65*Math.min(1,q[2]*1.1)).toFixed(2)});
+    var h=P3(mob?'risk':'hl'),fs=mob?.95:1;fill.style.transform='translate('+(h[0]-fill.offsetWidth*fs/2+(mob?0:70)).toFixed(1)+'px,'+(h[1]+(mob?-fill.offsetHeight*fs/2:34)).toFixed(1)+'px) scale('+fs+')';
   }
-  var raf=0,shown=-1;
-  function render(){ /* DOM state for the current progress */
+  var shown=-1,wi=0;
+  function render(){
     var ph=P<.25?0:P<.47?1:P<.74?2:3;
     phases.forEach(function(li,i){li.classList.toggle('on',i===ph)});
+    if(ph!==wi){wi=ph;word.classList.add('out');setTimeout(function(){word.textContent=WORDS[wi];word.classList.remove('out')},260)}
     ['funding','price','volume','oi'].forEach(function(k,i){N[k].classList.toggle('on',P>=.02+i*.04)});
-    core.style.setProperty('--rp',(Math.max(0,Math.min(1,(P-.2)/.25))*100).toFixed(1));
-    core.style.setProperty('--glow',Math.min(1,P*2).toFixed(2));
-    risk.classList.toggle('deny',P>.5&&P<.58);
-    checks.forEach(function(c,i){c.classList.toggle('on',P>=.6+i*.04)});
-    risk.classList.toggle('on',P>=.68);
-    N.exec.classList.toggle('on',P>=.76);N.hl.classList.toggle('on',P>=.8);
-    fill.classList.toggle('on',P>=.86);graph.classList.toggle('filled',P>=.86);
+    N.risk.classList.toggle('deny',P>.53&&P<.6);head.classList.toggle('quiet',P>.12);note.classList.toggle('quiet',P>.12&&P<.9);
+    checks.forEach(function(c,i){c.classList.toggle('on',P>=.62+i*.035)});
+    N.risk.classList.toggle('on',P>=.7);N.exec.classList.toggle('on',P>=.76);N.hl.classList.toggle('on',P>=.84);
+    fill.classList.toggle('on',P>=.87);N.risk.style.visibility=(mob&&P>=.87)?'hidden':'';
     var n=LINES.filter(function(l){return P>=l[0]}).length;
     if(n!==shown){shown=n;lines.innerHTML=LINES.slice(Math.max(0,n-6),n).map(function(l,i,a){return '<div class="'+l[1]+(i===a.length-1?' cur':'')+'">'+l[2]+'</div>'}).join('')}
   }
-  layout();render();addEventListener('resize',function(){layout()});
-  if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){sec.classList.add('static');P=1;layout();render();on=true;frame(performance.now());on=false;return}
-  ScrollTrigger.create({trigger:sec.querySelector('.ot-pin'),start:'top top',end:innerWidth<=900?'+=260%':'+=320%',pin:true,scrub:true,
-    onUpdate:function(self){P=self.progress;render()},onRefresh:function(){layout()}});
-  new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on&&!raf)raf=requestAnimationFrame(frame)}).observe(sec);
+  function loop(now){if(!on){raf=0;return}draw(now);raf=requestAnimationFrame(loop)}
+  size();render();addEventListener('resize',function(){size();if(!on)draw(performance.now())});
+  pin.addEventListener('pointermove',function(e){var r=pin.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});
+  if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){sec.classList.add('static');P=1;wi=3;word.textContent=WORDS[3];render();draw(performance.now());return}
+  ScrollTrigger.create({trigger:pin,start:'top top',end:innerWidth<=900?'+=280%':'+=340%',pin:true,scrub:true,onUpdate:function(self){P=self.progress;render()},onRefresh:function(){size()}});
+  new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on&&!raf)raf=requestAnimationFrame(loop)}).observe(sec);
+  draw(performance.now());
   /* refresh in page order (a pin inside a section before the section) so every trigger below a pin counts its spacer */
   ScrollTrigger.sort(function(a,b){var x=a.trigger,y=b.trigger;if(!x||!y||x===y)return 0;if(x.contains(y))return 1;if(y.contains(x))return -1;return x.compareDocumentPosition(y)&Node.DOCUMENT_POSITION_FOLLOWING?-1:1});
   ScrollTrigger.refresh();
