@@ -517,12 +517,21 @@
     </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="/assets/footer.css">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Swop — Contact">
+<meta property="og:url" content="https://www.swopme.co/support.html">
+<meta property="og:image" content="https://www.swopme.co/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og-card.jpg">
 </head>
   <body>
     <div class="page">
       <!-- NAV -->
       <nav>
-        <a href="/index.html" class="nav-logo">
+        <a href="/" class="nav-logo">
           <div class="logo-mark">
             <svg viewBox="0 0 16 16">
               <path d="M8 2L14 5.5V10.5L8 14L2 10.5V5.5L8 2Z" />
@@ -538,8 +547,8 @@
         <div class="hero-eyebrow">Get in touch</div>
         <h1>Have Some Questions?</h1>
         <p>
-          Fill out the form below and we will get back to you as soon as
-          possible.
+          Fill out the form below and it opens in your email app, addressed to
+          support@swopme.co. Help articles live at <a href="https://support.swop.id" style="color:#3FE08F">support.swop.id</a>.
         </p>
       </section>
 
@@ -663,25 +672,17 @@
         e.preventDefault();
         if (!validate()) return;
 
-        btn.disabled = true;
-        spinner.style.display = "block";
-        btnText.textContent = "Sending...";
-
-        await new Promise((r) => setTimeout(r, 800));
-
-        btn.disabled = false;
-        spinner.style.display = "none";
-        btnText.textContent = "Send Message";
+        // No form backend here: hand the message to the visitor's own email app, addressed to support.
+        const v = (id) => document.getElementById(id).value.trim();
+        const body = `${v("message")}\n\n—\nName: ${v("name")}\nEmail: ${v("email")}${v("phone") ? `\nPhone: ${v("phone")}` : ""}`;
+        window.location.href = `mailto:support@swopme.co?subject=${encodeURIComponent("Swop support: " + v("name"))}&body=${encodeURIComponent(body)}`;
 
         Swal.fire({
-          icon: "success",
-          text: "Thank you for reaching out. Your information has been successfully submitted. Our team will respond to your inquiry shortly.",
+          icon: "info",
+          text: "Your email app should open with this message addressed to support@swopme.co. Press send there and we'll reply by email. No email app? Write to support@swopme.co or visit support.swop.id.",
           confirmButtonColor: "#00c278",
           background: "#0f1318",
           color: "#f2f2f2",
-        }).then(() => {
-          form.reset();
-          clearErrors();
         });
       });
     </script>

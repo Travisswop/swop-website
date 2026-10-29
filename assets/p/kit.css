@@ -398,3 +398,6 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
   .steps>.stp>.device{--w:230px;grid-row:auto;margin-bottom:6px}
   .steps>.stp .n{padding-top:0}
 }
+
+.dg-node:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.dg-steps button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}

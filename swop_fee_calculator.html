@@ -615,6 +615,15 @@
     </style>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
 <link rel="stylesheet" href="/assets/footer.css">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Swop — Merchant Savings Calculator">
+<meta property="og:url" content="https://www.swopme.co/swop_fee_calculator.html">
+<meta property="og:image" content="https://www.swopme.co/assets/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og-card.jpg">
 </head>
   <body>
     <div class="page">
@@ -633,13 +642,13 @@
 
       <!-- HERO -->
       <section class="hero">
-        <div class="hero-eyebrow fade-in">See your savings</div>
+        <div class="hero-eyebrow fade-in">Compare your fees</div>
         <h1 class="fade-in">
           How much are you <em>actually</em> paying to get paid?
         </h1>
         <p class="fade-in">
-          Enter your annual revenue and current processing fee. See exactly what
-          you're losing — and what you'd keep with Swop.
+          Enter your annual revenue and the fee you pay today (your own figure). See
+          what Swop's 0.5% crypto checkout fee would be on the same revenue.
         </p>
       </section>
 
@@ -680,7 +689,7 @@
               </div>
               <div class="fee-row">
                 <div class="fee-input-box">
-                  <div class="fee-box-label red-label">Your current fee</div>
+                  <div class="fee-box-label red-label">Your current fee (you enter it)</div>
                   <input
                     class="custom-fee-input"
                     id="current-fee-input"
@@ -701,7 +710,7 @@
                 >
                   <div class="fee-box-label green-label">With Swop</div>
                   <div class="fee-box-rate green">0.5%</div>
-                  <div class="fee-box-sub">per transaction</div>
+                  <div class="fee-box-sub">per crypto payment (min $0.015), paid by you, not the buyer</div>
                 </div>
               </div>
             </div>
@@ -743,26 +752,28 @@
                 </div>
                 <div>
                   <span class="savings-tag" id="savings-tag"
-                    >Saved per year</span
+                    >Difference per year, at your fee</span
                   >
                 </div>
               </div>
             </div>
 
-            <!-- Token layer -->
+            <!-- What the 0.5% covers -->
             <div class="token-bar">
               <div class="token-bar-left">
-                <h3>The Token Layer</h3>
+                <h3>What the numbers include</h3>
                 <p>
-                  Hold <strong>$SWOP</strong> and earn back a share of every fee
-                  generated across the network. Your effective rate drops
-                  <strong>below 0.5%</strong> — potentially near zero at scale.
-                  The more volume you run, the more your holdings pay back.
+                  Swop's rate applies to <strong>crypto checkout</strong>: buyers pay
+                  by token, you receive USDC, and the 0.5% (minimum $0.015 a payment)
+                  comes out of your side. <strong>AI-agent purchases</strong> carry a
+                  0% platform fee at launch. <strong>Card payments</strong> are
+                  available to verified sellers and show their own fee at checkout,
+                  so leave card volume out of this comparison.
                 </p>
               </div>
               <div class="token-rate">
-                <div class="token-rate-val">&lt;0.5%</div>
-                <div class="token-rate-label">effective rate</div>
+                <div class="token-rate-val">0%</div>
+                <div class="token-rate-label">AI-agent purchases, at launch</div>
               </div>
             </div>
           </div>
@@ -772,10 +783,10 @@
       <!-- PITCH -->
       <div class="pitch-wrap">
         <blockquote>
-          "You're not just saving 3% —
-          <em>you're owning a piece of the network you're paying into."</em>
+          "One link. People and AI agents pay you.
+          <em>You get USDC, minus 0.5% when a person pays."</em>
         </blockquote>
-        <a href="#" class="cta-btn">Get started with Swop</a>
+        <a href="/pay" class="cta-btn">See how Swop Pay works</a>
       </div>
 
       <!-- FOOTER -->
@@ -793,8 +804,7 @@
           return "$" + (n / 1e9).toFixed(2).replace(/\.?0+$/, "") + "B";
         if (n >= 1e6)
           return "$" + (n / 1e6).toFixed(2).replace(/\.?0+$/, "") + "M";
-        if (n >= 1e3) return "$" + (n / 1e3).toFixed(0) + "K";
-        return "$" + n.toFixed(0);
+        return "$" + Math.round(n).toLocaleString("en-US");
       }
 
       function fmtFull(n) {
@@ -826,7 +836,7 @@
         document.getElementById("pct-saved").textContent = pctReduction + "%";
         document.getElementById("old-pct").textContent =
           "at " + currentFee.toFixed(1) + "%";
-        document.getElementById("savings-tag").textContent = "Saved per year";
+        document.getElementById("savings-tag").textContent = "Difference per year, at your fee";
 
         updateTrack();
       }

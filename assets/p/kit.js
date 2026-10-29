@@ -235,7 +235,7 @@ document.querySelectorAll('[data-dg]').forEach(root=>{
   const steps=d.steps||[];let cur=-1,timer=null,vis=false,hover=false;
   const bar=document.createElement('div');bar.className='dg-steps';
   bar.innerHTML=steps.map((s,i)=>`<button type="button"><em>STEP ${String(i+1).padStart(2,'0')}</em>${s}<i></i></button>`).join('');
-  if(steps.length)root.appendChild(bar);
+  bar.setAttribute('aria-label','Steps');if(steps.length)root.appendChild(bar);root.setAttribute('role','group');if(!root.getAttribute('aria-label')){const h=root.closest('section')&&root.closest('section').querySelector('h2');if(h)root.setAttribute('aria-label',h.textContent.trim())}
   if(d.note){const nt=document.createElement('p');nt.className='dg-note';nt.textContent=d.note;root.appendChild(nt)}
   const btns=[...bar.children];
   let raf;
@@ -243,7 +243,7 @@ document.querySelectorAll('[data-dg]').forEach(root=>{
     const f=t=>{const k=((t-t0)%dur)/dur,pt=w.p.getPointAtLength(L*k);w.c.setAttribute('cx',pt.x);w.c.setAttribute('cy',pt.y);if(w.c.classList.contains('on')&&vis)w._r=requestAnimationFrame(f)};
     cancelAnimationFrame(w._r);w._r=requestAnimationFrame(f)};
   const show=i=>{cur=i;const s=i+1;
-    btns.forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('done',j<i)});
+    btns.forEach((b,j)=>{b.classList.toggle('on',j===i);b.classList.toggle('done',j<i);if(j===i)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current')});
     const live=new Set();
     wires.forEach(w=>{const on=!w.step||w.step<=s;w.p.classList.toggle('on',on);const newest=w.step===s||(!steps.length);
       w.c.classList.toggle('on',on&&newest&&!RM);if(on){live.add(w.from);live.add(w.to)}if(on&&newest&&!RM)run(w);if(w.t)w.t.style.opacity=on?1:.35});
@@ -253,9 +253,10 @@ document.querySelectorAll('[data-dg]').forEach(root=>{
     timer=setTimeout(()=>{show((cur+1)%steps.length);tick()},dur)};
   btns.forEach((b,i)=>b.addEventListener('click',()=>{show(i);tick()}));
   root.addEventListener('pointerenter',()=>{hover=true;clearTimeout(timer)});root.addEventListener('pointerleave',()=>{hover=false;tick()});
+  root.addEventListener('focusin',()=>{hover=true;clearTimeout(timer)});root.addEventListener('focusout',e=>{if(!root.contains(e.relatedTarget)){hover=false;tick()}});
   // hover a node: light its edges
-  Object.entries(nodes).forEach(([id,o])=>{o.el.addEventListener('pointerenter',()=>{wires.forEach(w=>w.p.classList.toggle('on',w.from===id||w.to===id))});
-    o.el.addEventListener('pointerleave',()=>show(Math.max(cur,0)))});
+  Object.entries(nodes).forEach(([id,o])=>{const lit=()=>wires.forEach(w=>w.p.classList.toggle('on',w.from===id||w.to===id)),back=()=>show(Math.max(cur,0));
+    o.el.tabIndex=0;o.el.addEventListener('pointerenter',lit);o.el.addEventListener('focus',lit);o.el.addEventListener('pointerleave',back);o.el.addEventListener('blur',back)});
   layout();show(steps.length?0:-1);if(!steps.length)wires.forEach(w=>{w.p.classList.add('on');if(!RM){w.c.classList.add('on');run(w)}});
   new ResizeObserver(layout).observe(stage);
   new IntersectionObserver(es=>{vis=es[0].isIntersecting;if(vis){tick();wires.forEach(w=>{if(w.c.classList.contains('on'))run(w)})}else clearTimeout(timer)},{threshold:.35}).observe(root);
