@@ -655,6 +655,9 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   .pdp-intro{padding-top:40px}
 }
 @media(prefers-reduced-motion:reduce){.cp .r{animation:none}.kf-it{animation:none}.cw-v,.cw-ban{transition:none}}
+
+/* phones: no live blur over the moving tap story; solid glass keeps scrolling smooth */
+@media (max-width:900px){.ts-ban,.ts-lb,.cmp-stats div,.hint{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}.ts-ban{background:rgba(58,58,64,.92)}}
 </style>
 </head>
 <body id="top">
@@ -1363,6 +1366,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){ if(ts) ts.classList.add('static'); return; }
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ignoreMobileResize:true});
   var mobile=matchMedia('(max-width:900px)').matches;
   if(typeof Lenis!=='undefined'&&!mobile){var lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70})}})});
@@ -1380,10 +1384,10 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
     var dockY=function(){return mobile?542-card.offsetTop:96};
     var field=q('.ts-field');
     var placeField=function(){field.style.left=(mobile?phone.offsetLeft+144:phone.offsetLeft+8)+'px';field.style.top=(mobile?560:card.offsetTop+120)+'px'};
-    placeField(); addEventListener('resize',placeField);
+    placeField(); var lw=innerWidth; addEventListener('resize',function(){if(mobile&&innerWidth===lw)return;lw=innerWidth;placeField()});
     var setStep=function(i){steps.forEach(function(li,j){li.classList.toggle('on',j===i)})};
     setStep(0);
-    var tl=gsap.timeline({defaults:{ease:'power2.out'},onUpdate:function(){var t=tl.time();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)},scrollTrigger:{trigger:ts.querySelector('.ts-pin'),start:'top top',end:mobile?'+=260%':'+=320%',pin:true,scrub:.6,invalidateOnRefresh:true,
+    var tl=gsap.timeline({defaults:{ease:'power2.out'},onUpdate:function(){var t=tl.time();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)},scrollTrigger:{trigger:ts.querySelector('.ts-pin'),start:'top top',end:mobile?'+=260%':'+=320%',pin:true,anticipatePin:1,scrub:.6,invalidateOnRefresh:true,
       onUpdate:function(self){var t=self.progress*tl.duration();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)}}});
     tl.to(card,{x:dockX,y:dockY,rotation:mobile?-6:-12,duration:1,ease:'power2.inOut'},0)
       .to(card,{'--sh':'0%',duration:1,ease:'none'},0)

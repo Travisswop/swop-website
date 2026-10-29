@@ -72,7 +72,7 @@ nav.top .links a:hover,.navshop:hover{color:#fff}
   font-family:var(--label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg2);pointer-events:none;opacity:0;transition:opacity .4s}
 .rail.on{opacity:1}
 .rail .bar{width:120px;height:2px;background:rgba(255,255,255,.12);border-radius:2px;overflow:hidden}
-.rail .bar i{display:block;height:100%;width:0;background:var(--green)}
+.rail .bar i{display:block;height:100%;width:100%;background:var(--green);transform:scaleX(0);transform-origin:left;will-change:transform}
 @media (max-width:700px){.rail{display:none}}
 
 /* ===== 1. HERO particles ===== */
@@ -821,6 +821,15 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   .sun b{font-size:11px}
 }
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* phones: blur behind moving canvases and pinned scenes costs a repaint every frame, so use solid glass instead */
+@media (max-width:820px){
+ nav.top.solid,.rail,.ot-n,.ot-risk,.ot-term,.cmd,.steps,.guard span,.tu.soon,.ppop,#hero .toast{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ nav.top.solid{background:rgba(250,250,250,.97)}.cmd{background:rgba(255,255,255,.96)}.steps{background:rgba(255,255,255,.94)}.rail{background:rgba(10,10,12,.94)}
+ .ot-n{background:rgba(12,14,18,.94)}.ot-risk{background:rgba(12,14,18,.96)}.ot-term{background:rgba(8,10,14,.95)}
+ #hero .toast{background:rgba(255,255,255,.97)}
+ .pin-spacer{will-change:auto}
+}
 </style>
 </head>
 <body>
@@ -1117,6 +1126,7 @@ const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const hasG=typeof gsap!=='undefined'&&typeof ScrollTrigger!=='undefined';
 const mobile=matchMedia('(max-width: 820px)').matches;
+let lastW=innerWidth;const onWidth=fn=>addEventListener('resize',()=>{if(mobile&&innerWidth===lastW)return;fn()});addEventListener('resize',()=>{setTimeout(()=>lastW=innerWidth,0)});
 const wait=ms=>new Promise(r=>setTimeout(r,reduce?0:ms));
 const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)), ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
 
@@ -1161,14 +1171,15 @@ function buildText(){if(!W)return;const oc=document.createElement('canvas'),ox=o
   for(let y=0;y<H;y+=step)for(let x=0;x<W;x+=step)if(d[(y*W+x)*4+3]>128)pts.push([x,y]);
   for(let i=pts.length-1;i>0;i--){const j=(Math.random()*(i+1))|0;[pts[i],pts[j]]=[pts[j],pts[i]]}
   textPts=pts;P.forEach((p,i)=>{const t=pts.length?pts[i%pts.length]:[W/2,H/2];p.tx=t[0]+(Math.random()-.5)*1.2;p.ty=t[1]+(Math.random()-.5)*1.2})}
-function frame(now){if(onScreen.you===false&&!reduce){watchVis(document.getElementById('you'),'you');requestAnimationFrame(frame);return}cx.clearRect(0,0,W,H);rot+=reduce?0:0.0022;const t=ease(clamp((heroP-.08)/.62));const R=Math.min(W,H)*(mobile?.34:.28);
+watchVis(document.getElementById('you'),'you');
+function frame(now){if(onScreen.you===false&&!reduce){requestAnimationFrame(frame);return}cx.clearRect(0,0,W,H);rot+=reduce?0:0.0022;const t=ease(clamp((heroP-.08)/.62));const R=Math.min(W,H)*(mobile?.34:.28);
   const gx=W*.5,gy=H*.5;const cr=Math.cos(rot),sr=Math.sin(rot),tilt=.35,ct=Math.cos(tilt),st=Math.sin(tilt);
   for(const p of P){let x=p.sx*cr-p.sz*sr,z=p.sx*sr+p.sz*cr,y=p.sy;const y2=y*ct-z*st,z2=y*st+z*ct;const pers=1/(1.8-z2*.6);
    const ax=gx+x*R*pers*1.3,ay=gy+y2*R*pers*1.3;const wob=Math.sin(now*.0015+p.j)*1.2*(1-t);
    const X=lerp(ax,p.tx,t)+wob,Y=lerp(ay,p.ty,t)+wob;const a=lerp(.25+(z2+1)*.35,.95,t);const s=lerp(p.s*pers*1.1,mobile?1.8:2.2,t);
    cx.globalAlpha=a;cx.fillStyle=t>.6?(p.c==='#00ff88'||p.c==='#7dffc0'?'#00ff88':p.c):p.c;cx.fillRect(X,Y,s,s)}
   cx.globalAlpha=1;if(!reduce)requestAnimationFrame(frame)}
-initP();size();addEventListener('resize',()=>{size();if(hasG)ScrollTrigger.refresh()});
+initP();size();onWidth(()=>{size();if(hasG)ScrollTrigger.refresh()});
 document.fonts&&document.fonts.ready.then(buildText);
 requestAnimationFrame(frame);
 
@@ -1255,7 +1266,7 @@ addEventListener('resize',()=>{if(sysSel!=null)placePop(sysSel)});
 setCat(null);
 /* starfield */
 (()=>{const c=$('#stars');if(!c)return;const x=c.getContext('2d');let st=[];function sz(){c.width=c.offsetWidth;c.height=c.offsetHeight;st=Array.from({length:Math.round(c.width*c.height/5000)},()=>[Math.random()*c.width,Math.random()*c.height,Math.random()*1.3+.2,Math.random()*6])}
- sz();addEventListener('resize',sz);watchVis(document.getElementById('system'),'sys');function d(t){if(onScreen.sys===false){requestAnimationFrame(d);return}x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.25+.55*(.5+.5*Math.sin(t*.001+s[3]));x.fillStyle='#fff';x.fillRect(s[0],s[1],s[2],s[2])}if(!reduce)requestAnimationFrame(d)}requestAnimationFrame(d)})();
+ sz();onWidth(sz);watchVis(document.getElementById('system'),'sys');function d(t){if(onScreen.sys===false){requestAnimationFrame(d);return}x.clearRect(0,0,c.width,c.height);for(const s of st){x.globalAlpha=.25+.55*(.5+.5*Math.sin(t*.001+s[3]));x.fillStyle='#fff';x.fillRect(s[0],s[1],s[2],s[2])}if(!reduce)requestAnimationFrame(d)}requestAnimationFrame(d)})();
 
 /* ---------- FAQ ---------- */
 const QA=[['What is Swop, in one line?','Swop is the social network where people, businesses and AI agents own their identity and move value. One swop.id gives you a page, a wallet and a way to get paid ⚡'],
@@ -1303,7 +1314,7 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
  const t2=$('.t2');
  const sv=$('.triad');function placeNodes(){const r=sv.getBoundingClientRect(),tr=t2.getBoundingClientRect();const pts=[[150,40],[55,165],[245,165]];
   $$('.tnode').forEach((n,i)=>{n.style.left=(r.left-tr.left+pts[i][0]/300*r.width)+'px';n.style.top=(r.top-tr.top+pts[i][1]/210*r.height)+'px'})}
- placeNodes();addEventListener('resize',placeNodes);setTimeout(placeNodes,600);
+ placeNodes();onWidth(placeNodes);setTimeout(placeNodes,600);
 
  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(!e.isIntersecting||e.target.classList.contains('in'))return;e.target.classList.add('in');
   if(e.target.classList.contains('t4')){const tgt=1284.5,t0=performance.now();(function tick(t){const f=Math.min(1,(t-t0)/1600),v=tgt*(1-Math.pow(1-f,3));
@@ -1322,11 +1333,11 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
   chips.forEach((c,i)=>{const a=a0+i*2*Math.PI/n,d=(Math.sin(a)+1)/2,s=.76+.3*d;
    const x=cx+Math.cos(a)*Rx+px*(.4+d)-dims[i][0]/2,y=cy+Math.sin(a)*Ry+py*(.4+d)-dims[i][1]/2;
    c.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s.toFixed(3)})`;
-   c.style.opacity=(.42+.58*d).toFixed(2);c.style.filter=d<.55?`blur(${((.55-d)*3).toFixed(2)}px)`:'none';c.style.zIndex=d>.5?3:1});
+   c.style.opacity=(.42+.58*d).toFixed(2);c.style.filter=!mobile&&d<.55?`blur(${((.55-d)*3).toFixed(2)}px)`:'none';c.style.zIndex=d>.5?3:1});
   face.style.setProperty('--ry',(Math.sin(t*.0009)*20+px*.8).toFixed(1)+'deg');face.style.setProperty('--rx',(-py*.8).toFixed(1)+'deg');
   face.style.setProperty('--rim',(t*.03%360).toFixed(1)+'deg');face.style.setProperty('--sh',(50+Math.sin(t*.0009)*45).toFixed(1)+'%')}
  function loop(t){const dt=last?Math.min(50,t-last)/1000:0;last=t;speed+=(target-speed)*.06;a0+=speed*dt;draw(t);raf=on?requestAnimationFrame(loop):0}
- size();draw(0);addEventListener('resize',()=>{size();draw(performance.now())});
+ size();draw(0);onWidth(()=>{size();draw(performance.now())});
  if(reduce)return;
  box.addEventListener('pointerenter',()=>target=.05);box.addEventListener('pointerleave',()=>{target=.22;px=py=0});
  box.addEventListener('pointermove',e=>{const r=box.getBoundingClientRect();px=((e.clientX-r.left)/r.width-.5)*14;py=((e.clientY-r.top)/r.height-.5)*10});
@@ -1372,6 +1383,7 @@ if(!hasG||reduce){heroP=.9;$('#youTop').style.opacity=0;$('#formed').style.opaci
   $('#coin').style.display='none';$('.dline').style.display='none';$$('.mstep').forEach(s=>s.classList.add('on'));return}
 
 gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ignoreMobileResize:true});
 let lenis=null;
 if(typeof Lenis!=='undefined'&&!mobile){lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
   $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t,{offset:-10})}}))}
@@ -1384,14 +1396,14 @@ gsap.from('.htop>*',{y:30,opacity:0,duration:.9,ease:'power3.out',stagger:.08});
 if(!mobile){const ft=gsap.timeline({scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:.6}});
  ft.to('#fpL',{x:-90,rotate:-12,y:20},0).to('#fpR',{x:90,rotate:12,y:20},0).to('#fpC',{y:-60},0).to('.htop',{y:-80,opacity:.4},0)}
 /* 1b claim your name: pin, particles form name */
-gsap.timeline({scrollTrigger:{trigger:'#you',start:'top top',end:'+=140%',pin:true,scrub:true,onUpdate:s=>heroP=s.progress}})
+gsap.timeline({scrollTrigger:{trigger:'#you',start:'top top',end:'+=140%',pin:true,anticipatePin:1,scrub:true,onUpdate:s=>heroP=s.progress}})
  .to('#youTop',{opacity:0,y:-40,duration:.25},.05).to('#formed',{opacity:1,duration:.15},.62).to({},{duration:.25});
 
 /* 2 bento: staggered reveal */
 gsap.from('.bt',{y:40,opacity:0,duration:.8,ease:'power3.out',stagger:.08,scrollTrigger:{trigger:'#bento',start:'top 80%'}});
 
 /* 3 meet maya */
-const mt=gsap.timeline({scrollTrigger:{trigger:'#maya',start:'top top',end:'+=220%',pin:true,scrub:.6,
+const mt=gsap.timeline({scrollTrigger:{trigger:'#maya',start:'top top',end:'+=220%',pin:true,anticipatePin:1,scrub:.6,
   onUpdate:s=>{const k=s.progress<.34?0:s.progress<.67?1:2;$$('.mstep').forEach((m,i)=>m.classList.toggle('on',i===k))}}});
 mt.fromTo('#mphone',{rotateY:-24,rotateX:8,y:60},{rotateY:0,rotateX:0,y:0,duration:1},0)
   .from('#mAva',{scale:0,duration:.35},0.05)
@@ -1406,7 +1418,7 @@ mt.fromTo('#mphone',{rotateY:-24,rotateX:8,y:60},{rotateY:0,rotateX:0,y:0,durati
 const track=$('#dtrack');
 const dist=()=>track.scrollWidth-innerWidth+(mobile?0:innerWidth*.12);
 const fmt=v=>'$'+v.toFixed(2);
-gsap.timeline({scrollTrigger:{trigger:'#dwrap',start:'top top',end:()=>'+='+dist(),pin:true,scrub:.5,invalidateOnRefresh:true,
+gsap.timeline({scrollTrigger:{trigger:'#dwrap',start:'top top',end:()=>'+='+dist(),pin:true,anticipatePin:1,scrub:.5,invalidateOnRefresh:true,
   onUpdate:s=>{const p=s.progress;$('#dfill').style.width=(p*100)+'%';
    let amt,tag;if(p<.2){amt='$25.00';tag='in SOL'}else if(p<.36){amt='25.00';tag='USDC · x402'}else if(p<.52){amt='25.00';tag='USDC'}
    else if(p<.7){const f=clamp((p-.52)/.14);amt=(25-0.125*f).toFixed(3);tag='USDC'}else if(p<.86){amt='24.875';tag='USDC · settling'}else{amt='24.875';tag='USDC · paid ✓'}
@@ -1428,7 +1440,7 @@ $$('.shead, .stp, .cta, .faq').forEach(el=>gsap.from(el,{y:50,opacity:0,duration
 
 /* chapter rail */
 const chapters=$$('[data-ch]');
-ScrollTrigger.create({start:0,end:'max',onUpdate:s=>{$('#railBar').style.width=(s.progress*100)+'%';$('#rail').classList.toggle('on',s.progress>.03&&s.progress<.97)}});
+ScrollTrigger.create({start:0,end:'max',onUpdate:s=>{$('#railBar').style.transform='scaleX('+s.progress.toFixed(4)+')';$('#rail').classList.toggle('on',s.progress>.03&&s.progress<.97)}});
 chapters.forEach(c=>ScrollTrigger.create({trigger:c,start:'top 55%',end:'bottom 55%',onToggle:s=>{if(s.isActive)$('#railTxt').textContent=c.dataset.ch}}));
 ScrollTrigger.create({trigger:'#hero',start:'top top',end:'bottom 55%',onToggle:s=>{if(s.isActive)$('#railTxt').textContent='01 · Swop'}});
 addEventListener('load',()=>ScrollTrigger.refresh());
@@ -1455,7 +1467,7 @@ addEventListener('load',()=>ScrollTrigger.refresh());
   var dust=[];for(var i=0;i<(innerWidth<=900?260:620);i++)dust.push(seed({}));
   function seed(d){d.a=Math.random()*Math.PI*2;d.r=120+Math.random()*760;d.h=(Math.random()-.5)*520;d.s=.0016+Math.random()*.004;d.z=(Math.random()-.5)*600;return d}
   function W(k){var v=W3[k];return mob?[v[1]*.78,v[0]*.86,v[2]]:v}
-  function size(){mob=innerWidth<=900;var r=pin.getBoundingClientRect();Wd=r.width;Ht=r.height;dpr=Math.min(2,devicePixelRatio||1);cv.width=Wd*dpr;cv.height=Ht*dpr}
+  function size(){mob=innerWidth<=900;var r=pin.getBoundingClientRect();Wd=r.width;Ht=r.height;dpr=Math.min(mob?1.5:2,devicePixelRatio||1);cv.width=Wd*dpr;cv.height=Ht*dpr}
   function lerp(a,b,t){return a+(b-a)*t}
   function seg(p,a,b){return Math.max(0,Math.min(1,(p-a)/(b-a)))}
   function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
@@ -1495,7 +1507,7 @@ addEventListener('load',()=>ScrollTrigger.refresh());
     /* edges and their particles */
     EDGES.forEach(function(e){var A=W(e[0]),B=W(e[1]),k=act(e);if(mob&&e[1]==='aave')return;
       ctx.beginPath();for(var s=0;s<=32;s++){var q=mob?projM(bez3(A,B,s/32)):proj(bez3(A,B,s/32));s?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1])}
-      ctx.strokeStyle='rgba(63,224,143,'+(.05+k*.42)+')';ctx.lineWidth=.8+k*1.4;ctx.shadowColor='#3FE08F';ctx.shadowBlur=k*16;ctx.stroke();ctx.shadowBlur=0;
+      ctx.strokeStyle='rgba(63,224,143,'+(.05+k*.42)+')';ctx.lineWidth=.8+k*1.4;if(!mob){ctx.shadowColor='#3FE08F';ctx.shadowBlur=k*16}ctx.stroke();ctx.shadowBlur=0;
       var n=Math.round(k*9);for(var j=0;j<n;j++){var ph=(tt*(.28+k*.5)+j/n+e[0].length*.17)%1,q=mob?projM(bez3(A,B,ph)):proj(bez3(A,B,ph)),r=(1.4+k*2.2)*q[2];
         var g=ctx.createRadialGradient(q[0],q[1],0,q[0],q[1],r*4);g.addColorStop(0,'rgba(200,255,225,.95)');g.addColorStop(1,'rgba(63,224,143,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(q[0],q[1],r*4,0,7);ctx.fill()}});
     /* the orb */
@@ -1534,10 +1546,10 @@ addEventListener('load',()=>ScrollTrigger.refresh());
     if(n!==shown){shown=n;lines.innerHTML=LINES.slice(Math.max(0,n-6),n).map(function(l,i,a){return '<div class="'+l[1]+(i===a.length-1?' cur':'')+'">'+l[2]+'</div>'}).join('')}
   }
   function loop(now){if(!on){raf=0;return}draw(now);raf=requestAnimationFrame(loop)}
-  size();render();addEventListener('resize',function(){size();if(!on)draw(performance.now())});
+  size();render();var lw=innerWidth;addEventListener('resize',function(){if(innerWidth===lw&&innerWidth<=900)return;lw=innerWidth;size();if(!on)draw(performance.now())});
   pin.addEventListener('pointermove',function(e){var r=pin.getBoundingClientRect();mx=(e.clientX-r.left)/r.width-.5;my=(e.clientY-r.top)/r.height-.5});
   if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){sec.classList.add('static');P=1;wi=3;word.textContent=WORDS[3];render();draw(performance.now());return}
-  ScrollTrigger.create({trigger:pin,start:'top top',end:innerWidth<=900?'+=280%':'+=340%',pin:true,scrub:true,onUpdate:function(self){P=self.progress;render()},onRefresh:function(){size()}});
+  ScrollTrigger.create({trigger:pin,start:'top top',end:innerWidth<=900?'+=280%':'+=340%',pin:true,anticipatePin:1,scrub:true,onUpdate:function(self){P=self.progress;render()},onRefresh:function(){size()}});
   new IntersectionObserver(function(es){on=es[0].isIntersecting;if(on&&!raf)raf=requestAnimationFrame(loop)}).observe(sec);
   draw(performance.now());
   /* refresh in page order (a pin inside a section before the section) so every trigger below a pin counts its spacer */
