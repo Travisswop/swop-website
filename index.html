@@ -202,7 +202,19 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .youtop{position:absolute;left:0;right:0;top:12%;text-align:center;z-index:2;display:grid;justify-items:center;gap:10px}
 .youtop h2{font-size:clamp(40px,6vw,84px)}
 .youclaim{position:absolute;left:50%;bottom:9%;transform:translateX(-50%);z-index:3;width:min(520px,calc(100% - 40px))}
+.cfield{flex:1;min-width:0;display:flex;align-items:baseline;padding-left:14px;cursor:text}
+.cfield input{flex:0 1 auto;width:4ch;max-width:100%;padding-right:0}
+.cfield .suf{font:700 19px var(--display);color:var(--fg3);white-space:nowrap}
+.cst{position:absolute;left:0;right:0;top:calc(100% + 12px);display:flex;justify-content:center;align-items:center;gap:8px;font:500 13.5px Inter;color:var(--fg2);min-height:20px;margin:0}
+.cst i{width:8px;height:8px;border-radius:50%;flex:none}
+.cst.ok{color:#3FE08F}.cst.ok i{background:#3FE08F;box-shadow:0 0 10px #3FE08F}
+.cst.bad{color:#ff8a8a}.cst.bad i{background:#ff5a5f}
+.cst.wait i{border:2px solid rgba(255,255,255,.25);border-top-color:#fff;width:10px;height:10px;animation:spin2 .7s linear infinite}
+.claim.taken{border-color:rgba(255,90,95,.5);box-shadow:0 0 40px rgba(255,90,95,.08)}
+.claim.shake{animation:cshake .35s}
+@keyframes cshake{25%{transform:translateX(calc(-50% - 6px))}75%{transform:translateX(calc(-50% + 6px))}}
 #you .formed{bottom:22%}
+@media (max-width:480px){#you .formed{bottom:calc(9% + 150px);padding:0 20px}}
 /* ===== 2. one-liner ===== */
 #line{padding-block:130px 90px}
 .decode{display:grid;margin-top:26px;border-top:1px solid var(--line)}
@@ -736,9 +748,9 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   <div class="youtop gut" id="youTop"><span class="lab">Everything starts with a name</span><h2>Claim yours.</h2></div>
   <div class="formed" id="formed">This is you. Your identity, your data, your earnings.</div>
   <form class="claim youclaim" id="claimForm" autocomplete="off">
-    <span class="pre">swop.id/</span>
-    <input id="claimIn" aria-label="Pick your name" value="maya" maxlength="16" spellcheck="false">
-    <button class="btn btn-g" type="submit">Claim it ↗</button>
+    <label class="cfield"><input id="claimIn" aria-label="Pick your name" aria-describedby="claimSt" value="maya" maxlength="10" spellcheck="false" autocapitalize="none" inputmode="url"><span class="suf">.swop.id</span></label>
+    <button class="btn btn-g" type="submit" id="claimBtn">Claim it ↗</button>
+    <p class="cst" id="claimSt" role="status" aria-live="polite"></p>
   </form>
 </section>
 
@@ -943,7 +955,25 @@ const cleanName=v=>(v||'').toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,16)||
 function setName(v){NAME=cleanName(v);$$('.mName').forEach(e=>e.textContent=e.closest('#mId')?NAME.charAt(0).toUpperCase()+NAME.slice(1):NAME);
   $('#bgword').textContent=`${NAME}.swop.id ${NAME}.swop.id`;buildText()}
 $('#claimIn').addEventListener('input',e=>setName(e.target.value));
-$('#claimForm').addEventListener('submit',e=>{e.preventDefault();location.href='https://swopme.app/wallet'});
+/* claim: live swop.id availability via the ENS gateway the app uses; claim hands off to signup */
+(()=>{const inp=$('#claimIn'),st=$('#claimSt'),form=$('#claimForm'),GW='https://swop-id-ens-gateway.swop.workers.dev/get/';
+ const RX=/^[a-z0-9](?:[a-z0-9-]{1,8})[a-z0-9]$/;let state='idle',seq=0,tmr=0;
+ const meas=document.createElement('span');meas.style.cssText='position:absolute;visibility:hidden;white-space:pre;font:700 19px var(--display)';document.body.appendChild(meas);
+ function fit(){meas.textContent=inp.value||inp.placeholder||'name';inp.style.width=Math.ceil(meas.getBoundingClientRect().width+2)+'px'}
+ function show(cls,msg){state=cls;st.className='cst '+(cls==='ok'?'ok':cls==='taken'||cls==='invalid'?'bad':cls==='checking'?'wait':'');
+  st.innerHTML=msg?`<i></i><span>${msg}</span>`:'';form.classList.toggle('taken',cls==='taken')}
+ async function check(n){const id=++seq;show('checking','Checking '+esc(n)+'.swop.id…');
+  try{const r=await fetch(GW+encodeURIComponent(n)+'.swop.id',{cache:'no-store'});if(id!==seq)return;
+   if(r.status===404)show('ok',`<b>${esc(n)}.swop.id</b> is available`);else if(r.ok)show('taken',`<b>${esc(n)}.swop.id</b> is taken. Try another name.`);else throw 0}
+  catch(e){if(id===seq)show('idle','Couldn’t check right now. You can still claim it in the app.')}}
+ function onInput(){const v=inp.value.toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,10);if(v!==inp.value)inp.value=v;fit();clearTimeout(tmr);
+  if(!v){show('idle','');return}
+  if(!RX.test(v)){show('invalid',v.length<3?'At least 3 characters':'Letters, numbers and hyphens, not starting or ending with a hyphen');return}
+  show('checking','Checking '+esc(v)+'.swop.id…');tmr=setTimeout(()=>check(v),380)}
+ inp.addEventListener('input',onInput);fit();onInput();
+ form.addEventListener('submit',e=>{e.preventDefault();const v=inp.value;
+  if(state==='taken'||state==='invalid'||state==='checking'||!v){form.classList.remove('shake');void form.offsetWidth;form.classList.add('shake');inp.focus();return}
+  location.href='https://www.swopme.app/login?claim='+encodeURIComponent(v)})})();
 
 /* ---------- particles: globe -> your swop.id ---------- */
 const cv=$('#pfx'), cx=cv.getContext('2d');
