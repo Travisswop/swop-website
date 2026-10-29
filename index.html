@@ -248,7 +248,7 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 @media (max-width:640px){.bento{grid-template-columns:1fr}.t1,.t2,.t3,.t4,.t5{grid-column:span 1}}
 /* t1 feed */
 .t1{background:linear-gradient(160deg,#fff 40%,#effcf5)}
-.feedviz{position:absolute;right:22px;top:22px;bottom:22px;width:min(46%,330px);display:flex;flex-direction:column;gap:9px;overflow:hidden;
+.feedviz{position:absolute;right:22px;top:66px;bottom:22px;width:min(46%,330px);display:flex;flex-direction:column;gap:9px;overflow:hidden;
   -webkit-mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(transparent,#000 14%,#000 86%,transparent)}
 @media (max-width:820px){.feedviz{position:relative;right:auto;top:auto;bottom:auto;width:100%;height:220px;margin-top:6px}}
 .fpost{flex:none;background:#fff;border:1px solid rgba(10,10,12,.07);border-radius:16px;padding:10px 12px;display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:10px;align-items:center;
@@ -293,17 +293,29 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .ebars span{font:600 12px Inter;color:rgba(10,10,12,.7)}
 .ebars i{display:block;height:8px;border-radius:8px;background:linear-gradient(90deg,#3FE08F,#0a9f55);width:0;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
 .bt.in .ebars i{width:var(--w)}
-/* t5 coin */
-.t5{background:radial-gradient(circle at 50% 75%,#fff6d8,#fff 60%)}
-.coinviz{position:relative;margin-top:auto;height:170px}
-.coin3{position:absolute;left:50%;top:50%;width:92px;height:92px;margin:-46px;border-radius:50%;display:grid;place-items:center;
-  background:radial-gradient(circle at 35% 30%,#fff3c4,#f5c842 45%,#b7791f 100%);box-shadow:0 14px 30px rgba(183,121,31,.35),inset 0 -6px 12px rgba(0,0,0,.15);animation:flip 6s ease-in-out infinite}
-.coin3 span{font:900 15px var(--display);color:#5a3a06;letter-spacing:.04em}
-@keyframes flip{0%,100%{transform:rotateY(0)}50%{transform:rotateY(180deg)}}
-.cu{position:absolute;font:700 12px Inter;color:#0a0a0c;background:#fff;border:1px solid rgba(10,10,12,.08);border-radius:999px;padding:6px 11px;box-shadow:0 8px 18px rgba(10,10,12,.08);white-space:nowrap;animation:bob 4s ease-in-out infinite}
-.cu.soon{color:#7c3aed;border-style:dashed}
-.u1{left:2%;top:8%}.u2{right:2%;top:14%;animation-delay:.6s}.u3{left:6%;bottom:6%;animation-delay:1.2s}.u4{right:0;bottom:2%;animation-delay:1.8s}
-@keyframes bob{50%{transform:translateY(-6px)}}
+/* t5 token orbit */
+.t5{background:radial-gradient(120% 80% at 50% 78%,rgba(63,224,143,.13),#fff 62%)}
+.tokorb{position:relative;margin-top:auto;height:230px;touch-action:pan-y}
+.orb-ring{position:absolute;overflow:visible;pointer-events:none}
+.orb-ring ellipse{fill:none;stroke:rgba(10,10,12,.11);stroke-width:1;stroke-dasharray:2 5;vector-effect:non-scaling-stroke}
+.tcoin{position:absolute;left:50%;top:50%;width:96px;height:96px;margin:-48px;z-index:2;perspective:500px}
+.tface{position:relative;width:100%;height:100%;border-radius:50%;display:grid;place-items:center;transform:rotateY(var(--ry,0deg)) rotateX(var(--rx,0deg));
+  background:radial-gradient(circle at 32% 26%,#3b3b44 0,#131317 46%,#050507 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.2),inset 0 -10px 18px rgba(0,0,0,.65),0 22px 40px rgba(10,10,12,.32),0 0 70px rgba(63,224,143,.32)}
+.tface::before{content:"";position:absolute;inset:-4px;border-radius:50%;padding:4px;
+  background:conic-gradient(from var(--rim,0deg),#3FE08F,#38bdf8,#a78bfa,#f5c842,#3FE08F);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.tface::after{content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:linear-gradient(115deg,transparent 38%,rgba(255,255,255,.24) 50%,transparent 62%);background-size:260% 100%;background-position:var(--sh,50%) 0}
+.tface svg{width:58px;height:12px;color:#3FE08F;filter:drop-shadow(0 0 8px rgba(63,224,143,.55))}
+.tu{position:absolute;left:0;top:0;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;border-radius:999px;padding:6px 11px 6px 9px;font:600 12px Inter;will-change:transform,filter,opacity}
+.tu i{width:6px;height:6px;border-radius:50%;flex:none}
+.tu.live{background:#fff;color:#0a0a0c;border:1px solid rgba(10,10,12,.08);box-shadow:0 8px 20px rgba(10,10,12,.1)}
+.tu.live i,.tlegend .l{background:#3FE08F;box-shadow:0 0 0 3px rgba(63,224,143,.22)}
+.tu.soon{background:rgba(255,255,255,.62);color:rgba(10,10,12,.6);border:1px dashed rgba(10,10,12,.2);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.tu.soon i,.tlegend .s{border:1.5px solid rgba(10,10,12,.32)}
+.tlegend{display:flex;gap:16px;font:500 12px Inter;color:rgba(10,10,12,.55)}
+.tlegend span{display:inline-flex;align-items:center;gap:7px}.tlegend i{width:6px;height:6px;border-radius:50%}
 /* ===== 3. meet maya (pinned) ===== */
 #maya{position:relative;min-height:100vh;display:grid;align-items:center;overflow:hidden;padding-block:90px 40px}
 .maya-bgword{position:absolute;top:50%;left:0;transform:translateY(-50%);white-space:nowrap;font-size:clamp(120px,22vw,320px);font-weight:900;letter-spacing:-.05em;
@@ -804,8 +816,12 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
       <article class="bt t5" data-t="5">
         <div class="bh"><span class="bn">5</span><span class="st live">Live</span></div>
         <h3>All running on SWOP.</h3>
-        <div class="coinviz"><div class="coin3"><span>SWOP</span></div>
-          <span class="cu u1">AI credits</span><span class="cu u2">Rewards</span><span class="cu u3">El Dorado</span><span class="cu u4 soon">Gas · planned</span></div>
+        <div class="tokorb" id="tokorb" aria-label="SWOP token uses: AI credits and rewards today; staking, marketplace, feed ads, subscriptions and swap fees coming soon">
+          <svg class="orb-ring" aria-hidden="true"><ellipse/></svg>
+          <div class="tcoin" aria-hidden="true"><div class="tface"><svg viewBox="0 0 88 18"><use href="#swop"/></svg></div></div>
+          <span class="tu live"><i></i>AI credits</span><span class="tu live"><i></i>Rewards</span><span class="tu soon"><i></i>Staking</span><span class="tu soon"><i></i>Marketplace</span><span class="tu soon"><i></i>Feed ads</span><span class="tu soon"><i></i>Subscriptions</span><span class="tu soon"><i></i>Swap fees</span>
+        </div>
+        <div class="tlegend"><span><i class="l"></i>Live today</span><span><i class="s"></i>Coming soon</span></div>
       </article>
     </div>
   </div>
@@ -1123,6 +1139,27 @@ $('#subForm').addEventListener('submit',e=>{e.preventDefault();const btn=$('#sub
    $('#earnN').textContent='$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});if(f<1)requestAnimationFrame(tick)})(t0)}
   if(e.target.classList.contains('t2'))placeNodes()}),{threshold:.3});
  $$('.bt').forEach(b=>io.observe(b))})();
+
+/* token orbit: chips ride a tilted 3D ring around the coin */
+(()=>{const box=$('#tokorb');if(!box)return;const chips=[...box.querySelectorAll('.tu')],face=box.querySelector('.tface'),ring=box.querySelector('.orb-ring'),el=ring.querySelector('ellipse');
+ let W,H,Rx,Ry,cx,cy,dims=[],a0=-Math.PI/2,speed=.22,target=.22,px=0,py=0,last=0,on=false,raf=0;
+ function size(){W=box.clientWidth;H=box.clientHeight;cx=W/2;cy=H/2;Rx=Math.max(90,W/2-44);Ry=Math.min(H/2-16,80);
+  ring.setAttribute('width',Rx*2+2);ring.setAttribute('height',Ry*2+2);ring.style.left=cx-Rx-1+'px';ring.style.top=cy-Ry-1+'px';
+  el.setAttribute('cx',Rx+1);el.setAttribute('cy',Ry+1);el.setAttribute('rx',Rx);el.setAttribute('ry',Ry);
+  dims=chips.map(c=>[c.offsetWidth,c.offsetHeight])}
+ function draw(t){const n=chips.length;
+  chips.forEach((c,i)=>{const a=a0+i*2*Math.PI/n,d=(Math.sin(a)+1)/2,s=.76+.3*d;
+   const x=cx+Math.cos(a)*Rx+px*(.4+d)-dims[i][0]/2,y=cy+Math.sin(a)*Ry+py*(.4+d)-dims[i][1]/2;
+   c.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) scale(${s.toFixed(3)})`;
+   c.style.opacity=(.42+.58*d).toFixed(2);c.style.filter=d<.55?`blur(${((.55-d)*3).toFixed(2)}px)`:'none';c.style.zIndex=d>.5?3:1});
+  face.style.setProperty('--ry',(Math.sin(t*.0009)*20+px*.8).toFixed(1)+'deg');face.style.setProperty('--rx',(-py*.8).toFixed(1)+'deg');
+  face.style.setProperty('--rim',(t*.03%360).toFixed(1)+'deg');face.style.setProperty('--sh',(50+Math.sin(t*.0009)*45).toFixed(1)+'%')}
+ function loop(t){const dt=last?Math.min(50,t-last)/1000:0;last=t;speed+=(target-speed)*.06;a0+=speed*dt;draw(t);raf=on?requestAnimationFrame(loop):0}
+ size();draw(0);addEventListener('resize',()=>{size();draw(performance.now())});
+ if(reduce)return;
+ box.addEventListener('pointerenter',()=>target=.05);box.addEventListener('pointerleave',()=>{target=.22;px=py=0});
+ box.addEventListener('pointermove',e=>{const r=box.getBoundingClientRect();px=((e.clientX-r.left)/r.width-.5)*14;py=((e.clientY-r.top)/r.height-.5)*10});
+ new IntersectionObserver(es=>{on=es[0].isIntersecting;if(on&&!raf){last=0;raf=requestAnimationFrame(loop)}},{threshold:.1}).observe(box)})();
 
 /* agent-flow infographic */
 (()=>{const CHK='<svg width="16" height="16"><use href="#i-check"/></svg>';
