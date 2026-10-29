@@ -319,15 +319,21 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 .ts.static .ts-s0{opacity:0}.ts.static .ts-s4{opacity:1;transform:none}.ts.static .ts-lk span{opacity:1;transform:none}
 .ts.static .ts-card{left:30px;top:330px}.ts.static .ts-steps li{opacity:1}.ts.static .ts-steps li span{max-height:none}
 @media(max-width:900px){
-  .ts-pin{padding:64px 0 20px}
-  .ts-grid{grid-template-columns:1fr;gap:6px}
-  .ts-copy{order:2}.ts-copy h2,.ts-copy .eyebrow{display:none}
+  .ts-pin{padding:62px 0 16px;overflow:hidden}
+  .ts-grid{grid-template-columns:1fr;gap:0}
+  .ts-copy{order:2;position:relative;z-index:5}.ts-copy h2,.ts-copy .eyebrow{display:none}
   .ts-steps li{display:none;opacity:1;background:#fff;box-shadow:0 10px 30px rgba(10,10,12,.07)}
   .ts-steps li.on{display:grid;transform:none}
   .ts-steps li span{max-height:none}
-  .ts-stage{height:470px;transform:scale(.82);transform-origin:top center;margin-bottom:-80px;max-width:420px;margin-left:auto;margin-right:auto;width:100%}
+  /* fixed 380px design canvas, scaled to the screen; card docks on the phone's bottom bezel */
+  .ts-stage{--k:.8;width:380px;height:690px;transform:scale(var(--k));transform-origin:top center;margin:0 calc((100% - 380px)/2) calc(690px*(var(--k) - 1))}
+  .ts-phone,.ts-flash{right:auto;left:46px;top:0}
+  .ts-card{width:200px;left:-40px;top:640px;padding:14px;border-radius:13px}
+  .ts-card b{font-size:15px}
+  .ts.static .ts-card{left:90px;top:542px;transform:rotate(-6deg)}
   .ts.static .ts-steps li{display:grid}
 }
+@media(max-width:360px){.ts-stage{--k:.72}}
 /* reveals */
 .rv{will-change:transform,opacity}
 /* coming soon, scenes, footer */
@@ -727,15 +733,16 @@ document.querySelectorAll('.qty').forEach(function(q){
   if(ts){
     var q=function(sel){return ts.querySelector(sel)}, qa=function(sel){return ts.querySelectorAll(sel)};
     var stage=q('.ts-stage'), card=q('.ts-card'), phone=q('.ts-phone'), steps=qa('.ts-steps li');
-    var dockX=function(){return phone.offsetLeft-card.offsetWidth+26-card.offsetLeft};
+    var dockX=function(){return mobile?(380-card.offsetWidth)/2-card.offsetLeft:phone.offsetLeft-card.offsetWidth+26-card.offsetLeft};
+    var dockY=function(){return mobile?542-card.offsetTop:96};
     var field=q('.ts-field');
-    var placeField=function(){field.style.left=(phone.offsetLeft+8)+'px';field.style.top=(card.offsetTop+120)+'px'};
+    var placeField=function(){field.style.left=(mobile?phone.offsetLeft+144:phone.offsetLeft+8)+'px';field.style.top=(mobile?560:card.offsetTop+120)+'px'};
     placeField(); addEventListener('resize',placeField);
     var setStep=function(i){steps.forEach(function(li,j){li.classList.toggle('on',j===i)})};
     setStep(0);
     var tl=gsap.timeline({defaults:{ease:'power2.out'},onUpdate:function(){var t=tl.time();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)},scrollTrigger:{trigger:ts.querySelector('.ts-pin'),start:'top top',end:mobile?'+=260%':'+=320%',pin:true,scrub:.6,invalidateOnRefresh:true,
       onUpdate:function(self){var t=self.progress*tl.duration();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)}}});
-    tl.to(card,{x:dockX,y:96,rotation:-12,duration:1,ease:'power2.inOut'},0)
+    tl.to(card,{x:dockX,y:dockY,rotation:mobile?-6:-12,duration:1,ease:'power2.inOut'},0)
       .to(card,{'--sh':'0%',duration:1,ease:'none'},0)
       .fromTo(field,{opacity:.2,scale:.6},{opacity:1,scale:1.1,duration:1,ease:'none'},0)
       .to('#tapstory .ts-flash',{opacity:1,duration:.1},.97).to('#tapstory .ts-flash',{opacity:0,duration:.35},1.07)
