@@ -1,0 +1,118 @@
+/* Shared blocks: three things to know (.keys), explorable diagrams ([data-dg]), compare (.cmp), device frames (.device),
+   media cards and swipeable step strips. Loaded by the product pages (after kit.css) and by the homepage.
+   Uses tokens: --acc --acc-ink --acc-dark --line --glass --glass2 --bg2 --fg --fg2 --fg3 --display --label --body --mono --ease. */
+/* ===== 2026 pass: critical points, explorable diagrams, compare ===== */
+/* keys: the three things a visitor must leave knowing */
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:key}
+.key{position:relative;border-radius:24px;padding:26px 24px 22px;border:1px solid var(--line);background:var(--glass);display:grid;gap:10px;align-content:start;counter-increment:key;overflow:hidden}
+.key::before{content:counter(key,decimal-leading-zero);font:900 64px/.8 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--acc) 55%,transparent);margin-bottom:6px}
+.light .key::before{-webkit-text-stroke-color:color-mix(in srgb,var(--acc-dark,var(--acc)) 50%,transparent)}
+.key h3{font-size:clamp(22px,2vw,27px);letter-spacing:-.03em}
+.key p{color:var(--fg2);font-size:15.5px}
+.key .proof{margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:500 12px var(--mono);color:var(--fg3)}
+.light .key{box-shadow:0 1px 2px rgba(10,10,12,.04),0 14px 40px rgba(10,10,12,.05)}
+@media (max-width:860px){.keys{grid-template-columns:1fr}.key::before{font-size:48px}}
+
+/* diagram: nodes + animated connectors + step captions (data in <script type="application/json" data-diagram>) */
+.dg{position:relative;border-radius:28px;border:1px solid var(--line);background:
+  radial-gradient(600px 300px at 20% 0%,color-mix(in srgb,var(--acc) 10%,transparent),transparent 70%),var(--glass);padding:22px;overflow:hidden}
+.dg-stage{position:relative;width:100%;aspect-ratio:var(--ar,16/7)}
+.dg svg.dg-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.dg-wire{fill:none;stroke:var(--line);stroke-width:2}
+.dg-wire.on{stroke:color-mix(in srgb,var(--acc) 70%,transparent);stroke-dasharray:6 7;animation:dgflow 1.2s linear infinite}
+@keyframes dgflow{to{stroke-dashoffset:-26}}
+.dg-pkt{fill:var(--acc);filter:drop-shadow(0 0 6px var(--acc));opacity:0}
+.dg-pkt.on{opacity:1}
+.dg-elab{font:600 11px var(--mono);fill:var(--fg2)}
+.dg-node{position:absolute;transform:translate(-50%,-50%);min-width:120px;max-width:180px;padding:12px 14px;border-radius:16px;border:1px solid var(--line);
+  background:var(--bg2);display:grid;gap:3px;text-align:left;transition:border-color .3s,box-shadow .3s,opacity .3s;z-index:1}
+.light .dg-node{background:#fff;box-shadow:0 6px 20px rgba(10,10,12,.06)}
+.dg-node b{display:flex;align-items:center;gap:8px;font:800 14.5px/1.2 var(--display);letter-spacing:-.01em}
+.dg-node b i{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
+.light .dg-node b i{color:var(--acc-dark,var(--acc))}
+.dg-node small{font:500 11.5px/1.35 var(--body);color:var(--fg3)}
+.dg-node.hot{border-color:color-mix(in srgb,var(--acc) 70%,transparent);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 14%,transparent)}
+.dg-node.dim{opacity:.65}
+.dg-node.big{min-width:150px;padding:16px 18px}
+.dg-node.big b{font-size:17px}
+.dg-steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.dg-steps button{flex:1 1 160px;display:grid;gap:6px;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:transparent;cursor:pointer;transition:all .25s;color:var(--fg2);font:500 13.5px/1.4 var(--body)}
+.dg-steps button em{font:700 10.5px var(--mono);letter-spacing:.12em;font-style:normal;color:var(--fg3)}
+.dg-steps button i{display:block;height:2px;border-radius:2px;background:var(--line);overflow:hidden}
+.dg-steps button i::after{content:"";display:block;height:100%;width:0;background:var(--acc)}
+.dg-steps button.on{border-color:color-mix(in srgb,var(--acc) 55%,transparent);color:var(--fg);background:color-mix(in srgb,var(--acc) 7%,transparent)}
+.dg-steps button.on em{color:var(--acc)}
+.light .dg-steps button.on em{color:var(--acc-dark,var(--acc))}
+.dg-steps button.on i::after{width:100%;transition:width var(--dgt,2.8s) linear}
+.dg-steps button.done i::after{width:100%}
+.dg-note{margin-top:12px;font:500 12px var(--mono);color:var(--fg3)}
+@media (max-width:700px){.dg{padding:14px}.dg-node{min-width:0;max-width:44vw;padding:10px 11px}.dg-node small{font-size:11px}.dg-steps button{flex-basis:100%}}
+
+/* compare: before vs with Swop */
+.cmp{display:grid;grid-template-columns:1fr 1fr;border-radius:24px;border:1px solid var(--line);overflow:hidden}
+.cmp>div{padding:24px 26px;display:grid;gap:12px;align-content:start}
+.cmp>div:first-child{background:var(--glass)}
+.cmp>div:last-child{background:color-mix(in srgb,var(--acc) 7%,var(--glass));border-left:1px solid var(--line)}
+.cmp h4{font:800 13px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+.cmp>div:last-child h4{color:var(--acc)}
+.light .cmp>div:last-child h4{color:var(--acc-dark,var(--acc))}
+.cmp ul{list-style:none;display:grid;gap:10px}
+.cmp li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;color:var(--fg2);line-height:1.45}
+.cmp li::before{content:"✕";font-weight:700;color:var(--fg3)}
+.cmp>div:last-child li::before{content:"✓";color:var(--acc)}
+.light .cmp>div:last-child li::before{color:var(--acc-dark,var(--acc))}
+.cmp li b{color:var(--fg)}
+@media (max-width:760px){.cmp{grid-template-columns:1fr}.cmp>div:last-child{border-left:0;border-top:1px solid var(--line)}}
+
+/* native scroll-driven reveals where supported (no JS timing needed) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .js [data-rv]:not(.in){opacity:1;transform:none}
+    [data-rv]{animation:rvin linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+    @keyframes rvin{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  }
+}
+
+/* device: one phone frame for every real app screen. Real proportions, sized by --w (scales down to its container).
+   Screens are top-aligned; the frame draws the bezel, side buttons and home bar (the screenshot carries its own status bar). */
+.device{--w:270px;position:relative;width:min(100%,var(--w));aspect-ratio:600/1128;flex:none;margin-inline:auto;border-radius:calc(var(--w)*.16);padding:calc(var(--w)*.032);
+  background:linear-gradient(150deg,#3a3a44 0%,#15151b 22%,#0b0b10 60%,#26262e 100%);
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 3px #08080c,0 1px 0 rgba(255,255,255,.08),0 34px 70px -18px rgba(0,0,0,.55),0 14px 30px -12px rgba(0,0,0,.35)}
+.light .device{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 3px #08080c,0 40px 70px -24px rgba(10,10,12,.35),0 14px 28px -14px rgba(10,10,12,.25)}
+.device::before{content:"";position:absolute;right:-2px;top:26%;width:3px;height:13%;border-radius:2px;background:#2b2b33}
+.device>img,.device>.scrn{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;aspect-ratio:600/1128;border-radius:calc(var(--w)*.13);background:#fafafa;overflow:hidden}
+.device::after{content:"";position:absolute;left:50%;bottom:calc(var(--w)*.05);width:34%;height:4px;margin-left:-17%;border-radius:4px;background:rgba(10,10,12,.55)}
+.device.sm{--w:210px}.device.lg{--w:320px}
+.device+.real,.device+.rt{display:flex;justify-content:center;margin-top:12px}
+
+/* media card: text left, device on the right rising out of the card's bottom edge */
+.bx.media{display:grid;grid-template-columns:minmax(0,1fr) 240px;column-gap:32px;grid-auto-rows:min-content;padding-bottom:0}
+.bx.media>*:not(.viz){grid-column:1}
+.bx.media>.viz{grid-column:2;grid-row:1/span 8;align-self:end;width:240px;margin:0;padding:0;display:flex;flex-direction:column;align-items:center}
+.bx.media>.viz .device{--w:230px;width:230px;border-bottom-left-radius:0;border-bottom-right-radius:0;aspect-ratio:9/14;padding-bottom:0}
+.bx.media>.viz .device::after{display:none}
+.bx.media>.viz .device>img{border-bottom-left-radius:0;border-bottom-right-radius:0}
+.bx.media>.viz .real,.bx.media>.viz .rt{order:-1;margin:0 0 12px}
+.bx.media>p{max-width:34ch}
+@media (max-width:700px){.bx.media{grid-template-columns:1fr}.bx.media>.viz{grid-column:1;grid-row:auto;width:auto;margin-top:18px}.bx.media>.viz .device{--w:230px}}
+.device.mock>div{display:grid;place-items:center;align-content:center;gap:8px;width:100%;height:100%;padding:18px;text-align:center;background:#fafafa;color:#0a0a0c;border-radius:calc(var(--w)*.13)}
+.device.mock .big{font:900 34px/1 var(--display);letter-spacing:-.04em}
+.device.mock small{font:500 12.5px/1.4 var(--body);color:rgba(10,10,12,.6)}
+
+/* step strips with real screens: on phones, a swipeable row of full-size screens instead of tiny thumbnails */
+@media (max-width:700px){
+  .steps:has(.device),.t30 .steps:has(.device){display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin-inline:-20px;padding:4px 20px 14px;scrollbar-width:none}
+  .steps:has(.device)::-webkit-scrollbar{display:none}
+  .steps>.stp:has(.device){flex:0 0 76%;scroll-snap-align:center;display:grid;grid-template-columns:1fr;grid-template-rows:none;row-gap:8px}
+  .steps>.stp>.device{--w:230px;grid-row:auto;margin-bottom:6px}
+  .steps>.stp .n{padding-top:0}
+}
+
+.dg-node:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.dg-steps button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* frames wrap the screenshot exactly: the image sets the height, so nothing is cut at the sides */
+.device:has(>img){aspect-ratio:auto;height:max-content;align-self:start}
+.device>img{height:auto;aspect-ratio:600/1128}
+.bx.media>.viz .device:has(>img){aspect-ratio:9/14;height:auto}
+.bx.media>.viz .device>img{height:100%;aspect-ratio:auto}

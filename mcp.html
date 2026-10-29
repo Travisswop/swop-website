@@ -22,13 +22,14 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Swop MCP", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any MCP client", "url": "https://mcp.swopme.co", "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "A remote MCP server that lets ChatGPT, Claude and Grok use Swop: identity, stores, payments, swaps, perps and prediction markets, inside user-set caps."}</script>
 <style>
-body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 /* hero: three assistants plug into one Swop server, chat streams tool calls */
 .rig{position:relative;display:grid;gap:18px;justify-items:center;width:100%;max-width:560px;justify-self:center}
 .ais{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width:100%}
@@ -144,7 +145,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>mcp</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>mcp</span></a>
   <div class="navlinks"><a href="#explain">In 30 seconds</a><a href="#setup">Connect</a><a href="#tools">Tools</a><a href="#control">Your control</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -398,6 +399,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* copy the connector URL */
 document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{

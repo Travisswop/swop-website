@@ -22,10 +22,11 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Swivy", "applicationCategory": "DeveloperApplication", "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "Wallet and identity platform for developers: login, embedded EVM and Solana wallets, signing, gas sponsorship, agent permissions and Sign in with Swop (OIDC). In development."}</script>
 <style>
 body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
@@ -132,7 +133,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swivy</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swivy</span></a>
   <div class="navlinks"><a href="#s30">The basics</a><a href="#how">How it works</a><a href="#sso">Sign in with Swop</a><a href="#platform">Platform</a><a href="#status">Status</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -381,6 +382,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* hero: code appears line by line, then a user signs in and gets two wallets; loops */
 (()=>{const lines=[...document.querySelectorAll('#code .ln0')],siws=document.getElementById('siws'),a1=document.getElementById('a1'),a2=document.getElementById('a2'),st=document.getElementById('wst');

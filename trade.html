@@ -22,10 +22,11 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Swop Trading", "applicationCategory": "FinanceApplication", "operatingSystem": "iOS, Android, Web", "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "Swaps, perps, prediction markets and copy trading in one Swop wallet."}</script>
 <style>
 
@@ -173,7 +174,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>trading</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>trading</span></a>
   <div class="navlinks"><a href="#t30">In 30 seconds</a><a href="#how">How it works</a><a href="#markets">Markets</a><a href="#why">Why Swop</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -201,7 +202,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
         <div class="spark"><span class="ill">ILLUSTRATIVE</span><svg viewBox="0 0 300 84" preserveAspectRatio="none"><path id="spk" d="" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linejoin="round"/><path id="spf" d="" fill="rgba(56,189,248,.12)"/></svg></div>
         <div class="tact"><div class="copy">Copy trade</div><div class="rx"><span>♥ 24</span><span>↻ 9 copied</span></div></div>
       </div>
-      <figure class="rph"><img src="/assets/live/trade-swap.webp" alt="The Swop app swap screen: pay USDC, receive SWOP, with a dial to size the trade" fetchpriority="high"><span class="realtag">Real screen</span></figure>
+      <figure class="rph"><img src="/assets/live/trade-swap-ex.webp" alt="The Swop app swap screen: pay USDC, receive SWOP, with a dial to size the trade" fetchpriority="high"><span class="realtag">Real screen · example data</span></figure>
     </div>
   </div>
   <div class="scue" aria-hidden="true">SCROLL<i></i></div>
@@ -272,11 +273,11 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 
 <section class="sec gut" id="how">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.03 · How it works</span><h2>Four markets. <span class="acc">One wallet.</span></h2><p>These are the real screens in the Swop app today (the wallet shows example numbers). Scroll to walk through each one.</p></div>
+    <div class="sh"><span class="lab">S.03 · How it works</span><h2>Four markets. <span class="acc">One wallet.</span></h2><p>These are the real screens in the Swop app today (the wallet and swap show example numbers). Scroll to walk through each one.</p></div>
     <div class="story">
       <div class="stick">
         <div class="phone">
-          <div class="scr img" data-i="0"><img src="/assets/live/trade-swap.webp" alt="Swap screen: pay one token, receive another, with Market and Limit modes" loading="lazy"><span class="realtag">Real screen</span></div>
+          <div class="scr img" data-i="0"><img src="/assets/live/trade-swap-ex.webp" alt="Swap screen: pay one token, receive another, with Market and Limit modes" loading="lazy"><span class="realtag">Real screen · example data</span></div>
           <div class="scr img" data-i="1"><img src="/assets/live/trade-perps.webp" alt="Perps screen: leverage from 2x to 25x, isolated or cross margin, take profit and trailing stop loss" loading="lazy"><span class="realtag">Real screen</span></div>
           <div class="scr img" data-i="2"><img src="/assets/live/trade-predictions.webp" alt="Predictions screen: games by league with upcoming NBA matchups and prices" loading="lazy"><span class="realtag">Real screen</span></div>
           <div class="scr img" data-i="3"><img src="/assets/live/feed.webp" alt="The Swop feed with posts from people you follow" loading="lazy"><span class="realtag">Real screen</span></div>
@@ -418,6 +419,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   /* markets explorer tabs */

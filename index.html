@@ -23,8 +23,9 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700;800&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <style>
 /* Layout: a guided scroll story through one name (maya.swop.id). Pinned, scrubbed scenes in swopme.co's dark world:
    near-black, neon green, gold/sky/violet accents, Figtree 900 display, Space Mono labels. Single deliberate dark look. */
@@ -145,7 +146,7 @@ nav.top .links a:hover,.navshop:hover{color:#fff}
 @media (max-width:980px){.hgrid{grid-template-columns:1fr;gap:14px}.hphone{order:-1;min-height:0;display:block}.hphone .phone{display:none}.toasts{position:relative;top:auto;left:auto;transform:none;width:100%;min-height:128px}.scrollcue{display:none}#hero .hero-ui{padding-top:92px}}
 
 /* ===== light world (matches the app) ===== */
-.light{--bg:#FAFAFA;--bg2:#ffffff;--glass:#ffffff;--glass2:#f1f1ef;--line:rgba(10,10,12,.09);--fg:#0a0a0c;--fg2:rgba(10,10,12,.66);--fg3:rgba(10,10,12,.46);
+.light{--bg:#FAFAFA;--bg2:#ffffff;--glass:#ffffff;--glass2:#f1f1ef;--line:rgba(10,10,12,.09);--fg:#0a0a0c;--fg2:rgba(10,10,12,.7);--fg3:rgba(10,10,12,.6);
   --green:#0a9f55;--gold:#b7791f;--sky:#1f6fd1;--lilac:#7c3aed;background:var(--bg);color:var(--fg)}
 .light .btn-g{background:#0a0a0c;color:#fff;box-shadow:0 10px 24px rgba(10,10,12,.18)}
 .light .btn-o{background:#fff;border:1px solid var(--line);color:#0a0a0c}
@@ -680,7 +681,7 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 .ot-live i{width:6px;height:6px;border-radius:50%;background:#3FE08F;box-shadow:0 0 8px #3FE08F;animation:otblink 1.3s infinite}
 @keyframes otblink{50%{opacity:.3}}
 .ot-lines{height:132px;padding:10px 14px;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:4px;font:500 12.5px/1.45 "JetBrains Mono",monospace;color:rgba(255,255,255,.72)}
-.ot-lines div{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ot-lines div{flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .ot-lines .g{color:#3FE08F}.ot-lines .r{color:#ff8a8a}.ot-lines .d{color:rgba(255,255,255,.4)}
 .ot-lines .cur::after{content:"▍";color:#3FE08F;animation:otblink 1s steps(1) infinite}
 .ot-note{grid-column:1;grid-row:3;align-self:end;font:500 11.5px Inter;color:rgba(255,255,255,.38);transition:opacity .4s}.ot-note.quiet{opacity:0}
@@ -690,7 +691,7 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
   .ot-head p,.ot-note{display:none}
   .ot-head h2{font-size:clamp(32px,9vw,44px)}
   .ot-ph{flex-direction:row;padding-top:0}.ot-ph li{display:none}.ot-ph li.on{display:flex}
-  .ot-term{grid-column:1;grid-row:3;width:100%}.ot-lines{height:76px;font-size:11.5px}
+  .ot-term{grid-column:1;grid-row:3;width:100%}.ot-lines{height:100px;font-size:11.5px}.ot-lines div:nth-last-child(n+5){display:none}
   .ot-n{padding:6px 10px 6px 7px}.ot-n b{font-size:11.5px}.ot-n em{display:none}
   .ot-risk{width:176px;padding:10px 12px;gap:5px}.ot-risk .ck{font-size:11.5px}
   .ot-fill{width:186px;padding:10px 12px}.ot-fill b{font-size:16px}
@@ -833,6 +834,18 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 }
 </style>
 <link rel="stylesheet" href="/assets/footer.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
+<style>
+/* homepage: tokens the shared blocks expect */
+.hk{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41;--body:"Inter",ui-sans-serif,system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,Menlo,monospace;--ease:cubic-bezier(.16,1,.3,1);padding-block:clamp(90px,11vw,150px)}
+.hk .hk-h{display:grid;gap:16px;max-width:820px;margin-bottom:40px}
+.hk .hk-h h2{font-size:clamp(40px,5.4vw,76px)}
+.hk .hk-h p{color:var(--fg2);font-size:clamp(17px,1.4vw,20px);max-width:56ch}
+.hk .hk-gap{height:clamp(70px,9vw,120px)}
+.hk .key .proof a{color:var(--acc);text-decoration:none}
+.hk .key .proof a:hover{text-decoration:underline}
+.light .st.live{color:#067a41}
+</style>
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -873,13 +886,13 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
     <div class="fan" id="fan">
       <div class="blob b1"></div><div class="blob b2"></div>
       <!-- left: SmartSite -->
-      <div class="fp fl" id="fpL"><div class="phone"><div class="scr shot" style="background:#FAFAFA"><img src="assets/screens/profile.jpg" alt="A SmartSite profile in the Swop app" loading="eager" decoding="async"></div></div></div>
+      <div class="fp fl" id="fpL"><div class="phone"><div class="scr shot" style="background:#FAFAFA"><img src="/assets/live/swopid-profile-ex.webp" alt="Maya's SmartSite profile in the Swop app (example data)" loading="eager" decoding="async"></div></div></div>
       <!-- right: feed with a live prediction -->
       <div class="fp fr" id="fpR"><div class="phone"><div class="scr shot" style="background:#fafafa"><img src="assets/screens/feed.jpg" alt="A live prediction with Copy Bet in the Swop feed" loading="eager" decoding="async"></div></div></div>
       <!-- center: wallet with payments landing -->
       <div class="fp fc" id="fpC">
         <div class="toasts" id="toasts" aria-live="polite"></div>
-        <div class="phone"><div class="scr shot" style="background:#f4f4f2"><img src="assets/screens/wallet.jpg" alt="The Swop wallet" loading="eager" decoding="async"></div></div>
+        <div class="phone"><div class="scr shot" style="background:#f4f4f2"><img src="/assets/live/wallet-ex.webp" alt="The Swop wallet (example data)" loading="eager" fetchpriority="high" decoding="async"></div></div>
       </div>
     </div>
   </div>
@@ -937,10 +950,10 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
       <article class="bt t5" data-t="5">
         <div class="bh"><span class="bn">5</span><span class="st live">Live</span></div>
         <h3>All running on SWOP.</h3>
-        <div class="tokorb" id="tokorb" aria-label="SWOP token uses, all live: AI credits, rewards, staking, marketplace, feed ads, subscriptions and swap fees">
+        <div class="tokorb" id="tokorb" aria-label="SWOP token uses, all live: AI credits, rewards, marketplace, feed ads, subscriptions and swap fees">
           <svg class="orb-ring" aria-hidden="true"><ellipse/></svg>
           <div class="tcoin" aria-hidden="true"><div class="tface"><svg viewBox="0 0 88 18"><use href="#swop"/></svg></div></div>
-          <span class="tu live"><i></i>AI credits</span><span class="tu live"><i></i>Rewards</span><span class="tu live"><i></i>Staking</span><span class="tu live"><i></i>Marketplace</span><span class="tu live"><i></i>Feed ads</span><span class="tu live"><i></i>Subscriptions</span><span class="tu live"><i></i>Swap fees</span>
+          <span class="tu live"><i></i>AI credits</span><span class="tu live"><i></i>Rewards</span><span class="tu live"><i></i>Marketplace</span><span class="tu live"><i></i>Feed ads</span><span class="tu live"><i></i>Subscriptions</span><span class="tu live"><i></i>Swap fees</span>
         </div>
         <div class="tlegend"><span><i class="l"></i>All seven live today</span></div>
       </article>
@@ -949,7 +962,38 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 3 MEET MAYA -->
-<section id="maya" class="gut light" data-ch="04 · Your page">
+<!-- THREE THINGS + HOW IT FITS -->
+<section id="fits" class="gut hk" data-ch="04 · How it fits">
+  <div class="wrap">
+    <div class="hk-h"><span class="lab">Three things to know</span><h2>Swop, <span class="green">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>One name for everything.</h3><p>Your swop.id is your page, your wallet and your login, on five chains and in every app built on Swop.</p><div class="proof"><em class="st live">Live</em><a href="/swopid">How swop.id works →</a></div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>Get paid by anyone, even AI.</h3><p>One link: people pay by card or crypto, AI agents pay on their own. You get USDC, minus 0.5% when a person pays and 0% from agents at launch.</p><div class="proof"><em class="st live">Live</em><a href="/pay">How Swop Pay works →</a></div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>An AI that works for you.</h3><p>Ovi, or ChatGPT, Claude and Grok through the Swop MCP, can sell, pay and trade for you. Nothing moves without your yes, inside limits you set.</p><div class="proof"><em class="st beta">Beta</em><a href="/ovi">Meet Ovi →</a><a href="/mcp">Swop MCP →</a></div></div>
+    </div>
+    <div class="hk-gap"></div>
+    <div class="hk-h"><span class="lab">How it fits together</span><h2>Follow one name <span class="green">through Swop.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.2","stepMs":3200,
+      "nodes":[
+        {"id":"buyers","x":7,"y":18,"mx":26,"my":7,"label":"People & AI agents","sub":"card · crypto · USDC","icon":"plug"},
+        {"id":"page","x":31,"y":18,"mx":74,"my":7,"label":"Her page","sub":"links, shop, feed","icon":"app"},
+        {"id":"maya","x":50,"y":56,"mx":50,"my":31,"label":"maya.swop.id","sub":"one name you own","icon":"id","big":true},
+        {"id":"wallet","x":71,"y":18,"mx":26,"my":56,"label":"Her wallet","sub":"USDC · 5 chains","icon":"wallet"},
+        {"id":"trade","x":93,"y":18,"mx":74,"my":82,"label":"Trade & send","sub":"swaps · perps · predictions","icon":"trade"},
+        {"id":"ai","x":78,"y":86,"mx":26,"my":82,"label":"Ovi & any AI","sub":"acts inside her limits","icon":"spark"},
+        {"id":"world","x":22,"y":86,"mx":74,"my":56,"label":"El Dorado","sub":"same swop.id","icon":"world"}],
+      "edges":[
+        {"from":"maya","to":"page","step":1},{"from":"maya","to":"wallet","step":1},
+        {"from":"buyers","to":"page","label":"pays","step":2},{"from":"page","to":"wallet","label":"USDC","step":2},
+        {"from":"wallet","to":"trade","step":3},
+        {"from":"ai","to":"wallet","label":"with her yes","step":4},
+        {"from":"maya","to":"world","label":"sign in","step":5}],
+      "steps":["Maya claims maya.swop.id: one name that is her page, her wallet and her login.","People and AI agents buy from her page; USDC lands in her wallet.","From the same wallet she swaps, trades and sends money to any name.","Ovi, or her favourite AI through the Swop MCP, handles the busywork. She approves.","She walks into El Dorado, Swop's virtual world, with the same swop.id."],
+      "note":"Maya is an example name. El Dorado and Ovi are in beta."}</script></div>
+  </div>
+</section>
+
+<section id="maya" class="gut light" data-ch="05 · Your page">
   <div class="maya-bgword" id="bgword" aria-hidden="true">maya.swop.id&nbsp;maya.swop.id</div>
   <div class="wrap maya-grid">
     <div class="mcopy">
@@ -967,7 +1011,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 4 FOLLOW A DOLLAR -->
-<section id="dollar" data-ch="05 · Get paid">
+<section id="dollar" data-ch="06 · Get paid">
   <div class="dhead gut"><div class="wrap shead"><span class="lab">Payments · <span class="st live">Live</span></span><h2>Follow <span class="green">$25</span><br>to Maya's wallet.</h2><p>Someone buys her hoodie. Scroll to watch the money move.</p></div></div>
   <div class="dtrack-wrap" id="dwrap">
     <div class="dline"><i id="dfill"></i></div>
@@ -990,7 +1034,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 5 MEMBERS: AGENT FLOW -->
-<section id="members" class="gut light" data-ch="06 · Who it's for">
+<section id="members" class="gut light" data-ch="07 · Who it's for">
   <div class="wrap">
     <div class="afhead">
       <div class="shead"><span class="lab">Who it's for</span><h2>Say what you want.<br><span class="green">Approve. Done.</span></h2>
@@ -1016,7 +1060,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <!-- 7 THE SWOP SYSTEM -->
 
 <!-- 6B OVI TRADING AGENT: WATCH OVI THINK -->
-<section id="agent" data-ch="07 · Trading agent"><div class="ot-pin">
+<section id="agent" data-ch="08 · Trading agent"><div class="ot-pin">
   <canvas class="ot-cv" aria-hidden="true"></canvas>
   <div class="ot-word" aria-hidden="true"><span>LISTENING</span></div>
   <div class="ot-stage" aria-label="Animation: market signals flow into Ovi, which decides, passes your risk rules and executes on Hyperliquid">
@@ -1045,7 +1089,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   </div>
 </div></section>
 
-<section id="system" class="gut" data-ch="08 · The Swop system">
+<section id="system" class="gut" data-ch="09 · The Swop system">
   <canvas id="stars" aria-hidden="true"></canvas>
   <div class="wrap">
     <div class="sysgrid">
@@ -1053,7 +1097,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
         <span class="lab">The Swop system</span>
         <h2>Every Swop product, <span class="green">in one orbit.</span></h2>
         <p class="sysdek"><b id="sysCount">0</b> products around one name, from live today to what's next.</p>
-        <div class="chips" id="chips" role="tablist" aria-label="Product categories"></div>
+        <div class="chips" id="chips" role="group" aria-label="Product categories"></div>
         <p class="syshint">Tap any planet to see what it does.</p>
       </div>
       <div class="orrery" id="orrery" aria-label="Map of Swop products">
@@ -1065,14 +1109,14 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 8 NUMBERS -->
-<section id="nums" data-ch="09 · By the numbers">
+<section id="nums" data-ch="10 · By the numbers">
   <div class="mq" id="mq1"><span>$0 network fees</span><span class="o">~2s to settle</span><span>5 chains</span><span class="o">USDC payouts</span><span>$0 network fees</span><span class="o">~2s to settle</span></div>
   <div class="mq" id="mq2" style="color:var(--green)"><span class="o" style="-webkit-text-stroke-color:rgba(0,255,136,.5)">people</span><span>businesses</span><span class="o" style="-webkit-text-stroke-color:rgba(0,255,136,.5)">AI agents</span><span>one name</span><span class="o" style="-webkit-text-stroke-color:rgba(0,255,136,.5)">people</span><span>businesses</span></div>
   <div class="gut"><div class="wrap numsnote">Network fees sponsored by Swop · ~2s settlement on Solana · Swop checkout fee is 0.5%, paid by the seller</div></div>
 </section>
 
 <!-- STEPS -->
-<section class="blk gut light" id="start" data-ch="10 · Get started">
+<section class="blk gut light" id="start" data-ch="11 · Get started">
   <div class="wrap"><div class="shead"><span class="lab">Get started</span><h2>Up and running<br>in a minute.</h2></div>
     <div class="gsteps">
       <div class="stp" style="--c:var(--green)"><span class="num">01 · CLAIM</span><h3>Pick your swop.id</h3><p>Your name becomes your page, your payment address and your login.</p></div>
@@ -1082,7 +1126,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- FAQ -->
-<section class="blk gut light" id="faq" style="padding-top:0" data-ch="11 · Questions">
+<section class="blk gut light" id="faq" style="padding-top:0" data-ch="12 · Questions">
   <div class="wrap"><div class="shead"><span class="lab" style="--c:var(--lilac)">Questions</span><h2>Ask Swop.</h2></div>
     <div class="faq"><div class="qlist" id="qlist"></div><div class="thread" id="thread" aria-live="polite"><div class="bub them" style="font-size:14px;line-height:20px">Hi 👀 Pick a question and I'll answer it.</div></div></div></div>
 </section>
@@ -1207,11 +1251,12 @@ const IC={id:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.4-4 12.6-4 14 0"/
  key:'<circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>',server:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
  chain:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
 const svgI=(k,sz=16)=>k==='owl'?`<img src="assets/ovi-mark-256.png" alt="" width="${sz+6}" height="${sz+6}" style="border-radius:50%;display:block">`:`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
+window.SwopKit=window.SwopKit||{};window.SwopKit.icon=svgI;
 const CATC={id:'#3FE08F',money:'#f5c842',ai:'#c084fc',infra:'#38bdf8'};
 
 const orr=$('#orrery'),planets=[];let sysCat='id',sysSel=null;
 $('#sysCount').textContent=PR.length;
-$('#chips').innerHTML=CATS.map(c=>`<button class="chip" role="tab" data-k="${c.k}" aria-pressed="false">${c.n}<em>${PR.filter(p=>p[0]===c.k).length}</em></button>`).join('');
+$('#chips').innerHTML=CATS.map(c=>`<button class="chip" data-k="${c.k}" aria-pressed="false">${c.n}<em>${PR.filter(p=>p[0]===c.k).length}</em></button>`).join('');
 const PL=[];
 const ANG={id:[205,-25,95],money:[-115,-60,-5,50,140,170],ai:[-85,15,110,215],infra:[-35,65,160]};
 const lineSvg=document.createElementNS('http://www.w3.org/2000/svg','svg');lineSvg.setAttribute('class','sysline');lineSvg.setAttribute('viewBox','0 0 100 100');lineSvg.setAttribute('preserveAspectRatio','none');
@@ -1566,5 +1611,6 @@ addEventListener('load',()=>ScrollTrigger.refresh());
 <div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
 </footer>
 <!-- site-footer:end -->
+<script src="/assets/p/diagram.js" defer></script>
 </body>
 </html>

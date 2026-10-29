@@ -22,10 +22,11 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Geo Bucks by Swop", "applicationCategory": "FinanceApplication", "operatingSystem": "iOS, Android, Web", "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "Merchant-issued store credit and geofenced reward drops in the Swop app."}</script>
 <style>
 
@@ -159,7 +160,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>geo bucks</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>geo bucks</span></a>
   <div class="navlinks"><a href="#t30">In 30 seconds</a><a href="#how">How it works</a><a href="#why">Why it works</a><a href="#who">Shoppers &amp; shops</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -425,6 +426,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const bs=[...document.querySelectorAll('[data-aud]')],ps=[...document.querySelectorAll('[data-audp]')];

@@ -22,13 +22,14 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Swop Pay", "serviceType": "Online checkout and payments", "provider": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "One product link that people pay by card or token and AI agents pay automatically in USDC. 0.5% per sale, minimum $0.015, absorbed by the seller."}</script>
 <style>
-body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 /* hero: one link splits into a person lane and an AI agent lane, both land as USDC */
 .lanes{position:relative;width:100%;max-width:600px;aspect-ratio:1/1.02;justify-self:center}
 .lanes svg.wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -188,7 +189,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>pay</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>pay</span></a>
   <div class="navlinks"><a href="#what">How it works</a><a href="#more-than-checkout">Send · Launch · Your site</a><a href="#calc">Fees</a><a href="#ways">Ways to pay</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -486,6 +487,7 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* fee calculator: people pay 0.5% (min 0.015, absorbed by the seller); AI agent purchases carry 0% platform fee at launch (x402Fulfillment.service.js) */
 (()=>{const $=s=>document.querySelector(s);const inp=$('#fp'),rng=$('#fr');

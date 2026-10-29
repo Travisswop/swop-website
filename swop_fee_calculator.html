@@ -20,13 +20,14 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <link rel="stylesheet" href="/assets/footer.css">
 <style>
-body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 /* calculator */
 .calc{position:relative;border-radius:30px;border:1px solid var(--line);padding:26px;display:grid;gap:22px;
   background:radial-gradient(500px 260px at 100% 0%,rgba(63,224,143,.12),transparent 70%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
@@ -86,7 +87,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>fees</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>fees</span></a>
   <div class="navlinks"><a href="#calc">Calculator</a><a href="#how">How the fee works</a><a href="#faq">FAQ</a><a href="/pay">Swop Pay</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -266,5 +267,6 @@ exact=20000;$('rev').value=toPos(exact);calc();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 </body>
 </html>

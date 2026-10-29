@@ -22,13 +22,14 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "swop.id & SmartSite", "applicationCategory": "SocialNetworkingApplication", "operatingSystem": "iOS, Android, Web", "offers": [{"@type": "Offer", "price": "0", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Swop Premium", "price": "8.99", "priceCurrency": "USD"}], "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "A name you own that opens your page, receives payments and signs you into apps built on Swop."}</script>
 <style>
-body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 /* claim box (same check and hand-off as the homepage) */
 .claim{position:relative;display:flex;flex-wrap:wrap;align-items:center;width:min(540px,100%);background:rgba(5,5,18,.72);backdrop-filter:blur(8px);border:1px solid rgba(63,224,143,.4);border-radius:18px;padding:6px;box-shadow:0 0 50px rgba(63,224,143,.1)}
 .claim input{background:transparent;border:0;outline:none;color:#fff;font:800 21px var(--display);padding:12px 2px}
@@ -166,7 +167,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop.id</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop.id</span></a>
   <div class="navlinks"><a href="#how">How it works</a><a href="#page">Your page</a><a href="#everywhere">Everywhere</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -234,7 +235,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <div class="steps">
         <div class="stp" data-rv><div class="device"><img src="/assets/live/swopid-profile-ex.webp" alt="A SmartSite profile in the Swop app with a ring of social links around the logo" loading="lazy" decoding="async"></div><span class="n">01 · YOUR PAGE</span><b>A page with your links</b><p>Socials, shop, feed and more in one place.</p></div>
         <div class="stp" data-rv style="--d:.08s"><div class="device"><img src="/assets/live/swopid-send-ex.webp" alt="Send screen in the Swop app: choose a swop.id from your contacts" loading="lazy" decoding="async"></div><span class="n">02 · PAY A NAME</span><b>Get paid by name</b><p>People pick your name, not a long address.</p></div>
-        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/swopid-receive.webp" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
+        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/swopid-receive-ex.webp" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
       </div>
     </div>
     <p style="margin-top:26px"><span class="real">Real screens from the Swop app today, some with example names and numbers</span></p>
@@ -445,6 +446,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* claim: live swop.id availability via the ENS gateway the app uses (same as the homepage); claim hands off to signup.
    The typed name also writes itself into the SmartSite preview. */

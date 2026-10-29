@@ -15,17 +15,18 @@
 <meta property="og:image" content="https://www.swopme.co/assets/og/token.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="SWOP token: One token. Ten jobs. Shown beside the Swop wallet.">
+<meta property="og:image:alt" content="SWOP token: One token. Nine jobs. Shown beside the Swop wallet.">
 <meta name="twitter:image" content="https://www.swopme.co/assets/og/token.jpg">
-<meta name="twitter:image:alt" content="SWOP token: One token. Ten jobs. Shown beside the Swop wallet.">
+<meta name="twitter:image:alt" content="SWOP token: One token. Nine jobs. Shown beside the Swop wallet.">
 <meta name="theme-color" content="#010108">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"SWOP token","url":"https://www.swopme.co/token","publisher":{"@type":"Organization","name":"Swop","url":"https://www.swopme.co"},"description":"What the SWOP token does inside Swop today, and what is planned. Usage-based; no yield promised."}</script>
 <style>
 body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
@@ -117,6 +118,13 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
 .capx{margin-top:12px;text-align:center;font:600 10px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}
 @media (max-width:960px){.s30{grid-template-columns:1fr}.steps3{grid-template-columns:1fr 1fr 1fr;gap:10px}.step3 h4{font-size:15px}.step3 p{font-size:13px}.s30 .row{grid-template-columns:1fr;gap:4px}}
 @media (max-width:600px){.steps3{grid-template-columns:1fr}.step3{grid-template-columns:120px 1fr;grid-template-rows:auto auto 1fr;column-gap:14px;row-gap:6px;align-items:start}.step3 .mini{grid-row:span 3}}
+.wpcard{display:flex;align-items:center;gap:14px;margin-top:22px;padding:16px 18px;border-radius:18px;border:1px solid color-mix(in srgb,var(--acc) 40%,transparent);background:color-mix(in srgb,var(--acc) 7%,transparent);max-width:460px;transition:transform .25s,border-color .25s}
+.wpcard:hover{transform:translateY(-2px);border-color:var(--acc)}
+.wpic{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:color-mix(in srgb,var(--acc) 16%,transparent);color:var(--acc);flex:none}
+.light .wpic{color:var(--acc-dark,var(--acc))}
+.wptx{display:grid;gap:2px}.wptx b{font:800 16px var(--display);letter-spacing:-.01em}.wptx small{font:500 12px var(--mono);color:var(--fg3)}
+.wpar{margin-left:auto;font:700 18px var(--display);color:var(--acc)}
+.wpnote{margin-top:8px;font:500 12px var(--body);color:var(--fg3)}
 </style>
 <link rel="stylesheet" href="/assets/footer.css">
 </head>
@@ -125,7 +133,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
 <div class="grain" aria-hidden="true"></div>
 <div class="pbar" aria-hidden="true"></div>
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop token</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop token</span></a>
   <div class="navlinks"><a href="#s30">The basics</a><a href="#uses">What it does</a><a href="#rewards">Rewards</a><a href="#status">What's next</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -136,7 +144,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
   <div class="wrap hgrid">
     <div class="hcopy">
       <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="lab">S.01 · SWOP token</span><span class="st live">Live</span></div>
-      <h1 data-split>One token.<br><span class="hl">Ten jobs.</span></h1>
+      <h1 data-split>One token.<br><span class="hl">Nine jobs.</span></h1>
       <p class="dek">SWOP is what Swop runs on: it pays for <b>Ovi's thinking</b>, rewards <b>what you do</b>, and is the money of <b>El Dorado</b>. Tap a chip to see each job.</p>
       <div class="btns"><a class="btn btn-a" href="https://swopme.app/wallet">Get SWOP in the app <span class="ar">→</span></a><a class="btn btn-o" href="/ovi">How Ovi uses credits</a></div>
       <div class="hmeta"><span>Solana SPL</span><span>1B fixed supply</span><span>Usage, not yield</span></div>
@@ -173,10 +181,10 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
       </div>
       <div>
         <span class="lab" style="--c:var(--fg3)">How it works</span>
-        <div class="steps3" style="margin-top:22px"><div class="step3" data-rv style="--d:0.00s"><div class="mini"><img src="/assets/live/wallet-ex.webp" alt="The real Swop wallet screen listing tokens including SWOP" loading="lazy" width="600" height="1122"><span class="tagx real">Real app screen · example data</span></div><span class="num">STEP 01</span><h4>It sits in your wallet</h4><p>SWOP shows up in your Swop wallet alongside your other tokens, with its price chart like any other.</p></div><div class="step3" data-rv style="--d:0.08s"><div class="mini"><img src="/assets/live/trade-swap.webp" alt="The real Swop swap screen, swapping USDC for SWOP" loading="lazy" width="600" height="1122"><span class="tagx real">Real app screen</span></div><span class="num">STEP 02</span><h4>Get it two ways</h4><p>Swap for it in the app in a few taps, or earn it as a reward for activity like copied trades and referrals.</p></div><div class="step3" data-rv style="--d:0.16s"><div class="mini"><img src="/assets/live/ovi-ask-swop-ex.webp" alt="The real Ask Swop chat screen showing the AI credits balance" loading="lazy" width="600" height="1122"><span class="tagx real">Real app screen · example data</span></div><span class="num">STEP 03</span><h4>Use it on AI and more</h4><p>Credits for Ask Swop and Ovi are funded with SWOP. The balance sits at the top of the chat.</p></div></div>
+        <div class="steps3" style="margin-top:22px"><div class="step3" data-rv style="--d:0.00s"><div class="mini"><img src="/assets/live/wallet-ex.webp" alt="The real Swop wallet screen listing tokens including SWOP" loading="lazy" width="600" height="1122"><span class="tagx real">Real app screen · example data</span></div><span class="num">STEP 01</span><h4>It sits in your wallet</h4><p>SWOP shows up in your Swop wallet alongside your other tokens, with its price chart like any other.</p></div><div class="step3" data-rv style="--d:0.08s"><div class="mini"><img src="/assets/live/trade-swap-ex.webp" alt="The real Swop swap screen, swapping USDC for SWOP" loading="lazy" width="600" height="1122"><span class="tagx real">Real app screen · example data</span></div><span class="num">STEP 02</span><h4>Get it two ways</h4><p>Swap for it in the app in a few taps, or earn it as a reward for activity like copied trades and referrals.</p></div><div class="step3" data-rv style="--d:0.16s"><div class="mini"><img src="/assets/live/ovi-ask-swop-ex.webp" alt="The real Ask Swop chat screen showing the AI credits balance" loading="lazy" width="600" height="1122"><span class="tagx real">Real app screen · example data</span></div><span class="num">STEP 03</span><h4>Use it on AI and more</h4><p>Credits for Ask Swop and Ovi are funded with SWOP. The balance sits at the top of the chat.</p></div></div>
       </div>
     </div>
-    <div class="gloss" aria-label="Words you'll see"><div><b>SPL token</b>A token on Solana, the same way an ERC-20 is a token on Ethereum. SWOP is one.</div><div><b>Solana</b>The blockchain SWOP is issued on. Fast and cheap to move tokens.</div><div><b>Fixed supply</b>There will only ever be 1 billion SWOP. No more can be created.</div><div><b>Credits</b>Your balance for paying AI usage in Swop, funded with SWOP. Shown in the app before you spend.</div><div><b>Staking, on Swop</b>Setting SWOP aside to unlock or verify a feature. It&#39;s about access, never a payout for holding.</div></div>
+    <div class="gloss" aria-label="Words you'll see"><div><b>SPL token</b>A token on Solana, the same way an ERC-20 is a token on Ethereum. SWOP is one.</div><div><b>Solana</b>The blockchain SWOP is issued on. Fast and cheap to move tokens.</div><div><b>Fixed supply</b>There will only ever be 1 billion SWOP. No more can be created.</div><div><b>Credits</b>Your balance for paying AI usage in Swop, funded with SWOP. Shown in the app before you spend.</div></div>
   </div>
 </section>
 
@@ -247,7 +255,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
       <div class="bx w4" data-rv><div class="ic" data-ic="coin" data-s="22"></div><h3>Fixed supply</h3><p>One billion SWOP, and that number doesn't change. It lives on Solana as an SPL token.</p><div class="viz" style="display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap"><div class="big">1B</div><div style="font:600 14px var(--mono);color:var(--fg2);text-align:right">1,000,000,000 SWOP<br><span style="color:var(--fg3)">fixed supply · SPL on Solana</span></div></div></div>
       <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="owl" data-s="22"></div><h3>Unlock AI on web</h3><p>Hold 1,000+ SWOP and AI opens up on the web app.</p><div class="viz"><div class="big" style="font-size:44px">1,000+</div></div></div>
       <div class="bx w3" data-rv><div class="ic" data-ic="trade" data-s="22"></div><h3>Rewards follow activity</h3><p>Copy-trade and referral rewards come from fees on real activity, so they're tied to what people do.</p><div class="viz split50"><span>Swap fee</span><span class="y">50% → SWOP reward</span></div></div>
-      <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="pay" data-s="22"></div><h3>Spend it inside Swop</h3><p>SWOP works across the app, not only in a wallet.</p><div class="viz uses"><span>Subscriptions</span><span>Marketplace</span><span>Feed ads</span><span>Staking</span><span>Swap fees</span><span>AI credits</span></div></div>
+      <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="pay" data-s="22"></div><h3>Spend it inside Swop</h3><p>SWOP works across the app, not only in a wallet.</p><div class="viz uses"><span>Subscriptions</span><span>Marketplace</span><span>Feed ads</span><span>Swap fees</span><span>AI credits</span></div></div>
       <div class="bx w6" data-rv><div class="ic" data-ic="world" data-s="22"></div><h3>One currency for a whole world</h3><p>In El Dorado, 1 world token is 1 SWOP, so the virtual city and the Swop app share the same money. For now, payouts there are approved by hand and real SWOP stays off until legal review.</p></div>
     </div>
   </div>
@@ -277,7 +285,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
   <div class="wrap">
     <div class="sh"><span class="lab">S.06 · Honest status</span><h2>Live, planned, <span class="acc">and never.</span></h2></div>
     <div class="road">
-      <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>Swop Credits</b> for Ovi and AI.</span></li><li><span><b>Copy-trade and referral rewards</b>, paid in SWOP.</span></li><li><span><b>AI on web</b> for holders of 1,000+ SWOP.</span></li><li><span><b>El Dorado</b> world tokens at 1:1.</span></li><li><span><b>Staking, marketplace, feed ads, subscriptions and swap fees.</b></span></li></ul></div>
+      <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>Swop Credits</b> for Ovi and AI.</span></li><li><span><b>Copy-trade and referral rewards</b>, paid in SWOP.</span></li><li><span><b>AI on web</b> for holders of 1,000+ SWOP.</span></li><li><span><b>El Dorado</b> world tokens at 1:1.</span></li><li><span><b>Marketplace, feed ads, subscriptions and swap fees.</b></span></li></ul></div>
       <div class="rc next" data-rv style="--d:.08s"><span class="st planned">Planned · Swop Chain</span><ul><li><span><b>Creator verification stake</b>: put SWOP behind your name.</span></li><li><span><b>Agent bond</b>: AI agents post SWOP to act.</span></li><li><span><b>Gas</b> on Swop Chain, paid in SWOP.</span></li><li><span><b>Sequencer staking</b> for the chain's operators.</span></li></ul></div>
       <div class="rc build" data-rv style="--d:.16s"><span class="st vision">Never</span><ul><li><span><b>No yield promised</b> for holding or staking.</span></li><li><span><b>No price predictions</b> from Swop.</span></li><li><span><b>Rewards come from activity</b>, not from simply holding.</span></li></ul></div>
     </div>
@@ -305,7 +313,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
     <div class="sh" style="margin:0"><span class="lab">S.08 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
     <div>
       <details><summary>What is SWOP?</summary><p>SWOP is an SPL token on Solana with a fixed supply of one billion. Inside Swop it pays for AI, rewards activity like copied trades and referrals, and is the currency of El Dorado.</p></details>
-      <details><summary>Does holding or staking SWOP earn a yield?</summary><p>No. Swop doesn't promise any yield or return for holding or staking SWOP. Staking is described by what it lets you do, not by a rate.</p></details>
+      <details><summary>Does holding SWOP earn a yield?</summary><p>No. Swop doesn't promise any yield or return for holding SWOP, and there's no staking product today. Planned Swop Chain roles (like a creator verification stake) are about access and security, never a payout.</p></details>
       <details><summary>How do copy-trade rewards work?</summary><p>When someone copies your trade, you, the trader they copied, get 50% of that swap's fee back as a SWOP reward. The copy runs in the follower's own wallet.</p></details>
       <details><summary>How do referral rewards work?</summary><p>For 12 months after someone joins with your invite, you get 50% of their swap fees, paid in SWOP.</p></details>
       <details><summary>What is planned for SWOP?</summary><p>On Swop Chain, which isn't built yet: a stake creators can put behind their name, a bond for AI agents, gas fees, and staking for the chain's operators. Until it ships, it's a plan, not a feature.</p></details>
@@ -313,7 +321,12 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
   </div>
 </section>
 
-<!-- WHITEPAPER: link pending Travis decision -->
+<a class="wpcard" href="/assets/swop-whitepaper-v1.2.pdf" target="_blank" rel="noopener" data-rv>
+  <span class="wpic" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></span>
+  <span class="wptx"><b>Read the whitepaper</b><small>v1.2 · October 2026 · PDF · 17 pages</small></span>
+  <span class="wpar" aria-hidden="true">↗</span>
+</a>
+<p class="wpnote">Informational only; not an offer or investment advice.</p>
 
 <section class="sec gut tight" style="padding-top:0">
   <div class="wrap"><div class="devs" data-rv><span class="lab">For developers</span><a href="https://docs.swopme.co/ovi/billing-and-credits">How credits are billed ↗</a></div></div>
@@ -335,7 +348,7 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
 </main>
 
 <script>
-/* token orbit: ten uses ride a tilted ring around the coin; tap one to read it. Waits for kit.js (deferred) for icons. */
+/* token orbit: nine uses ride a tilted ring around the coin; tap one to read it. Waits for kit.js (deferred) for icons. */
 addEventListener('DOMContentLoaded',()=>{
 const U=[
  ['owl','AI credits','Swop Credits pay for Ovi and AI usage, and they’re funded with SWOP.'],
@@ -343,7 +356,7 @@ const U=[
  ['id','Referrals','For 12 months, 50% of an invited friend’s swap fees, paid in SWOP.'],
  ['key','AI on web','Holding 1,000+ SWOP unlocks AI on the web app.'],
  ['world','El Dorado','The virtual world’s tokens are pegged 1:1 to SWOP.'],
- ['coin','Staking','Stake SWOP in the app. No yield is promised for staking or holding.'],
+
  ['card','Marketplace','Use SWOP for marketplace purchases.'],
  ['live','Feed ads','Promote posts in the Swop feed with SWOP.'],
  ['pay','Subscriptions','Use SWOP toward subscriptions like Swop Premium.'],
@@ -370,6 +383,7 @@ setInterval(()=>{if(auto&&!document.hidden){k=(k+1)%U.length;show(k)}},3200);
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
+<script src="/assets/p/diagram.js" defer></script>
 <!-- site-footer:start -->
 <footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
   <div class="sf-top">

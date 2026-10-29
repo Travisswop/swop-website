@@ -26,6 +26,7 @@
 - [El Dorado](https://www.swopme.co/eldorado): the virtual world of Swop, where AI bots run real businesses (beta)
 - [Decentrabet](https://www.swopme.co/decentrabet): peer-to-peer prediction markets anyone can deploy; testnet beta, unaudited, no real money
 - [Swop Live](https://www.swopme.co/live): go live from your phone or browser and sell while you stream (live)
+- [SWOP whitepaper v1.2 (PDF)](https://www.swopme.co/assets/swop-whitepaper-v1.2.pdf): the SWOP token's uses (AI credits, activity rewards, El Dorado currency, in-app spending), fixed 1B supply, copy-trade economics; usage-based, no yield; informational only
 - [SWOP](https://www.swopme.co/token): the token behind AI credits, rewards and El Dorado currency; usage-based, no yield (live)
 - [Swivy](https://www.swopme.co/swivy): Swop's own wallet and login platform for developers (building; not yet in production)
 
