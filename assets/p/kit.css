@@ -136,14 +136,14 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
 @media (max-width:960px){
   .story{grid-template-columns:1fr}
   .story .stick{top:72px;height:auto;z-index:2;padding-block:8px;background:linear-gradient(var(--bg) 85%,transparent)}
-  .story .stick .phone{transform:scale(.56);transform-origin:top center;margin-bottom:-273px}
+  .story .stick .phone{transform:scale(.56);transform-origin:top center;margin-bottom:-248px}
   .story .stick .win{transform:scale(.8);transform-origin:top center;margin-bottom:calc(-20% - 20px)}
   .story .stick .win .bd{min-height:300px}
   .beat{min-height:62vh;opacity:1}
 }
 
 /* phone frame with swappable screens */
-.phone{position:relative;width:300px;height:620px;border-radius:46px;background:#0b0b12;box-shadow:0 0 0 1.5px #2a2a33,0 0 0 8px #121219,0 0 0 9px #26262e,0 50px 100px rgba(0,0,0,.6),0 0 120px color-mix(in srgb,var(--acc) 18%,transparent);overflow:hidden}
+.phone{position:relative;width:300px;height:564px;border-radius:46px;background:#0b0b12;box-shadow:0 0 0 1.5px #2a2a33,0 0 0 8px #121219,0 0 0 9px #26262e,0 50px 100px rgba(0,0,0,.6),0 0 120px color-mix(in srgb,var(--acc) 18%,transparent);overflow:hidden}
 .phone::before{content:"";position:absolute;top:10px;left:50%;width:96px;height:28px;margin-left:-48px;border-radius:20px;background:#000;z-index:5}
 .scr{position:absolute;inset:0;padding:54px 16px 18px;overflow:hidden;display:flex;flex-direction:column;gap:10px;opacity:0;transform:scale(.97) translateY(10px);transition:opacity .5s var(--ease),transform .6s var(--ease);font-size:13px;color:#fff;background:linear-gradient(#0d0d16,#07070d)}
 .scr.on{opacity:1;transform:none}
@@ -366,12 +366,12 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
 
 /* device: one phone frame for every real app screen. Real proportions, sized by --w (scales down to its container).
    Screens are top-aligned; the frame draws the bezel, side buttons and home bar (the screenshot carries its own status bar). */
-.device{--w:270px;position:relative;width:min(100%,var(--w));aspect-ratio:9/18.6;flex:none;margin-inline:auto;border-radius:calc(var(--w)*.16);padding:calc(var(--w)*.032);
+.device{--w:270px;position:relative;width:min(100%,var(--w));aspect-ratio:600/1128;flex:none;margin-inline:auto;border-radius:calc(var(--w)*.16);padding:calc(var(--w)*.032);
   background:linear-gradient(150deg,#3a3a44 0%,#15151b 22%,#0b0b10 60%,#26262e 100%);
   box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 3px #08080c,0 1px 0 rgba(255,255,255,.08),0 34px 70px -18px rgba(0,0,0,.55),0 14px 30px -12px rgba(0,0,0,.35)}
 .light .device{box-shadow:inset 0 0 0 1px rgba(255,255,255,.14),inset 0 0 0 3px #08080c,0 40px 70px -24px rgba(10,10,12,.35),0 14px 28px -14px rgba(10,10,12,.25)}
 .device::before{content:"";position:absolute;right:-2px;top:26%;width:3px;height:13%;border-radius:2px;background:#2b2b33}
-.device>img,.device>.scrn{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:calc(var(--w)*.13);background:#fafafa;overflow:hidden}
+.device>img,.device>.scrn{display:block;width:100%;height:100%;object-fit:cover;object-position:top center;aspect-ratio:600/1128;border-radius:calc(var(--w)*.13);background:#fafafa;overflow:hidden}
 .device::after{content:"";position:absolute;left:50%;bottom:calc(var(--w)*.05);width:34%;height:4px;margin-left:-17%;border-radius:4px;background:rgba(10,10,12,.55)}
 .device.sm{--w:210px}.device.lg{--w:320px}
 .device+.real,.device+.rt{display:flex;justify-content:center;margin-top:12px}
@@ -401,3 +401,9 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
 
 .dg-node:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 .dg-steps button:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+
+/* frames wrap the screenshot exactly: the image sets the height, so nothing is cut at the sides */
+.device:has(>img){aspect-ratio:auto;height:max-content;align-self:start}
+.device>img{height:auto;aspect-ratio:600/1128}
+.bx.media>.viz .device:has(>img){aspect-ratio:9/14;height:auto}
+.bx.media>.viz .device>img{height:100%;aspect-ratio:auto}
