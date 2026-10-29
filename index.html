@@ -1024,7 +1024,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
     <div class="ot-n sig" data-id="price"><i></i><b>Price</b><em>67,420</em></div>
     <div class="ot-n sig" data-id="volume"><i></i><b>Volume</b><em>+18%</em></div>
     <div class="ot-n sig" data-id="oi"><i></i><b>Open interest</b><em>rising</em></div>
-    <div class="ot-core" data-id="ovi"><img src="assets/ovi-owl-256.png" alt="" width="58" height="58"><span class="ot-cl">Ovi</span></div>
+    <div class="ot-core" data-id="ovi"><img src="assets/ovi-mark-256.png" alt="" width="58" height="58"><span class="ot-cl">Ovi</span></div>
     <div class="ot-risk" data-id="risk"><small>Your rules</small><div class="ck"><i></i>Loss used $0 of $50</div><div class="ck"><i></i>Leverage 3× max</div><div class="ck"><i></i>Venue allowed</div><div class="ot-block">✕ 5× leverage blocked</div></div>
     <div class="ot-x" data-id="exec"><span>◆</span><b>Execute</b></div>
     <div class="ot-n ven" data-id="hl"><i></i><b>Hyperliquid</b></div>
@@ -1206,7 +1206,7 @@ const IC={id:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.4-4 12.6-4 14 0"/
  world:'<path d="M3 20h18M5 20V9l4-3 4 3v11M13 20v-7l3-2 3 2v7"/>',grid:'<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
  key:'<circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>',server:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
  chain:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
-const svgI=(k,sz=16)=>k==='owl'?`<img src="assets/ovi-owl-256.png" alt="" width="${sz+6}" height="${sz+6}" style="border-radius:50%;display:block">`:`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
+const svgI=(k,sz=16)=>k==='owl'?`<img src="assets/ovi-mark-256.png" alt="" width="${sz+6}" height="${sz+6}" style="border-radius:50%;display:block">`:`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
 const CATC={id:'#3FE08F',money:'#f5c842',ai:'#c084fc',infra:'#38bdf8'};
 
 const orr=$('#orrery'),planets=[];let sysCat='id',sysSel=null;

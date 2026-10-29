@@ -32,7 +32,7 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
 /* hero phone: Ovi chat playing on a loop */
 .hphone{position:relative;justify-self:center}
 .hphone .phone{transform:rotate(-4deg)}
-.hphone .orb{position:absolute;width:150px;height:150px;right:-40px;top:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff 0,#e9d5ff 18%,#a855f7 55%,#3b0764 100%);box-shadow:0 0 80px rgba(192,132,252,.6),inset -10px -16px 30px rgba(0,0,0,.35);display:grid;place-items:center;animation:bob 6s ease-in-out infinite;z-index:3}
+.hphone .orb{position:absolute;width:150px;height:150px;right:-40px;top:40px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#1b3a2f 0,#0f1f1a 45%,#0a0a0c 100%);box-shadow:0 0 80px rgba(16,185,129,.45),inset -10px -16px 30px rgba(0,0,0,.35);display:grid;place-items:center;animation:bob 6s ease-in-out infinite;z-index:3}
 .hphone .orb img{width:92px;height:92px;border-radius:50%}
 @keyframes bob{50%{transform:translateY(-14px) rotate(4deg)}}
 .hphone .tag{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(12,10,22,.82);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font:600 13px var(--body);box-shadow:0 20px 40px rgba(0,0,0,.4);animation:bob 7s ease-in-out infinite}
@@ -123,7 +123,7 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
       <div class="hmeta"><span>Approve-first</span><span>Your daily caps</span><span>51 Swop tools</span><span>Paid in Swop Credits</span><span>Ask Swop · in the app</span></div>
     </div>
     <div class="hphone" data-rv>
-      <div class="orb" aria-hidden="true"><img src="/assets/ovi-owl-256.png" alt=""></div>
+      <div class="orb" aria-hidden="true"><img src="/assets/ovi-mark-256.png" alt=""></div>
       <div class="tag t1" aria-hidden="true"><i></i>Private session</div>
       <div class="tag t2" aria-hidden="true">Nothing moves <b>without your yes</b></div>
       <div class="phone real" aria-label="Ask Swop, powered by Ovi, in the Swop app">
@@ -186,21 +186,21 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
         <div class="phone" aria-hidden="true">
           <span class="tagreal ill">Illustration</span>
           <div class="scr" data-i="0" data-delay="800">
-            <div class="bar ovibar"><img src="/assets/ovi-owl-256.png" alt="">Ovi<small>SELL</small></div>
+            <div class="bar ovibar"><img src="/assets/ovi-mark-256.png" alt="">Ovi<small>SELL</small></div>
             <div class="msg me">Make a $15 digital zine. Agents can buy it too.</div>
             <div class="msg ai"><div class="tool">create_product · feature_product</div>Live on your page. One link works for people and for AI agents.</div>
             <div class="card msg ai" style="max-width:100%"><div class="prod"><div class="im">📘</div><div><b>Night Market zine</b><small>swopme.app/p/zine · $15</small></div></div></div>
             <div class="msg ai">An AI agent just bought one. <b>+$14.93 USDC</b> after the 0.5% fee.</div>
           </div>
           <div class="scr" data-i="1" data-delay="800">
-            <div class="bar ovibar"><img src="/assets/ovi-owl-256.png" alt="">Ovi<small>PAY</small></div>
+            <div class="bar ovibar"><img src="/assets/ovi-mark-256.png" alt="">Ovi<small>PAY</small></div>
             <div class="msg me">Send maya.swop.id $25 for dinner.</div>
             <div class="msg ai"><div class="tool">lookup_identity · send</div>Found maya.swop.id. Here's what I'll send:</div>
             <div class="approve"><div class="row"><span>To</span><b>maya.swop.id</b></div><div class="row"><span>Amount</span><b>25.00 USDC</b></div><div class="row"><span>Network</span><b>Base · about 2s</b></div><div class="row"><span>Today's cap left</span><b>$175 of $200</b></div><div class="go"><span>Cancel</span><span class="y">Approve</span></div></div>
             <div class="msg ai">Sent. It's in your activity.</div>
           </div>
           <div class="scr" data-i="2" data-delay="800">
-            <div class="bar ovibar"><img src="/assets/ovi-owl-256.png" alt="">Ovi<small>TRADE</small></div>
+            <div class="bar ovibar"><img src="/assets/ovi-mark-256.png" alt="">Ovi<small>TRADE</small></div>
             <div class="msg me">Watch the rate-cut market. Propose a position, small.</div>
             <div class="msg ai"><div class="tool">search_markets · get_orderbook</div>Here's a proposal. It stays inside your daily loss cap.</div>
             <div class="card msg ai" style="max-width:100%"><div class="chart"><svg viewBox="0 0 200 70" preserveAspectRatio="none"><path d="M0 52 L20 48 L40 50 L60 40 L80 42 L100 30 L120 34 L140 22 L160 26 L180 16 L200 18" fill="none" stroke="#c084fc" stroke-width="2"/></svg></div></div>
