@@ -7,7 +7,7 @@ Web Analytics is enabled on the Vercel project (swop-website). A static site has
 
 Run it after adding a page (new blog posts included). Idempotent: the tags sit between
 <!-- va:start --> and <!-- va:end --> markers just before </head> and are replaced in place.
-Skips assets/ (render templates, not pages) and editorial/ (not deployed).
+Skips assets/ and og.html banner templates (not pages) and editorial/ (not deployed).
 """
 import glob
 import os
@@ -36,7 +36,7 @@ def stamp(path):
 
 if __name__ == '__main__':
     pages = [p for p in glob.glob(os.path.join(ROOT, '**', '*.html'), recursive=True)
-             if not os.path.relpath(p, ROOT).startswith(SKIP)]
+             if not os.path.relpath(p, ROOT).startswith(SKIP) and os.path.basename(p) != 'og.html']
     done = [p for p in pages if stamp(p)]
     missed = sorted(set(pages) - set(done))
     print(f'{len(done)} pages stamped')
