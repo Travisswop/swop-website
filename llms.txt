@@ -15,6 +15,20 @@
   buyUrl. GET it, pay the 402 challenge, retry with X-PAYMENT, receive a receipt.
 - Setup guide: https://github.com/Travisswop/swop-mcp/blob/main/docs/add-swop-to-your-ai.md
 
+## Product pages
+- [Developer docs](https://docs.swopme.co): payments, webhooks, agent payments (x402), Swop MCP, Ovi, swop.id, troubleshooting and the API reference
+- [swop.id & SmartSite](https://www.swopme.co/swopid): your name as your page, wallet and login (live)
+- [Swop Pay](https://www.swopme.co/pay): one link that people and AI agents pay; 0.5% fee absorbed by the seller, paid out in USDC (live)
+- [Geo Bucks & Drops](https://www.swopme.co/geobucks): merchant-issued store credit (1 Buck = $1) and geofenced drops on a map (live)
+- [Trading](https://www.swopme.co/trade): swaps, perps and prediction markets with copy trading and trade cards on the feed (live)
+- [Ovi](https://www.swopme.co/ovi): Swop's AI: proposes sales, payments and trades that you approve inside your caps (beta)
+- [Swop MCP](https://www.swopme.co/mcp): use Swop from ChatGPT, Claude and Grok via https://mcp.swopme.co/mcp (live)
+- [El Dorado](https://www.swopme.co/eldorado): the virtual world of Swop, where AI bots run real businesses (beta)
+- [Decentrabet](https://www.swopme.co/decentrabet): peer-to-peer prediction markets anyone can deploy; testnet beta, unaudited, no real money
+- [Swop Live](https://www.swopme.co/live): go live from your phone or browser and sell while you stream (live)
+- [SWOP](https://www.swopme.co/token): the token behind AI credits, rewards and El Dorado currency; usage-based, no yield (live)
+- [Swivy](https://www.swopme.co/swivy): Swop's own wallet and login platform for developers (building; not yet in production)
+
 ## Key pages
 - [Swop home](https://www.swopme.co): product overview
 - [Web app](https://swopme.app): the Swop wallet in the browser

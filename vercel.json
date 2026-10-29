@@ -10,6 +10,96 @@
       "destination": "/shop.html"
     },
     {
+      "source": "/ovi",
+      "destination": "/ovi.html"
+    },
+    {
+      "source": "/ovi/",
+      "destination": "/ovi.html"
+    },
+    {
+      "source": "/mcp",
+      "destination": "/mcp.html"
+    },
+    {
+      "source": "/mcp/",
+      "destination": "/mcp.html"
+    },
+    {
+      "source": "/swivy",
+      "destination": "/swivy.html"
+    },
+    {
+      "source": "/swivy/",
+      "destination": "/swivy.html"
+    },
+    {
+      "source": "/decentrabet",
+      "destination": "/decentrabet.html"
+    },
+    {
+      "source": "/decentrabet/",
+      "destination": "/decentrabet.html"
+    },
+    {
+      "source": "/swopid",
+      "destination": "/swopid.html"
+    },
+    {
+      "source": "/swopid/",
+      "destination": "/swopid.html"
+    },
+    {
+      "source": "/pay",
+      "destination": "/pay.html"
+    },
+    {
+      "source": "/pay/",
+      "destination": "/pay.html"
+    },
+    {
+      "source": "/geobucks",
+      "destination": "/geobucks.html"
+    },
+    {
+      "source": "/geobucks/",
+      "destination": "/geobucks.html"
+    },
+    {
+      "source": "/trade",
+      "destination": "/trade.html"
+    },
+    {
+      "source": "/trade/",
+      "destination": "/trade.html"
+    },
+    {
+      "source": "/live",
+      "destination": "/live.html"
+    },
+    {
+      "source": "/live/",
+      "destination": "/live.html"
+    },
+    {
+      "source": "/token",
+      "destination": "/token.html"
+    },
+    {
+      "source": "/token/",
+      "destination": "/token.html"
+    },
+    {
+      "source": "/eldorado",
+      "missing": [
+        {
+          "type": "cookie",
+          "key": "ed_session"
+        }
+      ],
+      "destination": "/eldorado.html"
+    },
+    {
       "source": "/eldorado",
       "destination": "https://el-dorado-xi.vercel.app/eldorado"
     },
@@ -33,6 +123,61 @@
     {
       "source": "/shop.html",
       "destination": "/shop",
+      "permanent": true
+    },
+    {
+      "source": "/ovi.html",
+      "destination": "/ovi",
+      "permanent": true
+    },
+    {
+      "source": "/mcp.html",
+      "destination": "/mcp",
+      "permanent": true
+    },
+    {
+      "source": "/swivy.html",
+      "destination": "/swivy",
+      "permanent": true
+    },
+    {
+      "source": "/decentrabet.html",
+      "destination": "/decentrabet",
+      "permanent": true
+    },
+    {
+      "source": "/swopid.html",
+      "destination": "/swopid",
+      "permanent": true
+    },
+    {
+      "source": "/pay.html",
+      "destination": "/pay",
+      "permanent": true
+    },
+    {
+      "source": "/geobucks.html",
+      "destination": "/geobucks",
+      "permanent": true
+    },
+    {
+      "source": "/trade.html",
+      "destination": "/trade",
+      "permanent": true
+    },
+    {
+      "source": "/live.html",
+      "destination": "/live",
+      "permanent": true
+    },
+    {
+      "source": "/token.html",
+      "destination": "/token",
+      "permanent": true
+    },
+    {
+      "source": "/eldorado.html",
+      "destination": "/eldorado",
       "permanent": true
     }
   ]

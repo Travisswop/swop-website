@@ -1,0 +1,32 @@
+/* Site footer: one footer for every page on swopme.co. Self-contained (sf- prefix) so it drops into any page's CSS.
+   Markup is stamped into each page by tools/stamp-footer.py; edit the markup there, not in the pages. */
+.sf{display:block;margin:0;border:0;border-top:0;width:auto;max-width:none;flex-direction:initial;gap:0;text-align:left;position:relative;overflow:hidden;background:#050608;color:rgba(255,255,255,.6);padding:72px max(20px,env(safe-area-inset-right,0px)) 0 max(20px,env(safe-area-inset-left,0px));font:400 14px/1.5 "Inter",ui-sans-serif,system-ui,-apple-system,sans-serif;text-align:left;-webkit-font-smoothing:antialiased}
+.sf *{box-sizing:border-box}
+.sf h4,.sf p{margin:0;padding:0;border:0;background:none;text-transform:none}
+.sf span,.sf b,.sf small{font:inherit;color:inherit;letter-spacing:inherit;text-transform:none;margin:0;padding:0}
+.sf a:hover{color:inherit}
+.sf::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(63,224,143,.6),transparent)}
+.sf a{text-decoration:none;color:inherit}
+.sf-wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%}
+.sf-top{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,2fr);gap:56px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.sf-wm svg{width:120px;height:25px;color:#fff;display:block}
+.sf .sf-brand p{margin:18px 0 22px;font:700 clamp(22px,2.2vw,30px)/1.15 "Figtree",ui-sans-serif,system-ui,sans-serif;letter-spacing:-.03em;color:#fff;max-width:20ch}
+.sf .sf-brand p span{color:#3FE08F}
+.sf-apps{display:flex;flex-wrap:wrap;gap:10px}
+.sf-apps a{display:inline-flex;align-items:center;gap:10px;height:46px;padding:0 15px 0 12px;border:1px solid rgba(255,255,255,.22);border-radius:12px;color:#fff;transition:border-color .2s,background .2s}
+.sf-apps a:hover{border-color:#3FE08F;background:rgba(63,224,143,.06)}
+.sf .sf-apps small{display:block;font:400 10px/1 "Inter",ui-sans-serif,system-ui,sans-serif;color:rgba(255,255,255,.55);line-height:1}
+.sf .sf-apps b{display:block;font:600 17px/1.15 "Inter",ui-sans-serif,system-ui,sans-serif}
+.sf-cols{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px}
+.sf .sf-cols h4{margin:0 0 14px;font:700 11px "Space Mono",ui-monospace,Menlo,monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.sf .sf-cols a{display:block;width:max-content;max-width:100%;padding:5px 0;color:rgba(255,255,255,.82);font:500 15px "Inter",ui-sans-serif,system-ui,sans-serif;transition:color .2s,transform .2s}
+.sf .sf-cols a:hover{color:#3FE08F;transform:translateX(3px)}
+.sf-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:22px 0;font-size:12.5px;color:rgba(255,255,255,.42)}
+.sf-socs{display:flex;gap:8px;margin-right:auto}
+.sf-socs a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.14);transition:all .2s}
+.sf-socs a:hover{color:#050608;background:#3FE08F;border-color:#3FE08F;transform:translateY(-2px)}
+.sf .sf-c{font:400 11.5px "Space Mono",ui-monospace,Menlo,monospace;letter-spacing:.06em}
+.sf-giant{position:relative;z-index:1;margin:0 auto -4.2vw;padding:0 2vw;line-height:0;pointer-events:none;max-width:none}
+.sf-giant svg{width:100%;height:auto;aspect-ratio:88/18;color:rgba(255,255,255,.07);display:block}
+@media (max-width:1000px){.sf-top{grid-template-columns:1fr;gap:36px}.sf-cols{grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}}
+@media (max-width:560px){.sf-cols{grid-template-columns:1fr 1fr}}
