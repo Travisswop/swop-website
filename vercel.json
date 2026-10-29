@@ -2,6 +2,14 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/shop",
+      "destination": "/shop.html"
+    },
+    {
+      "source": "/shop/",
+      "destination": "/shop.html"
+    },
+    {
       "source": "/eldorado",
       "destination": "https://el-dorado-xi.vercel.app/eldorado"
     },
@@ -19,6 +27,13 @@
           "value": "application/json"
         }
       ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/shop.html",
+      "destination": "/shop",
+      "permanent": true
     }
   ]
 }
