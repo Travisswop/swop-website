@@ -30,7 +30,12 @@ button,input,select{font-family:inherit}
 img{display:block;max-width:100%}
 .wrap{width:100%;max-width:1240px;margin:0 auto;padding:0 40px}
 h1,h2,h3{font-family:var(--display);letter-spacing:-.035em;line-height:1}
-h2{font-weight:900;font-size:clamp(34px,4.4vw,60px)}
+h2{font-weight:900;font-size:clamp(38px,5.2vw,72px);letter-spacing:-.045em}
+body{counter-reset:sec}
+.sechead .eyebrow{counter-increment:sec}
+.sechead .eyebrow b{display:none}
+.sechead .eyebrow::before{content:counter(sec,decimal-leading-zero);color:var(--violet);font-weight:700;padding-right:10px;margin-right:2px;border-right:1px solid currentColor;border-right-color:rgba(10,10,12,.18)}
+.dark .sechead .eyebrow::before,.kf .sechead .eyebrow::before{color:var(--green);border-right-color:rgba(255,255,255,.2)}
 .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
 .eyebrow b{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px rgba(63,224,143,.2);display:inline-block}
 .green{color:var(--violet)}
@@ -646,7 +651,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 /* ===== flow map: objects -> one page -> jobs ===== */
 .fx{padding:110px 0 60px}
 .fx .sechead{max-width:820px}
-.fx h2{font-size:clamp(38px,5vw,66px)}
+
 .fx-map{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 250px minmax(0,1fr);gap:0 96px;align-items:center;margin-top:10px}
 .fx-lines{position:absolute;left:0;top:0;pointer-events:none;overflow:visible}
 .fx-lines path{fill:none;stroke:#e1e1dd;stroke-width:1.5;transition:stroke .3s}
@@ -718,17 +723,22 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 }
 @media(prefers-reduced-motion:reduce){.hx-field i,.hx-tick div,.hx-hint::after,.fx-lines path.on{animation:none}.nx-c .dr{transition:none;stroke-dashoffset:0}}
 /* ===== kit finder ===== */
-.kf{padding:70px 0 40px}
+.kf{padding:110px 0 100px;background:#060807;color:#fff;position:relative;overflow:hidden}
+.kf::before{content:"";position:absolute;left:-10%;top:-30%;width:70%;height:90%;background:radial-gradient(closest-side,rgba(63,224,143,.12),transparent);pointer-events:none}
+.kf .wrap{position:relative}
+.kf .eyebrow{color:rgba(255,255,255,.6)}
+.kf .sechead p{color:rgba(255,255,255,.66)}
+.kf .kf-out{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px)}
 .kf-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:34px;align-items:start}
 .kf-q{display:grid;gap:26px}
-.kf-q h3{font:800 13px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);display:flex;gap:10px;align-items:center;margin-bottom:12px}
-.kf-q h3 i{font-style:normal;color:var(--violet)}
+.kf-q h3{font:800 13px var(--label);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.55);display:flex;gap:10px;align-items:center;margin-bottom:12px}
+.kf-q h3 i{font-style:normal;color:var(--green)}
 .kf-q h3 small{font:500 11px Inter;letter-spacing:0;text-transform:none;color:#9a9aa2}
 .kf-ch{display:flex;flex-wrap:wrap;gap:8px}
-.kf-ch button{min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:#fff;font:600 14.5px Inter;color:var(--ink);cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
-.kf-ch button:hover{border-color:rgba(10,10,12,.3)}
+.kf-ch button{min-height:44px;padding:10px 16px;border-radius:999px;border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);font:600 14.5px Inter;color:#fff;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .15s;display:inline-flex;align-items:center;gap:8px}
+.kf-ch button:hover{border-color:rgba(255,255,255,.45)}
 .kf-ch button:active{transform:scale(.97)}
-.kf-ch button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.kf-ch button[aria-pressed="true"]{background:var(--green);color:#06120b;border-color:var(--green)}
 .kf-ch button span{font-size:16px}
 .kf-out{position:sticky;top:86px;border-radius:28px;background:#0a0a0c;color:#fff;padding:26px;overflow:hidden}
 .kf-out::before{content:"";position:absolute;right:-120px;top:-120px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(63,224,143,.28),transparent 65%);pointer-events:none}
@@ -753,7 +763,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .pdp-intro{padding-top:60px}
 .pdp-intro .sechead{margin-bottom:0}
 @media(max-width:900px){
-  .kf{padding:46px 0 20px}
+  .kf{padding:70px 0 60px}
   .kf-grid{grid-template-columns:1fr;gap:26px}
   .kf-out{position:relative;top:0;padding:22px;border-radius:24px}
   .kf-ch button{font-size:14px;padding:9px 14px}
@@ -853,7 +863,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   </div>
 </div></section>
 
-<div class="wrap pdp-intro"><div class="sechead"><span class="eyebrow"><b></b>Available now</span><h2>Start with the card.</h2></div></div>
+<div class="wrap pdp-intro"><div class="sechead"><span class="eyebrow"><b></b>Available now</span><h2>Start with the card.</h2><p>Every job above works from this one today. Add stands, stickers and the rest as they land.</p></div></div>
 
 <!-- ===== product hero ===== -->
 <section class="pdp" id="card"><div class="wrap">
@@ -1006,24 +1016,6 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 </div></section>
 
 <!-- ===== coming soon ===== -->
-<section class="sec" id="soon" style="padding-top:20px"><div class="wrap">
-  <div class="sechead"><span class="eyebrow"><b></b>Coming soon</span><h2>More ways to tap.</h2><p>Same profile behind every one. These join the store as stock lands.</p></div>
-  <div class="railwrap">
-    <div class="railnav"><button type="button" data-rail="-1" aria-label="Scroll left">←</button><button type="button" data-rail="1" aria-label="Scroll right">→</button></div>
-    <div class="rail" id="rail">
-      <div class="drop"><div class="art"><div class="a-card a-metal"></div></div><div class="bd"><span class="soon">Coming soon</span><b>Swop Card, Metal</b><small>Brushed stainless, laser-etched</small></div></div>
-      <div class="drop"><div class="art"><div class="a-card a-classic"></div></div><div class="bd"><span class="soon">Coming soon</span><b>Swop Card, Classic</b><small>Matte PVC, full-color print</small></div></div>
-      <div class="drop"><div class="art"><div class="a-tag"></div></div><div class="bd"><span class="soon">Coming soon</span><b>Swop Tag</b><small>Adhesive chip for your phone</small></div></div>
-      <div class="drop"><div class="art"><div class="a-stand"></div></div><div class="bd"><span class="soon">Coming soon</span><b>Swop Stand</b><small>Counter stand, tap and scan</small></div></div>
-      <div class="drop"><div class="art"><div class="a-team"><i></i><i></i><i></i></div></div><div class="bd"><span class="soon">Coming soon</span><b>Team Kit</b><small>A chip for every team member</small></div></div>
-      <div class="drop"><div class="art"><div class="a-talker"></div></div><div class="bd"><span class="soon">Coming soon</span><b>Table Talkers</b><small>Tap or scan at the table</small></div></div>
-      <div class="drop"><div class="art"><div class="a-sheet"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div><div class="bd"><span class="soon">Coming soon</span><b>QR Sticker Sheet</b><small>Twenty 40mm vinyl stickers</small></div></div>
-      <div class="drop"><div class="art"><div class="a-decal"><div><span></span>Scan for menu<br>&amp; hours</div></div></div><div class="bd"><span class="soon">Coming soon</span><b>Window Decal</b><small>Readable from the sidewalk</small></div></div>
-    </div>
-  </div>
-</div></section>
-
-<!-- ===== faq ===== -->
 <section class="sec" id="faq" style="padding-top:20px"><div class="wrap">
   <div class="sechead"><span class="eyebrow"><b></b>Before you buy</span><h2>The practical questions.</h2></div>
   <div class="faq">
@@ -1509,7 +1501,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   var mobile=matchMedia('(max-width:900px)').matches;
   if(typeof Lenis!=='undefined'&&!mobile){var lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
     document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70})}})});
-    document.getElementById('rail').addEventListener('wheel',function(e){if(Math.abs(e.deltaX)>Math.abs(e.deltaY))e.stopPropagation()},{passive:true});}
+    if(document.getElementById('rail'))document.getElementById('rail').addEventListener('wheel',function(e){if(Math.abs(e.deltaX)>Math.abs(e.deltaY))e.stopPropagation()},{passive:true});}
 
   gsap.from('.buy > *',{y:24,opacity:0,duration:.8,ease:'power3.out',stagger:.06});
   gsap.from('.stage',{scale:.96,opacity:0,duration:1,ease:'power3.out'});
