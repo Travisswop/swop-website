@@ -256,7 +256,82 @@ footer .sp{margin-left:auto;font-family:var(--mono);font-size:11.5px}
 }
 @media(max-width:480px){.facts{grid-template-columns:repeat(2,auto)}.demo{height:420px}.tapcard{width:184px}.rings{left:150px;bottom:104px}.phone{width:196px}}
 
+/* ===== NFC tap story (pinned, scroll-scrubbed) ===== */
+.ts{padding:0;position:relative}
+.ts-pin{min-height:100vh;display:grid;align-items:center;padding:70px 0 40px;background:radial-gradient(60% 55% at 72% 55%,rgba(63,224,143,.14),transparent 70%)}
+.ts-grid{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:40px;align-items:center}
+.ts-copy h2{margin:14px 0 26px}
+.ts-steps{list-style:none;display:grid;gap:6px}
+.ts-steps li{display:grid;grid-template-columns:34px minmax(0,1fr);gap:12px;padding:14px 16px;border-radius:16px;opacity:.38;transition:opacity .35s,background .35s,transform .35s}
+.ts-steps li i{font:600 11px var(--mono);font-style:normal;color:var(--violet);padding-top:3px}
+.ts-steps li b{display:block;font:800 19px 'Figtree';letter-spacing:-.02em}
+.ts-steps li span{display:block;font-size:14.5px;color:var(--soft);line-height:1.5;margin-top:4px;max-height:0;overflow:hidden;transition:max-height .45s}
+.ts-steps li.on{opacity:1;background:#fff;box-shadow:0 10px 30px rgba(10,10,12,.07);transform:translateX(4px)}
+.ts-steps li.on span{max-height:90px}
+.ts-bar{height:3px;border-radius:3px;background:rgba(10,10,12,.08);margin-top:18px;overflow:hidden}
+.ts-bar i{display:block;height:100%;width:0;background:var(--green)}
+.ts-stage{position:relative;height:580px}
+.ts-field{position:absolute;left:46%;top:50%;width:0;height:0;opacity:.35}
+.ts-field span{position:absolute;width:190px;height:190px;margin:-95px;border-radius:50%;border:1.5px solid rgba(63,224,143,.7);animation:tsring 2.4s cubic-bezier(.2,.7,.3,1) infinite}
+.ts-field span:nth-child(2){animation-delay:.6s}.ts-field span:nth-child(3){animation-delay:1.2s}.ts-field span:nth-child(4){animation-delay:1.8s}
+@keyframes tsring{0%{transform:scale(.3);opacity:0}15%{opacity:.9}100%{transform:scale(2.1);opacity:0}}
+.ts-card{position:absolute;left:0;top:300px;width:250px;aspect-ratio:1.586;border-radius:16px;z-index:3;padding:18px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+  background:linear-gradient(145deg,#1d1d23,#09090b 60%,#16161c);box-shadow:0 30px 60px rgba(10,10,12,.35),inset 0 1px 0 rgba(255,255,255,.12)}
+.ts-card::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.14) 45%,transparent 60%);background-size:250% 100%;background-position:var(--sh,100%) 0;pointer-events:none}
+.ts-wm{width:64px;height:13px;color:#fff}
+.ts-nfc{position:absolute;right:16px;top:16px;width:24px;height:24px;color:var(--green)}
+.ts-card b{display:block;font:800 17px 'Figtree';letter-spacing:-.02em}
+.ts-card small{font:500 10px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.ts-phone{position:absolute;right:20px;top:10px;width:268px;height:556px;border-radius:44px;background:#0d0d10;padding:9px;z-index:2;box-shadow:0 0 0 1.5px #2a2a31,0 40px 80px rgba(10,10,12,.28)}
+.ts-scr{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#fff}
+.ts-scr::before{content:"";position:absolute;left:50%;top:10px;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:#000;z-index:5}
+.ts-s{position:absolute;inset:0;padding:58px 20px 22px;display:flex;flex-direction:column;gap:10px;opacity:0;transform:translateY(14px)}
+.ts-s0{align-items:center;justify-content:center;text-align:center;gap:14px;opacity:1;transform:none}
+.ts-s0 b{font:800 21px 'Figtree';letter-spacing:-.02em;max-width:170px;line-height:1.1}
+.ts-s small,.ts-k{font:500 10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--mut)}
+.ts-wave{width:78px;height:78px;border-radius:50%;background:rgba(63,224,143,.16);color:var(--violet);display:grid;place-items:center}
+.ts-wave svg{width:34px;height:34px}
+.ts-mer{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
+.ts-mer b{display:block;font:800 15px 'Figtree'}
+.ts-mer small{letter-spacing:.02em;text-transform:none;font-size:11px}
+.ts-av{width:40px;height:40px;border-radius:12px;flex:none;background:radial-gradient(circle at 50% 38%,#f3d2b5 0 22%,transparent 23%),radial-gradient(ellipse 46% 34% at 50% 92%,#1f2937 0 99%,transparent),linear-gradient(160deg,#c7f0dc,#9fe6c0)}
+.ts-amt{font:900 46px 'Figtree';letter-spacing:-.04em;line-height:1}
+.ts-line{display:flex;justify-content:space-between;font-size:13px;color:var(--soft);padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.ts-pay{position:relative;margin-top:auto;height:48px;border-radius:14px;background:#0a0a0c;color:#fff;overflow:hidden;display:grid;place-items:center;font:700 14px Inter}
+.ts-pay i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--green)}
+.ts-pay span{position:relative;grid-area:1/1}.ts-pay .b{opacity:0;color:#0a0a0c}
+.ts-sub{text-align:center;letter-spacing:.06em}
+.ts-t{font:800 22px 'Figtree';letter-spacing:-.02em}
+.ts-dots{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:8px 0}
+.ts-dots i{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(10,10,12,.18);display:block;position:relative}
+.ts-dots i::after{content:"☕";position:absolute;inset:0;display:grid;place-items:center;font-size:15px;border-radius:50%;background:var(--green);transform:scale(var(--f,0));transition:none}
+.ts-free{margin-top:auto;display:flex;gap:10px;align-items:center;padding:12px;border-radius:14px;background:#0a0a0c;color:#fff;opacity:0}
+.ts-free span{font-size:22px}.ts-free b{display:block;font:800 14px 'Figtree'}.ts-free small{color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:none;font-size:11px}
+.ts-stars{display:flex;gap:6px;margin:10px 0}
+.ts-stars i{font-style:normal;font-size:34px;line-height:1;color:rgba(10,10,12,.12);transition:none}
+.ts-g{margin-top:auto;display:flex;align-items:center;gap:10px;justify-content:center;height:48px;border-radius:14px;border:1px solid var(--line);font:700 14px Inter}
+.ts-g span{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#ea4335 0 25%,#fbbc05 0 50%,#34a853 0 75%,#4285f4 0);color:#fff;font:800 12px Inter}
+.ts-thx{opacity:0}
+.ts-lk{display:grid;gap:8px;margin-top:4px}
+.ts-lk span{display:flex;justify-content:space-between;align-items:center;padding:12px 13px;border:1px solid var(--line2);border-radius:13px;font-size:13px;font-weight:500;opacity:0;transform:translateY(10px)}
+.ts-lk span::after{content:"↗";color:#b6b6bd}
+.ts-flash{position:absolute;right:20px;top:10px;width:268px;height:556px;border-radius:44px;pointer-events:none;z-index:4;background:radial-gradient(circle at 20% 60%,rgba(63,224,143,.75),transparent 60%);opacity:0}
+.ts.static .ts-s0{opacity:0}.ts.static .ts-s4{opacity:1;transform:none}.ts.static .ts-lk span{opacity:1;transform:none}
+.ts.static .ts-card{left:30px;top:330px}.ts.static .ts-steps li{opacity:1}.ts.static .ts-steps li span{max-height:none}
+@media(max-width:900px){
+  .ts-pin{padding:64px 0 20px}
+  .ts-grid{grid-template-columns:1fr;gap:6px}
+  .ts-copy{order:2}.ts-copy h2,.ts-copy .eyebrow{display:none}
+  .ts-steps li{display:none;opacity:1;background:#fff;box-shadow:0 10px 30px rgba(10,10,12,.07)}
+  .ts-steps li.on{display:grid;transform:none}
+  .ts-steps li span{max-height:none}
+  .ts-stage{height:470px;transform:scale(.82);transform-origin:top center;margin-bottom:-80px;max-width:420px;margin-left:auto;margin-right:auto;width:100%}
+  .ts.static .ts-steps li{display:grid}
+}
+/* reveals */
+.rv{will-change:transform,opacity}
 /* coming soon, scenes, footer */
+
 nav .btn{white-space:nowrap}
 @media(max-width:560px){nav .nav-right .btn{display:none}}
 #live .grid{grid-template-columns:repeat(2,minmax(0,1fr));max-width:860px}
@@ -389,15 +464,32 @@ footer .brand svg{height:15px;width:72px}
       <p class="cdesc" style="margin:14px 0 0">Buying with an AI agent? Every product here is agent-payable over x402 at <a href="https://apps.apiswop.co/api/v5/x402/store/travis.swop.id" style="text-decoration:underline">apps.apiswop.co/api/v5/x402/store/travis.swop.id</a> (USDC on Base, no account needed).</p>
     </div></section>
 
-<section class="caps" data-screen-label="capabilities"><div class="wrap">
-  <span class="eyebrow"><b></b>One tap, four jobs</span>
-  <div class="capgrid">
-    <div class="cap"><div class="ci" style="background:rgba(63,224,143,.14);color:var(--violet)">$</div><h3>Take payments</h3><p>The tap opens your checkout with the amount ready. Card or USDC, settled to your account. No terminal to rent.</p></div>
-    <div class="cap"><div class="ci" style="background:rgba(18,181,165,.16);color:var(--teal)">★</div><h3>Issue rewards</h3><p>Every tap stamps the customer's loyalty card automatically. Tenth coffee free, no punch card to lose and nothing for staff to remember.</p></div>
-    <div class="cap"><div class="ci" style="background:rgba(224,134,63,.16);color:var(--amber)">✦</div><h3>Generate reviews</h3><p>Tap at the counter and they land on your Google or Yelp page while the visit is still fresh. That's when people actually write one.</p></div>
-    <div class="cap"><div class="ci" style="background:rgba(63,123,255,.14);color:#3f7bff">↗</div><h3>Share everything else</h3><p>Menu, hours, booking page, socials, contact card. One profile behind every chip and sticker you own.</p></div>
+<section id="tapstory" class="ts" data-screen-label="tap-story"><div class="ts-pin"><div class="wrap ts-grid">
+  <div class="ts-copy">
+    <span class="eyebrow"><b></b>One tap, four jobs</span>
+    <h2>Watch one tap do the work.</h2>
+    <ol class="ts-steps"><li data-s="0"><i>01</i><div><b>Take payments</b><span>The tap opens your checkout with the amount ready. Card or USDC, settled to your account. No terminal to rent.</span></div></li><li data-s="1"><i>02</i><div><b>Issue rewards</b><span>Every tap stamps the customer's loyalty card automatically. Tenth coffee free, no punch card to lose.</span></div></li><li data-s="2"><i>03</i><div><b>Generate reviews</b><span>Tap at the counter and they land on your Google or Yelp page while the visit is still fresh.</span></div></li><li data-s="3"><i>04</i><div><b>Share everything else</b><span>Menu, hours, booking page, socials, contact card. One profile behind every chip you own.</span></div></li></ol>
+    <div class="ts-bar" aria-hidden="true"><i></i></div>
   </div>
-</div></section>
+  <div class="ts-stage" aria-hidden="true">
+    <div class="ts-field"><span></span><span></span><span></span><span></span></div>
+    <div class="ts-card"><svg class="ts-wm" viewBox="0 0 88 18"><use href="#swop"/></svg><span class="ts-nfc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></span><div><b>Nora Beckett</b><small>Fern &amp; Ash Coffee</small></div></div>
+    <div class="ts-phone"><div class="ts-scr">
+      <div class="ts-s ts-s0"><div class="ts-wave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></div><small>Ready to read</small><b>Hold your phone near the chip</b></div>
+      <div class="ts-s ts-s1"><div class="ts-mer"><span class="ts-av"></span><div><b>Fern &amp; Ash</b><small>swop.id/fernandash</small></div></div>
+        <small class="ts-k">Amount due</small><div class="ts-amt">$4.50</div><div class="ts-line"><span>Oat flat white</span><span>$4.50</span></div>
+        <div class="ts-pay"><i></i><span class="a">Pay with card</span><span class="b">Paid ✓</span></div><small class="ts-sub">Card or USDC · receipt by email</small></div>
+      <div class="ts-s ts-s2"><small class="ts-k">Fern &amp; Ash rewards</small><b class="ts-t">Coffee card</b><div class="ts-dots"><i class="d0"></i><i class="d1"></i><i class="d2"></i><i class="d3"></i><i class="d4"></i><i class="d5"></i><i class="d6"></i><i class="d7"></i><i class="d8"></i><i class="d9"></i></div>
+        <div class="ts-free"><span>☕</span><div><b>10th coffee is free</b><small>Stamped automatically on tap</small></div></div></div>
+      <div class="ts-s ts-s3"><small class="ts-k">How was your visit?</small><b class="ts-t">Rate Fern &amp; Ash</b><div class="ts-stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+        <div class="ts-g"><span>G</span>Post to Google reviews</div><small class="ts-sub ts-thx">Thanks, review posted</small></div>
+      <div class="ts-s ts-s4"><div class="ts-mer"><span class="ts-av"></span><div><b>Nora Beckett</b><small>swop.id/fernandash</small></div></div>
+        <div class="ts-lk"><span>Menu &amp; today's specials</span><span>Book catering</span><span>Instagram</span><span>Save contact</span></div></div>
+    </div></div>
+    <div class="ts-flash"></div>
+  </div>
+</div></div></section>
+
 
 <section data-screen-label="before-after"><div class="wrap">
   <div class="sechead"><span class="eyebrow"><b></b>Why it lands</span>
@@ -611,6 +703,63 @@ document.querySelectorAll('.qty').forEach(function(q){
   btns[0].onclick=function(){v.textContent=Math.max(1,+v.textContent-1)};
   btns[1].onclick=function(){v.textContent=Math.min(99,+v.textContent+1)};
 });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+/* motion: NFC tap story, section reveals, hero entrance. Static when reduced motion or GSAP is missing. */
+(function(){
+  var ts=document.getElementById('tapstory');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||typeof gsap==='undefined'||typeof ScrollTrigger==='undefined'){ if(ts) ts.classList.add('static'); return; }
+  gsap.registerPlugin(ScrollTrigger);
+  var mobile=matchMedia('(max-width:900px)').matches;
+  if(typeof Lenis!=='undefined'&&!mobile){var lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(function(t){lenis.raf(t*1000)});gsap.ticker.lagSmoothing(0);
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href');if(id.length>1&&document.querySelector(id)){e.preventDefault();lenis.scrollTo(id,{offset:-70})}})});}
+
+  /* hero entrance */
+  gsap.from('.hero .chip, .hero h1, .hero .sub, .hero .herocta, .hero .facts',{y:28,opacity:0,duration:.8,ease:'power3.out',stagger:.07});
+  gsap.from('#demoWrap .phone',{y:60,opacity:0,duration:1,ease:'power3.out',delay:.15});
+  gsap.from('#demoWrap .tapcard',{x:-60,opacity:0,duration:1,ease:'power3.out',delay:.3});
+
+  /* the tap story */
+  if(ts){
+    var q=function(sel){return ts.querySelector(sel)}, qa=function(sel){return ts.querySelectorAll(sel)};
+    var stage=q('.ts-stage'), card=q('.ts-card'), phone=q('.ts-phone'), steps=qa('.ts-steps li');
+    var dockX=function(){return phone.offsetLeft-card.offsetWidth+26-card.offsetLeft};
+    var field=q('.ts-field');
+    var placeField=function(){field.style.left=(phone.offsetLeft+8)+'px';field.style.top=(card.offsetTop+120)+'px'};
+    placeField(); addEventListener('resize',placeField);
+    var setStep=function(i){steps.forEach(function(li,j){li.classList.toggle('on',j===i)})};
+    setStep(0);
+    var tl=gsap.timeline({defaults:{ease:'power2.out'},onUpdate:function(){var t=tl.time();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)},scrollTrigger:{trigger:ts.querySelector('.ts-pin'),start:'top top',end:mobile?'+=260%':'+=320%',pin:true,scrub:.6,invalidateOnRefresh:true,
+      onUpdate:function(self){var t=self.progress*tl.duration();setStep(t<2.2?0:t<3.4?1:t<4.5?2:3)}}});
+    tl.to(card,{x:dockX,y:96,rotation:-12,duration:1,ease:'power2.inOut'},0)
+      .to(card,{'--sh':'0%',duration:1,ease:'none'},0)
+      .fromTo(field,{opacity:.2,scale:.6},{opacity:1,scale:1.1,duration:1,ease:'none'},0)
+      .to('#tapstory .ts-flash',{opacity:1,duration:.1},.97).to('#tapstory .ts-flash',{opacity:0,duration:.35},1.07)
+      .to(q('.ts-s0'),{opacity:0,y:-12,duration:.2},1).to(q('.ts-s1'),{opacity:1,y:0,duration:.25},1.05)
+      .to(field,{opacity:.35,duration:.5},1.1)
+      .to(q('.ts-pay i'),{width:'100%',duration:.6,ease:'none'},1.35)
+      .to(q('.ts-pay .a'),{opacity:0,duration:.08},1.92).to(q('.ts-pay .b'),{opacity:1,duration:.08},1.95)
+      .to(q('.ts-s1'),{opacity:0,y:-12,duration:.2},2.2).to(q('.ts-s2'),{opacity:1,y:0,duration:.25},2.25)
+      .to(qa('.ts-dots i'),{'--f':1,duration:.1,stagger:.07,ease:'back.out(3)'},2.35)
+      .to(q('.ts-free'),{opacity:1,duration:.2},3.1)
+      .to(q('.ts-s2'),{opacity:0,y:-12,duration:.2},3.4).to(q('.ts-s3'),{opacity:1,y:0,duration:.25},3.45)
+      .to(qa('.ts-stars i'),{color:'#f5b301',scale:1.12,duration:.1,stagger:.12,ease:'back.out(3)'},3.6)
+      .to(q('.ts-thx'),{opacity:1,duration:.15},4.25)
+      .to(q('.ts-s3'),{opacity:0,y:-12,duration:.2},4.5).to(q('.ts-s4'),{opacity:1,y:0,duration:.25},4.55)
+      .to(qa('.ts-lk span'),{opacity:1,y:0,duration:.2,stagger:.1},4.65)
+      .to(q('.ts-bar i'),{width:'100%',duration:5.1,ease:'none'},0);
+  }
+
+  /* section reveals */
+  var rv=gsap.utils.toArray('section:not(#tapstory) .sechead, #live .card, .agentnote, .bacol, .soonit, .scene, .step, .faq details, .closer');
+  gsap.set(rv,{opacity:0,y:36});
+  ScrollTrigger.batch(rv,{start:'top 88%',once:true,onEnter:function(b){gsap.to(b,{opacity:1,y:0,duration:.75,ease:'power3.out',stagger:.08,overwrite:true})}});
+  addEventListener('load',function(){ScrollTrigger.refresh()});
+})();
 </script>
 <script>
 /* live prices: read price and shipping from the Swop store feed so the page always matches the store */
