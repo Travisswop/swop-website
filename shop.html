@@ -553,6 +553,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .ft .wrap{display:block}
 .ft .sbtn small,.ft .sbtn b{white-space:nowrap}
 @media(max-width:860px){.ft .sbtn{gap:7px}.ft .sbtn b{font-size:15.5px}}
+
 /* ===== phone preview shared by the flow map ===== */
 .cw-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
 .st{position:absolute;top:12px;left:12px;font:500 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:4px 8px;border-radius:20px;background:#f1f1ef;color:var(--mut)}
@@ -669,13 +670,13 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .dot.live{background:#22c06b;box-shadow:0 0 0 4px rgba(63,224,143,.2)}.dot.soon{background:#c9c9c6}.dot.concept{background:#8b6be0}
 .fx-o.on{border-color:rgba(10,159,85,.6);box-shadow:0 0 0 4px rgba(63,224,143,.16),0 14px 30px rgba(10,10,12,.07)}
 .fx-r{grid-template-columns:40px 1fr;padding:11px 14px 11px 11px}
-.fx-r .ic{width:40px;height:40px;border-radius:11px;background:#f4f4f2;display:grid;place-items:center;font-size:18px;transition:background .25s}
-.fx-r{opacity:.45}
-.fx-r.on{opacity:1;border-color:rgba(10,159,85,.6)}
+.fx-r .ic{width:40px;height:40px;border-radius:11px;background:#f4f4f2;display:grid;place-items:center;color:#4a4a52;transition:background .25s,color .25s}.fx-r .ic svg{width:19px;height:19px}.fx-r.on .ic{color:#087a41}
+.fx-r>*{opacity:.45;transition:opacity .25s}.fx-r.on>*{opacity:1}
+.fx-r.on{border-color:rgba(10,159,85,.6)}
 .fx-r.on .ic{background:rgba(63,224,143,.22)}
 .fx-hub{position:relative;z-index:1;display:grid;justify-items:center;gap:12px}
 .fx-hub .cw-ph{width:250px;height:500px}
-.fx-hubl{font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);display:flex;gap:7px;align-items:center}
+.fx-hubl{position:relative;z-index:2;background:var(--bg);padding:4px 10px;border-radius:20px;font:500 10px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);display:flex;gap:7px;align-items:center}
 .fx-hubl::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
 .fx-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:34px;font-size:12.5px;color:var(--mut)}
 .fx-legend span{display:inline-flex;align-items:center;gap:7px}
@@ -773,6 +774,51 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 
 /* phones: no live blur over the moving tap story; solid glass keeps scrolling smooth */
 @media (max-width:900px){.ts-ban,.ts-lb,.cmp-stats div,.hint{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}.ts-ban{background:rgba(58,58,64,.92)}}
+
+/* finder, refined: quiet chips, numbered kit rows with real screens, a kit composition bar */
+.kf-q{gap:34px}
+.kf-q h3{font:700 20px var(--display);letter-spacing:-.015em;text-transform:none;color:#fff;gap:12px;margin-bottom:14px}
+.kf-q h3 i{font:500 11px var(--mono);letter-spacing:.1em;color:var(--green);padding:4px 7px;border:1px solid rgba(63,224,143,.35);border-radius:6px}
+.kf-q h3 small{font:400 13px Inter;color:rgba(255,255,255,.45)}
+.kf-ch{gap:8px}
+.kf-ch button{min-height:46px;padding:11px 16px 11px 13px;border-radius:12px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.025);color:rgba(255,255,255,.78);font:500 14.5px Inter;gap:10px;transition:border-color .2s,background .2s,color .2s}
+.kf-ch button:hover{border-color:rgba(255,255,255,.28);color:#fff}
+.kf-ch button[aria-pressed="true"]{background:rgba(63,224,143,.08);border-color:rgba(63,224,143,.55);color:#fff;box-shadow:inset 0 0 0 1px rgba(63,224,143,.12)}
+.kf-ch button i{width:16px;height:16px;flex:none;border:1.5px solid rgba(255,255,255,.3);display:grid;place-items:center;transition:background .2s,border-color .2s}
+.kf-ch button i.rd{border-radius:50%}.kf-ch button i.sq{border-radius:5px}
+.kf-ch button[aria-pressed="true"] i{background:var(--green);border-color:var(--green)}
+.kf-ch button[aria-pressed="true"] i::after{content:"";width:7px;height:4px;border:2px solid #06120b;border-top:0;border-right:0;transform:rotate(-45deg) translate(1px,-1px)}
+.kf .kf-out{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.09);border-radius:24px;padding:30px}
+.kf-out::before{opacity:.5}
+.kf-out .k{font:500 10px var(--mono);letter-spacing:.18em;color:rgba(255,255,255,.5)}
+.kf-out h3{font:800 34px var(--display);letter-spacing:-.04em;margin:10px 0 6px}
+.kf-bar{margin:22px 0 6px}
+.kf-bar .bar{display:flex;gap:3px;height:6px}
+.kf-bar .bar i{border-radius:3px}
+.kf-bar .bar .live{background:var(--green)}.kf-bar .bar .soon{background:rgba(255,255,255,.35)}.kf-bar .bar .concept{background:#8b6be0}
+.kf-bar .lg{display:flex;gap:16px;margin-top:10px;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.kf-bar .lg b{color:#fff;font-weight:500}
+.kf-list{gap:0;margin:8px 0 20px;border-top:1px solid rgba(255,255,255,.08)}
+.kf-it{grid-template-columns:52px 1fr;gap:16px;align-items:start;padding:16px 0;border-radius:0;background:none;border:0;border-bottom:1px solid rgba(255,255,255,.08)}
+.kf-it .th{width:52px;height:104px;border-radius:9px;overflow:hidden;background:#fff;box-shadow:0 0 0 3px #1a1c1b,0 0 0 4px rgba(255,255,255,.12)}
+.kf-it .th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.kf-it em{font:500 10px var(--mono);font-style:normal;letter-spacing:.12em;color:rgba(255,255,255,.4)}
+.kf-it b{font:800 19px var(--display);letter-spacing:-.02em;margin:3px 0 4px;display:block}
+.kf-it .ss{display:inline-flex;align-items:center;gap:6px;font:500 10px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.kf-it .ss i{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.4)}
+.kf-it .ss.live{color:var(--green)}.kf-it .ss.live i{background:var(--green);box-shadow:0 0 0 3px rgba(63,224,143,.2)}
+.kf-it .ss.concept{color:#b9a4f2}.kf-it .ss.concept i{background:#8b6be0}
+.kf-it small{font-size:13px;color:rgba(255,255,255,.6);margin-top:6px}
+.kf-does{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin-bottom:22px;font-size:13.5px;color:rgba(255,255,255,.8)}
+.kf-does span{font:inherit;letter-spacing:0;text-transform:none;padding:0;border-radius:0;background:none;color:inherit}
+.kf-does .k2{font:500 10px var(--mono);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-right:4px}
+.kf-does i{font-style:normal;color:rgba(255,255,255,.3)}
+.kf-btns .btn{background:#fff;color:#0a0a0c;min-height:54px;border-radius:14px}
+.kf-btns .btn:hover{background:#eafff3}
+.kf-btns .btn.alt{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.18)}
+.cw-shot{padding:0;background:#fff}
+.cw-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
+@media(max-width:900px){.kf .kf-out{padding:22px}.kf-out h3{font-size:28px}.kf-it{grid-template-columns:44px 1fr;gap:13px}.kf-it .th{width:44px;height:88px}.kf-it b{font-size:17px}}
 </style>
 </head>
 <body id="top">
@@ -852,10 +898,10 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       <span class="k">Your kit</span>
       <h3 id="kfTitle">The café kit</h3>
       <div class="kf-sum" id="kfSum"></div>
-      <div class="kf-list" id="kfList"></div>
+      <div class="kf-bar" id="kfBar"></div><div class="kf-list" id="kfList"></div>
       <div class="kf-does" id="kfDoes"></div>
       <div class="kf-btns">
-        <button class="btn add" type="button" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card" data-ships="1" data-opts='{"Color":"Black"}' data-n="1">Start with the Swop Card · <span data-price="6a9383f9e8ae0b38e225c45b">$5.99</span></button>
+        <button class="btn add" type="button" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card" data-ships="1" data-opts='{"Color":"Black"}' data-n="1">Start with the Swop Card · <span data-price="6a9383f9e8ae0b38e225c45b">$5.99</span> <span aria-hidden="true">→</span></button>
         <a class="btn alt" id="kfAsk" href="mailto:support@swopme.co">Ask us about this kit</a>
       </div>
       <p class="kf-fine">Every chip opens the same page, so you can start with the card today and add the rest as it lands. Coming-soon items join the store as stock arrives; concepts are ideas, not products yet.</p>
@@ -1604,7 +1650,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   /* the finder */
   var Q={
     who:[['cafe','☕','Café or restaurant'],['shop','🛍️','Shop or salon'],['creator','🎨','Creator or brand'],['events','🎟️','Events'],['gym','🏋️','Gym or studio'],['me','👋','Just me']],
-    jobs:[['pay','💳','Get paid'],['rewards','⭐','Loyalty rewards'],['reviews','💬','More reviews'],['page','🔗','Share my page'],['sell','📦','Sell products'],['contact','📇','Collect contacts']],
+    jobs:[['pay','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"13\" rx=\"2.5\"/><path d=\"M3 10h18M7 15h3\"/></svg>','Get paid'],['rewards','⭐','Loyalty rewards'],['reviews','💬','More reviews'],['page','🔗','Share my page'],['sell','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3z\"/><path d=\"M9 8V6.5a3 3 0 0 1 6 0V8\"/></svg>','Sell products'],['contact','📇','Collect contacts']],
     where:[['counter','🧾','At the counter'],['tables','🍽️','At tables'],['product','🏷️','On my products'],['worn','👕','On clothes or wrists'],['hand','🤝','Hand to hand']]
   };
   var pick={who:'cafe',jobs:['pay','rewards','reviews'],where:'counter'};
@@ -1620,7 +1666,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   if(kf){
     kf.querySelectorAll('.kf-ch').forEach(function(box){
       var q=box.dataset.q;
-      box.innerHTML=Q[q].map(function(x){return '<button type="button" data-v="'+x[0]+'" aria-pressed="false"><span>'+x[1]+'</span>'+esc(x[2])+'</button>'}).join('');
+      box.innerHTML=Q[q].map(function(x){return '<button type="button" data-v="'+x[0]+'" aria-pressed="false"><i class="'+(box.dataset.multi?'sq':'rd')+'"></i>'+esc(x[2])+'</button>'}).join('');
       box.addEventListener('click',function(e){
         var b=e.target.closest('button'); if(!b)return; var v=b.dataset.v;
         if(box.dataset.multi){var i=pick.jobs.indexOf(v); if(i>-1){if(pick.jobs.length>1)pick.jobs.splice(i,1)} else pick.jobs.push(v)} else pick[q]=v;
@@ -1636,15 +1682,17 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       var kit=['card'].concat(top);
       document.getElementById('kfTitle').textContent=KIT[pick.who];
       document.getElementById('kfSum').textContent='For '+label('who',pick.who).toLowerCase()+' · people tap '+label('where',pick.where).toLowerCase();
-      document.getElementById('kfList').innerHTML=kit.map(function(k){var o=O[k];return '<div class="kf-it"><span class="ic">'+svg(k)+'</span><div><b>'+esc(o.name)+'<span class="st '+o.st+'">'+STL[o.st]+'</span></b><small>'+esc(o.why)+'</small></div></div>'}).join('');
-      document.getElementById('kfDoes').innerHTML='<span>Every tap opens</span>'+pick.jobs.map(function(j){return '<span>'+DOES[j]+'</span>'}).join('');
+      document.getElementById('kfList').innerHTML=kit.map(function(k,n){var o=O[k];return '<div class="kf-it"><span class="th"><img src="/assets/screens/fx-'+k+'.jpg" alt="" loading="lazy"></span><div><em>0'+(n+1)+'</em><b>'+esc(o.name)+'</b><span class="ss '+o.st+'"><i></i>'+STL[o.st]+'</span><small>'+esc(o.why)+'</small></div></div>'}).join('');
+      var cnt={live:0,soon:0,concept:0}; kit.forEach(function(k){cnt[O[k].st]++});
+      document.getElementById('kfBar').innerHTML='<div class="bar">'+['live','soon','concept'].map(function(t){return cnt[t]?'<i class="'+t+'" style="flex:'+cnt[t]+'"></i>':''}).join('')+'</div><div class="lg">'+['live','soon','concept'].filter(function(t){return cnt[t]}).map(function(t){return '<span class="'+t+'"><b>'+cnt[t]+'</b> '+STL[t].toLowerCase()+'</span>'}).join('')+'</div>';
+      document.getElementById('kfDoes').innerHTML='<span class="k2">Every tap</span>'+pick.jobs.map(function(j){return '<span>'+DOES[j]+'</span>'}).join('<i>·</i>');
       var body='Hi Swop,\n\nI’m building '+KIT[pick.who].replace('The ','a ')+'.\nWho it’s for: '+label('who',pick.who)+'\nA tap should: '+pick.jobs.map(function(j){return DOES[j].toLowerCase()}).join(', ')+'\nWhere people tap: '+label('where',pick.where)+'\nSuggested kit: '+kit.map(function(k){return O[k].name}).join(', ')+'\n\nCan you help me set it up?';
       document.getElementById('kfAsk').href='mailto:support@swopme.co?subject='+encodeURIComponent(KIT[pick.who]+' from the Swop shop')+'&body='+encodeURIComponent(body);
     };
     build();
   }
   /* the flow map: objects -> one page -> jobs */
-  var JOB=[['pay','💳','Get paid','Card or USDC, settled to you'],['rewards','⭐','Stamp rewards','Loyalty without a punch card'],['reviews','💬','Collect reviews','While the visit is still fresh'],['contact','📇','Save contacts','A contact card in one tap'],['book','🗓️','Take bookings','Tables, chairs and classes'],['sell','📦','Sell products','Reorders, merch and drops']];
+  var JOB=[['pay','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"13\" rx=\"2.5\"/><path d=\"M3 10h18M7 15h3\"/></svg>','Get paid','Card or USDC, settled to you'],['rewards','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z\"/></svg>','Stamp rewards','Loyalty without a punch card'],['reviews','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4A8 8 0 1 1 20 12z\"/></svg>','Collect reviews','While the visit is still fresh'],['contact','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"3.5\"/><path d=\"M5 20a7 7 0 0 1 14 0\"/></svg>','Save contacts','A contact card in one tap'],['book','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2.5\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/></svg>','Take bookings','Tables, chairs and classes'],['sell','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3z\"/><path d=\"M9 8V6.5a3 3 0 0 1 6 0V8\"/></svg>','Sell products','Reorders, merch and drops']];
   var DO={card:['contact','book','pay'],hoodie:['sell','rewards'],topper:['pay','reviews'],stand:['pay','rewards'],sticker:['sell','rewards'],band:['pay'],fob:['rewards','book'],decal:['book','reviews']};
   var fin=document.getElementById('fxIn'), fout=document.getElementById('fxOut'), map=document.getElementById('fxMap'), lines=document.getElementById('fxLines');
   var scr=document.getElementById('cwScr'), ban=document.getElementById('cwBan'), from=document.getElementById('cwFrom');
@@ -1677,11 +1725,13 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       fin.querySelectorAll('.fx-o').forEach(function(b){b.classList.toggle('on',b.dataset.o===k)});
       mark();
       var el=document.createElement('div'); el.className='cw-v in';
-      el.innerHTML='<div class="cw-hd"><i>'+v.l+'</i><div><b>'+esc(v.who)+'</b><small>'+esc(v.sub)+'</small></div></div><div class="cw-t">'+esc(v.t)+'</div><div class="cw-b">'+esc(v.b)+'</div><div class="cw-it">'+v.it.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div><div class="cw-go">'+esc(v.go)+'</div>';
+      el.className='cw-v cw-shot in'; el.innerHTML='<img src="/assets/screens/fx-'+k+'.jpg" alt="What a tap on the '+esc(o.name)+' opens" width="520" height="1125">';
       var old=view; view=el; scr.appendChild(el); ban.classList.add('hide');
       void el.offsetWidth; el.classList.remove('in'); if(old)setTimeout(function(){old.remove()},400);
       setTimeout(function(){if(cur===k){from.textContent=o.from; ban.classList.remove('hide')}},60);
+      setTimeout(function(){if(cur===k)ban.classList.add('hide')},1900);
     };
+    ORDER.forEach(function(k){var im=new Image(); im.src='/assets/screens/fx-'+k+'.jpg'});
     var next=function(){show(ORDER[(ORDER.indexOf(cur)+1)%ORDER.length])};
     var play=function(){clearInterval(timer); if(!user&&inView&&!reduce)timer=setInterval(next,2800)};
     fin.addEventListener('click',function(e){var b=e.target.closest('.fx-o'); if(!b)return; user=true; clearInterval(timer); show(b.dataset.o)});
