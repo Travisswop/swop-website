@@ -671,7 +671,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .fx-o.on{border-color:rgba(10,159,85,.6);box-shadow:0 0 0 4px rgba(63,224,143,.16),0 14px 30px rgba(10,10,12,.07)}
 .fx-r{grid-template-columns:40px 1fr;padding:11px 14px 11px 11px}
 .fx-r .ic{width:40px;height:40px;border-radius:11px;background:#f4f4f2;display:grid;place-items:center;color:#4a4a52;transition:background .25s,color .25s}.fx-r .ic svg{width:19px;height:19px}.fx-r.on .ic{color:#087a41}
-.fx-r>*{opacity:.45;transition:opacity .25s}.fx-r.on>*{opacity:1}
+
 .fx-r.on{border-color:rgba(10,159,85,.6)}
 .fx-r.on .ic{background:rgba(63,224,143,.22)}
 .fx-hub{position:relative;z-index:1;display:grid;justify-items:center;gap:12px}
@@ -819,6 +819,17 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .cw-shot{padding:0;background:#fff}
 .cw-shot img{display:block;width:100%;height:100%;object-fit:cover;object-position:top}
 @media(max-width:900px){.kf .kf-out{padding:22px}.kf-out h3{font-size:28px}.kf-it{grid-template-columns:44px 1fr;gap:13px}.kf-it .th{width:44px;height:88px}.kf-it b{font-size:17px}}
+
+/* router: every job stays available, the chosen route lights up */
+.fx-r{position:relative;width:100%;cursor:pointer;font:inherit;color:inherit;text-align:left}
+.fx-r:hover{border-color:rgba(10,159,85,.4);transform:translateX(-3px)}
+.fx-r .rt{position:absolute;right:12px;top:50%;transform:translateY(-50%) scale(.9);opacity:0;font:500 9px var(--mono);font-style:normal;letter-spacing:.12em;text-transform:uppercase;color:#087a41;background:rgba(63,224,143,.18);padding:4px 7px;border-radius:6px;transition:opacity .2s,transform .2s}
+.fx-r.on{box-shadow:0 0 0 4px rgba(63,224,143,.16),0 14px 30px rgba(10,10,12,.07)}
+.fx-r.on .rt{opacity:1;transform:translateY(-50%) scale(1)}
+.fx-lines path.av{stroke:rgba(10,159,85,.3)}
+.fx-lines path.av.on{stroke:var(--violet)}
+.fx-any{font-weight:600;color:var(--ink)}
+@media(max-width:900px){.fx-r .rt{display:none}}
 </style>
 </head>
 <body id="top">
@@ -865,16 +876,16 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 
 <!-- ===== flow map ===== -->
 <section class="fx" id="ideas"><div class="wrap">
-  <div class="sechead"><span class="eyebrow"><b></b>One page, every job</span><h2>Eight places a chip can live. One page behind all of them.</h2><p>Pick an object to see what a tap on it opens, and which jobs it does for you.</p></div>
+  <div class="sechead"><span class="eyebrow"><b></b>Route every tap</span><h2>Any chip. Any job. You decide where each tap goes.</h2><p>Put a chip in anything, then point it at whatever you need: a payment, a reward stamp, a review, your booking calendar, your store or your contact card. Change the route any time in the Swop app. The chip itself never changes.</p></div>
   <div class="fx-map" id="fxMap">
     <svg class="fx-lines" id="fxLines" aria-hidden="true"></svg>
-    <div class="fx-col" id="fxIn"><div class="fx-colh">Where the chip lives</div></div>
+    <div class="fx-col" id="fxIn"><div class="fx-colh">1 · Put the chip in</div></div>
     <div class="fx-hub"><div class="cw-ph" aria-live="polite"><div class="cw-scr" id="cwScr">
       <div class="cw-ban hide" id="cwBan"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></i><span>Opened from <b id="cwFrom"></b></span></div>
-    </div></div><div class="fx-hubl">One swop.id page</div></div>
-    <div class="fx-col" id="fxOut"><div class="fx-colh">What a tap does</div></div>
+    </div></div><div class="fx-hubl">Your swop.id page</div></div>
+    <div class="fx-col" id="fxOut"><div class="fx-colh">2 · Route the tap to</div></div>
   </div>
-  <div class="fx-legend"><span><i class="dot live"></i>Available now</span><span><i class="dot soon"></i>Coming soon</span><span><i class="dot concept"></i>Concept: where a chip could go next</span></div>
+  <div class="fx-legend"><span><i class="dot live"></i>Available now</span><span><i class="dot soon"></i>Coming soon</span><span><i class="dot concept"></i>Concept: where a chip could go next</span><span class="fx-any">Every object can route to every job</span></div>
 </div></section>
 
 <!-- ===== the numbers ===== -->
@@ -904,7 +915,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
         <button class="btn add" type="button" data-sku="6a9383f9e8ae0b38e225c45b" data-name="Swop Digital Card" data-ships="1" data-opts='{"Color":"Black"}' data-n="1">Start with the Swop Card · <span data-price="6a9383f9e8ae0b38e225c45b">$5.99</span> <span aria-hidden="true">→</span></button>
         <a class="btn alt" id="kfAsk" href="mailto:support@swopme.co">Ask us about this kit</a>
       </div>
-      <p class="kf-fine">Every chip opens the same page, so you can start with the card today and add the rest as it lands. Coming-soon items join the store as stock arrives; concepts are ideas, not products yet.</p>
+      <p class="kf-fine">Every chip can do every job above. Route each one in the Swop app and change it whenever you like. Coming-soon items join the store as stock arrives; concepts are ideas, not products yet.</p>
     </aside>
   </div>
 </div></section>
@@ -1693,13 +1704,17 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   }
   /* the flow map: objects -> one page -> jobs */
   var JOB=[['pay','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"6\" width=\"18\" height=\"13\" rx=\"2.5\"/><path d=\"M3 10h18M7 15h3\"/></svg>','Get paid','Card or USDC, settled to you'],['rewards','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z\"/></svg>','Stamp rewards','Loyalty without a punch card'],['reviews','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4A8 8 0 1 1 20 12z\"/></svg>','Collect reviews','While the visit is still fresh'],['contact','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"9\" r=\"3.5\"/><path d=\"M5 20a7 7 0 0 1 14 0\"/></svg>','Save contacts','A contact card in one tap'],['book','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3.5\" y=\"5\" width=\"17\" height=\"15\" rx=\"2.5\"/><path d=\"M3.5 10h17M8 3v4M16 3v4\"/></svg>','Take bookings','Tables, chairs and classes'],['sell','<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 8h14l-1.2 11.2a1.5 1.5 0 0 1-1.5 1.3H7.7a1.5 1.5 0 0 1-1.5-1.3z\"/><path d=\"M9 8V6.5a3 3 0 0 1 6 0V8\"/></svg>','Sell products','Reorders, merch and drops']];
-  var DO={card:['contact','book','pay'],hoodie:['sell','rewards'],topper:['pay','reviews'],stand:['pay','rewards'],sticker:['sell','rewards'],band:['pay'],fob:['rewards','book'],decal:['book','reviews']};
+  /* any chip can route to any job: the screen comes from the job, dressed for the object when we have a matching capture */
+  var GEN={pay:'stand',rewards:'rewards',reviews:'reviews',contact:'card',book:'decal',sell:'sticker'};
+  var OV={card:{contact:'card',book:'card'},hoodie:{sell:'hoodie'},topper:{pay:'topper'},stand:{pay:'stand'},sticker:{sell:'sticker'},band:{pay:'band'},fob:{book:'fob'},decal:{book:'decal'}};
+  var PAIRS=[['card','contact'],['hoodie','sell'],['topper','reviews'],['stand','pay'],['sticker','rewards'],['band','pay'],['fob','book'],['decal','book']];
+  var SCR=function(k,j){return (OV[k]&&OV[k][j])||GEN[j]};
   var fin=document.getElementById('fxIn'), fout=document.getElementById('fxOut'), map=document.getElementById('fxMap'), lines=document.getElementById('fxLines');
   var scr=document.getElementById('cwScr'), ban=document.getElementById('cwBan'), from=document.getElementById('cwFrom');
   if(fin){
     fin.insertAdjacentHTML('beforeend',ORDER.map(function(k){var o=O[k];return '<button type="button" class="fx-o" data-o="'+k+'" aria-label="'+esc(o.name)+', '+STL[o.st]+': see what a tap opens"><span class="ic">'+svg(k)+'</span><span><b>'+esc(o.name)+'</b><small>'+esc(o.where)+'</small></span><i class="dot '+o.st+'"></i></button>'}).join(''));
-    fout.insertAdjacentHTML('beforeend',JOB.map(function(j){return '<div class="fx-r" data-r="'+j[0]+'"><span class="ic">'+j[1]+'</span><span><b>'+j[2]+'</b><small>'+j[3]+'</small></span></div>'}).join(''));
-    var hub=map.querySelector('.cw-ph'), cur=null, view=null, timer=null, user=false, inView=false;
+    fout.insertAdjacentHTML('beforeend',JOB.map(function(j){return '<button type="button" class="fx-r" data-r="'+j[0]+'" aria-label="Route the tap to: '+j[2]+'"><span class="ic">'+j[1]+'</span><span><b>'+j[2]+'</b><small>'+j[3]+'</small></span><em class="rt">This tap</em></button>'}).join(''));
+    var hub=map.querySelector('.cw-ph'), cur=null, route=null, shot=null, view=null, timer=null, user=false, inView=false;
     var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
     var draw=function(){
       var m=map.getBoundingClientRect(), h=hub.getBoundingClientRect(), side=fin.getBoundingClientRect().right<h.left;
@@ -1717,27 +1732,28 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
         out.push('<path data-r="'+b.dataset.r+'" d="'+P(a,t)+'"/>')});
       lines.innerHTML=out.join(''); mark();
     };
-    var mark=function(){if(!cur)return; var js=DO[cur];
-      lines.querySelectorAll('path').forEach(function(p){var on=p.dataset.o?p.dataset.o===cur:js.indexOf(p.dataset.r)>-1; p.classList.toggle('on',on); if(on)lines.appendChild(p)});
-      fout.querySelectorAll('.fx-r').forEach(function(r){r.classList.toggle('on',js.indexOf(r.dataset.r)>-1)})};
-    var show=function(k){
-      if(k===cur)return; cur=k; var o=O[k], v=o.v;
-      fin.querySelectorAll('.fx-o').forEach(function(b){b.classList.toggle('on',b.dataset.o===k)});
-      mark();
-      var el=document.createElement('div'); el.className='cw-v in';
-      el.className='cw-v cw-shot in'; el.innerHTML='<img src="/assets/screens/fx-'+k+'.jpg" alt="What a tap on the '+esc(o.name)+' opens" width="520" height="1125">';
-      var old=view; view=el; scr.appendChild(el); ban.classList.add('hide');
-      void el.offsetWidth; el.classList.remove('in'); if(old)setTimeout(function(){old.remove()},400);
-      setTimeout(function(){if(cur===k){from.textContent=o.from; ban.classList.remove('hide')}},60);
-      setTimeout(function(){if(cur===k)ban.classList.add('hide')},1900);
+    var mark=function(){if(!cur)return;
+      lines.querySelectorAll('path').forEach(function(p){var on=p.dataset.o?p.dataset.o===cur:p.dataset.r===route; p.classList.toggle('on',on); p.classList.toggle('av',!!p.dataset.r); if(on)lines.appendChild(p)});
+      fout.querySelectorAll('.fx-r').forEach(function(r){var on=r.dataset.r===route; r.classList.toggle('on',on); r.setAttribute('aria-pressed',on)});
+      fin.querySelectorAll('.fx-o').forEach(function(b){b.classList.toggle('on',b.dataset.o===cur)})};
+    var show=function(k,j){
+      var moved=k!==cur; cur=k; route=j; mark();
+      var f=SCR(k,j), o=O[k]; if(f===shot&&!moved)return; 
+      if(f!==shot){shot=f; var el=document.createElement('div'); el.className='cw-v cw-shot in'; el.innerHTML='<img src="/assets/screens/fx-'+f+'.jpg" alt="" width="520" height="1125">';
+        var old=view; view=el; scr.appendChild(el); void el.offsetWidth; el.classList.remove('in'); if(old)setTimeout(function(){old.remove()},400)}
+      ban.classList.add('hide');
+      setTimeout(function(){if(cur===k&&route===j){from.textContent=o.from; ban.classList.remove('hide')}},60);
+      setTimeout(function(){if(cur===k&&route===j)ban.classList.add('hide')},1900);
     };
-    ORDER.forEach(function(k){var im=new Image(); im.src='/assets/screens/fx-'+k+'.jpg'});
-    var next=function(){show(ORDER[(ORDER.indexOf(cur)+1)%ORDER.length])};
+    ORDER.concat(['rewards','reviews']).forEach(function(k){var im=new Image(); im.src='/assets/screens/fx-'+k+'.jpg'});
+    var pi=0, next=function(){pi=(pi+1)%PAIRS.length; show(PAIRS[pi][0],PAIRS[pi][1])};
     var play=function(){clearInterval(timer); if(!user&&inView&&!reduce)timer=setInterval(next,2800)};
-    fin.addEventListener('click',function(e){var b=e.target.closest('.fx-o'); if(!b)return; user=true; clearInterval(timer); show(b.dataset.o)});
+    fin.addEventListener('click',function(e){var b=e.target.closest('.fx-o'); if(!b)return; user=true; clearInterval(timer); show(b.dataset.o,route)});
+    fout.addEventListener('click',function(e){var b=e.target.closest('.fx-r'); if(!b)return; user=true; clearInterval(timer); show(cur,b.dataset.r)});
+    fout.addEventListener('mouseenter',function(){clearInterval(timer)}); fout.addEventListener('mouseleave',play);
     fin.addEventListener('mouseenter',function(){clearInterval(timer)}); fin.addEventListener('mouseleave',play);
     new IntersectionObserver(function(en){inView=en[0].isIntersecting; if(inView)play(); else clearInterval(timer)},{threshold:.3}).observe(map);
-    show('card'); draw();
+    show('card','contact'); draw();
     addEventListener('resize',draw); addEventListener('load',draw);
     if(window.ResizeObserver)new ResizeObserver(draw).observe(map);
     if(document.fonts)document.fonts.ready.then(draw);
