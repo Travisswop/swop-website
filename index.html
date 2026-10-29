@@ -161,15 +161,16 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 #hero{position:relative;overflow:hidden;background:#FAFAFA}
 .h2wrap{max-width:1240px;margin:0 auto;padding-top:118px}
 .htop{display:grid;justify-items:center;text-align:center;gap:22px}
-.hpill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:#fff;border:1px solid rgba(10,10,12,.08);font:600 13px Inter;color:rgba(10,10,12,.7);box-shadow:0 2px 10px rgba(10,10,12,.04)}
-.hpill i{width:7px;height:7px;border-radius:50%;background:#3FE08F;box-shadow:0 0 0 4px rgba(63,224,143,.2)}
 .hh{font-size:clamp(48px,7.6vw,118px);line-height:.92;letter-spacing:-.05em;color:#0a0a0c;font-weight:900}
 .hh mark{background:linear-gradient(transparent 58%,#3FE08F 58%,#3FE08F 92%,transparent 92%);color:inherit;padding:0 .06em}
+.hsent{font:500 clamp(17px,1.7vw,21px)/1.5 Inter;color:rgba(10,10,12,.5);max-width:46ch;letter-spacing:-.01em;text-wrap:balance}.hsent b{font-weight:600;color:#0a0a0c}
+.lshead{margin-bottom:44px}
 .hcta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:6px}
-.sbtn{display:inline-flex;align-items:center;gap:11px;background:#0a0a0c;color:#fff;border-radius:14px;padding:11px 22px;text-decoration:none;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 26px rgba(10,10,12,.2)}
-.sbtn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(10,10,12,.26)}
-.sbtn small{display:block;font:500 10.5px Inter;color:rgba(255,255,255,.7);line-height:1}
-.sbtn b{display:block;font:700 17px Inter;line-height:1.25}
+.sbtn{display:inline-flex;align-items:center;gap:9px;height:52px;background:#000;color:#fff;border:1px solid #a6a6a6;border-radius:11px;padding:0 18px 0 14px;text-decoration:none;transition:opacity .2s}
+.sbtn:hover{opacity:.82}
+.sbtn small{display:block;font:500 11px -apple-system,BlinkMacSystemFont,"Inter",sans-serif;color:#fff;line-height:1.05;letter-spacing:.01em}
+.sbtn b{display:block;font:600 20px -apple-system,BlinkMacSystemFont,"Inter",sans-serif;line-height:1.05;letter-spacing:-.02em}
+.sbtn .gp small{text-transform:uppercase;font-size:10px;letter-spacing:.04em}
 .hfree{font:500 13.5px Inter;color:rgba(10,10,12,.5);margin-top:-8px}
 .hfree a{color:rgba(10,10,12,.75)}
 .fan{position:relative;height:560px;margin-top:56px;-webkit-mask-image:linear-gradient(#000 62%,transparent 98%);mask-image:linear-gradient(#000 62%,transparent 98%)}
@@ -635,8 +636,8 @@ nav.top.solid{background:rgba(250,250,250,.82);border-color:rgba(10,10,12,.08)}
 
 /* steps / faq / cta */
 section.blk{padding-block:110px}
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
-@media (max-width:820px){.steps{grid-template-columns:1fr}}
+.gsteps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:40px}
+@media (max-width:820px){.gsteps{grid-template-columns:1fr}}
 .stp{border:1px solid var(--line);border-radius:22px;padding:26px;background:var(--glass);display:grid;gap:10px}
 .stp .num{font-family:var(--label);font-size:12px;color:var(--c)}
 .stp h3{font-size:28px}
@@ -655,7 +656,6 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 
 
 /* ===== phone pass ===== */
-.hps{display:none}
 .blob{filter:none!important}
 .blob.b1{background:radial-gradient(closest-side,rgba(63,224,143,.38),rgba(63,224,143,0))!important}
 .blob.b2{background:radial-gradient(closest-side,rgba(76,130,255,.2),rgba(76,130,255,0))!important}
@@ -664,13 +664,11 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
   nav.top .btn-g{padding:9px 13px;font-size:11.5px;border-radius:10px}
   .navshop{font-size:14px}
   .wm{width:74px;height:16px}
-  .hpl{display:none}.hps{display:inline}
-  .hpill{font-size:12.5px;padding:6px 12px}
   .h2wrap{padding-top:84px}
   .htop{gap:18px}
   .hcta{gap:8px;width:100%}
-  .sbtn{flex:1 1 0;justify-content:center;padding:10px 12px}
-  .sbtn b{font-size:15px}
+  .sbtn{height:46px;padding:0 13px 0 11px}
+  .sbtn b{font-size:17px}
   .fan{height:470px;margin-top:28px}
   .blob.b1{width:120%;height:360px;top:30px}
   #hero .toasts{width:calc(100vw - 40px);max-width:330px;top:44px}
@@ -726,11 +724,11 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <header id="hero" class="light">
   <div class="h2wrap gut">
     <div class="htop">
-      <span class="hpill"><i></i><span class="hpl">The social network for people, businesses &amp; AI agents</span><span class="hps">For people, businesses &amp; AI agents</span></span>
       <h1 class="hh">Own your identity.<br>Own your data.<br><mark>Earn from it.</mark></h1>
+      <p class="hsent">Swop is <b>the social network</b> for <b>people, businesses and AI agents</b> who <b>own their identity and data</b>, <b>earn from it</b>, and <b>run on the SWOP token</b>.</p>
       <div class="hcta">
         <a class="sbtn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a>
-        <a class="sbtn" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#3FE08F" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#4C82FF" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FFD27A" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#ff5a5f" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a>
+        <a class="sbtn" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span class="gp"><small>Get it on</small><b>Google Play</b></span></a>
       </div>
       <p class="hfree">Free · iPhone, Android and <a href="https://swopme.app/wallet">web</a></p>
     </div>
@@ -738,8 +736,8 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
       <div class="blob b1"></div><div class="blob b2"></div>
       <!-- left: SmartSite -->
       <div class="fp fl" id="fpL"><div class="phone"><div class="scr shot" style="background:#FAFAFA"><img src="assets/screens/profile.jpg" alt="A SmartSite profile in the Swop app" loading="eager" decoding="async"></div></div></div>
-      <!-- right: feed trade -->
-      <div class="fp fr" id="fpR"><div class="phone"><div class="scr shot" style="background:#f4f4f2"><img src="assets/screens/send.jpg" alt="Sending to a swop.id in the Swop app" loading="eager" decoding="async"></div></div></div>
+      <!-- right: feed with a live prediction -->
+      <div class="fp fr" id="fpR"><div class="phone"><div class="scr shot" style="background:#fafafa"><img src="assets/screens/feed.jpg" alt="A live prediction with Copy Bet in the Swop feed" loading="eager" decoding="async"></div></div></div>
       <!-- center: wallet with payments landing -->
       <div class="fp fc" id="fpC">
         <div class="toasts" id="toasts" aria-live="polite"></div>
@@ -769,8 +767,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <!-- 2 THE SENTENCE, AS A BENTO -->
 <section id="line" class="gut light" data-ch="03 · What Swop is">
   <div class="wrap">
-    <span class="lab">What Swop is, in one sentence</span>
-    <p class="sent" id="sent">Swop is <span class="ph" data-t="1"><sup>1</sup>the social network</span> for <span class="ph" data-t="2"><sup>2</sup>people, businesses and AI agents</span> who <span class="ph" data-t="3"><sup>3</sup>own their identity and data</span>, <span class="ph" data-t="4"><sup>4</sup>earn from it</span>, and <span class="ph" data-t="5"><sup>5</sup>run on the SWOP token</span>.</p>
+    <div class="shead lshead"><span class="lab">What Swop is</span><h2>One network. <span class="green">Five parts.</span></h2></div>
     <div class="bento" id="bento">
       <article class="bt t1" data-t="1">
         <div class="bh"><span class="bn">1</span><span class="st live">Live</span></div>
@@ -910,7 +907,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 <!-- STEPS -->
 <section class="blk gut light" id="start" data-ch="09 · Get started">
   <div class="wrap"><div class="shead"><span class="lab">Get started</span><h2>Up and running<br>in a minute.</h2></div>
-    <div class="steps">
+    <div class="gsteps">
       <div class="stp" style="--c:var(--green)"><span class="num">01 · CLAIM</span><h3>Pick your swop.id</h3><p>Your name becomes your page, your payment address and your login.</p></div>
       <div class="stp" style="--c:var(--sky)"><span class="num">02 · FUND</span><h3>Add money</h3><p>Deposit from any wallet, or top up with Apple Pay or a card.</p></div>
       <div class="stp" style="--c:var(--gold)"><span class="num">03 · GO</span><h3>Sell, send, trade</h3><p>Share a product link, pay a friend's name, or make your first trade.</p></div>
