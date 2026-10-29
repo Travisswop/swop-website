@@ -291,3 +291,75 @@ nav.top .wrap{display:flex;align-items:center;gap:28px;height:66px}
   .js [data-rv],.js .split-in .ch{opacity:1;transform:none}
   .roll>span:first-child{transform:none}
 }
+
+/* ===== 2026 pass: critical points, explorable diagrams, compare ===== */
+/* keys: the three things a visitor must leave knowing */
+.keys{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;counter-reset:key}
+.key{position:relative;border-radius:24px;padding:26px 24px 22px;border:1px solid var(--line);background:var(--glass);display:grid;gap:10px;align-content:start;counter-increment:key;overflow:hidden}
+.key::before{content:counter(key,decimal-leading-zero);font:900 64px/.8 var(--display);letter-spacing:-.06em;color:transparent;-webkit-text-stroke:1px color-mix(in srgb,var(--acc) 55%,transparent);margin-bottom:6px}
+.light .key::before{-webkit-text-stroke-color:color-mix(in srgb,var(--acc-dark,var(--acc)) 50%,transparent)}
+.key h3{font-size:clamp(22px,2vw,27px);letter-spacing:-.03em}
+.key p{color:var(--fg2);font-size:15.5px}
+.key .proof{margin-top:6px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;font:500 12px var(--mono);color:var(--fg3)}
+.light .key{box-shadow:0 1px 2px rgba(10,10,12,.04),0 14px 40px rgba(10,10,12,.05)}
+@media (max-width:860px){.keys{grid-template-columns:1fr}.key::before{font-size:48px}}
+
+/* diagram: nodes + animated connectors + step captions (data in <script type="application/json" data-diagram>) */
+.dg{position:relative;border-radius:28px;border:1px solid var(--line);background:
+  radial-gradient(600px 300px at 20% 0%,color-mix(in srgb,var(--acc) 10%,transparent),transparent 70%),var(--glass);padding:22px;overflow:hidden}
+.dg-stage{position:relative;width:100%;aspect-ratio:var(--ar,16/7)}
+.dg svg.dg-wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.dg-wire{fill:none;stroke:var(--line);stroke-width:2}
+.dg-wire.on{stroke:color-mix(in srgb,var(--acc) 70%,transparent);stroke-dasharray:6 7;animation:dgflow 1.2s linear infinite}
+@keyframes dgflow{to{stroke-dashoffset:-26}}
+.dg-pkt{fill:var(--acc);filter:drop-shadow(0 0 6px var(--acc));opacity:0}
+.dg-pkt.on{opacity:1}
+.dg-elab{font:600 11px var(--mono);fill:var(--fg2)}
+.dg-node{position:absolute;transform:translate(-50%,-50%);min-width:120px;max-width:180px;padding:12px 14px;border-radius:16px;border:1px solid var(--line);
+  background:var(--bg2);display:grid;gap:3px;text-align:left;transition:border-color .3s,box-shadow .3s,opacity .3s;z-index:1}
+.light .dg-node{background:#fff;box-shadow:0 6px 20px rgba(10,10,12,.06)}
+.dg-node b{display:flex;align-items:center;gap:8px;font:800 14.5px/1.2 var(--display);letter-spacing:-.01em}
+.dg-node b i{width:26px;height:26px;border-radius:9px;display:grid;place-items:center;flex:none;background:color-mix(in srgb,var(--acc) 15%,transparent);color:var(--acc)}
+.light .dg-node b i{color:var(--acc-dark,var(--acc))}
+.dg-node small{font:500 11.5px/1.35 var(--body);color:var(--fg3)}
+.dg-node.hot{border-color:color-mix(in srgb,var(--acc) 70%,transparent);box-shadow:0 0 0 4px color-mix(in srgb,var(--acc) 14%,transparent)}
+.dg-node.dim{opacity:.45}
+.dg-node.big{min-width:150px;padding:16px 18px}
+.dg-node.big b{font-size:17px}
+.dg-steps{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.dg-steps button{flex:1 1 160px;display:grid;gap:6px;text-align:left;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:transparent;cursor:pointer;transition:all .25s;color:var(--fg2);font:500 13.5px/1.4 var(--body)}
+.dg-steps button em{font:700 10.5px var(--mono);letter-spacing:.12em;font-style:normal;color:var(--fg3)}
+.dg-steps button i{display:block;height:2px;border-radius:2px;background:var(--line);overflow:hidden}
+.dg-steps button i::after{content:"";display:block;height:100%;width:0;background:var(--acc)}
+.dg-steps button.on{border-color:color-mix(in srgb,var(--acc) 55%,transparent);color:var(--fg);background:color-mix(in srgb,var(--acc) 7%,transparent)}
+.dg-steps button.on em{color:var(--acc)}
+.light .dg-steps button.on em{color:var(--acc-dark,var(--acc))}
+.dg-steps button.on i::after{width:100%;transition:width var(--dgt,2.8s) linear}
+.dg-steps button.done i::after{width:100%}
+.dg-note{margin-top:12px;font:500 12px var(--mono);color:var(--fg3)}
+@media (max-width:700px){.dg{padding:14px}.dg-node{min-width:0;max-width:44vw;padding:10px 11px}.dg-node small{font-size:11px}.dg-steps button{flex-basis:100%}}
+
+/* compare: before vs with Swop */
+.cmp{display:grid;grid-template-columns:1fr 1fr;border-radius:24px;border:1px solid var(--line);overflow:hidden}
+.cmp>div{padding:24px 26px;display:grid;gap:12px;align-content:start}
+.cmp>div:first-child{background:var(--glass)}
+.cmp>div:last-child{background:color-mix(in srgb,var(--acc) 7%,var(--glass));border-left:1px solid var(--line)}
+.cmp h4{font:800 13px var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+.cmp>div:last-child h4{color:var(--acc)}
+.light .cmp>div:last-child h4{color:var(--acc-dark,var(--acc))}
+.cmp ul{list-style:none;display:grid;gap:10px}
+.cmp li{display:grid;grid-template-columns:20px 1fr;gap:10px;font-size:15px;color:var(--fg2);line-height:1.45}
+.cmp li::before{content:"✕";font-weight:700;color:var(--fg3)}
+.cmp>div:last-child li::before{content:"✓";color:var(--acc)}
+.light .cmp>div:last-child li::before{color:var(--acc-dark,var(--acc))}
+.cmp li b{color:var(--fg)}
+@media (max-width:760px){.cmp{grid-template-columns:1fr}.cmp>div:last-child{border-left:0;border-top:1px solid var(--line)}}
+
+/* native scroll-driven reveals where supported (no JS timing needed) */
+@supports (animation-timeline:view()){
+  @media (prefers-reduced-motion:no-preference){
+    .js [data-rv]:not(.in){opacity:1;transform:none}
+    [data-rv]{animation:rvin linear both;animation-timeline:view();animation-range:entry 0% entry 40%}
+    @keyframes rvin{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+  }
+}

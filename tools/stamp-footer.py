@@ -24,9 +24,8 @@ WORDMARK = ('<g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.
             '<path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g>')
 
 COLS = [  # (heading, [(label, href, status tag or None)])
-    ('Products', [('Web app', 'https://swopme.app/wallet', None), ('swop.id', '/swopid', None), ('Swop Pay', '/pay', None),
-                  ('Geo Bucks', '/geobucks', None), ('Trading', '/trade', None), ('Swop Live', '/live', None),
-                  ('SWOP token', '/token', None), ('Decentrabet', '/decentrabet', 'Beta'), ('Swivy', '/swivy', 'Soon'),
+    ('Products', [('swop.id', '/swopid', None), ('Swop Pay', '/pay', None),
+                  ('Geo Bucks', '/geobucks', None), ('SWOP token', '/token', None), ('Decentrabet', '/decentrabet', 'Beta'), ('Swivy', '/swivy', 'Soon'),
                   ('Shop', '/shop', None)]),
     ('AI &amp; worlds', [('Ovi', '/ovi', 'Beta'), ('Swop MCP', '/mcp', None), ('El Dorado', '/eldorado', 'Beta')]),
     ('Company', [('Blog', '/blog/', None), ('About', '/about.html', None), ('Support', 'https://support.swop.id', None),
