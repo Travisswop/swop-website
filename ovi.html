@@ -158,31 +158,9 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
   </div>
 </section>
 
-<section class="sec gut" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">S.03 · Follow a request</span><h2>From a sentence <span class="acc">to a receipt.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.4","stepMs":3000,
-      "nodes":[
-        {"id":"you","x":7,"y":50,"mx":50,"my":6,"label":"You","sub":"type it in plain words","icon":"id"},
-        {"id":"ovi","x":28,"y":50,"mx":50,"my":25,"label":"Ask Swop · Ovi","sub":"works out the steps","icon":"owl","big":true},
-        {"id":"tools","x":51,"y":17,"mx":27,"my":46,"label":"Swop tools","sub":"wallet · store · markets","icon":"pay"},
-        {"id":"caps","x":51,"y":84,"mx":73,"my":46,"label":"Your caps","sub":"per payment · per day · on/off","icon":"key"},
-        {"id":"approve","x":73,"y":50,"mx":50,"my":68,"label":"Approval card","sub":"you tap Approve, or nothing moves","icon":"card","big":true},
-        {"id":"done","x":93,"y":50,"mx":50,"my":91,"label":"Done","sub":"lands in your activity","icon":"coin"}],
-      "edges":[
-        {"from":"you","to":"ovi","label":"ask","step":1},
-        {"from":"ovi","to":"tools","label":"plan","step":2},
-        {"from":"tools","to":"approve","label":"proposal","step":3},
-        {"from":"caps","to":"approve","label":"limits","step":3},
-        {"from":"approve","to":"done","label":"approved","step":4}],
-      "steps":["You ask in plain words: sell my hoodie, pay maya.swop.id, propose a small position.","Ovi picks the Swop tools it needs and reads your real balances, store and markets.","It shows an approval card with the exact amount, already checked against your caps.","Only after you tap Approve does Swop run it, and it shows up in your activity."],
-      "note":"Anything over your caps is blocked. Turn AI spending off anytime in Settings → AI assistants."}</script></div>
-  </div>
-</section>
-
 <section class="sec gut" id="how">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.04 · How it works</span><h2>Say it in a sentence. <span class="acc">Ovi handles the rest.</span></h2><p>Four everyday jobs, each one sentence to Ovi. The phone here is an illustration of the flow; the screens above are the real app.</p></div>
+    <div class="sh"><span class="lab">S.03 · How it works</span><h2>Say it in a sentence. <span class="acc">Ovi handles the rest.</span></h2><p>Four everyday jobs, each one sentence to Ovi. The phone here is an illustration of the flow; the screens above are the real app.</p></div>
     <div class="story">
       <div class="stick">
         <div class="phone" aria-hidden="true">
@@ -229,7 +207,7 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
 
 <section class="sec gut light" id="safe">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.05 · Your rules</span><h2>Powerful, <span class="acc">on a leash you hold.</span></h2><p>Ovi works for you, with limits you set and can change any time in Settings → AI assistants.</p></div>
+    <div class="sh"><span class="lab">S.04 · Your rules</span><h2>Powerful, <span class="acc">on a leash you hold.</span></h2><p>Ovi works for you, with limits you set and can change any time in Settings → AI assistants.</p></div>
     <div class="bento">
       <div class="bx w4" data-rv><div class="ic" data-ic="owl" data-s="22"></div><h3>Approve first</h3><p>Every payment, trade and send shows you the details first. You tap Approve or nothing happens.</p><div class="viz yesbig"><span class="n">Not now</span><span>Approve</span></div></div>
       <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="coin" data-s="22"></div><h3>Your caps</h3><p>Per-payment and daily limits.</p><div class="viz caps"><div class="cap"><div><span>Per payment</span><b>$50</b></div><i style="--w:40%"></i></div><div class="cap"><div><span>Today</span><b>$25 / $200</b></div><i style="--w:12%"></i></div></div></div>
@@ -242,7 +220,7 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
 
 <section class="sec gut tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.06 · Under the hood</span><h2>From a sentence <span class="acc">to a receipt.</span></h2><p>What happens between your message and the result, in four steps.</p></div>
+    <div class="sh"><span class="lab">S.05 · Under the hood</span><h2>From a sentence <span class="acc">to a receipt.</span></h2><p>What happens between your message and the result, in four steps.</p></div>
     <div class="flow" style="--n:4">
       <div class="fs"><div class="dot">01</div><h4>You ask</h4><p>In plain words, in the app or a group chat.</p></div>
       <div class="fs"><div class="dot">02</div><h4>Ovi plans</h4><p>It picks from the same 51 tools that power the Swop MCP: wallet, store, markets, page.</p></div>
@@ -262,7 +240,7 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
 
 <section class="sec gut" id="status">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.07 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
+    <div class="sh"><span class="lab">S.06 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
     <div class="road">
       <div class="rc live" data-rv><span class="st beta">Beta today</span><ul><li><span><b>Ovi in the Swop app.</b> Strategies across swaps, perps and prediction markets, with autonomy settings, caps and approvals.</span></li><li><span><b>Talk to it from any AI.</b> Message your agent, change its strategy or approve what it proposes through the <a href="/mcp" class="acc">Swop MCP</a>.</span></li><li><span><b>Swop Credits</b> for AI usage, funded with SWOP.</span></li></ul></div>
       <div class="rc build" data-rv style="--d:.08s"><span class="st building">Building</span><ul><li><span><b>The Ovi app</b> on web, Mac and iPhone (internal testing now).</span></li><li><span><b>Ask Swop in iMessage</b>, powered by Ovi.</span></li><li><span><b>1.2× pricing</b> for the standalone Ovi app and API.</span></li><li><span><b>Local models</b> running on Swop's own hardware.</span></li><li><span><b>Connectors</b> for Gmail, Calendar, Drive and GitHub.</span></li></ul></div>
@@ -273,21 +251,21 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
 
 <section class="sec gut light tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.08 · Plugs into</span><h2>Ovi can reach <span class="acc">all of Swop.</span></h2><p>Ovi uses the same tools as the rest of Swop, so anything you can do in the app, it can help with.</p></div>
+    <div class="sh"><span class="lab">S.07 · Plugs into</span><h2>Ovi can reach <span class="acc">all of Swop.</span></h2><p>Ovi uses the same tools as the rest of Swop, so anything you can do in the app, it can help with.</p></div>
     <div class="plugs" data-plugs="pay:Creates products and checkout links|trade:Proposes swaps, perps and predictions|swopid:Pays names, edits your page|mcp:Same tools, inside any AI|token:Swop Credits are funded with SWOP|eldorado:Your agent shows up in the Exchange"></div>
   </div>
 </section>
 
 <section class="sec gut tight" id="developers">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.09 · For developers</span><h2>Build on it. <span class="acc">Docs are here.</span></h2><p>Ovi's tools are the same ones any AI can use through the Swop MCP. Control your own agent from code, or read how approvals and credits work.</p></div>
+    <div class="sh"><span class="lab">S.08 · For developers</span><h2>Build on it. <span class="acc">Docs are here.</span></h2><p>Ovi's tools are the same ones any AI can use through the Swop MCP. Control your own agent from code, or read how approvals and credits work.</p></div>
     <div class="devs"><a href="https://docs.swopme.co/ovi"><b>Ovi overview ↗</b>What Ovi is, where it runs and what's live.<code>docs.swopme.co/ovi</code></a><a href="https://docs.swopme.co/ovi/control-your-agent-via-mcp"><b>Control your agent via MCP ↗</b>Read, message and update your trading agent from any AI.<code>docs.swopme.co/ovi/control-your-agent-via-mcp</code></a><a href="https://docs.swopme.co/ovi/billing-and-credits"><b>Billing and credits ↗</b>How Swop Credits are charged.<code>docs.swopme.co/ovi/billing-and-credits</code></a><a href="https://docs.swopme.co/mcp/tool-reference"><b>MCP tool reference ↗</b>All 51 tools, with inputs and sign-in rules.<code>docs.swopme.co/mcp/tool-reference</code></a></div>
   </div>
 </section>
 
 <section class="sec gut" id="faq">
   <div class="wrap faq">
-    <div class="sh" style="margin:0"><span class="lab">S.10 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div class="sh" style="margin:0"><span class="lab">S.09 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
     <div>
       <details><summary>Is Ovi available now?</summary><p>Ovi is in beta inside the Swop app as your AI trading agent, and you can talk to it from Claude, ChatGPT or Grok through the Swop MCP. The standalone Ovi app for web, Mac and iPhone is still being built.</p></details>
       <details><summary>Can Ovi spend my money without asking?</summary><p>Anything that moves money shows you the details and waits for your approval. On top of that, per-payment and daily caps apply, and you can switch AI spending off at any time in Settings → AI assistants.</p></details>
@@ -320,7 +298,6 @@ body{--acc:#c084fc;--acc-ink:#1b0533;--acc-dark:#7c3aed}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 <!-- site-footer:start -->
 <footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
   <div class="sf-top">

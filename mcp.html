@@ -210,32 +210,9 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
   </div>
 </section>
 
-<section class="sec gut" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">S.03 · Follow a request</span><h2>From a chat <span class="acc">to your wallet.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.4","stepMs":3000,
-      "nodes":[
-        {"id":"ai","x":7,"y":50,"mx":50,"my":6,"label":"Your AI","sub":"ChatGPT · Claude · Grok","icon":"id"},
-        {"id":"server","x":28,"y":50,"mx":50,"my":25,"label":"mcp.swopme.co","sub":"one URL, 51 tools","icon":"plug","big":true},
-        {"id":"signin","x":51,"y":16,"mx":27,"my":46,"label":"Sign in with Swop","sub":"OAuth, no password in chat","icon":"key"},
-        {"id":"tools","x":51,"y":84,"mx":73,"my":46,"label":"Swop tools","sub":"look up · sell · pay · trade","icon":"pay"},
-        {"id":"caps","x":73,"y":50,"mx":50,"my":68,"label":"Caps &amp; consent","sub":"Settings → AI assistants","icon":"id","big":true},
-        {"id":"wallet","x":93,"y":50,"mx":50,"my":91,"label":"Your wallet &amp; store","sub":"inside your limits","icon":"coin"}],
-      "edges":[
-        {"from":"ai","to":"server","label":"connector","step":1},
-        {"from":"server","to":"tools","label":"public tools","step":2},
-        {"from":"server","to":"signin","label":"account tools","step":2},
-        {"from":"signin","to":"caps","step":3},
-        {"from":"tools","to":"caps","label":"money tools","step":3},
-        {"from":"caps","to":"wallet","label":"within caps","step":4}],
-      "steps":["Paste https://mcp.swopme.co/mcp into ChatGPT, Claude or Grok as a custom connector.","Public tools (people, stores, markets) work right away. Account tools ask you to sign in with Swop.","Anything that moves money checks your caps and consent first.","It runs on your own wallet or store and shows up in your activity, like any Swop action."],
-      "note":"Turn AI spending off, change caps or disconnect an assistant anytime in Settings → AI assistants."}</script></div>
-  </div>
-</section>
-
 <section class="sec gut light tight" id="setup">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.04 · Connect in a minute</span><h2>One URL. <span class="acc">Three assistants.</span></h2><p>Add Swop as a custom connector. Public tools work right away; anything personal asks you to sign in with Swop.</p></div>
+    <div class="sh"><span class="lab">S.03 · Connect in a minute</span><h2>One URL. <span class="acc">Three assistants.</span></h2><p>Add Swop as a custom connector. Public tools work right away; anything personal asks you to sign in with Swop.</p></div>
     <div class="setup">
       <div data-rv>
         <div class="urlbox"><code>https://mcp.swopme.co/mcp</code><button type="button" data-copy="https://mcp.swopme.co/mcp">Copy</button></div>
@@ -258,7 +235,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 
 <section class="sec gut" id="how">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.05 · What it feels like</span><h2>Ask in plain words. <span class="acc">Swop does the work.</span></h2><p>The four things people ask most, shown as an illustration of a chat with the Swop connector. The tool names are the real ones.</p></div>
+    <div class="sh"><span class="lab">S.04 · What it feels like</span><h2>Ask in plain words. <span class="acc">Swop does the work.</span></h2><p>The four things people ask most, shown as an illustration of a chat with the Swop connector. The tool names are the real ones.</p></div>
     <div class="story">
       <div class="stick">
         <div class="win" aria-hidden="true">
@@ -305,7 +282,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 
 <section class="sec gut light" id="tools">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.06 · 51 tools</span><h2>Three levels of trust, <span class="acc">all yours to set.</span></h2><p>Think of it as three doors. Public tools need nothing. Personal tools need your sign-in. Money tools need your sign-in and your consent. Of the 51 tools, 38 need you to sign in.</p></div>
+    <div class="sh"><span class="lab">S.05 · 51 tools</span><h2>Three levels of trust, <span class="acc">all yours to set.</span></h2><p>Think of it as three doors. Public tools need nothing. Personal tools need your sign-in. Money tools need your sign-in and your consent. Of the 51 tools, 38 need you to sign in.</p></div>
     <div class="bento">
       <div class="bx" data-rv><span class="gate">No sign-in</span><h3>Discover</h3><ul class="tl"><li>Resolve a swop.id to its wallet and profile</li><li>Search people and creators</li><li>Prediction markets: events, order books, prices</li><li>Browse a store and get an agent-payable product link</li></ul></div>
       <div class="bx" data-rv style="--d:.06s"><span class="gate g2">Sign in</span><h3>Manage your Swop</h3><ul class="tl"><li>Edit your SmartSite: name, bio, links</li><li>Post to your feed</li><li>Create and feature products</li><li>Check balances and orders</li></ul></div>
@@ -318,7 +295,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 
 <section class="sec gut" id="control">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.07 · Your control</span><h2>Your AI gets a key, <span class="acc">not your wallet.</span></h2><p>Everything lives in the Swop app under Settings → AI assistants, and on the web at swopme.app/ai-assistants.</p></div>
+    <div class="sh"><span class="lab">S.06 · Your control</span><h2>Your AI gets a key, <span class="acc">not your wallet.</span></h2><p>Everything lives in the Swop app under Settings → AI assistants, and on the web at swopme.app/ai-assistants.</p></div>
     <div class="flow" style="--n:4">
       <div class="fs"><div class="dot">01</div><h4>Add the URL</h4><p>Paste the connector into ChatGPT, Claude or Grok.</p></div>
       <div class="fs"><div class="dot">02</div><h4>Sign in with Swop</h4><p>OAuth 2.1 with PKCE. You approve in the app; no password in the chat.</p></div>
@@ -342,7 +319,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 
 <section class="sec gut" id="status">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.08 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>Tagged honestly: if it says In review or Next, you can't use it yet.</p></div>
+    <div class="sh"><span class="lab">S.07 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>Tagged honestly: if it says In review or Next, you can't use it yet.</p></div>
     <div class="road">
       <div class="rc live" data-rv><span class="st live">Live</span><ul><li><span><b>Add by URL</b> in ChatGPT, Claude and Grok.</span></li><li><span><b>The full toolkit</b>: identity, stores, products, payments, swaps, perps, predictions and agent control.</span></li><li><span><b>Caps and consent</b> in Settings → AI assistants.</span></li><li><span><b>Public commerce endpoint</b> with no money tools, listed in the MCP Registry.</span></li></ul></div>
       <div class="rc build" data-rv style="--d:.08s"><span class="st building">In review</span><ul><li><span><b>Swop plugin in ChatGPT's directory.</b> Search "Swop" and add it in one click; money actions hand off to the Swop app.</span></li></ul></div>
@@ -353,21 +330,21 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 
 <section class="sec gut light tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.09 · Plugs into</span><h2>One connector, <span class="acc">all of Swop.</span></h2><p>The connector reaches the same products you use in the app.</p></div>
+    <div class="sh"><span class="lab">S.08 · Plugs into</span><h2>One connector, <span class="acc">all of Swop.</span></h2><p>The connector reaches the same products you use in the app.</p></div>
     <div class="plugs" data-plugs="swopid:Look up any name, edit your page|pay:Every product is agent-payable|trade:Swaps, perps and prediction markets|ovi:Same tools, Swop's own AI|swivy:Will hold your AI spending permissions|decentrabet:Agents can read markets later"></div>
   </div>
 </section>
 
 <section class="sec gut tight" id="developers">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.10 · For developers</span><h2>Build on it. <span class="acc">Docs are here.</span></h2><p>Everything on this page is documented: setup for each assistant, every tool with its inputs, and how to point your own agent at Swop.</p></div>
+    <div class="sh"><span class="lab">S.09 · For developers</span><h2>Build on it. <span class="acc">Docs are here.</span></h2><p>Everything on this page is documented: setup for each assistant, every tool with its inputs, and how to point your own agent at Swop.</p></div>
     <div class="devs"><a href="https://docs.swopme.co/mcp/quickstart"><b>Quickstart ↗</b>Connect ChatGPT, Claude, Grok, Claude Code or Cursor.<code>docs.swopme.co/mcp/quickstart</code></a><a href="https://docs.swopme.co/mcp/tool-reference"><b>Tool reference ↗</b>All 51 tools, grouped, with inputs and sign-in rules.<code>docs.swopme.co/mcp/tool-reference</code></a><a href="https://docs.swopme.co/mcp/build-an-agent"><b>Build an agent ↗</b>Use the Swop MCP from your own agent code.<code>docs.swopme.co/mcp/build-an-agent</code></a><a href="https://docs.swopme.co/agent-payments"><b>Agent payments ↗</b>How AI agents pay Swop sellers in USDC.<code>docs.swopme.co/agent-payments</code></a></div>
   </div>
 </section>
 
 <section class="sec gut" id="faq">
   <div class="wrap faq">
-    <div class="sh" style="margin:0"><span class="lab">S.11 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div class="sh" style="margin:0"><span class="lab">S.10 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
     <div>
       <details><summary>What is MCP?</summary><p>The Model Context Protocol is an open standard that lets AI assistants use outside tools, a bit like USB for AI apps. Swop runs a remote MCP server, so assistants that support custom connectors can use Swop directly.</p></details>
       <details><summary>Which assistants work today?</summary><p>ChatGPT, Claude and Grok, by adding https://mcp.swopme.co/mcp as a custom connector. A one-click Swop plugin in ChatGPT's directory is in review.</p></details>
@@ -400,7 +377,6 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* copy the connector URL */
 document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',async()=>{

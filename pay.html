@@ -191,7 +191,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
   <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>pay</span></a>
-  <div class="navlinks"><a href="#what">How it works</a><a href="#more-than-checkout">Send · Launch · Your site</a><a href="#calc">Fees</a><a href="#ways">Ways to pay</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
+  <div class="navlinks"><a href="#more-than-checkout">Send · Launch · Your site</a><a href="#calc">Fees</a><a href="#ways">Ways to pay</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
 
@@ -268,31 +268,6 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
   </div>
 </section>
 
-<section class="sec gut" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">Follow the money</span><h2>Where a <span class="acc">$40 sale</span> goes.</h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.4","stepMs":3000,
-      "nodes":[
-        {"id":"person","x":8,"y":20,"mx":26,"my":7,"label":"A person","sub":"card or crypto","icon":"id"},
-        {"id":"agent","x":8,"y":80,"mx":74,"my":7,"label":"An AI agent","sub":"pays on its own","icon":"plug"},
-        {"id":"link","x":32,"y":50,"mx":50,"my":27,"label":"Your one link","sub":"swopme.app/p/you/hoodie","icon":"pay","big":true},
-        {"id":"checkout","x":56,"y":50,"mx":50,"my":47,"label":"Swop checkout","sub":"card · any token · USDC","icon":"coin"},
-        {"id":"fee","x":76,"y":14,"mx":25,"my":69,"label":"Fee","sub":"0.5% people · 0% agents (launch)","icon":"trade"},
-        {"id":"wallet","x":90,"y":50,"mx":50,"my":92,"label":"Your wallet","sub":"USDC behind your swop.id","icon":"id","big":true},
-        {"id":"hook","x":76,"y":86,"mx":75,"my":69,"label":"Your server","sub":"signed checkout.paid","icon":"live"}],
-      "edges":[
-        {"from":"person","to":"link","label":"$40","step":1},
-        {"from":"agent","to":"link","label":"$40","step":1},
-        {"from":"link","to":"checkout","step":2},
-        {"from":"checkout","to":"fee","label":"$0.20","step":3},
-        {"from":"checkout","to":"wallet","label":"$39.80 / $40","step":4},
-        {"from":"checkout","to":"hook","label":"webhook","step":5}],
-      "steps":["Anyone opens your link. People get a Buy page; AI agents get a payment request.","Checkout takes a card (verified sellers), any supported token, or the agent's USDC.","A person's payment carries 0.5%. An AI agent's purchase carries 0% at launch.","USDC lands in your wallet: $39.80 from a person, $40.00 from an agent.","If you run a site, your server gets a signed checkout.paid event."],
-      "note":"Illustrative amounts. Physical orders are held in escrow until delivery, then released to you."}</script></div>
-  </div>
-</section>
-
-
 <section class="sec gut light" id="more-than-checkout">
   <div class="wrap">
     <div class="sh"><span class="lab">More than checkout</span><h2>Send it anywhere. <span class="acc">Launch your own.</span> Put it on your site.</h2><p>Swop Pay is the money side of your swop.id: the same wallet that gets paid can send, launch products and tokens, and plug into the website you already have.</p></div>
@@ -326,7 +301,7 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 
 <section class="sec gut" id="how">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.04 · How it works</span><h2>From product <span class="acc">to paid.</span></h2><p>One link, four moments: you make it, a person pays, an AI agent pays, and the money lands with you.</p></div>
+    <div class="sh"><span class="lab">S.03 · How it works</span><h2>From product <span class="acc">to paid.</span></h2><p>One link, four moments: you make it, a person pays, an AI agent pays, and the money lands with you.</p></div>
     <div class="story">
       <div class="stick">
         <div class="win" aria-hidden="true">
@@ -366,7 +341,7 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 
 <section class="sec gut light" id="calc">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.05 · Fees</span><h2>Simple fees. <span class="acc">Do the math.</span></h2><p>When a person pays, the fee is 0.5% (minimum $0.015) and comes out of your side, so the buyer always pays exactly the price they see. When an AI agent buys, there’s no platform fee at launch.</p></div>
+    <div class="sh"><span class="lab">S.04 · Fees</span><h2>Simple fees. <span class="acc">Do the math.</span></h2><p>When a person pays, the fee is 0.5% (minimum $0.015) and comes out of your side, so the buyer always pays exactly the price they see. When an AI agent buys, there’s no platform fee at launch.</p></div>
     <div class="calc">
       <div class="cin">
         <div class="mode" role="group" aria-label="Who is paying"><button type="button" data-mode="person" aria-pressed="true">A person pays · 0.5%</button><button type="button" data-mode="agent" aria-pressed="false">An AI agent pays · 0% at launch</button></div>
@@ -390,7 +365,7 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 
 <section class="sec gut light" id="ways" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.06 · Built for sellers</span><h2>Everything a sale needs, <span class="acc">nothing it doesn't.</span></h2><p>Online, on your own website or across a counter: the same checkout and the same payout.</p></div>
+    <div class="sh"><span class="lab">S.05 · Built for sellers</span><h2>Everything a sale needs, <span class="acc">nothing it doesn't.</span></h2><p>Online, on your own website or across a counter: the same checkout and the same payout.</p></div>
     <div class="bento">
       <div class="bx w4" data-rv><div class="ic" data-ic="pay" data-s="22"></div><h3>Three ways to pay, one link</h3><p>You don't build three checkouts. The same link knows who's buying.</p><div class="viz ways"><div><b>Card</b><small>Seller verification required</small></div><div><b>Tokens</b><small>Any supported token</small></div><div><b>AI agents</b><small>USDC, automatically</small></div></div></div>
       <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="coin" data-s="22"></div><h3>Two simple rates</h3><p>0.5% when a person pays (min $0.015). 0% when an AI agent buys, at launch. Buyers always pay your list price.</p><div class="viz"><div class="big">0.5% · 0%</div></div></div>
@@ -405,7 +380,7 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 
 <section class="sec gut tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.07 · Start today</span><h2>Selling in <span class="acc">four steps.</span></h2><p>Everything happens in the Swop app; nothing to install on your website unless you want to.</p></div>
+    <div class="sh"><span class="lab">S.06 · Start today</span><h2>Selling in <span class="acc">four steps.</span></h2><p>Everything happens in the Swop app; nothing to install on your website unless you want to.</p></div>
     <div class="flow" style="--n:4">
       <div class="fs"><div class="dot">01</div><h4>Claim your name</h4><p>Your <a href="/swopid" class="acc">swop.id</a> is your store's address and payout wallet.</p></div>
       <div class="fs"><div class="dot">02</div><h4>Add a product</h4><p>Photo, price, stock. Or ask Ovi to do it.</p></div>
@@ -435,7 +410,7 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 
 <section class="sec gut" id="status">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.08 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
+    <div class="sh"><span class="lab">S.07 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
     <div class="road">
       <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>Product links and the Buy page</b>, on your SmartSite or anywhere.</span></li><li><span><b>Card and token payments</b>, 0.5% per sale.</span></li><li><span><b>AI agent purchases</b> in USDC on Base since September 2026, with 0% platform fee at launch.</span></li><li><span><b>Checkout on your site</b>, embeds and signed webhooks.</span></li><li><span><b>Escrow</b> for physical goods; instant delivery for digital.</span></li></ul></div>
       <div class="rc build" data-rv style="--d:.08s"><span class="st building">Building</span><ul><li><span><b>A commerce SDK</b> for partners, as a thin layer over the merchant API.</span></li><li><span><b>Developer docs</b> at docs.swopme.co.</span></li><li><span><b>Merchant shops in <a href="/eldorado" class="acc">El Dorado</a></b>'s Marketplace Mall (beta).</span></li></ul></div>
@@ -446,14 +421,14 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 
 <section class="sec gut light tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.09 · Plugs into</span><h2>Selling, <span class="acc">wired into all of Swop.</span></h2></div>
+    <div class="sh"><span class="lab">S.08 · Plugs into</span><h2>Selling, <span class="acc">wired into all of Swop.</span></h2></div>
     <div class="plugs" data-plugs="swopid:Your store lives at your name; payouts go there|ovi:Ask Ovi to create and feature products|mcp:Claude, ChatGPT and Grok can buy from you|geobucks:Issue store credit customers spend at checkout|shop:NFC cards that open your product or page|eldorado:Your storefront in the Marketplace Mall"></div>
   </div>
 </section>
 
 <section class="sec gut" id="faq">
   <div class="wrap faq">
-    <div class="sh" style="margin:0"><span class="lab">S.10 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div class="sh" style="margin:0"><span class="lab">S.09 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
     <div>
       <details><summary>How much does Swop Pay cost?</summary><p>When a person pays by card or crypto: 0.5% of the sale, with a minimum of $0.015. You absorb it, so buyers pay exactly the list price. When an AI agent buys, there’s no platform fee at launch: you receive the full price in USDC.</p></details>
       <details><summary>What is USDC?</summary><p>A digital dollar. Each USDC is designed to be worth $1 and is issued by Circle. It arrives in seconds and settles straight into your wallet, which means it’s final rather than “pending” for days.</p></details>
@@ -488,7 +463,6 @@ curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* fee calculator: people pay 0.5% (min 0.015, absorbed by the seller); AI agent purchases carry 0% platform fee at launch (x402Fulfillment.service.js) */
 (()=>{const $=s=>document.querySelector(s);const inp=$('#fp'),rng=$('#fr');

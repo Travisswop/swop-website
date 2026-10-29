@@ -261,29 +261,6 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
   </div>
 </section>
 
-<section class="sec gut light" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">How it moves</span><h2>From launch <span class="acc">to the counter.</span></h2><p>Credit on the top line, drops on the bottom. Tap a step to follow it.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.4","stepMs":3000,
-      "nodes":[
-        {"id":"shop","x":9,"y":50,"mx":50,"my":7,"label":"Your shop","sub":"launches Bucks on Base","icon":"pin","big":true},
-        {"id":"claim","x":33,"y":20,"mx":25,"my":28,"label":"Signed claim","sub":"you issue credit","icon":"key"},
-        {"id":"wallet","x":60,"y":20,"mx":25,"my":50,"label":"Customer wallet","sub":"Bucks next to their money","icon":"id"},
-        {"id":"checkout","x":88,"y":50,"mx":50,"my":93,"label":"Checkout","sub":"Bucks burned, receipt kept","icon":"pay","big":true},
-        {"id":"drop","x":33,"y":80,"mx":75,"my":28,"label":"Drop on the map","sub":"tap · QR · GPS · beacon","icon":"pin"},
-        {"id":"voucher","x":60,"y":80,"mx":75,"my":50,"label":"Voucher","sub":"claimed nearby","icon":"card"}],
-      "edges":[
-        {"from":"shop","to":"claim","step":1},
-        {"from":"claim","to":"wallet","label":"collect","step":2},
-        {"from":"wallet","to":"checkout","label":"spend","step":3},
-        {"from":"shop","to":"drop","step":4},
-        {"from":"drop","to":"voucher","label":"claim","step":4},
-        {"from":"voucher","to":"checkout","label":"redeem","step":5}],
-      "steps":["You launch your Bucks in the app. 1 Buck = $1 at your shop.","You sign a claim; the customer collects the Bucks into their wallet.","At checkout the Bucks are burned and the customer keeps a receipt.","You put a drop on the map; a shopper nearby claims it as a voucher.","They walk in and redeem it. The receipt shows who your regulars are."],
-      "note":"Bucks aren't cash and are honoured only by the shop that issued them."}</script></div>
-  </div>
-</section>
-
 <section class="sec gut" id="how">
   <div class="wrap">
     <div class="sh"><span class="lab">S.03 · How it works</span><h2>From launch <span class="acc">to latte.</span></h2><p>One shop, one customer, start to finish. Screens marked Real screen are the Swop app today; the others illustrate the step.</p></div>
@@ -427,7 +404,6 @@ body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const bs=[...document.querySelectorAll('[data-aud]')],ps=[...document.querySelectorAll('[data-audp]')];

@@ -89,7 +89,7 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
   <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>fees</span></a>
-  <div class="navlinks"><a href="#calc">Calculator</a><a href="#how">How the fee works</a><a href="#faq">FAQ</a><a href="/pay">Swop Pay</a></div>
+  <div class="navlinks"><a href="#calc">Calculator</a><a href="#faq">FAQ</a><a href="/pay">Swop Pay</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
 
@@ -157,26 +157,6 @@ input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;bac
       <div class="key" data-rv style="--d:.08s"><h3>AI agents: 0% at launch.</h3><p>When an AI agent buys from your link, you get the full price in USDC. No platform fee while agent payments launch.</p><div class="proof"><a class="acc" href="/pay">How agents pay →</a></div></div>
       <div class="key" data-rv style="--d:.16s"><h3>Card is separate.</h3><p>Verified sellers can take cards too; card payments show their own fee at checkout, so this calculator counts crypto and agent sales only.</p><div class="proof"><a class="acc" href="https://docs.swopme.co/payments/crypto-vs-card">Crypto vs card →</a></div></div>
     </div>
-  </div>
-</section>
-
-<section class="sec gut light" id="how">
-  <div class="wrap">
-    <div class="sh"><span class="lab">How the fee works</span><h2>Where <span class="acc">your fee</span> goes.</h2><p>Follow one $40 sale from the buyer to your wallet.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/6.5","arMobile":"3/5.6","stepMs":3000,
-      "nodes":[
-        {"id":"person","x":8,"y":22,"mx":26,"my":8,"label":"A person","sub":"pays $40","icon":"id"},
-        {"id":"agent","x":8,"y":78,"mx":74,"my":8,"label":"An AI agent","sub":"pays $40","icon":"plug"},
-        {"id":"checkout","x":40,"y":50,"mx":50,"my":36,"label":"Swop checkout","sub":"same link for both","icon":"pay","big":true},
-        {"id":"fee","x":68,"y":16,"mx":24,"my":66,"label":"Fee","sub":"0.5% · min $0.015","icon":"coin"},
-        {"id":"wallet","x":90,"y":56,"mx":72,"my":92,"label":"Your wallet","sub":"USDC","icon":"id","big":true}],
-      "edges":[
-        {"from":"person","to":"checkout","label":"$40","step":1},
-        {"from":"agent","to":"checkout","label":"$40","step":1},
-        {"from":"checkout","to":"fee","label":"$0.20","step":2},
-        {"from":"checkout","to":"wallet","label":"$39.80 / $40","step":3}],
-      "steps":["A person and an AI agent each pay your $40 price through the same link.","From the person's payment, Swop takes 0.5% ($0.20). From the agent's, nothing at launch.","You receive $39.80 from the person and $40.00 from the agent, in USDC."],
-      "note":"Illustrative amounts. Network gas is covered on supported chains."}</script></div>
   </div>
 </section>
 
@@ -268,6 +248,5 @@ exact=20000;$('rev').value=toPos(exact);calc();
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 </body>
 </html>

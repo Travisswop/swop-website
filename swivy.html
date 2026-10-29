@@ -203,30 +203,9 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
   </div>
 </section>
 
-<section class="sec gut light" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">S.02 · How it works</span><h2>From a login <span class="acc">to a signed transaction.</span></h2><p>Tap a step, or hover any box to see what it connects to. Every signature passes your rules first.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.6","stepMs":3000,
-      "nodes":[
-        {"id":"app","x":8,"y":50,"mx":50,"my":6,"label":"Your app","sub":"Swivy SDK","icon":"grid","big":true},
-        {"id":"login","x":28,"y":18,"mx":26,"my":26,"label":"Login","sub":"email code, passkey","icon":"id"},
-        {"id":"wallet","x":28,"y":82,"mx":74,"my":26,"label":"Wallets created","sub":"EVM + Solana","icon":"key"},
-        {"id":"intent","x":50,"y":50,"mx":50,"my":46,"label":"Signing intent","sub":"what the user wants to sign","icon":"pay","big":true},
-        {"id":"policy","x":70,"y":18,"mx":26,"my":67,"label":"Policy check","sub":"spending limits, allowed chains","icon":"trade"},
-        {"id":"signer","x":70,"y":82,"mx":74,"my":67,"label":"Isolated signer","sub":"keys never leave it","icon":"key"},
-        {"id":"done","x":92,"y":50,"mx":50,"my":92,"label":"Sent + webhook","sub":"tx on chain, your server told","icon":"live","big":true}],
-      "edges":[
-        {"from":"app","to":"login","step":1},{"from":"login","to":"wallet","step":2},
-        {"from":"app","to":"intent","label":"sign","step":3},{"from":"intent","to":"policy","step":4},
-        {"from":"policy","to":"signer","label":"allowed","step":4},{"from":"signer","to":"done","step":5}],
-      "steps":["Your app adds the SDK. People log in with an email code or a passkey.","Swivy creates their EVM and Solana wallets at login, with no seed phrase.","When someone pays or signs, your app sends Swivy a signing intent.","The policy engine checks your rules (limits, chains) before anything is signed.","The isolated signer signs, the transaction goes out, and your server gets a webhook."],
-      "note":"Preview: Swivy runs in staging. Snippets on this page are illustrative."}</script></div>
-  </div>
-</section>
-
 <section class="sec gut" id="how">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.03 · How it works</span><h2>From hello <span class="acc">to signed.</span></h2><p>What happens behind the scenes, from the moment someone signs in to your app to the moment a transaction is signed. Screens below are illustrations of the developer console.</p></div>
+    <div class="sh"><span class="lab">S.02 · How it works</span><h2>From hello <span class="acc">to signed.</span></h2><p>What happens behind the scenes, from the moment someone signs in to your app to the moment a transaction is signed. Screens below are illustrations of the developer console.</p></div>
     <div class="story">
       <div class="stick">
         <div class="win" aria-hidden="true">
@@ -276,7 +255,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 
 <section class="sec gut light" id="sso">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.04 · Sign in with Swop</span><h2>One swop.id. <span class="acc">Every app.</span></h2><p>Swivy is an OpenID Connect provider. An app adds a "Sign in with Swop" button, and people arrive with their name, avatar and, if they allow it, the same wallet they use in Swop.</p></div>
+    <div class="sh"><span class="lab">S.03 · Sign in with Swop</span><h2>One swop.id. <span class="acc">Every app.</span></h2><p>Swivy is an OpenID Connect provider. An app adds a "Sign in with Swop" button, and people arrive with their name, avatar and, if they allow it, the same wallet they use in Swop.</p></div>
     <div class="sso">
       <div class="nd" data-rv><span class="k">01 · App</span><b>Tap "Sign in with Swop"</b><p>The app sends people to Swop's hosted login.</p><code>/.well-known/openid-configuration</code></div>
       <div class="nd" data-rv style="--d:.06s"><span class="k">02 · Swop</span><b>Log in, then consent</b><p>Passkey or email code, then a clear screen of what the app is asking for.</p><code>scope: openid profile wallets.read</code></div>
@@ -289,7 +268,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 
 <section class="sec gut light" id="platform" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.05 · The platform</span><h2>Everything a wallet app needs, <span class="acc">in one place.</span></h2></div>
+    <div class="sh"><span class="lab">S.04 · The platform</span><h2>Everything a wallet app needs, <span class="acc">in one place.</span></h2></div>
     <div class="bento">
       <div class="bx w4" data-rv><div class="ic" data-ic="key" data-s="22"></div><h3>Two ways to hold keys</h3><p>Pick per app. Neither shows users a seed phrase.</p><div class="viz cust"><div><code>managed_tee</code><p>Keys live in an isolated signer built for AWS Nitro Enclaves.</p></div><div><code>split_custody</code><p>Created in the browser. The device keeps one share; Swivy stores only encrypted data.</p></div></div></div>
       <div class="bx" data-rv style="--d:.06s"><div class="ic" data-ic="coin" data-s="22"></div><h3>Gas sponsorship</h3><p>Pay your users' network fees from sponsor wallets, set per network.</p></div>
@@ -301,7 +280,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 
 <section class="sec gut tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.06 · Why build it</span><h2>Renting it today, <span class="acc">owning it next.</span></h2><p>Swop uses Privy today. Swivy is how Swop moves that layer in-house, and offers it to other apps.</p></div>
+    <div class="sh"><span class="lab">S.05 · Why build it</span><h2>Renting it today, <span class="acc">owning it next.</span></h2><p>Swop uses Privy today. Swivy is how Swop moves that layer in-house, and offers it to other apps.</p></div>
     <div class="cmp" data-rv>
       <div><h4>Privy today</h4><ul>
         <li><span>Pricing that grows with every person who signs up</span></li>
@@ -328,7 +307,7 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 
 <section class="sec gut" id="status">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.07 · Honest status</span><h2>Built, <span class="acc">not shipped yet.</span></h2><p>Swivy runs in staging today. It is not in production, and the Swop app still uses Privy for login and wallets.</p></div>
+    <div class="sh"><span class="lab">S.06 · Honest status</span><h2>Built, <span class="acc">not shipped yet.</span></h2><p>Swivy runs in staging today. It is not in production, and the Swop app still uses Privy for login and wallets.</p></div>
     <div class="road">
       <div class="rc build" data-rv><span class="st building">Building now</span><ul><li><span><b>API, console, isolated signer and worker</b>, running in staging.</span></li><li><span><b>Login, wallets, signing, intents, webhooks</b> and gas sponsorship.</span></li><li><span><b>Sign in with Swop</b> (OIDC) and delegated grants for AI agents.</span></li><li><span><b>SDKs</b> for web, React, Expo and Node, plus the agent CLI.</span></li></ul></div>
       <div class="rc next" data-rv style="--d:.08s"><span class="st planned">Next</span><ul><li><span><b>Production</b> on Swop's own infrastructure.</span></li><li><span><b>Swop moves over</b>: new users on Swivy, existing users migrate.</span></li><li><span><b>Public docs</b> and early-access projects.</span></li><li><span><b>Sign in with Swop</b> in El Dorado, Chalk, Game Film AI and Decentrabet.</span></li></ul></div>
@@ -339,14 +318,14 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 
 <section class="sec gut light tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.08 · Plugs into</span><h2>The layer under <span class="acc">all of Swop.</span></h2></div>
+    <div class="sh"><span class="lab">S.07 · Plugs into</span><h2>The layer under <span class="acc">all of Swop.</span></h2></div>
     <div class="plugs" data-plugs="swopid:The account behind Sign in with Swop|ovi:Agent grants replace today's delegation|mcp:AI spending permissions move here|eldorado:Citizens will sign in with Swop|decentrabet:Same wallet, per-app limits|pay:Signs checkout and payouts"></div>
   </div>
 </section>
 
 <section class="sec gut" id="faq">
   <div class="wrap faq">
-    <div class="sh" style="margin:0"><span class="lab">S.09 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div class="sh" style="margin:0"><span class="lab">S.08 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
     <div>
       <details><summary>Can I use Swivy today?</summary><p>Not in production yet. Swivy runs in staging while we finish the production deploy. Request early access and we'll reach out when projects open.</p></details>
       <details><summary>Does the Swop app use Swivy?</summary><p>Not yet. Swop runs on Privy today. The plan is a dual stack: new users on Swivy first, then existing users migrate.</p></details>
@@ -383,7 +362,6 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 <script>
 /* hero: code appears line by line, then a user signs in and gets two wallets; loops */
 (()=>{const lines=[...document.querySelectorAll('#code .ln0')],siws=document.getElementById('siws'),a1=document.getElementById('a1'),a2=document.getElementById('a2'),st=document.getElementById('wst');

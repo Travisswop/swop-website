@@ -247,31 +247,6 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
   </div>
 </section>
 
-<section class="sec gut" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">How copy trading works</span><h2>One trade, <span class="acc">two wallets.</span></h2><p>Follow one trade from Maya's wallet to yours. Tap a step, or hover any box.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.6","stepMs":3000,
-      "nodes":[
-        {"id":"maya","x":8,"y":22,"mx":22,"my":6,"label":"Maya trades","sub":"from her own wallet","icon":"id"},
-        {"id":"venue","x":8,"y":80,"mx":24,"my":78,"label":"The venue","sub":"Jupiter · LI.FI · Hyperliquid · Polymarket","icon":"trade"},
-        {"id":"feed","x":34,"y":22,"mx":75,"my":6,"label":"Trade card","sub":"posted to her feed","icon":"live"},
-        {"id":"you","x":58,"y":22,"mx":75,"my":28,"label":"You tap Copy","sub":"pick your own size","icon":"id"},
-        {"id":"wallet","x":58,"y":80,"mx":56,"my":49,"label":"Your wallet","sub":"the same trade runs here","icon":"pay","big":true},
-        {"id":"fee","x":84,"y":80,"mx":76,"my":67,"label":"0.5% swap fee","sub":"on swaps only","icon":"coin"},
-        {"id":"reward","x":84,"y":22,"mx":75,"my":91,"label":"Maya earns SWOP","sub":"half the swap fee, for being copied","icon":"coin"}],
-      "edges":[
-        {"from":"maya","to":"venue","label":"trade","step":1},
-        {"from":"maya","to":"feed","label":"posts","step":1},
-        {"from":"feed","to":"you","step":2},
-        {"from":"you","to":"wallet","label":"copy","step":3},
-        {"from":"wallet","to":"venue","label":"executes","step":3},
-        {"from":"wallet","to":"fee","step":4},
-        {"from":"fee","to":"reward","label":"50%","step":5}],
-      "steps":["Maya trades from her own wallet. It runs on the venue and posts to her feed as a trade card.","You see the card in your feed and tap Copy.","The same trade runs from your wallet, at the size you choose.","A swap carries Swop's 0.5% fee. Perps and predictions carry no Swop fee today.","Half of that swap fee goes to Maya as a SWOP reward for being copied."],
-      "note":"Illustrative. Positions and profit and loss always come from the venue. Trading can lose money; no returns are promised."}</script></div>
-  </div>
-</section>
-
 <section class="sec gut" id="how">
   <div class="wrap">
     <div class="sh"><span class="lab">S.03 · How it works</span><h2>Four markets. <span class="acc">One wallet.</span></h2><p>These are the real screens in the Swop app today (the wallet and swap show example numbers). Scroll to walk through each one.</p></div>
@@ -420,7 +395,6 @@ body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
 <script src="/assets/p/kit.js" defer></script>
-<script src="/assets/p/diagram.js" defer></script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   /* markets explorer tabs */
