@@ -579,7 +579,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .cw-scr{position:relative;width:100%;height:100%;border-radius:34px;overflow:hidden;background:#fff}
 .cw-scr::before{content:"";position:absolute;left:50%;top:9px;transform:translateX(-50%);width:76px;height:22px;border-radius:20px;background:#000;z-index:6}
 .cw-v{position:absolute;inset:0;background:#fff;padding:80px 16px 16px;display:flex;flex-direction:column;gap:8px;transition:opacity .35s,transform .35s}
-.cw-v.out{opacity:1}.cw-v.in{opacity:0;transform:translateY(12px)}
+.cw-v.in{opacity:0;transform:translateY(12px)}
 .cw-ban{position:absolute;left:8px;right:8px;top:38px;display:flex;align-items:center;gap:8px;padding:7px 9px;border-radius:14px;background:rgba(244,244,246,.96);box-shadow:0 6px 18px rgba(10,10,12,.1);font:500 10px Inter;color:var(--soft);z-index:5;white-space:nowrap;transition:transform .45s cubic-bezier(.3,1.4,.5,1),opacity .3s}
 .cw-ban.hide{transform:translateY(-46px);opacity:0}
 .cw-ban i{width:20px;height:20px;border-radius:6px;background:#0a0a0c;color:var(--green);display:grid;place-items:center;flex:none}
@@ -1479,7 +1479,8 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       el.innerHTML='<div class="cw-hd"><i>'+v.l+'</i><div><b>'+esc(v.who)+'</b><small>'+esc(v.sub)+'</small></div></div><div class="cw-t">'+esc(v.t)+'</div><div class="cw-b">'+esc(v.b)+'</div><div class="cw-it">'+v.it.map(function(x){return '<span>'+esc(x)+'</span>'}).join('')+'</div><div class="cw-go">'+esc(v.go)+'</div>';
       var old=view; view=el; scr.appendChild(el);
       ban.classList.add('hide');
-      requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.remove('in'); if(old){old.classList.add('out'); setTimeout(function(){old.remove()},400)} from.textContent=o.from; ban.classList.remove('hide')})});
+      void el.offsetWidth; el.classList.remove('in'); if(old)setTimeout(function(){old.remove()},400);
+      setTimeout(function(){if(cur===k){from.textContent=o.from; ban.classList.remove('hide')}},60);
     };
     var next=function(){show(ORDER[(ORDER.indexOf(cur)+1)%ORDER.length]); if(tiles.scrollWidth>tiles.clientWidth+4){var b=tiles.querySelector('.cw-o.on'); tiles.scrollTo({left:b.offsetLeft-20,behavior:'smooth'})}};
     var play=function(){clearInterval(timer); if(!user&&inView&&!reduce)timer=setInterval(next,2800)};
