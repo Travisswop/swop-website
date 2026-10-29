@@ -1,0 +1,25 @@
+{
+  "posts": [
+    "If the issuer behind your tokenized asset goes bankrupt, what do you actually get back?\n\nThe chain keeps an honest record of your balance. It has no vote in the answer.\n\nThat lives in paperwork most holders never read.",
+    "It's tempting to treat \"it's on-chain\" as a safety feature.\n\nThe blockchain does one thing reliably: an accurate, tamper-resistant record of who holds how many units.\n\nThat record will be perfectly accurate the day an issuer files for bankruptcy.",
+    "It will also be almost entirely beside the point.\n\nBecause it answers \"who holds the token\" — not \"what is this token a claim on, and how strong is that claim.\"",
+    "And note this survives self-custody.\n\nYou can hold a tokenized asset in a wallet nobody but you controls and STILL be an unsecured creditor the moment its issuer goes under.\n\nTwo separate risks. Two separate solutions.",
+    "Three structures, three very different outcomes.\n\n1) The deliberately strong one. Paxos's gold token PAXG: Paxos Trust Company is chartered as a limited-purpose trust company under NY Banking Law, supervised by NYDFS.",
+    "Paxos says customer assets sit in segregated, bankruptcy-remote accounts, never commingled with corporate funds — so they wouldn't pass through standard bankruptcy at all. The NYDFS Superintendent would return them to owners directly.",
+    "Important caveat: that is Paxos describing its own structure. However specific, it's a company claim — not an independent legal audit, and not a settled court ruling.\n\nWe're flagging that rather than quoting it as settled fact.",
+    "2) The conventional-fund one. BlackRock's tokenized Treasury fund BUIDL: per its 2024 launch, BNY Mellon is custodian and administrator, Securitize is transfer agent recording who holds the tokenized shares.",
+    "That's an independent, regulated custodian holding the underlying Treasuries — different from an issuer custodying its own backing asset.\n\nWhether BUIDL is formally bankruptcy-remote the way Paxos describes is a question for its offering docs, which we couldn't verify.",
+    "3) The one nobody markets. Industry risk assessments of the broader RWA market describe pooled custody without clear segregation, commingled cash management, and documentation that lets redemption claims be deferred or cancelled.",
+    "Or satisfied only out of whatever \"free assets\" the issuer has left — if paying you wouldn't worsen its own insolvency.\n\nThat's closer to an unsecured bond than a trust account. And nothing about the token tells you which category you're in.",
+    "So here are the four questions that actually decide it. All answerable only from the issuer's own documents:",
+    "① Is your claim segregated from the issuer's balance sheet, or against the issuer generally?\n\n② Who holds the underlying asset — and are they independent of the issuer?",
+    "③ Can redemption be paused, deferred or subordinated, and on what conditions? Some documents build in exactly that right, to protect the issuer's solvency at your expense.\n\n④ What minimum size or notice period does redemption actually require?",
+    "None of those four answers is visible in a ticker, a chain, or the word \"tokenized.\"\n\nThey're contract terms. And they vary enormously between assets described identically in marketing copy.",
+    "What self-custody does change: Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That removes the intermediary who could block, freeze, or disappear with your position.",
+    "What it does not change: the issuer.\n\nSelf-custody means you control the token. It does not change what the token is a claim on, or how strong that claim is if the issuer fails. Conflating those two is the most common mistake in this category.",
+    "Our own standing, plainly: Swop is not an issuer of tokenized real-world assets and makes no claim about any RWA issuer's bankruptcy structure.\n\nAlso, plainly: Swop has not commissioned a third-party security audit to date.",
+    "What we do control: RWAs on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the app through its existing routing. Swop runs on Solana, Ethereum, Base and Polygon and sponsors gas.",
+    "That removes the custodian between you and the token.\n\nIt is not, and cannot be, a statement about what happens if an issuer fails. That answer lives in the issuer's own documentation — which is exactly why checking it is the point.",
+    "https://www.swopme.co/blog/tokenized-asset-issuer-fails"
+  ]
+}
