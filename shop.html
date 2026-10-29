@@ -419,6 +419,66 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .cd-toast button{background:none;border:0;color:#fff;text-decoration:underline;cursor:pointer;font:inherit}
 
 
+/* ===== paper vs tap compare ===== */
+.cmp{position:relative;height:clamp(460px,46vw,620px);border-radius:30px;overflow:hidden;user-select:none;-webkit-user-select:none;touch-action:pan-y;cursor:ew-resize;border:1px solid rgba(255,255,255,.08);isolation:isolate}
+.cmp-paper,.cmp-tap{position:absolute;inset:0}
+.cmp-paper{background:radial-gradient(70% 70% at 50% 60%,#2a2a2e,#121214 75%);filter:grayscale(1) contrast(.92)}
+.cmp-paper::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");mix-blend-mode:overlay;opacity:.5;pointer-events:none}
+.drawer{position:absolute;left:50%;top:54%;width:min(520px,70%);height:46%;transform:translate(-50%,-30%)}
+.pile{position:absolute;left:50%;top:0;width:0;height:0}
+.pile i{position:absolute;left:-90px;top:-10px;width:180px;height:104px;border-radius:6px;background:linear-gradient(160deg,#f4f1ea,#d9d4c8);box-shadow:0 10px 20px rgba(0,0,0,.45);transform:translate(var(--x),var(--y)) rotate(var(--r));padding:16px 16px;display:flex;flex-direction:column;justify-content:flex-end;gap:3px;color:#222}
+.pile i b{font:700 14px Georgia,serif}.pile i span{font:400 11px Georgia,serif;color:#555}
+.dfront{position:absolute;left:-6%;right:-6%;top:38%;bottom:-14%;border-radius:10px;background:linear-gradient(180deg,#5a4a3c,#3a2f26);box-shadow:inset 0 2px 0 rgba(255,255,255,.12),0 30px 60px rgba(0,0,0,.6)}
+.dfront span{position:absolute;left:50%;top:34%;width:28%;height:12%;transform:translateX(-50%);border-radius:999px;background:linear-gradient(180deg,#8d7b6a,#4d3f33);box-shadow:inset 0 -2px 0 rgba(0,0,0,.4)}
+.cmp-tap{clip-path:inset(0 0 0 var(--x));background:radial-gradient(60% 70% at 50% 50%,#0f2a1c,#050608 70%)}
+.tglow{position:absolute;left:50%;top:50%;width:70%;height:70%;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(63,224,143,.32),transparent);filter:blur(20px)}
+.trings{position:absolute;left:50%;top:50%;width:0;height:0}
+.trings i{position:absolute;width:240px;height:240px;margin:-120px;border-radius:50%;border:1.5px solid rgba(63,224,143,.55);animation:ring 3s cubic-bezier(.2,.7,.3,1) infinite}
+.trings i:nth-child(2){animation-delay:.75s}.trings i:nth-child(3){animation-delay:1.5s}.trings i:nth-child(4){animation-delay:2.25s}
+.tcard{position:absolute;left:50%;top:50%;width:min(300px,42%);aspect-ratio:1.586;transform:translate(-50%,-50%) rotate(-8deg);border-radius:16px;padding:20px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+  background:linear-gradient(150deg,#26262c,#0b0b0d 55%,#18181d);box-shadow:0 40px 80px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.08),0 0 60px rgba(63,224,143,.25);animation:tfloat 5s ease-in-out infinite}
+@keyframes tfloat{50%{transform:translate(-50%,-54%) rotate(-6deg)}}
+.tcard .wm{width:72px;height:15px;color:#fff}
+.tcard .tn{position:absolute;right:18px;top:16px;width:26px;color:var(--green)}
+.tcard b{display:block;font:800 18px var(--display);letter-spacing:-.02em}
+.tcard small{font:500 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.ob{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px 10px 10px;border-radius:16px;background:rgba(255,255,255,.95);color:#0a0a0c;box-shadow:0 16px 36px rgba(0,0,0,.4);opacity:0;transform:translateY(14px) scale(.92);animation:pop 7.5s cubic-bezier(.2,.9,.25,1.2) infinite}
+.ob em{width:30px;height:30px;border-radius:10px;display:grid;place-items:center;font-style:normal;font:800 15px var(--display);background:rgba(63,224,143,.22);color:var(--violet);flex:none}
+.ob em.st{color:#d99a00;background:rgba(245,179,1,.18)}
+.ob b{display:block;font:700 13.5px Inter;white-space:nowrap}.ob small{font-size:11.5px;color:var(--mut);white-space:nowrap}
+.b1{left:58%;top:14%;animation-delay:.2s}.b2{left:66%;top:62%;animation-delay:1.4s}.b3{left:12%;top:20%;animation-delay:2.6s}.b4{left:14%;top:66%;animation-delay:3.8s}.b5{left:62%;top:38%;animation-delay:5s}
+@keyframes pop{0%{opacity:0;transform:translateY(14px) scale(.92)}6%,44%{opacity:1;transform:none}52%,100%{opacity:0;transform:translateY(-10px) scale(.96)}}
+.cmp-tag{position:absolute;left:22px;top:20px;font:700 11px var(--label);letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.6);background:rgba(0,0,0,.35);border:1px solid rgba(255,255,255,.15);border-radius:999px;padding:7px 12px}
+.cmp-tag.g{left:auto;right:22px;color:#04140b;background:var(--green);border-color:var(--green)}
+.cmp-stats{position:absolute;left:22px;bottom:20px;display:flex;gap:8px}
+.cmp-stats.g{left:auto;right:22px}
+.cmp-stats div{border-radius:14px;padding:10px 13px;background:rgba(0,0,0,.45);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:grid;gap:2px;min-width:92px}
+.cmp-stats b{font:800 18px var(--display);color:#fff;letter-spacing:-.02em}.cmp-stats small{font-size:11px;color:rgba(255,255,255,.55)}
+.cmp-stats.g b{color:var(--green)}
+.cmp-handle{position:absolute;top:0;bottom:0;left:var(--x);width:0;z-index:5;outline:none}
+.cmp-handle::before{content:"";position:absolute;top:0;bottom:0;left:-1px;width:2px;background:linear-gradient(180deg,transparent,#fff 12%,#fff 88%,transparent);box-shadow:0 0 20px rgba(63,224,143,.7)}
+.cmp-handle span{position:absolute;left:-28px;top:50%;width:56px;height:56px;margin-top:-28px;border-radius:50%;background:#fff;color:#0a0a0c;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45),0 0 0 6px rgba(255,255,255,.12);transition:transform .2s}
+.cmp:hover .cmp-handle span,.cmp-handle:focus-visible span{transform:scale(1.08)}
+.cmp-handle:focus-visible span{box-shadow:0 0 0 4px var(--green)}
+.ocount{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:22px;border-radius:22px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.08)}
+.oc{background:#08090b;padding:22px 18px;display:grid;gap:4px}
+.oc b{font:900 clamp(26px,2.6vw,38px) var(--display);letter-spacing:-.04em;color:#fff;font-variant-numeric:tabular-nums}
+.oc:first-child b{color:var(--green)}
+.oc span{font-size:13px;color:rgba(255,255,255,.55)}
+.ocap{margin-top:14px;font:500 12.5px var(--label);letter-spacing:.06em;color:rgba(255,255,255,.4)}
+.closer-sec{padding-bottom:110px}
+@media(max-width:700px){
+  .cmp{height:540px;border-radius:22px}
+  .drawer{width:86%;top:52%}.pile i{width:140px;height:82px;left:-70px;padding:11px}.pile i b{font-size:12px}.pile i span{font-size:10px}
+  .tcard{width:64%;padding:14px}.tcard b{font-size:15px}
+  .ob{padding:7px 10px 7px 7px;gap:7px;border-radius:12px}.ob em{width:24px;height:24px;font-size:12px}.ob b{font-size:12px}.ob small{font-size:10.5px}
+  .b1{left:44%;top:12%}.b2{left:40%;top:74%}.b3{left:6%;top:24%}.b4{left:6%;top:62%}.b5{left:48%;top:30%}
+  .cmp-stats{left:12px;bottom:12px;gap:6px}.cmp-stats.g{right:12px}.cmp-stats div{min-width:0;padding:8px 9px}.cmp-stats b{font-size:14px}.cmp-stats small{font-size:10px}
+  .cmp-stats div:nth-child(3){display:none}
+  .ocount{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .closer-sec{padding-bottom:70px}
+}
+@media(prefers-reduced-motion:reduce){.ob{animation:none;opacity:1;transform:none}.tcard,.trings i{animation:none}}
 /* ===== footer ===== */
 .ft{position:relative;overflow:hidden;background:#050608;color:rgba(255,255,255,.6);padding-block:72px 0;font-size:14px;border-top:0}
 .ft::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(63,224,143,.6),transparent)}
@@ -568,19 +628,25 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 
 <!-- ===== dark bento ===== -->
 <section class="sec dark" id="why"><div class="wrap">
-  <div class="sechead"><span class="eyebrow"><b></b>Why it lands</span><h2>A card they keep in a drawer, or <span style="color:var(--green)">a tap they act on.</span></h2><p>Paper gets collected and forgotten. A tap opens a live page while you're still standing there, and that's where the payment, the booking or the review happens.</p></div>
-  <div class="bento">
-    <article class="bt b1"><h3>Take payments</h3><p>The tap opens your checkout with the amount ready. Settled to your account, no terminal to rent.</p>
-      <div class="viz payviz"><div class="tk"><small>Card</small><b>$24.00</b><span class="ok">Paid ✓</span></div><div class="tk"><small>USDC</small><b>12.00</b><span class="ok">Settled ✓</span></div></div></article>
-    <article class="bt b2"><h3>Issue rewards</h3><p>Every tap stamps the loyalty card. Tenth coffee free, no punch card to lose.</p>
-      <div class="viz stamps" id="stamps"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
-    <article class="bt b3"><h3>Collect reviews</h3><p>They land on your Google or Yelp page while the visit is fresh.</p><div class="viz starviz" id="stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div></article>
-    <article class="bt b4"><h3>See every tap</h3><p>Taps, saves and clicks, per card and per location.</p>
-      <svg class="viz spark" id="spark" viewBox="0 0 300 70" preserveAspectRatio="none"><path class="a" d="M0 60 L30 52 L60 55 L90 40 L120 44 L150 30 L180 34 L210 20 L240 24 L270 10 L300 14 L300 70 L0 70Z"/><path class="l" d="M0 60 L30 52 L60 55 L90 40 L120 44 L150 30 L180 34 L210 20 L240 24 L270 10 L300 14"/></svg></article>
-    <article class="bt b5"><h3>Edit it forever</h3><p>New hours, new menu, new person at the desk. The card never changes.</p>
-      <div class="viz editviz"><span>Hours <em>updated</em></span><span>Fall menu <em>live</em></span></div></article>
-    <article class="bt b6"><div><h3>Nothing to install, on their side.</h3><p>NFC reading is built into iPhone and Android. Your page opens in their browser.</p></div><div class="phones"><span>iPhone</span><span>Android</span><span>No app</span><span>No typing</span></div></article>
+  <div class="sechead"><span class="eyebrow"><b></b>Why it lands</span><h2>A card they keep in a drawer, or <span style="color:var(--green)">a tap they act on.</span></h2><p>Drag across. Same handshake, two very different endings.</p></div>
+  <div class="cmp" id="cmp" style="--x:50%">
+    <div class="cmp-paper" aria-hidden="true">
+      <div class="drawer"><div class="pile"><i style="--r:-14deg;--x:-70px;--y:10px"><b>J. Alvarez</b><span>Realtor</span></i><i style="--r:9deg;--x:40px;--y:-6px"><b>Dana Wu</b><span>Photography</span></i><i style="--r:-3deg;--x:-10px;--y:-24px"><b>M. Okafor</b><span>Plumbing & heat</span></i><i style="--r:17deg;--x:80px;--y:18px"><b>Sam Reyes</b><span>Catering</span></i><i style="--r:-22deg;--x:-120px;--y:26px"><b>K. Patel</b><span>Dentist</span></i></div><div class="dfront"><span></span></div></div>
+      <span class="cmp-tag">Paper card</span>
+      <div class="cmp-stats"><div><b>0</b><small>follow-ups</small></div><div><b>3×</b><small>reprinted this year</small></div><div><b>?</b><small>who looked</small></div></div>
+    </div>
+    <div class="cmp-tap" aria-hidden="true">
+      <div class="tglow"></div>
+      <div class="trings"><i></i><i></i><i></i><i></i></div>
+      <div class="tcard"><svg class="wm" viewBox="0 0 88 18"><use href="#swop"/></svg><span class="tn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></span><div><b>Fern &amp; Ash</b><small>fernandash.swop.id</small></div></div>
+      <div class="ob b1"><em>$</em><div><b>Paid $24.00</b><small>Card · settled</small></div></div><div class="ob b2"><em>☕</em><div><b>Stamp 10 of 10</b><small>Free coffee unlocked</small></div></div><div class="ob b3"><em class="st">★</em><div><b>★★★★★ posted</b><small>Google reviews</small></div></div><div class="ob b4"><em>＋</em><div><b>Contact saved</b><small>to their phone</small></div></div><div class="ob b5"><em>⌁</em><div><b>Booked Fri 7pm</b><small>Catering for 40</small></div></div>
+      <span class="cmp-tag g">One tap</span>
+      <div class="cmp-stats g"><div><b>Paid</b><small>card or USDC</small></div><div><b>Stamped</b><small>loyalty</small></div><div><b>Reviewed</b><small>while it's fresh</small></div></div>
+    </div>
+    <div class="cmp-handle" id="cmpHandle" role="slider" tabindex="0" aria-label="Compare paper card and Swop tap" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l-6 6 6 6M15 6l6 6-6 6"/></svg></span></div>
   </div>
+  <div class="ocount" id="ocount"><div class="oc"><b data-n="1284" data-p="$">$0</b><span>paid</span></div><div class="oc"><b data-n="312" data-p="">0</b><span>loyalty stamps</span></div><div class="oc"><b data-n="48" data-p="">0</b><span>new reviews</span></div><div class="oc"><b data-n="2406" data-p="">0</b><span>taps</span></div><div class="oc"><b data-n="17" data-p="">0</b><span>live edits</span></div><div class="oc"><b data-n="0" data-p="">0</b><span>apps they installed</span></div></div>
+  <p class="ocap">An example day at one café counter. Every number starts with a tap.</p>
 </div></section>
 
 <!-- ===== AI checkout ===== -->
@@ -648,7 +714,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   </div>
 </div></section>
 
-<section><div class="wrap"><div class="closer">
+<section class="closer-sec"><div class="wrap"><div class="closer">
   <div><h2>One tap. <span style="color:var(--green)">Your whole business.</span></h2><p>Order a card, pair it once, and edit it forever.</p></div>
   <div class="ctas"><a class="btn g" href="#card">Get the card</a><a class="btn alt" href="/">What is Swop?</a></div>
 </div></div></section>
@@ -1092,7 +1158,21 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   document.querySelectorAll('[data-rail]').forEach(function(b){b.addEventListener('click',function(){$('rail').scrollBy({left:Number(b.dataset.rail)*300,behavior:'smooth'})})});
   /* bento visuals and AI chat play when seen */
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('on');io.unobserve(e.target)})},{threshold:.5});
-  ['stamps','stars','spark'].forEach(function(id){io.observe($(id))});
+  /* paper vs tap slider: drag, keys, and one teaser sweep when first seen */
+  var cmp=$('cmp'),hd=$('cmpHandle'),cx=50,touched=false;
+  function setX(v){cx=Math.max(4,Math.min(96,v));cmp.style.setProperty('--x',cx+'%');hd.setAttribute('aria-valuenow',Math.round(cx))}
+  function fromEv(e){var r=cmp.getBoundingClientRect();setX((e.clientX-r.left)/r.width*100)}
+  cmp.addEventListener('pointerdown',function(e){touched=true;cmp.setPointerCapture(e.pointerId);fromEv(e);cmp.onpointermove=fromEv});
+  cmp.addEventListener('pointerup',function(){cmp.onpointermove=null});
+  hd.addEventListener('keydown',function(e){if(e.key==='ArrowLeft'||e.key==='ArrowRight'){touched=true;setX(cx+(e.key==='ArrowLeft'?-5:5));e.preventDefault()}});
+  new IntersectionObserver(function(es,o){if(!es[0].isIntersecting)return;o.disconnect();if(reduce)return;
+    var keys=[[0,50],[900,80],[1900,24],[2700,58]],t0=performance.now();
+    (function sw(t){if(touched)return;var k=t-t0,i=keys.findIndex(function(p){return p[0]>k});if(i<0){setX(58);return}
+      var a=keys[i-1],b=keys[i],f=(k-a[0])/(b[0]-a[0]),e=f<.5?2*f*f:1-Math.pow(-2*f+2,2)/2;setX(a[1]+(b[1]-a[1])*e);requestAnimationFrame(sw)})(t0)},{threshold:.5}).observe(cmp);
+  /* example-day counters */
+  new IntersectionObserver(function(es,o){if(!es[0].isIntersecting)return;o.disconnect();
+    document.querySelectorAll('#ocount b').forEach(function(el){var n=Number(el.dataset.n),p=el.dataset.p||'',t0=performance.now(),d=reduce?0:1400;
+      (function tk(t){var f=d?Math.min(1,(t-t0)/d):1,v=Math.round(n*(1-Math.pow(1-f,3)));el.textContent=p+v.toLocaleString('en-US');if(f<1)requestAnimationFrame(tk)})(t0)})},{threshold:.4}).observe($('ocount'));
   var ai=$('aiwin');new IntersectionObserver(function(es,o){if(!es[0].isIntersecting)return;o.disconnect();
     ai.querySelectorAll('[data-t]').forEach(function(el){setTimeout(function(){el.classList.add('in')},reduce?0:300+Number(el.dataset.t)*900)})},{threshold:.4}).observe(ai);
 })();
@@ -1146,7 +1226,7 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
   }
 
 
-  var rv=gsap.utils.toArray('.sec .sechead, .bt, .pcard, .bulk, .drop, .faq details, .closer');
+  var rv=gsap.utils.toArray('.sec .sechead, .cmp, .ocount, .pcard, .bulk, .drop, .faq details, .closer');
   gsap.set(rv,{opacity:0,y:36});
   ScrollTrigger.batch(rv,{start:'top 88%',once:true,onEnter:function(b){gsap.to(b,{opacity:1,y:0,duration:.75,ease:'power3.out',stagger:.07,overwrite:true})}});
   addEventListener('load',function(){ScrollTrigger.refresh()});
