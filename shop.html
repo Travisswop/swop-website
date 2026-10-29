@@ -344,36 +344,59 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
 .ts-phone{position:absolute;right:20px;top:10px;width:268px;height:556px;border-radius:44px;background:#0d0d10;padding:9px;z-index:2;box-shadow:0 0 0 1.5px #2a2a31,0 40px 80px rgba(10,10,12,.28)}
 .ts-scr{position:relative;width:100%;height:100%;border-radius:36px;overflow:hidden;background:#fff}
 .ts-scr::before{content:"";position:absolute;left:50%;top:10px;transform:translateX(-50%);width:84px;height:24px;border-radius:20px;background:#000;z-index:5}
-.ts-s{position:absolute;inset:0;padding:58px 20px 22px;display:flex;flex-direction:column;gap:10px;opacity:0;transform:translateY(14px)}
-.ts-s0{align-items:center;justify-content:center;text-align:center;gap:14px;opacity:1;transform:none}
-.ts-s0 b{font:800 21px 'Figtree';letter-spacing:-.02em;max-width:170px;line-height:1.1}
-.ts-s small,.ts-k{font:500 10px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--mut)}
-.ts-wave{width:78px;height:78px;border-radius:50%;background:rgba(63,224,143,.16);color:var(--violet);display:grid;place-items:center}
-.ts-wave svg{width:34px;height:34px}
-.ts-mer{display:flex;align-items:center;gap:10px;padding-bottom:12px;border-bottom:1px solid var(--line2)}
-.ts-mer b{display:block;font:800 15px 'Figtree'}
-.ts-mer small{letter-spacing:.02em;text-transform:none;font-size:11px}
-.ts-av{width:40px;height:40px;border-radius:12px;flex:none;background:radial-gradient(circle at 50% 38%,#f3d2b5 0 22%,transparent 23%),radial-gradient(ellipse 46% 34% at 50% 92%,#1f2937 0 99%,transparent),linear-gradient(160deg,#c7f0dc,#9fe6c0)}
-.ts-amt{font:900 46px 'Figtree';letter-spacing:-.04em;line-height:1}
-.ts-line{display:flex;justify-content:space-between;font-size:13px;color:var(--soft);padding:10px 0;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
-.ts-pay{position:relative;margin-top:auto;height:48px;border-radius:14px;background:#0a0a0c;color:#fff;overflow:hidden;display:grid;place-items:center;font:700 14px Inter}
-.ts-pay i{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--green)}
-.ts-pay span{position:relative;grid-area:1/1}.ts-pay .b{opacity:0;color:#0a0a0c}
-.ts-sub{text-align:center;letter-spacing:.06em}
-.ts-t{font:800 22px 'Figtree';letter-spacing:-.02em}
-.ts-dots{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:8px 0}
-.ts-dots i{aspect-ratio:1;border-radius:50%;border:2px dashed rgba(10,10,12,.18);display:block;position:relative}
-.ts-dots i::after{content:"☕";position:absolute;inset:0;display:grid;place-items:center;font-size:15px;border-radius:50%;background:var(--green);transform:scale(var(--f,0));transition:none}
-.ts-free{margin-top:auto;display:flex;gap:10px;align-items:center;padding:12px;border-radius:14px;background:#0a0a0c;color:#fff;opacity:0}
-.ts-free span{font-size:22px}.ts-free b{display:block;font:800 14px 'Figtree'}.ts-free small{color:rgba(255,255,255,.6);letter-spacing:.04em;text-transform:none;font-size:11px}
-.ts-stars{display:flex;gap:6px;margin:10px 0}
-.ts-stars i{font-style:normal;font-size:34px;line-height:1;color:rgba(10,10,12,.12);transition:none}
-.ts-g{margin-top:auto;display:flex;align-items:center;gap:10px;justify-content:center;height:48px;border-radius:14px;border:1px solid var(--line);font:700 14px Inter}
-.ts-g span{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(#ea4335 0 25%,#fbbc05 0 50%,#34a853 0 75%,#4285f4 0);color:#fff;font:800 12px Inter}
-.ts-thx{opacity:0}
-.ts-lk{display:grid;gap:8px;margin-top:4px}
-.ts-lk span{display:flex;justify-content:space-between;align-items:center;padding:12px 13px;border:1px solid var(--line2);border-radius:13px;font-size:13px;font-weight:500;opacity:0;transform:translateY(10px)}
-.ts-lk span::after{content:"↗";color:#b6b6bd}
+.ts-s{position:absolute;inset:0;display:flex;flex-direction:column;opacity:0;transform:translateY(14px)}
+.ts-s small,.ts-k{font:500 9px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:#8a8a93}
+/* 0 · lock screen, the moment before the tap */
+.ts-s0{opacity:1;transform:none;align-items:center;color:#fff;background:radial-gradient(120% 70% at 25% 112%,#1f7a4c 0,transparent 62%),radial-gradient(90% 55% at 95% -5%,#2e2757 0,transparent 62%),#07090a}
+.ts-clock{margin-top:66px;text-align:center}
+.ts-clock small{display:block;font:600 11px Inter;letter-spacing:0;text-transform:none;color:rgba(255,255,255,.78)}
+.ts-clock b{display:block;font:700 66px 'Figtree';letter-spacing:-.03em;line-height:1;margin-top:2px}
+.ts-ban{position:absolute;left:9px;right:9px;top:178px;display:flex;gap:9px;align-items:center;padding:10px 11px;border-radius:18px;background:rgba(58,58,64,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0}
+.ts-ban i{width:30px;height:30px;border-radius:8px;flex:none;background:#0a0a0c;color:var(--green);display:grid;place-items:center;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)}
+.ts-ban i svg{width:17px;height:17px}
+.ts-ban div{flex:1;min-width:0}.ts-ban b{display:block;font:700 11.5px Inter}.ts-ban span{display:block;font:400 11px Inter;color:rgba(255,255,255,.82);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ts-ban em{align-self:flex-start;font:400 10px Inter;font-style:normal;color:rgba(255,255,255,.55)}
+.ts-hold{position:absolute;bottom:92px;display:flex;align-items:center;gap:7px;padding:8px 13px;border-radius:30px;background:rgba(255,255,255,.1);font:500 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.ts-hold svg{width:14px;height:14px;color:var(--green)}
+.ts-lb{position:absolute;bottom:34px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);backdrop-filter:blur(8px)}
+.ts-lb.l{left:30px}.ts-lb.r{right:30px}
+.ts-hi{position:absolute;bottom:8px;left:50%;width:94px;height:4px;margin-left:-47px;border-radius:4px;background:rgba(255,255,255,.85)}
+/* 1 · the real Swop Pay checkout sheet, captured from swopme.app/checkout */
+.ts-s1{background:#6b6a66 url(/assets/screens/tap-pay.jpg) top/100% auto no-repeat}
+.ts-pay{position:absolute;left:6.15%;right:6.15%;top:84.4%;height:7.6%;border-radius:10px;overflow:hidden;display:grid;place-items:center;font:700 11.5px 'Figtree';color:#fff}
+.ts-pay i{position:absolute;left:0;top:0;bottom:0;width:0;background:#1f7a3d}
+.ts-pay span{position:relative;grid-area:1/1}.ts-pay .a{opacity:0}.ts-pay .b{opacity:0}
+/* 2-3 · rewards and review, built in the same sheet style */
+.ts-s2,.ts-s3{background:#6b6a66}
+.ts-sheet{position:absolute;left:0;right:0;bottom:0;top:14.6%;background:#fff;border-radius:22px 22px 0 0;padding:20px 16px 18px;display:flex;flex-direction:column}
+.ts-sheet::before{content:"";position:absolute;left:50%;top:7px;width:36px;height:4px;margin-left:-18px;border-radius:4px;background:#dcdcde}
+.ts-hd{display:flex;align-items:center;gap:10px;padding-bottom:12px;margin:0 -16px 0;padding-left:16px;padding-right:16px;border-bottom:1px solid #ececee}
+.ts-hd i{width:31px;height:31px;border-radius:9px;background:#0b1a12;color:var(--green);display:grid;place-items:center;font:900 15px 'Figtree';font-style:normal;flex:none}
+.ts-hd b{display:block;font:800 14px 'Figtree';letter-spacing:-.01em}
+.ts-hd small{letter-spacing:.02em;text-transform:none;font-size:9px}.ts-hd small::before{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:#3fbf6a;margin-right:5px;vertical-align:1px}
+.ts-k{text-align:center;margin-top:16px}
+.ts-big{text-align:center;font:900 34px 'Figtree';letter-spacing:-.04em;line-height:1;margin-top:6px}
+.ts-big span{color:#9a9aa2;font-size:18px;letter-spacing:-.01em}
+.ts-dots{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:16px 2px 0}
+.ts-dots i{aspect-ratio:1;border-radius:50%;border:1.5px dashed #d2d2d6;display:block;position:relative;background:#f6f6f4}
+.ts-dots i::after{content:"☕";position:absolute;inset:-1.5px;display:grid;place-items:center;font-size:14px;border-radius:50%;background:#52a95f;transform:scale(var(--f,0));transition:none}
+.ts-dots i.d9{border-color:#52a95f}.ts-dots i.d9::after{content:"★";color:#52a95f;font-size:13px;background:none;transform:none}
+.ts-free{margin-top:auto;display:flex;gap:10px;align-items:center;padding:11px 12px;border-radius:12px;background:#eef8f0;border:1px solid #cfe9d5;opacity:0}
+.ts-free span{font-size:20px}.ts-free b{display:block;font:800 13px 'Figtree'}.ts-free small{color:#4f8a5b;letter-spacing:.04em;text-transform:none;font-size:10px}
+.ts-stars{display:flex;justify-content:center;gap:5px;margin:14px 0 4px}
+.ts-stars i{font-style:normal;font-size:32px;line-height:1;color:#e4e4e7;transition:none}
+.ts-quote{margin-top:10px;padding:11px 12px;border-radius:12px;background:#f6f6f4;border:1px solid #ececee;font:400 11.5px/1.4 Inter;color:#3a3a40}
+.ts-quote small{display:block;margin-bottom:4px}
+.ts-g{margin-top:auto;display:flex;align-items:center;gap:9px;justify-content:center;height:44px;border-radius:12px;background:#52a95f;color:#fff;font:700 12.5px 'Figtree'}
+.ts-g span{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:#fff;color:#4285f4;font:800 11px Inter}
+.ts-thx{opacity:0;text-align:center;margin-top:9px;letter-spacing:.06em}
+/* 4 · a real SmartSite header, captured from swopme.app/sp, plus live links */
+.ts-s4{background:#fff}
+.ts-s4 img{display:block;width:100%;height:auto}
+.ts-lk{display:grid;gap:7px;padding:4px 14px 0}
+.ts-lk span{display:flex;align-items:center;gap:10px;padding:9px 11px;border-radius:12px;background:#f3f3f3;font:600 12px Inter;opacity:0;transform:translateY(10px)}
+.ts-lk span em{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;background:#fff;font-style:normal;font-size:13px;box-shadow:0 1px 2px rgba(10,10,12,.08)}
+.ts-lk span::after{content:"↗";margin-left:auto;color:#b6b6bd}
 .ts-flash{position:absolute;right:20px;top:10px;width:268px;height:556px;border-radius:44px;pointer-events:none;z-index:4;background:radial-gradient(circle at 20% 60%,rgba(63,224,143,.75),transparent 60%);opacity:0}
 .ts.static .ts-s0{opacity:0}.ts.static .ts-s4{opacity:1;transform:none}.ts.static .ts-lk span{opacity:1;transform:none}
 .ts.static .ts-card{left:30px;top:330px}.ts.static .ts-steps li{opacity:1}.ts.static .ts-steps li span{max-height:none}
@@ -611,16 +634,20 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
     <div class="ts-field"><span></span><span></span><span></span><span></span></div>
     <div class="ts-card"><svg class="ts-wm" viewBox="0 0 88 18"><use href="#swop"/></svg><span class="ts-nfc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></span><div><b>Nora Beckett</b><small>Fern &amp; Ash Coffee</small></div></div>
     <div class="ts-phone"><div class="ts-scr">
-      <div class="ts-s ts-s0"><div class="ts-wave"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></div><small>Ready to read</small><b>Hold your phone near the chip</b></div>
-      <div class="ts-s ts-s1"><div class="ts-mer"><span class="ts-av"></span><div><b>Fern &amp; Ash</b><small>swop.id/fernandash</small></div></div>
-        <small class="ts-k">Amount due</small><div class="ts-amt">$4.50</div><div class="ts-line"><span>Oat flat white</span><span>$4.50</span></div>
-        <div class="ts-pay"><i></i><span class="a">Pay with card</span><span class="b">Paid ✓</span></div><small class="ts-sub">Card or USDC · receipt by email</small></div>
-      <div class="ts-s ts-s2"><small class="ts-k">Fern &amp; Ash rewards</small><b class="ts-t">Coffee card</b><div class="ts-dots"><i class="d0"></i><i class="d1"></i><i class="d2"></i><i class="d3"></i><i class="d4"></i><i class="d5"></i><i class="d6"></i><i class="d7"></i><i class="d8"></i><i class="d9"></i></div>
-        <div class="ts-free"><span>☕</span><div><b>10th coffee is free</b><small>Stamped automatically on tap</small></div></div></div>
-      <div class="ts-s ts-s3"><small class="ts-k">How was your visit?</small><b class="ts-t">Rate Fern &amp; Ash</b><div class="ts-stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
-        <div class="ts-g"><span>G</span>Post to Google reviews</div><small class="ts-sub ts-thx">Thanks, review posted</small></div>
-      <div class="ts-s ts-s4"><div class="ts-mer"><span class="ts-av"></span><div><b>Nora Beckett</b><small>swop.id/fernandash</small></div></div>
-        <div class="ts-lk"><span>Menu &amp; today's specials</span><span>Book catering</span><span>Instagram</span><span>Save contact</span></div></div>
+      <div class="ts-s ts-s0"><div class="ts-clock"><small>Wednesday 29 October</small><b>9:41</b></div>
+        <div class="ts-ban"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg></i><div><b>Swop</b><span>Open fernandash.swop.id</span></div><em>now</em></div>
+        <div class="ts-hold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8.5a8 8 0 0 1 0 7"/><path d="M10 6a12 12 0 0 1 0 12"/><path d="M14 3.5a16 16 0 0 1 0 17"/></svg>Hold near a Swop chip</div><span class="ts-lb l"></span><span class="ts-lb r"></span><span class="ts-hi"></span></div>
+      <div class="ts-s ts-s1"><div class="ts-pay"><i></i><span class="a"></span><span class="b">Paid ✓ · receipt sent</span></div></div>
+      <div class="ts-s ts-s2"><div class="ts-sheet"><div class="ts-hd"><i>F</i><div><b>Fern &amp; Ash</b><small>loyalty card · swop</small></div></div>
+        <small class="ts-k">Stamped on this tap</small><div class="ts-big">9<span> of 10</span></div>
+        <div class="ts-dots"><i class="d0"></i><i class="d1"></i><i class="d2"></i><i class="d3"></i><i class="d4"></i><i class="d5"></i><i class="d6"></i><i class="d7"></i><i class="d8"></i><i class="d9"></i></div>
+        <div class="ts-free"><span>☕</span><div><b>Next flat white is free</b><small>Saved to your swop.id</small></div></div></div></div>
+      <div class="ts-s ts-s3"><div class="ts-sheet"><div class="ts-hd"><i>F</i><div><b>Fern &amp; Ash</b><small>review · swop</small></div></div>
+        <small class="ts-k">How was your visit?</small><div class="ts-stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+        <div class="ts-quote"><small>Your review</small>Best oat flat white on the block. Tapped, paid, gone in ten seconds.</div>
+        <div class="ts-g"><span>G</span>Post to Google reviews</div><small class="ts-thx">Thanks · review posted</small></div></div>
+      <div class="ts-s ts-s4"><img src="/assets/screens/tap-profile.jpg" alt="" width="520" height="587" loading="lazy">
+        <div class="ts-lk"><span><em>☕</em>Today's menu</span><span><em>🗓</em>Book catering</span><span><em>📍</em>Directions</span><span><em>👤</em>Save contact</span></div></div>
     </div></div>
     <div class="ts-flash"></div>
   </div>
@@ -1210,12 +1237,13 @@ nav .launch{background:var(--ink);color:#fff;border-radius:12px;padding:10px 16p
       .to(card,{'--sh':'0%',duration:1,ease:'none'},0)
       .fromTo(field,{opacity:.2,scale:.6},{opacity:1,scale:1.1,duration:1,ease:'none'},0)
       .to('#tapstory .ts-flash',{opacity:1,duration:.1},.97).to('#tapstory .ts-flash',{opacity:0,duration:.35},1.07)
+      .fromTo(q('.ts-ban'),{opacity:0,y:-16},{opacity:1,y:0,duration:.22},.7)
       .to(q('.ts-s0'),{opacity:0,y:-12,duration:.2},1).to(q('.ts-s1'),{opacity:1,y:0,duration:.25},1.05)
       .to(field,{opacity:.35,duration:.5},1.1)
       .to(q('.ts-pay i'),{width:'100%',duration:.6,ease:'none'},1.35)
       .to(q('.ts-pay .a'),{opacity:0,duration:.08},1.92).to(q('.ts-pay .b'),{opacity:1,duration:.08},1.95)
       .to(q('.ts-s1'),{opacity:0,y:-12,duration:.2},2.2).to(q('.ts-s2'),{opacity:1,y:0,duration:.25},2.25)
-      .to(qa('.ts-dots i'),{'--f':1,duration:.1,stagger:.07,ease:'back.out(3)'},2.35)
+      .to(qa('.ts-dots i:not(.d9)'),{'--f':1,duration:.1,stagger:.07,ease:'back.out(3)'},2.35)
       .to(q('.ts-free'),{opacity:1,duration:.2},3.1)
       .to(q('.ts-s2'),{opacity:0,y:-12,duration:.2},3.4).to(q('.ts-s3'),{opacity:1,y:0,duration:.25},3.45)
       .to(qa('.ts-stars i'),{color:'#f5b301',scale:1.12,duration:.1,stagger:.12,ease:'back.out(3)'},3.6)
