@@ -827,7 +827,7 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 /* phones: blur behind moving canvases and pinned scenes costs a repaint every frame, so use solid glass instead */
 @media (max-width:820px){
  nav.top.solid,.rail,.ot-n,.ot-risk,.ot-term,.cmd,.steps,.guard span,.tu.soon,.ppop,#hero .toast{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
- nav.top.solid{background:rgba(250,250,250,.97)}.cmd{background:rgba(255,255,255,.96)}.steps{background:rgba(255,255,255,.94)}.rail{background:rgba(10,10,12,.94)}
+ nav.top.solid{background:#fafafa}.cmd{background:rgba(255,255,255,.96)}.steps{background:rgba(255,255,255,.94)}.rail{background:rgba(10,10,12,.94)}
  .ot-n{background:rgba(12,14,18,.94)}.ot-risk{background:rgba(12,14,18,.96)}.ot-term{background:rgba(8,10,14,.95)}
  #hero .toast{background:rgba(255,255,255,.97)}
  .pin-spacer{will-change:auto}
@@ -841,7 +841,6 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 .hk .hk-h{display:grid;gap:16px;max-width:820px;margin-bottom:40px}
 .hk .hk-h h2{font-size:clamp(40px,5.4vw,76px)}
 .hk .hk-h p{color:var(--fg2);font-size:clamp(17px,1.4vw,20px);max-width:56ch}
-.hk .hk-gap{height:clamp(70px,9vw,120px)}
 .hk .key .proof a{color:var(--acc);text-decoration:none}
 .hk .key .proof a:hover{text-decoration:underline}
 .light .st.live{color:#067a41}
@@ -963,8 +962,8 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
 </section>
 
 <!-- 3 MEET MAYA -->
-<!-- THREE THINGS + HOW IT FITS -->
-<section id="fits" class="gut hk" data-ch="04 · How it fits">
+<!-- THREE THINGS -->
+<section id="fits" class="gut hk" data-ch="04 · Three things">
   <div class="wrap">
     <div class="hk-h"><span class="lab">Three things to know</span><h2>Swop, <span class="green">in three lines.</span></h2></div>
     <div class="keys">
@@ -972,25 +971,6 @@ footer a{color:var(--fg2);text-decoration:none} footer a:hover{color:#fff}
       <div class="key" data-rv style="--d:.08s"><h3>Get paid by anyone, even AI.</h3><p>One link: people pay by card or crypto, AI agents pay on their own. You get USDC, minus 0.5% when a person pays and 0% from agents at launch.</p><div class="proof"><em class="st live">Live</em><a href="/pay">How Swop Pay works →</a></div></div>
       <div class="key" data-rv style="--d:.16s"><h3>An AI that works for you.</h3><p>Ovi, or ChatGPT, Claude and Grok through the Swop MCP, can sell, pay and trade for you. Nothing moves without your yes, inside limits you set.</p><div class="proof"><em class="st beta">Beta</em><a href="/ovi">Meet Ovi →</a><a href="/mcp">Swop MCP →</a></div></div>
     </div>
-    <div class="hk-gap"></div>
-    <div class="hk-h"><span class="lab">How it fits together</span><h2>Follow one name <span class="green">through Swop.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.2","stepMs":3200,
-      "nodes":[
-        {"id":"buyers","x":7,"y":18,"mx":26,"my":7,"label":"People & AI agents","sub":"card · crypto · USDC","icon":"plug"},
-        {"id":"page","x":31,"y":18,"mx":74,"my":7,"label":"Her page","sub":"links, shop, feed","icon":"app"},
-        {"id":"maya","x":50,"y":56,"mx":50,"my":31,"label":"maya.swop.id","sub":"one name you own","icon":"id","big":true},
-        {"id":"wallet","x":71,"y":18,"mx":26,"my":56,"label":"Her wallet","sub":"USDC · 5 chains","icon":"wallet"},
-        {"id":"trade","x":93,"y":18,"mx":74,"my":82,"label":"Trade & send","sub":"swaps · perps · predictions","icon":"trade"},
-        {"id":"ai","x":78,"y":86,"mx":26,"my":82,"label":"Ovi & any AI","sub":"acts inside her limits","icon":"spark"},
-        {"id":"world","x":22,"y":86,"mx":74,"my":56,"label":"El Dorado","sub":"same swop.id","icon":"world"}],
-      "edges":[
-        {"from":"maya","to":"page","step":1},{"from":"maya","to":"wallet","step":1},
-        {"from":"buyers","to":"page","label":"pays","step":2},{"from":"page","to":"wallet","label":"USDC","step":2},
-        {"from":"wallet","to":"trade","step":3},
-        {"from":"ai","to":"wallet","label":"with her yes","step":4},
-        {"from":"maya","to":"world","label":"sign in","step":5}],
-      "steps":["Maya claims maya.swop.id: one name that is her page, her wallet and her login.","People and AI agents buy from her page; USDC lands in her wallet.","From the same wallet she swaps, trades and sends money to any name.","Ovi, or her favourite AI through the Swop MCP, handles the busywork. She approves.","She walks into El Dorado, Swop's virtual world, with the same swop.id."],
-      "note":"Maya is an example name. El Dorado and Ovi are in beta."}</script></div>
   </div>
 </section>
 
@@ -1252,7 +1232,6 @@ const IC={id:'<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.4-4 12.6-4 14 0"/
  key:'<circle cx="8" cy="12" r="4"/><path d="M12 12h9M18 12v3M21 12v2"/>',server:'<rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path d="M7 7.5h.01M7 16.5h.01"/>',
  chain:'<path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/>'};
 const svgI=(k,sz=16)=>k==='owl'?`<img src="assets/ovi-mark-256.png" alt="" width="${sz+6}" height="${sz+6}" style="border-radius:50%;display:block">`:`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">${IC[k]}</svg>`;
-window.SwopKit=window.SwopKit||{};window.SwopKit.icon=svgI;
 const CATC={id:'#3FE08F',money:'#f5c842',ai:'#c084fc',infra:'#38bdf8'};
 
 const orr=$('#orrery'),planets=[];let sysCat='id',sysSel=null;
@@ -1612,6 +1591,5 @@ addEventListener('load',()=>ScrollTrigger.refresh());
 <div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
 </footer>
 <!-- site-footer:end -->
-<script src="/assets/p/diagram.js" defer></script>
 </body>
 </html>
