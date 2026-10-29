@@ -1,0 +1,64 @@
+/* Site footer: one footer for every page on swopme.co. Self-contained (sf- prefix) so it drops into any page's CSS.
+   Markup is stamped into each page by tools/stamp-footer.py; edit the markup there, not in the pages.
+   Several older pages style bare footer/nav/span/h4 elements, so everything here is reset and scoped under .sf. */
+.sf{--sf-g:#3FE08F;--sf-line:rgba(255,255,255,.08);--sf-display:"Figtree",ui-sans-serif,system-ui,-apple-system,sans-serif;--sf-body:"Inter",ui-sans-serif,system-ui,-apple-system,sans-serif;
+  display:block;margin:0;border:0;width:auto;max-width:none;flex-direction:initial;gap:0;text-align:left;position:relative;overflow:hidden;
+  background:radial-gradient(1200px 420px at 85% -10%,rgba(63,224,143,.10),transparent 60%),#050608;color:rgba(255,255,255,.62);
+  padding:88px max(24px,env(safe-area-inset-right,0px)) 0 max(24px,env(safe-area-inset-left,0px));font:400 14px/1.5 var(--sf-body);-webkit-font-smoothing:antialiased}
+.sf *{box-sizing:border-box}
+.sf h3,.sf h4,.sf p,.sf ul,.sf li{margin:0;padding:0;border:0;background:none;text-transform:none;list-style:none}
+.sf span,.sf b,.sf small,.sf em{font:inherit;color:inherit;letter-spacing:inherit;text-transform:none;margin:0;padding:0;font-style:normal}
+.sf a{text-decoration:none;color:inherit}
+.sf a:hover{color:inherit}
+.sf::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(63,224,143,.55),transparent)}
+.sf-wrap{position:relative;z-index:2;max-width:1240px;margin:0 auto;width:100%}
+
+/* top: brand + developer card */
+.sf-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:stretch;padding-bottom:56px}
+.sf-wm svg{width:116px;height:24px;color:#fff;display:block}
+.sf .sf-brand p{margin:22px 0 26px;font:800 clamp(28px,3.1vw,42px)/1.04 var(--sf-display);letter-spacing:-.035em;color:#fff;max-width:15ch}
+.sf .sf-brand p span{color:var(--sf-g)}
+.sf-apps{display:flex;flex-wrap:wrap;gap:10px}
+.sf-apps a{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 16px 0 13px;background:#fff;color:#050608;border-radius:13px;transition:transform .2s,box-shadow .2s}
+.sf-apps a:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(63,224,143,.18)}
+.sf-apps a svg[fill="#fff"]{fill:#050608}
+.sf .sf-apps small{display:block;font:500 10px/1 var(--sf-body);color:rgba(5,6,8,.6)}
+.sf .sf-apps b{display:block;font:700 16.5px/1.2 var(--sf-display);letter-spacing:-.01em;color:#050608}
+
+.sf-dev{position:relative;border:1px solid var(--sf-line);border-radius:24px;padding:30px 30px 26px;
+  background:linear-gradient(160deg,rgba(63,224,143,.09),rgba(255,255,255,.02) 55%);display:flex;flex-direction:column;gap:12px}
+.sf .sf-kicker{display:inline-flex;align-items:center;gap:8px;font:700 11.5px var(--sf-display);letter-spacing:.14em;text-transform:uppercase;color:var(--sf-g)}
+.sf .sf-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--sf-g);box-shadow:0 0 10px var(--sf-g)}
+.sf .sf-dev h3{font:800 28px/1.05 var(--sf-display);letter-spacing:-.03em;color:#fff}
+.sf .sf-dev p{font:400 15px/1.55 var(--sf-body);color:rgba(255,255,255,.62);max-width:44ch}
+.sf .sf-docs{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;margin-top:4px;padding:11px 18px;border-radius:999px;background:var(--sf-g);color:#03140b;font:800 14.5px var(--sf-display);transition:transform .2s}
+.sf .sf-docs:hover{color:#03140b;transform:translateY(-2px)}
+.sf .sf-docs span{transition:transform .2s}
+.sf .sf-docs:hover span{transform:translateX(3px)}
+.sf-devlinks{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:6px}
+.sf .sf-devlinks a{font:500 14px var(--sf-body);color:rgba(255,255,255,.72);transition:color .2s}
+.sf .sf-devlinks a:hover{color:#fff}
+.sf .sf-devlinks a.sf-mono{font:500 13px "JetBrains Mono","Space Mono",ui-monospace,Menlo,monospace;color:rgba(255,255,255,.55)}
+
+/* link columns */
+.sf-cols{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;padding:44px 0 48px;border-top:1px solid var(--sf-line)}
+.sf .sf-col h4{display:flex;align-items:center;gap:8px;margin:0 0 16px;font:700 12px var(--sf-display);letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.42)}
+.sf .sf-col ul{display:grid;gap:2px}
+.sf .sf-col a{display:inline-flex;align-items:center;gap:8px;padding:6px 0;font:500 15px/1.3 var(--sf-body);color:rgba(255,255,255,.78);transition:color .2s,transform .2s}
+.sf .sf-col a:hover{color:#fff;transform:translateX(3px)}
+.sf .sf-tag{font:700 9.5px/1 var(--sf-display);letter-spacing:.08em;text-transform:uppercase;padding:4px 7px;border-radius:999px;color:#7dd3fc;background:rgba(56,189,248,.12);border:1px solid rgba(56,189,248,.25)}
+.sf .sf-tag.sf-soon{color:#fcd34d;background:rgba(245,200,66,.1);border-color:rgba(245,200,66,.25)}
+
+/* bottom bar */
+.sf-bar{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding:24px 0;border-top:1px solid var(--sf-line)}
+.sf-socs{display:flex;gap:8px}
+.sf-socs a{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;color:rgba(255,255,255,.8);border:1px solid rgba(255,255,255,.14);transition:all .2s}
+.sf .sf-socs a:hover{color:#050608;background:var(--sf-g);border-color:var(--sf-g);transform:translateY(-2px)}
+.sf .sf-note{margin-left:auto;font:400 12.5px var(--sf-body);color:rgba(255,255,255,.38)}
+.sf .sf-c{font:600 12.5px var(--sf-body);color:rgba(255,255,255,.55)}
+.sf-giant{position:relative;z-index:1;margin:8px auto -4.2vw;padding:0 2vw;line-height:0;pointer-events:none;max-width:none}
+.sf-giant svg{width:100%;height:auto;aspect-ratio:88/18;color:rgba(255,255,255,.06);display:block}
+
+@media (max-width:900px){.sf{padding-top:64px}.sf-top{grid-template-columns:1fr;gap:32px;padding-bottom:40px}.sf .sf-note{margin-left:0;flex-basis:100%}}
+@media (max-width:760px){.sf-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 20px}}
+@media (max-width:420px){.sf-dev{padding:24px 20px 22px}.sf .sf-col a{font-size:14.5px}}

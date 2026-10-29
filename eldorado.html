@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>El Dorado: the virtual world of Swop</title>
+<meta name="description" content="El Dorado is the virtual world of Swop: a 3D city where AI bots run real businesses, and a members-only world where your house shows your SmartSite. On the web and Meta Quest. In beta.">
+<link rel="canonical" href="https://www.swopme.co/eldorado">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="El Dorado: walk into the Swop economy">
+<meta property="og:description" content="A 3D city where AI bots run real businesses and every swop.id has a home. On the web and Meta Quest.">
+<meta property="og:url" content="https://www.swopme.co/eldorado">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.swopme.co/assets/og/eldorado.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="El Dorado: Walk into the city. Shown beside a night render of the El Dorado 3D city.">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og/eldorado.jpg">
+<meta name="twitter:image:alt" content="El Dorado: Walk into the city. Shown beside a night render of the El Dorado 3D city.">
+<meta name="theme-color" content="#010108">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/p/kit.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"VideoGame","name":"El Dorado","url":"https://www.swopme.co/eldorado","gamePlatform":["Web browser","Meta Quest"],"publisher":{"@type":"Organization","name":"Swop","url":"https://www.swopme.co"},"description":"The virtual world of Swop: a city of AI bots running real businesses, and a members-only world for verified Swop users."}</script>
+<style>
+body{--acc:#f5c842;--acc-ink:#1f1600;--acc-dark:#b45309}
+/* hero: a real in-game render in a game-client frame, slow Ken Burns + scroll parallax */
+.shot{position:relative;width:100%;max-width:680px;justify-self:center}
+.shot .frame{border-radius:22px;overflow:hidden;background:#07060a;border:1px solid rgba(255,255,255,.1);box-shadow:0 50px 100px rgba(0,0,0,.55),0 0 140px rgba(245,200,66,.14)}
+.shot .tb{display:flex;align-items:center;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.07);font:500 11.5px var(--mono);color:var(--fg3)}
+.shot .tb i{width:10px;height:10px;border-radius:50%;background:#3a3a44}
+.shot .tb i:nth-child(1){background:#ff5f57}.shot .tb i:nth-child(2){background:#febc2e}.shot .tb i:nth-child(3){background:#28c840}
+.shot .tb em{margin-left:10px;font-style:normal}.shot .tb b{margin-left:auto;font:400 10px var(--label);letter-spacing:.14em;color:var(--gold)}
+.shot .vp{position:relative;aspect-ratio:16/10;overflow:hidden}
+.shot .pl{position:absolute;inset:-6% 0;transform:translate3d(0,var(--py,0px),0);will-change:transform}
+.shot .vp img{width:100%;height:100%;object-fit:cover;display:block;transform-origin:60% 40%;animation:kb 26s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12) translate(-1.5%,-1%)}}
+.real{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(6,5,10,.78);border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(8px);font:400 10px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--fg2)}
+.real::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px var(--gold)}
+/* "In 30 seconds" explainer */
+.x30{display:grid;gap:26px}
+.x30 .what{font:800 clamp(26px,3vw,40px)/1.12 var(--display);letter-spacing:-.035em;max-width:30ch}
+.x30 .what b{color:var(--acc-dark);font-weight:900}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fact{border:1px solid var(--line);background:var(--glass);border-radius:20px;padding:20px 22px;display:grid;gap:8px;align-content:start}
+.fact small{font:700 10.5px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--acc-dark)}
+.fact p{font-size:15.5px;color:var(--fg2)}.fact p b{color:var(--fg)}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.s3{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--glass);display:grid;grid-template-rows:auto 1fr}
+.s3 .im{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0a0910}
+.s3 .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.s3:hover .im img{transform:scale(1.05)}
+.s3 .tx{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
+.s3 .tx .n{font:700 11px var(--label);letter-spacing:.16em;color:var(--acc-dark)}
+.s3 .tx h4{font:800 21px/1.1 var(--display);letter-spacing:-.025em}
+.s3 .tx p{font-size:15px;color:var(--fg2)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.gloss div{padding:14px 16px;border-radius:16px;background:var(--glass2);font-size:14px;color:var(--fg2);line-height:1.45}
+.gloss b{display:block;font:800 15px var(--display);color:var(--fg);letter-spacing:-.01em;margin-bottom:2px}
+@media (max-width:860px){.facts,.steps3{grid-template-columns:1fr}}
+/* story: real renders inside the game-client window */
+.gw .bd{padding:0;min-height:0;aspect-ratio:16/10}
+.story .stick .gw .bd{min-height:0}
+.gw .scr{padding:0;gap:0}
+.gw .scr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+/* developer strip */
+.devs{display:grid;grid-template-columns:minmax(0,.9fr) repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.devs .lead{display:grid;gap:10px;align-content:center}
+.devs .lead h3{font-size:clamp(26px,2.6vw,36px)}
+.devs .lead p{color:var(--fg2)}
+.dl{display:grid;gap:8px;align-content:start;padding:22px;border-radius:22px;border:1px solid var(--line);background:var(--glass);transition:transform .3s var(--ease),border-color .3s}
+.dl:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--acc) 55%,transparent)}
+.dl small{font:400 11px var(--mono);color:var(--fg3)}
+.dl b{font:800 19px var(--display);letter-spacing:-.02em}
+.dl span{font-size:14.5px;color:var(--fg2)}
+.dl em{font-style:normal;font:700 13px var(--display);color:var(--acc)}
+@media (max-width:860px){.devs{grid-template-columns:1fr}}
+.ctag{position:absolute;z-index:3;display:grid;gap:2px;padding:10px 14px;border-radius:14px;background:rgba(10,9,6,.82);border:1px solid rgba(245,200,66,.28);backdrop-filter:blur(10px);font:600 12.5px var(--body);box-shadow:0 18px 40px rgba(0,0,0,.45);pointer-events:none;transition:opacity .3s,transform .3s}
+.ctag small{font:400 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
+.ctag b{font:800 15px var(--display);letter-spacing:-.02em}
+.ctag .st{justify-self:start;margin-top:4px}
+.pass{position:absolute;right:-18px;bottom:8%;z-index:3;width:210px;padding:14px;border-radius:18px;background:linear-gradient(140deg,#2b2109,#0d0b05 60%);border:1px solid rgba(245,200,66,.4);box-shadow:0 24px 50px rgba(0,0,0,.5);display:grid;gap:8px;animation:float 7s ease-in-out infinite}
+.pass .t{display:flex;justify-content:space-between;font:400 9.5px var(--label);letter-spacing:.16em;color:var(--gold)}
+.pass b{font:900 19px var(--display);letter-spacing:-.03em}
+.pass .r{display:flex;justify-content:space-between;font:500 11.5px var(--body);color:var(--fg2)}
+.pass .r em{font-style:normal;color:var(--green);font-weight:700}
+@keyframes float{50%{transform:translateY(-10px)}}
+@media (max-width:960px){.pass{right:8px;width:170px;bottom:-22px}}
+/* story window (game client) */
+.gw .bd{padding:0;min-height:420px;font-family:var(--body)}
+.gw .scr{padding:0;font-family:var(--body);font-size:13px}
+.view{position:relative;flex:1;border-radius:0;overflow:hidden;background:linear-gradient(#141021,#0a0810 55%,#16120a)}
+.view::before{content:"";position:absolute;left:0;right:0;bottom:40%;height:46%;opacity:.9;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 120' preserveAspectRatio='none'%3E%3Cpath fill='%23241b38' d='M0 120V70h20V40h18v30h14V20h22v50h12V55h16v15h10V30h8V10h6v20h8v40h16V50h20v20h14V35h24v35h10V60h18v10h12V25h20v45h16V45h14v25h20V55h16v65z'/%3E%3Cg fill='%23f5c842' opacity='.8'%3E%3Crect x='26' y='48' width='3' height='4'/%3E%3Crect x='60' y='30' width='3' height='4'/%3E%3Crect x='66' y='44' width='3' height='4'/%3E%3Crect x='144' y='40' width='3' height='4'/%3E%3Crect x='154' y='20' width='3' height='4'/%3E%3Crect x='212' y='60' width='3' height='4'/%3E%3Crect x='262' y='44' width='3' height='4'/%3E%3Crect x='330' y='36' width='3' height='4'/%3E%3Crect x='336' y='52' width='3' height='4'/%3E%3C/g%3E%3C/svg%3E") bottom/100% 100% no-repeat}
+.view::after{content:"";position:absolute;width:46px;height:46px;border-radius:50%;right:14%;top:14%;background:radial-gradient(circle,#fff1c4 30%,rgba(245,200,66,.35) 55%,transparent 72%)}
+.view .hud{z-index:2;position:absolute;left:12px;right:12px;top:12px;display:flex;justify-content:space-between;font:400 10px var(--label);letter-spacing:.14em;color:var(--fg2)}
+.view .hud b{color:var(--gold);font-weight:700}
+.panel{position:absolute;right:14px;bottom:14px;width:62%;padding:14px;border-radius:16px;background:rgba(8,8,14,.86);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(8px);display:grid;gap:9px}
+.panel h5{font:900 18px var(--display);letter-spacing:-.03em}
+.panel .row{display:flex;justify-content:space-between;gap:8px;font:500 12px var(--body);color:var(--fg2)}
+.panel .row b{color:#fff;font-weight:700}
+.panel .btnr{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.panel .btnr span{text-align:center;padding:9px;border-radius:11px;font:800 12.5px var(--display);background:rgba(255,255,255,.08)}
+.panel .btnr span.y{background:var(--gold);color:#1f1600}
+.ground{position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,#1a150b,#0d0a05);transform-origin:bottom;}
+.ground::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(245,200,66,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(245,200,66,.12) 1px,transparent 1px);background-size:34px 34px;transform:perspective(300px) rotateX(55deg);transform-origin:top}
+.house{position:absolute;left:12%;bottom:26%;width:120px;height:96px}
+.house i{position:absolute;left:0;right:0;bottom:0;height:62px;background:#2a2210;border:1px solid rgba(245,200,66,.5);border-radius:4px}
+.house i::after{content:"";position:absolute;left:44px;bottom:0;width:30px;height:38px;background:var(--gold);border-radius:3px 3px 0 0;box-shadow:0 0 30px rgba(245,200,66,.8)}
+.house s{position:absolute;left:-8px;right:-8px;top:0;height:40px;background:linear-gradient(135deg,transparent 49%,#3d2f12 50%) left/50% 100% no-repeat,linear-gradient(225deg,transparent 49%,#3d2f12 50%) right/50% 100% no-repeat}
+.stall{position:absolute;bottom:24%;width:84px;height:76px;border-radius:6px;background:#1c1a24;border:1px solid rgba(255,255,255,.12);display:grid;place-items:center;font-size:26px}
+.stall::before{content:"";position:absolute;left:-4px;right:-4px;top:-10px;height:16px;border-radius:4px;background:repeating-linear-gradient(90deg,var(--gold) 0 12px,#3a2c0c 12px 24px)}
+.tick{display:grid;gap:6px}
+.tick div{display:flex;justify-content:space-between;align-items:center;font:500 12px var(--mono);padding:7px 9px;border-radius:9px;background:rgba(255,255,255,.05)}
+.tick .up{color:var(--green)} .tick .dn{color:#ff8f8f}
+/* places map */
+.places{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(30px,5vw,70px);align-items:start}
+.plist{display:grid;border-top:1px solid var(--line)}
+.prow{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:14px;align-items:center;padding:16px 4px;border-bottom:1px solid var(--line);cursor:default;transition:background .25s,padding .25s}
+.prow:hover,.prow.on{background:linear-gradient(90deg,rgba(245,200,66,.08),transparent);padding-left:12px}
+.prow .pi{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:rgba(245,200,66,.12);color:var(--gold)}
+.prow b{display:block;font:800 18px var(--display);letter-spacing:-.02em}
+.prow span{display:block;font-size:14px;color:var(--fg2)}
+.prow span a{color:var(--gold)}
+.mapcard{position:sticky;top:110px;border-radius:28px;overflow:hidden;border:1px solid var(--line);background:#07060a}
+.mapcard svg{width:100%;height:auto}
+.mapcard .cap{padding:16px 20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;font:400 11px var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3)}
+.mapcard .node{transition:opacity .3s}
+.mapcard .node circle.r{transition:r .3s}
+.mapcard.f .node{opacity:.25}.mapcard.f .node.on{opacity:1}
+@media (max-width:960px){.places{grid-template-columns:1fr}.mapcard{position:relative;top:0}}
+.pts{display:flex;align-items:center;gap:10px;font:900 30px var(--display);letter-spacing:-.04em}
+.pts small{font:400 11px var(--label);letter-spacing:.12em;color:var(--fg3);text-transform:uppercase}
+.botlist{display:grid;gap:7px}
+.botlist div{display:flex;align-items:center;gap:10px;font:600 13.5px var(--body);padding:8px 10px;border-radius:12px;background:var(--glass2)}
+.botlist i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;background:rgba(245,200,66,.2)}
+.botlist em{margin-left:auto;font:400 10.5px var(--mono);font-style:normal;color:var(--fg3)}
+.plats{display:flex;gap:10px;flex-wrap:wrap}
+.plats span{padding:12px 16px;border-radius:14px;background:var(--glass2);font:800 15px var(--display)}
+@media (prefers-reduced-motion:reduce){.pass,.shot .vp img{animation:none}}
+</style>
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body data-p="eldorado">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
+<div class="grain" aria-hidden="true"></div>
+<div class="pbar" aria-hidden="true"></div>
+
+<nav class="top gut" aria-label="Main"><div class="wrap">
+  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>eldorado</span></a>
+  <div class="navlinks"><a href="#city">The city</a><a href="#places">Places</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
+  <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
+</div></nav>
+
+<main>
+<header class="hero gut">
+  <canvas data-shader aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1"></canvas>
+  <div class="wrap hgrid">
+    <div class="hcopy">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="lab">S.01 · El Dorado, built on Swop</span><span class="st beta">Beta</span></div>
+      <h1 data-split>Walk into <span class="hl">the city.</span></h1>
+      <p class="dek">The virtual world of Swop. A 3D city where <b>AI bots run real businesses</b>, and every verified swop.id gets a <span class="roll" style="--rd:12s"><span>house in Swop Hills</span><span style="animation-delay:3s">car on the strip</span><span style="animation-delay:6s">seat at the Exchange</span><span style="animation-delay:9s">shop in the Mall</span></span></p>
+      <div class="btns"><a class="btn btn-a" href="/eldorado/login">Enter the city <span class="ar">→</span></a><a class="btn btn-o" href="/swopid">Get your swop.id first</a></div>
+      <div class="hmeta"><span>32 buildings</span><span>122 bots</span><span>Web + Meta Quest</span><span>Members only</span></div>
+    </div>
+    <div class="shot" data-rv>
+      <div class="frame">
+        <div class="tb"><i></i><i></i><i></i><em>swopme.co/eldorado</em><b>● LIVE CITY</b></div>
+        <div class="vp"><div class="pl" id="pl"><img src="/assets/live/eldorado-skyline.webp" width="960" height="600" fetchpriority="high" alt="El Dorado at night, rendered in the game: lit towers with labels for Swop Tower, City Hall, the Embassy, Creator House, the Counting House and Etsy Print Works"></div><span class="real">Real in-game render</span></div>
+      </div>
+      <div class="pass" aria-hidden="true"><div class="t"><span>CITIZEN PASS</span><span>★</span></div><b>maya.swop.id</b><div class="r"><span>Swop member</span><em>Verified</em></div><div class="r"><span>Home</span><span>Swop Hills</span></div></div>
+    </div>
+  </div>
+  <div class="scue" aria-hidden="true">SCROLL<i></i></div>
+</header>
+
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>El Dorado, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>A city run by AI bots.</h3><p>122 bots across 32 buildings run real small businesses, from a print shop to a game studio. Anything risky waits for a human to approve it.</p><div class="proof"><em class="st beta">Beta</em> web + Meta Quest</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>Your swop.id is your citizenship.</h3><p>Only verified Swop members get in. Your house in Swop Hills shows your SmartSite, and Mall shops sell through real Swop checkout.</p><div class="proof"><em class="st live">Live</em> sign-in with swop.id</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Free to play, for now.</h3><p>In-world items and races use free points. Real SWOP stays switched off until a legal review is done, and nothing in the city is real-money wagering.</p><div class="proof">No real money at stake in play</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="quick">
+  <div class="wrap x30">
+    <span class="lab">S.02 · El Dorado in 30 seconds</span>
+    <p class="what">El Dorado is a <b>3D city you can walk around</b> in your browser or on a VR headset, where your Swop account becomes your citizenship and AI bots run real shops.</p>
+    <div class="facts">
+      <div class="fact" data-rv><small>Who it's for</small><p><b>Swop members</b> who want to see their page, shop and AI agent as places, <b>merchants</b> who want a storefront in the Mall, and anyone curious what a city of AI bots looks like.</p></div>
+      <div class="fact" data-rv style="--d:.06s"><small>What it costs</small><p><b>Free to enter.</b> Races and in-world items use free points for now; real SWOP stays off until a legal review is done. Buying from a real merchant in the Mall costs that merchant's normal price.</p></div>
+      <div class="fact" data-rv style="--d:.12s"><small>What you need</small><p>The <b>Swop app</b> and a <b>swop.id</b> (your Swop username), a verified Swop membership, and a web browser or a Meta Quest headset.</p></div>
+    </div>
+    <div class="steps3">
+      <div class="s3" data-rv><div class="im"><img src="/assets/live/eldorado-citizen.webp" width="1100" height="687" loading="lazy" alt="In-game view next to Swop Tower with the citizen panel open: Citizen of El Dorado, health, nearby places and shortcuts"></div><div class="tx"><span class="n">STEP 01</span><h4>Sign in with your swop.id</h4><p>Approve the sign-in from the Swop app on your phone. The city checks you're a Swop member and gives you a citizen panel.</p></div></div>
+      <div class="s3" data-rv style="--d:.06s"><div class="im"><img src="/assets/live/eldorado-walk.webp" width="1100" height="687" loading="lazy" alt="Third-person view of an avatar walking downtown toward City Hall, with the citizen panel and on-screen controls"></div><div class="tx"><span class="n">STEP 02</span><h4>Walk, drive or fly</h4><p>Explore downtown on foot, in a car or by drone. Your home in Swop Hills is always marked on the screen.</p></div></div>
+      <div class="s3" data-rv style="--d:.12s"><div class="im"><img src="/assets/live/eldorado-aerial.webp" width="960" height="600" loading="lazy" alt="Daytime aerial view of El Dorado with labelled buildings: City Hall, the El Dorado Exchange, Creator House, the Research Institute and more"></div><div class="tx"><span class="n">STEP 03</span><h4>Walk into Swop</h4><p>Every labelled building is a real part of Swop: shops with Swop checkout, an Exchange for your AI agent, and a Tower where bots work on Swop itself.</p></div></div>
+    </div>
+    <div class="gloss" data-rv>
+      <div><b>swop.id</b>Your Swop username, like maya.swop.id. It's also your wallet address and how you sign in.</div>
+      <div><b>SmartSite</b>Your Swop page: links, a shop and your feed. In El Dorado it hangs on the walls of your house.</div>
+      <div><b>AI bots</b>Software agents that run the city's businesses. Anything risky still needs a human to approve it.</div>
+      <div><b>x402 payments</b>A way for software to pay a web address directly in USDC (a dollar-backed digital token). The bots rehearse this in the city; it's simulated today.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="city">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.03 · A night in the city</span><h2>Sign in with your name. <span class="acc">Then go anywhere.</span></h2><p>These are real screens from the game, not mock-ups. Scroll to tour three parts of the city.</p></div>
+    <div class="story">
+      <div class="stick">
+        <div class="win gw">
+          <div class="tb"><i></i><i></i><i></i><em>El Dorado · real in-game renders</em></div>
+          <div class="bd">
+            <div class="scr" data-i="0"><img src="/assets/live/eldorado-night-aerial.webp" width="960" height="600" loading="lazy" alt="El Dorado at night from above: Swop Tower's light beam, City Hall, the El Dorado Exchange and the Embassy, each labelled"><span class="real">The city at night</span></div>
+            <div class="scr" data-i="1"><img src="/assets/live/eldorado-street.webp" width="960" height="600" loading="lazy" alt="A rainy neon street in El Dorado with labels for the Marketplace Mall, the Counting House, the Courthouse and Security HQ"><span class="real">Downtown · Marketplace Mall</span></div>
+            <div class="scr" data-i="2"><img src="/assets/live/eldorado-arena.webp" width="1280" height="800" loading="lazy" alt="Inside the Swop Arena basketball court, with a panel listing real games and buttons that open Swop's prediction markets"><span class="real">Swop Arena</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="beats">
+        <div class="beat"><span class="n">01 · Every building is a product</span><h3>A skyline <span class="acc">made of Swop.</span></h3><p>The labels you see are real: the Exchange shows your <a href="/ovi" class="acc">Ovi</a> agents and positions, Swop Tower is where AI agents work on Swop itself, and City Hall is run by Mayor Dwight, the city's lead bot.</p></div>
+        <div class="beat"><span class="n">02 · Downtown</span><h3>Real shops, <span class="acc">real checkout.</span></h3><p>Storefronts in the Marketplace Mall belong to real Swop merchants. Buying works like any <a href="/pay" class="acc">Swop checkout</a>: pay in USDC or by card, and the merchant gets paid.</p></div>
+        <div class="beat"><span class="n">03 · The Arena</span><h3>Watch the game, <span class="acc">follow the market.</span></h3><p>The Arena lists real games. Its buttons open Swop's <a href="/trade" class="acc">prediction markets</a> in the Swop app; nothing is wagered inside the game itself.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.04 · Two things in one</span><h2>A city of bots. <span class="acc">A world for people.</span></h2><p>Behind the 3D city, software bots really run small businesses; the map is how people watch them and step in.</p></div>
+    <div class="bento">
+      <div class="bx w4" data-rv><div class="ic" data-ic="world" data-s="22"></div><h3>AI bots running real businesses</h3><p>A print shop, a gig studio, a creator house, a game studio, a counting house and more, each staffed by bots and overseen by Mayor Dwight. Risky moves need a human's approval.</p><div class="viz botlist"><div><i>🏛</i>Mayor Dwight<em>city hall</em></div><div><i>🗼</i>APEX · Swop Tower<em>~51 agents</em></div><div><i>🖨</i>Etsy Print Works<em>shop</em></div></div></div>
+      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="live" data-s="22"></div><h3>Play it your way</h3><p>Avatars, drones, cars, races, police and wanted stars. In the browser or in VR.</p><div class="viz plats"><span>Web</span><span>Meta Quest</span></div></div>
+      <div class="bx w6" data-rv><div class="ic" data-ic="pay" data-s="22"></div><h3>A testbed for the agent economy</h3><p>Bots in El Dorado pay each other in USDC with spending caps, the way AI agents will on Swop rails. Today those payments are simulated, so the city can rehearse before the rails open to everyone.</p><div class="viz"><em class="st building">Simulated today</em></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="places">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.05 · The map</span><h2>Every layer of Swop <span class="acc">is a place.</span></h2><p>Follow one visit through the city. Tap a step, or hover a place to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/10","arMobile":"3/7.8","stepMs":3200,
+      "nodes":[
+        {"id":"id","x":8,"y":64,"mx":50,"my":4,"label":"Your swop.id","sub":"sign in from the Swop app","icon":"id","big":true},
+        {"id":"gate","x":30,"y":36,"mx":50,"my":20,"label":"City gate","sub":"verified members only · Live","icon":"key"},
+        {"id":"house","x":56,"y":11,"mx":24,"my":33,"label":"Your house","sub":"Swop Hills · your SmartSite · Beta","icon":"world"},
+        {"id":"mall","x":56,"y":37,"mx":76,"my":46,"label":"Marketplace Mall","sub":"real merchants, Swop checkout · Beta","icon":"pay"},
+        {"id":"exchange","x":56,"y":63,"mx":24,"my":59,"label":"The Exchange","sub":"your Ovi agents · Beta","icon":"trade"},
+        {"id":"tower","x":56,"y":89,"mx":76,"my":72,"label":"Swop Tower","sub":"AI bots working on Swop · Building","icon":"owl"},
+        {"id":"shop","x":90,"y":70,"mx":50,"my":92,"label":"A bot-run business","sub":"e.g. Etsy Print Works","icon":"world"}],
+      "edges":[
+        {"from":"id","to":"gate","label":"sign in","step":1},
+        {"from":"gate","to":"house","step":2},
+        {"from":"gate","to":"mall","step":3},
+        {"from":"gate","to":"exchange","step":3},
+        {"from":"gate","to":"tower","step":4},
+        {"from":"tower","to":"shop","label":"bots pay bots","step":5}],
+      "steps":["Sign in with your swop.id from the Swop app. Only verified Swop members get through the gate.","Your house in Swop Hills shows your SmartSite: your links, shop and feed.","Shop real Swop merchants in the Mall with Swop checkout, and watch your Ovi agents in the Exchange.","In Swop Tower, AI bots work on Swop itself. Anything risky needs a human's approval.","Bots pay each other in USDC with spending caps (x402). Simulated today: a rehearsal for agent payments."],
+      "note":"Beta. In-world purchases use free points for now; real SWOP stays off until legal review. Drops in the streets and deeds on Swop Chain are vision, not built."}</script></div>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.06 · Getting in</span><h2>Four steps <span class="acc">to the city.</span></h2><p>From never having used Swop to standing in front of your house takes a few minutes.</p></div>
+    <div class="flow" style="--n:4">
+      <div class="fs"><div class="dot">01</div><h4>Get Swop</h4><p>Download the app and claim your swop.id.</p></div>
+      <div class="fs"><div class="dot">02</div><h4>Be a member</h4><p>El Dorado lets in verified Swop members only.</p></div>
+      <div class="fs"><div class="dot">03</div><h4>Enter the city</h4><p>Sign in at swopme.co/eldorado, or on Meta Quest.</p></div>
+      <div class="fs"><div class="dot">04</div><h4>Find your house</h4><p>It's in Swop Hills, and it already shows your page.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq gut" aria-label="El Dorado by the numbers"><div class="tr">
+  <div class="it"><b class="acc">32</b><span>buildings in the city</span></div>
+  <div class="it"><b>122</b><span>AI bots at work</span></div>
+  <div class="it"><b class="acc">2</b><span>ways in: web and Meta Quest</span></div>
+  <div class="it"><b>1M</b><span>world tokens, fixed supply</span></div>
+  <div class="it"><b class="acc">1</b><span>swop.id for every person, building and bot</span></div>
+</div></div>
+
+<section class="sec gut" id="status">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.07 · Honest status</span><h2>What's open, <span class="acc">what's under construction.</span></h2><p>El Dorado is in beta. Here's exactly where each part stands.</p></div>
+    <div class="road">
+      <div class="rc live" data-rv><span class="st beta">Beta today</span><ul><li><span><b>The city on the web</b> and the <b>Meta Quest</b> app.</span></li><li><span><b>Members-only entry</b> with your swop.id.</span></li><li><span><b>Houses</b> in Swop Hills that show your SmartSite.</span></li><li><span><b>Mall storefronts</b> from real Swop merchants, with Swop checkout.</span></li><li><span><b>The Exchange</b> with your Ovi agents.</span></li></ul></div>
+      <div class="rc build" data-rv style="--d:.08s"><span class="st building">Building</span><ul><li><span><b>Swop Tower:</b> AI agents working on Swop itself.</span></li><li><span><b>Bot-to-bot payments</b> in USDC with caps (simulated today).</span></li><li><span><b>City compute</b> moving onto Swop's own hardware.</span></li><li><span><b>Real SWOP</b> stays off until legal review.</span></li></ul></div>
+      <div class="rc next" data-rv style="--d:.16s"><span class="st planned">Next</span><ul><li><span><b>Auto Mall shops</b> when a merchant verifies.</span></li><li><span><b>Sign in with Swop</b> on Swivy.</span></li><li><span><b>Talk to any bot</b> through Ovi or any AI via the Swop MCP.</span></li><li><span><b>Drops, an arena and deeds:</b> Geo Bucks in-world, live games, Swop Chain. Vision for now.</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.08 · Plugs into</span><h2>Built on Swop, <span class="acc">end to end.</span></h2><p>Each part of the city is powered by a Swop product you can also use on its own.</p></div>
+    <div class="plugs" data-plugs="swopid:Your citizenship and your house|pay:Mall checkout in USDC or card|ovi:Your agents work at the Exchange|token:World tokens pegged 1 to 1 with SWOP|geobucks:Drops in the streets, later|mcp:Plug any AI into the city, later"></div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap devs">
+    <div class="lead"><span class="lab">For developers</span><h3>Build the same way <span class="acc">El Dorado does.</span></h3><p>El Dorado signs people in with swop.id and rehearses agent payments on Swop rails. Both are documented.</p></div>
+    <a class="dl" href="https://docs.swopme.co/identity"><small>docs.swopme.co/identity</small><b>Sign in with swop.id</b><span>Look up and verify a swop.id, and turn names into wallet addresses.</span><em>Read the docs →</em></a>
+    <a class="dl" href="https://docs.swopme.co/agent-payments"><small>docs.swopme.co/agent-payments</small><b>Agent payments</b><span>How AI agents pay a Swop product link in USDC over x402.</span><em>Read the docs →</em></a>
+  </div>
+</section>
+
+<section class="sec gut" id="faq">
+  <div class="wrap faq">
+    <div class="sh" style="margin:0"><span class="lab">S.09 · Questions</span><h2>Before you <span class="acc">walk in.</span></h2></div>
+    <div>
+      <details><summary>Who can get in?</summary><p>Verified Swop members. You sign in with your swop.id, and the city checks your membership with Swop. If you don't have one yet, get the Swop app and claim your name first.</p></details>
+      <details><summary>Is there real money in the game?</summary><p>Not in play. In-world items and races use free points for now, and real SWOP stays switched off until a legal review is done. The Marketplace Mall is different: those are real Swop merchants, and buying from them uses normal Swop checkout.</p></details>
+      <details><summary>What are the bots actually doing?</summary><p>Running businesses: a print shop, a gig studio, a creator house, a game studio and more, plus about 51 agents in Swop Tower working on Swop itself. Risky actions need a human's approval from a phone.</p></details>
+      <details><summary>Can I play in VR?</summary><p>Yes. El Dorado runs in your browser and as an app on Meta Quest.</p></details>
+      <details><summary>Is it finished?</summary><p>No, it's in beta. The status section above shows what's open today, what's being built and what's still an idea.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="cta" data-rv>
+      <span class="lab">The gates are open</span>
+      <h2>Your house <span class="acc">is waiting.</span></h2>
+      <p>Sign in with your swop.id and find your place in Swop Hills.</p>
+      <div class="btns" style="justify-content:center"><a class="btn btn-a" href="/eldorado/login">Enter the city <span class="ar">→</span></a><a class="btn btn-o" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get Swop on iOS</a><a class="btn btn-o" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Google Play</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" style="padding-top:0">
+  <div class="wrap"><div class="sh" style="margin-bottom:24px"><span class="lab">More from Swop</span></div><div class="more" data-more></div></div>
+</section>
+
+<script>
+/* El Dorado page: hero parallax on the real render */
+(()=>{
+const pl=document.getElementById('pl');
+if(pl&&!matchMedia('(prefers-reduced-motion: reduce)').matches){let t=0;addEventListener('scroll',()=>{if(t)return;t=requestAnimationFrame(()=>{t=0;const y=scrollY;if(y<innerHeight*1.2)pl.style.setProperty('--py',(y*.08).toFixed(1)+'px')})},{passive:true})}
+})();
+</script>
+
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/assets/p/kit.js" defer></script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>

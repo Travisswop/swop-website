@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Decentrabet: set the odds, deploy your own market</title>
+<meta name="description" content="Decentrabet lets anyone set the odds on a question, deploy their own market contract and embed it anywhere. Named validators resolve it. In beta on the Base Sepolia testnet with test USDC.">
+<link rel="canonical" href="https://www.swopme.co/decentrabet">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Decentrabet: set the odds. Deploy your own market.">
+<meta property="og:description" content="Peer-to-peer prediction markets you create, own and embed anywhere. Testnet beta.">
+<meta property="og:url" content="https://www.swopme.co/decentrabet">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.swopme.co/assets/og/decentrabet.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Decentrabet: Set the odds. Own the market. Shown beside the Decentrabet testnet site.">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og/decentrabet.jpg">
+<meta name="twitter:image:alt" content="Decentrabet: Set the odds. Own the market. Shown beside the Decentrabet testnet site.">
+<meta name="theme-color" content="#010108">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/p/kit.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Decentrabet","url":"https://decentrabet.vercel.app","applicationCategory":"GameApplication","description":"Peer-to-peer prediction markets: anyone sets the odds, deploys their own market contract and embeds it anywhere. Testnet beta on Base Sepolia.","isRelatedTo":{"@type":"Organization","name":"Swop","url":"https://www.swopme.co"}}</script>
+<style>
+body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
+/* hero: the live Decentrabet site in a browser frame, with the market card as an illustration on top */
+.shot{position:relative;width:min(640px,100%);justify-self:center}
+.shot .frame{border-radius:20px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.12);box-shadow:0 50px 100px rgba(0,0,0,.55),0 0 140px rgba(56,189,248,.14)}
+.shot .tb{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#0b0f16;border-bottom:1px solid rgba(255,255,255,.07);font:500 11.5px var(--mono);color:var(--fg3)}
+.shot .tb i{width:10px;height:10px;border-radius:50%;background:#3a3a44}
+.shot .tb i:nth-child(1){background:#ff5f57}.shot .tb i:nth-child(2){background:#febc2e}.shot .tb i:nth-child(3){background:#28c840}
+.shot .tb em{margin-left:10px;font-style:normal;color:var(--fg2)}.shot .tb b{margin-left:auto;font:400 10px var(--label);letter-spacing:.14em;color:var(--gold)}
+.crop{position:relative;overflow:hidden;background:#fff;aspect-ratio:var(--ar,16/10)}
+.crop img{display:block;max-width:none;width:calc(1280 / var(--sw) * 100%);margin-left:calc(var(--sx) / var(--sw) * -100%);margin-top:calc(var(--sy) / var(--sw) * -100%)}
+.real{position:absolute;left:12px;bottom:12px;z-index:2;display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:rgba(6,9,14,.82);border:1px solid rgba(255,255,255,.14);font:400 10px var(--label);letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.real::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc)}
+.illo{display:inline-block;margin-bottom:8px;font:400 9.5px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}
+.shot .mk{position:absolute;right:-56px;bottom:-110px;width:440px;transform:scale(.72);transform-origin:bottom right;z-index:3}
+@media (max-width:1100px){.shot .mk{right:-16px}}
+@media (max-width:960px){.shot .mk{position:relative;right:auto;bottom:auto;width:auto;transform:none;margin-top:18px}}
+/* "In 30 seconds" explainer */
+.x30{display:grid;gap:26px}
+.x30 .what{font:800 clamp(26px,3vw,40px)/1.12 var(--display);letter-spacing:-.035em;max-width:30ch}
+.x30 .what b{color:var(--acc-dark);font-weight:900}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.fact{border:1px solid var(--line);background:var(--glass);border-radius:20px;padding:20px 22px;display:grid;gap:8px;align-content:start}
+.fact small{font:700 10.5px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--acc-dark)}
+.fact p{font-size:15.5px;color:var(--fg2)}.fact p b{color:var(--fg)}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.s3{border-radius:22px;overflow:hidden;border:1px solid var(--line);background:var(--glass);display:grid;grid-template-rows:auto 1fr}
+.s3 .crop{border-bottom:1px solid var(--line)}
+.s3 .tx{padding:18px 20px 22px;display:grid;gap:6px;align-content:start}
+.s3 .tx .n{font:700 11px var(--label);letter-spacing:.16em;color:var(--acc-dark)}
+.s3 .tx h4{font:800 21px/1.1 var(--display);letter-spacing:-.025em}
+.s3 .tx p{font-size:15px;color:var(--fg2)}
+.gloss{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.gloss div{padding:14px 16px;border-radius:16px;background:var(--glass2);font-size:14px;color:var(--fg2);line-height:1.45}
+.gloss b{display:block;font:800 15px var(--display);color:var(--fg);letter-spacing:-.01em;margin-bottom:2px}
+@media (max-width:860px){.facts,.steps3{grid-template-columns:1fr}}
+/* developer strip */
+.devs{display:grid;grid-template-columns:minmax(0,.9fr) repeat(2,minmax(0,1fr));gap:14px;align-items:stretch}
+.devs .lead{display:grid;gap:10px;align-content:center}
+.devs .lead h3{font-size:clamp(26px,2.6vw,36px)}
+.devs .lead p{color:var(--fg2)}
+.dl{display:grid;gap:8px;align-content:start;padding:22px;border-radius:22px;border:1px solid var(--line);background:var(--glass);transition:transform .3s var(--ease),border-color .3s}
+.dl:hover{transform:translateY(-3px);border-color:color-mix(in srgb,var(--acc) 55%,transparent)}
+.dl small{font:400 11px var(--mono);color:var(--fg3)}
+.dl b{font:800 19px var(--display);letter-spacing:-.02em;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.dl span{font-size:14.5px;color:var(--fg2)}
+.dl em.go{font-style:normal;font:700 13px var(--display);color:var(--acc)}
+@media (max-width:860px){.devs{grid-template-columns:1fr}}
+/* hero market card: cycles open -> awaiting validators -> resolved -> settled */
+.mk{position:relative;justify-self:center;width:min(470px,100%)}
+.mcard{position:relative;z-index:2;border-radius:28px;padding:22px;background:linear-gradient(160deg,#0d1622,#070a10 70%);border:1px solid rgba(56,189,248,.25);box-shadow:0 50px 100px rgba(0,0,0,.55),0 0 120px rgba(56,189,248,.14);display:grid;gap:16px}
+.mcard .top{display:flex;align-items:center;gap:10px;font:400 10.5px var(--label);letter-spacing:.14em;color:var(--fg3);text-transform:uppercase}
+.mcard .top .tn{margin-left:auto;color:var(--gold);border:1px solid rgba(245,200,66,.45);padding:3px 8px;border-radius:999px}
+.mcard .q{font:900 26px/1.05 var(--display);letter-spacing:-.035em}
+.mcard .by{display:flex;align-items:center;gap:8px;font:500 12.5px var(--body);color:var(--fg2)}
+.av{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font:800 11px var(--display);color:#00131f;flex:none}
+.odds{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.odd{border-radius:16px;padding:12px 14px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);display:grid;gap:2px;transition:border-color .4s,background .4s}
+.odd small{font:400 10px var(--label);letter-spacing:.14em;color:var(--fg3)}
+.odd b{font:900 30px/1 var(--display);letter-spacing:-.04em}
+.odd span{font:500 11.5px var(--mono);color:var(--fg2)}
+.odd.y b{color:var(--acc)} .odd.n b{color:#ff8fa0}
+.odd.win{border-color:var(--acc);background:rgba(56,189,248,.12)}
+.odd.lose{opacity:.45}
+.book{display:grid;gap:6px}
+.book .lbl{display:flex;justify-content:space-between;font:500 11.5px var(--mono);color:var(--fg2)}
+.book .bar{position:relative;height:12px;border-radius:999px;background:rgba(255,255,255,.07);overflow:hidden}
+.book .bar i{position:absolute;left:0;top:0;bottom:0;border-radius:999px;background:linear-gradient(90deg,var(--acc),#7dd3fc);transition:width .9s var(--ease)}
+.book .bar s{position:absolute;top:0;bottom:0;border-radius:999px;background:repeating-linear-gradient(45deg,rgba(255,255,255,.18) 0 4px,transparent 4px 8px);transition:left .9s var(--ease),width .9s var(--ease)}
+.vals{display:flex;align-items:center;gap:10px;font:500 12px var(--body);color:var(--fg2)}
+.vals .av{position:relative;box-shadow:0 0 0 2px #070a10;transition:transform .3s}
+.vals .av+.av{margin-left:-14px}
+.vals .av.ok::after{content:"✓";position:absolute;right:-5px;bottom:-5px;width:13px;height:13px;border-radius:50%;background:var(--green);color:#00140a;font:900 9px/13px var(--body);text-align:center}
+.tl{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.tl div{display:grid;gap:6px;font:400 9.5px var(--label);letter-spacing:.08em;text-transform:uppercase;color:var(--fg3);transition:color .3s}
+.tl div::before{content:"";height:4px;border-radius:4px;background:rgba(255,255,255,.1);transition:background .4s}
+.tl div.done{color:var(--fg2)} .tl div.done::before{background:var(--acc)}
+.tl div.cur{color:#fff} .tl div.cur::before{background:linear-gradient(90deg,var(--acc),#7dd3fc);box-shadow:0 0 10px var(--acc)}
+.mk .ghost{position:absolute;z-index:1;border-radius:24px;border:1px solid rgba(255,255,255,.08);background:rgba(13,22,34,.7);padding:14px 16px;font:600 13px var(--body);display:grid;gap:4px;width:220px;box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.mk .ghost small{font:400 9.5px var(--label);letter-spacing:.12em;color:var(--fg3);text-transform:uppercase}
+.mk .ghost b{font:800 15px var(--display)}
+.mk .g1{left:-90px;top:-34px;transform:rotate(-6deg)}
+.mk .g2{right:-80px;bottom:-40px;transform:rotate(5deg)}
+.mk .g2 b{color:var(--acc)}
+@media (max-width:960px){.mk .g1{left:-6px;top:-50px}.mk .g2{right:-6px;bottom:-56px}.mcard .q{font-size:22px}}
+/* story windows */
+.dw .bd{min-height:410px;font-family:var(--body)}
+.dw .scr{font-family:var(--body);font-size:13px;gap:12px}
+.fld{display:grid;gap:5px}
+.fld small{font:400 10px var(--label);letter-spacing:.14em;color:var(--fg3);text-transform:uppercase}
+.fld div{padding:11px 13px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);font:600 14px var(--body);display:flex;justify-content:space-between;gap:8px}
+.fld div em{font-style:normal;color:var(--acc)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dbtn{text-align:center;padding:12px;border-radius:12px;background:var(--acc);color:var(--acc-ink);font:800 14px var(--display)}
+.log{display:grid;gap:6px;font:500 12px/1.5 var(--mono);color:rgba(255,255,255,.75)}
+.log div{opacity:0;transform:translateY(6px);transition:opacity .4s,transform .5s var(--ease)}
+.log div.in{opacity:1;transform:none}
+.log .ok{color:var(--green)} .log .k{color:var(--acc)} .log .m{color:var(--fg3)}
+.emb{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.emb .host{border-radius:14px;border:1px solid rgba(255,255,255,.08);padding:10px;display:grid;gap:8px;background:rgba(255,255,255,.03)}
+.emb .host small{font:400 9.5px var(--label);letter-spacing:.12em;color:var(--fg3);text-transform:uppercase}
+.mini{border-radius:12px;padding:10px;background:#0b1520;border:1px solid rgba(56,189,248,.3);display:grid;gap:6px}
+.mini b{font:800 12.5px/1.2 var(--display)}
+.mini .mb{height:6px;border-radius:6px;background:rgba(255,255,255,.08);overflow:hidden}
+.mini .mb i{display:block;height:100%;width:62%;background:var(--acc)}
+.mini span{font:500 10px var(--mono);color:var(--fg2);display:flex;justify-content:space-between}
+.vote{display:grid;gap:8px}
+.vote div{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.05);font:600 13px var(--body)}
+.vote div em{margin-left:auto;font-style:normal;font:500 11px var(--mono)}
+.vote .y em{color:var(--green)} .vote .w em{color:var(--fg3)}
+/* bento bits */
+.oddsdial{display:flex;align-items:baseline;gap:10px;font:900 64px/.9 var(--display);letter-spacing:-.05em;color:var(--acc-dark)}
+.oddsdial small{font:600 15px var(--body);letter-spacing:0;color:var(--fg2)}
+.vault{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.vault span{padding:10px 14px;border-radius:12px;background:var(--glass2);font:700 14px var(--display)}
+.vault i{font-style:normal;color:var(--fg3)}
+.vault span.c{background:color-mix(in srgb,var(--acc) 18%,transparent);color:var(--acc-dark)}
+.cards{display:flex;gap:8px}
+.cards span{width:54px;height:76px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;font:900 22px var(--display);box-shadow:0 8px 20px rgba(10,10,12,.08)}
+.cards span.r{color:#e11d48}
+.cards span.b{background:repeating-linear-gradient(45deg,#0284c7 0 6px,#0369a1 6px 12px);color:transparent}
+/* testnet notice */
+.notice{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;border-radius:24px;padding:22px 26px;border:1px solid rgba(245,200,66,.35);background:rgba(245,200,66,.06)}
+.notice b{font:900 22px var(--display);letter-spacing:-.03em;color:var(--gold)}
+.notice p{color:var(--fg2);font-size:15.5px}
+@media (max-width:700px){.notice{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body data-p="decentrabet">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
+<div class="grain" aria-hidden="true"></div>
+<div class="pbar" aria-hidden="true"></div>
+
+<nav class="top gut" aria-label="Main"><div class="wrap">
+  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>decentrabet</span></a>
+  <div class="navlinks"><a href="#how">How it works</a><a href="#rules">The rules</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
+  <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
+</div></nav>
+
+<main>
+<header class="hero gut">
+  <canvas data-shader aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1"></canvas>
+  <div class="wrap hgrid">
+    <div class="hcopy">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="lab">S.01 · Decentrabet, built for swop.id</span><span class="st beta">Beta · testnet</span></div>
+      <h1 data-split>Set the odds. <span class="hl">Own the market.</span></h1>
+      <p class="dek">Peer-to-peer prediction markets. Ask a question, set the odds, deploy <b>your own market contract</b> and embed it on <span class="roll" style="--rd:12s"><span>your SmartSite</span><span style="animation-delay:3s">the Swop feed</span><span style="animation-delay:6s">your blog</span><span style="animation-delay:9s">any website</span></span></p>
+      <div class="btns"><a class="btn btn-a" href="https://decentrabet.vercel.app">Try the testnet beta <span class="ar">↗</span></a><a class="btn btn-o" href="#rules">How stakes stay safe</a></div>
+      <div class="hmeta"><span>Base Sepolia testnet</span><span>Test USDC only</span><span>Named validators</span><span>Not yet audited</span></div>
+    </div>
+    <div class="shot" data-rv>
+      <div class="frame">
+        <div class="tb"><i></i><i></i><i></i><em>decentrabet.vercel.app</em><b>● TESTNET</b></div>
+        <div class="crop" style="--ar:4/3;--sx:270;--sy:0;--sw:740"><img src="/assets/live/decentrabet-web.webp" width="1280" height="800" fetchpriority="high" alt="The live Decentrabet website: 'Set the odds. Deploy your market. Own the book.', with Prediction markets and Games buttons and the steps Connect and Set the odds &amp; deploy"><span class="real">Live site</span></div>
+      </div>
+    <div class="mk">
+      <span class="illo">Illustration · a market card</span>
+      <div class="mcard" id="mcard" aria-label="Example market card cycling through its life: open, awaiting validators, resolved, settled">
+        <div class="top"><span class="av" style="background:#38bdf8">M</span><span>Market · 0x4f2a…c19e</span><span class="tn">TESTNET</span></div>
+        <div class="q">Will it rain in Austin this Saturday?</div>
+        <div class="by">Created by <b style="color:#fff">maya.swop.id</b> · closes Sat 9am</div>
+        <div class="odds"><div class="odd y" id="oy"><small>YES</small><b>2.4×</b><span id="sy">412 tUSDC</span></div><div class="odd n" id="on"><small>NO</small><b>1.6×</b><span id="sn">618 tUSDC</span></div></div>
+        <div class="book"><div class="lbl"><span>Matched</span><span id="mt">72%</span></div><div class="bar"><i id="mb" style="width:72%"></i><s id="ms" style="left:72%;width:12%"></s></div></div>
+        <div class="vals"><span class="av" id="v1" style="background:#f5c842">J</span><span class="av" id="v2" style="background:#c084fc">S</span><span class="av" id="v3" style="background:#3FE08F">A</span><span id="vt">3 validators named</span></div>
+        <div class="tl" id="tl"><div class="cur">Open</div><div>Awaiting validators</div><div>Resolved</div><div>Settled</div></div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="scue" aria-hidden="true">SCROLL<i></i></div>
+</header>
+
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>Decentrabet, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>You set the odds.</h3><p>Anyone writes a question, picks fixed odds and a stake limit, and deploys their own market contract.</p><div class="proof"><em class="st beta">Beta</em> testnet</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>The contract holds the money.</h3><p>Stakes sit in the market contract, not a Swop wallet. The validators you name resolve it, and Swop never runs the book.</p><div class="proof">Majority vote · contract pays out</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Testnet only, for now.</h3><p>Base Sepolia with test USDC, contracts not yet audited, no real money. Legal review and geo-gating come before any real money.</p><div class="proof"><a class="acc" href="https://decentrabet.vercel.app">Try the testnet beta →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="quick">
+  <div class="wrap x30">
+    <span class="lab">S.02 · Decentrabet in 30 seconds</span>
+    <p class="what">Decentrabet lets anyone <b>create a yes-or-no market</b> on a question, choose the payout odds themselves, and let people they trust decide the result. Today it runs only with <b>free test money</b>.</p>
+    <div class="facts">
+      <div class="fact" data-rv><small>Who it's for</small><p><b>Creators and communities</b> who want to run their own markets instead of using someone else's book, and <b>developers</b> exploring on-chain markets and AI agents that play poker.</p></div>
+      <div class="fact" data-rv style="--d:.06s"><small>What it costs</small><p><b>Nothing during the beta.</b> It runs on a testnet with test USDC, which has no value. Swop takes no fee, and there is no real money in it.</p></div>
+      <div class="fact" data-rv style="--d:.12s"><small>What you need</small><p>A crypto wallet that connects with <b>WalletConnect</b>, and some free test USDC on Base Sepolia. Signing in with your <b>swop.id</b> comes later.</p></div>
+    </div>
+    <div class="steps3">
+      <div class="s3" data-rv><div class="crop" style="--ar:21/10;--sx:298;--sy:340;--sw:352"><img src="/assets/live/decentrabet-web.webp" width="1280" height="800" loading="lazy" alt="Step card on the Decentrabet site: Connect. Any wallet, via WalletConnect; your wallet is your identity, with no emails, accounts or custodial sessions"><span class="real">Live site</span></div><div class="tx"><span class="n">STEP 01</span><h4>Connect a wallet</h4><p>Your wallet is your account. There's no email sign-up and Decentrabet never holds your keys.</p></div></div>
+      <div class="s3" data-rv style="--d:.06s"><div class="crop" style="--ar:21/10;--sx:630;--sy:340;--sw:352"><img src="/assets/live/decentrabet-web.webp" width="1280" height="800" loading="lazy" alt="Step card on the Decentrabet site: Set the odds and deploy. Pick outcomes, lock the odds, stake your own side and deploy your market as a contract you own"><span class="real">Live site</span></div><div class="tx"><span class="n">STEP 02</span><h4>Set the odds and deploy</h4><p>Write the question, lock the odds and put up your own side. The market goes live as a contract you own.</p></div></div>
+      <div class="s3" data-rv style="--d:.12s"><div class="crop" style="--ar:21/10;--sx:630;--sy:496;--sw:352"><img src="/assets/live/decentrabet-web.webp" width="1280" height="800" loading="lazy" alt="Step card on the Decentrabet site: Settle. Your named validators attest the outcome, and the deciding vote releases winnings and unmatched refunds from escrow in the same transaction"><span class="real">Live site</span></div><div class="tx"><span class="n">STEP 03</span><h4>Share it, then settle</h4><p>Post the live card anywhere. When it closes, the validators you named vote, and the contract pays out by itself.</p></div></div>
+    </div>
+    <div class="gloss" data-rv>
+      <div><b>Testnet</b>A practice copy of a blockchain. Its tokens are free and worth nothing, so mistakes cost nothing.</div>
+      <div><b>Smart contract</b>A small program on a blockchain that holds money and follows fixed rules. Here, each market is its own contract.</div>
+      <div><b>Validator</b>A person the creator names to judge the result. A majority of them decides the outcome.</div>
+      <div><b>Audit</b>A security review of a contract's code by outside experts. Decentrabet's contracts haven't had one yet.</div>
+      <div><b>swop.id</b>A Swop username like maya.swop.id. The plan is to show these on bets and use them to sign in.</div>
+      <div><b>SmartSite</b>Your Swop page. A Decentrabet card can sit on it and update itself.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="how">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.03 · How it works</span><h2>From a question <span class="acc">to a settled market.</span></h2><p>Here is one market, “Will it rain in Austin this Saturday?”, from the moment it’s created to the moment it pays out.</p></div>
+    <div class="story">
+      <div class="stick">
+        <div class="win dw" aria-hidden="true">
+          <div class="tb"><i></i><i></i><i></i><em>Illustration · a market from start to finish</em></div>
+          <div class="bd">
+            <div class="scr" data-i="0">
+              <div class="fld"><small>Question</small><div>Will it rain in Austin this Saturday?</div></div>
+              <div class="two"><div class="fld"><small>Yes pays</small><div><em>2.4×</em><span>fixed</span></div></div><div class="fld"><small>No pays</small><div><em>1.6×</em><span>fixed</span></div></div></div>
+              <div class="two"><div class="fld"><small>Max stake</small><div>500 tUSDC</div></div><div class="fld"><small>Closes</small><div>Sat 9:00</div></div></div>
+              <div class="fld"><small>Validators</small><div>jules · sam · ari <em>2 of 3</em></div></div>
+              <div class="dbtn">Deploy market</div>
+            </div>
+            <div class="scr" data-i="1" data-delay="550">
+              <div class="log">
+                <div data-step class="m">$ deploy MarketFactory.createMarket</div>
+                <div data-step>network <span class="k">base-sepolia</span> · collateral <span class="k">test USDC</span></div>
+                <div data-step>owner &nbsp;&nbsp;maya (your wallet)</div>
+                <div data-step>odds &nbsp;&nbsp;&nbsp;YES 2.4× · NO 1.6×</div>
+                <div data-step>validators 3 · majority 2</div>
+                <div data-step class="ok">✓ market deployed 0x4f2a…c19e</div>
+                <div data-step class="ok">✓ embed card ready</div>
+                <div data-step class="m"># you own this market. Decentrabet doesn't hold the stakes.</div>
+              </div>
+            </div>
+            <div class="scr" data-i="2">
+              <div class="emb">
+                <div class="host"><small>maya.swop.id</small><div class="mini"><b>Rain in Austin Saturday?</b><div class="mb"><i></i></div><span><span>YES 2.4×</span><span>OPEN</span></span></div></div>
+                <div class="host"><small>Swop feed</small><div class="mini"><b>Rain in Austin Saturday?</b><div class="mb"><i></i></div><span><span>NO 1.6×</span><span>OPEN</span></span></div></div>
+                <div class="host" style="grid-column:span 2"><small>any website · one embed</small><div class="mini"><b>Rain in Austin Saturday?</b><div class="mb"><i style="width:84%"></i></div><span><span>84% matched</span><span>AWAITING VALIDATORS</span></span></div></div>
+              </div>
+            </div>
+            <div class="scr" data-i="3">
+              <div class="fld"><small>Outcome votes</small></div>
+              <div class="vote"><div class="y"><span class="av" style="background:#f5c842">J</span>jules<em>YES ✓ signed</em></div><div class="y"><span class="av" style="background:#c084fc">S</span>sam<em>YES ✓ signed</em></div><div class="w"><span class="av" style="background:#3FE08F">A</span>ari<em>not needed</em></div></div>
+              <div class="fld"><small>Result</small><div>Resolved YES <em>2 of 3</em></div></div>
+              <div class="fld"><small>Settlement</small><div>Paid out by the contract <em>✓</em></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="beats">
+        <div class="beat"><span class="n">01 · Ask</span><h3>Ask anything. <span class="acc">Set the odds.</span></h3><p>Fixed odds, a stake limit, a closing time and the people who will judge the outcome. You choose all of it.</p></div>
+        <div class="beat"><span class="n">02 · Deploy</span><h3>It's your contract, <span class="acc">not ours.</span></h3><p>Each market is its own contract. Stakes sit in that contract, not in a Swop wallet and not with Decentrabet.</p></div>
+        <div class="beat"><span class="n">03 · Share</span><h3>Embed it <span class="acc">anywhere.</span></h3><p>A live card that updates itself, from open to settled. Drop it on your SmartSite, share it to the Swop feed, or paste it into any site.</p></div>
+        <div class="beat"><span class="n">04 · Resolve</span><h3>Named validators <span class="acc">decide.</span></h3><p>The people you named vote on the outcome. A majority resolves it, and the contract pays out on its own.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="rules">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.04 · The rules</span><h2>Simple math. <span class="acc">Clear custody.</span></h2><p>The short version: you pick the odds, the contract holds the money, and nobody at Swop or Decentrabet can take it.</p></div>
+    <div class="bento">
+      <div class="bx w3" data-rv><div class="ic" data-ic="market" data-s="22"></div><h3>You set the odds</h3><p>Fixed odds, a matched book, refunds on overage. The market math has 255 tests behind it.</p><div class="viz oddsdial">2.4× <small>you pick the number</small></div></div>
+      <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="key" data-s="22"></div><h3>The contract holds the stakes</h3><p>Not Swop, not Decentrabet. Swop provides identity and distribution and never runs the book.</p><div class="viz vault"><span>Your stake</span><i>→</i><span class="c">Market contract</span><i>→</i><span>Payout</span></div></div>
+      <div class="bx w4" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>Poker on the same contracts</h3><p>Tables use mental poker: a 2,048-bit encrypted deck and a signed relay, with no trusted dealer. An MCP server lets AI agents take a seat.</p><div class="viz cards"><span>A</span><span class="r">K</span><span class="b">?</span><span class="b">?</span></div></div>
+      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="plug" data-s="22"></div><h3>For AI agents</h3><p>25 poker tools through MCP.</p><div class="viz"><div class="big" data-count="25">25</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" id="life">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.05 · Where the money goes</span><h2>One market, <span class="acc">start to payout.</span></h2><p>Tap a step, or hover any box to see what it connects to. The money never passes through Swop.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/8","arMobile":"3/7.6","stepMs":3200,
+      "nodes":[
+        {"id":"creator","x":8,"y":22,"mx":26,"my":5,"label":"You, the creator","sub":"question, odds, limit, validators","icon":"id"},
+        {"id":"bettors","x":8,"y":78,"mx":74,"my":20,"label":"Bettors","sub":"stake test USDC at your odds","icon":"pay"},
+        {"id":"contract","x":36,"y":50,"mx":50,"my":40,"label":"Your market contract","sub":"Base Sepolia · holds the stakes","icon":"key","big":true},
+        {"id":"card","x":66,"y":16,"mx":24,"my":59,"label":"Live card","sub":"SmartSite · Swop feed · any site","icon":"market"},
+        {"id":"validators","x":66,"y":84,"mx":76,"my":71,"label":"Validators","sub":"named people · majority vote","icon":"owl"},
+        {"id":"payout","x":91,"y":50,"mx":50,"my":91,"label":"Payout","sub":"winners paid · unmatched refunded","icon":"coin","big":true}],
+      "edges":[
+        {"from":"creator","to":"contract","label":"deploy","step":1},
+        {"from":"contract","to":"card","label":"embed","step":2},
+        {"from":"bettors","to":"contract","label":"stake","step":3},
+        {"from":"validators","to":"contract","label":"vote","step":4},
+        {"from":"contract","to":"payout","label":"settle","step":5}],
+      "steps":["You set the question, the odds, a stake limit and who judges it, then deploy your own market contract.","A live card shows the market anywhere: your SmartSite, the Swop feed, or any website.","People take a side at your odds. Their stakes go into the contract, not a Swop wallet.","When it closes, the validators you named vote. A majority resolves it.","The contract pays the winners and refunds anything unmatched. Swop never runs the book."],
+      "note":"Testnet beta: Base Sepolia, test USDC, contracts not yet audited, no real money."}</script></div>
+  </div>
+</section>
+
+<div class="marq gut" aria-label="Decentrabet by the numbers"><div class="tr">
+  <div class="it"><b class="acc">255</b><span>tests on the market math</span></div>
+  <div class="it"><b>4</b><span>contracts: markets and poker tables</span></div>
+  <div class="it"><b class="acc">25</b><span>MCP tools so AI agents can play poker</span></div>
+  <div class="it"><b>2,048-bit</b><span>encrypted poker deck</span></div>
+  <div class="it"><b class="acc">$0</b><span>real money: testnet only</span></div>
+</div></div>
+
+<section class="sec gut" id="status">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.06 · Honest status</span><h2>Where it stands, <span class="acc">and the swop.id path.</span></h2><p>Decentrabet was spun out of Swop in July 2026 so that creators own their markets. The plan brings it back as the first dApp you sign into with swop.id.</p></div>
+    <div class="road">
+      <div class="rc live" data-rv><span class="st beta">Testnet beta</span><ul><li><span><b>Create and deploy markets</b> on Base Sepolia with test USDC.</span></li><li><span><b>Live embed cards</b> that track open, awaiting validators, resolved and settled.</span></li><li><span><b>Share to the Swop feed</b> as a live market post.</span></li><li><span><b>Poker relay and MCP server</b> for AI agents (browser seats are off for now).</span></li></ul></div>
+      <div class="rc build" data-rv style="--d:.08s"><span class="st building">Before real money</span><ul><li><span><b>Legal review and geo-gating</b>, so markets only run where the law allows.</span></li><li><span><b>A contract audit</b> of the market and poker contracts.</span></li><li><span><b>Swivy in production</b> for Sign in with Swop.</span></li></ul></div>
+      <div class="rc next" data-rv style="--d:.16s"><span class="st planned">The swop.id path</span><ul><li><span><b>Phase 1 · names</b> (planned): bets, odds and validators show swop.ids instead of 0x addresses.</span></li><li><span><b>Phase 2 · Sign in with Swop</b> (planned): the same wallet you use in Swop, with a passkey and a cap you set per app.</span></li><li><span><b>Phase 3 · one ecosystem</b> (vision): cards across Swop, a building in El Dorado, agents reading markets within your caps.</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.07 · Plugs into</span><h2>Swop brings <span class="acc">the people.</span></h2><p>Identity and distribution come from Swop. The stakes stay in your contract.</p></div>
+    <div class="plugs" data-plugs="swopid:Names on every bet and validator (planned)|swivy:Sign in with Swop and one wallet (planned)|trade:Prediction markets inside the Swop app today|mcp:Agents read markets later, inside your caps|eldorado:A planned building, once zoning allows|ovi:Ask the AI about a market, later"></div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap devs">
+    <div class="lead"><span class="lab">For developers</span><h3>swop.id is coming <span class="acc">to Decentrabet.</span></h3><p>Names first, then Sign in with Swop. You can build the same way today.</p></div>
+    <a class="dl" href="https://docs.swopme.co/identity"><small>docs.swopme.co/identity</small><b>Resolve swop.ids <em class="st live">Live</em></b><span>Show names instead of 0x addresses, and look people up by their swop.id.</span><em class="go">Read the docs →</em></a>
+    <a class="dl" href="https://docs.swopme.co/swivy/sign-in-with-swop"><small>docs.swopme.co/swivy/sign-in-with-swop</small><b>Sign in with Swop <em class="st building">Preview</em></b><span>One login and the same wallet across apps. Not generally available yet.</span><em class="go">Read the preview →</em></a>
+  </div>
+</section>
+
+<section class="sec gut" id="faq">
+  <div class="wrap faq">
+    <div class="sh" style="margin:0"><span class="lab">S.08 · Questions</span><h2>Straight <span class="acc">answers.</span></h2></div>
+    <div>
+      <details><summary>Is there real money in Decentrabet?</summary><p>No. It runs on the Base Sepolia testnet with test USDC, which has no value. Real money would need a legal review, geo-gating and a contract audit first, and none of that is done yet.</p></details>
+      <details><summary>Who holds the stakes?</summary><p>The market's own contract. Not Swop, and not Decentrabet. Each market is deployed by the person who created it.</p></details>
+      <details><summary>Who decides the outcome?</summary><p>The validators the creator named when setting up the market. A majority of them resolves it, and the contract settles on that result.</p></details>
+      <details><summary>Can I sign in with my swop.id?</summary><p>Not yet. Today you connect a wallet with WalletConnect. Showing swop.ids on bets is the first planned step, and Sign in with Swop comes once Swivy is in production. WalletConnect will stay as an option.</p></details>
+      <details><summary>Is Decentrabet part of Swop?</summary><p>It was spun out of Swop in July 2026 so creators own their markets and Decentrabet ships the tooling. It's coming back into the ecosystem as a dApp that uses swop.id, while Swop never runs the book.</p></details>
+      <details><summary>Can AI agents play?</summary><p>Agents can sit at poker tables through Decentrabet's MCP server today, on testnet. Agents betting on markets would only happen inside caps a person sets, and only after the legal review.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="notice" data-rv style="margin-bottom:24px"><b>Testnet only</b><p>Decentrabet uses test tokens on Base Sepolia. Contracts are unaudited. Nothing here is an offer of real-money betting.</p></div>
+    <div class="cta" data-rv>
+      <span class="lab">Try it</span>
+      <h2>Ask a question. <span class="acc">Set the odds.</span></h2>
+      <p>Deploy your first market on testnet. It costs nothing but test tokens.</p>
+      <div class="btns" style="justify-content:center"><a class="btn btn-a" href="https://decentrabet.vercel.app">Try the testnet beta <span class="ar">↗</span></a><a class="btn btn-o" href="/swopid">Get your swop.id</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" style="padding-top:0">
+  <div class="wrap"><div class="sh" style="margin-bottom:24px"><span class="lab">More from Swop</span></div><div class="more" data-more></div></div>
+</section>
+
+<script>
+/* hero card: one market's life on a loop */
+(()=>{
+const $=id=>document.getElementById(id);if(!$('mcard'))return;
+const RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const S=[
+ {m:72,u:12,sy:'412 tUSDC',sn:'618 tUSDC',v:0,vt:'3 validators named',t:0},
+ {m:84,u:0,sy:'486 tUSDC',sn:'702 tUSDC',v:1,vt:'1 of 3 voted',t:1},
+ {m:84,u:0,sy:'486 tUSDC',sn:'702 tUSDC',v:2,vt:'2 of 3 · resolved YES',t:2,w:'y'},
+ {m:84,u:0,sy:'+1,166 paid',sn:'0 tUSDC',v:2,vt:'Contract paid out',t:3,w:'y'}];
+let k=0;
+const set=s=>{
+  $('mb').style.width=s.m+'%';$('ms').style.left=s.m+'%';$('ms').style.width=s.u+'%';$('mt').textContent=s.m+'%';
+  $('sy').textContent=s.sy;$('sn').textContent=s.sn;$('vt').textContent=s.vt;
+  ['v1','v2','v3'].forEach((id,i)=>$(id).classList.toggle('ok',i<s.v));
+  $('oy').classList.toggle('win',s.w==='y');$('on').classList.toggle('lose',s.w==='y');
+  [...$('tl').children].forEach((d,i)=>{d.className=i<s.t?'done':i===s.t?'cur':''});
+};
+set(S[0]);if(RM)return;
+setInterval(()=>{k=(k+1)%S.length;set(S[k])},2600);
+})();
+</script>
+
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/assets/p/kit.js" defer></script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>

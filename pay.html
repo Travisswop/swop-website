@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Swop Pay: one link that people and AI agents can pay</title>
+<meta name="description" content="Sell anything with one link. People pay by card or any supported token (0.5% fee, paid by you, not the buyer). AI agents buy automatically in USDC with no platform fee at launch. You receive USDC.">
+<link rel="canonical" href="https://www.swopme.co/pay">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="One link. Everyone pays.">
+<meta property="og:description" content="Sell to people and AI agents with one link. 0.5% when a person pays, 0% on AI agent purchases at launch. Paid out in USDC.">
+<meta property="og:url" content="https://www.swopme.co/pay">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.swopme.co/assets/og/pay.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Swop Pay: One link. Everyone pays. Shown beside the Products dashboard in the Swop app.">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og/pay.jpg">
+<meta name="twitter:image:alt" content="Swop Pay: One link. Everyone pays. Shown beside the Products dashboard in the Swop app.">
+<meta name="theme-color" content="#010108">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/p/kit.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Service", "name": "Swop Pay", "serviceType": "Online checkout and payments", "provider": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "One product link that people pay by card or token and AI agents pay automatically in USDC. 0.5% per sale, minimum $0.015, absorbed by the seller."}</script>
+<style>
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+/* hero: one link splits into a person lane and an AI agent lane, both land as USDC */
+.lanes{position:relative;width:100%;max-width:600px;aspect-ratio:1/1.02;justify-self:center}
+.lanes svg.wires{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.lanes .wire{fill:none;stroke:rgba(255,255,255,.12);stroke-width:2}
+.lanes .wire.g{stroke:url(#wg);stroke-dasharray:6 10;animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-32}}
+.node{position:absolute;transform:translate(-50%,-50%);z-index:2}
+.link{left:50%;top:9%;display:flex;align-items:center;gap:10px;padding:12px 16px;border-radius:999px;background:#0d0d17;border:1px solid rgba(63,224,143,.45);box-shadow:0 0 40px rgba(63,224,143,.18);font:600 13.5px var(--mono);white-space:nowrap}
+.link b{font:900 15px var(--display);color:var(--acc)}
+.link i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
+.buy{left:24%;top:46%;width:44%;max-width:230px;border-radius:20px;overflow:hidden;background:#fff;color:#0a0a0c;box-shadow:0 30px 60px rgba(0,0,0,.5)}
+.buy .hd{display:flex;align-items:center;gap:8px;padding:12px 12px 8px;font:800 13px var(--display)}
+.buy .hd span{width:26px;height:26px;border-radius:8px;background:#0a0a0c;color:var(--acc);display:grid;place-items:center;font:900 12px var(--display)}
+.buy .hd small{display:block;font:500 9.5px var(--mono);color:#0a9f55}
+.buy .am{text-align:center;font:900 34px/1 var(--display);letter-spacing:-.04em;padding:8px 0 4px}
+.buy .opts{display:grid;gap:5px;padding:8px 12px}
+.buy .opts div{display:flex;justify-content:space-between;padding:7px 9px;border-radius:9px;background:#f3f3f1;font:600 10.5px var(--body)}
+.buy .opts div.on{background:#eafff3;outline:1.5px solid #3FE08F}
+.buy .pb{margin:6px 12px 12px;padding:10px;border-radius:11px;background:#3FE08F;color:#00140a;text-align:center;font:800 11.5px var(--display)}
+.agent{left:76%;top:44%;width:46%;max-width:240px;border-radius:16px;background:#0a0a12;border:1px solid rgba(255,255,255,.1);box-shadow:0 30px 60px rgba(0,0,0,.5);font:500 10.5px/1.65 var(--mono);color:rgba(255,255,255,.78);overflow:hidden}
+.agent .tb{display:flex;align-items:center;gap:6px;padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.07);color:var(--fg3);font-size:10px}
+.agent .tb i{width:8px;height:8px;border-radius:50%;background:#c084fc;box-shadow:0 0 8px #c084fc}
+.agent .lg{padding:10px 12px;display:grid;gap:2px}
+.agent .lg span{opacity:0;animation:ln 9s infinite}
+.agent .lg span:nth-child(1){animation-delay:.2s}.agent .lg span:nth-child(2){animation-delay:1s}.agent .lg span:nth-child(3){animation-delay:1.8s}.agent .lg span:nth-child(4){animation-delay:2.6s}.agent .lg span:nth-child(5){animation-delay:3.4s}
+@keyframes ln{0%{opacity:0}4%,85%{opacity:1}95%,100%{opacity:0}}
+.agent .k{color:#c084fc}.agent .o{color:var(--acc)}.agent .w{color:#f5c842}
+.wal{left:50%;top:86%;display:grid;gap:8px;width:72%;max-width:340px;padding:16px 18px;border-radius:22px;background:rgba(10,10,18,.9);border:1px solid rgba(63,224,143,.4);box-shadow:0 0 60px rgba(63,224,143,.16);backdrop-filter:blur(10px)}
+.wal .top{display:flex;justify-content:space-between;align-items:baseline}
+.wal .top small{font:700 10px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}
+.wal .top b{font:900 30px/1 var(--display);letter-spacing:-.04em;color:var(--acc)}
+.wal .fee{display:flex;justify-content:space-between;font:500 11.5px var(--mono);color:var(--fg2)}
+.coin{position:absolute;z-index:3;width:14px;height:14px;margin:-7px 0 0 -7px;border-radius:50%;background:radial-gradient(circle at 30% 30%,#d6ffe9,#3FE08F 60%,#0a9f55);box-shadow:0 0 16px #3FE08F;offset-rotate:0deg;animation:ride 3.6s var(--ease) infinite}
+.coin.c2{animation-delay:1.8s;background:radial-gradient(circle at 30% 30%,#f3e6ff,#c084fc 60%,#7c3aed);box-shadow:0 0 16px #c084fc}
+@keyframes ride{0%{offset-distance:0%;opacity:0}8%{opacity:1}92%{opacity:1}100%{offset-distance:100%;opacity:0}}
+@media (max-width:960px){.lanes{aspect-ratio:1/1.25}.buy{top:44%;width:46%}.agent{top:44%;width:48%}.agent{font-size:9.5px}.link{font-size:11.5px}.wal{top:88%;width:86%}}
+@media (max-width:480px){.buy .am{font-size:26px}.agent .lg{padding:8px}.buy .opts div{font-size:9.5px}}
+/* story in a desktop window */
+.scr [data-step]{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .5s var(--ease)}
+.scr [data-step].in{opacity:1;transform:none}
+.log>span{display:block}
+.win .bd{height:440px}
+@media (max-width:960px){.story .win .bd{height:290px}.story .win{transform:scale(.86)!important}.shotwrap{grid-template-columns:110px 1fr;gap:12px}.shotwrap li{font-size:12px}.pp{grid-template-columns:80px 1fr}.pp .im{font-size:32px}.log{font-size:11.5px!important}.hook{font-size:10.5px}}
+.win .scr{color:#fff}
+.pp{display:grid;grid-template-columns:120px 1fr;gap:16px;align-items:start;font-family:var(--body)}
+.pp .im{aspect-ratio:1;border-radius:14px;background:linear-gradient(135deg,#1b2a22,#0a9f55);display:grid;place-items:center;font-size:48px}
+.pp h4{font:900 22px var(--display);letter-spacing:-.03em}
+.pp .pr{font:900 28px var(--display);color:var(--acc);margin:4px 0}
+.pp small{font:500 12px var(--body);color:var(--fg2)}
+.share{display:flex;gap:8px;flex-wrap:wrap;font-family:var(--body)}
+.share span{padding:8px 12px;border-radius:999px;background:rgba(255,255,255,.07);font:600 12px var(--body)}
+.urlbar{display:flex;align-items:center;gap:8px;padding:11px 14px;border-radius:12px;background:rgba(63,224,143,.08);border:1px solid rgba(63,224,143,.35);font:500 13px var(--mono)}
+.urlbar b{margin-left:auto;font:800 11px var(--display);padding:5px 10px;border-radius:999px;background:var(--acc);color:var(--acc-ink)}
+.shotwrap{display:grid;grid-template-columns:150px 1fr;gap:18px;align-items:center;font-family:var(--body)}
+.shotwrap img{border-radius:16px;box-shadow:0 20px 40px rgba(0,0,0,.4)}
+.shotwrap ul{list-style:none;display:grid;gap:10px}
+.shotwrap li{display:flex;gap:10px;align-items:center;font:600 13.5px var(--body)}
+.shotwrap li i{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;font-style:normal;background:rgba(63,224,143,.12);color:var(--acc);font-size:13px}
+.log span{display:block}
+.log .k{color:#c084fc}.log .o{color:var(--acc)}.log .w{color:#f5c842}.log .m{color:var(--fg3)}
+.rcpt{border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:14px;display:grid;gap:7px;font-family:var(--body)}
+.rcpt .r{display:flex;justify-content:space-between;font:500 13px var(--body);color:var(--fg2)}
+.rcpt .r b{color:#fff}
+.rcpt .r.t{border-top:1px dashed rgba(255,255,255,.15);padding-top:8px}
+.rcpt .r.t b{color:var(--acc);font:900 18px var(--display)}
+.hook{font:500 11.5px/1.6 var(--mono);color:rgba(255,255,255,.7);background:#06060b;border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,.06)}
+.hook .o{color:var(--acc)}.hook .w{color:#f5c842}
+/* fee calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.cin,.cout{border-radius:28px;padding:clamp(24px,3vw,40px);border:1px solid var(--line);background:#fff;display:grid;gap:18px;align-content:start}
+.cout{background:#0a0a0c;color:#fff;border-color:#0a0a0c}
+.cin label{font:700 11px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}
+.pin{display:flex;align-items:baseline;gap:4px;border-bottom:2px solid #0a0a0c;padding-bottom:6px}
+.pin span{font:900 clamp(44px,5vw,72px)/1 var(--display);letter-spacing:-.05em;color:var(--fg3)}
+.pin input{width:100%;min-width:0;border:0;outline:none;background:transparent;font:900 clamp(44px,5vw,72px)/1 var(--display);letter-spacing:-.05em;color:#0a0a0c}
+.presets{display:flex;flex-wrap:wrap;gap:8px}
+.presets button{border:1px solid var(--line);background:var(--glass2);border-radius:999px;padding:8px 14px;font:700 13.5px var(--body);cursor:pointer}
+.presets button:hover{border-color:#0a9f55}
+.rng{width:100%;accent-color:#0a9f55}
+.cout small{font:700 11px var(--label);letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.cout .yr{font:900 clamp(52px,6vw,88px)/.95 var(--display);letter-spacing:-.05em;color:var(--acc)}
+.cout .ln{display:flex;justify-content:space-between;font:500 15px var(--body);color:rgba(255,255,255,.7);border-top:1px solid rgba(255,255,255,.08);padding-top:12px}
+.cout .ln b{color:#fff;font-weight:700}
+.cout .note{font-size:13.5px;color:rgba(255,255,255,.5)}
+@media (max-width:860px){.calc{grid-template-columns:1fr}}
+/* bento visuals */
+.ways{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.ways div{border-radius:14px;padding:14px 12px;background:var(--glass2);display:grid;gap:4px}
+.ways b{font:900 18px var(--display);letter-spacing:-.02em}
+.ways small{font:500 12px var(--body);color:var(--fg2)}
+.esc{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.esc span{padding:7px 11px;border-radius:999px;font:700 12px var(--body);background:var(--glass2)}
+.esc span.on{background:#0a9f55;color:#fff}
+.esc i{font-style:normal;color:var(--fg3)}
+.dev{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,60px);align-items:center;border-radius:28px;padding:clamp(24px,4vw,48px);border:1px solid var(--line);background:linear-gradient(135deg,rgba(192,132,252,.08),transparent 60%),var(--glass)}
+.dev h3{font-size:clamp(28px,3vw,40px);font-weight:900;letter-spacing:-.04em}
+.dev p{color:var(--fg2);margin-top:12px}
+.dev .win .bd{height:auto;min-height:0}
+@media (max-width:860px){.dev{grid-template-columns:1fr}}
+/* in 30 seconds: plain-words explainer with real app screens */
+.t30{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+.t30 dl{display:grid;border-top:1px solid var(--line)}
+.t30 dl>div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.t30 dt{font:700 11px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
+.t30 dd{font-size:16.5px;color:var(--fg)}
+.t30 dd small{display:block;color:var(--fg2);font-size:14px;margin-top:4px}
+.t30 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.t30 .stp{display:grid;gap:10px;align-content:start}
+.t30 .stp b{font:900 20px/1.1 var(--display);letter-spacing:-.025em}
+.t30 .stp p{font-size:14.5px;color:var(--fg2)}
+.t30 .stp .n{font:700 12px var(--label);color:var(--acc-dark,var(--acc));letter-spacing:.14em}
+.shot{position:relative;border-radius:26px;padding:6px;background:#0b0b12;box-shadow:0 0 0 1px rgba(10,10,12,.12),0 24px 50px rgba(10,10,12,.22);aspect-ratio:9/17;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:20px;display:block;background:#fff}
+.shot.sm{max-width:150px;aspect-ratio:9/12}
+.real{display:inline-flex;align-items:center;gap:7px;font:700 10.5px var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--acc-dark,var(--acc))}
+.real::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.illus{display:inline-block;font:700 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.gl{border-bottom:1px dotted currentColor;cursor:help}
+@media (max-width:960px){.t30{grid-template-columns:1fr}.t30 .steps{gap:10px}.t30 .stp b{font-size:16px}.t30 .stp p{font-size:13px}.t30 dl>div{grid-template-columns:1fr;gap:4px}}
+@media (max-width:560px){.t30 .steps{grid-template-columns:1fr}.t30 .stp{grid-template-columns:110px 1fr;grid-template-rows:auto auto auto 1fr;column-gap:16px;row-gap:6px;align-items:start}.t30 .stp .shot{grid-row:1/5}.t30 .stp .n{padding-top:18px}}
+/* real screens inside the sticky phone */
+.scr.real-shot{padding:0;background:#fff}
+.scr.real-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* developer strip */
+.devlinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.devlinks a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass2);font:600 13.5px var(--body);transition:border-color .2s}
+.devlinks a:hover{border-color:var(--acc)}
+.mode{display:inline-flex;flex-wrap:wrap;padding:4px;border-radius:999px;background:var(--glass2);border:1px solid var(--line);gap:4px;justify-self:start}
+.mode button{border:0;background:transparent;border-radius:999px;padding:8px 14px;font:700 13.5px var(--body);cursor:pointer;color:var(--fg2)}
+.mode button[aria-pressed="true"]{background:#0a0a0c;color:#fff}
+.mx3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.mx{border-radius:26px;border:1px solid var(--line);background:var(--glass);overflow:hidden;display:flex;flex-direction:column}
+.mx .tx{padding:24px 24px 18px;display:grid;gap:10px}
+.mx .tx h3{font-size:clamp(22px,2vw,28px)}
+.mx .tx p{color:var(--fg2);font-size:15px}
+.mx .tx ul{list-style:none;display:grid;gap:7px;margin-top:2px}
+.mx .tx li{display:grid;grid-template-columns:16px 1fr;gap:8px;font-size:14px;color:var(--fg2)}
+.mx .tx li::before{content:"✓";color:var(--acc);font-weight:800}
+.mx .shot{margin-top:auto;height:300px;overflow:hidden;display:flex;justify-content:center;align-items:flex-start;padding:0 24px;
+  background:linear-gradient(transparent,color-mix(in srgb,var(--acc) 10%,transparent))}
+.mx .shot img{width:210px;border-radius:26px 26px 0 0;border:6px solid #121219;border-bottom:0;box-shadow:0 -10px 40px rgba(0,0,0,.35)}
+.mx .shot .tag{position:absolute}
+.mx .code{margin:auto 24px 24px;border-radius:16px;background:#0b0b13;border:1px solid rgba(255,255,255,.08);padding:16px;font:500 12.5px/1.65 var(--mono);color:rgba(255,255,255,.82);overflow-x:auto;white-space:pre}
+.mx .code em{font-style:normal;color:var(--acc)}
+.mx .code i{font-style:normal;color:rgba(255,255,255,.4)}
+.mx .rt{display:inline-flex;align-self:flex-start;margin:0 24px 12px;font:600 10.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--fg3)}
+@media (max-width:960px){.mx3{grid-template-columns:1fr}}
+.mx>.device{--w:240px;margin:8px auto -70px;border-bottom-left-radius:0;border-bottom-right-radius:0}
+.mx>.device::after{display:none}
+.mx>.rt{align-self:center}
+</style>
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body data-p="pay">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
+<div class="grain" aria-hidden="true"></div>
+<div class="pbar" aria-hidden="true"></div>
+
+<nav class="top gut" aria-label="Main"><div class="wrap">
+  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>pay</span></a>
+  <div class="navlinks"><a href="#what">How it works</a><a href="#more-than-checkout">Send · Launch · Your site</a><a href="#calc">Fees</a><a href="#ways">Ways to pay</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
+  <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
+</div></nav>
+
+<main>
+<header class="hero gut">
+  <canvas data-shader aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1"></canvas>
+  <div class="wrap hgrid">
+    <div class="hcopy">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="lab">S.01 · Swop Pay</span><span class="st live">Live</span></div>
+      <h1 data-split>One link.<br><span class="hl">Everyone pays.</span></h1>
+      <p class="dek">Sell anything with one link. People pay by <span class="roll" style="--rd:9s"><span>card</span><span style="animation-delay:3s">any token</span><span style="animation-delay:6s">USDC</span></span><br><b>and AI agents can buy from you automatically.</b></p>
+      <div class="btns"><a class="btn btn-a" href="https://swopme.app/wallet">Start selling <span class="ar">→</span></a><a class="btn btn-o" href="#calc">Fee calculator</a></div>
+      <div class="hmeta"><span>0.5% when a person pays</span><span>0% on AI agent buys (launch)</span><span>Buyer pays list price</span><span>You receive USDC</span></div>
+    </div>
+    <div class="lanes" data-rv aria-label="One product link: a person pays on the Buy page, an AI agent pays automatically, and both land as USDC in the seller's wallet">
+      <svg class="wires" viewBox="0 0 600 612" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="wg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3FE08F"/><stop offset="1" stop-color="#3FE08F" stop-opacity=".2"/></linearGradient></defs>
+        <path class="wire" d="M300 60 C300 140 144 150 144 220"/><path class="wire g" d="M300 60 C300 140 144 150 144 220"/>
+        <path class="wire" d="M300 60 C300 140 456 150 456 220"/><path class="wire g" d="M300 60 C300 140 456 150 456 220"/>
+        <path class="wire" d="M144 420 C144 480 300 470 300 520"/><path class="wire g" d="M144 420 C144 480 300 470 300 520"/>
+        <path class="wire" d="M456 400 C456 480 300 470 300 520"/><path class="wire g" d="M456 400 C456 480 300 470 300 520"/>
+      </svg>
+      <i class="coin" style="offset-path:path('M300 60 C300 140 144 150 144 220 L144 420 C144 480 300 470 300 520')" aria-hidden="true"></i>
+      <i class="coin c2" style="offset-path:path('M300 60 C300 140 456 150 456 220 L456 400 C456 480 300 470 300 520')" aria-hidden="true"></i>
+      <div class="node link"><i></i>swopme.app/p/black-hoodie <b>$40</b></div>
+      <div class="node buy" aria-hidden="true">
+        <div class="hd"><span>M</span><div>maya.swop.id<small>● secure checkout</small></div></div>
+        <div class="am">$40.00</div>
+        <div class="opts"><div class="on"><span>Card</span><span>Visa ··42</span></div><div><span>Token</span><span>SOL · ETH · USDC</span></div></div>
+        <div class="pb">Pay $40.00</div>
+      </div>
+      <div class="node agent" aria-hidden="true">
+        <div class="tb"><i></i>shopping agent</div>
+        <div class="lg"><span><span class="k">GET</span> /p/black-hoodie</span><span><span class="w">402</span> payment required</span><span>pay 40.00 USDC · Base</span><span><span class="o">200</span> order confirmed</span><span class="o">✓ receipt saved</span></div>
+      </div>
+      <div class="node wal">
+        <div class="top"><small>maya.swop.id received</small><b>+79.80</b></div>
+        <div class="fee"><span>Person $40 → 39.80</span><span>Agent $40 → 40.00</span><span>USDC</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="scue" aria-hidden="true">SCROLL<i></i></div>
+</header>
+
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>Swop Pay, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>One link, every buyer.</h3><p>People pay by card or crypto on a simple Buy page. AI agents pay the same link on their own, in USDC.</p><div class="proof"><em class="st live">Live</em> since Sep 2026 for agents</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>Simple, visible fees.</h3><p>0.5% when a person pays (minimum $0.015), taken from your side so buyers pay your price. AI-agent purchases: 0% at launch.</p><div class="proof">The fee comes out of your side, not the buyer's</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Paid in USDC, to you.</h3><p>Money lands in the wallet behind your swop.id. Crypto works for everyone; card needs a one-time business verification.</p><div class="proof"><a class="acc" href="https://docs.swopme.co/troubleshooting/card-payments-not-working">Card not showing? →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="t30">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.02 · In 30 seconds</span><h2>Swop Pay, <span class="acc">in plain words.</span></h2><p>If you can share a link, you can sell. Here’s the whole idea on one screen.</p></div>
+    <div class="t30">
+      <dl data-rv>
+        <div><dt>What it is</dt><dd>A checkout that lives inside a link. You make a product once, and anyone who opens the link can pay for it.</dd></div>
+        <div><dt>Who it’s for</dt><dd>Creators, shops, freelancers, pop-ups: anyone with something to sell, online or across a counter.</dd></div>
+        <div><dt>What it costs</dt><dd>0.5% when a person pays (minimum $0.015), taken from your side so the buyer pays your exact price. <b>0%</b> platform fee when an AI agent buys, at launch.</dd></div>
+        <div><dt>What you get</dt><dd><span class="gl" title="A digital dollar: a stablecoin designed to be worth $1, issued by Circle">USDC</span>, a digital dollar, in the wallet behind your swop.id. It <span class="gl" title="Final and in your wallet, not pending">settles</span> in seconds, so it’s actually yours, not “pending”.</dd></div>
+        <div><dt>What you need</dt><dd>The Swop app and a <a class="acc" href="/swopid">swop.id</a>. Card payments need a quick seller verification; crypto and AI agent payments don’t.</dd></div>
+      </dl>
+      <div class="steps">
+        <div class="stp" data-rv><div class="device"><img src="/assets/live/pay-products-ex.webp" alt="Products dashboard in the Swop app with revenue, units sold and a Create product button" loading="lazy" decoding="async"></div><span class="n">01 · ADD</span><b>Add a product</b><p>Photo, price, stock. It gets its own link.</p></div>
+        <div class="stp" data-rv style="--d:.08s"><div class="device"><img src="/assets/live/pay-nfc-chips.webp" alt="NFC Chips screen in the Swop app: program a chip so a tap opens checkout" loading="lazy" decoding="async"></div><span class="n">02 · SHARE</span><b>Share it anywhere</b><p>Your page, your bio, a QR code, or a chip people tap.</p></div>
+        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/wallet-ex.webp" alt="Swop wallet with portfolio balance and tokens" loading="lazy" decoding="async"></div><span class="n">03 · GET PAID</span><b>Watch USDC land</b><p>Every sale shows up in your wallet with a receipt.</p></div>
+      </div>
+    </div>
+    <p style="margin-top:26px"><span class="real">Real screens from the Swop app today, some with example names and numbers</span></p>
+  </div>
+</section>
+
+<section class="sec gut" id="what">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Follow the money</span><h2>Where a <span class="acc">$40 sale</span> goes.</h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.4","stepMs":3000,
+      "nodes":[
+        {"id":"person","x":8,"y":20,"mx":26,"my":7,"label":"A person","sub":"card or crypto","icon":"id"},
+        {"id":"agent","x":8,"y":80,"mx":74,"my":7,"label":"An AI agent","sub":"pays on its own","icon":"plug"},
+        {"id":"link","x":32,"y":50,"mx":50,"my":27,"label":"Your one link","sub":"swopme.app/p/you/hoodie","icon":"pay","big":true},
+        {"id":"checkout","x":56,"y":50,"mx":50,"my":47,"label":"Swop checkout","sub":"card · any token · USDC","icon":"coin"},
+        {"id":"fee","x":76,"y":14,"mx":25,"my":69,"label":"Fee","sub":"0.5% people · 0% agents (launch)","icon":"trade"},
+        {"id":"wallet","x":90,"y":50,"mx":50,"my":92,"label":"Your wallet","sub":"USDC behind your swop.id","icon":"id","big":true},
+        {"id":"hook","x":76,"y":86,"mx":75,"my":69,"label":"Your server","sub":"signed checkout.paid","icon":"live"}],
+      "edges":[
+        {"from":"person","to":"link","label":"$40","step":1},
+        {"from":"agent","to":"link","label":"$40","step":1},
+        {"from":"link","to":"checkout","step":2},
+        {"from":"checkout","to":"fee","label":"$0.20","step":3},
+        {"from":"checkout","to":"wallet","label":"$39.80 / $40","step":4},
+        {"from":"checkout","to":"hook","label":"webhook","step":5}],
+      "steps":["Anyone opens your link. People get a Buy page; AI agents get a payment request.","Checkout takes a card (verified sellers), any supported token, or the agent's USDC.","A person's payment carries 0.5%. An AI agent's purchase carries 0% at launch.","USDC lands in your wallet: $39.80 from a person, $40.00 from an agent.","If you run a site, your server gets a signed checkout.paid event."],
+      "note":"Illustrative amounts. Physical orders are held in escrow until delivery, then released to you."}</script></div>
+  </div>
+</section>
+
+
+<section class="sec gut light" id="more-than-checkout">
+  <div class="wrap">
+    <div class="sh"><span class="lab">More than checkout</span><h2>Send it anywhere. <span class="acc">Launch your own.</span> Put it on your site.</h2><p>Swop Pay is the money side of your swop.id: the same wallet that gets paid can send, launch products and tokens, and plug into the website you already have.</p></div>
+    <div class="mx3">
+      <div class="mx" data-rv>
+        <div class="tx"><h3>Send money anywhere.</h3><p>Pay any swop.id or wallet address with any token you hold: USDC, ETH, SOL, POL or the rest of your wallet.</p>
+          <ul><li><span>Solana, Ethereum, Base, Polygon and Arbitrum</span></li><li><span>Type a name, not a 42-character address</span></li><li><span>Swap first if they want a different token</span></li></ul></div>
+        <span class="rt">Real app screen · Send · example data</span>
+        <div class="device"><img src="/assets/live/swopid-send-ex.webp" alt="Swop Send screen: choose a token, an amount and a swop.id to pay" loading="lazy" width="600" height="1128"></div>
+      </div>
+      <div class="mx" data-rv style="--d:.08s">
+        <div class="tx"><h3>Launch products and tokens.</h3><p>The Launchpad turns an idea into something people can buy or hold, in a few taps.</p>
+          <ul><li><span><b>Products:</b> digital or physical, sellable to people and AI agents</span></li><li><span><b>Geo Bucks:</b> your own store credit, $1 each, burned when spent</span></li><li><span><b>Community tokens</b> on Base, with optional Uniswap liquidity; Swop covers the gas</span></li></ul></div>
+        <span class="rt">Real app screen · Launch a token · example data</span>
+        <div class="device"><img src="/assets/live/geobucks-launch-ex.webp" alt="Swop Launchpad: choose Geo Bucks or a community token, name it and set the ceiling" loading="lazy" width="600" height="1128"></div>
+      </div>
+      <div class="mx" data-rv style="--d:.16s">
+        <div class="tx"><h3>Put it on your own site.</h3><p>Sell what you made right where your customers already are, three ways, no new platform:</p>
+          <ul><li><span><b>A link or button</b> to your Swop checkout</span></li><li><span><b>Embedded checkout</b> on your pages</span></li><li><span><b>The API</b> to create checkouts from your server, with signed webhooks when you're paid</span></li></ul></div>
+        <span class="rt">From the docs · create a checkout</span>
+        <div class="code"><i># your server</i>
+curl -X POST https://apps.apiswop.co/api/v5/merchant<em>/checkout-intents</em> \
+  -H "Authorization: Bearer $SWOP_MERCHANT_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{ "items": [ { "productId": "…", "quantity": 1 } ] }'</div>
+        <a class="rt acc" style="color:var(--acc-dark)" href="https://docs.swopme.co/payments/quickstart">Payments quickstart →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="how">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.04 · How it works</span><h2>From product <span class="acc">to paid.</span></h2><p>One link, four moments: you make it, a person pays, an AI agent pays, and the money lands with you.</p></div>
+    <div class="story">
+      <div class="stick">
+        <div class="win" aria-hidden="true">
+          <div class="tb"><i></i><i></i><i></i><em>swopme.app</em></div>
+          <div class="bd">
+            <div class="scr" data-i="0" data-delay="550">
+              <div class="shotwrap"><img src="/assets/live/pay-products-ex.webp" alt="" loading="lazy" decoding="async"><ul><li data-step><i>＋</i>Create a product: photo, price, stock</li><li data-step><i>🔗</i>It gets one link that works everywhere</li><li data-step><i>📈</i>Revenue and units sold in one place</li><li data-step><i>✓</i><span class="real">Real app screen · example data</span></li></ul></div>
+            </div>
+            <div class="scr" data-i="1" data-delay="550">
+              <div class="shotwrap"><img src="/assets/screens/tap-pay.jpg" alt="" loading="lazy" decoding="async"><ul><li data-step><i>💳</i>Card, after a quick seller verification</li><li data-step><i>◎</i>Any supported token from their Swop wallet</li><li data-step><i>🔑</i>Passkey or email, no seed phrase</li><li data-step><i>⚡</i>Network fee covered</li></ul></div>
+            </div>
+            <div class="scr log" data-i="2" data-delay="500">
+              <span class="m" data-step># an AI shopping agent, on someone's behalf</span>
+              <span data-step><span class="k">GET</span> swopme.app/p/black-hoodie</span>
+              <span data-step><span class="w">← 402</span> Payment Required · 40.00 USDC · Base</span>
+              <span data-step><span class="k">pay</span> 40.00 USDC from agent wallet</span>
+              <span data-step><span class="o">← 200</span> order confirmed · shipping address collected</span>
+              <span data-step class="o">✓ paid in seconds, no account, no checkout form</span>
+            </div>
+            <div class="scr" data-i="3" data-delay="550">
+              <div class="rcpt" data-step><div class="r"><span>Black hoodie, paid by a person</span><b>$40.00</b></div><div class="r"><span>Swop fee (0.5%)</span><b>−$0.20</b></div><div class="r t"><span>You receive</span><b>39.80 USDC</b></div></div>
+              <div class="rcpt" data-step><div class="r"><span>Black hoodie, bought by an AI agent</span><b>$40.00</b></div><div class="r"><span>Platform fee (launch)</span><b>$0.00</b></div><div class="r t"><span>You receive</span><b>40.00 USDC</b></div></div>
+              <div class="hook" data-step><span class="w">event</span> <span class="o">checkout.paid</span> → your server · signed with Swop-Signature</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="beats">
+        <div class="beat"><span class="n">01 · Create</span><h3>One product. <span class="acc">One link.</span></h3><p>Add a photo, a price and stock in the app, or just tell <a href="/ovi" class="acc">Ovi</a>. The link works on your SmartSite, in your bio, on a QR code or an NFC card.</p></div>
+        <div class="beat"><span class="n">02 · People pay</span><h3>A Buy page <span class="acc">people trust.</span></h3><p>Buyers pay the list price by card or with any supported token. Passkey or email, and the network fee is covered.</p></div>
+        <div class="beat"><span class="n">03 · Agents pay</span><h3>AI agents <span class="acc">buy too.</span></h3><p>When an AI assistant shops for someone, it pays the same link automatically in USDC. No account, no form, nothing for you to set up.</p></div>
+        <div class="beat"><span class="n">04 · You get paid</span><h3>USDC, <span class="acc">in seconds.</span></h3><p>A person’s payment arrives minus 0.5%; an AI agent’s arrives in full at launch. Every sale gets a receipt, and your website can be told automatically through a <span class="gl" title="A message Swop sends to your server the moment something happens, like a sale">webhook</span>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="calc">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.05 · Fees</span><h2>Simple fees. <span class="acc">Do the math.</span></h2><p>When a person pays, the fee is 0.5% (minimum $0.015) and comes out of your side, so the buyer always pays exactly the price they see. When an AI agent buys, there’s no platform fee at launch.</p></div>
+    <div class="calc">
+      <div class="cin">
+        <div class="mode" role="group" aria-label="Who is paying"><button type="button" data-mode="person" aria-pressed="true">A person pays · 0.5%</button><button type="button" data-mode="agent" aria-pressed="false">An AI agent pays · 0% at launch</button></div>
+        <label for="fp">Your price</label>
+        <div class="pin"><span>$</span><input id="fp" type="text" inputmode="decimal" value="40.00" aria-describedby="fyou"></div>
+        <input class="rng" id="fr" type="range" min="1" max="1000" step="1" value="40" aria-label="Price slider">
+        <div class="presets"><button type="button" data-v="4.50">Coffee $4.50</button><button type="button" data-v="15">Zine $15</button><button type="button" data-v="40">Hoodie $40</button><button type="button" data-v="250">Print $250</button></div>
+      </div>
+      <div class="cout" aria-live="polite">
+        <small>You receive</small>
+        <div class="yr" id="fyou">$39.80</div>
+        <div class="ln"><span>Buyer pays</span><b id="fbuy">$40.00</b></div>
+        <div class="ln"><span>Swop fee</span><b id="ffee">$0.20</b></div>
+        <div class="ln"><span>Fee rule</span><b id="frule">0.5%, min $0.015</b></div>
+        <div class="ln"><span>Paid out in</span><b>USDC</b></div>
+        <p class="note">Compare more cases in the <a href="/swop_fee_calculator.html" style="color:#3FE08F">full fee calculator</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="ways" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.06 · Built for sellers</span><h2>Everything a sale needs, <span class="acc">nothing it doesn't.</span></h2><p>Online, on your own website or across a counter: the same checkout and the same payout.</p></div>
+    <div class="bento">
+      <div class="bx w4" data-rv><div class="ic" data-ic="pay" data-s="22"></div><h3>Three ways to pay, one link</h3><p>You don't build three checkouts. The same link knows who's buying.</p><div class="viz ways"><div><b>Card</b><small>Seller verification required</small></div><div><b>Tokens</b><small>Any supported token</small></div><div><b>AI agents</b><small>USDC, automatically</small></div></div></div>
+      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="coin" data-s="22"></div><h3>Two simple rates</h3><p>0.5% when a person pays (min $0.015). 0% when an AI agent buys, at launch. Buyers always pay your list price.</p><div class="viz"><div class="big">0.5% · 0%</div></div></div>
+      <div class="bx w3" data-rv><div class="ic" data-ic="card" data-s="22"></div><h3>Escrow for physical goods</h3><p>Shipping something? The payment is held safely (that’s <span class="gl" title="Money held by a neutral party until the deal is done">escrow</span>) until delivery, then released to you. Digital items deliver instantly.</p><div class="viz esc"><span class="on">Paid</span><i>→</i><span class="on">Held</span><i>→</i><span>Delivered</span><i>→</i><span>Released</span></div></div>
+      <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="plug" data-s="22"></div><h3>Your site, your checkout</h3><p>Take checkout on your own website, embed products, and get signed webhooks for every order.</p><div class="viz"><div class="hook" style="background:#0a0a0c">checkout.paid · payout.released · <span class="o">signed</span></div></div></div>
+      <div class="bx w3 media" data-rv><div class="ic" data-ic="pay" data-s="22"></div><h3>Charge in person, too</h3><p>Type an amount on the in-app keypad and the customer pays from their phone. Same checkout, same USDC payout.</p><div class="viz"><div class="device"><img src="/assets/live/pay-checkout-ex.webp" alt="In-person Checkout keypad in the Swop app charging in USDC" loading="lazy" decoding="async"></div><span class="real" style="margin-top:10px">Real app screen · example data</span></div></div>
+      <div class="bx w3 media" data-rv style="--d:.08s"><div class="ic" data-ic="card" data-s="22"></div><h3>Tap to pay with a chip</h3><p>Program an NFC sticker or card so a tap opens checkout. Put it on a counter, a table or a hoodie.</p><div class="viz"><div class="device"><img src="/assets/live/pay-nfc-chips.webp" alt="NFC Chips screen in the Swop app" loading="lazy" decoding="async"></div><span class="real" style="margin-top:10px">Real app screen</span></div></div>
+      <div class="bx w6" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>No paperwork to take crypto</h3><p>Crypto and AI agent payments need no identity check: list a product and agents can buy it the same minute. Card payments need a quick seller verification first, and pay out through the card rail, so an order is never paid twice.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.07 · Start today</span><h2>Selling in <span class="acc">four steps.</span></h2><p>Everything happens in the Swop app; nothing to install on your website unless you want to.</p></div>
+    <div class="flow" style="--n:4">
+      <div class="fs"><div class="dot">01</div><h4>Claim your name</h4><p>Your <a href="/swopid" class="acc">swop.id</a> is your store's address and payout wallet.</p></div>
+      <div class="fs"><div class="dot">02</div><h4>Add a product</h4><p>Photo, price, stock. Or ask Ovi to do it.</p></div>
+      <div class="fs"><div class="dot">03</div><h4>Share the link</h4><p>Page, bio, QR, NFC card, or your own site.</p></div>
+      <div class="fs"><div class="dot">04</div><h4>Get USDC</h4><p>Minus 0.5% when a person pays, in full from AI agents (launch), with a receipt.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" style="padding-top:0">
+  <div class="wrap">
+    <div class="dev" data-rv>
+      <div><span class="lab" style="--c:#c084fc">For developers</span><h3 style="margin-top:16px">Every product is an <span class="lilac">x402</span> endpoint.</h3><p>Non-browser requests get an HTTP 402 challenge, pay USDC on Base, and receive the order. Swop speaks x402 v1 and v2, settles through Coinbase's facilitator and lists stores for discovery. Agents can also buy through the <a href="/mcp" class="acc">Swop MCP</a>.</p><div class="devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart →</a><a href="https://docs.swopme.co/payments">Payments guide</a><a href="https://docs.swopme.co/webhooks">Webhooks</a><a href="https://docs.swopme.co/agent-payments">Agent payments</a><a href="https://docs.swopme.co/api-reference">API reference</a></div></div>
+      <div class="win"><div class="tb"><i></i><i></i><i></i><em>terminal</em></div><div class="bd log" style="font-size:12.5px"><span><span class="m">$</span> curl -i swopme.app/p/black-hoodie</span><span><span class="w">HTTP/1.1 402 Payment Required</span></span><span class="m">accepts: exact · USDC · base · 40.00</span><span><span class="m">$</span> <span data-type="curl -H &quot;X-PAYMENT: …&quot; swopme.app/p/black-hoodie" data-wait="300"></span></span><span><span class="o">HTTP/1.1 200 OK</span> · order confirmed</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq gut" aria-label="Swop Pay by the numbers"><div class="tr">
+  <div class="it"><b class="acc">0.5%</b><span>when a person pays, absorbed by the seller</span></div>
+  <div class="it"><b>0%</b><span>platform fee on AI agent buys at launch</span></div>
+  <div class="it"><b>$0.015</b><span>minimum fee on person payments</span></div>
+  <div class="it"><b class="acc">3</b><span>ways to pay one link</span></div>
+  <div class="it"><b>USDC</b><span>what you receive</span></div>
+  <div class="it"><b class="acc">Sep 2026</b><span>AI agents started paying</span></div>
+</div></div>
+
+<section class="sec gut" id="status">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.08 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
+    <div class="road">
+      <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>Product links and the Buy page</b>, on your SmartSite or anywhere.</span></li><li><span><b>Card and token payments</b>, 0.5% per sale.</span></li><li><span><b>AI agent purchases</b> in USDC on Base since September 2026, with 0% platform fee at launch.</span></li><li><span><b>Checkout on your site</b>, embeds and signed webhooks.</span></li><li><span><b>Escrow</b> for physical goods; instant delivery for digital.</span></li></ul></div>
+      <div class="rc build" data-rv style="--d:.08s"><span class="st building">Building</span><ul><li><span><b>A commerce SDK</b> for partners, as a thin layer over the merchant API.</span></li><li><span><b>Developer docs</b> at docs.swopme.co.</span></li><li><span><b>Merchant shops in <a href="/eldorado" class="acc">El Dorado</a></b>'s Marketplace Mall (beta).</span></li></ul></div>
+      <div class="rc next" data-rv style="--d:.16s"><span class="st planned">Next</span><ul><li><span><b>Swop's own settlement</b> for agent payments, without a third-party facilitator.</span></li><li><span><b>Spending policies</b> for agents on <a href="/swivy" class="acc">Swivy</a>.</span></li><li><span><b>Merchant services</b>: campaigns, Geo Bucks and drops, together at checkout.</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.09 · Plugs into</span><h2>Selling, <span class="acc">wired into all of Swop.</span></h2></div>
+    <div class="plugs" data-plugs="swopid:Your store lives at your name; payouts go there|ovi:Ask Ovi to create and feature products|mcp:Claude, ChatGPT and Grok can buy from you|geobucks:Issue store credit customers spend at checkout|shop:NFC cards that open your product or page|eldorado:Your storefront in the Marketplace Mall"></div>
+  </div>
+</section>
+
+<section class="sec gut" id="faq">
+  <div class="wrap faq">
+    <div class="sh" style="margin:0"><span class="lab">S.10 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div>
+      <details><summary>How much does Swop Pay cost?</summary><p>When a person pays by card or crypto: 0.5% of the sale, with a minimum of $0.015. You absorb it, so buyers pay exactly the list price. When an AI agent buys, there’s no platform fee at launch: you receive the full price in USDC.</p></details>
+      <details><summary>What is USDC?</summary><p>A digital dollar. Each USDC is designed to be worth $1 and is issued by Circle. It arrives in seconds and settles straight into your wallet, which means it’s final rather than “pending” for days.</p></details>
+      <details><summary>How do AI agents buy from me?</summary><p>When an AI assistant or shopping agent opens your product link, it can pay automatically in USDC on Base and get the order back, with no account or checkout form. You don't need to set anything up: if you have a product, agents can buy it.</p></details>
+      <details><summary>Do I need to verify my identity?</summary><p>Not to take crypto or AI agent payments. Card payments need a quick seller verification first.</p></details>
+      <details><summary>What do I get paid in?</summary><p>Crypto and agent payments land as USDC in the wallet behind your swop.id. Card payments pay out through the card rail once you're verified.</p></details>
+      <details><summary>What about physical products?</summary><p>For things you ship, the payment is held in escrow until delivery and then released to you. Digital items deliver instantly.</p></details>
+      <details><summary>Can I use it on my own website?</summary><p>Yes. Take checkout on your own site, embed products, and receive signed webhooks (automatic messages to your server) for each order. The <a class="acc" href="https://docs.swopme.co/payments/quickstart">developer quickstart</a> walks through it.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="cta" data-rv>
+      <span class="lab">Get started</span>
+      <h2>Your first sale <span class="acc">is one link away.</span></h2>
+      <p>Open Swop, add a product, share the link. People and AI agents can pay you today: 0.5% when a person pays, 0% on AI agent purchases at launch.</p>
+      <div class="btns" style="justify-content:center"><a class="btn btn-a" href="https://swopme.app/wallet">Start selling <span class="ar">→</span></a><a class="btn btn-o" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">App Store</a><a class="btn btn-o" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Google Play</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" style="padding-top:0">
+  <div class="wrap"><div class="sh" style="margin-bottom:24px"><span class="lab">More from Swop</span></div><div class="more" data-more></div></div>
+</section>
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/assets/p/kit.js" defer></script>
+<script>
+/* fee calculator: people pay 0.5% (min 0.015, absorbed by the seller); AI agent purchases carry 0% platform fee at launch (x402Fulfillment.service.js) */
+(()=>{const $=s=>document.querySelector(s);const inp=$('#fp'),rng=$('#fr');
+ const m=v=>'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:v<1?3:2});
+ function calc(from){let v=parseFloat(String(inp.value).replace(/[^0-9.]/g,''));if(!isFinite(v)||v<0)v=0;
+  if(from!=='rng')rng.value=Math.min(1000,Math.max(1,Math.round(v)));
+  const fee=mode==='agent'?0:(v>0?Math.max(v*.005,.015):0),you=Math.max(0,v-fee);
+  $('#fyou').textContent=m(you);$('#fbuy').textContent=m(v);$('#ffee').textContent=m(fee);
+  $('#frule').textContent=mode==='agent'?'0% at launch':'0.5%, min $0.015'}
+ let mode='person';
+ document.querySelectorAll('.mode button').forEach(b=>b.addEventListener('click',()=>{mode=b.dataset.mode;document.querySelectorAll('.mode button').forEach(x=>x.setAttribute('aria-pressed',x===b));calc()}));
+ inp.addEventListener('input',()=>calc());inp.addEventListener('blur',()=>{const v=parseFloat(inp.value);if(isFinite(v))inp.value=v.toFixed(2)});
+ rng.addEventListener('input',()=>{inp.value=(+rng.value).toFixed(2);calc('rng')});
+ document.querySelectorAll('.presets button').forEach(b=>b.addEventListener('click',()=>{inp.value=(+b.dataset.v).toFixed(2);calc()}));
+ calc();
+})();
+</script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>

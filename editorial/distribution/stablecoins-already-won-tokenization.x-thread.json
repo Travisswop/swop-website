@@ -1,0 +1,23 @@
+{
+  "posts": [
+    "Tokenization gets pitched as something coming for Treasuries, gold and real estate.\n\nBy the only metric that counts — value actually moved on-chain — it already happened. Years ago.\n\nThe asset that won was the dollar.",
+    "A stablecoin IS tokenization: a token issued against a reserve of dollars held off-chain, redeemable against that reserve, transferable on a public blockchain.\n\nThat's the same structure as tokenized gold or a tokenized Treasury fund. Not a metaphor. The literal shape.",
+    "So stablecoins aren't a preview of real-world-asset tokenization.\n\nThey're its largest result to date.\n\n>$300B in stablecoins circulate on-chain, against roughly $32–48B for every OTHER tokenized real-world asset combined.",
+    "The numbers nobody puts side by side:\n\nCoinDesk Data, July 2026 — stablecoins ~$308B vs $32.1B for non-stablecoin tokenized RWAs. That second figure was the highest it had ever been.",
+    "Token Terminal, same quarter: ~$346B total on-chain tokenized value, stablecoins ~86% of it.\n\nThe remainder — led by tokenized Treasuries at ~$15B — split across every other category.",
+    "Figures differ by tracker and by week, because trackers include different token sets and measure distributed vs represented value differently.\n\nWe're not going to pretend to a precision that doesn't exist. But every major source lands in the same place.",
+    "And the rest of tokenization is NOT standing still.\n\nCoinGecko: RWAs excluding stablecoins grew 256.7% in fifteen months — $5.42B (Jan 2025) to $19.32B (end of Q1 2026).\n\nThat's a real growth rate.",
+    "It's also, on CoinGecko's own framing, still only ~6.4% the size of the stablecoin market — up from 2.7% a year earlier.\n\nFast growth off a small base. Both halves of that sentence matter.",
+    "Why did stablecoins win first? Not an accident of timing. A structural head start.\n\nDemand for dollars is already universal. A stablecoin doesn't have to CREATE a market — only move an existing one onto a faster rail.",
+    "Tokenized Treasuries and gold carry friction before they can even compete.\n\nMost are gated to accredited or institutional buyers. Most route through a transfer-agent or allowlist layer deciding who may hold the token at all.",
+    "A token that reverts if it lands in the wrong wallet is solving a compliance problem before it can solve a convenience problem.\n\nA dollar stablecoin, for most of its users, has no such gate.",
+    "There's a simpler reason too.\n\nMost people who want gold or Treasury exposure can already get it in a brokerage account in a few taps. Tokenization has to beat an incumbent that's already easy.\n\nCross-border dollar access is the opposite case.",
+    "Now what \"winning\" does NOT mean, because this is where the analogy stops.\n\nHolding a stablecoin means holding a claim on an issuer's promise to redeem, backed by a reserve that issuer controls and reports on.",
+    "That claim is only as good as the reserve, the audits behind it, and the issuer's solvency.\n\nThe identical counterparty question that applies to a tokenized Treasury fund or a tokenized gold bar.",
+    "Tokenization moved the asset onto a faster, more transferable rail.\n\nIt did not remove the issuer sitting in the middle of the claim. And it did not make every stablecoin interchangeable — reserve composition, audit cadence and jurisdiction all differ.",
+    "To be explicit: this is a market-structure observation about tokenization broadly, not a claim about any stablecoin Swop issues.\n\nSwop doesn't issue one.",
+    "Where we sit: Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.\n\nIt runs on Solana, Ethereum, Base and Polygon, and transactions are gas-sponsored, so moving a stablecoin doesn't mean first buying a second asset for gas.",
+    "What the next wave borrows from stablecoins is the part that mattered: an asset you can hold yourself, move without permission, and settle instantly.\n\nRather than one merely described on a blockchain while the real custody arrangement stays exactly as it was.",
+    "https://www.swopme.co/blog/stablecoins-already-won-tokenization"
+  ]
+}

@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Trading on Swop: swaps, perps and predictions, social</title>
+<meta name="description" content="Swap tokens across 7 chains, trade crypto and stock perps via Hyperliquid and prediction markets via Polymarket from one Swop wallet, and copy trades from the people you follow.">
+<link rel="canonical" href="https://www.swopme.co/trade">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Trading on Swop: swaps, perps and predictions, social">
+<meta property="og:description" content="Swaps, perps and prediction markets in one wallet, with a feed that shows what people actually trade.">
+<meta property="og:url" content="https://www.swopme.co/trade">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.swopme.co/assets/og/trade.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Trading on Swop: Markets are social. Shown beside the prediction markets screen in the Swop app.">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og/trade.jpg">
+<meta name="twitter:image:alt" content="Trading on Swop: Markets are social. Shown beside the prediction markets screen in the Swop app.">
+<meta name="theme-color" content="#010108">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/p/kit.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Swop Trading", "applicationCategory": "FinanceApplication", "operatingSystem": "iOS, Android, Web", "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "Swaps, perps, prediction markets and copy trading in one Swop wallet."}</script>
+<style>
+
+body{--acc:#38bdf8;--acc-ink:#00131f;--acc-dark:#0284c7}
+@media (max-width:960px){.bento .bx.w6{grid-column:1/-1}}
+.risk{font:500 12.5px var(--body);color:var(--fg3);max-width:52ch}
+/* hero: feed card stack + swap widget */
+.tstage{position:relative;width:100%;max-width:600px;min-height:560px;justify-self:center}
+.tc{position:absolute;width:min(380px,86%);border-radius:24px;padding:18px;background:rgba(12,14,24,.86);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 30px 70px rgba(0,0,0,.5);display:grid;gap:12px}
+.tc.c1{left:0;top:40px;z-index:3}
+.tc.c2{left:70px;top:0;z-index:2;transform:rotate(5deg) scale(.94);opacity:.6}
+.tc.c3{left:130px;top:-24px;z-index:1;transform:rotate(10deg) scale(.88);opacity:.32}
+.who{display:flex;align-items:center;gap:10px}
+.who .av{width:38px;height:38px;border-radius:50%;background:center/cover;flex:none}
+.who b{font:800 14.5px var(--display);display:block}
+.who small{font:500 12px var(--body);color:var(--fg3)}
+.who .tag{margin-left:auto;font:700 10px var(--label);letter-spacing:.1em;padding:4px 8px;border-radius:999px;background:rgba(63,224,143,.14);color:var(--green)}
+.who .tag.s{background:rgba(255,93,108,.14);color:var(--red)}
+.tline{display:flex;align-items:baseline;gap:8px;font:900 26px/1 var(--display);letter-spacing:-.03em}
+.tline small{font:500 12.5px var(--body);color:var(--fg3);letter-spacing:0}
+.spark{height:84px;border-radius:12px;background:linear-gradient(180deg,rgba(56,189,248,.12),transparent);position:relative;overflow:hidden}
+.spark svg{position:absolute;inset:0;width:100%;height:100%}
+.spark .ill{position:absolute;right:8px;top:6px;font:400 9px var(--label);letter-spacing:.12em;color:var(--fg3)}
+.tact{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
+.tact .copy{padding:11px;border-radius:12px;text-align:center;background:var(--acc);color:var(--acc-ink);font:800 14px var(--display)}
+.tact .rx{display:flex;gap:10px;font:600 12px var(--body);color:var(--fg3)}
+.swapw{position:absolute;right:0;bottom:0;z-index:4;width:min(280px,64%);border-radius:22px;padding:14px;background:#0a0b14;border:1px solid rgba(56,189,248,.35);box-shadow:0 30px 60px rgba(0,0,0,.55),0 0 60px rgba(56,189,248,.15);display:grid;gap:8px}
+.swapw .h{display:flex;justify-content:space-between;font:800 14px var(--display)}
+.swapw .h small{font:400 10px var(--label);color:var(--fg3);letter-spacing:.1em}
+.sbox{border-radius:14px;padding:10px 12px;background:rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center}
+.sbox small{display:block;font:500 10.5px var(--body);color:var(--fg3)}
+.sbox b{font:800 20px var(--display);letter-spacing:-.02em}
+.tok{display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.08);font:700 12.5px var(--body)}
+.tok i{width:16px;height:16px;border-radius:50%;display:block}
+.swapw .meta{display:flex;justify-content:space-between;font:500 11px var(--mono);color:var(--fg3)}
+.swapw .go{padding:11px;border-radius:12px;text-align:center;background:var(--acc);color:var(--acc-ink);font:800 14px var(--display)}
+@media (max-width:960px){.tstage{min-height:660px}.tc.c2{left:40px}.tc.c3{left:70px}.swapw{bottom:0}}
+.mpanel .st,.rc .st{justify-self:start}
+/* story screens */
+.js [data-step]{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .5s var(--ease)}
+[data-step].in{opacity:1;transform:none}
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.seg span{text-align:center;padding:10px;border-radius:12px;background:rgba(255,255,255,.06);font:800 13px var(--display)}
+.seg span.l{background:rgba(63,224,143,.18);color:var(--green)}
+.seg span.y{background:rgba(56,189,248,.2);color:var(--acc)}
+.fld{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font:500 12.5px var(--body);color:var(--fg2)}
+.fld b{color:#fff;font-weight:700}
+.tbtn{text-align:center;padding:12px;border-radius:14px;background:var(--acc);color:var(--acc-ink);font:800 14px var(--display)}
+.okline{display:flex;gap:8px;align-items:center;font:600 12px var(--body);color:var(--green)}
+.okline::before{content:"✓";display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:rgba(63,224,143,.16);font-size:11px}
+.pm{border-radius:16px;padding:12px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:grid;gap:10px}
+.pm b{font:800 15px/1.2 var(--display)}
+.pm .odds{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+.pm .odds span{display:flex;justify-content:space-between;padding:10px;border-radius:10px;font:800 13px var(--display)}
+.pm .odds .yy{background:rgba(63,224,143,.14);color:var(--green)}
+.pm .odds .nn{background:rgba(255,93,108,.14);color:var(--red)}
+.pm .ob{height:6px;border-radius:6px;background:rgba(255,93,108,.4);overflow:hidden}
+.pm .ob i{display:block;height:100%;width:62%;background:var(--green)}
+/* markets explorer (bespoke) */
+.mx{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:40px;align-items:start}
+.mtabs{display:grid;gap:10px}
+.mtabs button{all:unset;cursor:pointer;display:grid;grid-template-columns:52px 1fr auto;gap:16px;align-items:center;padding:20px;border-radius:22px;border:1px solid var(--line);background:var(--glass);transition:border-color .3s,background .3s,transform .3s var(--ease)}
+.mtabs button:hover{transform:translateX(4px)}
+.mtabs button:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.mtabs button[aria-selected="true"]{border-color:color-mix(in srgb,var(--acc) 60%,transparent);background:color-mix(in srgb,var(--acc) 9%,transparent)}
+.mtabs .mi{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:color-mix(in srgb,var(--acc) 14%,transparent);color:var(--acc)}
+.mtabs b{display:block;font:900 24px/1 var(--display);letter-spacing:-.035em}
+.mtabs small{color:var(--fg2);font-size:14px}
+.mtabs em{font:700 12px var(--label);color:var(--fg3);font-style:normal}
+.mpanel{display:none;border-radius:28px;border:1px solid var(--line);background:var(--glass);padding:30px;gap:20px}
+.mpanel.on{display:grid;animation:fadeup .5s var(--ease)}
+@keyframes fadeup{from{opacity:0;transform:translateY(14px)}}
+.mpanel h3{font-size:clamp(30px,3vw,44px);letter-spacing:-.045em;font-weight:900}
+.mpanel p{color:var(--fg2);font-size:16.5px}
+.spec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.spec div{border-radius:16px;padding:14px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.spec small{display:block;font:700 10.5px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);margin-bottom:6px}
+.spec b{font:800 16px/1.3 var(--display)}
+.chains{display:flex;flex-wrap:wrap;gap:6px}
+.chains span{font:600 12.5px var(--body);padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06)}
+@media (max-width:900px){.mx{grid-template-columns:1fr}.spec{grid-template-columns:1fr}}
+/* bento bits */
+.venues{display:flex;flex-wrap:wrap;gap:8px}
+.venues span{font:600 13px var(--body);padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--glass2)}
+.split50{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;font:600 13px var(--body)}
+.split50 div{border-radius:14px;padding:12px;background:var(--glass2);text-align:center}
+.split50 b{display:block;font:900 22px var(--display);color:var(--acc-dark)}
+.split50 i{font-style:normal;color:var(--fg3)}
+.capbar{display:grid;gap:6px}
+.capbar div{display:flex;justify-content:space-between;font:600 13px var(--body);color:var(--fg2)}
+.capbar i{display:block;height:8px;border-radius:8px;background:var(--glass2);overflow:hidden}
+.capbar i::after{content:"";display:block;height:100%;width:34%;background:var(--acc-dark);border-radius:8px}
+.srcline{display:flex;align-items:center;gap:10px;font:600 13.5px var(--body);flex-wrap:wrap}
+.srcline span{padding:8px 12px;border-radius:12px;background:var(--glass2)}
+.srcline i{font-style:normal;color:var(--fg3)}
+
+/* real app screens */
+.scr.img{padding:0;background:#fff}
+.scr.img img,.rph img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.realtag{position:absolute;left:12px;bottom:12px;z-index:6;display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(1,1,8,.82);backdrop-filter:blur(8px);font:700 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:#fff}
+.realtag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green)}
+.illtag{position:absolute;left:0;top:-30px;font:700 10px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--fg3)}
+.rph{position:absolute;right:0;bottom:-10px;z-index:4;width:228px;height:470px;border-radius:36px;overflow:hidden;background:#fff;box-shadow:0 0 0 1.5px #2a2a33,0 0 0 7px #121219,0 0 0 8px #26262e,0 40px 80px rgba(0,0,0,.6),0 0 90px rgba(56,189,248,.18)}
+@media (max-width:960px){.rph{width:190px;height:392px;right:0;bottom:0}}
+/* in 30 seconds */
+.t30{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:48px;align-items:start}
+.facts{display:grid;gap:0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.facts small{font:700 10.5px var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--fg3);padding-top:3px}
+.facts p{font-size:16.5px;color:var(--fg)}
+.facts p span{color:var(--fg2)}
+.steps3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.s3{display:grid;gap:12px;align-content:start}
+.s3 .shot{position:relative;aspect-ratio:9/17;border-radius:24px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 20px 50px rgba(10,10,12,.12)}
+.s3 .shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.s3 .k{font:700 12px var(--label);letter-spacing:.14em;color:var(--acc-dark)}
+.s3 h4{font:800 19px/1.15 var(--display);letter-spacing:-.02em}
+.s3 p{font-size:14.5px;color:var(--fg2)}
+.gloss{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.gloss div{flex:1 1 220px;border-radius:18px;padding:16px;border:1px solid var(--line);background:var(--glass)}
+.gloss b{display:block;font:800 15px var(--display);margin-bottom:4px}
+.gloss span{font-size:14px;color:var(--fg2)}
+@media (max-width:960px){.t30{grid-template-columns:1fr}.steps3{grid-template-columns:1fr 1fr 1fr;gap:10px}.facts div{grid-template-columns:96px 1fr}}
+@media (max-width:560px){.steps3{grid-template-columns:1fr}.s3 .shot{aspect-ratio:auto;height:420px}}
+/* risk explainer */
+.riskx{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:center}
+.lev{display:grid;gap:10px}
+.lev .row{display:grid;grid-template-columns:150px 1fr 90px;gap:12px;align-items:center;font:600 14px var(--body);color:var(--fg2)}
+.lev .row i{display:block;height:12px;border-radius:8px;background:var(--glass2);overflow:hidden}
+.lev .row i::after{content:"";display:block;height:100%;width:var(--w);border-radius:8px;background:var(--c,var(--acc))}
+.lev .row b{color:var(--fg);text-align:right}
+.riskx .shotw{position:relative;justify-self:center;width:280px;height:560px;border-radius:40px;overflow:hidden;background:#fff;box-shadow:0 0 0 1.5px #2a2a33,0 0 0 7px #121219,0 40px 80px rgba(0,0,0,.5)}
+.riskx .shotw img{width:100%;height:100%;object-fit:cover;object-position:0 18%}
+@media (max-width:900px){.riskx{grid-template-columns:1fr}.lev .row{grid-template-columns:110px 1fr 70px}}
+.devstrip{display:flex;flex-wrap:wrap;align-items:center;gap:18px 28px;border-radius:24px;padding:24px 28px;border:1px solid var(--line);background:var(--glass)}
+.devstrip code{font:500 13px var(--mono);padding:4px 8px;border-radius:8px;background:var(--glass2)}
+.devstrip p{flex:1 1 360px;color:var(--fg2)}
+.devstrip b{color:var(--fg)}
+</style>
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body data-p="trade">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
+<div class="grain" aria-hidden="true"></div>
+<div class="pbar" aria-hidden="true"></div>
+
+<nav class="top gut" aria-label="Main"><div class="wrap">
+  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>trading</span></a>
+  <div class="navlinks"><a href="#t30">In 30 seconds</a><a href="#how">How it works</a><a href="#markets">Markets</a><a href="#why">Why Swop</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
+  <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
+</div></nav>
+
+<main>
+
+<header class="hero gut">
+  <canvas data-shader aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1"></canvas>
+  <div class="wrap hgrid">
+    <div class="hcopy">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="lab">S.01 · Trading on Swop</span><span class="st live">Live</span></div>
+      <h1 data-split>Markets<br>are <span class="hl">social.</span></h1>
+      <p class="dek">Swaps, perps and prediction markets in one wallet, with a feed that shows what people actually trade. <b>Copy a trade in one tap.</b></p>
+      <div class="btns"><a class="btn btn-a" href="https://swopme.app/wallet">Start trading <span class="ar">→</span></a><a class="btn btn-o" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a></div>
+      <p class="risk">Trading is risky and you can lose money. Nothing here is investment advice.</p>
+      <div class="hmeta"><span>0.5% swap fee</span><span>7 chains</span><span>Perps via Hyperliquid</span><span>Predictions via Polymarket</span></div>
+    </div>
+    <div class="tstage" data-rv>
+      <span class="illtag">Feed cards: illustration · Phone: the real Swop app</span>
+      <div class="tc c3" aria-hidden="true"><div class="who"><div class="av" style="background-image:url(/assets/screens/profile.jpg)"></div><div><b>dev.swop.id</b><small>bet YES · rate cut</small></div><span class="tag">PRED</span></div></div>
+      <div class="tc c2" aria-hidden="true"><div class="who"><div class="av" style="background-image:url(/assets/screens/maya-hoodie.jpg)"></div><div><b>jules.swop.id</b><small>opened NVDA perp · long</small></div><span class="tag">PERP</span></div></div>
+      <div class="tc c1" aria-hidden="true">
+        <div class="who"><div class="av" style="background-image:url(/assets/screens/maya-avatar.jpg)"></div><div><b>maya.swop.id</b><small>2m · swapped on Solana</small></div><span class="tag">BUY</span></div>
+        <div class="tline">250 USDC → SOL <small>via Jupiter</small></div>
+        <div class="spark"><span class="ill">ILLUSTRATIVE</span><svg viewBox="0 0 300 84" preserveAspectRatio="none"><path id="spk" d="" fill="none" stroke="#38bdf8" stroke-width="2.2" stroke-linejoin="round"/><path id="spf" d="" fill="rgba(56,189,248,.12)"/></svg></div>
+        <div class="tact"><div class="copy">Copy trade</div><div class="rx"><span>♥ 24</span><span>↻ 9 copied</span></div></div>
+      </div>
+      <figure class="rph"><img src="/assets/live/trade-swap.webp" alt="The Swop app swap screen: pay USDC, receive SWOP, with a dial to size the trade" fetchpriority="high"><span class="realtag">Real screen</span></figure>
+    </div>
+  </div>
+  <div class="scue" aria-hidden="true">SCROLL<i></i></div>
+</header>
+
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>Trading on Swop, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>One wallet, three markets.</h3><p>Swap tokens, open perps and trade prediction markets without leaving the wallet you already use.</p><div class="proof"><em class="st live">Live</em> swaps · perps · predictions</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>Markets are social.</h3><p>Trades post to your feed. Copy a trader and the trade runs in your own wallet; they earn half the swap fee as SWOP.</p><div class="proof">0.5% swap fee · reward paid in SWOP</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Leverage is risk.</h3><p>Perps can be liquidated and you can lose what you put in. Swop never promises returns.</p><div class="proof"><a class="acc" href="#risk">How liquidation works →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="t30">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.02 · In 30 seconds</span><h2>Trading on Swop, <span class="acc">explained simply.</span></h2><p>If you can send a payment in an app, you can make a trade on Swop. Here's the whole thing in one screen.</p></div>
+    <div class="t30">
+      <div class="facts">
+        <div><small>What it is</small><p>One wallet where you can swap tokens, open perps and trade prediction markets, <span>with a feed that shows what people you follow are doing.</span></p></div>
+        <div><small>Who it's for</small><p>People who already trade, <span>and people who want to start small by following and copying traders they trust.</span></p></div>
+        <div><small>What it costs</small><p>0.5% on swaps. <span>No Swop fee on perps or prediction markets today. Network or venue costs may apply, and you see them before you confirm.</span></p></div>
+        <div><small>What you need</small><p>A swop.id and some funds in your Swop wallet. <span>Prediction markets aren't available in every country.</span></p></div>
+      </div>
+      <div class="steps3">
+        <div class="s3" data-rv><div class="device"><img src="/assets/live/wallet-ex.webp" alt="Swop wallet: portfolio value, perps and predictions cards, and a token list" loading="lazy"><span class="realtag">Real screen · example data</span></div><span class="k">STEP 01</span><h4>Open your wallet</h4><p>Your swop.id comes with a wallet. Your tokens, perps and predictions all show up here.</p></div>
+        <div class="s3" data-rv style="--d:.08s"><div class="device"><img src="/assets/live/trade-discover.webp" alt="Swop Discover: featured apps, trending prediction markets and top movers" loading="lazy"><span class="realtag">Real screen</span></div><span class="k">STEP 02</span><h4>Find a market</h4><p>Browse top movers and trending questions, or search for any token.</p></div>
+        <div class="s3" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/trade-perps.webp" alt="Swop perps order screen: leverage, take profit, trailing stop loss and the order summary" loading="lazy"><span class="realtag">Real screen</span></div><span class="k">STEP 03</span><h4>Review, then confirm</h4><p>You see the size, the fees and your safety settings before anything happens.</p></div>
+      </div>
+    </div>
+    <div class="gloss" aria-label="Words you'll see">
+      <div><b>Swap</b><span>Trading one token for another, like dollars-on-chain (USDC) for SOL.</span></div>
+      <div><b>Perps</b><span>Short for perpetual futures: a bet on a price going up (long) or down (short), with no expiry date.</span></div>
+      <div><b>Leverage</b><span>Borrowing to make a position bigger. 5× turns $100 into a $500 position, and makes losses 5× bigger too.</span></div>
+      <div><b>Liquidation</b><span>If the price moves far enough against a leveraged position, it closes automatically and you lose the money you put in.</span></div>
+      <div><b>Stop loss</b><span>An automatic exit you set in advance, so a position closes before it loses more than you're willing to.</span></div>
+      <div><b>Prediction market</b><span>A market on a yes-or-no question. A price of 62¢ means people think the "yes" is about 62% likely.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="what">
+  <div class="wrap">
+    <div class="sh"><span class="lab">How copy trading works</span><h2>One trade, <span class="acc">two wallets.</span></h2><p>Follow one trade from Maya's wallet to yours. Tap a step, or hover any box.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.6","stepMs":3000,
+      "nodes":[
+        {"id":"maya","x":8,"y":22,"mx":22,"my":6,"label":"Maya trades","sub":"from her own wallet","icon":"id"},
+        {"id":"venue","x":8,"y":80,"mx":24,"my":78,"label":"The venue","sub":"Jupiter · LI.FI · Hyperliquid · Polymarket","icon":"trade"},
+        {"id":"feed","x":34,"y":22,"mx":75,"my":6,"label":"Trade card","sub":"posted to her feed","icon":"live"},
+        {"id":"you","x":58,"y":22,"mx":75,"my":28,"label":"You tap Copy","sub":"pick your own size","icon":"id"},
+        {"id":"wallet","x":58,"y":80,"mx":56,"my":49,"label":"Your wallet","sub":"the same trade runs here","icon":"pay","big":true},
+        {"id":"fee","x":84,"y":80,"mx":76,"my":67,"label":"0.5% swap fee","sub":"on swaps only","icon":"coin"},
+        {"id":"reward","x":84,"y":22,"mx":75,"my":91,"label":"Maya earns SWOP","sub":"half the swap fee, for being copied","icon":"coin"}],
+      "edges":[
+        {"from":"maya","to":"venue","label":"trade","step":1},
+        {"from":"maya","to":"feed","label":"posts","step":1},
+        {"from":"feed","to":"you","step":2},
+        {"from":"you","to":"wallet","label":"copy","step":3},
+        {"from":"wallet","to":"venue","label":"executes","step":3},
+        {"from":"wallet","to":"fee","step":4},
+        {"from":"fee","to":"reward","label":"50%","step":5}],
+      "steps":["Maya trades from her own wallet. It runs on the venue and posts to her feed as a trade card.","You see the card in your feed and tap Copy.","The same trade runs from your wallet, at the size you choose.","A swap carries Swop's 0.5% fee. Perps and predictions carry no Swop fee today.","Half of that swap fee goes to Maya as a SWOP reward for being copied."],
+      "note":"Illustrative. Positions and profit and loss always come from the venue. Trading can lose money; no returns are promised."}</script></div>
+  </div>
+</section>
+
+<section class="sec gut" id="how">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.03 · How it works</span><h2>Four markets. <span class="acc">One wallet.</span></h2><p>These are the real screens in the Swop app today (the wallet shows example numbers). Scroll to walk through each one.</p></div>
+    <div class="story">
+      <div class="stick">
+        <div class="phone">
+          <div class="scr img" data-i="0"><img src="/assets/live/trade-swap.webp" alt="Swap screen: pay one token, receive another, with Market and Limit modes" loading="lazy"><span class="realtag">Real screen</span></div>
+          <div class="scr img" data-i="1"><img src="/assets/live/trade-perps.webp" alt="Perps screen: leverage from 2x to 25x, isolated or cross margin, take profit and trailing stop loss" loading="lazy"><span class="realtag">Real screen</span></div>
+          <div class="scr img" data-i="2"><img src="/assets/live/trade-predictions.webp" alt="Predictions screen: games by league with upcoming NBA matchups and prices" loading="lazy"><span class="realtag">Real screen</span></div>
+          <div class="scr img" data-i="3"><img src="/assets/live/feed.webp" alt="The Swop feed with posts from people you follow" loading="lazy"><span class="realtag">Real screen</span></div>
+        </div>
+      </div>
+      <div class="beats">
+        <div class="beat"><span class="n">01 · Swap</span><h3>Any token, <span class="acc">any chain.</span></h3><p>Pick what you pay with and what you want. Swop finds the best route across Solana, Ethereum, Base, Polygon, Arbitrum, Optimism and Robinhood Chain, including tokenized stocks. Use <b>Market</b> to trade now or <b>Limit</b> to wait for your price.</p></div>
+        <div class="beat"><span class="n">02 · Perps</span><h3>Perps, <span class="acc">stocks included.</span></h3><p>Go long (you think the price rises) or short (you think it falls) on crypto and stocks like NVDA, through Hyperliquid. Choose leverage, then set a take profit or a trailing stop that follows the price and only moves in your favour. No Swop fee on perps today.</p></div>
+        <div class="beat"><span class="n">03 · Predict</span><h3>Trade <span class="acc">what happens next.</span></h3><p>Pick a game or a question and buy the outcome you believe in. Prices work like odds: 62¢ means about a 62% chance. Markets run through Polymarket where it's allowed, and your positions come straight from there.</p></div>
+        <div class="beat"><span class="n">04 · Copy</span><h3>See it. <span class="acc">Copy it.</span></h3><p>The feed is where people share trades and ideas. When a trade is shared as a card, tap Copy and it runs in your own wallet at the size you choose. The trader you copied earns half of the swap fee as a SWOP reward.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="why">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.04 · Why Swop</span><h2>The markets you know, <span class="acc">with people in them.</span></h2><p>Swop connects you to the venues that already have the liquidity, and adds the social layer on top.</p></div>
+    <div class="bento">
+      <div class="bx w4" data-rv><div class="ic" data-ic="trade" data-s="22"></div><h3>Every market, one wallet</h3><p>Swop routes your orders to established venues, so you don't juggle five apps and five logins.</p><div class="viz venues"><span>Jupiter</span><span>LI.FI</span><span>Hyperliquid</span><span>Polymarket</span></div></div>
+      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="coin" data-s="22"></div><h3>Simple fees</h3><p>0.5% on swaps. No Swop fee on perps or predictions today.</p><div class="viz"><div class="big">0.5%</div></div></div>
+      <div class="bx w3" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>Copy, fairly</h3><p>Copies run in the follower's own wallet. The trader being copied earns half of the swap fee, paid in SWOP.</p><div class="viz split50"><div>Swop fee<b>0.5%</b></div><i>→</i><div>to the trader<b>50%</b></div></div></div>
+      <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="key" data-s="22"></div><h3>The venue is the truth</h3><p>Your positions and P&amp;L come from the venue itself, never from adding up feed cards.</p><div class="viz srcline"><span>Hyperliquid</span><i>·</i><span>Polymarket</span><i>→</i><span>your portfolio</span></div></div>
+      <div class="bx w6" data-rv><div class="ic" data-ic="owl" data-s="22"></div><h3>Ovi strategies, on a leash you hold</h3><p>Ovi, Swop's AI, can watch markets and propose positions. A daily loss cap is required, and anything that adds risk waits for your approval. <a class="acc" href="/ovi" style="font-weight:700">Meet Ovi →</a></p><div class="viz capbar" style="max-width:520px"><div><span>Daily loss cap</span><b>$12 of $50 used</b></div><i></i></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut" id="markets">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.05 · Pick a market</span><h2>What you can trade, <span class="acc">in plain words.</span></h2></div>
+    <div class="mx">
+      <div class="mtabs" role="tablist" aria-label="Markets">
+        <button role="tab" aria-selected="true" aria-controls="mp0" id="mt0"><span class="mi" data-ic="trade" data-s="24"></span><span><b>Swaps</b><small>Tokens, stocks, real-world assets</small></span><em>01</em></button>
+        <button role="tab" aria-selected="false" aria-controls="mp1" id="mt1"><span class="mi" data-ic="coin" data-s="24"></span><span><b>Perps</b><small>Long or short, crypto and stocks</small></span><em>02</em></button>
+        <button role="tab" aria-selected="false" aria-controls="mp2" id="mt2"><span class="mi" data-ic="market" data-s="24"></span><span><b>Predictions</b><small>Trade on real-world outcomes</small></span><em>03</em></button>
+        <button role="tab" aria-selected="false" aria-controls="mp3" id="mt3"><span class="mi" data-ic="id" data-s="24"></span><span><b>Copy trading</b><small>Follow people, not tips</small></span><em>04</em></button>
+      </div>
+      <div>
+        <div class="mpanel on" role="tabpanel" id="mp0" aria-labelledby="mt0"><span class="st live">Live</span><h3>Swaps</h3><p>Trade one token for another, on one chain or across chains, including tokenized stocks and real-world assets.</p><div class="spec"><div><small>Routes</small><b>Jupiter on Solana, LI.FI on EVM and cross-chain</b></div><div><small>Swop fee</small><b>0.5%</b></div></div><div class="chains"><span>Solana</span><span>Ethereum</span><span>Base</span><span>Polygon</span><span>Arbitrum</span><span>Optimism (swaps)</span><span>Robinhood Chain</span></div></div>
+        <div class="mpanel" role="tabpanel" id="mp1" aria-labelledby="mt1"><span class="st live">Live</span><h3>Perps</h3><p>Perpetual futures on crypto and stocks like NVDA. Use market or limit orders. Leverage multiplies losses as well as gains.</p><div class="spec"><div><small>Venue</small><b>Hyperliquid</b></div><div><small>Swop fee</small><b>None today</b></div></div></div>
+        <div class="mpanel" role="tabpanel" id="mp2" aria-labelledby="mt2"><span class="st live">Live</span><h3>Predictions</h3><p>Buy or sell outcomes on questions about the real world. Not available everywhere: access depends on where you are.</p><div class="spec"><div><small>Venue</small><b>Polymarket</b></div><div><small>Swop fee</small><b>None today</b></div></div><p style="font-size:15px">Want to set your own odds? <a class="acc" href="/decentrabet" style="font-weight:700">See Decentrabet →</a></p></div>
+        <div class="mpanel" role="tabpanel" id="mp3" aria-labelledby="mt3"><span class="st live">Live</span><h3>Copy trading</h3><p>Every trade can become a card on the feed. Tap Copy and the same trade runs in your own wallet, at the size you choose.</p><div class="spec"><div><small>Who earns</small><b>The copied trader gets 50% of the swap fee, in SWOP</b></div><div><small>Where it runs</small><b>Your own Swop wallet</b></div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="risk">
+  <div class="wrap riskx">
+    <div>
+      <div class="sh" style="margin-bottom:28px"><span class="lab">S.06 · Leverage, honestly</span><h2>Bigger trades, <span class="acc">bigger swings.</span></h2><p>Leverage lets a small amount control a bigger position. It works the same way in both directions, so here is what it really means with $100.</p></div>
+      <div class="lev" role="img" aria-label="How far the price can fall against a $100 long before liquidation, by leverage">
+        <div class="row"><span>No leverage (1×)</span><i style="--w:100%;--c:#0a9f55"></i><b>can't be liquidated</b></div>
+        <div class="row"><span>2× · $200 position</span><i style="--w:48%"></i><b>~ -50%</b></div>
+        <div class="row"><span>5× · $500 position</span><i style="--w:19%;--c:#f59e0b"></i><b>~ -20%</b></div>
+        <div class="row"><span>10× · $1,000 position</span><i style="--w:9%;--c:#ef4444"></i><b>~ -10%</b></div>
+        <div class="row"><span>25× · $2,500 position</span><i style="--w:4%;--c:#ef4444"></i><b>~ -4%</b></div>
+      </div>
+      <p style="margin-top:22px;color:var(--fg2);max-width:56ch">Roughly how far the price can move against you before the position is liquidated and the $100 is gone (venue fees and funding move these numbers a little). The app shows your exact <b>estimated liquidation price</b> before you confirm, and a stop loss lets you leave earlier on your own terms. You can lose what you put in; you can't lose more than that margin on an isolated position.</p>
+    </div>
+    <figure class="shotw" data-rv><img src="/assets/live/trade-perps.webp" alt="Swop perps screen showing a trailing stop loss, estimated liquidation price and how far away it is" loading="lazy"><span class="realtag">Real screen</span></figure>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.07 · Your first trade</span><h2>From zero <span class="acc">to your feed.</span></h2></div>
+    <div class="flow" style="--n:4">
+      <div class="fs"><div class="dot">01</div><h4>Fund your wallet</h4><p>Your swop.id comes with a wallet on every supported chain.</p></div>
+      <div class="fs"><div class="dot">02</div><h4>Pick a market</h4><p>Swap, perps or predictions, from the same screen.</p></div>
+      <div class="fs"><div class="dot">03</div><h4>Review</h4><p>See the route, the size and the fee before you confirm.</p></div>
+      <div class="fs"><div class="dot">04</div><h4>Share it</h4><p>Your trade can post to your feed, where people can copy it.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq gut" aria-label="Trading by the numbers"><div class="tr">
+  <div class="it"><b class="acc">7</b><span>chains for swaps</span></div>
+  <div class="it"><b>0.5%</b><span>Swop fee on swaps</span></div>
+  <div class="it"><b class="acc">$0</b><span>Swop fee on perps and predictions today</span></div>
+  <div class="it"><b>50%</b><span>of the swap fee to the trader you copy, in SWOP</span></div>
+  <div class="it"><b class="acc">1</b><span>wallet for every market</span></div>
+</div></div>
+
+<section class="sec gut" id="status">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.08 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Beta, expect rough edges.</p></div>
+    <div class="road">
+      <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>Swaps</b> across 7 chains, including tokenized stocks and real-world assets.</span></li><li><span><b>Perps</b> on crypto and stocks via Hyperliquid, with limit orders.</span></li><li><span><b>Prediction markets</b> via Polymarket, where allowed.</span></li><li><span><b>Copy trading</b> and trade cards on the feed.</span></li></ul></div>
+      <div class="rc build" data-rv style="--d:.08s"><span class="st beta">Beta</span><ul><li><span><b>Ovi strategies</b>: your AI agent proposes positions inside a daily loss cap, and you approve.</span></li><li><span><b>Trade from any AI</b>: place orders from Claude, ChatGPT or Grok through the <a class="acc" href="/mcp">Swop MCP</a>, inside your caps.</span></li></ul></div>
+      <div class="rc next" data-rv style="--d:.16s"><span class="st beta">Adjacent</span><ul><li><span><b><a class="acc" href="/decentrabet">Decentrabet</a></b>: peer-to-peer prediction markets where anyone sets the odds. Beta on testnet, separate from Swop's trading.</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.09 · Plugs into</span><h2>Trading touches <span class="acc">all of Swop.</span></h2></div>
+    <div class="devstrip" data-rv style="margin-bottom:28px"><span class="lab">For developers</span><p><b>Trade from your own AI agent.</b> The Swop MCP exposes swap quotes, perps orders and prediction-market tools, each inside the caps the user sets.</p><a class="btn btn-o" href="https://docs.swopme.co/mcp/tool-reference">Trading tools in the docs ↗</a></div>
+    <div class="plugs" data-plugs="ovi:Proposes positions inside your loss cap|token:Copy-trade rewards are paid in SWOP|swopid:Your trades post to your profile|mcp:Trade from Claude, ChatGPT or Grok|decentrabet:Set your own odds on any question|eldorado:Your agents and positions in the Exchange"></div>
+  </div>
+</section>
+
+<section class="sec gut" id="faq">
+  <div class="wrap faq">
+    <div class="sh" style="margin:0"><span class="lab">S.10 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div>
+      <details><summary>What can I trade on Swop?</summary><p>Token swaps on 7 chains (including tokenized stocks and real-world assets), perps on crypto and stocks through Hyperliquid, and prediction markets through Polymarket where they're allowed.</p></details>
+      <details><summary>What does it cost?</summary><p>Swaps carry a 0.5% Swop fee. Perps and prediction markets carry no Swop fee today. Network and venue costs may still apply, and you'll see the details before you confirm.</p></details>
+      <details><summary>How does copy trading work?</summary><p>When someone shares a trade, it appears as a card on the feed. Tap Copy and the same trade runs in your own wallet at the size you pick. The trader you copied earns half of the swap fee, paid in SWOP.</p></details>
+      <details><summary>Why can't I see prediction markets?</summary><p>Prediction markets aren't available in every location. If they're restricted where you are, they won't show up.</p></details>
+      <details><summary>What is liquidation, and can I avoid it?</summary><p>With leverage, a position closes automatically if the price moves far enough against you, and the money you put up for it is lost. Lower leverage gives the price more room, a stop loss closes the trade earlier on your terms, and the app shows the estimated liquidation price before you confirm.</p></details>
+      <details><summary>Will I make money?</summary><p>We don't promise returns, and neither do the traders you follow or Ovi. Prices move against you as often as for you, and leverage makes losses bigger. Only trade what you can afford to lose.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="cta" data-rv>
+      <span class="lab">Get started</span>
+      <h2>Trade with <span class="acc">people you follow.</span></h2>
+      <p>Open the web app or get Swop on your phone.</p>
+      <div class="btns" style="justify-content:center"><a class="btn btn-a" href="https://swopme.app/wallet">Start trading <span class="ar">→</span></a><a class="btn btn-o" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">App Store</a><a class="btn btn-o" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Google Play</a></div>
+      <p class="risk" style="margin:0 auto">Trading is risky and you can lose money. Nothing here is investment advice.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" style="padding-top:0">
+  <div class="wrap"><div class="sh" style="margin-bottom:24px"><span class="lab">More from Swop</span></div><div class="more" data-more></div></div>
+</section>
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/assets/p/kit.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  /* markets explorer tabs */
+  const tabs=[...document.querySelectorAll('.mtabs [role=tab]')],pans=[...document.querySelectorAll('.mpanel')];
+  const sel=t=>{tabs.forEach(x=>{x.setAttribute('aria-selected',x===t);x.tabIndex=x===t?0:-1});pans.forEach(p=>p.classList.toggle('on',p.id===t.getAttribute('aria-controls')))};
+  tabs.forEach((t,i)=>{t.addEventListener('click',()=>sel(t));t.addEventListener('keydown',e=>{const d=e.key==='ArrowDown'||e.key==='ArrowRight'?1:e.key==='ArrowUp'||e.key==='ArrowLeft'?-1:0;if(d){e.preventDefault();const n=tabs[(i+d+tabs.length)%tabs.length];n.focus();sel(n)}})});
+  sel(tabs[0]);
+  /* hero sparkline: illustrative random walk that ticks */
+  const k=document.getElementById('spk'),f=document.getElementById('spf'),g=document.getElementById('sget');if(!k)return;
+  let pts=[];let v=46;for(let i=0;i<30;i++){v+=(Math.random()-.45)*6;v=Math.max(12,Math.min(74,v));pts.push(v)}
+  const draw=()=>{const d=pts.map((y,i)=>(i?'L':'M')+(i*300/(pts.length-1)).toFixed(1)+' '+(84-y).toFixed(1)).join(' ');k.setAttribute('d',d);f.setAttribute('d',d+' L300 84 L0 84 Z')};
+  draw();
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  setInterval(()=>{let y=pts[pts.length-1]+(Math.random()-.45)*6;y=Math.max(12,Math.min(74,y));pts.shift();pts.push(y);draw();if(g)g.textContent=(0.66+y/2000).toFixed(4)},1100);
+});
+</script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>

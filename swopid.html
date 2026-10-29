@@ -1,0 +1,464 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>swop.id &amp; SmartSite: one name for your page, wallet and login</title>
+<meta name="description" content="Claim name.swop.id. It opens your SmartSite, receives payments into your Swop wallet and signs you into apps built on Swop. Free to claim.">
+<link rel="canonical" href="https://www.swopme.co/swopid">
+<meta property="og:site_name" content="Swop">
+<meta property="og:type" content="website">
+<meta property="og:title" content="One name. Everything you are.">
+<meta property="og:description" content="Your swop.id is your page, your wallet and your login.">
+<meta property="og:url" content="https://www.swopme.co/swopid">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://www.swopme.co/assets/og/swopid.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="swop.id: One name. Everything you are. Shown beside a SmartSite profile in the Swop app.">
+<meta name="twitter:image" content="https://www.swopme.co/assets/og/swopid.jpg">
+<meta name="twitter:image:alt" content="swop.id: One name. Everything you are. Shown beside a SmartSite profile in the Swop app.">
+<meta name="theme-color" content="#010108">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/p/kit.css">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "swop.id & SmartSite", "applicationCategory": "SocialNetworkingApplication", "operatingSystem": "iOS, Android, Web", "offers": [{"@type": "Offer", "price": "0", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Swop Premium", "price": "8.99", "priceCurrency": "USD"}], "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "A name you own that opens your page, receives payments and signs you into apps built on Swop."}</script>
+<style>
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+/* claim box (same check and hand-off as the homepage) */
+.claim{position:relative;display:flex;flex-wrap:wrap;align-items:center;width:min(540px,100%);background:rgba(5,5,18,.72);backdrop-filter:blur(8px);border:1px solid rgba(63,224,143,.4);border-radius:18px;padding:6px;box-shadow:0 0 50px rgba(63,224,143,.1)}
+.claim input{background:transparent;border:0;outline:none;color:#fff;font:800 21px var(--display);padding:12px 2px}
+.cfield{flex:1;min-width:0;display:flex;align-items:baseline;padding-left:16px;cursor:text}
+.cfield input{flex:0 1 auto;width:4ch;max-width:100%;padding-right:0}
+.cfield .suf{font:800 21px var(--display);color:var(--fg3);white-space:nowrap}
+.claim .btn{padding:13px 22px}
+.cst{position:absolute;left:4px;top:calc(100% + 12px);display:flex;align-items:center;gap:8px;font:500 13.5px var(--body);color:var(--fg2);min-height:20px}
+.cst i{width:8px;height:8px;border-radius:50%;flex:none}
+.cst.ok{color:#3FE08F}.cst.ok i{background:#3FE08F;box-shadow:0 0 10px #3FE08F}
+.cst.bad{color:#ff8a8a}.cst.bad i{background:#ff5a5f}
+.cst.wait i{border:2px solid rgba(255,255,255,.25);border-top-color:#fff;width:10px;height:10px;animation:spin2 .7s linear infinite}
+@keyframes spin2{to{transform:rotate(360deg)}}
+.claim.taken{border-color:rgba(255,90,95,.5)}
+.claim.shake{animation:cshake .35s}
+@keyframes cshake{25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+@media (max-width:480px){.claim .btn{flex:1 1 100%;margin-top:4px}.cst{position:static;margin-top:10px}}
+.hcopy .btns{margin-top:22px}
+/* hero: a SmartSite that writes itself as you type */
+.ss{position:relative;justify-self:center}
+.ss .phone{background:#FAFAFA}
+.ss .scr{background:#FAFAFA;color:#0a0a0c;align-items:center;text-align:center;gap:8px;padding-top:46px}
+.ring{position:relative;width:176px;height:176px;margin:6px auto 2px}
+.ring::before{content:"";position:absolute;inset:14px;border:1.5px dashed rgba(10,10,12,.16);border-radius:50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ring .av{position:absolute;inset:44px;border-radius:50%;display:grid;place-items:center;font:900 40px var(--display);color:#00140a;background:radial-gradient(circle at 30% 25%,#b7ffd9,#3FE08F 60%,#0a9f55);box-shadow:0 10px 30px rgba(10,159,85,.35)}
+.ring .so{position:absolute;width:34px;height:34px;border-radius:50%;background:#fff;box-shadow:0 2px 8px rgba(10,10,12,.12);display:grid;place-items:center;font:800 13px var(--display);color:#0a0a0c;transform:translate(-50%,-50%)}
+.ss .nm{font:900 21px var(--display);letter-spacing:-.03em}
+.ss .hd{font:500 12px var(--mono);color:#0a9f55;margin-top:-6px}
+.ss .bio{font:500 12.5px var(--body);color:rgba(10,10,12,.62)}
+.ss .acts{display:flex;gap:6px;justify-content:center}
+.ss .acts span{padding:7px 12px;border-radius:999px;background:#ececea;font:700 11.5px var(--body)}
+.ss .acts span.k{background:#0a0a0c;color:#fff}
+.ss .tabs{display:flex;gap:6px;justify-content:center;margin-top:2px}
+.ss .tabs span{padding:6px 11px;border-radius:999px;background:#ececea;font:700 11px var(--body);color:rgba(10,10,12,.55)}
+.ss .tabs span.on{background:#0a0a0c;color:#fff}
+.ss .lk{display:grid;gap:7px;width:100%;margin-top:4px}
+.ss .lk div{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:#fff;border:1px solid rgba(10,10,12,.08);font:700 12.5px var(--body);text-align:left}
+.ss .lk div i{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;font-style:normal;background:#eafff3}
+.ss .lk div b{margin-left:auto;font:600 11px var(--mono);color:#0a9f55}
+.chipf{position:absolute;z-index:4;display:flex;align-items:center;gap:8px;padding:10px 14px;border-radius:14px;background:rgba(12,12,22,.86);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);font:600 13px var(--body);box-shadow:0 20px 40px rgba(0,0,0,.4);animation:bob 7s ease-in-out infinite;white-space:nowrap}
+.chipf b{color:var(--acc);font-weight:800}
+.chipf i{width:8px;height:8px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc)}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.c1{left:-110px;top:90px}.c2{right:-120px;top:240px;animation-delay:-2.5s}.c3{left:-80px;bottom:90px;animation-delay:-5s}
+@media (max-width:1100px){.c1{left:-40px}.c2{right:-40px}.c3{left:-20px}}
+@media (max-width:960px){.ss .phone{transform:scale(.9);transform-origin:top center;margin-bottom:-60px}.chipf{font-size:11.5px;padding:8px 11px}.c1{left:-6px;top:40px}.c2{right:-6px}.c3{left:-6px}}
+/* story screens using real app screenshots */
+.scr.shot{padding:0;background:#FAFAFA}
+.scr [data-step]{opacity:0;transform:translateY(8px);transition:opacity .4s,transform .5s var(--ease)}
+.scr [data-step].in{opacity:1;transform:none}
+.scr.shot img{width:100%;height:auto}
+.sendscr{background:#FAFAFA!important;color:#0a0a0c!important}
+.sendscr .bar{color:#0a0a0c}
+.addr{font:500 11px var(--mono);padding:10px;border-radius:12px;background:#fff;border:1px solid rgba(10,10,12,.08);color:rgba(10,10,12,.4);text-decoration:line-through;word-break:break-all}
+.toname{display:flex;align-items:center;gap:10px;padding:12px;border-radius:14px;background:#fff;border:1.5px solid #3FE08F}
+.toname .av2{width:36px;height:36px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#b7ffd9,#3FE08F 60%,#0a9f55);display:grid;place-items:center;font:900 15px var(--display);color:#00140a}
+.toname b{font:800 14px var(--display)}.toname small{display:block;font:500 10.5px var(--mono);color:#0a9f55}
+.amt{font:900 52px/1 var(--display);letter-spacing:-.05em;text-align:center;margin:14px 0 4px}
+.sendbtn{margin-top:auto;padding:14px;border-radius:14px;background:#0a0a0c;color:#fff;text-align:center;font:800 14px var(--display)}
+.sso{display:grid;gap:10px}
+.sso .app{display:flex;align-items:center;gap:12px;padding:12px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.sso .app .lg{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;font:900 16px var(--display)}
+.sso .app b{font:800 14px var(--display)}.sso .app small{display:block;font:500 11px var(--body);color:var(--fg3)}
+.sso .app em{margin-left:auto;font-style:normal;font:700 11px var(--display);padding:7px 10px;border-radius:999px;background:var(--acc);color:var(--acc-ink)}
+/* bento visuals */
+.tpl{display:flex;flex-wrap:wrap;gap:7px}
+.tpl span{padding:8px 12px;border-radius:999px;background:var(--glass2);border:1px solid var(--line);font:600 13px var(--body)}
+.ens{font:500 13px/1.7 var(--mono);background:#0a0a0c;color:rgba(255,255,255,.8);border-radius:14px;padding:14px}
+.ens b{color:#3FE08F;font-weight:500}
+.prem{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.prem small{font:600 14px var(--body);color:var(--fg2)}
+.nfc{position:relative;height:120px}
+.nfc .cd{position:absolute;left:10px;bottom:6px;width:150px;height:94px;border-radius:12px;background:linear-gradient(135deg,#1a1a22,#050508);box-shadow:0 14px 30px rgba(10,10,12,.3);transform:rotate(-8deg);color:#fff;font:700 9px var(--label);letter-spacing:.2em;padding:12px}
+.nfc .wv{position:absolute;left:150px;top:20px;width:60px;height:60px;border:2px solid #3FE08F;border-radius:50%;animation:wave 2s ease-out infinite;opacity:0}
+.nfc .wv:nth-child(3){animation-delay:.6s}
+@keyframes wave{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+.nfc .ph{position:absolute;right:16px;top:0;width:66px;height:118px;border-radius:14px;background:#fff;border:1.5px solid rgba(10,10,12,.12);display:grid;place-items:center;font:900 11px var(--display);color:#0a9f55}
+/* one name, everywhere: the name moves through every surface */
+.every{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.ev{border-radius:20px;border:1px solid var(--line);background:var(--glass);padding:20px;display:grid;gap:10px;align-content:start;min-height:170px}
+.ev small{font:700 10.5px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3)}
+.ev code{font:600 15px var(--mono);color:var(--acc);word-break:break-all}
+.ev p{font-size:14px;color:var(--fg2)}
+@media (max-width:960px){.every{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.every{grid-template-columns:1fr}}
+/* in 30 seconds: plain-words explainer with real app screens */
+.t30{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(28px,5vw,64px);align-items:start}
+.t30 dl{display:grid;border-top:1px solid var(--line)}
+.t30 dl>div{display:grid;grid-template-columns:130px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--line)}
+.t30 dt{font:700 11px var(--label);letter-spacing:.16em;text-transform:uppercase;color:var(--fg3);padding-top:4px}
+.t30 dd{font-size:16.5px;color:var(--fg)}
+.t30 dd small{display:block;color:var(--fg2);font-size:14px;margin-top:4px}
+.t30 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.t30 .stp{display:grid;gap:10px;align-content:start}
+.t30 .stp b{font:900 20px/1.1 var(--display);letter-spacing:-.025em}
+.t30 .stp p{font-size:14.5px;color:var(--fg2)}
+.t30 .stp .n{font:700 12px var(--label);color:var(--acc-dark,var(--acc));letter-spacing:.14em}
+.shot{position:relative;border-radius:26px;padding:6px;background:#0b0b12;box-shadow:0 0 0 1px rgba(10,10,12,.12),0 24px 50px rgba(10,10,12,.22);aspect-ratio:9/17;overflow:hidden}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:20px;display:block;background:#fff}
+.shot.sm{max-width:150px;aspect-ratio:9/12}
+.real{display:inline-flex;align-items:center;gap:7px;font:700 10.5px var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--acc-dark,var(--acc))}
+.real::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.illus{display:inline-block;font:700 10px var(--label);letter-spacing:.12em;text-transform:uppercase;color:var(--fg3);border:1px solid var(--line);border-radius:999px;padding:3px 8px}
+.gl{border-bottom:1px dotted currentColor;cursor:help}
+@media (max-width:960px){.t30{grid-template-columns:1fr}.t30 .steps{gap:10px}.t30 .stp b{font-size:16px}.t30 .stp p{font-size:13px}.t30 dl>div{grid-template-columns:1fr;gap:4px}}
+@media (max-width:560px){.t30 .steps{grid-template-columns:1fr}.t30 .stp{grid-template-columns:110px 1fr;grid-template-rows:auto auto auto 1fr;column-gap:16px;row-gap:6px;align-items:start}.t30 .stp .shot{grid-row:1/5}.t30 .stp .n{padding-top:18px}}
+/* real screens inside the sticky phone */
+.scr.real-shot{padding:0;background:#fff}
+.scr.real-shot img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+/* developer strip */
+.devlinks{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.devlinks a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass2);font:600 13.5px var(--body);transition:border-color .2s}
+.devlinks a:hover{border-color:var(--acc)}
+.mode{display:inline-flex;flex-wrap:wrap;padding:4px;border-radius:999px;background:var(--glass2);border:1px solid var(--line);gap:4px;justify-self:start}
+.mode button{border:0;background:transparent;border-radius:999px;padding:8px 14px;font:700 13.5px var(--body);cursor:pointer;color:var(--fg2)}
+.mode button[aria-pressed="true"]{background:#0a0a0c;color:#fff}
+/* real screens showcase */
+.realrow{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr);gap:clamp(20px,4vw,48px);align-items:center}
+.webshot{border-radius:22px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 70px rgba(10,10,12,.18);background:#fff}
+.webshot .tb{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);font:500 12px var(--mono);color:var(--fg3);background:#f4f4f2}
+.webshot .tb i{width:10px;height:10px;border-radius:50%;background:#d8d8d4}
+.webshot .tb em{font-style:normal;margin-left:8px}
+.webshot img{width:100%;display:block;max-height:640px;object-fit:cover;object-position:top}
+.realrow .shot{max-width:280px;justify-self:center}
+.realcap{display:grid;gap:8px;margin-top:14px}
+.realcap p{color:var(--fg2);font-size:15px}
+@media (max-width:860px){.realrow{grid-template-columns:1fr}}
+</style>
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body data-p="swopid">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
+<div class="grain" aria-hidden="true"></div>
+<div class="pbar" aria-hidden="true"></div>
+
+<nav class="top gut" aria-label="Main"><div class="wrap">
+  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop.id</span></a>
+  <div class="navlinks"><a href="#how">How it works</a><a href="#page">Your page</a><a href="#everywhere">Everywhere</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
+  <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
+</div></nav>
+
+<main>
+<header class="hero gut">
+  <canvas data-shader aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;z-index:-1"></canvas>
+  <div class="wrap hgrid">
+    <div class="hcopy">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><span class="lab">S.01 · swop.id &amp; SmartSite</span><span class="st live">Live</span></div>
+      <h1 data-split>One name.<br><span class="hl">Everything you are.</span></h1>
+      <p class="dek">Your swop.id is your page, your wallet and your login. <b>People pay your name, not a string of numbers.</b></p>
+      <form class="claim" id="claimForm" autocomplete="off">
+        <label class="cfield"><input id="claimIn" aria-label="Pick your name" aria-describedby="claimSt" value="maya" maxlength="10" spellcheck="false" autocapitalize="none" inputmode="url"><span class="suf">.swop.id</span></label>
+        <button class="btn btn-a" type="submit">Claim it <span class="ar">→</span></button>
+        <p class="cst" id="claimSt" role="status" aria-live="polite"></p>
+      </form>
+      <div class="btns"><a class="btn btn-o" href="https://travis.swop.id">See a SmartSite ↗</a></div>
+      <div class="hmeta"><span>Works where ENS works</span><span>Page · wallet · login</span><span>Tap an NFC card to open it</span></div>
+    </div>
+    <div class="ss" data-rv>
+      <div class="chipf c1" aria-hidden="true"><i></i>Paid <b class="nmh">maya</b>.swop.id · $25</div>
+      <div class="chipf c2" aria-hidden="true">Sign in with <b><span class="nmh">maya</span>.swop.id</b></div>
+      <div class="chipf c3" aria-hidden="true"><i></i>NFC tap · page opened</div>
+      <div class="phone" aria-label="Your SmartSite preview">
+        <div class="scr on">
+          <div class="ring"><div class="av" id="ssAv">M</div>
+            <span class="so" style="left:50%;top:8%">𝕏</span><span class="so" style="left:89%;top:30%">IG</span><span class="so" style="left:89%;top:70%">TT</span><span class="so" style="left:50%;top:92%">in</span><span class="so" style="left:11%;top:70%">YT</span><span class="so" style="left:11%;top:30%">♪</span></div>
+          <div class="nm"><span class="nmc">Maya</span></div>
+          <div class="hd"><span class="nmh">maya</span>.swop.id</div>
+          <div class="bio">Prints, zines and late-night sets.</div>
+          <div class="acts"><span class="k">Follow</span><span>Pay</span><span>Share</span></div>
+          <div class="tabs"><span class="on">Feed</span><span>Holdings</span><span>Tokens</span></div>
+          <div class="lk"><div><i>🛍️</i>Shop: 6 prints<b>from $15</b></div><div><i>📅</i>Book a studio visit<b>Booking</b></div><div><i>💚</i>Tip jar<b>USDC</b></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="scue" aria-hidden="true">SCROLL<i></i></div>
+</header>
+
+<section class="sec gut tight" id="keys">
+  <div class="wrap">
+    <div class="sh"><span class="lab">Three things to know</span><h2>swop.id, <span class="acc">in three lines.</span></h2></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>One name. Page, wallet, login.</h3><p>name.swop.id opens your SmartSite, receives your money and signs you in, all from the same name.</p><div class="proof"><em class="st live">Live</em> in the Swop app and on the web</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>People pay your name.</h3><p>Friends, customers and AI agents send to name.swop.id instead of a long wallet address, on five chains.</p><div class="proof">Solana · Ethereum · Base · Polygon · Arbitrum</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Works where ENS works.</h3><p>It's a real ENS name, so wallets and apps that read ENS can find you. Swop-built apps like El Dorado and Chalk let you sign in with it.</p><div class="proof"><a class="acc" href="https://docs.swopme.co/identity">Resolve a swop.id →</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="t30">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.02 · In 30 seconds</span><h2>swop.id, <span class="acc">in plain words.</span></h2><p>One short name does three jobs that normally need three different accounts.</p></div>
+    <div class="t30">
+      <dl data-rv>
+        <div><dt>What it is</dt><dd>A name like maya.swop.id that is your web page, the address people pay, and the login for apps built on Swop.</dd></div>
+        <div><dt>Who it’s for</dt><dd>People, creators and businesses, plus the bots and AI agents that work for them.</dd></div>
+        <div><dt>What it costs</dt><dd>Free with your Swop account. Premium ($8.99 a month or $59.99 a year) adds unlimited SmartSites.</dd></div>
+        <div><dt>What makes it different</dt><dd>It’s a real <span class="gl" title="Ethereum Name Service: the phone book that turns names into wallet addresses">ENS</span> name, so wallets that understand ENS can find you too. Nothing to mint and no gas to pay.</dd></div>
+        <div><dt>What you need</dt><dd>The Swop app or <a class="acc" href="https://swopme.app">swopme.app</a>, and a name that isn’t taken. Check yours at the top of this page.</dd></div>
+      </dl>
+      <p style="margin:0 0 12px;font:500 12px var(--mono);color:var(--fg3)">Real app screens · some with example names and numbers</p>
+<div class="steps">
+        <div class="stp" data-rv><div class="device"><img src="/assets/live/swopid-profile-ex.webp" alt="A SmartSite profile in the Swop app with a ring of social links around the logo" loading="lazy" decoding="async"></div><span class="n">01 · YOUR PAGE</span><b>A page with your links</b><p>Socials, shop, feed and more in one place.</p></div>
+        <div class="stp" data-rv style="--d:.08s"><div class="device"><img src="/assets/live/swopid-send-ex.webp" alt="Send screen in the Swop app: choose a swop.id from your contacts" loading="lazy" decoding="async"></div><span class="n">02 · PAY A NAME</span><b>Get paid by name</b><p>People pick your name, not a long address.</p></div>
+        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/swopid-receive.webp" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
+      </div>
+    </div>
+    <p style="margin-top:26px"><span class="real">Real screens from the Swop app today, some with example names and numbers</span></p>
+  </div>
+</section>
+
+<section class="sec gut" id="what">
+  <div class="wrap">
+    <div class="sh"><span class="lab">How one name connects</span><h2>Everything points to <span class="acc">your name.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
+    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.2","stepMs":3000,
+      "nodes":[
+        {"id":"name","x":50,"y":50,"mx":50,"my":50,"label":"maya.swop.id","sub":"one name you own","icon":"id","big":true},
+        {"id":"page","x":14,"y":20,"mx":26,"my":8,"label":"SmartSite page","sub":"links, shop, feed","icon":"grid"},
+        {"id":"card","x":14,"y":80,"mx":74,"my":8,"label":"NFC card tap","sub":"opens your page","icon":"card"},
+        {"id":"pay","x":86,"y":20,"mx":26,"my":30,"label":"Payments in","sub":"people and AI agents","icon":"pay"},
+        {"id":"wallet","x":86,"y":80,"mx":74,"my":30,"label":"Your wallet","sub":"5 chains, one name","icon":"coin"},
+        {"id":"signin","x":50,"y":10,"mx":50,"my":82,"label":"Sign in","sub":"El Dorado, Chalk","icon":"key"},
+        {"id":"ens","x":50,"y":90,"mx":50,"my":96,"label":"Any ENS app","sub":"finds your address","icon":"plug"}],
+      "edges":[
+        {"from":"card","to":"page","step":1},
+        {"from":"page","to":"name","label":"opens","step":1},
+        {"from":"pay","to":"name","label":"pays","step":2},
+        {"from":"name","to":"wallet","label":"lands in","step":2},
+        {"from":"name","to":"signin","step":3},
+        {"from":"ens","to":"name","label":"resolves","step":4}],
+      "steps":["Someone types your name or taps your card, and your SmartSite opens.","People and AI agents pay maya.swop.id; the money lands in your wallet.","Apps built on Swop let you sign in with the same name.","Wallets and apps that read ENS can look your name up too."],
+      "note":"maya is an example name."}</script></div>
+  </div>
+</section>
+
+<section class="sec gut" id="how">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.04 · How it works</span><h2>Claim it once. <span class="acc">Use it everywhere.</span></h2><p>Think of it like a username that also works as a bank account number and a front door: these are real Swop screens, shown with example names and numbers.</p></div>
+    <div class="story">
+      <div class="stick">
+        <div class="phone" aria-hidden="true">
+          <div class="scr shot" data-i="0"><img src="/assets/live/swopid-profile-ex.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="scr shot" data-i="1"><img src="/assets/live/swopid-send-ex.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="scr shot" data-i="2"><img src="/assets/live/wallet-ex.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="scr" data-i="3" data-delay="500">
+            <div class="bar">Sign in<small>ILLUSTRATION</small></div>
+            <div class="sso">
+              <div class="app" data-step><div class="lg" style="background:#f5c842;color:#2a1d00">E</div><div><b>El Dorado</b><small>Verified swop.ids only</small></div><em>Continue</em></div>
+              <div class="app" data-step><div class="lg" style="background:#38bdf8;color:#001b29">C</div><div><b>Chalk</b><small>Play designer for coaches</small></div><em>Continue</em></div>
+              <div class="app" data-step><div class="lg" style="background:#ff5d6c;color:#2a0006">G</div><div><b>Game Film AI</b><small>Basketball film to box score</small></div><em style="background:rgba(255,255,255,.1);color:var(--fg2)">Soon</em></div>
+              <div class="app" data-step><div class="lg" style="background:#c084fc;color:#1b0533">O</div><div><b>Ovi</b><small>Knows your name and rules</small></div><em style="background:rgba(255,255,255,.1);color:var(--fg2)">Soon</em></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="beats">
+        <div class="beat"><span class="n">01 · Your page · real screen</span><h3>A page that's <span class="acc">actually yours.</span></h3><p>Your SmartSite is a profile, a storefront and a link-in-bio in one. Your links, your shop, your feed, your holdings and your tokens, all at your name.</p></div>
+        <div class="beat"><span class="n">02 · Get paid · real screen</span><h3>Pay a name, <span class="acc">not a string of numbers.</span></h3><p>Anyone on Swop can send money to maya.swop.id: pick the name from your contacts and send. No copying 42-character wallet addresses, no wrong-network mistakes.</p></div>
+        <div class="beat"><span class="n">03 · Your wallet · real screen</span><h3>The wallet <span class="acc">behind the name.</span></h3><p>Hold, send, swap and trade from the same account your name points to. Everything you earn lands here, on Solana, Ethereum, Base, Polygon and Arbitrum.</p></div>
+        <div class="beat"><span class="n">04 · Your login</span><h3>One name <span class="acc">for every app.</span></h3><p>El Dorado and Chalk already sign you in with your swop.id, and more apps are coming. Every person, merchant, bot and AI agent in the ecosystem gets one.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light" id="page">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.05 · Your SmartSite</span><h2>Build it in minutes. <span class="acc">Sell from it today.</span></h2><p>A SmartSite is a one-page website that comes with your name: start from a template, add blocks, and point every link, card and QR code at one address.</p></div>
+    <div class="bento">
+      <div class="bx w4" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>Templates for whatever you do</h3><p>Pick one and make it yours. Mix blocks freely.</p><div class="viz tpl"><span>Tip jar</span><span>Blog</span><span>Forms &amp; leads</span><span>Bot chat</span><span>Booking</span><span>Token gate</span><span>Commerce</span><span>Media</span><span>Embed</span></div></div>
+      <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="card" data-s="22"></div><h3>Tap to open</h3><p>An NFC card, sticker or band opens your page.</p><div class="viz nfc" aria-hidden="true"><div class="cd">SWOP</div><div class="wv"></div><div class="wv"></div><div class="ph">maya</div></div></div>
+      <div class="bx w3" data-rv><div class="ic" data-ic="key" data-s="22"></div><h3>A real ENS name</h3><p><span class="gl" title="Ethereum Name Service: the phone book that turns names into wallet addresses">ENS</span> is the internet’s phone book for wallets. Your swop.id is an ENS name, so ENS-aware wallets and apps can look it up and find your wallet.</p><div class="viz ens">resolve(<b>"maya.swop.id"</b>)<br>→ 0x7f3a…1b92 <span style="color:rgba(255,255,255,.4)">// via CCIP Read</span></div></div>
+      <div class="bx w3" data-rv style="--d:.08s"><div class="ic" data-ic="coin" data-s="22"></div><h3>Premium, if you want more</h3><p>Free to start. Premium unlocks unlimited SmartSites for every brand, side project or client.</p><div class="viz prem"><div class="big">$8.99</div><small>/ month, or $59.99 / year</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light tight" id="real" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.06 · See a real one</span><h2>Live on the web, <span class="acc">run from your phone.</span></h2><p>This is travis.swop.id as anyone sees it in a browser right now, next to the Manage dashboard every SmartSite owner runs their page from.</p></div>
+    <div class="realrow">
+      <div data-rv>
+        <div class="webshot"><div class="tb"><i></i><i></i><i></i><em>travis.swop.id</em></div><img src="/assets/live/swopid-smartsite-web.webp" alt="travis.swop.id on the web: profile photo, links ring, follower counts and tabs for Portfolio, Feed, Positions, Tokens, Blog, Meet and Products" loading="lazy" decoding="async"></div>
+        <div class="realcap"><span class="real">Live page, captured today</span><p>Portfolio, feed, positions, tokens, blog, booking and products: all tabs on one page.</p></div>
+      </div>
+      <div data-rv style="--d:.1s">
+        <div class="device"><img src="/assets/live/swopid-dashboard.webp" alt="The Manage dashboard in the Swop app: Launchpad, Tokens, Products, Orders, Checkout, Forms and Analytics" loading="lazy" decoding="async"></div>
+        <div class="realcap"><span class="real">Swop app · Manage</span><p>Products, orders, checkout, forms and analytics behind the page.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.07 · Get yours</span><h2>Four steps <span class="acc">to your name.</span></h2><p>It takes about as long as making an email address.</p></div>
+    <div class="flow" style="--n:4">
+      <div class="fs"><div class="dot">01</div><h4>Pick a name</h4><p>3 to 10 letters, numbers or hyphens. We check it live.</p></div>
+      <div class="fs"><div class="dot">02</div><h4>Sign up</h4><p>Get the app or use the web. Your wallet is created with your account.</p></div>
+      <div class="fs"><div class="dot">03</div><h4>Build your page</h4><p>Add links, a shop, a tip jar or a booking form.</p></div>
+      <div class="fs"><div class="dot">04</div><h4>Share it</h4><p>Your bio link, a QR code, or an NFC card from the <a href="/shop" class="acc">Shop</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" id="everywhere" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.08 · One name, everywhere</span><h2>Build with <span class="acc">swop.id.</span></h2><p>Whether someone types it, scans it or taps it, they reach the same you.</p></div>
+    <div class="dev-strip" data-rv style="margin-top:0;border-radius:24px;border:1px solid var(--line);background:var(--glass);padding:clamp(22px,3vw,34px);display:grid;gap:6px">
+      <span class="lab" style="--c:#c084fc">For developers</span>
+      <h3 style="margin-top:8px">Resolve any swop.id <span class="acc">from your own app.</span></h3>
+      <p style="color:var(--fg2);max-width:60ch">Look up a name, get its wallet addresses and public profile, or resolve it through ENS with viem or ethers.</p>
+      <div class="devlinks"><a href="https://docs.swopme.co/identity">Identity docs →</a><a href="https://docs.swopme.co/identity/identity-api">Identity API</a></div>
+    </div>
+  </div>
+</section>
+
+<div class="marq gut" aria-label="swop.id by the numbers"><div class="tr">
+  <div class="it"><b class="acc">1</b><span>name for page, wallet and login</span></div>
+  <div class="it"><b>9</b><span>SmartSite templates</span></div>
+  <div class="it"><b class="acc">~2s</b><span>for a payment to your name to arrive</span></div>
+  <div class="it"><b>2</b><span>apps already sign in with swop.id</span></div>
+  <div class="it"><b class="acc">∞</b><span>SmartSites with Premium</span></div>
+</div></div>
+
+<section class="sec gut" id="status">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.09 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
+    <div class="road">
+      <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>name.swop.id</b> for people, merchants, bots and AI agents.</span></li><li><span><b>SmartSite</b> with templates, a shop, and feed, holdings and tokens tabs.</span></li><li><span><b>Pay a name</b> from the Swop wallet.</span></li><li><span><b>NFC cards</b> that open your page.</span></li><li><span><b>Sign in with swop.id</b> on El Dorado and Chalk.</span></li></ul></div>
+      <div class="rc build" data-rv style="--d:.08s"><span class="st building">Building</span><ul><li><span><b>Sign in with Swop</b> for any app, on <a href="/swivy" class="acc">Swivy</a>, our own login and wallet platform.</span></li><li><span><b>A hardened name system</b> to replace the current resolver.</span></li><li><span><b>Game Film AI</b> sign-in with swop.id.</span></li><li><span><b>Your house in Swop Hills</b> showing your page (<a href="/eldorado" class="acc">El Dorado</a> beta).</span></li></ul></div>
+      <div class="rc next" data-rv style="--d:.16s"><span class="st planned">Next · 2028+</span><ul><li><span><b>A swop.id account on Swop Chain</b> with passkeys and guardian recovery.</span></li><li><span><b>Proof of reputation</b> and private credentials you can show without exposing your data.</span></li><li><span><b>A personal data vault</b> that you control.</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut light tight">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.10 · Plugs into</span><h2>Your name <span class="acc">opens all of Swop.</span></h2></div>
+    <div class="plugs" data-plugs="pay:Sell from your page; payouts go to your name|shop:NFC cards that open your SmartSite|ovi:Knows your name, your rules and your history|eldorado:Only verified swop.ids get in|geobucks:Store credit lands on your swop.id|swivy:Will power Sign in with Swop for any app"></div>
+  </div>
+</section>
+
+<section class="sec gut" id="faq">
+  <div class="wrap faq">
+    <div class="sh" style="margin:0"><span class="lab">S.11 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div>
+      <details><summary>What is a swop.id?</summary><p>A name like maya.swop.id that opens your SmartSite, receives payments into your Swop wallet and signs you into apps built on Swop. It's one identity for people, businesses, bots and AI agents.</p></details>
+      <details><summary>Is it a real ENS name?</summary><p>Yes. ENS (Ethereum Name Service) turns names into wallet addresses, like a phone book. swop.id is an ENS name, and your name is a subname of it, looked up through a standard called CCIP Read. It's not an NFT, so there's nothing to mint or pay gas for. Wallets and apps that support ENS can look it up.</p></details>
+      <details><summary>What does it cost?</summary><p>The Swop app is free to download, and your name comes with your account. Premium ($8.99 a month or $59.99 a year) unlocks unlimited SmartSites.</p></details>
+      <details><summary>What can I put on my SmartSite?</summary><p>Links, a shop, a tip jar, a blog, forms that collect leads, a chatbot, booking, token-gated content, media and embeds. Your feed, holdings and tokens show as tabs.</p></details>
+      <details><summary>Can people send me money from any chain?</summary><p>Your swop.id points to wallets on Solana, Ethereum, Base, Polygon and Arbitrum, so people on Swop can pay your name and it lands in the right place. When sharing a raw address instead, only send tokens that match that address’s network.</p></details>
+      <details><summary>Which apps can I sign into with it?</summary><p>El Dorado and Chalk today, with Game Film AI next. Sign in with Swop for any app is being built on Swivy.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight">
+  <div class="wrap">
+    <div class="cta" data-rv>
+      <span class="lab">Get started</span>
+      <h2>Claim your name <span class="acc">before someone else does.</span></h2>
+      <p>Pick it now, finish signing up in the app.</p>
+      <div class="btns" style="justify-content:center"><a class="btn btn-a" href="#top" data-claimtop>Claim your swop.id <span class="ar">→</span></a><a class="btn btn-o" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">App Store</a><a class="btn btn-o" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Google Play</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" style="padding-top:0">
+  <div class="wrap"><div class="sh" style="margin-bottom:24px"><span class="lab">More from Swop</span></div><div class="more" data-more></div></div>
+</section>
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="/assets/p/kit.js" defer></script>
+<script>
+/* claim: live swop.id availability via the ENS gateway the app uses (same as the homepage); claim hands off to signup.
+   The typed name also writes itself into the SmartSite preview. */
+(()=>{const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+ const inp=$('#claimIn'),st=$('#claimSt'),form=$('#claimForm'),GW='https://swop-id-ens-gateway.swop.workers.dev/get/';
+ const RX=/^[a-z0-9](?:[a-z0-9-]{1,8})[a-z0-9]$/;let state='idle',seq=0,tmr=0;
+ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const meas=document.createElement('span');meas.style.cssText='position:absolute;left:0;top:0;visibility:hidden;pointer-events:none;white-space:pre;font:800 21px var(--display)';document.body.appendChild(meas);
+ function fit(){meas.textContent=inp.value||inp.placeholder||'name';inp.style.width=Math.ceil(meas.getBoundingClientRect().width+2)+'px'}
+ function paint(v){const n=v||'you';$$('.nmh').forEach(e=>e.textContent=n);$$('.nmc').forEach(e=>e.textContent=n.charAt(0).toUpperCase()+n.slice(1));$('#ssAv').textContent=n.charAt(0).toUpperCase()}
+ function show(cls,msg){state=cls;st.className='cst '+(cls==='ok'?'ok':cls==='taken'||cls==='invalid'?'bad':cls==='checking'?'wait':'');
+  st.innerHTML=msg?`<i></i><span>${msg}</span>`:'';form.classList.toggle('taken',cls==='taken')}
+ async function check(n){const id=++seq;show('checking','Checking '+esc(n)+'.swop.id…');
+  try{const r=await fetch(GW+encodeURIComponent(n)+'.swop.id',{cache:'no-store'});if(id!==seq)return;
+   if(r.status===404)show('ok',`<b>${esc(n)}.swop.id</b> is available`);else if(r.ok)show('taken',`<b>${esc(n)}.swop.id</b> is taken. Try another name.`);else throw 0}
+  catch(e){if(id===seq)show('idle','Couldn’t check right now. You can still claim it in the app.')}}
+ function onInput(first){const v=inp.value.toLowerCase().replace(/[^a-z0-9-]/g,'').slice(0,10);if(v!==inp.value)inp.value=v;fit();paint(v);clearTimeout(tmr);
+  if(!v){show('idle','');return}
+  if(!RX.test(v)){show('invalid',v.length<3?'At least 3 characters':'Letters, numbers and hyphens, not starting or ending with a hyphen');return}
+  if(first===true){show('idle','');state='taken';return}
+  show('checking','Checking '+esc(v)+'.swop.id…');tmr=setTimeout(()=>check(v),380)}
+ inp.addEventListener('input',onInput);fit();onInput(true);
+ inp.addEventListener('focus',()=>{if(inp.value==='maya'){inp.select()}},{once:true});
+ form.addEventListener('submit',e=>{e.preventDefault();const v=inp.value;
+  if(state==='taken'||state==='invalid'||state==='checking'||!v){form.classList.remove('shake');void form.offsetWidth;form.classList.add('shake');inp.focus();if(state==='taken'&&v==='maya')show('taken','<b>maya.swop.id</b> is just the example. Type your own name.');return}
+  location.href='https://www.swopme.app/login?claim='+encodeURIComponent(v)});
+ $$('[data-claimtop]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();(window.SwopKit&&SwopKit.lenis)?SwopKit.lenis.scrollTo(0):scrollTo({top:0,behavior:'smooth'});setTimeout(()=>inp.focus({preventScroll:true}),700)}));
+})();
+</script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>
