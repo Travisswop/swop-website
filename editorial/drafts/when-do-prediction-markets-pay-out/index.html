@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>When do prediction markets pay out? The gap between over and resolved</title>
+<meta name="description" content="Your event finished and your position still shows nothing. That gap is a resolution process with a published clock on it — a 2-hour challenge window, or days if the outcome is disputed.">
+<link rel="canonical" href="https://www.swopme.co/blog/when-do-prediction-markets-pay-out">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="When do prediction markets pay out? The gap between over and resolved">
+<meta property="og:description" content="A finished event and a resolved market are two different things. Here is the process that sits between them, with the clocks it actually runs on.">
+<meta property="og:url" content="https://www.swopme.co/blog/when-do-prediction-markets-pay-out">
+<meta property="og:image" content="https://www.swopme.co/blog/when-do-prediction-markets-pay-out/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-10-21">
+<meta property="article:modified_time" content="2026-10-21">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/when-do-prediction-markets-pay-out/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="When do prediction markets pay out? The gap between over and resolved">
+<meta name="twitter:description" content="The game ended and your position still shows nothing. That is the resolution process, and it has a published clock on it.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "When do prediction markets pay out? The gap between over and resolved",
+  "description": "Your event finished and your position still shows nothing. That gap is a resolution process with a published clock on it — a 2-hour challenge window, or days if the outcome is disputed.",
+  "datePublished": "2026-10-21",
+  "dateModified": "2026-10-21",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/when-do-prediction-markets-pay-out"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "The event is over. Why has my prediction market not paid out?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Because the event ending and the market resolving are two separate things. A prediction market pays out when an outcome has been reported to its oracle and has survived a window in which anyone could challenge it. On Polymarket, markets are resolved by the UMA Optimistic Oracle, and once an outcome is proposed the market enters a challenge period of 2 hours before it can be finalised. The clock on that window only starts when somebody proposes the outcome, which is a separate step from the event finishing. A market sitting in that gap is in a normal interim state, not a lost position."}
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a disputed prediction market take to resolve?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Days rather than hours. If someone challenges a proposed outcome within the challenge window, the question is forwarded to UMA's Data Verification Mechanism, where stakers vote. UMA documents that process as a 24-hour commit period followed by a 24-hour reveal period, that disputes must be at least 4 hours old to enter a new voting round, and that resolution requires a minimum 65% majority of staked UMA behind one outcome. A dispute therefore replaces a two-hour window with a multi-day one. It is unusual, and it is the mechanism working rather than failing."}
+    },
+    {
+      "@type": "Question",
+      "name": "What is a winning prediction market share actually worth?",
+      "acceptedAnswer": {"@type": "Answer", "text": "One dollar. Prediction market contracts are built to settle at $1 if the outcome happens and $0 if it does not, which is the property that lets the price in between be read as a probability. A share bought at 64 cents that resolves yes is worth $1 at settlement; the same share resolving no is worth nothing. Nothing about the resolution process changes that number — it only determines when the number is final and which side of it you are on."}
+    },
+    {
+      "@type": "Question",
+      "name": "Can the app I traded through make my market resolve faster?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Resolution belongs to the market and its oracle, not to the interface you placed the trade through. An app can show you the state of a market and submit your instructions to it, but it cannot grade an outcome, overrule one, or shorten a challenge window — and you should be wary of any app that claims otherwise, because an interface that could unilaterally decide outcomes is an interface you would have to trust absolutely. Waiting on an oracle is the cost of not having to."}
+    },
+    {
+      "@type": "Question",
+      "name": "Someone messaged me offering to release my prediction market winnings. Is that real?",
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Payouts are a consequence of a market resolving on-chain; there is no person who releases them, no fee that unlocks them, and no support agent who needs your seed phrase, your private key, or a wallet signature to speed them up. Unsolicited offers to help with a stuck payout are one of the most reliable scam patterns in this market precisely because they arrive at a moment when you are already anxious and already watching a balance that has not moved. The waiting is normal. The direct message is not."}
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<style>
+.ig{margin:40px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+@media(max-width:720px){.ig svg{border-radius:12px}}
+</style>
+
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Guides</span></div>
+<h1 class="tight">When do prediction markets pay out? The gap between &ldquo;it&rsquo;s over&rdquo; and &ldquo;it&rsquo;s resolved&rdquo;</h1>
+<p class="art-dek">The game finished an hour ago and your position still shows nothing. That gap isn&rsquo;t a bug, and it isn&rsquo;t your money going missing &mdash; it&rsquo;s a resolution process, and it runs on clocks you can look up.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 21, 2026</span><span class="sep"></span><span class="mono">Updated Oct 21, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=When%20do%20prediction%20markets%20pay%20out%3F&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhen-do-prediction-markets-pay-out" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=When%20do%20prediction%20markets%20pay%20out%3F&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fwhen-do-prediction-markets-pay-out" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">The event ended. The market didn&rsquo;t.</a>
+<a href="#s2">What has to happen before you get paid</a>
+<a href="#s3">Disputed markets: days, not hours</a>
+<a href="#s4">The delay is the part that protects you</a>
+<a href="#s5">What to do while you wait</a>
+<a href="#s6">Where Swop fits</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>You backed the right outcome. The event is over, the result is not in any serious doubt, and your position is still sitting there showing you nothing. The instinct at that moment is to assume something has broken &mdash; the app, the market, the money. Almost always, nothing has. You are standing in the gap between two things that feel like one thing: an event finishing, and a market resolving.</p>
+
+<p>Those are different events with different clocks. The first happens in the world. The second happens on-chain, through a reporting process that is deliberately not instant, and understanding that process is the difference between a tense evening and a shrug. Here is what is actually happening in that gap, with the published timings.</p>
+
+<h2 id="s1">The event ended. The market didn&rsquo;t.</h2>
+
+<p>A prediction market contract is a claim on a future fact: it pays $1 if the thing happened and $0 if it didn&rsquo;t. We&rsquo;ve written about <a class="link" href="/blog/prediction-markets-101">why that $1 ceiling turns a price into a probability</a> &mdash; a contract trading at 64 cents is the market pricing roughly a 64% chance. But the contract itself is a piece of code, and code does not watch the game. It has no idea the whistle went.</p>
+
+<p>So something has to tell it. That something is an oracle: a mechanism for getting a real-world fact onto a chain in a way that can&rsquo;t simply be asserted by whoever is quickest or most interested. Polymarket&rsquo;s markets <a class="link" href="https://help.polymarket.com/en/articles/13364518-how-are-prediction-markets-resolved" rel="noopener">are resolved by the UMA Optimistic Oracle</a>, described in its own documentation as &ldquo;a smart-contract based optimistic oracle.&rdquo;</p>
+
+<p>The word doing the work there is <em>optimistic</em>. An optimistic oracle does not go and verify anything. It lets someone state the answer, puts money behind that statement, and then waits &mdash; on the assumption that if the answer is wrong, somebody watching has both the information and the financial motive to say so. The waiting is not latency. The waiting <em>is</em> the mechanism.</p>
+
+<h2 id="s2">What has to happen before you get paid</h2>
+
+<p>Between the final whistle and a redeemable position, three distinct things have to occur, and only one of them has a clock that starts when the event ends.</p>
+
+<p><strong>First, somebody has to propose the outcome.</strong> This is the step people underestimate, and it is usually the step they are actually waiting through. No proposal is automatic: a proposer has to submit the result to the oracle and, per Polymarket&rsquo;s documentation, &ldquo;put up a bond in USDC.e which will be forfeited if the proposal is unsuccessful.&rdquo; That is real money at risk on being right. There is no published guarantee of how quickly it happens, and for a market nobody is watching closely it can simply take a while. A quiet market is not a stuck market.</p>
+
+<p><strong>Second, the challenge window runs.</strong> Once an outcome is proposed, Polymarket states plainly that &ldquo;once a market is proposed for resolution it goes into a challenge period of 2 hours.&rdquo; During those two hours anyone who thinks the proposed answer is wrong can dispute it. If nobody does, the proposal stands.</p>
+
+<p><strong>Third, the market finalises and winning shares become worth $1.</strong> Holders of the winning outcome are entitled to a dollar a share; the losing side&rsquo;s shares are worth nothing. That is the whole payout.</p>
+
+<figure class="ig" aria-labelledby="ig1-cap">
+<svg viewBox="0 0 980 300" role="img" aria-label="Timeline from event end to payout. Step one, the event ends, with no automatic clock. Step two, someone proposes the outcome and posts a bond. Step three, a two-hour challenge window runs. Step four, the market resolves and winning shares are worth one dollar. A branch from step three shows that if the outcome is disputed it goes to a UMA staker vote of twenty-four hours commit plus twenty-four hours reveal, taking days instead of hours." xmlns="http://www.w3.org/2000/svg">
+  <g font-family="Inter Tight, Inter, sans-serif">
+    <line x1="80" y1="92" x2="900" y2="92" stroke="var(--line)" stroke-width="2"/>
+
+    <circle cx="110" cy="92" r="7" fill="var(--ink)"/>
+    <text x="110" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">Event ends</text>
+    <text x="110" y="124" text-anchor="middle" font-size="12.5" fill="var(--mut)">no clock starts</text>
+
+    <circle cx="370" cy="92" r="7" fill="var(--ink)"/>
+    <text x="370" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">Outcome proposed</text>
+    <text x="370" y="124" text-anchor="middle" font-size="12.5" fill="var(--mut)">proposer posts a bond</text>
+
+    <circle cx="630" cy="92" r="7" fill="var(--ink)"/>
+    <text x="630" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">Challenge window</text>
+    <text x="630" y="124" text-anchor="middle" font-size="12.5" fill="var(--mut)">2 hours</text>
+
+    <circle cx="880" cy="92" r="7" fill="var(--ink)"/>
+    <text x="880" y="62" text-anchor="middle" font-size="15" font-weight="700" fill="var(--ink)">Resolved</text>
+    <text x="880" y="124" text-anchor="middle" font-size="12.5" fill="var(--mut)">$1 a winning share</text>
+
+    <path d="M630 140 L630 196" stroke="var(--line)" stroke-width="2" stroke-dasharray="5 5"/>
+    <text x="648" y="172" font-size="12.5" fill="var(--mut)">if disputed</text>
+
+    <rect x="368" y="200" width="524" height="62" rx="12" fill="none" stroke="var(--line)" stroke-width="2"/>
+    <text x="392" y="228" font-size="14.5" font-weight="700" fill="var(--ink)">UMA staker vote</text>
+    <text x="392" y="250" font-size="12.5" fill="var(--mut)">24h commit + 24h reveal, 65% majority &mdash; days, not hours</text>
+  </g>
+</svg>
+<figcaption id="ig1-cap">Four steps, one published clock. The silence people notice is usually step one to step two.</figcaption>
+</figure>
+
+<p>Read that sequence again and notice where the uncertainty actually lives. The two-hour window is fixed and documented. The payout is fixed at a dollar. The genuinely open-ended part is the stretch before anyone proposes anything &mdash; which is exactly the stretch that feels, from inside the app, like nothing is happening. Nothing <em>is</em> happening. That is different from something going wrong.</p>
+
+<h2 id="s3">Disputed markets: days, not hours</h2>
+
+<p>Sometimes somebody does challenge the proposed outcome. This is rare, and it is usually a sign that the market&rsquo;s wording and the real world didn&rsquo;t line up as cleanly as everyone assumed &mdash; an event that was postponed, a result that was later amended, a question whose phrasing turns out to admit two readings.</p>
+
+<p>When that happens the question leaves the fast path. UMA&rsquo;s documentation states that &ldquo;disputes are forwarded to the DVM for dispute resolution&rdquo; &mdash; the Data Verification Mechanism, which it describes as &ldquo;a Schelling point mechanism where UMA stakers resolve disputes in return for staking rewards.&rdquo; In practice that means a vote, and the vote has its own published schedule: stakers &ldquo;commit secret votes during a 24-hour commit period and subsequently reveal them in a 24-hour reveal period.&rdquo; UMA also notes that &ldquo;disputes must be at least 4 hours old to enter a new voting round,&rdquo; and that settling on an answer requires a minimum 65% majority of staked UMA behind it.</p>
+
+<p>Add that up and a disputed market is a multi-day affair, not a multi-hour one. Two days of voting is the floor, not the ceiling. If you are holding a position in a market that got disputed, the honest expectation to set yourself is the back half of the week, not this evening.</p>
+
+<p>The thing worth holding onto: <strong>a dispute is not a threat to your position.</strong> Your shares are still your shares throughout. What is being decided is which side of the $1 they land on &mdash; and if you were right about the world, a dispute process is the thing that makes sure the chain agrees with you rather than with whoever proposed first.</p>
+
+<h2 id="s4">The delay is the part that protects you</h2>
+
+<p>It is worth sitting with how strange the alternative would be. The reason a market can&rsquo;t pay out the instant a game ends is that &ldquo;the game ended&rdquo; is not a fact the chain has access to. Somebody has to put it there. The only question is on what terms.</p>
+
+<p>The terms in this design are: say the answer, back it with a bond you lose if you&rsquo;re wrong, and then stand still for two hours while anyone in the world checks your work. Every part of that is an inconvenience, and every part of it is there to make a false outcome expensive to assert and cheap to catch. A market that paid out the moment someone typed in a result would be a market where typing in a result was worth doing dishonestly.</p>
+
+<p>This is the same trade-off that runs through the rest of this market. Self-custody means nobody can freeze your funds, and it also means nobody can reverse your mistake. On-chain settlement means a transfer can&rsquo;t be clawed back, and <a class="link" href="/blog/best-wallet-for-prediction-markets">it also means a position open for weeks isn&rsquo;t an IOU from a venue</a>. Oracle resolution means the outcome isn&rsquo;t the house&rsquo;s opinion, and it also means you wait for the window. You don&rsquo;t get the first half of any of those without the second.</p>
+
+<h2 id="s5">What to do while you wait</h2>
+
+<p>Mostly: nothing, which is unsatisfying advice, so here is the useful version.</p>
+
+<p><strong>Check the market&rsquo;s state rather than your balance.</strong> A market that has ended but not yet resolved is in a normal interim state &mdash; the event is done, the outcome isn&rsquo;t reported yet. That reads very differently from a balance showing zero, which is the same screen whether you are waiting or whether you lost. Looking at the market tells you which situation you are in; looking at your balance doesn&rsquo;t.</p>
+
+<p><strong>Re-read the market&rsquo;s own rules.</strong> Every market has resolution criteria written before trading opened, and most surprises are hiding in them: which source counts as authoritative, what happens if an event is postponed, what the cut-off time actually was. If a result feels obvious to you and the market hasn&rsquo;t resolved, that text is the first place the disagreement will be visible.</p>
+
+<p><strong>Don&rsquo;t re-trade a position you already won.</strong> Selling a winning share back into a thin post-event order book &mdash; say at 94 cents, because waiting is uncomfortable &mdash; is paying six cents a share for the privilege of not waiting. That is a real cost people hand over regularly, and the only thing they buy with it is relief.</p>
+
+<p><strong>Treat anyone who offers to unstick it as hostile.</strong> This is the one that costs people everything rather than six cents. There is no human who releases payouts, no unlock fee, no expediting service, and no legitimate support process &mdash; ours or anyone&rsquo;s &mdash; that needs your seed phrase, your private key, or a signature to make a market resolve. A resolution is a thing the oracle does; nobody in your direct messages can accelerate it. The scam works because it arrives precisely when you are already frustrated and already staring at a number that hasn&rsquo;t moved, which is why it is worth deciding now, while nothing is at stake, that the answer is no.</p>
+
+<h2 id="s6">Where Swop fits</h2>
+
+<p>Swop is a self-custodial wallet: <strong>keys are generated and held on your device, and Swop never holds them.</strong> That matters more for prediction markets than for most things, because a position can sit open for days or weeks before an event even happens &mdash; and across that whole stretch, what you are holding is a position you control with your own key rather than a credit balance with a company.</p>
+
+<p>On the resolution itself, the honest answer is that no app is in charge of it. The interface you traded through can show you a market&rsquo;s state and pass your instructions to it; it cannot grade an outcome, overrule one, or shorten a challenge window. Any app that told you otherwise would be telling you it can decide what happened, which is a thing you&rsquo;d then have to trust it about.</p>
+
+<p>And on the in-app specifics &mdash; exactly when a settled position appears in your Swop balance, and whether anything needs confirming on your end &mdash; we&rsquo;re not going to guess at it in a blog post. Those details sit in the app and can change with a release, and a wrong answer about someone&rsquo;s money is worse than no answer. If your market has resolved and your balance still doesn&rsquo;t agree, email <a class="link" href="mailto:support@swopme.co">support@swopme.co</a> with the market and we&rsquo;ll look at the actual position rather than tell you what usually happens.</p>
+
+<p>That is the whole of it. A finished event is not a resolved market, a resolved market pays a dollar a share, and the wait in between is a mechanism with its clock printed on the side &mdash; two hours if the answer is uncontested, the back half of the week if it isn&rsquo;t.</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3>The event is over. Why has my prediction market not paid out?</h3>
+<p>Because the event ending and the market resolving are two separate things. A prediction market pays out when an outcome has been reported to its oracle and has survived a window in which anyone could challenge it. On Polymarket, markets are resolved by the UMA Optimistic Oracle, and once an outcome is proposed the market enters a challenge period of 2 hours before it can be finalised. The clock on that window only starts when somebody proposes the outcome, which is a separate step from the event finishing. A market sitting in that gap is in a normal interim state, not a lost position.</p>
+
+<h3>How long does a disputed prediction market take to resolve?</h3>
+<p>Days rather than hours. If someone challenges a proposed outcome within the challenge window, the question is forwarded to UMA&rsquo;s Data Verification Mechanism, where stakers vote. UMA documents that process as a 24-hour commit period followed by a 24-hour reveal period, that disputes must be at least 4 hours old to enter a new voting round, and that resolution requires a minimum 65% majority of staked UMA behind one outcome. A dispute therefore replaces a two-hour window with a multi-day one. It is unusual, and it is the mechanism working rather than failing.</p>
+
+<h3>What is a winning prediction market share actually worth?</h3>
+<p>One dollar. Prediction market contracts are built to settle at $1 if the outcome happens and $0 if it does not, which is the property that lets the price in between be read as a probability. A share bought at 64 cents that resolves yes is worth $1 at settlement; the same share resolving no is worth nothing. Nothing about the resolution process changes that number &mdash; it only determines when the number is final and which side of it you are on.</p>
+
+<h3>Can the app I traded through make my market resolve faster?</h3>
+<p>No. Resolution belongs to the market and its oracle, not to the interface you placed the trade through. An app can show you the state of a market and submit your instructions to it, but it cannot grade an outcome, overrule one, or shorten a challenge window &mdash; and you should be wary of any app that claims otherwise, because an interface that could unilaterally decide outcomes is an interface you would have to trust absolutely. Waiting on an oracle is the cost of not having to.</p>
+
+<h3>Someone messaged me offering to release my prediction market winnings. Is that real?</h3>
+<p>No. Payouts are a consequence of a market resolving on-chain; there is no person who releases them, no fee that unlocks them, and no support agent who needs your seed phrase, your private key, or a wallet signature to speed them up. Unsolicited offers to help with a stuck payout are one of the most reliable scam patterns in this market precisely because they arrive at a moment when you are already anxious and already watching a balance that has not moved. The waiting is normal. The direct message is not.</p>
+
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">Market resolved, balance disagrees?</h3>
+<p class="sub-d">Email us with the market and roughly when you traded it. We&rsquo;d rather look at your actual position than tell you what usually happens.</p>
+</div>
+<!-- QUILL 2026-10-21 · SUBSCRIBE-REMOVED. The shared .sub-form widget is omitted here
+     deliberately: it transmits nothing and still shows "Subscribed — see you Tuesday."
+     See editorial/CAPTURE-SURFACE-2026-10-18.md and editorial/SIGNUP-ENDPOINT-2026-10-20.md.
+     When api/subscribe.mjs is deployed, restore a form that fetches /api/subscribe — never
+     the inert markup, and never the "every other Tuesday" cadence line. -->
+<p class="sub-d" style="margin-top:0">
+<a href="mailto:support@swopme.co" style="display:inline-block;background:var(--paper);color:var(--ink);border-radius:999px;padding:15px 26px;font-size:13.5px;font-weight:600">Email support@swopme.co</a>
+<a href="https://x.com/swoplabs" style="display:inline-block;border:1px solid var(--line-d);border-radius:999px;padding:14px 24px;font-size:13.5px;margin-left:10px">Follow @swoplabs</a>
+</p>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Your position. Your key. Your wait.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+<footer class="foot">
+<div class="wrap foot-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<span class="mono cr">© 2026 Swop</span>
+</div>
+</footer>
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/when-do-prediction-markets-pay-out').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+</body>
+</html>
