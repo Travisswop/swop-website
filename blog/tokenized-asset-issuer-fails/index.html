@@ -15,8 +15,8 @@
 <meta property="og:image" content="https://www.swopme.co/blog/tokenized-asset-issuer-fails/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="article:published_time" content="2026-10-26">
-<meta property="article:modified_time" content="2026-10-26">
+<meta property="article:published_time" content="2026-11-02">
+<meta property="article:modified_time" content="2026-11-02">
 <meta property="article:author" content="Swop Team">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.swopme.co/blog/tokenized-asset-issuer-fails/og.png">
@@ -29,8 +29,8 @@
   "@type": "Article",
   "headline": "What happens if a tokenized asset's issuer fails?",
   "description": "If the issuer of a tokenized real-world asset fails, what you recover depends on the legal structure behind the token, not the blockchain it runs on.",
-  "datePublished": "2026-10-26",
-  "dateModified": "2026-10-26",
+  "datePublished": "2026-11-02",
+  "dateModified": "2026-11-02",
   "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
   "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
   "mainEntityOfPage": "https://www.swopme.co/blog/tokenized-asset-issuer-fails"
@@ -62,7 +62,7 @@
       "name": "How is PAX Gold protected if Paxos becomes insolvent?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Per Paxos's own account, Paxos Trust Company is chartered as a limited-purpose trust company under New York Banking Law and supervised by the New York Department of Financial Services (NYDFS), and it describes customer assets as held in bankruptcy-remote, segregated accounts that are never commingled with Paxos's corporate funds. Paxos says this means customer assets would not pass through ordinary bankruptcy proceedings; instead, the NYDFS Superintendent would return custodied assets to their owners based on Paxos's books and records. This is the company's own description of its structure, not an independent legal verification, and it is specific to NY trust companies rather than to money-transmitter-licensed issuers generally."
+        "text": "Paxos says customer assets are held segregated and bankruptcy-remote, never commingled with its own corporate funds. Under its former New York limited-purpose trust charter, Paxos said an insolvency would bypass ordinary bankruptcy proceedings and the NYDFS Superintendent would return custodied assets to their owners based on Paxos's books and records. Paxos completed a conversion to a national trust bank charter on December 12, 2025 and now operates as Paxos Trust Company, N.A. under OCC supervision, which is the regime that would apply today. This is the company's own description of its structure, not an independent legal verification."
       }
     },
     {
@@ -80,6 +80,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<!-- va:start --><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!-- va:end -->
 </head>
 <body>
 <nav>
@@ -95,7 +96,7 @@
 <h1 class="tight">What happens if a tokenized asset&rsquo;s issuer fails?</h1>
 <p class="art-dek">The chain keeps an honest record of your balance. It has no vote in what you actually recover if the issuer behind the token goes under &mdash; that depends on paperwork most holders never read.</p>
 <div class="art-meta">
-<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Oct 26, 2026</span><span class="sep"></span><span class="mono">Updated Oct 26, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Nov 2, 2026</span><span class="sep"></span><span class="mono">Updated Nov 2, 2026</span><span class="sep"></span><span class="mono">7 min read</span></span>
 <span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=What%20happens%20if%20a%20tokenized%20asset%27s%20issuer%20fails%3F&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftokenized-asset-issuer-fails" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=What%20happens%20if%20a%20tokenized%20asset%27s%20issuer%20fails%3F&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Ftokenized-asset-issuer-fails" target="_blank" rel="noopener">Farcaster</a></span>
 </div>
 </div>
@@ -120,7 +121,8 @@
 <p>We covered the first half of this problem in <a href="/blog/tokenized-isnt-the-same-as-yours">a companion piece on custody</a>: whether you can even move a tokenized asset to a wallet you control is a choice the issuer made, not a property of being on-chain. Issuer failure is the second half, and the harder one, because it survives even when you clear the first hurdle. You can hold a tokenized asset in a wallet nobody but you controls and still be an unsecured creditor the moment its issuer goes under.</p>
 
 <h2 id="s2">Three structures, three different outcomes</h2>
-<p>The clearest real-world example of a deliberately strong structure is Paxos's gold token, PAX Gold (PAXG). According to <a href="https://www.paxos.com/blog/how-paxos-protects-customer-assets-from-bankruptcy">Paxos's own account of its bankruptcy protections</a>, Paxos Trust Company is chartered as a limited-purpose trust company under New York Banking Law and supervised by the NYDFS &mdash; a different regulatory category from an ordinary company or a money-transmitter-licensed issuer. Paxos says customer assets are held in segregated, bankruptcy-remote accounts, never commingled with its own corporate funds, and that this means those assets would not pass through standard bankruptcy procedure at all: the NYDFS Superintendent would instead return custodied assets to their owners directly, based on Paxos's books and records. Paxos contrasts this with money-transmitter-licensed issuers, where it argues a court could rule that customer assets belong to the issuer's general creditors. That is Paxos describing its own structure, not an independent legal audit of it &mdash; worth treating as a company claim, however specific, rather than a settled ruling.</p>
+<p>The clearest real-world example of a deliberately strong structure is Paxos&rsquo;s gold token, PAX Gold (PAXG). Paxos has argued for years that a trust charter &mdash; rather than a money-transmitter licence &mdash; is what actually protects customers. In <a href="https://www.paxos.com/blog/paxos-was-built-to-protect-its-customers">its own account of its bankruptcy protections</a>, written while it was a New York limited-purpose trust company, it said customer assets are held segregated and bankruptcy-remote, never commingled with corporate funds, and that an insolvency would not go through standard bankruptcy procedure at all: the NYDFS Superintendent would return custodied assets to their owners directly, based on Paxos&rsquo;s books and records. The contrast it drew was with money-transmitter-licensed issuers, whose customers it said could face delays and a court ruling that their assets belong to the issuer&rsquo;s bankruptcy estate.</p>
+<p>That charter has since changed, which is this post in miniature. Paxos completed its conversion to a <a href="https://www.paxos.com/blog/occ-charter-stablecoins">national trust bank charter on December 12, 2025</a> and now operates as Paxos Trust Company, N.A. under OCC supervision; PAXG is issued by that entity, with issuance, reserves and custody all sitting inside it. The segregated, bankruptcy-remote framing carries over, but the supervisor &mdash; and the specific insolvency mechanism that follows from it &mdash; is federal now, not New York&rsquo;s. Both are Paxos describing its own structure, not an independent legal audit of it, and a holder who read the earlier page and stopped there is carrying a picture of their token&rsquo;s protection that the issuer has since replaced.</p>
 <p>BlackRock's tokenized Treasury fund, BUIDL, sits on different rails. Per <a href="https://www.businesswire.com/news/home/20240320771318/en/">the fund's 2024 launch announcement</a>, Bank of New York Mellon serves as custodian of the fund's assets and administrator, while Securitize acts as transfer agent and tokenization platform recording who holds the tokenized shares. That is a conventional fund structure with an independent, regulated custodian holding the underlying Treasuries and cash &mdash; a meaningfully different arrangement from an issuer custodying its own backing asset. Whether BUIDL's specific legal claim is formally bankruptcy-remote in the way Paxos describes for PAXG is a question for the fund's own offering documents, which we did not have access to verify directly.</p>
 <p>Not every tokenized asset gets either kind of protection. Industry risk assessments of the broader RWA tokenization market describe a less reassuring pattern elsewhere: pooled custody accounts without clear segregation, commingled cash management, and issuer documentation that explicitly allows redemption claims to be deferred or cancelled, or satisfied only out of whatever "free assets" the issuer happens to have left, if doing so would not otherwise worsen its own insolvency. In that structure, the token's bankruptcy outcome is closer to an ordinary unsecured bond than to a segregated trust account &mdash; and nothing about the token itself tells you which category you are in.</p>
 
@@ -146,7 +148,7 @@
 <h3>Does holding a tokenized asset in my own wallet protect me if the issuer fails?</h3>
 <p>No. Self-custody protects you from a custodian or exchange blocking, freezing, or losing your access to the token. It does not protect you from the issuer failing, because the token is a claim on that issuer's promise, and the promise does not get stronger because you hold the key to the wallet it sits in.</p>
 <h3>How is PAX Gold protected if Paxos becomes insolvent?</h3>
-<p>Per Paxos's own account, Paxos Trust Company is a limited-purpose trust company under New York Banking Law, supervised by the NYDFS, and customer assets are held in bankruptcy-remote, segregated accounts never commingled with Paxos's corporate funds &mdash; which Paxos says means those assets bypass ordinary bankruptcy and are returned directly to owners by the NYDFS Superintendent. This is the company's own description, not an independent legal verification.</p>
+<p>Paxos says customer assets are held segregated and bankruptcy-remote, never commingled with its own corporate funds. Under its former New York limited-purpose trust charter it said an insolvency would bypass ordinary bankruptcy, with the NYDFS Superintendent returning custodied assets to owners from Paxos&rsquo;s books and records. Paxos completed a conversion to a national trust bank charter on December 12, 2025 and now operates as Paxos Trust Company, N.A. under OCC supervision, which is the regime that would apply today. This is the company&rsquo;s own description of its structure, not an independent legal verification.</p>
 <h3>What should I check before trusting a tokenized asset's issuer?</h3>
 <p>Whether your claim is segregated and bankruptcy-remote or a general unsecured claim; whether the custodian holding the underlying asset is independent of the issuer; whether redemption can be paused, deferred, or subordinated, and under what conditions; and what minimum size or notice period redemption actually requires. Those answers are in the issuer's documentation, not in the word "tokenized."</p>
 

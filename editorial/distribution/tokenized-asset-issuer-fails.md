@@ -30,4 +30,4 @@ https://www.facebook.com/sharer/sharer.php?u=https%3A//www.swopme.co/blog/tokeni
 
 ## Discord / Telegram recap (2 sentences)
 
-Tokenized gold or Treasuries are only as safe as the issuer's bankruptcy structure — Paxos says PAX Gold sits in a bankruptcy-remote NY trust account, but plenty of other RWA tokens leave holders as ordinary unsecured creditors if the issuer fails. New post breaks down the four questions to check before you trust one: https://www.swopme.co/blog/tokenized-asset-issuer-fails
+Tokenized gold or Treasuries are only as safe as the issuer's bankruptcy structure — Paxos says PAX Gold sits in a segregated, bankruptcy-remote account at its national trust bank, but plenty of other RWA tokens leave holders as ordinary unsecured creditors if the issuer fails. New post breaks down the four questions to check before you trust one: https://www.swopme.co/blog/tokenized-asset-issuer-fails
