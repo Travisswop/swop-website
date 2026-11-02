@@ -1,0 +1,21 @@
+Alchemists spent two thousand years trying to make gold and failed, and we took the wrong lesson from it. The lesson we took was that gold is scarce. The lesson actually available was narrower: nobody had worked out how yet.
+
+On 21 October 2026, Marathon Fusion said it had produced stable gold from mercury using fusion neutrons — roughly ten times the quantity CERN recorded in 2025. The physics is not exotic: fast neutrons from deuterium–tritium fusion strike mercury-198, which becomes mercury-197 and decays to gold-197. Ordinary, stable, indistinguishable gold.
+
+Now the caveats, because they are load-bearing and most coverage skipped them. The company published gamma-ray spectra but no mass, no purity figure and no cost. The spectra do not establish how much gold was made, how pure it was, or whether any of it scales, and it had not been independently verified at the time of reporting.
+
+The scale matters even more. CERN's ALICE experiment produced about 29 picograms of gold across four years of running the LHC — and ten times a picogram-scale result is still a picogram-scale result. The tonnage figures everyone quoted come from somewhere else entirely: a 2025 paper modelling about 2 tonnes per gigawatt of thermal power per year. The flashier "5,000 kg a year" restates the same simulation per gigawatt of electrical output. Different denominator. Marathon's current reactor runs at around one kilowatt — a millionth of a gigawatt.
+
+Against roughly 3,672 tonnes of global mine supply in 2025 (World Gold Council; USGS puts it nearer 3,300), a hypothetical gigawatt-scale plant would add well under a tenth of one percent of annual supply. The gold price is not under threat from this. What changed is not the supply — it is the category.
+
+Because here is the part worth sitting with. Around 212,000 tonnes of gold have ever been mined, and nobody promised that. There is no protocol, no issuer, no document committing the universe to that number. Gold's scarcity is an observation about how hard it has been to get more, and every observation of that kind is a statement about current cost rather than permanence. The constraint was never a law forbidding it; it was an energy bill nobody could pay. Energy bills move.
+
+Blockspace is scarce for an entirely different reason: a rule says how much there is. The amount per block is a parameter, published in advance, enforced by every node, checkable by anyone. You do not have to trust an assay, a vault or a mint.
+
+And the honest counterweight, because stopping there would be a sales pitch: a rule is only as durable as the people who can change it. Parameters get changed, chains fork, governance votes pass. Rule-based scarcity is not stronger in some absolute sense — it is differently fragile. A cost curve erodes quietly over decades and you learn about it from a press release, which is roughly what just happened to gold. A parameter change has to be argued in public.
+
+For the whole history of money, the hardest part of a scarce asset was proving the scarcity: assays, vaults, audits, trusted mints, and a long tail of people who turned out to be lying about what was in the basement. Scarcity you can verify yourself is new, and it will matter longer than any price chart.
+
+None of which makes anything a good investment, and I am not telling you to buy anything. The useful question about whatever you hold is simply: what actually enforces its scarcity — physics, cost, a rule, or somebody's promise — and what would have to happen for that to stop working?
+
+https://www.swopme.co/blog/gold-fusion-blockspace-scarcity

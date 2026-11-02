@@ -1,0 +1,24 @@
+{
+  "posts": [
+    "Alchemists spent two thousand years trying to make gold and failed, and we took the wrong lesson from it.\n\nThe lesson we took: gold is scarce.\n\nThe lesson actually available: nobody had worked out how yet.",
+    "On 21 October 2026, Marathon Fusion said it produced stable gold from mercury using fusion neutrons — about 10× what CERN recorded in 2025. The demo was reportedly in September.",
+    "The physics isn't exotic. Fast neutrons from deuterium–tritium fusion hit mercury-198. It becomes mercury-197. That decays to gold-197 — ordinary, stable, indistinguishable gold.\n\nThe mercury sits in the reactor blanket, where the reaction also breeds its own tritium.",
+    "Now the caveats, which are load-bearing and most coverage skipped them:\n\nThe company published gamma-ray spectra but NO mass, NO purity figure and NO cost.\n\nThe spectra don't establish how much, how pure, or whether it scales. Not independently verified.",
+    "Scale check, because the headline and the reality are orders of magnitude apart.\n\nCERN's ALICE made ~29 PICOGRAMS of gold across four years of LHC running.\n\n10× a picogram-scale result is still a picogram-scale result.",
+    "The tonnage everyone quoted comes from elsewhere: a 2025 paper MODELLING ~2 tonnes of gold per gigawatt-thermal per year.\n\nThe flashier “5,000 kg/yr” restates it per gigawatt ELECTRIC. Different denominator — that's how a modelled 2 becomes a marketed 5.",
+    "And Marathon's current reactor? About one kilowatt of fusion power.\n\nA millionth of a gigawatt.",
+    "Against that: global gold mine supply was ~3,672 tonnes in 2025 (World Gold Council). USGS says nearer 3,300 — a methodology gap worth knowing rather than averaging away.\n\nA gigawatt plant at the modelled rate adds under 0.1% of annual supply.",
+    "So: the gold price is not under threat from this. Anyone saying otherwise is ahead of the data.\n\nWhat changed isn't the supply. It's the category.",
+    "Here's the part worth sitting with.\n\n~212,000 tonnes of gold have ever been mined. NOBODY PROMISED THAT.\n\nThere's no protocol, no issuer, no document committing the universe to that number.",
+    "Gold's scarcity is an OBSERVATION about how hard it's been to get more.\n\nEvery observation of that kind is a statement about current cost — not about permanence.\n\nThe constraint was never a law forbidding it. It was an energy bill nobody could pay. Energy bills move.",
+    "The honest description of gold isn't “scarce forever.”\n\nIt's: scarce as long as making it costs more than buying it.\n\nThat's real, it's held for all of recorded history, and it's probably good a while yet. It's just a different claim than people think they're making.",
+    "Which brings us to blockspace.\n\nIt's also scarce — for an entirely different reason. Not because making more is expensive, but because A RULE SAYS HOW MUCH THERE IS.\n\nPublished in advance. Enforced by every node. Checkable by anyone.",
+    "You don't have to trust an assay, a vault or a mint. You don't have to believe anyone's cost estimate.\n\nThe supply is a number in a spec that thousands of independent machines agree on — and if it changed, you could see it change.",
+    "Now the honest counterweight, because stopping there would be a sales pitch.\n\nA rule is only as durable as the people who can change it. Parameters get changed. Chains fork. Governance votes pass. “Enforced by consensus” means consensus can decide otherwise.",
+    "So rule-based scarcity isn't stronger in some absolute sense. It's DIFFERENTLY fragile.\n\nA cost curve erodes quietly over decades and you learn about it from a press release — which is roughly what just happened to gold.\n\nA parameter change happens in public.",
+    "Call it a gold rush if you like, but notice what's being claimed.\n\nIn a real gold rush the resource was physically there and whoever dug first got it. The claim was a hole in the ground.\n\nNow the claim is a rule everyone can read.",
+    "For the whole history of money, the hardest part of a scarce asset was PROVING the scarcity. Assays, vaults, audits, trusted mints — and a long tail of people who turned out to be lying about what was in the basement.",
+    "Scarcity you can verify yourself, without trusting whoever's telling you about it, is new.\n\nNewer than crypto prices. And it'll matter longer.",
+    "None of which makes anything a good investment, and we're not telling you to buy anything.\n\nThe useful question about whatever you hold: what enforces its scarcity — physics, cost, a rule, or a promise?\n\nhttps://www.swopme.co/blog/gold-fusion-blockspace-scarcity"
+  ]
+}

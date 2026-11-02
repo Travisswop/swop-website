@@ -41,6 +41,15 @@ until they are moved up.
 
 ## Proposed (agent may append; Travis promotes)
 
+Appended 2026-10-14. From Beachhead calendar item cb216 (d=2026-10-14, "Remittances are
+the test case for tokenized money"). The calendar's own note flagged that this topic has
+no target query here and suggested this phrasing; the drafted post
+(blog/remittances-tokenized-money) was tracked against the closest existing promoted
+query instead ("banking the unbanked with crypto / self-custody financial inclusion"),
+per the mismatch rule. Promoting this line would let a future post target it directly.
+
+- cheapest way to send money abroad / crypto remittance  [cb216 · Wed 10/14]
+
 Appended 2026-09-15. Every promoted query below has a calendar slot already waiting
 on it (id in brackets) — promoting a line unblocks that day's post. Each was chosen
 because it is writable from EXISTING Verified FACTS rows, so none of them needs new
