@@ -35,6 +35,10 @@ project `swop-website`, serves **https://swopme.co**.
   Organization JSON-LD built from the visible page). Never edit those by hand;
   `--check` exits 1 if they are stale. A new root page also needs a row in
   `ROOT_PAGES` in that script.
+  The `Agent files` GitHub workflow (`.github/workflows/agent-files.yml`) also runs it
+  on every PR and every push to `main` and commits the result back to the branch,
+  so a post merged without it still gets its twin, feed entry and schema. Pull before
+  pushing again to a branch the workflow has touched.
 
 ## Don'ts
 
