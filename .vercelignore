@@ -1,0 +1,9 @@
+# Internal files that are in the repo but are not part of the public site.
+# Without this, Vercel serves every tracked file (swopme.co/CLAUDE.md, /editorial/FACTS.md, /tools/...).
+/editorial
+/tools
+/test
+/CLAUDE.md
+/.claude
+*.py
+blog/*/og.html

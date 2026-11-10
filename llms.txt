@@ -1,10 +1,21 @@
 # Swop
 
-> Swop lets anyone sell to people and AI agents and get paid in USDC, with a
-> self-custodial wallet on Solana, Ethereum, Base, and Polygon. It combines a gas-sponsored wallet (no SOL or ETH needed for
-> fees), token swaps, perpetual futures, prediction markets, in-person crypto
-> payments (SwopPay, 0.5% checkout fee), and an AI trading agent that proposes
-> trades but never signs without user approval. Keys stay on the user's device.
+> Swop is the social network where people, businesses and AI agents own their
+> identity and move value. One swop.id gives you a public page (SmartSite), a
+> wallet on Solana, Ethereum, Base and Polygon, and one link that people and AI
+> agents can pay in USDC (Swop Pay, 0.5% checkout fee absorbed by the seller).
+> It also has token swaps, perpetual futures, prediction markets and Ovi, an AI
+> that proposes sales, payments and trades but never acts without the user's
+> approval. Swop covers the network fee on supported chains. Login and wallets
+> run on a partner (Privy) today; Swivy, Swop's own wallet platform, is in
+> staging.
+
+## Machine-readable copies
+- Every page has a Markdown twin: add `.md` to the path (https://www.swopme.co/pay.md,
+  https://www.swopme.co/blog/what-is-x402.md, https://www.swopme.co/index.md)
+- [All pages in one file](https://www.swopme.co/llms-full.txt)
+- [Blog feed (Atom)](https://www.swopme.co/feed.xml)
+- [MCP server descriptor](https://www.swopme.co/.well-known/mcp.json)
 
 ## For AI agents
 - MCP server: https://mcp.swopme.co/mcp/commerce (Streamable HTTP; commerce tools; public tools need no auth,
@@ -51,7 +62,7 @@
 - [What is x402?](https://www.swopme.co/blog/what-is-x402): the HTTP 402 payment protocol that lets an AI agent pay for a request in one round trip
 - [Crypto tap to pay](https://www.swopme.co/blog/crypto-tap-to-pay): how in-person contactless crypto payments work and what settles on-chain
 - [Self-custody wallets and Bangladesh law](https://www.swopme.co/blog/self-custody-wallet-bangladesh): what self-custody does and does not change legally — Bangladesh Bank's stated position that crypto trading is not permitted, and why holding your own keys is not a workaround
-- [How does Swop make money?](https://www.swopme.co/blog/how-does-swop-make-money): the 0.5% SwopPay checkout fee, identical on the card and crypto rails; referrers earn half of it; the AI agent is paid for in SWOP; and what is still not public
+- [How does Swop make money?](https://www.swopme.co/blog/how-does-swop-make-money): the 0.5% SwopPay checkout fee, identical on the card and crypto rails; referrers earn half of the swap fees from people they refer; the AI agent is paid for in SWOP; and what is still not public
 - [Recovering a wallet without a seed phrase](https://www.swopme.co/blog/recover-wallet-without-seed-phrase): why a seed phrase is the key rather than a password to it, the three models that replace it (key shares, social recovery, passkeys), and the one question that decides whether a wallet is still self-custodial
 - [Remittances: the real test for tokenized money](https://www.swopme.co/blog/remittances-tokenized-money): why the on-chain transfer is solved but the cash-out leg isn't, what Western Union and MoneyGram's own stablecoin use reveals about where the cost still lives, and when a stablecoin remittance skips the off-ramp entirely
 - [Settlement is the product](https://www.swopme.co/blog/settlement-is-the-product): why T+2 is a process artifact rather than a technology limit, what money in transit costs, why float revenue keeps the cycle long, and what finality gives up

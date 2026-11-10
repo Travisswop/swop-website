@@ -39,11 +39,11 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "What is ERC-8196?", "acceptedAnswer": {"@type": "Answer", "text": "ERC-8196 is a finalized Ethereum standard for AI-agent-authenticated wallets: a wallet that executes an agent's transaction only when it comes with verifiable proof that the action complies with a policy the asset owner defined. Policies cover allowed actions, contract allowlists, value caps, and time windows; actions are bound to a specific policy with EIP-712 typed signatures, and activity is written to a hash-chained audit trail."},
-    {"@type": "Question", "name": "Does Swop implement ERC-8196 exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee."},
-    {"@type": "Question", "name": "Can the policy layer lock me out of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out."},
-    {"@type": "Question", "name": "Does Swop's agent hold my keys?", "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them."},
-    {"@type": "Question", "name": "Is the policy layer enforcing today?", "acceptedAnswer": {"@type": "Answer", "text": "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows."}
+    {"@type": "Question", "name": "What is ERC-8196?", "acceptedAnswer": {"@type": "Answer", "text": "ERC-8196 is a finalized Ethereum standard for AI-agent-authenticated wallets: a wallet that executes an agent's transaction only when it comes with verifiable proof that the action complies with a policy the asset owner defined. Policies cover allowed actions, contract allowlists, value caps, and time windows; actions are bound to a specific policy with EIP-712 typed signatures, and activity is written to a hash-chained audit trail."}},
+    {"@type": "Question", "name": "Does Swop implement ERC-8196 exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee."}},
+    {"@type": "Question", "name": "Can the policy layer lock me out of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out."}},
+    {"@type": "Question", "name": "Does Swop's agent hold my keys?", "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them."}},
+    {"@type": "Question", "name": "Is the policy layer enforcing today?", "acceptedAnswer": {"@type": "Answer", "text": "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows."}}
   ]
 }
 </script>
@@ -54,6 +54,12 @@
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/footer.css">
 <!-- va:start --><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!-- va:end -->
+<!-- seo:start -->
+<link rel="alternate" type="text/markdown" href="/blog/erc-8196-agent-policy.md" title="This page as Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt: Swop for AI agents (MCP server, x402 checkout, page index)">
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Swop Journal">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Swop", "item": "https://www.swopme.co/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.swopme.co/blog"}, {"@type": "ListItem", "position": 3, "name": "ERC-8196 in production: how Swop polices its trading agent", "item": "https://www.swopme.co/blog/erc-8196-agent-policy"}]}</script>
+<!-- seo:end -->
 </head>
 <body>
 <nav>
