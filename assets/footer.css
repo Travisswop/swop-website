@@ -36,7 +36,7 @@
 .sf .sf-docs span{transition:transform .2s}
 .sf .sf-docs:hover span{transform:translateX(3px)}
 .sf-devlinks{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:6px}
-.sf .sf-devlinks a{font:500 14px var(--sf-body);color:rgba(255,255,255,.72);transition:color .2s}
+.sf .sf-devlinks a{display:inline-block;padding:4px 0;font:500 14px var(--sf-body);color:rgba(255,255,255,.72);transition:color .2s}
 .sf .sf-devlinks a:hover{color:#fff}
 .sf .sf-devlinks a.sf-mono{font:500 13px "JetBrains Mono","Space Mono",ui-monospace,Menlo,monospace;color:rgba(255,255,255,.55)}
 

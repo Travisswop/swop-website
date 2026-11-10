@@ -22,13 +22,14 @@
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Mono:wght@400;700&display=swap">
+<link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/p/kit.css">
+<link rel="stylesheet" href="/assets/p/blocks.css">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "swop.id & SmartSite", "applicationCategory": "SocialNetworkingApplication", "operatingSystem": "iOS, Android, Web", "offers": [{"@type": "Offer", "price": "0", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Swop Premium", "price": "8.99", "priceCurrency": "USD"}], "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"}, "description": "A name you own that opens your page, receives payments and signs you into apps built on Swop."}</script>
 <style>
-body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
+body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#067a41}
 /* claim box (same check and hand-off as the homepage) */
 .claim{position:relative;display:flex;flex-wrap:wrap;align-items:center;width:min(540px,100%);background:rgba(5,5,18,.72);backdrop-filter:blur(8px);border:1px solid rgba(63,224,143,.4);border-radius:18px;padding:6px;box-shadow:0 0 50px rgba(63,224,143,.1)}
 .claim input{background:transparent;border:0;outline:none;color:#fff;font:800 21px var(--display);padding:12px 2px}
@@ -159,6 +160,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 @media (max-width:860px){.realrow{grid-template-columns:1fr}}
 </style>
 <link rel="stylesheet" href="/assets/footer.css">
+<!-- va:start --><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!-- va:end -->
 </head>
 <body data-p="swopid">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg>
@@ -166,7 +168,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <div class="pbar" aria-hidden="true"></div>
 
 <nav class="top gut" aria-label="Main"><div class="wrap">
-  <a class="brand" href="/" aria-label="Swop home"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop.id</span></a>
+  <a class="brand" href="/"><svg role="img" aria-label="Swop"><use href="#swop"/></svg><span>swop.id</span></a>
   <div class="navlinks"><a href="#how">How it works</a><a href="#page">Your page</a><a href="#everywhere">Everywhere</a><a href="#status">What's live</a><a href="#faq">FAQ</a></div>
   <a class="launch" href="https://swopme.app/wallet">Launch App ↗</a>
 </div></nav>
@@ -234,40 +236,16 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 <div class="steps">
         <div class="stp" data-rv><div class="device"><img src="/assets/live/swopid-profile-ex.webp" alt="A SmartSite profile in the Swop app with a ring of social links around the logo" loading="lazy" decoding="async"></div><span class="n">01 · YOUR PAGE</span><b>A page with your links</b><p>Socials, shop, feed and more in one place.</p></div>
         <div class="stp" data-rv style="--d:.08s"><div class="device"><img src="/assets/live/swopid-send-ex.webp" alt="Send screen in the Swop app: choose a swop.id from your contacts" loading="lazy" decoding="async"></div><span class="n">02 · PAY A NAME</span><b>Get paid by name</b><p>People pick your name, not a long address.</p></div>
-        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/swopid-receive.webp" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
+        <div class="stp" data-rv style="--d:.16s"><div class="device"><img src="/assets/live/swopid-receive-ex.webp" alt="Receive screen in the Swop app showing a QR code and your swop.id, which works across chains" loading="lazy" decoding="async"></div><span class="n">03 · ANY CHAIN</span><b>One name, many chains</b><p>Your swop.id works across the chains Swop supports.</p></div>
       </div>
     </div>
     <p style="margin-top:26px"><span class="real">Real screens from the Swop app today, some with example names and numbers</span></p>
   </div>
 </section>
 
-<section class="sec gut" id="what">
-  <div class="wrap">
-    <div class="sh"><span class="lab">How one name connects</span><h2>Everything points to <span class="acc">your name.</span></h2><p>Tap a step, or hover any box to see what it connects to.</p></div>
-    <div data-dg><script type="application/json">{"ar":"16/7","arMobile":"3/6.2","stepMs":3000,
-      "nodes":[
-        {"id":"name","x":50,"y":50,"mx":50,"my":50,"label":"maya.swop.id","sub":"one name you own","icon":"id","big":true},
-        {"id":"page","x":14,"y":20,"mx":26,"my":8,"label":"SmartSite page","sub":"links, shop, feed","icon":"grid"},
-        {"id":"card","x":14,"y":80,"mx":74,"my":8,"label":"NFC card tap","sub":"opens your page","icon":"card"},
-        {"id":"pay","x":86,"y":20,"mx":26,"my":30,"label":"Payments in","sub":"people and AI agents","icon":"pay"},
-        {"id":"wallet","x":86,"y":80,"mx":74,"my":30,"label":"Your wallet","sub":"5 chains, one name","icon":"coin"},
-        {"id":"signin","x":50,"y":10,"mx":50,"my":82,"label":"Sign in","sub":"El Dorado, Chalk","icon":"key"},
-        {"id":"ens","x":50,"y":90,"mx":50,"my":96,"label":"Any ENS app","sub":"finds your address","icon":"plug"}],
-      "edges":[
-        {"from":"card","to":"page","step":1},
-        {"from":"page","to":"name","label":"opens","step":1},
-        {"from":"pay","to":"name","label":"pays","step":2},
-        {"from":"name","to":"wallet","label":"lands in","step":2},
-        {"from":"name","to":"signin","step":3},
-        {"from":"ens","to":"name","label":"resolves","step":4}],
-      "steps":["Someone types your name or taps your card, and your SmartSite opens.","People and AI agents pay maya.swop.id; the money lands in your wallet.","Apps built on Swop let you sign in with the same name.","Wallets and apps that read ENS can look your name up too."],
-      "note":"maya is an example name."}</script></div>
-  </div>
-</section>
-
 <section class="sec gut" id="how">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.04 · How it works</span><h2>Claim it once. <span class="acc">Use it everywhere.</span></h2><p>Think of it like a username that also works as a bank account number and a front door: these are real Swop screens, shown with example names and numbers.</p></div>
+    <div class="sh"><span class="lab">S.03 · How it works</span><h2>Claim it once. <span class="acc">Use it everywhere.</span></h2><p>Think of it like a username that also works as a bank account number and a front door: these are real Swop screens, shown with example names and numbers.</p></div>
     <div class="story">
       <div class="stick">
         <div class="phone" aria-hidden="true">
@@ -297,7 +275,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut light" id="page">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.05 · Your SmartSite</span><h2>Build it in minutes. <span class="acc">Sell from it today.</span></h2><p>A SmartSite is a one-page website that comes with your name: start from a template, add blocks, and point every link, card and QR code at one address.</p></div>
+    <div class="sh"><span class="lab">S.04 · Your SmartSite</span><h2>Build it in minutes. <span class="acc">Sell from it today.</span></h2><p>A SmartSite is a one-page website that comes with your name: start from a template, add blocks, and point every link, card and QR code at one address.</p></div>
     <div class="bento">
       <div class="bx w4" data-rv><div class="ic" data-ic="id" data-s="22"></div><h3>Templates for whatever you do</h3><p>Pick one and make it yours. Mix blocks freely.</p><div class="viz tpl"><span>Tip jar</span><span>Blog</span><span>Forms &amp; leads</span><span>Bot chat</span><span>Booking</span><span>Token gate</span><span>Commerce</span><span>Media</span><span>Embed</span></div></div>
       <div class="bx" data-rv style="--d:.08s"><div class="ic" data-ic="card" data-s="22"></div><h3>Tap to open</h3><p>An NFC card, sticker or band opens your page.</p><div class="viz nfc" aria-hidden="true"><div class="cd">SWOP</div><div class="wv"></div><div class="wv"></div><div class="ph">maya</div></div></div>
@@ -309,7 +287,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut light tight" id="real" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.06 · See a real one</span><h2>Live on the web, <span class="acc">run from your phone.</span></h2><p>This is travis.swop.id as anyone sees it in a browser right now, next to the Manage dashboard every SmartSite owner runs their page from.</p></div>
+    <div class="sh"><span class="lab">S.05 · See a real one</span><h2>Live on the web, <span class="acc">run from your phone.</span></h2><p>This is travis.swop.id as anyone sees it in a browser right now, next to the Manage dashboard every SmartSite owner runs their page from.</p></div>
     <div class="realrow">
       <div data-rv>
         <div class="webshot"><div class="tb"><i></i><i></i><i></i><em>travis.swop.id</em></div><img src="/assets/live/swopid-smartsite-web.webp" alt="travis.swop.id on the web: profile photo, links ring, follower counts and tabs for Portfolio, Feed, Positions, Tokens, Blog, Meet and Products" loading="lazy" decoding="async"></div>
@@ -325,7 +303,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.07 · Get yours</span><h2>Four steps <span class="acc">to your name.</span></h2><p>It takes about as long as making an email address.</p></div>
+    <div class="sh"><span class="lab">S.06 · Get yours</span><h2>Four steps <span class="acc">to your name.</span></h2><p>It takes about as long as making an email address.</p></div>
     <div class="flow" style="--n:4">
       <div class="fs"><div class="dot">01</div><h4>Pick a name</h4><p>3 to 10 letters, numbers or hyphens. We check it live.</p></div>
       <div class="fs"><div class="dot">02</div><h4>Sign up</h4><p>Get the app or use the web. Your wallet is created with your account.</p></div>
@@ -337,12 +315,47 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut tight" id="everywhere" style="padding-top:0">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.08 · One name, everywhere</span><h2>Build with <span class="acc">swop.id.</span></h2><p>Whether someone types it, scans it or taps it, they reach the same you.</p></div>
+    <div class="sh"><span class="lab">S.07 · One name, everywhere</span><h2>Build with <span class="acc">swop.id.</span></h2><p>Whether someone types it, scans it or taps it, they reach the same you.</p></div>
     <div class="dev-strip" data-rv style="margin-top:0;border-radius:24px;border:1px solid var(--line);background:var(--glass);padding:clamp(22px,3vw,34px);display:grid;gap:6px">
       <span class="lab" style="--c:#c084fc">For developers</span>
       <h3 style="margin-top:8px">Resolve any swop.id <span class="acc">from your own app.</span></h3>
       <p style="color:var(--fg2);max-width:60ch">Look up a name, get its wallet addresses and public profile, or resolve it through ENS with viem or ethers.</p>
       <div class="devlinks"><a href="https://docs.swopme.co/identity">Identity docs →</a><a href="https://docs.swopme.co/identity/identity-api">Identity API</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" id="email">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.08 · Email, upgraded</span><h2>Email gave you an address. <span class="acc">swop.id gives it a wallet.</span></h2><p>Email made everyone reachable by name. A swop.id is the next step: the same kind of easy name, with a wallet attached. It can hold money, get paid, sign you in, and prove it's really you with a cryptographic signature.</p></div>
+    <div class="cmp" data-rv>
+      <div><h4>An email address</h4><ul>
+        <li><span>People can write to it</span></li>
+        <li><span>Anyone can fake the "From" line</span></li>
+        <li><span>Logins lean on passwords and reset links</span></li>
+        <li><span>Just an inbox, no page of your own</span></li>
+        <li><span>Belongs to your email provider</span></li>
+        <li><span>Built for people only</span></li>
+      </ul></div>
+      <div><h4>A swop.id</h4><ul>
+        <li><span><b>People can pay it.</b> USDC lands in your wallet in about two seconds</span></li>
+        <li><span><b>Signed by your wallet's key.</b> Every payment you send carries a signature nobody can forge</span></li>
+        <li><span><b>Signs you in</b> with a passkey, on El Dorado and Chalk today</span></li>
+        <li><span><b>Comes with a SmartSite:</b> your page, shop and links</span></li>
+        <li><span><b>A real ENS name</b> any wallet or app can look up</span></li>
+        <li><span><b>Works for people, businesses and AI agents.</b> Agents can pay your name too</span></li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec gut tight" id="private">
+  <div class="wrap">
+    <div class="sh"><span class="lab">S.09 · Private by design</span><h2>Prove it. <span class="acc">Don't hand it over.</span></h2><p>The goal for swop.id is a zero-knowledge ID. Your wallet carries a proof about you. An app asks one question, like "over 18?" or "verified seller?", and gets back only yes or no. Nobody needs to store your documents to check.</p></div>
+    <div class="keys">
+      <div class="key" data-rv><h3>Your documents stay with the checker.</h3><p>When you verify to take card payments, the ID check runs on Stripe. Swop keeps only the result, like "verified" and your country, never your ID or selfie.</p><div class="proof"><em class="st live">Live</em> for card payouts</div></div>
+      <div class="key" data-rv style="--d:.08s"><h3>Apps get a yes or no.</h3><p>You approve each request in the app. The app gets one signed answer that expires in five minutes, under an ID made just for that app, so apps can't track you across each other. Today it's a signed credential, not yet a zero-knowledge proof.</p><div class="proof"><em class="st live">Live</em> inside Swop only; other apps next</div></div>
+      <div class="key" data-rv style="--d:.16s"><h3>Next: a zero-knowledge proof in your wallet.</h3><p>Your credentials will live in your swop.id wallet on Swop Chain. You prove a fact with a zero-knowledge proof, and the app checks the math, not your data. Not even Swop has to hold it.</p><div class="proof"><em class="st planned">Planned</em> 2028+, on Swop Chain</div></div>
     </div>
   </div>
 </section>
@@ -357,31 +370,32 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
 
 <section class="sec gut" id="status">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.09 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
+    <div class="sh"><span class="lab">S.10 · Honest status</span><h2>What's live, <span class="acc">what's next.</span></h2><p>We tag everything. If it says Building, you can't use it yet.</p></div>
     <div class="road">
       <div class="rc live" data-rv><span class="st live">Live today</span><ul><li><span><b>name.swop.id</b> for people, merchants, bots and AI agents.</span></li><li><span><b>SmartSite</b> with templates, a shop, and feed, holdings and tokens tabs.</span></li><li><span><b>Pay a name</b> from the Swop wallet.</span></li><li><span><b>NFC cards</b> that open your page.</span></li><li><span><b>Sign in with swop.id</b> on El Dorado and Chalk.</span></li></ul></div>
       <div class="rc build" data-rv style="--d:.08s"><span class="st building">Building</span><ul><li><span><b>Sign in with Swop</b> for any app, on <a href="/swivy" class="acc">Swivy</a>, our own login and wallet platform.</span></li><li><span><b>A hardened name system</b> to replace the current resolver.</span></li><li><span><b>Game Film AI</b> sign-in with swop.id.</span></li><li><span><b>Your house in Swop Hills</b> showing your page (<a href="/eldorado" class="acc">El Dorado</a> beta).</span></li></ul></div>
-      <div class="rc next" data-rv style="--d:.16s"><span class="st planned">Next · 2028+</span><ul><li><span><b>A swop.id account on Swop Chain</b> with passkeys and guardian recovery.</span></li><li><span><b>Proof of reputation</b> and private credentials you can show without exposing your data.</span></li><li><span><b>A personal data vault</b> that you control.</span></li></ul></div>
+      <div class="rc next" data-rv style="--d:.16s"><span class="st planned">Next · 2028+</span><ul><li><span><b>A swop.id account on Swop Chain</b> with passkeys and guardian recovery.</span></li><li><span><b>Zero-knowledge credentials</b> in your wallet: prove you're over 18 or verified without showing who you are.</span></li><li><span><b>Proof of reputation</b> you can show without exposing your data.</span></li><li><span><b>A personal data vault</b> that you control.</span></li></ul></div>
     </div>
   </div>
 </section>
 
 <section class="sec gut light tight">
   <div class="wrap">
-    <div class="sh"><span class="lab">S.10 · Plugs into</span><h2>Your name <span class="acc">opens all of Swop.</span></h2></div>
+    <div class="sh"><span class="lab">S.11 · Plugs into</span><h2>Your name <span class="acc">opens all of Swop.</span></h2></div>
     <div class="plugs" data-plugs="pay:Sell from your page; payouts go to your name|shop:NFC cards that open your SmartSite|ovi:Knows your name, your rules and your history|eldorado:Only verified swop.ids get in|geobucks:Store credit lands on your swop.id|swivy:Will power Sign in with Swop for any app"></div>
   </div>
 </section>
 
 <section class="sec gut" id="faq">
   <div class="wrap faq">
-    <div class="sh" style="margin:0"><span class="lab">S.11 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
+    <div class="sh" style="margin:0"><span class="lab">S.12 · Questions</span><h2>Asked <span class="acc">and answered.</span></h2></div>
     <div>
       <details><summary>What is a swop.id?</summary><p>A name like maya.swop.id that opens your SmartSite, receives payments into your Swop wallet and signs you into apps built on Swop. It's one identity for people, businesses, bots and AI agents.</p></details>
       <details><summary>Is it a real ENS name?</summary><p>Yes. ENS (Ethereum Name Service) turns names into wallet addresses, like a phone book. swop.id is an ENS name, and your name is a subname of it, looked up through a standard called CCIP Read. It's not an NFT, so there's nothing to mint or pay gas for. Wallets and apps that support ENS can look it up.</p></details>
       <details><summary>What does it cost?</summary><p>The Swop app is free to download, and your name comes with your account. Premium ($8.99 a month or $59.99 a year) unlocks unlimited SmartSites.</p></details>
       <details><summary>What can I put on my SmartSite?</summary><p>Links, a shop, a tip jar, a blog, forms that collect leads, a chatbot, booking, token-gated content, media and embeds. Your feed, holdings and tokens show as tabs.</p></details>
       <details><summary>Can people send me money from any chain?</summary><p>Your swop.id points to wallets on Solana, Ethereum, Base, Polygon and Arbitrum, so people on Swop can pay your name and it lands in the right place. When sharing a raw address instead, only send tokens that match that address’s network.</p></details>
+      <details><summary>Does Swop store my ID?</summary><p>No. If you verify to take card payments, the ID check runs on Stripe, which holds your documents. Swop keeps only the result, like whether you're verified and your country. When an app needs to know something, it gets a signed yes or no that expires in five minutes, not your details. Today that answer is a signed credential, not a zero-knowledge proof, and only Swop's own apps can ask for it. The goal is zero-knowledge proofs held in your wallet, on Swop Chain from 2028.</p></details>
       <details><summary>Which apps can I sign into with it?</summary><p>El Dorado and Chalk today, with Game Film AI next. Sign in with Swop for any app is being built on Swivy.</p></details>
     </div>
   </div>
@@ -454,7 +468,7 @@ body{--acc:#3FE08F;--acc-ink:#00140a;--acc-dark:#0a9f55}
       <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
     </div>
   </div>
-  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">Swop.ID</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
   <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
 </div>
 <div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>

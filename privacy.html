@@ -470,7 +470,9 @@
         }
       }
     </style>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap">
+  <link rel="preload" href="/assets/fonts/figtree-eddba2ef.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/inter-1dc044f4.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/footer.css">
 <meta property="og:site_name" content="Swop">
 <meta property="og:type" content="website">
@@ -481,6 +483,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://www.swopme.co/assets/og-card.jpg">
+<!-- va:start --><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!-- va:end -->
 </head>
   <body>
     <div class="page">
@@ -502,7 +505,7 @@
         <div class="hero-eyebrow">Legal &amp; Transparency</div>
         <h1>Privacy &amp; Policy</h1>
         <div class="effective-date">
-          Effective date — <span>October 7, 2026 (version 2)</span>
+          Effective date — <span>October 29, 2026 (version 3.1)</span>
         </div>
       </section>
 
@@ -542,7 +545,18 @@
                 etc.); sign-in identifiers processed by Privy, which provides
                 Swop's login and embedded wallets; and what you send to Ask Swop,
                 Swop's agent features, and SmartSite AI assistants, which AI
-                models process to generate a response (see section 05). Swop itself collects no
+                models process to generate a response (see section 05); and, if
+                you connect a third-party AI assistant to your account through
+                the Swop MCP connector, the requests it makes and the actions it
+                takes for you (see section 05). If you use El Dorado, Swop's
+                virtual world at swopme.co/eldorado, Swop confirms your verified
+                swop.id to it, and El Dorado keeps your public SmartSite
+                information and your activity in the world. Swop Technologies
+                Inc. is the controller of El Dorado data, as it is for the rest
+                of Swop. El Dorado sets one essential cookie,
+                <code>ed_session</code>, which keeps you signed in to the world;
+                it is not used for advertising or tracking, and signing out ends
+                it. Swop itself collects no
                 biometric data, no card numbers, and no bank account
                 credentials, and runs no invasive tracking.
                 Card payments and seller verification are handled by Stripe,
@@ -560,8 +574,7 @@
               <p class="section-text">
                 All data is used to enhance platform features and performance,
                 deliver personalized user experiences, identify and reward
-                meaningful contributions, support decentralized governance and
-                community insights, and improve fraud prevention and security
+                meaningful contributions, produce community insights, and improve fraud prevention and security
                 systems. Swop may publish anonymized, aggregated data to promote
                 transparency and ecosystem growth.
               </p>
@@ -575,8 +588,11 @@
               <div class="section-title">Data Ownership and Sovereignty</div>
               <p class="section-text">
                 You own your data. Swop believes in data portability and user
-                sovereignty. You may export, delete, or control the use of your
-                data at any time. Swop will not restrict access to the platform
+                sovereignty. You can delete your account from account settings, and you can
+                ask Swop to export or delete your data at any time by emailing
+                support@swopme.co, or use the export option in the app where it
+                is available. Swop responds within 30 days and provides exports
+                in a common machine-readable format (JSON or CSV). Swop will not restrict access to the platform
                 based on data preferences. The one exception is payment,
                 refund, dispute, and seller-verification records: Swop keeps
                 those for as long as its financial, tax, and legal obligations
@@ -623,6 +639,23 @@
                 providers are Anthropic (United States), OpenAI (United
                 States), and DeepSeek. Each provider handles that data under its
                 own terms and privacy policy.
+              </p>
+              <p class="section-text" id="ai-assistants">
+                <strong>Third-party AI assistants.</strong> You can connect an
+                AI assistant from another company (such as ChatGPT, Claude, or
+                Grok) to your Swop account through the Swop MCP connector. You
+                link it by signing in to Swop and approving the connection
+                (OAuth); you never give the assistant your Swop password. Once
+                connected, the assistant can ask Swop for the information its
+                tools return, such as your profile, SmartSite, balances,
+                tokens, orders, and positions, and that information is sent to
+                the assistant's provider, which handles it under its own terms
+                and privacy policy. Actions that move money only happen if you
+                have turned AI spending on, and stay within the per-transaction
+                and daily limits you set. You can turn AI spending off, change
+                those limits, or disconnect an assistant at any time in
+                Settings &rarr; AI assistants; disconnecting stops new requests
+                but does not delete what the provider has already received.
               </p>
               <p class="section-text">
                 DeepSeek is based in the People's Republic of China, and Ask
@@ -770,9 +803,16 @@
                 or contact us and we will tell you which features those are.
               </p>
               <p class="section-text">
-                <strong>Age.</strong> Swop is intended for people aged 18 and
-                over. Swop does not knowingly collect personal information from
-                anyone under 18 and will delete it if it learns that it has.
+                <strong>Age.</strong> Swop, including El Dorado and Swop's AI
+                features, is only for people aged 18 and over, everywhere, and
+                is not directed to anyone under 18. Swop does not knowingly
+                collect personal information from anyone under 18. If Swop
+                learns that an account belongs to someone under 18, it will
+                close the account and delete their personal information, except
+                records it must keep by law (such as payment records). If you
+                opened your account before October 29, 2026, this age
+                requirement applies to you from November 28, 2026. To report
+                one, email support@swopme.co.
               </p>
               <p class="section-text">
                 <strong>Security.</strong> No system is perfectly secure, and
@@ -792,7 +832,12 @@
                 its effective date, which is never earlier than the day it is
                 posted, and Swop will give notice of a material change on this
                 site and, where it has your contact details, in the app or by
-                email before it takes effect. Version 2 replaces version 1
+                email before it takes effect. Version 3.1 (October 29, 2026)
+                corrects the same-day version 3: it names Swop Technologies Inc.
+                as the controller of El Dorado data, describes El Dorado's
+                sign-in cookie, explains how to export your data, and applies
+                the 18+ requirement to accounts opened before October 29, 2026
+                from November 28, 2026. Version 2 replaces version 1
                 published earlier on October 7, 2026, which replaced the version
                 effective May 21, 2025. Together they add how card payments and
                 seller verification handle your data (section 07), name Swop's
@@ -839,7 +884,7 @@
       <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
     </div>
   </div>
-  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">swop.id</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">Swop.ID</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/token">SWOP token</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
   <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
 </div>
 <div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
