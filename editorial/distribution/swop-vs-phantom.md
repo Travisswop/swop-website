@@ -29,7 +29,7 @@ https://www.reddit.com/r/solana/submit?type=TEXT&title=Swop%20vs%20Phantom%3A%20
 
 1/ Swop vs Phantom: both are self-custodial Solana wallets. The real differences are gas fees, chain coverage, and how their AI agents are allowed to act. Thread:
 
-2/ Custody: identical promise. Keys generated and held on-device, neither company can freeze or touch funds. No real gap here — pick either, back up the seed phrase, you're the only one who can move it.
+2/ Custody: identical promise. You control the keys, neither company can freeze or touch funds. No real gap here — pick either; you're the only one who can move it.
 
 3/ Gas: Phantom charges standard network fees — you need SOL before you can do anything else. Swop sponsors gas. No SOL or ETH required to transact.
 
