@@ -52,7 +52,7 @@ The policy constrains what the agent may start, never what the owner may stop. I
 
 The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows. Shadow mode means the layer evaluates every agent action against the vault's policy and writes its verdict to the audit chain without yet blocking — so by the time enforcement turns on, the decision history already exists to check it against.
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.
 
 ## FAQ
 

@@ -85,7 +85,7 @@ None of which is a claim that self-custody is easy or finished. Key loss is a re
 
 ## What this means for Swop users and builders
 
-None of the three fights above change the thing that actually determines whether your assets are safe today: who holds the signing key. **Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.** That doesn't move regardless of how the SEC/CFTC jurisdictional question gets settled, because the bill is about exchange and issuer market structure, not wallet custody.
+None of the three fights above change the thing that actually determines whether your assets are safe today: who holds the signing key. **You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.** That doesn't move regardless of how the SEC/CFTC jurisdictional question gets settled, because the bill is about exchange and issuer market structure, not wallet custody.
 
 The part of this fight that matters most directly to builders is Section 604. Until something like it becomes law, whether writing and publishing a smart contract, a DEX front end, or a non-custodial wallet interface exposes a developer to money-transmission liability keeps getting decided case by case rather than by a bright-line federal rule — which is exactly the ambiguity the digital-commodity classification fight is also trying to resolve for exchanges and issuers. [Swop](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) runs on Solana, Ethereum, Base, and Polygon. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — and none of that changes with this bill either way. On the access question above, two verified details matter more than they sound: that gas sponsorship, and the fact that losing your phone doesn't mean losing your funds, since you can log in with your email on any phone and your Swop wallet comes back with it. Needing to acquire a native token before your first transaction, and needing to protect a seed phrase perfectly forever, are the two places self-custody most often fails the people it is meant to include.
 
@@ -117,7 +117,7 @@ Ethics restrictions on officials' personal crypto holdings and income; developer
 
 ### Does the CLARITY Act affect self-custody wallets like Swop?
 
-It targets exchange and issuer market structure, not wallet custody. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — regardless of the outcome. Section 604's developer-liability question is the part most relevant to wallet and smart-contract builders.
+It targets exchange and issuer market structure, not wallet custody. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That holds regardless of the outcome. Section 604's developer-liability question is the part most relevant to wallet and smart-contract builders.
 
 ### When will the Senate vote on the CLARITY Act again?
 

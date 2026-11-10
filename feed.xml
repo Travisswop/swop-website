@@ -261,7 +261,7 @@
     <link href="https://www.swopme.co/blog/is-swop-safe"/>
     <published>2026-09-01T00:00:00Z</published>
     <updated>2026-09-01T00:00:00Z</updated>
-    <summary>Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you.</summary>
+    <summary>You control your Swop wallet: nothing moves without your approval, you can export your private key, and its AI agent can propose trades but never sign for you.</summary>
   </entry>
   <entry>
     <title>ERC-8196 in production: how Swop polices its trading agent</title>

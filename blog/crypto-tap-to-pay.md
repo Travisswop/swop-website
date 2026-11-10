@@ -42,7 +42,7 @@ A crypto tap-to-pay transaction can carry up to three separate costs, and they d
 
 ## Where Swop fits
 
-Swop's in-person payment feature is SwopPay, and SwopPay checkout charges a 0.5% fee. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and transactions on Swop are gas-sponsored, so paying in person doesn't require holding SOL or ETH first. Swop runs on Solana, Ethereum, Base, and Polygon.
+Swop's in-person payment feature is SwopPay, and SwopPay checkout charges a 0.5% fee. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions on Swop are gas-sponsored, so paying in person doesn't require holding SOL or ETH first. Swop runs on Solana, Ethereum, Base, and Polygon.
 
 Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). For the mechanics of NFC data exchange that underlie any phone-based tap payment, Android's [NFC developer documentation](https://developer.android.com/guide/topics/connectivity/nfc/nfc) is a useful primary reference, and Swop's own [support docs](https://support.swop.id) cover setup on the wallet side.
 
@@ -62,7 +62,7 @@ On most wallets, yes — the network fee is paid in the chain's native token, on
 
 ### Does Swop support in-person crypto payments?
 
-Yes, through SwopPay, Swop's in-person payment feature. SwopPay checkout charges a 0.5% fee. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and gas-sponsored, so paying in person doesn't require holding SOL or ETH first.
+Yes, through SwopPay, Swop's in-person payment feature. SwopPay checkout charges a 0.5% fee. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions are gas-sponsored, so paying in person doesn't require holding SOL or ETH first.
 
 ST
 

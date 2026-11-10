@@ -4100,7 +4100,7 @@ If stablecoins are the proof of concept, the rest of tokenization is trying to r
 
 What that next wave borrows from stablecoins is the part that actually mattered: an asset you can hold yourself, move without asking permission, and settle instantly, rather than one that is merely described on a blockchain while the real custody arrangement stays exactly as it was. [USDC, USDC.e and pUSD](https://www.swopme.co/blog/usdc-vs-usdce) already show that even within "the tokenization that won," which specific token you’re holding still matters.
 
-Swop sits on the self-custody side of that question for whichever tokenized asset you’re holding. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and Swop runs on Solana, Ethereum, Base, and Polygon, so stablecoins on any of those chains sit in a wallet you control rather than an account someone else administers. Transactions on Swop are gas-sponsored — you don’t need to hold SOL or ETH to transact — which matters here because moving a stablecoin you already hold shouldn’t require first acquiring a second asset just to pay the fee. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site; Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. And the next wave of tokenized real-world assets isn’t hypothetical on Swop either: tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain.
+Swop sits on the self-custody side of that question for whichever tokenized asset you’re holding. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon, so stablecoins on any of those chains sit in a wallet you control rather than an account someone else administers. Transactions on Swop are gas-sponsored — you don’t need to hold SOL or ETH to transact — which matters here because moving a stablecoin you already hold shouldn’t require first acquiring a second asset just to pay the fee. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site; Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. And the next wave of tokenized real-world assets isn’t hypothetical on Swop either: tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain.
 
 ## FAQ
 
@@ -4118,7 +4118,7 @@ No. It means you hold a claim on an issuer who promises to redeem your token for
 
 ### Can I hold and swap stablecoins in a self-custody wallet?
 
-Yes. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and Swop runs on Solana, Ethereum, Base, and Polygon. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site; Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. Transactions on Swop are gas-sponsored — you don’t need to hold SOL or ETH to transact.
+Yes. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site; Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. Transactions on Swop are gas-sponsored — you don’t need to hold SOL or ETH to transact.
 
 ST
 
@@ -4184,7 +4184,7 @@ None of these four answers is visible in a token's ticker, its chain, or the wor
 
 ## What self-custody does and doesn't change
 
-Self-custody is a genuine, specific protection, and it is worth being precise about which risk it actually removes. **Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.** That removes the risk that an intermediary standing between you and your position blocks it, freezes it, or disappears with it.
+Self-custody is a genuine, specific protection, and it is worth being precise about which risk it actually removes. **You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.** That removes the risk that an intermediary standing between you and your position blocks it, freezes it, or disappears with it.
 
 What it does not remove is the issuer. As the companion piece on custody above puts it: holding a tokenized asset in your own wallet means you, not a third party, control the token itself — it does not change what the token is a claim on, or how strong that claim is if the issuer behind it fails. Those are two separate risks, solved by two separate things, and conflating them is the most common mistake in how tokenized assets get described.
 
@@ -4314,7 +4314,7 @@ None of which makes anything a good investment, and we are not telling you to bu
 
 For gold, the answer turned out to be “a sufficiently cheap neutron source.” That is much further away than the headlines implied. It is also no longer hypothetical, which it was a month ago.
 
-Swop is fully self-custodial — keys are generated and held on your device, and Swop never holds them — and it runs on Solana, Ethereum, Base and Polygon. Tokenized real-world assets on those chains, PAX Gold among them, can be swapped in the app through its existing routing like any other token. Whether you want to hold the metal, the blockspace, or neither, the part we think is worth insisting on is that you can check what you hold and move it without asking anyone.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base and Polygon. Tokenized real-world assets on those chains, PAX Gold among them, can be swapped in the app through its existing routing like any other token. Whether you want to hold the metal, the blockspace, or neither, the part we think is worth insisting on is that you can check what you hold and move it without asking anyone.
 
 ## FAQ
 
@@ -4396,7 +4396,7 @@ That version of a cross-border transfer — fund it once, let the recipient rece
 
 ## Where Swop sits in this
 
-Swop is built for the leg that is already solved, and is honest about not being a cash-out network. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — so a transfer that lands in a Swop wallet is immediately the recipient's, not a balance an intermediary is holding on their behalf. Transactions on Swop are gas-sponsored, so neither side needs to hold SOL or ETH just to move the money, and Swop runs on Solana, Ethereum, Base, and Polygon, so the wire itself isn't tied to a single network's fees or congestion.
+Swop is built for the leg that is already solved, and is honest about not being a cash-out network. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That means a transfer that lands in a Swop wallet is immediately the recipient's, not a balance an intermediary is holding on their behalf. Transactions on Swop are gas-sponsored, so neither side needs to hold SOL or ETH just to move the money, and Swop runs on Solana, Ethereum, Base, and Polygon, so the wire itself isn't tied to a single network's fees or congestion.
 
 That is one leg of the trip, stated plainly as one leg. Whether a given remittance also needs a cash-out still depends on whether the recipient can use a dollar-denominated balance directly — the question this piece spent its length on, not a question any wallet answers by existing.
 
@@ -4614,7 +4614,7 @@ You can take either side of that fight. The bit that matters here is simpler: **
 
 You arrive holding your own keys.
 
-Swop is fully self-custodial — keys are generated and held on your device, and Swop never holds them. Your way in is something you control, not an account someone else can switch off.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Your way in is something you control, not an account someone else can switch off.
 
 A few practical consequences:
 
@@ -4660,7 +4660,7 @@ Open swopme.co/eldorado, sign in with your swop.id, and approve it in the Swop a
 
 ### Do I need crypto experience or a seed phrase?
 
-No. You need a swop.id, claimed in the Swop app. Swop is self-custodial, so keys are generated and held on your device, but you sign in with your identity rather than by managing a seed phrase. Transactions are gas-sponsored too, so you don’t need to hold SOL or ETH to transact.
+No. You need a swop.id, claimed in the Swop app. You control your Swop wallet and Swop never holds your keys, but you sign in with your identity rather than by managing a seed phrase. Transactions are gas-sponsored too, so you don’t need to hold SOL or ETH to transact.
 
 ### Does this mean I legally own my virtual items?
 
@@ -4760,7 +4760,7 @@ Self-custody also hands you the key problem. Lose the key and there is no suppor
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That is the side of the dial we build on, and it is a deliberate choice rather than a technical accident.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That is the side of the dial we build on, and it is a deliberate choice rather than a technical accident.
 
 Concretely: tokenized real-world assets that live on Swop’s supported chains — such as PAX Gold on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token. Swop runs on Solana, Ethereum, Base and Polygon, and transactions are gas-sponsored, so holding a tokenized asset does not require first acquiring the chain’s native token to pay a fee. Swop covers the network fee; it is a cost Swop absorbs, not a charge passed through to you.
 
@@ -4977,7 +4977,7 @@ The direction of travel is that an account stops being something granted and bec
 
 Two things have to keep improving for that to matter at scale, and both are tractable. The first is recovery: wallets have to stop asking ordinary people to protect a secret perfectly forever. The second is cost at the edges — a person cannot be expected to acquire a network’s gas token before they can touch the money they already hold.
 
-That is the part of this Swop is built around. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — but losing your phone doesn’t mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it, and you can save your private key and open your assets in any wallet you choose. Transactions are gas-sponsored, so you don’t need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon, and tokenized real-world assets that live on those chains — PAX Gold on Ethereum, for instance — can be swapped in the app through its existing routing, the same as any other token.
+That is the part of this Swop is built around. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. And losing your phone doesn’t mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it, and you can save your private key and open your assets in any wallet you choose. Transactions are gas-sponsored, so you don’t need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon, and tokenized real-world assets that live on those chains — PAX Gold on Ethereum, for instance — can be swapped in the app through its existing routing, the same as any other token.
 
 None of which is a claim that the problem is solved. It is a claim about which problem is worth working on. The world has spent twenty years trying to make the institution cheap enough to serve everyone. The more interesting bet is that the account doesn’t need an institution at all — and that what you can hold in it is now worth holding.
 
@@ -5044,7 +5044,7 @@ Neither shape requires you to register anything before the first payment arrives
 
 The mechanical steps are short:
 
-- **Create a self-custody wallet.** Keys are generated and held on your device — the platform hosting your payment page never holds them.
+- **Create a self-custody wallet.** You control the keys — the platform hosting your payment page never holds them.
 - **Add your rate or service as a listing.** A short title, a price in a stablecoin, and a description is usually enough.
 - **Share the link.** Drop it in an email, a proposal, or your existing invoice — it works standalone, without the client needing an account on your platform first.
 - **Get paid on-chain.** The client pays from their own wallet; the payment settles directly to yours, with no processor sitting in between holding the funds overnight.
@@ -5065,7 +5065,7 @@ The crypto rail skips the paperwork. The card rail is there for the clients who'
 
 ## Keeping the money once it lands
 
-Once a payment settles, three things are worth knowing about where it sits. First, it's self-custodial — Swop is fully self-custodial, keys are generated and held on your device, and Swop never holds them, so the funds aren't sitting in a platform-controlled balance waiting on a withdrawal request. Second, moving or converting it doesn't require you to separately go acquire a network's gas token first: transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH just to transact. Third, Swop runs on Solana, Ethereum, Base, and Polygon, so which chain a client pays you on doesn't lock you into using only that chain going forward.
+Once a payment settles, three things are worth knowing about where it sits. First, it's yours — you control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys, so the funds aren't sitting in a platform-controlled balance waiting on a withdrawal request. Second, moving or converting it doesn't require you to separately go acquire a network's gas token first: transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH just to transact. Third, Swop runs on Solana, Ethereum, Base, and Polygon, so which chain a client pays you on doesn't lock you into using only that chain going forward.
 
 One thing this post won't tell you is how crypto income should be reported where you live — that depends on your local tax rules, not on which wallet you use, so keep your own record of what was paid and when.
 
@@ -5174,7 +5174,7 @@ Swop's version of a crypto storefront is the SmartSite. Every SmartSite is an x4
 
 Two things are worth knowing if fiat matters too. Crypto and x402 payments on Swop are never identity-gated — a seller is payable in USDC the moment they list a product. Only the card rail requires merchant verification, so listing for the crypto rail alone skips that step entirely. SwopPay checkout charges a 0.5% fee, and the rate is the same on the card rail and the crypto rail. For what the card-side verification step actually involves, see [accept card payments and merchant verification](https://www.swopme.co/blog/accept-card-payments-merchant-verification).
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and transactions are gas-sponsored, so a seller doesn't need to hold SOL or ETH to list or get paid. Swop runs on Solana, Ethereum, Base, and Polygon, and is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions are gas-sponsored, so a seller doesn't need to hold SOL or ETH to list or get paid. Swop runs on Solana, Ethereum, Base, and Polygon, and is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app).
 
 ## FAQ
 
@@ -5196,7 +5196,7 @@ Not if the product is priced in a stablecoin, which is the common practice. A st
 
 ### Does Swop's SmartSite work this way?
 
-Yes. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Yes. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 ST
 
@@ -5276,7 +5276,7 @@ The original asset is never at risk from any of this. What's at risk is your cla
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site, and Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. That routing treats any token that already exists on a supported chain the same way it treats any other token on that chain — the same pattern used for tokenized real-world assets like PAXG, as covered in [Tokenizing real-world assets](https://www.swopme.co/blog/tokenized-real-world-assets). Transactions on Swop are gas-sponsored, so getting a wrapped asset onto a new chain doesn't also require hunting down that chain's gas token first.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site, and Swop routes Solana swaps through Jupiter and EVM swaps through LiFi. That routing treats any token that already exists on a supported chain the same way it treats any other token on that chain — the same pattern used for tokenized real-world assets like PAXG, as covered in [Tokenizing real-world assets](https://www.swopme.co/blog/tokenized-real-world-assets). Transactions on Swop are gas-sponsored, so getting a wrapped asset onto a new chain doesn't also require hunting down that chain's gas token first.
 
 Check it yourself Whether a specific wrapped asset is supported for swapping or receiving on Swop, and whether any particular route surfaces a wrapped intermediate token, is a live product detail rather than something this post can state generally — check the app or [support.swop.id](https://support.swop.id) for current token support.
 
@@ -5363,7 +5363,7 @@ Two further pieces of the picture are now public, and both are mechanisms rather
 
 Payment products generally make money one of a few ways: a recurring subscription, a spread between what a buyer pays and a seller receives, or a per-transaction fee charged openly at checkout. Swop's design rules out two of those almost by construction.
 
-Swop is fully self-custodial — keys are generated and held on your device, Swop never holds them. A platform that never holds a customer's funds has nothing to earn a spread or float on, because there's no balance sitting in a company-controlled account in the first place. And transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop covers the network fee: a cost Swop absorbs, not a charge passed through to you and not a margin quietly taken on top.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. A platform that never holds a customer's funds has nothing to earn a spread or float on, because there's no balance sitting in a company-controlled account in the first place. And transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop covers the network fee: a cost Swop absorbs, not a charge passed through to you and not a margin quietly taken on top.
 
 That leaves a fee that's charged in the open, at the moment value changes hands, as the lever that's actually compatible with those two commitments. It's a narrower business model than a custodial exchange has available to it, which is part of why there's only one number to report here rather than several.
 
@@ -5389,7 +5389,7 @@ Swop has a built-in swap — you get a quote and sign inside the app — but no 
 
 ### Does Swop make money by holding user funds or marking up gas fees?
 
-Structurally, no. Swop is fully self-custodial — keys are generated and held on your device, Swop never holds them — so there are no user funds sitting in a Swop-controlled account to earn a spread on. And transactions are gas-sponsored, meaning Swop covers the network fee rather than charging you for it. Neither leaves room to be a revenue source the way they can be for custodial platforms.
+Structurally, no. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That means there are no user funds sitting in a Swop-controlled account to earn a spread on. And transactions are gas-sponsored, meaning Swop covers the network fee rather than charging you for it. Neither leaves room to be a revenue source the way they can be for custodial platforms.
 
 ST
 
@@ -5429,7 +5429,7 @@ A prediction market app is anywhere you can trade contracts on real-world outcom
 
 ## Custody: who holds the funds
 
-The first question is whether the app is self-custodial or custodial. A self-custodial wallet generates keys on your device and can't move your funds without your signature — the app is a piece of software you use, not a party holding your money. A custodial app works more like an exchange: it holds a pooled wallet on its own infrastructure and credits you an internal balance. That balance is only as safe as the platform's solvency and uptime — if it freezes withdrawals or gets compromised, your position is stuck behind someone else's decision, not yours.
+The first question is whether the app is self-custodial or custodial. A self-custodial wallet leaves the keys under your control and can't move your funds without your signature — the app is a piece of software you use, not a party holding your money. A custodial app works more like an exchange: it holds a pooled wallet on its own infrastructure and credits you an internal balance. That balance is only as safe as the platform's solvency and uptime — if it freezes withdrawals or gets compromised, your position is stuck behind someone else's decision, not yours.
 
 This distinction matters more for prediction markets than for a routine swap, because a position often sits open for days or weeks until the event resolves. That's a long time to be trusting a balance you don't hold the keys to.
 
@@ -5449,7 +5449,7 @@ AI trading agents are increasingly bundled into wallets, including for predictio
 
 | Check | Look for | Red flag
 
-| Custody | Keys generated and held on your device; the app can't move funds without your signature | A pooled "balance" you don't hold the keys to
+| Custody | You control the keys; the app can't move funds without your signature | A pooled "balance" you don't hold the keys to
 
 | Fees & gas | Trading fee and network fee priced and shown separately | Gas quietly folded into a worse yes/no price
 
@@ -5461,7 +5461,7 @@ AI trading agents are increasingly bundled into wallets, including for predictio
 
 | Platforms | Available where you actually trade — phone, browser, or both | Locked to one platform with no roadmap for the rest
 
-Run Swop through that same list. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon. Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — the same confirmation model [covered here](https://www.swopme.co/blog/agentic-trading-is-live), where prediction markets are one of the surfaces the agent reads alongside spot and perps. Swop's custody model is also documented in its [support docs](https://support.swop.id). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+Run Swop through that same list. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon. Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — the same confirmation model [covered here](https://www.swopme.co/blog/agentic-trading-is-live), where prediction markets are one of the surfaces the agent reads alongside spot and perps. Swop's custody model is also documented in its [support docs](https://support.swop.id). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 ST
 
@@ -5529,7 +5529,7 @@ A second question is nearly as useful: can I leave? A recovery model you cannot 
 
 ## How Swop handles it
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Recovery does not run through a phrase you are expected to guard forever: **losing your phone doesn’t mean losing your funds — log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose.**
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Recovery does not run through a phrase you are expected to guard forever: **losing your phone doesn’t mean losing your funds — log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose.**
 
 That second sentence is the one worth reading twice, because it answers the “can I leave?” question directly. The key is exportable. If you decide tomorrow that you would rather hold your assets in a different wallet entirely, nothing about the recovery model prevents it.
 
@@ -5617,7 +5617,7 @@ A handle like `travis.swop.id` looks like a username and behaves like something 
 
 That last part is the tell that this is a different primitive rather than a nicer profile page. An email address cannot be the counterparty to a transaction. A handle that resolves to a wallet can — including with software on the other side. When an AI agent runs an errand and needs to pay for something, it needs an address that accepts money, not a mailbox it can write to.
 
-And because the wallet underneath is self-custodial — keys are generated and held on your device; Swop never holds them — the account is not a balance a company keeps on your behalf. It is yours in the sense that email accounts never were.
+And because you control the wallet underneath — nothing moves without your approval, you can export your private key, and Swop never holds your keys — the account is not a balance a company keeps on your behalf. It is yours in the sense that email accounts never were.
 
 ## The proof problem
 
@@ -5749,7 +5749,7 @@ What doesn't change A wallet offering a swap button is a UI decision, not a cust
 
 ## Where Swop fits
 
-**Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site.** Swop routes Solana swaps through Jupiter and EVM swaps through LiFi, and quotes Solana swaps with a 50 bps default slippage tolerance — a default you can change, not a cap. Swop runs on Solana, Ethereum, Base, and Polygon — all four live in the same self-custodial account, rather than a separate wallet per chain. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which is the custody question a built-in swap raises answered directly: the wallet can propose a trade, but signing is still yours.
+**Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site.** Swop routes Solana swaps through Jupiter and EVM swaps through LiFi, and quotes Solana swaps with a 50 bps default slippage tolerance — a default you can change, not a cap. Swop runs on Solana, Ethereum, Base, and Polygon — all four live in the same self-custodial account, rather than a separate wallet per chain. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That is the custody question a built-in swap raises answered directly: the wallet can propose a trade, but signing is still yours.
 
 On the gas question specifically: transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That removes one of the more common stalls in trading from a wallet directly, which is holding the asset you want to swap but not the separate token needed to pay the network fee for doing it.
 
@@ -5777,7 +5777,7 @@ Not on a self-custodial wallet. Your keys still authorize the trade the same way
 
 ### Is Swop a Solana wallet with a built-in swap?
 
-Swop runs on Solana, Ethereum, Base, and Polygon in one self-custodial account — keys are generated and held on your device, and transactions are gas-sponsored, so you don't need to hold SOL or ETH to transact. Current swap pairs, quotes, and fees are the kind of thing that changes; check the app or support.swop.id, not this post.
+Swop runs on Solana, Ethereum, Base, and Polygon in one self-custodial account — you control the wallet and Swop never holds your keys — and transactions are gas-sponsored, so you don't need to hold SOL or ETH to transact. Current swap pairs, quotes, and fees are the kind of thing that changes; check the app or support.swop.id, not this post.
 
 ST
 
@@ -5809,11 +5809,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 18, 2026 Update
 
 Contents What "self-custody" actually means Why thin banking rails drive the search Bangladesh's regulatory position, in plain terms What self-custody does — and doesn't — solve Where Swop fits FAQ
 
-A self-custody crypto wallet is one where the private keys are generated and held on your own device, not by a bank or exchange — nobody else can move or freeze the funds without your signature. In Bangladesh specifically, that distinction doesn't change the legal picture: Bangladesh Bank prohibits trading or transacting in any cryptocurrency, citing the Foreign Exchange Regulation Act 1947, the Money Laundering Prevention Act 2012, and the Anti-Terrorism Act 2009, and that prohibition applies whether the wallet is custodial or self-custodial. Self-custody changes who holds the keys. It doesn't change what the law where you live allows you to do with them.
+A self-custody crypto wallet is one where you control the private keys, not a bank or exchange — nobody else can move or freeze the funds without your signature. In Bangladesh specifically, that distinction doesn't change the legal picture: Bangladesh Bank prohibits trading or transacting in any cryptocurrency, citing the Foreign Exchange Regulation Act 1947, the Money Laundering Prevention Act 2012, and the Anti-Terrorism Act 2009, and that prohibition applies whether the wallet is custodial or self-custodial. Self-custody changes who holds the keys. It doesn't change what the law where you live allows you to do with them.
 
 ## What "self-custody" actually means
 
-Every crypto wallet makes a choice about who holds the private key that authorizes spending. A custodial wallet — the kind built into most exchanges — holds that key for you, which means the exchange can freeze your account, reverse a mistaken transfer, or comply with a court order by simply acting on its own database. A self-custody wallet generates the key on your device and never sends it anywhere; the tradeoff is that nobody can do any of those things for you either, including undo a mistake.
+Every crypto wallet makes a choice about who holds the private key that authorizes spending. A custodial wallet — the kind built into most exchanges — holds that key for you, which means the exchange can freeze your account, reverse a mistaken transfer, or comply with a court order by simply acting on its own database. A self-custody wallet leaves the key under your control; the tradeoff is that nobody can do any of those things for you either, including undo a mistake.
 
 That's the entire distinction. It says nothing about which blockchain you're using, which country you're in, or whether the activity itself is legal — it's purely a statement about where the key lives and who can authorize a transaction with it.
 
@@ -5837,7 +5837,7 @@ What self-custody does not do is change the legal status of the underlying activ
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon, and is available on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Google Play](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon, and is available on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Google Play](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 None of that changes the point above: using any crypto wallet for a crypto transaction is subject to the law of wherever you actually are, and that law is Swop's to follow, not to work around. In a market like Bangladesh where the central bank currently prohibits cryptocurrency trading, the responsible answer is to check current Bangladesh Bank guidance first — self-custody doesn't change what's permitted, it only changes who holds the keys.
 
@@ -5849,7 +5849,7 @@ Self-custody isn't a separate legal category on its own. Bangladesh Bank has sta
 
 ### What does "self-custody" actually mean?
 
-A self-custody wallet generates and stores your private keys on your own device rather than with a bank or exchange. Nothing moves without a signature only you can produce, and no company can freeze the wallet or reverse a transaction on your behalf — which also means there's no customer support line to call if you lose your key.
+A self-custody wallet leaves the private keys under your control rather than with a bank or exchange. Nothing moves without a signature only you can produce, and no company can freeze the wallet or reverse a transaction on your behalf — which also means there's no customer support line to call if you lose your key.
 
 ### Why do people in Bangladesh search for crypto wallets if trading is banned?
 
@@ -5929,7 +5929,7 @@ The efficiency case rests on three mechanical changes, not on crypto prices. Set
 
 ## Where Swop fits
 
-Concretely: **tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain.** There is no separate RWA product to opt into; these are ordinary tokens on chains the wallet already covers. Swop has a built-in swap, routing Solana through Jupiter and EVM through LiFi, so acquiring one does not mean leaving for an exchange. Which specific assets are listed changes as the product does — the app is the source for that. The broader point is that the infrastructure this category depends on is the infrastructure Swop already runs on: Swop runs on Solana, Ethereum, Base, and Polygon — the chains where most RWA tokens, including the ones described above, are actually issued. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which matters for the same reason it matters everywhere else: a token is only worth as much as the redemption right behind it, and self-custody at least guarantees you, not a third party, control the token itself. And every SmartSite on Swop is an x402 storefront, so a creator or a business already has a way to be paid directly on-chain, which is the same programmable-transfer idea RWA issuers are building for their own asset classes.
+Concretely: **tokenized real-world assets that live on Swop's supported chains — such as PAX Gold (PAXG) on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token on that chain.** There is no separate RWA product to opt into; these are ordinary tokens on chains the wallet already covers. Swop has a built-in swap, routing Solana through Jupiter and EVM through LiFi, so acquiring one does not mean leaving for an exchange. Which specific assets are listed changes as the product does — the app is the source for that. The broader point is that the infrastructure this category depends on is the infrastructure Swop already runs on: Swop runs on Solana, Ethereum, Base, and Polygon — the chains where most RWA tokens, including the ones described above, are actually issued. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That matters for the same reason it matters everywhere else: a token is only worth as much as the redemption right behind it, and self-custody at least guarantees you, not a third party, control the token itself. And every SmartSite on Swop is an x402 storefront, so a creator or a business already has a way to be paid directly on-chain, which is the same programmable-transfer idea RWA issuers are building for their own asset classes.
 
 Check it yourself What Swop lists and supports changes as the product does; the app and [support.swop.id](https://support.swop.id) are the current source, not this post. Swop is on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web app at [swopme.app](https://swopme.app).
 
@@ -6054,7 +6054,7 @@ None of which is a claim that self-custody is easy or finished. Key loss is a re
 
 ## What this means for Swop users and builders
 
-None of the three fights above change the thing that actually determines whether your assets are safe today: who holds the signing key. **Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.** That doesn't move regardless of how the SEC/CFTC jurisdictional question gets settled, because the bill is about exchange and issuer market structure, not wallet custody.
+None of the three fights above change the thing that actually determines whether your assets are safe today: who holds the signing key. **You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.** That doesn't move regardless of how the SEC/CFTC jurisdictional question gets settled, because the bill is about exchange and issuer market structure, not wallet custody.
 
 The part of this fight that matters most directly to builders is Section 604. Until something like it becomes law, whether writing and publishing a smart contract, a DEX front end, or a non-custodial wallet interface exposes a developer to money-transmission liability keeps getting decided case by case rather than by a bright-line federal rule — which is exactly the ambiguity the digital-commodity classification fight is also trying to resolve for exchanges and issuers. [Swop](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) runs on Solana, Ethereum, Base, and Polygon. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — and none of that changes with this bill either way. On the access question above, two verified details matter more than they sound: that gas sponsorship, and the fact that losing your phone doesn't mean losing your funds, since you can log in with your email on any phone and your Swop wallet comes back with it. Needing to acquire a native token before your first transaction, and needing to protect a seed phrase perfectly forever, are the two places self-custody most often fails the people it is meant to include.
 
@@ -6086,7 +6086,7 @@ Ethics restrictions on officials' personal crypto holdings and income; developer
 
 ### Does the CLARITY Act affect self-custody wallets like Swop?
 
-It targets exchange and issuer market structure, not wallet custody. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — regardless of the outcome. Section 604's developer-liability question is the part most relevant to wallet and smart-contract builders.
+It targets exchange and issuer market structure, not wallet custody. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That holds regardless of the outcome. Section 604's developer-liability question is the part most relevant to wallet and smart-contract builders.
 
 ### When will the Senate vote on the CLARITY Act again?
 
@@ -6168,7 +6168,7 @@ Three questions cut through most of it. Who is holding your funds mid-route, and
 
 ## Where Swop fits
 
-Swop runs on Solana, Ethereum, Base, and Polygon — so all four are live in the same app and the same account, rather than requiring a separate wallet per chain. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which covers the custody question for your keys, though as above it is a separate question from who holds funds mid-route on any given swap.
+Swop runs on Solana, Ethereum, Base, and Polygon — so all four are live in the same app and the same account, rather than requiring a separate wallet per chain. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That covers the custody question for your keys, though as above it is a separate question from who holds funds mid-route on any given swap.
 
 On the gas problem specifically: transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That removes the most common failure mode of multi-chain life, which is arriving somewhere with assets you cannot touch because you have none of that chain's native token.
 
@@ -6238,7 +6238,7 @@ That reframing splits into three separate, checkable questions. Can the company 
 
 These are the mechanisms to look for, in the order they matter. If a wallet's docs can't point to how each one works, treat the gap as the actual answer.
 
-- **Self-custody.** Keys should be generated and held only on your device — not by the agent, not by the company running it. If the platform can technically move your funds without you, no amount of "the AI won't do that" changes what's structurally possible.
+- **Self-custody.** You should control the keys — not the agent, not the company running it. If the platform can move your funds without your approval, no amount of "the AI won't do that" changes what's structurally possible.
 - **Confirmation before signing.** The agent should draft a proposal — the exact amounts, the assumption behind it, what would make it wrong — and wait for a tap. Nothing should sign or send on its own. This is the same gate a manual trade goes through; an agent trade should not get a shortcut around it.
 - **Bounded authority, not just alerts.** A notification after a large trade is not a safeguard. A policy layer that requires your cryptographic sign-off before the agent's spending cap, asset list, or position size can widen is. The distinction is whether the limit is enforced or merely reported.
 - **An audit trail per decision.** Every enforcement decision — what the agent tried, what limit applied, whether it was allowed — should be logged in a way that can't be quietly edited afterward. Without this, a dispute about what the agent did comes down to whoever's word you trust more.
@@ -6252,7 +6252,7 @@ None of these red flags are hypothetical — they're the exact claims a rushed A
 
 ## Where Swop fits the checklist
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That covers the first item directly: there's no point at which Swop's infrastructure, rather than your device, could produce a valid signature for your funds. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies on all four.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That covers the first item directly: neither Swop nor the agent holds your keys. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies on all four.
 
 On confirmation, Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — [the same confirmation model we described in more depth when agentic trading shipped](https://www.swopme.co/blog/agentic-trading-is-live). A proposal carries the action, the size, and the reasoning behind it before you're asked to sign anything.
 
@@ -6276,7 +6276,7 @@ One where the agent can propose trades but never holds your keys or signs on its
 
 ### Can an AI trading agent hold my private keys?
 
-It shouldn't, and on a properly designed self-custodial wallet it can't. Keys should be generated and held only on your device; an agent that needs your keys to act is a custodial risk wearing an AI label. On Swop, the agent proposes trades but never holds keys — signing happens the same way it does for a manual trade, locally on your device.
+It shouldn't, and on a properly designed self-custodial wallet it can't. You should control the keys; an agent that needs your keys to act is a custodial risk wearing an AI label. On Swop, the agent proposes trades but never holds keys — signing happens the same way it does for a manual trade: when you approve it.
 
 ### What's the difference between an agent that proposes and one that executes?
 
@@ -6357,7 +6357,7 @@ Because the link itself is the claim on the funds, the security model is closer 
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which holds whether you're sending directly to an address or funding a claim link for someone to open later. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — across the four networks Swop runs on: Solana, Ethereum, Base, and Polygon.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That holds whether you're sending directly to an address or funding a claim link for someone to open later. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — across the four networks Swop runs on: Solana, Ethereum, Base, and Polygon.
 
 Recipients don't need to have used Swop before to claim a link: losing your phone doesn't mean losing your funds on Swop, since you can log in with your email on any phone and your wallet comes back with it — the same account model that lets a first-time recipient claim into a fresh wallet without a seed phrase to lose track of. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). For app-specific setup and troubleshooting, see [support.swop.id](https://support.swop.id).
 
@@ -6413,11 +6413,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 11, 2026 Update
 
 Contents What a SmartSite is Tabs, not a list of links The part that settles money Gated sections What it doesn't replace FAQ
 
-A SmartSite is a profile page hosted at your own `swop.id` handle — [travis.swop.id](https://swopme.app/sp/travis), for example. Rather than one flat column of links, it is organised into tabs you name and order yourself, and each tab holds whatever you drop into it: social links, a blog, audio and video, portfolio and position widgets, or products for sale. The difference that matters is the last one. A link-in-bio page points at a checkout somewhere else; a SmartSite takes the payment itself, and the money settles into a wallet whose keys never leave your device.
+A SmartSite is a profile page hosted at your own `swop.id` handle — [travis.swop.id](https://swopme.app/sp/travis), for example. Rather than one flat column of links, it is organised into tabs you name and order yourself, and each tab holds whatever you drop into it: social links, a blog, audio and video, portfolio and position widgets, or products for sale. The difference that matters is the last one. A link-in-bio page points at a checkout somewhere else; a SmartSite takes the payment itself, and the money settles into a wallet you control.
 
 ## What a SmartSite is
 
-Think of it as the page a wallet grows when it also has to be a public identity. It lives inside the Swop app rather than on separate hosting, so the same account that holds your funds also owns the page — no CMS, no separate login, no plugin to connect a payment processor. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which is what makes "the page takes the money" a meaningfully different statement from the same sentence on a hosted store.
+Think of it as the page a wallet grows when it also has to be a public identity. It lives inside the Swop app rather than on separate hosting, so the same account that holds your funds also owns the page — no CMS, no separate login, no plugin to connect a payment processor. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That is what makes "the page takes the money" a meaningfully different statement from the same sentence on a hosted store.
 
 ## Tabs, not a list of links
 
@@ -6533,7 +6533,7 @@ For a position held more than a few days, funding is a real, recurring cost — 
 
 Swop's trading agent works across spot, perpetual futures, and prediction markets from inside the same wallet — reading a market's depth and recent flow, summarizing it in a paragraph instead of a dashboard, and proposing a trade you approve before anything signs. That confirmation model is the same one Swop uses everywhere it touches your funds: [the agent proposes, you approve, and nothing signs without a tap](https://www.swopme.co/blog/agentic-trading-is-live).
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. If you also trade prediction markets and want the mechanics behind their pricing, see [Prediction markets 101](https://www.swopme.co/blog/prediction-markets-101). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. If you also trade prediction markets and want the mechanics behind their pricing, see [Prediction markets 101](https://www.swopme.co/blog/prediction-markets-101). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 ## FAQ
 
@@ -6615,7 +6615,7 @@ The one habit that avoids surprises Before assuming a "$1 balance" behaves ident
 
 ## Where Swop fits
 
-Swop runs on Solana, Ethereum, Base, and Polygon, and is fully self-custodial — keys are generated and held on your device; Swop never holds them. Because Swop spans multiple chains, the distinction in this post is a practical one, not just trivia: a dollar balance you hold on one chain and a dollar balance you hold on another aren't automatically the same token underneath, and moving value between chains or off Swop entirely is where that difference actually surfaces. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but that doesn't change what a given dollar token is backed by or where it can go once it leaves the chain it's on.
+Swop runs on Solana, Ethereum, Base, and Polygon. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Because Swop spans multiple chains, the distinction in this post is a practical one, not just trivia: a dollar balance you hold on one chain and a dollar balance you hold on another aren't automatically the same token underneath, and moving value between chains or off Swop entirely is where that difference actually surfaces. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but that doesn't change what a given dollar token is backed by or where it can go once it leaves the chain it's on.
 
 If you use prediction markets and want the mechanics of how their prices work, see [Prediction markets 101](https://www.swopme.co/blog/prediction-markets-101). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
@@ -6705,7 +6705,7 @@ Three things push a contract's price, and it helps to tell them apart:
 
 Swop's trading agent works across spot, perpetual futures, and prediction markets from inside the same wallet — reading a market's depth and recent flow, summarizing it in a paragraph instead of a dashboard, and proposing a trade you approve before anything signs. That confirmation model is the same one Swop uses everywhere it touches your funds: [the agent proposes, you approve, and nothing signs without a tap](https://www.swopme.co/blog/agentic-trading-is-live).
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 ## FAQ
 
@@ -6727,7 +6727,7 @@ The same way as any other market: bids are what buyers are offering, asks are wh
 
 ### Does Swop have a prediction market?
 
-Yes. Swop's trading agent works across spot, perpetual futures, and prediction markets from the same wallet, reading depth and flow and proposing trades you approve before anything signs. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Yes. Swop's trading agent works across spot, perpetual futures, and prediction markets from the same wallet, reading depth and flow and proposing trades you approve before anything signs. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 ST
 
@@ -6759,11 +6759,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 7, 2026 Updated
 
 Contents Custody and keys Chains and swaps Gas fees Everyday payments Side by side
 
-Swop and Coinbase Wallet are both self-custodial: on either one, your private keys are generated and held on your own device, not on a company server. The practical differences are in how each one handles gas fees, which chains it reaches, and — the part that actually decides whether you'd use it at a register — how each one lets you pay for something in person. One naming note first: Coinbase renamed Coinbase Wallet to **Base App** in July 2025, and both names now point at the same self-custodial product. This post says "Coinbase Wallet" throughout, because that is still the name most people search for.
+Swop and Coinbase Wallet are both self-custodial: on either one, you control the wallet and the company doesn't hold your keys. The practical differences are in how each one handles gas fees, which chains it reaches, and — the part that actually decides whether you'd use it at a register — how each one lets you pay for something in person. One naming note first: Coinbase renamed Coinbase Wallet to **Base App** in July 2025, and both names now point at the same self-custodial product. This post says "Coinbase Wallet" throughout, because that is still the name most people search for.
 
 ## Custody and keys
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Coinbase Wallet makes the same claim about its own app and browser extension: it's a self-custodial product, separate from your keys, and Coinbase doesn't hold them either. Where it gets confusing is that "Coinbase Wallet" and "Coinbase" — the exchange most people sign up for first, at coinbase.com — are two different products. The Wallet app is self-custodial; your regular Coinbase.com account is a custodial exchange account, and that's the account your Coinbase debit card actually spends from. Swop doesn't have that split. There's one app, and it's the self-custodial one.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Coinbase Wallet makes the same claim about its own app and browser extension: it's a self-custodial product, separate from your keys, and Coinbase doesn't hold them either. Where it gets confusing is that "Coinbase Wallet" and "Coinbase" — the exchange most people sign up for first, at coinbase.com — are two different products. The Wallet app is self-custodial; your regular Coinbase.com account is a custodial exchange account, and that's the account your Coinbase debit card actually spends from. Swop doesn't have that split. There's one app, and it's the self-custodial one.
 
 That split matters for what "self-custodial" is actually protecting. Inside the Coinbase Wallet app, the usual self-custody tradeoff applies: lose your recovery phrase and the funds in that wallet are gone, with no support desk that can bring them back. Losing your phone doesn't mean losing your funds on Swop — you can log in with your email on any phone and your wallet comes back with it, and you can also save your private key to open your assets in any wallet you choose. But if your balance is sitting in your Coinbase.com account rather than the Wallet app — which is where the debit card pulls from — self-custody isn't the model holding it in the first place.
 
@@ -6799,7 +6799,7 @@ None of this makes the Coinbase Card a bad product on its own terms — a card t
 
 | Platforms | iOS, Android, web app | Browser extension, iOS, Android
 
-If you want one self-custodial wallet that both holds your keys and pays at the register — without a separate custodial account in between — that's the default Swop is built around. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon with transactions gas-sponsored so you don't need to hold SOL or ETH to transact. SwopPay checkout charges a 0.5% fee, paid straight from that same wallet. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the iOS App Store. For Coinbase's own description of its self-custodial wallet and its debit card, see [Coinbase Wallet](https://www.coinbase.com/wallet) and [Coinbase Card](https://www.coinbase.com/card).
+If you want one self-custodial wallet that both holds your keys and pays at the register — without a separate custodial account in between — that's the default Swop is built around. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon with transactions gas-sponsored so you don't need to hold SOL or ETH to transact. SwopPay checkout charges a 0.5% fee, paid straight from that same wallet. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the iOS App Store. For Coinbase's own description of its self-custodial wallet and its debit card, see [Coinbase Wallet](https://www.coinbase.com/wallet) and [Coinbase Card](https://www.coinbase.com/card).
 
 ST
 
@@ -6857,7 +6857,7 @@ A crypto tap-to-pay transaction can carry up to three separate costs, and they d
 
 ## Where Swop fits
 
-Swop's in-person payment feature is SwopPay, and SwopPay checkout charges a 0.5% fee. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and transactions on Swop are gas-sponsored, so paying in person doesn't require holding SOL or ETH first. Swop runs on Solana, Ethereum, Base, and Polygon.
+Swop's in-person payment feature is SwopPay, and SwopPay checkout charges a 0.5% fee. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions on Swop are gas-sponsored, so paying in person doesn't require holding SOL or ETH first. Swop runs on Solana, Ethereum, Base, and Polygon.
 
 Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). For the mechanics of NFC data exchange that underlie any phone-based tap payment, Android's [NFC developer documentation](https://developer.android.com/guide/topics/connectivity/nfc/nfc) is a useful primary reference, and Swop's own [support docs](https://support.swop.id) cover setup on the wallet side.
 
@@ -6877,7 +6877,7 @@ On most wallets, yes — the network fee is paid in the chain's native token, on
 
 ### Does Swop support in-person crypto payments?
 
-Yes, through SwopPay, Swop's in-person payment feature. SwopPay checkout charges a 0.5% fee. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and gas-sponsored, so paying in person doesn't require holding SOL or ETH first.
+Yes, through SwopPay, Swop's in-person payment feature. SwopPay checkout charges a 0.5% fee. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions are gas-sponsored, so paying in person doesn't require holding SOL or ETH first.
 
 ST
 
@@ -6941,7 +6941,7 @@ Not every page that calls itself "crypto-friendly" does this. A few questions ar
 
 Swop's version of this is the SmartSite. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. An agent that discovers a product on a swop.id page can complete the purchase in the same HTTP flow described above — no account, no checkout form, no human required on the selling side either.
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. The wallet itself is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app). For the buyer-side mechanics of the protocol itself — including who a "facilitator" is and what it can and can't do — see [what is x402](https://www.swopme.co/blog/what-is-x402).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. The wallet itself is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app). For the buyer-side mechanics of the protocol itself — including who a "facilitator" is and what it can and can't do — see [what is x402](https://www.swopme.co/blog/what-is-x402).
 
 ## FAQ
 
@@ -6963,7 +6963,7 @@ You need a wallet and a basic sense of what a stablecoin is, but you don't need 
 
 ### Does Swop's SmartSite work this way?
 
-Yes. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Yes. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 ST
 
@@ -7028,7 +7028,7 @@ x402 solves the payment plumbing — proving a specific payment happened for a s
 
 Swop implements x402 where it makes sense: commerce. Every SmartSite is an x402 storefront — any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. An agent that discovers a product on a swop.id page can complete the purchase in the same HTTP flow described above, no account or checkout form involved.
 
-Swop's AI trading agent is the deliberate opposite end of the autonomy spectrum: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Full machine autonomy is the right design for buying a product or a $0.01 API call, and the wrong one for a trade that moves your position. Swop ships both, on the side of the transaction where each belongs. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon, on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app).
+Swop's AI trading agent is the deliberate opposite end of the autonomy spectrum: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Full machine autonomy is the right design for buying a product or a $0.01 API call, and the wrong one for a trade that moves your position. Swop ships both, on the side of the transaction where each belongs. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon, on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app).
 
 ## FAQ
 
@@ -7082,7 +7082,7 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 1, 2026 Updated
 
 Contents What "safe" means here Who holds the keys Nothing moves without your tap The AI agent's confirmation model What to verify yourself FAQ
 
-Swop is safe in the specific ways that matter for a self-custodial wallet: your keys are generated and held only on your device, every transaction requires your signature before it moves, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — self-custody means you are your own recovery plan, and no wallet, Swop included, can undo a transaction you approved by mistake.
+Swop is safe in the specific ways that matter for a wallet you control: nothing moves without your approval, you can export your private key, Swop never holds your keys, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — your login is part of your security, and no wallet, Swop included, can undo a transaction you approved by mistake.
 
 ## What "safe" means here
 
@@ -7092,13 +7092,13 @@ This post answers all three for Swop, in order, and points to where you can chec
 
 ## Who holds the keys
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That single fact answers the first question above: Swop's servers going down, getting hacked, or a support agent making a mistake cannot result in your funds being lost or frozen, because your funds were never in Swop's custody. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies across all four — there's no chain where Swop holds a spare key on your behalf.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That answers the first question above: your funds are not a balance sitting in a Swop-controlled account, because Swop never holds your keys. Swop runs on Solana, Ethereum, Base, and Polygon, and the same model applies across all four.
 
-The tradeoff is the standard one for any self-custodial wallet: if the key on your device is gone and you have no backup, nobody — including Swop — has a copy to restore from. Self-custody removes the risk of a third party controlling your funds by making you the only party who can.
+The tradeoff is not the one a seed-phrase wallet makes. Login and wallets run on a partner, Privy, so using the app depends on that service, and your login is part of your security — protect the email behind it with a strong second factor. The way out is always open: export your private key and you can open your assets in any wallet you choose.
 
 ## Nothing moves without your tap
 
-The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens locally, on your device, when you tap to confirm. An interface can show you whatever it wants; nothing actually moves until that signature exists, and the signature can only be produced where the key lives.
+The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens when you approve it. An interface can show you whatever it wants; nothing actually moves until that signature exists.
 
 That's also true for transactions Swop sponsors the gas on. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but gas sponsorship only changes who pays the network fee, not who authorizes the transaction. Signing and paying are separate steps, and Swop's sponsorship only ever touches the second one.
 
@@ -7122,11 +7122,11 @@ The general rule holds for any wallet, not just Swop: "self-custodial" and "audi
 
 ### Is Swop custodial or non-custodial?
 
-Non-custodial. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That means Swop's servers being down, hacked, or shut off has no bearing on whether you can access your funds, because the funds were never in Swop's custody to begin with.
+Non-custodial. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Your funds are never a balance sitting in a Swop-controlled account.
 
 ### Can Swop or its team move my funds without me?
 
-No. Every transaction on Swop has to be signed with a key that lives only on your device, and Swop never holds a copy of it. There is no admin action, support ticket, or backend process that can move funds out of your wallet without that signature.
+No. Nothing moves without your approval, and Swop never holds your keys. You can also export your private key and open your assets in any wallet you choose.
 
 ### Does Swop's AI agent trade on its own?
 
@@ -7206,7 +7206,7 @@ The policy constrains what the agent may start, never what the owner may stop. I
 
 The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows. Shadow mode means the layer evaluates every agent action against the vault's policy and writes its verdict to the audit chain without yet blocking — so by the time enforcement turns on, the decision history already exists to check it against.
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.
 
 ## FAQ
 
@@ -7290,12 +7290,12 @@ Because the term gets used loosely in marketing, it's worth checking a few speci
 
 - **Which actions are actually sponsored.** Some wallets sponsor only a first transaction or a specific feature, not every action, which is a meaningfully different product than "you never need gas."
 - **Which chains it covers.** A wallet that's gasless on one network may still require a native token balance on another it supports.
-- **Whether sponsorship affects custody.** Confirm the wallet still generates and holds your keys on your device — a sponsor covering your fee shouldn't require handing over control of your funds.
+- **Whether sponsorship affects custody.** Confirm the wallet still leaves you in control of your keys — a sponsor covering your fee shouldn't require handing over control of your funds.
 - **What happens at the edges.** Very large transactions, unusual asset types, or high-volume trading can fall outside a sponsorship program's limits; check whether the app is upfront about where those limits sit.
 
 ## Where Swop fits
 
-Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That applies across all four networks Swop runs on: Solana, Ethereum, Base, and Polygon. Sponsorship doesn't come at the cost of custody, either — Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That applies across all four networks Swop runs on: Solana, Ethereum, Base, and Polygon. Sponsorship doesn't come at the cost of custody, either. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 In practice that means a new Swop wallet is usable the moment you fund it with the asset you actually want to hold, not the asset the network happens to charge for. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322).
 
@@ -7315,11 +7315,11 @@ Sponsorship is usually scoped and rate-limited rather than unlimited, and the co
 
 ### Is Swop a gasless wallet?
 
-Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon.
+Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon.
 
 ### What's the difference between a gasless wallet and a custodial exchange account?
 
-Gas sponsorship and custody are separate questions. A wallet can sponsor your fees while still being fully self-custodial, meaning your keys stay on your device and the wallet provider never holds them. A custodial exchange account skips gas fees for a different reason — you're not transacting on-chain at all until you withdraw.
+Gas sponsorship and custody are separate questions. A wallet can sponsor your fees while still being fully self-custodial, meaning you control the keys and the wallet provider can't move your funds without you. A custodial exchange account skips gas fees for a different reason — you're not transacting on-chain at all until you withdraw.
 
 ST
 
@@ -7351,11 +7351,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Aug 27, 2026 Update
 
 Contents Custody and keys Chains and swaps Gas fees In-person payments AI agents Side by side
 
-Swop and Phantom are both self-custodial Solana wallets — private keys are generated and stored on your device on either one, and neither company can access, freeze, or move your funds without you. Where they diverge is in three practical places: how gas fees work, how far each one reaches into in-person payments, and how much either wallet's AI agent is allowed to do without asking first.
+Swop and Phantom are both self-custodial Solana wallets — you control the keys on either one, and neither company can move your funds without you. Where they diverge is in three practical places: how gas fees work, how far each one reaches into in-person payments, and how much either wallet's AI agent is allowed to do without asking first.
 
 ## Custody and keys
 
-Both wallets make the same core promise. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. [Phantom](https://phantom.com) makes the same claim about its own keys: it's a self-custody wallet application and browser extension, and Phantom does not hold or have access to your private keys either. On this specific point there's no real gap to weigh — generate a fresh seed phrase in either app, back it up, and you're the only party who can move funds from it.
+Both wallets make the same core promise. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. [Phantom](https://phantom.com) makes the same claim about its own keys: it's a self-custody wallet application and browser extension, and Phantom does not hold or have access to your private keys either. On this specific point there's no real gap to weigh — generate a fresh seed phrase in either app, back it up, and you're the only party who can move funds from it.
 
 That shared architecture means the same tradeoff applies to both: neither company can freeze an account or reverse a mistake, because neither one is holding the keys that would let them. If you lose your seed phrase on Swop or on Phantom, the outcome is identical — the funds in that wallet become unreachable, with no support ticket that can bring them back. Self-custody is the same deal wherever you buy it.
 
@@ -7383,7 +7383,7 @@ The practical question to ask yourself is what happens when the agent is wrong. 
 
 | Feature | Swop | Phantom
 
-| Custody | Fully self-custodial, keys never leave your device | Self-custodial, keys never leave your device
+| Custody | You control the wallet; Swop never holds your keys (wallets run on Privy today) | Self-custodial, keys never leave your device
 
 | Chains | Solana, Ethereum, Base, Polygon | 9 networks incl. all four at left, plus Bitcoin, Sui, Monad, HyperEVM, Robinhood Chain (as of writing)
 
@@ -7395,7 +7395,7 @@ The practical question to ask yourself is what happens when the agent is wrong. 
 
 | Platforms | iOS, Android, web app | Browser extension, iOS, Android
 
-If gas fees are the friction that's kept you from trying a self-custody wallet, or you want an AI agent that can't move money without your say-so on every single transaction, Swop is built around both of those defaults. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon with transactions gas-sponsored so you don't need to hold SOL or ETH to transact. The confirmation model carries through the whole app: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the iOS App Store.
+If gas fees are the friction that's kept you from trying a self-custody wallet, or you want an AI agent that can't move money without your say-so on every single transaction, Swop is built around both of those defaults. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon with transactions gas-sponsored so you don't need to hold SOL or ETH to transact. The confirmation model carries through the whole app: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the iOS App Store.
 
 ST
 
@@ -7427,33 +7427,33 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Aug 26, 2026 Update
 
 Contents What "self-custody" means Keys and signing on Solana What to check before choosing You are the recovery plan Where Swop fits FAQ
 
-A self-custody wallet is one where you, not an exchange or a company, hold the private keys that control your funds — on Solana, those keys are generated and stored on your device, and every transaction is signed locally before it moves. No third party can freeze, seize, or spend from a self-custody wallet, because no third party holds the keys. The best options for Solana pair that key control with low-to-no gas fees and clean support for SPL tokens, since a wallet that fumbles either makes self-custody more painful than it needs to be.
+A self-custody wallet is one where you, not an exchange or a company, control the private keys that control your funds — on Solana, nothing moves until a transaction is signed with those keys. No third party can spend from a self-custody wallet without you. The best options for Solana pair that key control with low-to-no gas fees and clean support for SPL tokens, since a wallet that fumbles either makes self-custody more painful than it needs to be.
 
 ## What "self-custody" means
 
 Every crypto wallet falls into one of two categories. A custodial wallet — the kind built into most exchanges — holds your private keys on its own servers. You log in with a password, and the company signs transactions on your behalf. That is convenient, and it is also why exchange outages, freezes, and insolvencies turn into headlines: the funds were never really in your control, they were in the exchange's, on your behalf.
 
-A self-custody wallet flips that. The private key — or the seed phrase that generates it — lives only on your device. Nobody can freeze the wallet, reverse a transaction, or move funds out of it without that key, including the company that built the wallet software. That is the entire trade being made: full control, in exchange for full responsibility.
+A self-custody wallet flips that. You control the key. In the classic design the private key — or the seed phrase that generates it — lives only on your device; newer wallets secure the key with a provider so you can get back in with a login instead of a phrase. Either way the test is the same: nobody can move funds out of the wallet without you, including the company that built the wallet software. That is the trade being made: control, in exchange for responsibility.
 
 ## Keys and signing on Solana
 
 Practically, a Solana wallet generates a keypair and shows you a seed phrase — usually 12 or 24 words — that can regenerate that same keypair on any device. Whoever holds the seed phrase holds the wallet, full stop. Every action that touches your balance, from a swap to a transfer to approving an app, produces a transaction that has to be signed with that key before Solana's network will process it.
 
-That signature step is the actual security boundary. A wallet interface can show you whatever it wants, but nothing moves until the signature happens, and the signature can only happen where the key lives. Solana also charges a small network fee in SOL for each transaction by default, which is a separate detail from custody but one that shapes which wallets are pleasant to use day to day.
+That signature step is the actual security boundary. A wallet interface can show you whatever it wants, but nothing moves until the signature happens. Solana also charges a small network fee in SOL for each transaction by default, which is a separate detail from custody but one that shapes which wallets are pleasant to use day to day.
 
 ## What to check before choosing a self-custody wallet for Solana
 
 Most wallets that call themselves "self-custody" get the core promise right. Where they differ is in the details that decide whether self-custody feels safe or feels like a chore:
 
-- **Where keys are generated and stored.** This should happen on your device only, never on a server you have to trust.
-- **Recovery method.** A seed phrase you back up yourself, not a company-held recovery flow that reintroduces the thing self-custody is supposed to remove.
+- **Who controls the keys.** Ask where the key is created, who can use it, and whether you can export it. No company should be able to move your funds without you.
+- **Recovery method.** A seed phrase you back up yourself puts everything on you; login-based recovery is easier but makes your email part of your security. [Either can leave you in control](https://www.swopme.co/blog/recover-wallet-without-seed-phrase) — check that you can export the key and leave.
 - **Gas handling.** Some wallets require you to pre-fund SOL before you can do anything else, even move a different token. Others sponsor the fee.
 - **Token support.** Native handling of SPL tokens (Solana's token standard), and, if you hold assets on more than one chain, whether the wallet covers those too instead of forcing you to run several apps.
 - **What automation can and can't do.** If the wallet offers any AI or automated trading feature, check whether it can sign and move funds on its own, or whether it can only propose actions that you approve.
 
 ## You are the recovery plan
 
-The honest downside of self-custody is that there is no fallback. Lose the seed phrase, and the funds in that wallet are gone — not frozen, not recoverable through a support ticket, just gone, because no one else ever held a copy to restore from. That is the same property that keeps a self-custody wallet safe from a third party; it cuts both ways.
+The honest downside of a seed-phrase wallet is that there is no fallback. Lose the seed phrase, and the funds in that wallet are gone — not frozen, not recoverable through a support ticket, just gone, because no one else ever held a copy to restore from. That is the same property that keeps a self-custody wallet safe from a third party; it cuts both ways.
 
 Practical habit Write the seed phrase down offline, store it in more than one physical location, and never type it into a website, chat, or screenshot. Any wallet or "support agent" that asks you to enter your seed phrase to fix a problem is not legitimate software behaving normally.
 
@@ -7461,7 +7461,7 @@ This is also why self-custody tends to suit active, hands-on users better than p
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — which addresses the pre-funding friction described above. Swop runs on Solana, Ethereum, Base, and Polygon, so the same wallet covers assets across those networks instead of splitting them across separate apps.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Swop doesn't hand you a seed phrase to guard: losing your phone doesn't mean losing your funds — log in with your email on any phone and your Swop wallet comes back with it — which makes that email account part of your security. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — which addresses the pre-funding friction described above. Swop runs on Solana, Ethereum, Base, and Polygon, so the same wallet covers assets across those networks instead of splitting them across separate apps.
 
 Swop also ships an AI trading agent, and the automation question from the checklist above applies directly to it: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322).
 
@@ -7481,11 +7481,11 @@ On most Solana wallets, yes — every transaction needs a small amount of SOL fo
 
 ### Is Swop a self-custody wallet?
 
-Yes. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Swop runs on Solana, Ethereum, Base, and Polygon, with an iOS app, an Android app, and a web app at swopme.app.
+Yes. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Swop runs on Solana, Ethereum, Base, and Polygon, with an iOS app, an Android app, and a web app at swopme.app.
 
 ### What makes a self-custody wallet good for Solana specifically?
 
-Three things: keys generated and stored only on your device, no requirement to pre-fund SOL just to move other tokens, and clean support for the SPL token standard Solana apps actually use. A wallet that gets any of those wrong makes self-custody harder than it needs to be.
+Three things: keys that only you control, no requirement to pre-fund SOL just to move other tokens, and clean support for the SPL token standard Solana apps actually use. A wallet that gets any of those wrong makes self-custody harder than it needs to be.
 
 ST
 

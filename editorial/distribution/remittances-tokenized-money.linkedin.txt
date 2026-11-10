@@ -14,7 +14,7 @@ But look at what neither of them retired. MoneyGram's dollar balance still conve
 
 So the test case isn't failed. It's conditional. When the recipient is willing and able to hold the stablecoin itself, there is no second leg, because the transfer is the payment: a freelancer invoicing in USDC, a merchant settling with a cross-border supplier, a saver who already keeps a dollar-denominated balance. For them tokenized money passes outright — instant, near-free, and finished the moment it arrives. For a recipient who needs local cash at a counter tomorrow, it solved the cheap half of the problem and left the expensive half alone.
 
-Where we sit, stated as one leg rather than the whole trip: Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Transactions are gas-sponsored, so neither side needs to hold SOL or ETH to move money, and it runs on Solana, Ethereum, Base and Polygon. It is not a cash-out network, and we're not going to pretend otherwise.
+Where we sit, stated as one leg rather than the whole trip: You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Transactions are gas-sponsored, so neither side needs to hold SOL or ETH to move money, and it runs on Solana, Ethereum, Base and Polygon. It is not a cash-out network, and we're not going to pretend otherwise.
 
 Whether a given remittance also needs a cash-out depends on whether the recipient can use a dollar-denominated balance directly. That's the real question, and it isn't one any wallet answers just by existing.
 

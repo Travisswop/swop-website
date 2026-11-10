@@ -28,7 +28,7 @@ That reframing splits into three separate, checkable questions. Can the company 
 
 These are the mechanisms to look for, in the order they matter. If a wallet's docs can't point to how each one works, treat the gap as the actual answer.
 
-- **Self-custody.** Keys should be generated and held only on your device — not by the agent, not by the company running it. If the platform can technically move your funds without you, no amount of "the AI won't do that" changes what's structurally possible.
+- **Self-custody.** You should control the keys — not the agent, not the company running it. If the platform can move your funds without your approval, no amount of "the AI won't do that" changes what's structurally possible.
 - **Confirmation before signing.** The agent should draft a proposal — the exact amounts, the assumption behind it, what would make it wrong — and wait for a tap. Nothing should sign or send on its own. This is the same gate a manual trade goes through; an agent trade should not get a shortcut around it.
 - **Bounded authority, not just alerts.** A notification after a large trade is not a safeguard. A policy layer that requires your cryptographic sign-off before the agent's spending cap, asset list, or position size can widen is. The distinction is whether the limit is enforced or merely reported.
 - **An audit trail per decision.** Every enforcement decision — what the agent tried, what limit applied, whether it was allowed — should be logged in a way that can't be quietly edited afterward. Without this, a dispute about what the agent did comes down to whoever's word you trust more.
@@ -42,7 +42,7 @@ None of these red flags are hypothetical — they're the exact claims a rushed A
 
 ## Where Swop fits the checklist
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That covers the first item directly: there's no point at which Swop's infrastructure, rather than your device, could produce a valid signature for your funds. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies on all four.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That covers the first item directly: neither Swop nor the agent holds your keys. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies on all four.
 
 On confirmation, Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — [the same confirmation model we described in more depth when agentic trading shipped](https://www.swopme.co/blog/agentic-trading-is-live). A proposal carries the action, the size, and the reasoning behind it before you're asked to sign anything.
 
@@ -66,7 +66,7 @@ One where the agent can propose trades but never holds your keys or signs on its
 
 ### Can an AI trading agent hold my private keys?
 
-It shouldn't, and on a properly designed self-custodial wallet it can't. Keys should be generated and held only on your device; an agent that needs your keys to act is a custodial risk wearing an AI label. On Swop, the agent proposes trades but never holds keys — signing happens the same way it does for a manual trade, locally on your device.
+It shouldn't, and on a properly designed self-custodial wallet it can't. You should control the keys; an agent that needs your keys to act is a custodial risk wearing an AI label. On Swop, the agent proposes trades but never holds keys — signing happens the same way it does for a manual trade: when you approve it.
 
 ### What's the difference between an agent that proposes and one that executes?
 

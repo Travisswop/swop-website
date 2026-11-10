@@ -46,12 +46,12 @@ Because the term gets used loosely in marketing, it's worth checking a few speci
 
 - **Which actions are actually sponsored.** Some wallets sponsor only a first transaction or a specific feature, not every action, which is a meaningfully different product than "you never need gas."
 - **Which chains it covers.** A wallet that's gasless on one network may still require a native token balance on another it supports.
-- **Whether sponsorship affects custody.** Confirm the wallet still generates and holds your keys on your device — a sponsor covering your fee shouldn't require handing over control of your funds.
+- **Whether sponsorship affects custody.** Confirm the wallet still leaves you in control of your keys — a sponsor covering your fee shouldn't require handing over control of your funds.
 - **What happens at the edges.** Very large transactions, unusual asset types, or high-volume trading can fall outside a sponsorship program's limits; check whether the app is upfront about where those limits sit.
 
 ## Where Swop fits
 
-Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That applies across all four networks Swop runs on: Solana, Ethereum, Base, and Polygon. Sponsorship doesn't come at the cost of custody, either — Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That applies across all four networks Swop runs on: Solana, Ethereum, Base, and Polygon. Sponsorship doesn't come at the cost of custody, either. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 In practice that means a new Swop wallet is usable the moment you fund it with the asset you actually want to hold, not the asset the network happens to charge for. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322).
 
@@ -71,11 +71,11 @@ Sponsorship is usually scoped and rate-limited rather than unlimited, and the co
 
 ### Is Swop a gasless wallet?
 
-Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon.
+Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon.
 
 ### What's the difference between a gasless wallet and a custodial exchange account?
 
-Gas sponsorship and custody are separate questions. A wallet can sponsor your fees while still being fully self-custodial, meaning your keys stay on your device and the wallet provider never holds them. A custodial exchange account skips gas fees for a different reason — you're not transacting on-chain at all until you withdraw.
+Gas sponsorship and custody are separate questions. A wallet can sponsor your fees while still being fully self-custodial, meaning you control the keys and the wallet provider can't move your funds without you. A custodial exchange account skips gas fees for a different reason — you're not transacting on-chain at all until you withdraw.
 
 ST
 

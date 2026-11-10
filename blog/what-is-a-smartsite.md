@@ -16,11 +16,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 11, 2026 Update
 
 Contents What a SmartSite is Tabs, not a list of links The part that settles money Gated sections What it doesn't replace FAQ
 
-A SmartSite is a profile page hosted at your own `swop.id` handle — [travis.swop.id](https://swopme.app/sp/travis), for example. Rather than one flat column of links, it is organised into tabs you name and order yourself, and each tab holds whatever you drop into it: social links, a blog, audio and video, portfolio and position widgets, or products for sale. The difference that matters is the last one. A link-in-bio page points at a checkout somewhere else; a SmartSite takes the payment itself, and the money settles into a wallet whose keys never leave your device.
+A SmartSite is a profile page hosted at your own `swop.id` handle — [travis.swop.id](https://swopme.app/sp/travis), for example. Rather than one flat column of links, it is organised into tabs you name and order yourself, and each tab holds whatever you drop into it: social links, a blog, audio and video, portfolio and position widgets, or products for sale. The difference that matters is the last one. A link-in-bio page points at a checkout somewhere else; a SmartSite takes the payment itself, and the money settles into a wallet you control.
 
 ## What a SmartSite is
 
-Think of it as the page a wallet grows when it also has to be a public identity. It lives inside the Swop app rather than on separate hosting, so the same account that holds your funds also owns the page — no CMS, no separate login, no plugin to connect a payment processor. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which is what makes "the page takes the money" a meaningfully different statement from the same sentence on a hosted store.
+Think of it as the page a wallet grows when it also has to be a public identity. It lives inside the Swop app rather than on separate hosting, so the same account that holds your funds also owns the page — no CMS, no separate login, no plugin to connect a payment processor. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That is what makes "the page takes the money" a meaningfully different statement from the same sentence on a hosted store.
 
 ## Tabs, not a list of links
 

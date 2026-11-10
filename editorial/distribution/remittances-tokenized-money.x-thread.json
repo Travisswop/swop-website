@@ -14,7 +14,7 @@
     "But look at what neither retired.\n\nMoneyGram's balance still converts on demand across ~500,000 retail locations.\n\nThe wire between their own accounts got replaced. The payout network got kept — and the payout network is the expensive thing to run.",
     "So the test case isn't failed. It's CONDITIONAL.\n\nWhen the recipient can hold the stablecoin itself, there is no second leg. The transfer IS the payment.\n\nA freelancer invoiced in USDC. A merchant paying a supplier abroad. A saver who already keeps dollars.",
     "For those, tokenized money passes outright: instant, near-free, finished on arrival.\n\nFor a recipient who needs local cash at a counter tomorrow, it solved the cheap half of their problem and left the expensive half alone.",
-    "Where we sit, stated as one leg and not the trip:\n\nSwop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Transactions are gas-sponsored. It runs on Solana, Ethereum, Base and Polygon.\n\nIt is not a cash-out network.",
+    "Where we sit, stated as one leg and not the trip:\n\nYou control your Swop wallet: nothing moves without your approval, you can export your key, and Swop never holds your keys. Gas is sponsored. It runs on Solana, Ethereum, Base and Polygon.\n\nIt is not a cash-out network.",
     "Whether a given remittance also needs a cash-out depends on whether the recipient can use a dollar balance directly.\n\nThat's the question — and it isn't one any wallet answers just by existing.\n\nhttps://www.swopme.co/blog/remittances-tokenized-money"
   ]
 }

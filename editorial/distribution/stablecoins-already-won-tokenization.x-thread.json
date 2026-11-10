@@ -16,7 +16,7 @@
     "That claim is only as good as the reserve, the audits behind it, and the issuer's solvency.\n\nThe identical counterparty question that applies to a tokenized Treasury fund or a tokenized gold bar.",
     "Tokenization moved the asset onto a faster, more transferable rail.\n\nIt did not remove the issuer sitting in the middle of the claim. And it did not make every stablecoin interchangeable — reserve composition, audit cadence and jurisdiction all differ.",
     "To be explicit: this is a market-structure observation about tokenization broadly, not a claim about any stablecoin Swop issues.\n\nSwop doesn't issue one.",
-    "Where we sit: Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.\n\nIt runs on Solana, Ethereum, Base and Polygon, and transactions are gas-sponsored, so moving a stablecoin doesn't mean first buying a second asset for gas.",
+    "Where we sit: You control your Swop wallet: nothing moves without your approval, you can export your key, and Swop never holds your keys.\n\nIt runs on Solana, Ethereum, Base and Polygon, and gas is sponsored, so moving a stablecoin doesn't mean buying a second asset first.",
     "What the next wave borrows from stablecoins is the part that mattered: an asset you can hold yourself, move without permission, and settle instantly.\n\nRather than one merely described on a blockchain while the real custody arrangement stays exactly as it was.",
     "https://www.swopme.co/blog/stablecoins-already-won-tokenization"
   ]

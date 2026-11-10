@@ -52,7 +52,7 @@ A second question is nearly as useful: can I leave? A recovery model you cannot 
 
 ## How Swop handles it
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Recovery does not run through a phrase you are expected to guard forever: **losing your phone doesn’t mean losing your funds — log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose.**
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Recovery does not run through a phrase you are expected to guard forever: **losing your phone doesn’t mean losing your funds — log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose.**
 
 That second sentence is the one worth reading twice, because it answers the “can I leave?” question directly. The key is exportable. If you decide tomorrow that you would rather hold your assets in a different wallet entirely, nothing about the recovery model prevents it.
 

@@ -52,7 +52,7 @@ That version of a cross-border transfer — fund it once, let the recipient rece
 
 ## Where Swop sits in this
 
-Swop is built for the leg that is already solved, and is honest about not being a cash-out network. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — so a transfer that lands in a Swop wallet is immediately the recipient's, not a balance an intermediary is holding on their behalf. Transactions on Swop are gas-sponsored, so neither side needs to hold SOL or ETH just to move the money, and Swop runs on Solana, Ethereum, Base, and Polygon, so the wire itself isn't tied to a single network's fees or congestion.
+Swop is built for the leg that is already solved, and is honest about not being a cash-out network. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That means a transfer that lands in a Swop wallet is immediately the recipient's, not a balance an intermediary is holding on their behalf. Transactions on Swop are gas-sponsored, so neither side needs to hold SOL or ETH just to move the money, and Swop runs on Solana, Ethereum, Base, and Polygon, so the wire itself isn't tied to a single network's fees or congestion.
 
 That is one leg of the trip, stated plainly as one leg. Whether a given remittance also needs a cash-out still depends on whether the recipient can use a dollar-denominated balance directly — the question this piece spent its length on, not a question any wallet answers by existing.
 

@@ -16,7 +16,7 @@ Now where the analogy stops, because "winning" doesn't mean what it's often take
 
 To be explicit, since this is a market-structure observation and not a pitch: this is about tokenization broadly, not a claim about any stablecoin Swop issues. Swop doesn't issue one.
 
-Where we do sit is the self-custody side of the question. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base and Polygon, so stablecoins on any of those chains sit in a wallet you control rather than an account someone else administers. Transactions are gas-sponsored, which matters here because moving a stablecoin you already hold shouldn't require first acquiring a second asset just to pay the fee.
+Where we do sit is the self-custody side of the question. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base and Polygon, so stablecoins on any of those chains sit in a wallet you control rather than an account someone else administers. Transactions are gas-sponsored, which matters here because moving a stablecoin you already hold shouldn't require first acquiring a second asset just to pay the fee.
 
 What the next wave of tokenization borrows from stablecoins is the part that actually mattered: an asset you can hold yourself, move without asking permission, and settle instantly — rather than one merely described on a blockchain while the real custody arrangement stays exactly as it was.
 

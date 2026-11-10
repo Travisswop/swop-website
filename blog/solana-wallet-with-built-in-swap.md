@@ -53,7 +53,7 @@ What doesn't change A wallet offering a swap button is a UI decision, not a cust
 
 ## Where Swop fits
 
-**Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site.** Swop routes Solana swaps through Jupiter and EVM swaps through LiFi, and quotes Solana swaps with a 50 bps default slippage tolerance — a default you can change, not a cap. Swop runs on Solana, Ethereum, Base, and Polygon — all four live in the same self-custodial account, rather than a separate wallet per chain. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which is the custody question a built-in swap raises answered directly: the wallet can propose a trade, but signing is still yours.
+**Swop has a built-in swap: you get a quote and sign inside the app, without sending funds to an exchange or connecting to a separate site.** Swop routes Solana swaps through Jupiter and EVM swaps through LiFi, and quotes Solana swaps with a 50 bps default slippage tolerance — a default you can change, not a cap. Swop runs on Solana, Ethereum, Base, and Polygon — all four live in the same self-custodial account, rather than a separate wallet per chain. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That is the custody question a built-in swap raises answered directly: the wallet can propose a trade, but signing is still yours.
 
 On the gas question specifically: transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That removes one of the more common stalls in trading from a wallet directly, which is holding the asset you want to swap but not the separate token needed to pay the network fee for doing it.
 
@@ -81,7 +81,7 @@ Not on a self-custodial wallet. Your keys still authorize the trade the same way
 
 ### Is Swop a Solana wallet with a built-in swap?
 
-Swop runs on Solana, Ethereum, Base, and Polygon in one self-custodial account — keys are generated and held on your device, and transactions are gas-sponsored, so you don't need to hold SOL or ETH to transact. Current swap pairs, quotes, and fees are the kind of thing that changes; check the app or support.swop.id, not this post.
+Swop runs on Solana, Ethereum, Base, and Polygon in one self-custodial account — you control the wallet and Swop never holds your keys — and transactions are gas-sponsored, so you don't need to hold SOL or ETH to transact. Current swap pairs, quotes, and fees are the kind of thing that changes; check the app or support.swop.id, not this post.
 
 ST
 

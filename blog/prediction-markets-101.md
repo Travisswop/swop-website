@@ -54,7 +54,7 @@ Three things push a contract's price, and it helps to tell them apart:
 
 Swop's trading agent works across spot, perpetual futures, and prediction markets from inside the same wallet — reading a market's depth and recent flow, summarizing it in a paragraph instead of a dashboard, and proposing a trade you approve before anything signs. That confirmation model is the same one Swop uses everywhere it touches your funds: [the agent proposes, you approve, and nothing signs without a tap](https://www.swopme.co/blog/agentic-trading-is-live).
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 ## FAQ
 
@@ -76,7 +76,7 @@ The same way as any other market: bids are what buyers are offering, asks are wh
 
 ### Does Swop have a prediction market?
 
-Yes. Swop's trading agent works across spot, perpetual futures, and prediction markets from the same wallet, reading depth and flow and proposing trades you approve before anything signs. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Yes. Swop's trading agent works across spot, perpetual futures, and prediction markets from the same wallet, reading depth and flow and proposing trades you approve before anything signs. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 ST
 

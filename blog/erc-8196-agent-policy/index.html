@@ -42,7 +42,7 @@
     {"@type": "Question", "name": "What is ERC-8196?", "acceptedAnswer": {"@type": "Answer", "text": "ERC-8196 is a finalized Ethereum standard for AI-agent-authenticated wallets: a wallet that executes an agent's transaction only when it comes with verifiable proof that the action complies with a policy the asset owner defined. Policies cover allowed actions, contract allowlists, value caps, and time windows; actions are bound to a specific policy with EIP-712 typed signatures, and activity is written to a hash-chained audit trail."}},
     {"@type": "Question", "name": "Does Swop implement ERC-8196 exactly?", "acceptedAnswer": {"@type": "Answer", "text": "Swop's Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy's authority requires the owner's EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. Enforcement happens at Swop's backend signing seam — the point every agent transaction must pass to be signed — and the audit chain makes any violation provable. It is not an on-chain guarantee."}},
     {"@type": "Question", "name": "Can the policy layer lock me out of my funds?", "acceptedAnswer": {"@type": "Answer", "text": "No. Risk-reducing actions — exits, cancels, and withdrawals back to the owner — are never blocked by the policy layer. The owner can always get out."}},
-    {"@type": "Question", "name": "Does Swop's agent hold my keys?", "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them."}},
+    {"@type": "Question", "name": "Does Swop's agent hold my keys?", "acceptedAnswer": {"@type": "Answer", "text": "No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today."}},
     {"@type": "Question", "name": "Is the policy layer enforcing today?", "acceptedAnswer": {"@type": "Answer", "text": "The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows."}}
   ]
 }
@@ -119,7 +119,7 @@
 
 <h2 id="s5">Where it stands today</h2>
 <p>The policy layer shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows. Shadow mode means the layer evaluates every agent action against the vault's policy and writes its verdict to the audit chain without yet blocking — so by the time enforcement turns on, the decision history already exists to check it against.</p>
-<p>Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.</p>
+<p>You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. The agent, and the policy layer above it, live in the app you already have: iOS, Android, and the web app at swopme.app.</p>
 
 <h2 id="faq">FAQ</h2>
 <h3>What is ERC-8196?</h3>

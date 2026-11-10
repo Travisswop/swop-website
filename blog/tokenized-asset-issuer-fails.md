@@ -50,7 +50,7 @@ None of these four answers is visible in a token's ticker, its chain, or the wor
 
 ## What self-custody does and doesn't change
 
-Self-custody is a genuine, specific protection, and it is worth being precise about which risk it actually removes. **Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.** That removes the risk that an intermediary standing between you and your position blocks it, freezes it, or disappears with it.
+Self-custody is a genuine, specific protection, and it is worth being precise about which risk it actually removes. **You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.** That removes the risk that an intermediary standing between you and your position blocks it, freezes it, or disappears with it.
 
 What it does not remove is the issuer. As the companion piece on custody above puts it: holding a tokenized asset in your own wallet means you, not a third party, control the token itself — it does not change what the token is a claim on, or how strong that claim is if the issuer behind it fails. Those are two separate risks, solved by two separate things, and conflating them is the most common mistake in how tokenized assets get described.
 
