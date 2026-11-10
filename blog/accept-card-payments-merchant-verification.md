@@ -1,7 +1,7 @@
 ---
 title: "The Next Account Primitive: Identity That Transacts, and Proves Without Revealing"
 url: https://www.swopme.co/blog/accept-card-payments-merchant-verification
-description: "Email made accounts universal but left them inert. The next primitive is an identity that carries money and can prove one fact without disclosing who you are — which is what ZeroProof is for."
+description: "Email made accounts universal but left them inert. The next primitive is an identity that carries money and can prove one fact without disclosing who you are — which is what ZeroProof, still in development, is being built for."
 published: 2026-09-23
 updated: 2026-09-23
 ---
