@@ -1,0 +1,23 @@
+Tokenization gets pitched as something coming for Treasuries, gold and real estate. By the only metric that counts — value actually moved on-chain — it already happened, years ago, and the asset that won was the dollar.
+
+A stablecoin is tokenization. A token issued against a reserve of dollars or dollar-equivalents held off-chain, redeemable against that reserve, transferable on a public blockchain. That is the same structure as tokenized gold or a tokenized Treasury fund — not a metaphor, but the literal shape every tracker uses when it adds up "tokenized real-world assets." Under that structure, stablecoins aren't kept in a separate bucket from Treasuries and gold. They are the biggest line item inside the same bucket.
+
+The numbers, which rarely get stated side by side: CoinDesk Data's July 2026 report put total stablecoin market capitalisation at roughly $308 billion, against $32.1 billion for non-stablecoin tokenized real-world assets — and that second figure was the highest it had ever reached. A Token Terminal breakdown from the same quarter put total on-chain tokenized value near $346 billion, with stablecoins about 86% of it and the remainder, led by tokenized Treasuries at around $15 billion, split across every other category.
+
+Figures differ by tracker and by week, because different trackers include different token sets and measure distributed value differently from represented value. I'd rather state that than imply a precision the data doesn't have. But every major source lands in the same place.
+
+The rest of tokenization is not standing still either. CoinGecko's research desk recorded tokenized RWAs excluding stablecoins growing 256.7% over fifteen months, from $5.42 billion in January 2025 to $19.32 billion by the end of Q1 2026. That is a real growth rate by any standard. It is also, on CoinGecko's own framing, still only about 6.4% the size of the stablecoin market, up from 2.7% a year earlier — fast growth off a small base. Both halves of that sentence matter.
+
+Why did stablecoins win first? Not timing — a structural head start. Demand for dollars is already universal, so a stablecoin doesn't have to create a market, only move an existing one onto a rail that settles faster and crosses borders more easily. Tokenized Treasuries and gold have more work to do before they can even compete: most are gated to accredited or institutional buyers, and most route through a transfer-agent or allowlist layer that decides who is permitted to hold the token at all. A token that reverts if it lands in the wrong wallet is solving a compliance problem before it can solve a convenience problem.
+
+There's a simpler reason too. Most people who want gold or Treasury exposure can already get it through a brokerage account in a few taps, so tokenization has to beat an incumbent that is already easy to use. Cross-border dollar access is the opposite case — for a large share of the world the existing option is genuinely bad, and that is the gap stablecoins stepped into.
+
+Now where the analogy stops, because "winning" doesn't mean what it's often taken to mean. Holding a stablecoin means holding a claim on an issuer's promise to redeem it, backed by a reserve that issuer controls and reports on. That claim is only as good as the reserve, the audits behind it, and the issuer's own solvency — the identical counterparty question that applies to a tokenized Treasury fund or a tokenized gold bar. Tokenization moved the asset onto a faster, more transferable rail. It did not remove the issuer sitting in the middle of the claim, and it did not make every stablecoin interchangeable: reserve composition, audit cadence and jurisdictional backstops all differ between issuers.
+
+To be explicit, since this is a market-structure observation and not a pitch: this is about tokenization broadly, not a claim about any stablecoin Swop issues. Swop doesn't issue one.
+
+Where we do sit is the self-custody side of the question. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base and Polygon, so stablecoins on any of those chains sit in a wallet you control rather than an account someone else administers. Transactions are gas-sponsored, which matters here because moving a stablecoin you already hold shouldn't require first acquiring a second asset just to pay the fee.
+
+What the next wave of tokenization borrows from stablecoins is the part that actually mattered: an asset you can hold yourself, move without asking permission, and settle instantly — rather than one merely described on a blockchain while the real custody arrangement stays exactly as it was.
+
+https://www.swopme.co/blog/stablecoins-already-won-tokenization
