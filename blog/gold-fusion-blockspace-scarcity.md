@@ -88,7 +88,7 @@ None of which makes anything a good investment, and we are not telling you to bu
 
 For gold, the answer turned out to be “a sufficiently cheap neutron source.” That is much further away than the headlines implied. It is also no longer hypothetical, which it was a month ago.
 
-Swop is fully self-custodial — keys are generated and held on your device, and Swop never holds them — and it runs on Solana, Ethereum, Base and Polygon. Tokenized real-world assets on those chains, PAX Gold among them, can be swapped in the app through its existing routing like any other token. Whether you want to hold the metal, the blockspace, or neither, the part we think is worth insisting on is that you can check what you hold and move it without asking anyone.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base and Polygon. Tokenized real-world assets on those chains, PAX Gold among them, can be swapped in the app through its existing routing like any other token. Whether you want to hold the metal, the blockspace, or neither, the part we think is worth insisting on is that you can check what you hold and move it without asking anyone.
 
 ## FAQ
 

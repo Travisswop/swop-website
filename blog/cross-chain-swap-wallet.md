@@ -62,7 +62,7 @@ Three questions cut through most of it. Who is holding your funds mid-route, and
 
 ## Where Swop fits
 
-Swop runs on Solana, Ethereum, Base, and Polygon — so all four are live in the same app and the same account, rather than requiring a separate wallet per chain. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which covers the custody question for your keys, though as above it is a separate question from who holds funds mid-route on any given swap.
+Swop runs on Solana, Ethereum, Base, and Polygon — so all four are live in the same app and the same account, rather than requiring a separate wallet per chain. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That covers the custody question for your keys, though as above it is a separate question from who holds funds mid-route on any given swap.
 
 On the gas problem specifically: transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. That removes the most common failure mode of multi-chain life, which is arriving somewhere with assets you cannot touch because you have none of that chain's native token.
 

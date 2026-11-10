@@ -48,7 +48,7 @@ Not every page that calls itself "crypto-friendly" does this. A few questions ar
 
 Swop's version of this is the SmartSite. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. An agent that discovers a product on a swop.id page can complete the purchase in the same HTTP flow described above — no account, no checkout form, no human required on the selling side either.
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and runs on Solana, Ethereum, Base, and Polygon. The wallet itself is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app). For the buyer-side mechanics of the protocol itself — including who a "facilitator" is and what it can and can't do — see [what is x402](https://www.swopme.co/blog/what-is-x402).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon. The wallet itself is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and the web at [swopme.app](https://swopme.app). For the buyer-side mechanics of the protocol itself — including who a "facilitator" is and what it can and can't do — see [what is x402](https://www.swopme.co/blog/what-is-x402).
 
 ## FAQ
 
@@ -70,7 +70,7 @@ You need a wallet and a basic sense of what a stablecoin is, but you don't need 
 
 ### Does Swop's SmartSite work this way?
 
-Yes. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them.
+Yes. Every SmartSite is an x402 storefront: any product a user adds is automatically payable by AI agents in USDC over the x402 protocol, with payout going directly on-chain to the seller. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.
 
 ST
 

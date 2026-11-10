@@ -59,12 +59,12 @@
     {
       "@type": "Question",
       "name": "Is Swop a self-custody wallet?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Yes. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Swop runs on Solana, Ethereum, Base, and Polygon, with an iOS app, an Android app, and a web app at swopme.app."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Yes. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Swop runs on Solana, Ethereum, Base, and Polygon, with an iOS app, an Android app, and a web app at swopme.app."}
     },
     {
       "@type": "Question",
       "name": "What makes a self-custody wallet good for Solana specifically?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Three things: keys generated and stored only on your device, no requirement to pre-fund SOL just to move other tokens, and clean support for the SPL token standard Solana apps actually use. A wallet that gets any of those wrong makes self-custody harder than it needs to be."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Three things: keys that only you control, no requirement to pre-fund SOL just to move other tokens, and clean support for the SPL token standard Solana apps actually use. A wallet that gets any of those wrong makes self-custody harder than it needs to be."}
     }
   ]
 }
@@ -115,33 +115,33 @@
 <a href="#faq">FAQ</a>
 </aside>
 <article class="prose">
-<p>A self-custody wallet is one where you, not an exchange or a company, hold the private keys that control your funds — on Solana, those keys are generated and stored on your device, and every transaction is signed locally before it moves. No third party can freeze, seize, or spend from a self-custody wallet, because no third party holds the keys. The best options for Solana pair that key control with low-to-no gas fees and clean support for SPL tokens, since a wallet that fumbles either makes self-custody more painful than it needs to be.</p>
+<p>A self-custody wallet is one where you, not an exchange or a company, control the private keys that control your funds — on Solana, nothing moves until a transaction is signed with those keys. No third party can spend from a self-custody wallet without you. The best options for Solana pair that key control with low-to-no gas fees and clean support for SPL tokens, since a wallet that fumbles either makes self-custody more painful than it needs to be.</p>
 
 <h2 id="s1">What "self-custody" means</h2>
 <p>Every crypto wallet falls into one of two categories. A custodial wallet — the kind built into most exchanges — holds your private keys on its own servers. You log in with a password, and the company signs transactions on your behalf. That is convenient, and it is also why exchange outages, freezes, and insolvencies turn into headlines: the funds were never really in your control, they were in the exchange's, on your behalf.</p>
-<p>A self-custody wallet flips that. The private key — or the seed phrase that generates it — lives only on your device. Nobody can freeze the wallet, reverse a transaction, or move funds out of it without that key, including the company that built the wallet software. That is the entire trade being made: full control, in exchange for full responsibility.</p>
+<p>A self-custody wallet flips that. You control the key. In the classic design the private key — or the seed phrase that generates it — lives only on your device; newer wallets secure the key with a provider so you can get back in with a login instead of a phrase. Either way the test is the same: nobody can move funds out of the wallet without you, including the company that built the wallet software. That is the trade being made: control, in exchange for responsibility.</p>
 
 <h2 id="s2">Keys and signing on Solana</h2>
 <p>Practically, a Solana wallet generates a keypair and shows you a seed phrase — usually 12 or 24 words — that can regenerate that same keypair on any device. Whoever holds the seed phrase holds the wallet, full stop. Every action that touches your balance, from a swap to a transfer to approving an app, produces a transaction that has to be signed with that key before Solana's network will process it.</p>
-<p>That signature step is the actual security boundary. A wallet interface can show you whatever it wants, but nothing moves until the signature happens, and the signature can only happen where the key lives. Solana also charges a small network fee in SOL for each transaction by default, which is a separate detail from custody but one that shapes which wallets are pleasant to use day to day.</p>
+<p>That signature step is the actual security boundary. A wallet interface can show you whatever it wants, but nothing moves until the signature happens. Solana also charges a small network fee in SOL for each transaction by default, which is a separate detail from custody but one that shapes which wallets are pleasant to use day to day.</p>
 
 <h2 id="s3">What to check before choosing a self-custody wallet for Solana</h2>
 <p>Most wallets that call themselves "self-custody" get the core promise right. Where they differ is in the details that decide whether self-custody feels safe or feels like a chore:</p>
 <ul>
-<li><strong>Where keys are generated and stored.</strong> This should happen on your device only, never on a server you have to trust.</li>
-<li><strong>Recovery method.</strong> A seed phrase you back up yourself, not a company-held recovery flow that reintroduces the thing self-custody is supposed to remove.</li>
+<li><strong>Who controls the keys.</strong> Ask where the key is created, who can use it, and whether you can export it. No company should be able to move your funds without you.</li>
+<li><strong>Recovery method.</strong> A seed phrase you back up yourself puts everything on you; login-based recovery is easier but makes your email part of your security. <a class="link" href="/blog/recover-wallet-without-seed-phrase">Either can leave you in control</a> — check that you can export the key and leave.</li>
 <li><strong>Gas handling.</strong> Some wallets require you to pre-fund SOL before you can do anything else, even move a different token. Others sponsor the fee.</li>
 <li><strong>Token support.</strong> Native handling of SPL tokens (Solana's token standard), and, if you hold assets on more than one chain, whether the wallet covers those too instead of forcing you to run several apps.</li>
 <li><strong>What automation can and can't do.</strong> If the wallet offers any AI or automated trading feature, check whether it can sign and move funds on its own, or whether it can only propose actions that you approve.</li>
 </ul>
 
 <h2 id="s4">You are the recovery plan</h2>
-<p>The honest downside of self-custody is that there is no fallback. Lose the seed phrase, and the funds in that wallet are gone — not frozen, not recoverable through a support ticket, just gone, because no one else ever held a copy to restore from. That is the same property that keeps a self-custody wallet safe from a third party; it cuts both ways.</p>
+<p>The honest downside of a seed-phrase wallet is that there is no fallback. Lose the seed phrase, and the funds in that wallet are gone — not frozen, not recoverable through a support ticket, just gone, because no one else ever held a copy to restore from. That is the same property that keeps a self-custody wallet safe from a third party; it cuts both ways.</p>
 <div class="note"><span class="k">Practical habit</span>Write the seed phrase down offline, store it in more than one physical location, and never type it into a website, chat, or screenshot. Any wallet or "support agent" that asks you to enter your seed phrase to fix a problem is not legitimate software behaving normally.</div>
 <p>This is also why self-custody tends to suit active, hands-on users better than people who want to set-and-forget. It rewards someone who backs up carefully once and then transacts freely, not someone hoping a company will bail them out of a mistake later.</p>
 
 <h2 id="s5">Where Swop fits</h2>
-<p>Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — which addresses the pre-funding friction described above. Swop runs on Solana, Ethereum, Base, and Polygon, so the same wallet covers assets across those networks instead of splitting them across separate apps.</p>
+<p>You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Swop doesn't hand you a seed phrase to guard: losing your phone doesn't mean losing your funds — log in with your email on any phone and your Swop wallet comes back with it — which makes that email account part of your security. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — which addresses the pre-funding friction described above. Swop runs on Solana, Ethereum, Base, and Polygon, so the same wallet covers assets across those networks instead of splitting them across separate apps.</p>
 <p>Swop also ships an AI trading agent, and the automation question from the checklist above applies directly to it: <a class="link" href="/blog/agentic-trading-is-live">Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.</a> Swop is available on <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS</a> and <a class="link" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a>, and as a web app at <a class="link" href="https://swopme.app">swopme.app</a>. Swop is rated 5.0 out of 5 on the <a class="link" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">iOS App Store</a>.</p>
 
 <h2 id="faq">FAQ</h2>
@@ -152,9 +152,9 @@
 <h3>Do I need to hold SOL to pay gas fees in a self-custody wallet?</h3>
 <p>On most Solana wallets, yes — every transaction needs a small amount of SOL for network fees. Some wallets sponsor that fee instead. Transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH to transact.</p>
 <h3>Is Swop a self-custody wallet?</h3>
-<p>Yes. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Swop runs on Solana, Ethereum, Base, and Polygon, with an iOS app, an Android app, and a web app at swopme.app.</p>
+<p>Yes. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Swop runs on Solana, Ethereum, Base, and Polygon, with an iOS app, an Android app, and a web app at swopme.app.</p>
 <h3>What makes a self-custody wallet good for Solana specifically?</h3>
-<p>Three things: keys generated and stored only on your device, no requirement to pre-fund SOL just to move other tokens, and clean support for the SPL token standard Solana apps actually use. A wallet that gets any of those wrong makes self-custody harder than it needs to be.</p>
+<p>Three things: keys that only you control, no requirement to pre-fund SOL just to move other tokens, and clean support for the SPL token standard Solana apps actually use. A wallet that gets any of those wrong makes self-custody harder than it needs to be.</p>
 
 <div class="art-end">
 <span class="ini">ST</span>

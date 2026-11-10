@@ -1,6 +1,6 @@
 "Self-custody crypto wallet Bangladesh" is a real search with a real reason behind it. It also has an answer that isn't the one a wallet company would prefer to give.
 
-Start with what self-custody actually is. A custodial wallet — the kind built into most exchanges — holds the private key for you, which means the exchange can freeze your account, reverse a mistaken transfer, or act on a court order from its own database. A self-custody wallet generates the key on your device and never transmits it. The tradeoff is symmetrical: nobody can do those things for you either, including undo a mistake.
+Start with what self-custody actually is. A custodial wallet — the kind built into most exchanges — holds the private key for you, which means the exchange can freeze your account, reverse a mistaken transfer, or act on a court order from its own database. A self-custody wallet leaves the key under your control. The tradeoff is symmetrical: nobody can do those things for you either, including undo a mistake.
 
 That is the entire distinction. It says nothing about which chain you are on, which country you are in, or whether the underlying activity is permitted. It is purely a statement about where the key lives.
 

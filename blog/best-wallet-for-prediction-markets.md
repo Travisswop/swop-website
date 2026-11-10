@@ -24,7 +24,7 @@ A prediction market app is anywhere you can trade contracts on real-world outcom
 
 ## Custody: who holds the funds
 
-The first question is whether the app is self-custodial or custodial. A self-custodial wallet generates keys on your device and can't move your funds without your signature — the app is a piece of software you use, not a party holding your money. A custodial app works more like an exchange: it holds a pooled wallet on its own infrastructure and credits you an internal balance. That balance is only as safe as the platform's solvency and uptime — if it freezes withdrawals or gets compromised, your position is stuck behind someone else's decision, not yours.
+The first question is whether the app is self-custodial or custodial. A self-custodial wallet leaves the keys under your control and can't move your funds without your signature — the app is a piece of software you use, not a party holding your money. A custodial app works more like an exchange: it holds a pooled wallet on its own infrastructure and credits you an internal balance. That balance is only as safe as the platform's solvency and uptime — if it freezes withdrawals or gets compromised, your position is stuck behind someone else's decision, not yours.
 
 This distinction matters more for prediction markets than for a routine swap, because a position often sits open for days or weeks until the event resolves. That's a long time to be trusting a balance you don't hold the keys to.
 
@@ -44,7 +44,7 @@ AI trading agents are increasingly bundled into wallets, including for predictio
 
 | Check | Look for | Red flag
 
-| Custody | Keys generated and held on your device; the app can't move funds without your signature | A pooled "balance" you don't hold the keys to
+| Custody | You control the keys; the app can't move funds without your signature | A pooled "balance" you don't hold the keys to
 
 | Fees & gas | Trading fee and network fee priced and shown separately | Gas quietly folded into a worse yes/no price
 
@@ -56,7 +56,7 @@ AI trading agents are increasingly bundled into wallets, including for predictio
 
 | Platforms | Available where you actually trade — phone, browser, or both | Locked to one platform with no roadmap for the rest
 
-Run Swop through that same list. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon. Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — the same confirmation model [covered here](https://www.swopme.co/blog/agentic-trading-is-live), where prediction markets are one of the surfaces the agent reads alongside spot and perps. Swop's custody model is also documented in its [support docs](https://support.swop.id). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+Run Swop through that same list. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon. Losing your phone doesn't mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys — the same confirmation model [covered here](https://www.swopme.co/blog/agentic-trading-is-live), where prediction markets are one of the surfaces the agent reads alongside spot and perps. Swop's custody model is also documented in its [support docs](https://support.swop.id). Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 ST
 

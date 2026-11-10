@@ -16,11 +16,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Aug 27, 2026 Update
 
 Contents Custody and keys Chains and swaps Gas fees In-person payments AI agents Side by side
 
-Swop and Phantom are both self-custodial Solana wallets — private keys are generated and stored on your device on either one, and neither company can access, freeze, or move your funds without you. Where they diverge is in three practical places: how gas fees work, how far each one reaches into in-person payments, and how much either wallet's AI agent is allowed to do without asking first.
+Swop and Phantom are both self-custodial Solana wallets — you control the keys on either one, and neither company can move your funds without you. Where they diverge is in three practical places: how gas fees work, how far each one reaches into in-person payments, and how much either wallet's AI agent is allowed to do without asking first.
 
 ## Custody and keys
 
-Both wallets make the same core promise. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. [Phantom](https://phantom.com) makes the same claim about its own keys: it's a self-custody wallet application and browser extension, and Phantom does not hold or have access to your private keys either. On this specific point there's no real gap to weigh — generate a fresh seed phrase in either app, back it up, and you're the only party who can move funds from it.
+Both wallets make the same core promise. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. [Phantom](https://phantom.com) makes the same claim about its own keys: it's a self-custody wallet application and browser extension, and Phantom does not hold or have access to your private keys either. On this specific point there's no real gap to weigh — generate a fresh seed phrase in either app, back it up, and you're the only party who can move funds from it.
 
 That shared architecture means the same tradeoff applies to both: neither company can freeze an account or reverse a mistake, because neither one is holding the keys that would let them. If you lose your seed phrase on Swop or on Phantom, the outcome is identical — the funds in that wallet become unreachable, with no support ticket that can bring them back. Self-custody is the same deal wherever you buy it.
 
@@ -48,7 +48,7 @@ The practical question to ask yourself is what happens when the agent is wrong. 
 
 | Feature | Swop | Phantom
 
-| Custody | Fully self-custodial, keys never leave your device | Self-custodial, keys never leave your device
+| Custody | You control the wallet; Swop never holds your keys (wallets run on Privy today) | Self-custodial, keys never leave your device
 
 | Chains | Solana, Ethereum, Base, Polygon | 9 networks incl. all four at left, plus Bitcoin, Sui, Monad, HyperEVM, Robinhood Chain (as of writing)
 
@@ -60,7 +60,7 @@ The practical question to ask yourself is what happens when the agent is wrong. 
 
 | Platforms | iOS, Android, web app | Browser extension, iOS, Android
 
-If gas fees are the friction that's kept you from trying a self-custody wallet, or you want an AI agent that can't move money without your say-so on every single transaction, Swop is built around both of those defaults. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and it runs on Solana, Ethereum, Base, and Polygon with transactions gas-sponsored so you don't need to hold SOL or ETH to transact. The confirmation model carries through the whole app: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the iOS App Store.
+If gas fees are the friction that's kept you from trying a self-custody wallet, or you want an AI agent that can't move money without your say-so on every single transaction, Swop is built around both of those defaults. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and Swop runs on Solana, Ethereum, Base, and Polygon with transactions gas-sponsored so you don't need to hold SOL or ETH to transact. The confirmation model carries through the whole app: [Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys.](https://www.swopme.co/blog/agentic-trading-is-live) Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). Swop is rated 5.0 out of 5 on the iOS App Store.
 
 ST
 

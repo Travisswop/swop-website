@@ -36,7 +36,7 @@ A handle like `travis.swop.id` looks like a username and behaves like something 
 
 That last part is the tell that this is a different primitive rather than a nicer profile page. An email address cannot be the counterparty to a transaction. A handle that resolves to a wallet can — including with software on the other side. When an AI agent runs an errand and needs to pay for something, it needs an address that accepts money, not a mailbox it can write to.
 
-And because the wallet underneath is self-custodial — keys are generated and held on your device; Swop never holds them — the account is not a balance a company keeps on your behalf. It is yours in the sense that email accounts never were.
+And because you control the wallet underneath — nothing moves without your approval, you can export your private key, and Swop never holds your keys — the account is not a balance a company keeps on your behalf. It is yours in the sense that email accounts never were.
 
 ## The proof problem
 

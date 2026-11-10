@@ -47,7 +47,7 @@ Two further pieces of the picture are now public, and both are mechanisms rather
 
 Payment products generally make money one of a few ways: a recurring subscription, a spread between what a buyer pays and a seller receives, or a per-transaction fee charged openly at checkout. Swop's design rules out two of those almost by construction.
 
-Swop is fully self-custodial — keys are generated and held on your device, Swop never holds them. A platform that never holds a customer's funds has nothing to earn a spread or float on, because there's no balance sitting in a company-controlled account in the first place. And transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop covers the network fee: a cost Swop absorbs, not a charge passed through to you and not a margin quietly taken on top.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. A platform that never holds a customer's funds has nothing to earn a spread or float on, because there's no balance sitting in a company-controlled account in the first place. And transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact. Swop covers the network fee: a cost Swop absorbs, not a charge passed through to you and not a margin quietly taken on top.
 
 That leaves a fee that's charged in the open, at the moment value changes hands, as the lever that's actually compatible with those two commitments. It's a narrower business model than a custodial exchange has available to it, which is part of why there's only one number to report here rather than several.
 
@@ -73,7 +73,7 @@ Swop has a built-in swap — you get a quote and sign inside the app — but no 
 
 ### Does Swop make money by holding user funds or marking up gas fees?
 
-Structurally, no. Swop is fully self-custodial — keys are generated and held on your device, Swop never holds them — so there are no user funds sitting in a Swop-controlled account to earn a spread on. And transactions are gas-sponsored, meaning Swop covers the network fee rather than charging you for it. Neither leaves room to be a revenue source the way they can be for custodial platforms.
+Structurally, no. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That means there are no user funds sitting in a Swop-controlled account to earn a spread on. And transactions are gas-sponsored, meaning Swop covers the network fee rather than charging you for it. Neither leaves room to be a revenue source the way they can be for custodial platforms.
 
 ST
 

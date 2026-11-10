@@ -31,7 +31,7 @@ Neither shape requires you to register anything before the first payment arrives
 
 The mechanical steps are short:
 
-- **Create a self-custody wallet.** Keys are generated and held on your device — the platform hosting your payment page never holds them.
+- **Create a self-custody wallet.** You control the keys — the platform hosting your payment page never holds them.
 - **Add your rate or service as a listing.** A short title, a price in a stablecoin, and a description is usually enough.
 - **Share the link.** Drop it in an email, a proposal, or your existing invoice — it works standalone, without the client needing an account on your platform first.
 - **Get paid on-chain.** The client pays from their own wallet; the payment settles directly to yours, with no processor sitting in between holding the funds overnight.
@@ -52,7 +52,7 @@ The crypto rail skips the paperwork. The card rail is there for the clients who'
 
 ## Keeping the money once it lands
 
-Once a payment settles, three things are worth knowing about where it sits. First, it's self-custodial — Swop is fully self-custodial, keys are generated and held on your device, and Swop never holds them, so the funds aren't sitting in a platform-controlled balance waiting on a withdrawal request. Second, moving or converting it doesn't require you to separately go acquire a network's gas token first: transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH just to transact. Third, Swop runs on Solana, Ethereum, Base, and Polygon, so which chain a client pays you on doesn't lock you into using only that chain going forward.
+Once a payment settles, three things are worth knowing about where it sits. First, it's yours — you control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys, so the funds aren't sitting in a platform-controlled balance waiting on a withdrawal request. Second, moving or converting it doesn't require you to separately go acquire a network's gas token first: transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH just to transact. Third, Swop runs on Solana, Ethereum, Base, and Polygon, so which chain a client pays you on doesn't lock you into using only that chain going forward.
 
 One thing this post won't tell you is how crypto income should be reported where you live — that depends on your local tax rules, not on which wallet you use, so keep your own record of what was paid and when.
 

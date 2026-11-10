@@ -84,7 +84,7 @@ Self-custody also hands you the key problem. Lose the key and there is no suppor
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That is the side of the dial we build on, and it is a deliberate choice rather than a technical accident.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That is the side of the dial we build on, and it is a deliberate choice rather than a technical accident.
 
 Concretely: tokenized real-world assets that live on Swop’s supported chains — such as PAX Gold on Ethereum — can be swapped in the Swop app through its existing routing, the same as any other token. Swop runs on Solana, Ethereum, Base and Polygon, and transactions are gas-sponsored, so holding a tokenized asset does not require first acquiring the chain’s native token to pay a fee. Swop covers the network fee; it is a cost Swop absorbs, not a charge passed through to you.
 

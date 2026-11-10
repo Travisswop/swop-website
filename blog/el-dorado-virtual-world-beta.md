@@ -54,7 +54,7 @@ You can take either side of that fight. The bit that matters here is simpler: **
 
 You arrive holding your own keys.
 
-Swop is fully self-custodial — keys are generated and held on your device, and Swop never holds them. Your way in is something you control, not an account someone else can switch off.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Your way in is something you control, not an account someone else can switch off.
 
 A few practical consequences:
 
@@ -100,7 +100,7 @@ Open swopme.co/eldorado, sign in with your swop.id, and approve it in the Swop a
 
 ### Do I need crypto experience or a seed phrase?
 
-No. You need a swop.id, claimed in the Swop app. Swop is self-custodial, so keys are generated and held on your device, but you sign in with your identity rather than by managing a seed phrase. Transactions are gas-sponsored too, so you don’t need to hold SOL or ETH to transact.
+No. You need a swop.id, claimed in the Swop app. You control your Swop wallet and Swop never holds your keys, but you sign in with your identity rather than by managing a seed phrase. Transactions are gas-sponsored too, so you don’t need to hold SOL or ETH to transact.
 
 ### Does this mean I legally own my virtual items?
 

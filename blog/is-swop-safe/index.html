@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Is Swop Safe? How Self-Custody and Signing Work</title>
-<meta name="description" content="Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you.">
+<meta name="description" content="You control your Swop wallet: nothing moves without your approval, you can export your private key, and its AI agent can propose trades but never sign for you.">
 <link rel="canonical" href="https://www.swopme.co/blog/is-swop-safe">
 <link rel="icon" href="/favicon.ico">
 <meta property="og:type" content="article">
 <meta property="og:site_name" content="Swop">
 <meta property="og:title" content="Is Swop Safe? How Self-Custody and Signing Work">
-<meta property="og:description" content="Your keys stay on your device, every transaction needs your signature, and Swop's AI agent proposes but never signs for you. Here's the actual safety model.">
+<meta property="og:description" content="Nothing moves without your approval, you can export your private key, and Swop's AI agent proposes but never signs for you. Here's the actual safety model.">
 <meta property="og:url" content="https://www.swopme.co/blog/is-swop-safe">
 <meta property="og:image" content="https://www.swopme.co/blog/is-swop-safe/og.png">
 <meta property="og:image:width" content="1200">
@@ -22,13 +22,13 @@
 <meta name="twitter:image" content="https://www.swopme.co/blog/is-swop-safe/og.png">
 <meta name="twitter:site" content="@swoplabs">
 <meta name="twitter:title" content="Is Swop Safe? How Self-Custody and Signing Work">
-<meta name="twitter:description" content="Your keys stay on your device, every transaction needs your signature, and Swop's AI agent proposes but never signs for you.">
+<meta name="twitter:description" content="Nothing moves without your approval, you can export your private key, and Swop's AI agent proposes but never signs for you.">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Is Swop Safe? How Self-Custody and Signing Work",
-  "description": "Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you.",
+  "description": "You control your Swop wallet: nothing moves without your approval, you can export your private key, and its AI agent can propose trades but never sign for you.",
   "datePublished": "2026-09-01",
   "dateModified": "2026-09-01",
   "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
@@ -44,12 +44,12 @@
     {
       "@type": "Question",
       "name": "Is Swop custodial or non-custodial?",
-      "acceptedAnswer": {"@type": "Answer", "text": "Non-custodial. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That means Swop's servers being down, hacked, or shut off has no bearing on whether you can access your funds, because the funds were never in Swop's custody to begin with."}
+      "acceptedAnswer": {"@type": "Answer", "text": "Non-custodial. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Your funds are never a balance sitting in a Swop-controlled account."}
     },
     {
       "@type": "Question",
       "name": "Can Swop or its team move my funds without me?",
-      "acceptedAnswer": {"@type": "Answer", "text": "No. Every transaction on Swop has to be signed with a key that lives only on your device, and Swop never holds a copy of it. There is no admin action, support ticket, or backend process that can move funds out of your wallet without that signature."}
+      "acceptedAnswer": {"@type": "Answer", "text": "No. Nothing moves without your approval, and Swop never holds your keys. You can also export your private key and open your assets in any wallet you choose."}
     },
     {
       "@type": "Question",
@@ -115,18 +115,18 @@
 <a href="#faq">FAQ</a>
 </aside>
 <article class="prose">
-<p>Swop is safe in the specific ways that matter for a self-custodial wallet: your keys are generated and held only on your device, every transaction requires your signature before it moves, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — self-custody means you are your own recovery plan, and no wallet, Swop included, can undo a transaction you approved by mistake.</p>
+<p>Swop is safe in the specific ways that matter for a wallet you control: nothing moves without your approval, you can export your private key, Swop never holds your keys, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — your login is part of your security, and no wallet, Swop included, can undo a transaction you approved by mistake.</p>
 
 <h2 id="s1">What "safe" means here</h2>
 <p>"Is this wallet safe" usually bundles together three different questions, and it's worth separating them before answering any of them. First: can the company behind the wallet lose or misuse your funds, the way an exchange can? Second: can a transaction move your money without your explicit approval? Third, if the wallet has any automation or AI feature, can that automation act on its own? A wallet can score well on one of these and poorly on another, so "is it safe" only means something once you know which question you're asking.</p>
 <p>This post answers all three for Swop, in order, and points to where you can check each claim yourself rather than take our word for it.</p>
 
 <h2 id="s2">Who holds the keys</h2>
-<p>Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That single fact answers the first question above: Swop's servers going down, getting hacked, or a support agent making a mistake cannot result in your funds being lost or frozen, because your funds were never in Swop's custody. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies across all four — there's no chain where Swop holds a spare key on your behalf.</p>
-<p>The tradeoff is the standard one for any self-custodial wallet: if the key on your device is gone and you have no backup, nobody — including Swop — has a copy to restore from. Self-custody removes the risk of a third party controlling your funds by making you the only party who can.</p>
+<p>You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That answers the first question above: your funds are not a balance sitting in a Swop-controlled account, because Swop never holds your keys. Swop runs on Solana, Ethereum, Base, and Polygon, and the same model applies across all four.</p>
+<p>The tradeoff is not the one a seed-phrase wallet makes. Login and wallets run on a partner, Privy, so using the app depends on that service, and your login is part of your security — protect the email behind it with a strong second factor. The way out is always open: export your private key and you can open your assets in any wallet you choose.</p>
 
 <h2 id="s3">Nothing moves without your tap</h2>
-<p>The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens locally, on your device, when you tap to confirm. An interface can show you whatever it wants; nothing actually moves until that signature exists, and the signature can only be produced where the key lives.</p>
+<p>The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens when you approve it. An interface can show you whatever it wants; nothing actually moves until that signature exists.</p>
 <p>That's also true for transactions Swop sponsors the gas on. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but gas sponsorship only changes who pays the network fee, not who authorizes the transaction. Signing and paying are separate steps, and Swop's sponsorship only ever touches the second one.</p>
 
 <h2 id="s4">The AI agent's confirmation model</h2>
@@ -141,9 +141,9 @@
 
 <h2 id="faq">FAQ</h2>
 <h3>Is Swop custodial or non-custodial?</h3>
-<p>Non-custodial. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That means Swop's servers being down, hacked, or shut off has no bearing on whether you can access your funds, because the funds were never in Swop's custody to begin with.</p>
+<p>Non-custodial. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Your funds are never a balance sitting in a Swop-controlled account.</p>
 <h3>Can Swop or its team move my funds without me?</h3>
-<p>No. Every transaction on Swop has to be signed with a key that lives only on your device, and Swop never holds a copy of it. There is no admin action, support ticket, or backend process that can move funds out of your wallet without that signature.</p>
+<p>No. Nothing moves without your approval, and Swop never holds your keys. You can also export your private key and open your assets in any wallet you choose.</p>
 <h3>Does Swop's AI agent trade on its own?</h3>
 <p>No. Swop's agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Agent-initiated transactions additionally run under a policy layer, but the approval step is the same one every manual transaction goes through.</p>
 <h3>What happens if I lose my phone?</h3>

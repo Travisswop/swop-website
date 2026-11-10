@@ -53,7 +53,7 @@ Because the link itself is the claim on the funds, the security model is closer 
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — which holds whether you're sending directly to an address or funding a claim link for someone to open later. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — across the four networks Swop runs on: Solana, Ethereum, Base, and Polygon.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That holds whether you're sending directly to an address or funding a claim link for someone to open later. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — across the four networks Swop runs on: Solana, Ethereum, Base, and Polygon.
 
 Recipients don't need to have used Swop before to claim a link: losing your phone doesn't mean losing your funds on Swop, since you can log in with your email on any phone and your wallet comes back with it — the same account model that lets a first-time recipient claim into a fresh wallet without a seed phrase to lose track of. Swop is available on [iOS](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322) and [Android](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app). For app-specific setup and troubleshooting, see [support.swop.id](https://support.swop.id).
 

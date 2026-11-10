@@ -1,7 +1,7 @@
 ---
 title: "Is Swop Safe? How Self-Custody and Signing Work"
 url: https://www.swopme.co/blog/is-swop-safe
-description: "Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you."
+description: "You control your Swop wallet: nothing moves without your approval, you can export your private key, and its AI agent can propose trades but never sign for you."
 published: 2026-09-01
 updated: 2026-09-01
 ---
@@ -16,7 +16,7 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 1, 2026 Updated
 
 Contents What "safe" means here Who holds the keys Nothing moves without your tap The AI agent's confirmation model What to verify yourself FAQ
 
-Swop is safe in the specific ways that matter for a self-custodial wallet: your keys are generated and held only on your device, every transaction requires your signature before it moves, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — self-custody means you are your own recovery plan, and no wallet, Swop included, can undo a transaction you approved by mistake.
+Swop is safe in the specific ways that matter for a wallet you control: nothing moves without your approval, you can export your private key, Swop never holds your keys, and Swop's AI trading agent can propose trades but cannot sign or move funds on its own. That doesn't make it risk-free — your login is part of your security, and no wallet, Swop included, can undo a transaction you approved by mistake.
 
 ## What "safe" means here
 
@@ -26,13 +26,13 @@ This post answers all three for Swop, in order, and points to where you can chec
 
 ## Who holds the keys
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That single fact answers the first question above: Swop's servers going down, getting hacked, or a support agent making a mistake cannot result in your funds being lost or frozen, because your funds were never in Swop's custody. Swop runs on Solana, Ethereum, Base, and Polygon, and the same self-custody model applies across all four — there's no chain where Swop holds a spare key on your behalf.
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. That answers the first question above: your funds are not a balance sitting in a Swop-controlled account, because Swop never holds your keys. Swop runs on Solana, Ethereum, Base, and Polygon, and the same model applies across all four.
 
-The tradeoff is the standard one for any self-custodial wallet: if the key on your device is gone and you have no backup, nobody — including Swop — has a copy to restore from. Self-custody removes the risk of a third party controlling your funds by making you the only party who can.
+The tradeoff is not the one a seed-phrase wallet makes. Login and wallets run on a partner, Privy, so using the app depends on that service, and your login is part of your security — protect the email behind it with a strong second factor. The way out is always open: export your private key and you can open your assets in any wallet you choose.
 
 ## Nothing moves without your tap
 
-The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens locally, on your device, when you tap to confirm. An interface can show you whatever it wants; nothing actually moves until that signature exists, and the signature can only be produced where the key lives.
+The second question — can a transaction move money without your approval — comes down to the signing step. On every chain Swop supports, a transaction only becomes valid once it's signed with the private key controlling the account, and that signing happens when you approve it. An interface can show you whatever it wants; nothing actually moves until that signature exists.
 
 That's also true for transactions Swop sponsors the gas on. Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact — but gas sponsorship only changes who pays the network fee, not who authorizes the transaction. Signing and paying are separate steps, and Swop's sponsorship only ever touches the second one.
 
@@ -56,11 +56,11 @@ The general rule holds for any wallet, not just Swop: "self-custodial" and "audi
 
 ### Is Swop custodial or non-custodial?
 
-Non-custodial. Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. That means Swop's servers being down, hacked, or shut off has no bearing on whether you can access your funds, because the funds were never in Swop's custody to begin with.
+Non-custodial. You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Your funds are never a balance sitting in a Swop-controlled account.
 
 ### Can Swop or its team move my funds without me?
 
-No. Every transaction on Swop has to be signed with a key that lives only on your device, and Swop never holds a copy of it. There is no admin action, support ticket, or backend process that can move funds out of your wallet without that signature.
+No. Nothing moves without your approval, and Swop never holds your keys. You can also export your private key and open your assets in any wallet you choose.
 
 ### Does Swop's AI agent trade on its own?
 

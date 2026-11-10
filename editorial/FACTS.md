@@ -13,7 +13,7 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 ## Verified
 | Claim | Exact wording to use | Source | Verified |
 |---|---|---|---|
-| Self-custody | "Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them." | swopme.co product | 2026-08-26 |
+| Self-custody | "You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today." | Travis, approved 2026-11-10 (replaces the retracted "keys are generated and held on your device" wording) | 2026-11-10 |
 | Sponsored gas | "Transactions on Swop are gas-sponsored — you don't need to hold SOL or ETH to transact." | swopme.co landing ("Free transactions") | 2026-08-26 |
 | Chains live | "Swop runs on Solana, Ethereum, Base, and Polygon." | swopme.co landing (live ticker) | 2026-08-26 |
 | Checkout fee | "SwopPay checkout charges a 0.5% fee." | Travis, 2026-08-26 | 2026-08-26 |

@@ -16,11 +16,11 @@ ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Sep 18, 2026 Update
 
 Contents What "self-custody" actually means Why thin banking rails drive the search Bangladesh's regulatory position, in plain terms What self-custody does — and doesn't — solve Where Swop fits FAQ
 
-A self-custody crypto wallet is one where the private keys are generated and held on your own device, not by a bank or exchange — nobody else can move or freeze the funds without your signature. In Bangladesh specifically, that distinction doesn't change the legal picture: Bangladesh Bank prohibits trading or transacting in any cryptocurrency, citing the Foreign Exchange Regulation Act 1947, the Money Laundering Prevention Act 2012, and the Anti-Terrorism Act 2009, and that prohibition applies whether the wallet is custodial or self-custodial. Self-custody changes who holds the keys. It doesn't change what the law where you live allows you to do with them.
+A self-custody crypto wallet is one where you control the private keys, not a bank or exchange — nobody else can move or freeze the funds without your signature. In Bangladesh specifically, that distinction doesn't change the legal picture: Bangladesh Bank prohibits trading or transacting in any cryptocurrency, citing the Foreign Exchange Regulation Act 1947, the Money Laundering Prevention Act 2012, and the Anti-Terrorism Act 2009, and that prohibition applies whether the wallet is custodial or self-custodial. Self-custody changes who holds the keys. It doesn't change what the law where you live allows you to do with them.
 
 ## What "self-custody" actually means
 
-Every crypto wallet makes a choice about who holds the private key that authorizes spending. A custodial wallet — the kind built into most exchanges — holds that key for you, which means the exchange can freeze your account, reverse a mistaken transfer, or comply with a court order by simply acting on its own database. A self-custody wallet generates the key on your device and never sends it anywhere; the tradeoff is that nobody can do any of those things for you either, including undo a mistake.
+Every crypto wallet makes a choice about who holds the private key that authorizes spending. A custodial wallet — the kind built into most exchanges — holds that key for you, which means the exchange can freeze your account, reverse a mistaken transfer, or comply with a court order by simply acting on its own database. A self-custody wallet leaves the key under your control; the tradeoff is that nobody can do any of those things for you either, including undo a mistake.
 
 That's the entire distinction. It says nothing about which blockchain you're using, which country you're in, or whether the activity itself is legal — it's purely a statement about where the key lives and who can authorize a transaction with it.
 
@@ -44,7 +44,7 @@ What self-custody does not do is change the legal status of the underlying activ
 
 ## Where Swop fits
 
-Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them — and transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon, and is available on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Google Play](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
+You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today, and transactions on Swop are gas-sponsored, so you don't need to hold SOL or ETH to transact. Swop runs on Solana, Ethereum, Base, and Polygon, and is available on the [iOS App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322), [Google Play](https://play.google.com/store/apps/details?id=com.travisheron.swopapp), and as a web app at [swopme.app](https://swopme.app).
 
 None of that changes the point above: using any crypto wallet for a crypto transaction is subject to the law of wherever you actually are, and that law is Swop's to follow, not to work around. In a market like Bangladesh where the central bank currently prohibits cryptocurrency trading, the responsible answer is to check current Bangladesh Bank guidance first — self-custody doesn't change what's permitted, it only changes who holds the keys.
 
@@ -56,7 +56,7 @@ Self-custody isn't a separate legal category on its own. Bangladesh Bank has sta
 
 ### What does "self-custody" actually mean?
 
-A self-custody wallet generates and stores your private keys on your own device rather than with a bank or exchange. Nothing moves without a signature only you can produce, and no company can freeze the wallet or reverse a transaction on your behalf — which also means there's no customer support line to call if you lose your key.
+A self-custody wallet leaves the private keys under your control rather than with a bank or exchange. Nothing moves without a signature only you can produce, and no company can freeze the wallet or reverse a transaction on your behalf — which also means there's no customer support line to call if you lose your key.
 
 ### Why do people in Bangladesh search for crypto wallets if trading is banned?
 
