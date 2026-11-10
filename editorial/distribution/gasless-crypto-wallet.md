@@ -51,7 +51,7 @@ Only post one of the two — pick whichever subreddit's rules allow it that day.
 1. "Gasless crypto wallet" gets thrown around a lot. Here's what's actually happening under the hood 🧵
 2. 1/ The network fee doesn't disappear on a "gasless" wallet — someone else pays it, usually the app. Validators still get paid for every transaction; that's what stops the network from being spammed.
 3. 2/ Solana transactions have always named a separate "fee payer" account — it doesn't have to match the signer. Ethereum/L2s do the equivalent with ERC-4337 "paymasters." Different chains, same trick: separate who signs from who pays.
-4. 3/ "Gasless" ≠ custody. A wallet can sponsor your gas and still be fully self-custodial (keys stay on your device), or not. They're independent design choices — always check both.
+4. 3/ "Gasless" ≠ custody. A wallet can sponsor your gas and still be fully self-custodial (you control the keys), or not. They're independent design choices — always check both.
 5. 4/ Full breakdown, with an FAQ: https://www.swopme.co/blog/gasless-crypto-wallet
 
 **Staged composer URL (first post only — reply with 2-5 as a thread after posting):**

@@ -13,7 +13,7 @@ A human posts these. Claude never posts externally — click the staged links be
 **Title:** What a self-custody wallet actually means on Solana (and what to check before picking one)
 
 **Body:**
-> A self-custody wallet is one where you hold the private keys, not an exchange. On Solana specifically, that means the keys live on your device and every transaction has to be signed there before it goes through - no company can freeze it or move funds without you.
+> A self-custody wallet is one where you hold the private keys, not an exchange. On Solana specifically, that means you control the keys and every transaction has to be signed with them before it goes through - no company can freeze it or move funds without you.
 >
 > The part that's easy to get wrong when comparing wallets: not all "self-custody" wallets are equal. Worth checking before you pick one:
 > - Where keys are actually generated/stored (device-only, not a server)
@@ -34,7 +34,7 @@ https://www.reddit.com/r/solana/submit?type=TEXT&title=What%20a%20self-custody%2
 **Title:** What actually makes a self-custody wallet 'good' on Solana? A checklist
 
 **Body:**
-> Quick definition first: self-custody means the private keys are generated and stored on your device, not a company's server, and every transaction is signed locally. No exchange-style freeze is possible because no one else holds the key.
+> Quick definition first: self-custody means you control the private keys, not a company, and every transaction needs your signature. No exchange-style freeze is possible because no one else holds the key.
 >
 > Beyond that baseline, the wallets differ on: key storage location, recovery method (seed phrase you control vs. company recovery), whether you need to pre-fund SOL for gas, SPL token support, and - increasingly relevant - whether any built-in AI/automation feature can sign on its own or only propose actions you approve.
 >
@@ -50,7 +50,7 @@ Only post one of the two — pick whichever subreddit's rules allow it that day.
 ## X thread (3-5 posts)
 
 1. A "self-custody wallet" gets thrown around a lot. Here's what it actually means on Solana 🧵 (thread)
-2. 1/ Self-custody = the private keys are generated and stored on YOUR device, not a company's server. Every transaction has to be signed there before Solana's network processes it. No exchange-style freeze is possible, because no one else holds the key.
+2. 1/ Self-custody = you control the private keys, not a company. Every transaction has to be signed with them before Solana's network processes it. No exchange-style freeze is possible, because no one else holds the key.
 3. 2/ The tradeoff: no fallback. Lose the seed phrase and the funds are gone - not frozen, not recoverable via support, gone. That's the same property that makes it secure from anyone else.
 4. 3/ Before picking a wallet, check: where keys are generated (device only), recovery method (your seed phrase, not a company flow), gas handling (pre-fund SOL or sponsored?), SPL token support, and whether any AI feature can sign on its own.
 5. 4/ We wrote the full breakdown, with an FAQ: https://www.swopme.co/blog/self-custody-wallet-solana
@@ -60,4 +60,4 @@ https://x.com/intent/post?text=A%20%22self-custody%20wallet%22%20gets%20thrown%2
 
 ## Discord / Telegram recap (2 sentences)
 
-New on the Journal: what "self-custody" actually means on Solana — keys on your device, every transaction signed locally, no company able to freeze or move funds. Includes a 5-point checklist for evaluating any Solana wallet plus an FAQ: https://www.swopme.co/blog/self-custody-wallet-solana
+New on the Journal: what "self-custody" actually means on Solana — you control the keys, every transaction needs your signature, no company able to freeze or move funds. Includes a 5-point checklist for evaluating any Solana wallet plus an FAQ: https://www.swopme.co/blog/self-custody-wallet-solana

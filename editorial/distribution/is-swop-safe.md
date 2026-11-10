@@ -8,7 +8,7 @@ Swop posts the same caption, verbatim, across X, Instagram, Facebook, Farcaster,
 
 ## The caption
 
-> Is Swop safe? Your keys stay on your device, every transaction needs your tap to sign, and its AI agent can propose trades but never sign for you. Here's the actual safety model, and how to verify each piece yourself. #selfcustody #crypto
+> Is Swop safe? You control your wallet, nothing moves without your approval, and its AI agent can propose trades but never sign for you. Here's the actual safety model, and how to verify each piece yourself. #selfcustody #crypto
 
 (238 characters — answer-first, no platform jargon, reads standalone without the link.)
 
@@ -45,4 +45,4 @@ No staged composer exists for Instagram. Paste the caption above into the post, 
 
 ## Discord / Telegram recap (2 sentences)
 
-New on the Journal: what "safe" actually means for a self-custodial wallet with an AI agent attached — keys live on your device, every transaction needs your signature, and Swop's agent can propose trades but never sign for you. Covers the agent's policy layer and what to verify yourself before trusting any wallet's safety claims: https://www.swopme.co/blog/is-swop-safe
+New on the Journal: what "safe" actually means for a self-custodial wallet with an AI agent attached — you control the keys, nothing moves without your approval, and Swop's agent can propose trades but never sign for you. Covers the agent's policy layer and what to verify yourself before trusting any wallet's safety claims: https://www.swopme.co/blog/is-swop-safe
