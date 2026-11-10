@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Swop Journal</title>
+  <subtitle>Product, markets and engineering notes from Swop.</subtitle>
+  <id>https://www.swopme.co/blog</id>
+  <link href="https://www.swopme.co/blog"/>
+  <link rel="self" type="application/atom+xml" href="https://www.swopme.co/feed.xml"/>
+  <updated>2026-11-10T00:00:00Z</updated>
+  <author><name>Swop Team</name></author>
+  <entry>
+    <title>Stablecoins are the tokenization that already won</title>
+    <id>https://www.swopme.co/blog/stablecoins-already-won-tokenization</id>
+    <link href="https://www.swopme.co/blog/stablecoins-already-won-tokenization"/>
+    <published>2026-11-10T00:00:00Z</published>
+    <updated>2026-11-10T00:00:00Z</updated>
+    <summary>Stablecoins already hold more on-chain value than every other tokenized real-world asset combined — about $290B against about $32–48B total.</summary>
+  </entry>
+  <entry>
+    <title>Somebody made gold in a reactor</title>
+    <id>https://www.swopme.co/blog/gold-fusion-blockspace-scarcity</id>
+    <link href="https://www.swopme.co/blog/gold-fusion-blockspace-scarcity"/>
+    <published>2026-10-27T00:00:00Z</published>
+    <updated>2026-10-27T00:00:00Z</updated>
+    <summary>A fusion startup says it transmuted mercury into gold. The amounts are trivial and the tonnage is simulated — but it exposes what gold's scarcity always rested on, and why rule-based scarcity is a different thing entirely.</summary>
+  </entry>
+  <entry>
+    <title>Remittances: the real test for tokenized money</title>
+    <id>https://www.swopme.co/blog/remittances-tokenized-money</id>
+    <link href="https://www.swopme.co/blog/remittances-tokenized-money"/>
+    <published>2026-10-20T00:00:00Z</published>
+    <updated>2026-10-20T00:00:00Z</updated>
+    <summary>Stablecoins cross a border in seconds, but a remittance isn't done until that balance becomes spendable cash — and that leg hasn't gotten faster.</summary>
+  </entry>
+  <entry>
+    <title>Starbucks runs a $1.7 billion float on gift cards</title>
+    <id>https://www.swopme.co/blog/geo-bucks-drops-store-credit</id>
+    <link href="https://www.swopme.co/blog/geo-bucks-drops-store-credit"/>
+    <published>2026-10-15T00:00:00Z</published>
+    <updated>2026-10-15T00:00:00Z</updated>
+    <summary>Prepaid store credit is the most underrated product in retail — it funds the business and brings people back in person. Geo Bucks, Drops and Launchpad put the same mechanic behind any counter.</summary>
+  </entry>
+  <entry>
+    <title>El Dorado is live in beta</title>
+    <id>https://www.swopme.co/blog/el-dorado-virtual-world-beta</id>
+    <link href="https://www.swopme.co/blog/el-dorado-virtual-world-beta"/>
+    <published>2026-10-14T00:00:00Z</published>
+    <updated>2026-10-14T00:00:00Z</updated>
+    <summary>El Dorado is a virtual world built on Swop. You sign in with your swop.id — a wallet you hold the keys to — and you can pair a VR headset. It's in beta, and it ships improvements every week.</summary>
+  </entry>
+  <entry>
+    <title>Tokenized isn’t the same as yours</title>
+    <id>https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours</id>
+    <link href="https://www.swopme.co/blog/tokenized-isnt-the-same-as-yours"/>
+    <published>2026-10-13T00:00:00Z</published>
+    <updated>2026-10-13T00:00:00Z</updated>
+    <summary>Tokenized real-world assets passed $32 billion in 2026 — and the largest category reverts if you send it to a wallet nobody approved. Custody, not the chain, decides who gets to participate.</summary>
+  </entry>
+  <entry>
+    <title>Settlement is the product</title>
+    <id>https://www.swopme.co/blog/settlement-is-the-product</id>
+    <link href="https://www.swopme.co/blog/settlement-is-the-product"/>
+    <published>2026-10-07T00:00:00Z</published>
+    <updated>2026-10-07T00:00:00Z</updated>
+    <summary>T+2 is not a technology limit. It is an artifact of netting, reconciliation and intermediaries — and removing it changes who gets to use their own money, and when.</summary>
+  </entry>
+  <entry>
+    <title>The unbanked don’t need a bank. They need a ledger.</title>
+    <id>https://www.swopme.co/blog/banking-the-unbanked-self-custody</id>
+    <link href="https://www.swopme.co/blog/banking-the-unbanked-self-custody"/>
+    <published>2026-10-06T00:00:00Z</published>
+    <updated>2026-10-06T00:00:00Z</updated>
+    <summary>1.3 billion adults have no financial account while 86% own a phone. That gap is not technology — it is unit economics. Tokenization is what changes the math.</summary>
+  </entry>
+  <entry>
+    <title>How to accept crypto payments as a freelancer</title>
+    <id>https://www.swopme.co/blog/accept-crypto-payments-freelancer</id>
+    <link href="https://www.swopme.co/blog/accept-crypto-payments-freelancer"/>
+    <published>2026-10-02T00:00:00Z</published>
+    <updated>2026-10-02T00:00:00Z</updated>
+    <summary>A freelancer can accept crypto payments with a self-custody wallet and a payment link — no bank, merchant account, or ID check on the crypto rail.</summary>
+  </entry>
+  <entry>
+    <title>Sell digital products for crypto: how it works</title>
+    <id>https://www.swopme.co/blog/sell-digital-products-for-crypto</id>
+    <link href="https://www.swopme.co/blog/sell-digital-products-for-crypto"/>
+    <published>2026-10-01T00:00:00Z</published>
+    <updated>2026-10-01T00:00:00Z</updated>
+    <summary>Selling digital products for crypto means pricing them in a stablecoin and getting paid on-chain the moment the sale settles — no processor, no payout delay.</summary>
+  </entry>
+  <entry>
+    <title>What is a wrapped token? A claim on a bridge, not the issuer</title>
+    <id>https://www.swopme.co/blog/what-is-a-wrapped-token</id>
+    <link href="https://www.swopme.co/blog/what-is-a-wrapped-token"/>
+    <published>2026-09-28T00:00:00Z</published>
+    <updated>2026-09-28T00:00:00Z</updated>
+    <summary>A wrapped token represents another asset on a different chain, minted when a bridge locks the original. It's a claim on the bridge, not on the original issuer.</summary>
+  </entry>
+  <entry>
+    <title>How does Swop make money? The 0.5% fee, explained</title>
+    <id>https://www.swopme.co/blog/how-does-swop-make-money</id>
+    <link href="https://www.swopme.co/blog/how-does-swop-make-money"/>
+    <published>2026-09-25T00:00:00Z</published>
+    <updated>2026-09-25T00:00:00Z</updated>
+    <summary>Swop's only published revenue source is a 0.5% SwopPay checkout fee. Here's what it covers, and which parts of the business aren't priced in public yet.</summary>
+  </entry>
+  <entry>
+    <title>Best wallet for prediction markets: what to check</title>
+    <id>https://www.swopme.co/blog/best-wallet-for-prediction-markets</id>
+    <link href="https://www.swopme.co/blog/best-wallet-for-prediction-markets"/>
+    <published>2026-09-24T00:00:00Z</published>
+    <updated>2026-09-24T00:00:00Z</updated>
+    <summary>The best wallet for prediction markets is self-custodial, keeps gas off your plate, and shows full order-book depth. Here's the full checklist to run first.</summary>
+  </entry>
+  <entry>
+    <title>Recover a crypto wallet without a seed phrase: what actually works</title>
+    <id>https://www.swopme.co/blog/recover-wallet-without-seed-phrase</id>
+    <link href="https://www.swopme.co/blog/recover-wallet-without-seed-phrase"/>
+    <published>2026-09-24T00:00:00Z</published>
+    <updated>2026-09-24T00:00:00Z</updated>
+    <summary>Losing a seed phrase usually means losing the funds. Here is what recovery without one actually requires, what it trades away, and how to check a wallet's model before you need it.</summary>
+  </entry>
+  <entry>
+    <title>Email gave the internet an account. It never gave it a wallet.</title>
+    <id>https://www.swopme.co/blog/accept-card-payments-merchant-verification</id>
+    <link href="https://www.swopme.co/blog/accept-card-payments-merchant-verification"/>
+    <published>2026-09-23T00:00:00Z</published>
+    <updated>2026-09-23T00:00:00Z</updated>
+    <summary>Email made accounts universal but left them inert. The next primitive is an identity that carries money and can prove one fact without disclosing who you are — which is what ZeroProof is for.</summary>
+  </entry>
+  <entry>
+    <title>Solana wallet with a built-in swap: why it matters</title>
+    <id>https://www.swopme.co/blog/solana-wallet-with-built-in-swap</id>
+    <link href="https://www.swopme.co/blog/solana-wallet-with-built-in-swap"/>
+    <published>2026-09-21T00:00:00Z</published>
+    <updated>2026-09-21T00:00:00Z</updated>
+    <summary>A Solana wallet with a built-in swap lets you trade tokens inside the app instead of bridging out to an exchange first. Here's what changes, and what to check.</summary>
+  </entry>
+  <entry>
+    <title>Self-custody crypto wallet in Bangladesh: what the law says</title>
+    <id>https://www.swopme.co/blog/self-custody-wallet-bangladesh</id>
+    <link href="https://www.swopme.co/blog/self-custody-wallet-bangladesh"/>
+    <published>2026-09-18T00:00:00Z</published>
+    <updated>2026-09-18T00:00:00Z</updated>
+    <summary>A self-custody wallet means you hold the keys, not a bank. In Bangladesh, trading in cryptocurrency is banned outright — here's what that means.</summary>
+  </entry>
+  <entry>
+    <title>Tokenizing real-world assets: treasuries, gold, stocks, and collectibles</title>
+    <id>https://www.swopme.co/blog/tokenized-real-world-assets</id>
+    <link href="https://www.swopme.co/blog/tokenized-real-world-assets"/>
+    <published>2026-09-17T00:00:00Z</published>
+    <updated>2026-09-21T00:00:00Z</updated>
+    <summary>Tokenizing a real-world asset means issuing a token backed by a redemption right on something off-chain — a Treasury bill, gold bar, stock, or luxury good.</summary>
+  </entry>
+  <entry>
+    <title>The CLARITY Act vote: what happened, and what the bill actually does</title>
+    <id>https://www.swopme.co/blog/clarity-act-vote-explained</id>
+    <link href="https://www.swopme.co/blog/clarity-act-vote-explained"/>
+    <published>2026-09-16T00:00:00Z</published>
+    <updated>2026-09-16T00:00:00Z</updated>
+    <summary>The Senate cloture vote failed 49-50 on September 15, 2026. The SEC and CFTC have built an alternative out of rulemaking — and why that is not the same as a law for capital and for builders.</summary>
+  </entry>
+  <entry>
+    <title>Cross-chain swap wallet: how swapping between chains actually works</title>
+    <id>https://www.swopme.co/blog/cross-chain-swap-wallet</id>
+    <link href="https://www.swopme.co/blog/cross-chain-swap-wallet"/>
+    <published>2026-09-15T00:00:00Z</published>
+    <updated>2026-09-15T00:00:00Z</updated>
+    <summary>A cross-chain swap moves value between two separate blockchains that cannot talk to each other. Here is what actually happens under the hood, and what to check before you trust one.</summary>
+  </entry>
+  <entry>
+    <title>AI agents and your wallet: a safety checklist</title>
+    <id>https://www.swopme.co/blog/ai-agent-wallet-safety-checklist</id>
+    <link href="https://www.swopme.co/blog/ai-agent-wallet-safety-checklist"/>
+    <published>2026-09-14T00:00:00Z</published>
+    <updated>2026-09-14T00:00:00Z</updated>
+    <summary>A wallet lets an AI agent trade safely only when it can't sign without your approval, holds no keys itself, bounds its authority, and logs every decision.</summary>
+  </entry>
+  <entry>
+    <title>Send crypto with a link (no wallet address needed)</title>
+    <id>https://www.swopme.co/blog/send-crypto-with-a-link</id>
+    <link href="https://www.swopme.co/blog/send-crypto-with-a-link"/>
+    <published>2026-09-14T00:00:00Z</published>
+    <updated>2026-09-14T00:00:00Z</updated>
+    <summary>You can send crypto to someone with a shareable link instead of a wallet address — they claim it into their own wallet when they open it. Here's how it works.</summary>
+  </entry>
+  <entry>
+    <title>What is a SmartSite? A crypto profile page, explained</title>
+    <id>https://www.swopme.co/blog/what-is-a-smartsite</id>
+    <link href="https://www.swopme.co/blog/what-is-a-smartsite"/>
+    <published>2026-09-11T00:00:00Z</published>
+    <updated>2026-09-11T00:00:00Z</updated>
+    <summary>A SmartSite is a crypto profile page at your own swop.id handle: tabbed sections holding links, media, posts and products — and it can take payments directly.</summary>
+  </entry>
+  <entry>
+    <title>Perps funding rates, explained like you're new here</title>
+    <id>https://www.swopme.co/blog/perps-funding-rate-explained</id>
+    <link href="https://www.swopme.co/blog/perps-funding-rate-explained"/>
+    <published>2026-09-10T00:00:00Z</published>
+    <updated>2026-09-10T00:00:00Z</updated>
+    <summary>A funding rate is a recurring payment between long and short perpetual futures traders that keeps a contract's price anchored to the spot market.</summary>
+  </entry>
+  <entry>
+    <title>USDC vs USDC.e vs pUSD: stablecoin naming, demystified</title>
+    <id>https://www.swopme.co/blog/usdc-vs-usdce</id>
+    <link href="https://www.swopme.co/blog/usdc-vs-usdce"/>
+    <published>2026-09-09T00:00:00Z</published>
+    <updated>2026-09-09T00:00:00Z</updated>
+    <summary>USDC is Circle's native dollar token. USDC.e is a bridged copy from a third-party bridge, not Circle. pUSD is Polymarket's own 1:1-backed settlement token.</summary>
+  </entry>
+  <entry>
+    <title>Prediction markets 101: how prices become probabilities</title>
+    <id>https://www.swopme.co/blog/prediction-markets-101</id>
+    <link href="https://www.swopme.co/blog/prediction-markets-101"/>
+    <published>2026-09-08T00:00:00Z</published>
+    <updated>2026-09-08T00:00:00Z</updated>
+    <summary>A prediction market app turns trader demand into a live probability — each contract's price shows what the market believes an event's odds are right now.</summary>
+  </entry>
+  <entry>
+    <title>Swop vs Coinbase Wallet: which one fits everyday payments</title>
+    <id>https://www.swopme.co/blog/swop-vs-coinbase-wallet</id>
+    <link href="https://www.swopme.co/blog/swop-vs-coinbase-wallet"/>
+    <published>2026-09-07T00:00:00Z</published>
+    <updated>2026-09-07T00:00:00Z</updated>
+    <summary>Swop and Coinbase Wallet are both self-custodial wallets. They differ on gas fees, chain support, and how each actually handles in-person crypto payments.</summary>
+  </entry>
+  <entry>
+    <title>Crypto tap to pay: how in-person payments work</title>
+    <id>https://www.swopme.co/blog/crypto-tap-to-pay</id>
+    <link href="https://www.swopme.co/blog/crypto-tap-to-pay"/>
+    <published>2026-09-04T00:00:00Z</published>
+    <updated>2026-09-04T00:00:00Z</updated>
+    <summary>Crypto tap-to-pay lets you pay in person with NFC or a QR code instead of a card. Here's how the request, price lock, and on-chain settlement actually work.</summary>
+  </entry>
+  <entry>
+    <title>Crypto link in bio: a storefront AI agents can buy from</title>
+    <id>https://www.swopme.co/blog/crypto-link-in-bio</id>
+    <link href="https://www.swopme.co/blog/crypto-link-in-bio"/>
+    <published>2026-09-03T00:00:00Z</published>
+    <updated>2026-09-03T00:00:00Z</updated>
+    <summary>A crypto link in bio page holds a wallet address and can list real products for sale — including to AI agents that pay automatically over the x402 protocol.</summary>
+  </entry>
+  <entry>
+    <title>What is x402? The payment protocol for AI agents</title>
+    <id>https://www.swopme.co/blog/what-is-x402</id>
+    <link href="https://www.swopme.co/blog/what-is-x402"/>
+    <published>2026-09-02T00:00:00Z</published>
+    <updated>2026-09-02T00:00:00Z</updated>
+    <summary>x402 is an open protocol that lets software pay for API access over HTTP using stablecoins — no accounts, API keys, or credit cards. Here's how it works.</summary>
+  </entry>
+  <entry>
+    <title>Is Swop safe? How self-custody and signing work</title>
+    <id>https://www.swopme.co/blog/is-swop-safe</id>
+    <link href="https://www.swopme.co/blog/is-swop-safe"/>
+    <published>2026-09-01T00:00:00Z</published>
+    <updated>2026-09-01T00:00:00Z</updated>
+    <summary>Swop is fully self-custodial: your keys stay on your device, every transaction needs your signature, and its AI agent can propose trades but never sign for you.</summary>
+  </entry>
+  <entry>
+    <title>ERC-8196 in production: how Swop polices its trading agent</title>
+    <id>https://www.swopme.co/blog/erc-8196-agent-policy</id>
+    <link href="https://www.swopme.co/blog/erc-8196-agent-policy"/>
+    <published>2026-08-31T00:00:00Z</published>
+    <updated>2026-08-31T00:00:00Z</updated>
+    <summary>ERC-8196 standardizes policy-bound AI agent wallets. Here's how Swop's trading agent runs under an ERC-8196-inspired policy layer — versioned policies, EIP-712 owner signatures, and a hash-chained audit log.</summary>
+  </entry>
+  <entry>
+    <title>Gasless crypto: how sponsored transactions work</title>
+    <id>https://www.swopme.co/blog/gasless-crypto-wallet</id>
+    <link href="https://www.swopme.co/blog/gasless-crypto-wallet"/>
+    <published>2026-08-28T00:00:00Z</published>
+    <updated>2026-08-28T00:00:00Z</updated>
+    <summary>A gasless crypto wallet sponsors your network fees so you don't need to hold SOL or ETH just to transact. Here's how sponsored transactions actually work.</summary>
+  </entry>
+  <entry>
+    <title>Swop vs Phantom: which Solana wallet fits you</title>
+    <id>https://www.swopme.co/blog/swop-vs-phantom</id>
+    <link href="https://www.swopme.co/blog/swop-vs-phantom"/>
+    <published>2026-08-27T00:00:00Z</published>
+    <updated>2026-08-27T00:00:00Z</updated>
+    <summary>Swop and Phantom are both self-custodial Solana wallets. They differ on gas fees, chain support, in-person payments, and how their AI agents confirm trades.</summary>
+  </entry>
+  <entry>
+    <title>Best self-custody wallet for Solana: what it means</title>
+    <id>https://www.swopme.co/blog/self-custody-wallet-solana</id>
+    <link href="https://www.swopme.co/blog/self-custody-wallet-solana"/>
+    <published>2026-08-26T00:00:00Z</published>
+    <updated>2026-08-26T00:00:00Z</updated>
+    <summary>A self-custody wallet gives you sole control of the keys that move your Solana tokens, so no exchange can freeze or access them. Here's what to check first.</summary>
+  </entry>
+  <entry>
+    <title>Agentic trading is live: your wallet can now hold an opinion</title>
+    <id>https://www.swopme.co/blog/agentic-trading-is-live</id>
+    <link href="https://www.swopme.co/blog/agentic-trading-is-live"/>
+    <published>2026-08-19T00:00:00Z</published>
+    <updated>2026-08-19T00:00:00Z</updated>
+    <summary>Astro reads the book, sizes the position, and asks before it acts. How Swop built an agent for spot, perps, and prediction markets that confirms before it moves money.</summary>
+  </entry>
+</feed>

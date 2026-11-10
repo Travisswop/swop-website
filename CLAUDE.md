@@ -28,6 +28,13 @@ project `swop-website`, serves **https://swopme.co**.
   source of citable numbers — STYLEGUIDE, TOPICS). A daily cloud routine drafts
   posts to `draft/blog-<slug>` branches; Travis approves by merging.
 - Root `llms.txt` lists cornerstone content; keep it updated for major pages.
+- **After adding or editing any page (blog posts included) run
+  `python3 tools/build-agent-files.py`.** It regenerates the Markdown twin of every
+  page (`/pay.md`, `/blog/<slug>.md`), `llms-full.txt`, `feed.xml`, and the
+  `<!-- seo:start -->` head block (canonical, alternates, FAQPage / Breadcrumb /
+  Organization JSON-LD built from the visible page). Never edit those by hand;
+  `--check` exits 1 if they are stale. A new root page also needs a row in
+  `ROOT_PAGES` in that script.
 
 ## Don'ts
 

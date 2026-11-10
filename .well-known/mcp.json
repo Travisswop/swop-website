@@ -1,0 +1,23 @@
+{
+  "name": "io.github.Travisswop/swop",
+  "title": "Swop",
+  "description": "Use Swop from an AI assistant: look people up by swop.id, list and buy products, sell, pay, swap and trade. Public tools need no sign-in; account tools use OAuth 2.1 and act only with the user's approval.",
+  "servers": [
+    {
+      "name": "commerce",
+      "url": "https://mcp.swopme.co/mcp/commerce",
+      "transport": "streamable-http",
+      "description": "Commerce tools: stores, products and x402 checkout."
+    },
+    {
+      "name": "full",
+      "url": "https://mcp.swopme.co/mcp",
+      "transport": "streamable-http",
+      "description": "The full Swop toolset.",
+      "authorization": "https://mcp.swopme.co/.well-known/oauth-protected-resource"
+    }
+  ],
+  "documentation": "https://docs.swopme.co/mcp/quickstart",
+  "homepage": "https://www.swopme.co/mcp",
+  "llms": "https://www.swopme.co/llms.txt"
+}
