@@ -1,0 +1,48 @@
+# Keeps the derived agent files in step with the pages: every page's .md twin,
+# llms-full.txt, feed.xml and the <!-- seo:start --> head block. Runs
+# tools/build-agent-files.py and commits the result back to the same branch,
+# so a new blog post gets its twin, feed entry and breadcrumbs even if nobody
+# ran the script by hand.
+#
+# Commits use the repo owner's noreply identity: Vercel only deploys commits
+# whose author is on the team, so a github-actions[bot] commit would be blocked.
+# Pushes made with GITHUB_TOKEN do not trigger workflows, so this cannot loop.
+name: Agent files
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: agent-files-${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  regenerate:
+    # Fork PRs get a read-only token; skip them rather than fail.
+    if: github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Regenerate
+        run: python3 tools/build-agent-files.py
+
+      - name: Commit if anything changed
+        run: |
+          if git diff --quiet; then
+            echo "Agent files already up to date."
+            exit 0
+          fi
+          git config user.name "Travisswop"
+          git config user.email "98964561+Travisswop@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: regenerate agent files (twins, llms-full.txt, feed, schema)"
+          git push
