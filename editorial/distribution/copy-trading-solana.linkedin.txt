@@ -1,0 +1,11 @@
+Copy trading doesn't copy anything. That sounds pedantic until you see where the money goes.
+
+Software watches a public wallet, detects a trade, and then submits a different transaction from your account — later, at your size, at whatever price exists by the time it lands. Two trades, two prices, two outcomes. Almost everything that disappoints people about copy trading lives in that gap, and none of it requires anyone to behave badly.
+
+Four mechanical reasons the gap is wider than it looks. You buy their impact: on a token without deep liquidity, their order is part of why the price moved, and yours arrives after it — so the gap is largest in exactly the trades that look most exciting on a leaderboard. Size isn't risk: 2% of a large book and 40% of a small one are not the same bet, even in the same token. Exits mirror worse than entries, because an entry is one clean detectable buy while exits are staged, partial, and often routed elsewhere — and most of the result in trading lives in the exit. And ranking traders by short-window return is ranking them by variance, because that is what short-window return maximises; the wallets that swung hardest and lost simply stop being shown to you.
+
+The part worth deciding before any of that is structural: who is able to move your money. If you deposit into an account someone else trades, withdrawing is a request you make to a counterparty. If the funds stay at your own address and you grant a scoped permission instead, your exposure is whatever that permission allows — and turning a feature off inside an app is not the same action as revoking an on-chain permission. Read the scope, and find the revoke step before you need it rather than during a drawdown.
+
+Written as a mechanics piece, not a product pitch. It makes no claim about anyone's copy-trading feature, including ours.
+
+https://www.swopme.co/blog/copy-trading-solana
