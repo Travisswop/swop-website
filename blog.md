@@ -10,7 +10,7 @@ Swop Journal
 
 Product releases, market structure, engineering, and the occasional argument about where money is going next. Written by the people shipping it.
 
-[Latest — Guides Copy trading on Solana: how it works and where it goes wrong Copying a trade is a delegation, not a strategy. The five ways a mirrored trade loses money even when the trader you copied wins. ST Swop Team Nov 11, 2026 8 min Filed Guides · Trading Reading 8 min Format Explainer · FAQ Read the post](https://www.swopme.co/blog/copy-trading-solana)
+[Latest — Guides Copy trading on Solana: how it works and where it goes wrong Copying a trade is a delegation, not a strategy. The five ways a mirrored trade loses money even when the trader you copied wins. ST Swop Team Nov 12, 2026 8 min Filed Guides · Trading Reading 8 min Format Explainer · FAQ Read the post](https://www.swopme.co/blog/copy-trading-solana)
 
 Recent 38 posts
 
