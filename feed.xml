@@ -5,8 +5,16 @@
   <id>https://www.swopme.co/blog</id>
   <link href="https://www.swopme.co/blog"/>
   <link rel="self" type="application/atom+xml" href="https://www.swopme.co/feed.xml"/>
-  <updated>2026-11-10T00:00:00Z</updated>
+  <updated>2026-11-13T00:00:00Z</updated>
   <author><name>Swop Team</name></author>
+  <entry>
+    <title>Markets close. Blockchains don’t.</title>
+    <id>https://www.swopme.co/blog/markets-close-blockchains-dont</id>
+    <link href="https://www.swopme.co/blog/markets-close-blockchains-dont"/>
+    <published>2026-11-13T00:00:00Z</published>
+    <updated>2026-11-13T00:00:00Z</updated>
+    <summary>Why Robinhood restricted GameStop buying in 2021, what the settlement clock has to do with it, and an honest comparison of perpetual futures against options and tokenized stocks against a broker.</summary>
+  </entry>
   <entry>
     <title>Stablecoins are the tokenization that already won</title>
     <id>https://www.swopme.co/blog/stablecoins-already-won-tokenization</id>
