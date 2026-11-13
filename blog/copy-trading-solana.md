@@ -2,8 +2,8 @@
 title: "Copy trading on Solana: how it works and where it goes wrong"
 url: https://www.swopme.co/blog/copy-trading-solana
 description: "Copy trading mirrors someone else's public wallet into yours. Here is what you are delegating, why your fill is never their fill, and what to check before you copy anyone."
-published: 2026-11-12
-updated: 2026-11-12
+published: 2026-11-13
+updated: 2026-11-13
 ---
 
 [Blog](https://www.swopme.co/blog) / Guides
@@ -12,7 +12,7 @@ updated: 2026-11-12
 
 Copying someone is a delegation, not a strategy. Your copy is a second, later, separate trade — and almost everything that disappoints people about copy trading flows from that one gap.
 
-ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Nov 12, 2026 Updated Nov 12, 2026 8 min read Copy link [X](https://x.com/intent/tweet?text=Copy%20trading%20on%20Solana%3A%20how%20it%20works%20and%20where%20it%20goes%20wrong&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcopy-trading-solana) [Farcaster](https://warpcast.com/~/compose?text=Copy%20trading%20on%20Solana%3A%20how%20it%20works%20and%20where%20it%20goes%20wrong&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcopy-trading-solana)
+ST [Swop Team](https://www.swopme.co/blog/authors/swop-team) Nov 13, 2026 Updated Nov 13, 2026 8 min read Copy link [X](https://x.com/intent/tweet?text=Copy%20trading%20on%20Solana%3A%20how%20it%20works%20and%20where%20it%20goes%20wrong&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcopy-trading-solana) [Farcaster](https://warpcast.com/~/compose?text=Copy%20trading%20on%20Solana%3A%20how%20it%20works%20and%20where%20it%20goes%20wrong&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcopy-trading-solana)
 
 Contents What copy trading actually is on Solana Three models, and who can move the money Five ways a mirrored trade loses money Why leaderboards select for luck The questions to ask before you copy anyone Where Swop fits FAQ
 
