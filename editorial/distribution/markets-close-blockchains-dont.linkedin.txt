@@ -1,0 +1,23 @@
+In January 2021 the buy button disappeared, and most retellings reach for a conspiracy. The duller explanation is better supported and far more useful: it was a clock.
+
+A stock trade executes instantly but settles later. In the gap between those two moments, a clearinghouse stands between buyer and seller guaranteeing the trade completes, and it demands collateral sized to the risk it carries across that window. Volatility and volume spiked, that number became enormous overnight, and the cheapest way for a broker to shrink it was to stop new buying. The buy button was not a verdict on who deserves to trade. It was a margin call arriving through a settlement window.
+
+Two corrections worth making, because this story gets used carelessly. It was not Robinhood-specific: the SEC's October 2021 staff report records roughly $6.9 billion in intraday margin calls across 26 clearing members on 27 January. And the SEC explicitly declined to rule on causation — brokers said margin requirements were the sole reason, and staff said they could not rule out others. The honest version is "the settlement clock produced a collateral call large enough to close the buy button," not "the regulator confirmed it was rigged."
+
+The mechanism is the part that generalises, and it has a number attached: how long the window is. In 2021 it was two days. It is now one — the SEC moved US equities from T+2 to T+1 on 28 May 2024, explicitly to reduce the clearing-margin exposure that produced the squeeze. Anyone still writing "T+2" about US stocks is two and a half years out of date.
+
+But the window halved; it did not vanish. One day is still a day in which someone must be collateralised against your unsettled trade, so the 2021 mechanism still exists in smaller form. And the fix is uneven: the standard FX settlement cycle remains T+2, so on a cross-border trade the currency leg cannot settle alongside the equity leg at all.
+
+Blockchain settlement is not a faster version of this. It is a different shape — the transfer and the payment are the same event, so there is no interval to collateralise and no window in which someone else's risk management becomes your inability to click buy. That is the claim worth making, and note what it is about: rails, not instruments.
+
+Which matters, because two instrument claims get badly oversold.
+
+On perpetual futures versus options: the perp genuinely wins on complexity. No expiry to roll, no strike to choose, no assignment, a linear payoff you can reason about without a model, and continuous trading. What it does not give you is a floor. Buying an option means your maximum loss is the premium — known, pre-paid, and no later price move can increase it. A leveraged perpetual position has no such property; an adverse move liquidates it, and funding is a recurring cost of carry that can run against you while you are right about direction and wrong about timing. Simpler and safer are different words.
+
+On tokenized stocks versus a broker, the usual pitch runs backwards. Most tokenized equity today is not a share. Kraken's xStocks state they do not confer shareholder rights such as voting. Robinhood's European tokens are more explicit still — the classic ones are MiFID II derivatives that cannot leave the app, with key information reportedly naming the manufacturer as sole counterparty and stating that no compensation scheme applies, and its newer on-chain stock tokens are tokenized debt securities tracking a stock's economics rather than conveying ownership. Set that beside a share at a regulated broker: the security itself, shareholder rights attached, and SIPC protection in the US if the broker fails. On the question people care most about — what do I own, and what happens if the other side fails — the tokenized version is currently the weaker claim.
+
+So it is a split decision. Tokenization wins the clock and loses, for now, on the strength of the claim. The interesting frontier is not arguing that a wrapper beats a broker; it is getting always-on settlement without downgrading what you own, which nobody has fully shipped.
+
+For completeness: Swop runs perpetual futures and prediction markets and does not offer tokenized equities, so half of this is market structure I find interesting rather than something we sell. None of it is investment advice.
+
+https://www.swopme.co/blog/markets-close-blockchains-dont

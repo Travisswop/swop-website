@@ -1,0 +1,32 @@
+{
+  "posts": [
+    "In January 2021 the buy button disappeared.\n\nThe popular explanation is that someone pulled a lever to protect someone else.\n\nThe duller explanation is better supported, and far more useful: it was a clock.",
+    "A stock trade executes instantly but SETTLES later.\n\nIn the gap, a clearinghouse stands between buyer and seller guaranteeing the trade completes — and it demands collateral sized to the risk it carries across that window.",
+    "Volatility made that number enormous overnight.\n\nThe cheapest way for a broker to shrink it was to stop new buying.\n\nThe buy button wasn't a verdict on who deserves to trade. It was a margin call arriving through a settlement window.",
+    "Robinhood says the NSCC demanded a large additional deposit — ~$3B by its CEO's account. Other accounts describe its requirement jumping from ~$124M to ~$3.7B overnight.\n\nThe reported numbers differ. Worth noticing on its own.",
+    "Two corrections, because if you're going to use this story you should use it accurately.\n\n1) It wasn't Robinhood-specific. The SEC's Oct 2021 staff report records ~$6.9B in intraday margin calls across 26 clearing members on Jan 27.",
+    "2) The SEC DECLINED to rule on causation. Brokers said margin was the sole reason; staff said they couldn't rule out others.\n\nSo: the settlement clock produced a collateral call large enough to close the buy button.\n\nNot \"the regulator confirmed it was rigged.\"",
+    "We're using the mechanism, not the conspiracy — because the mechanism is the part that generalises.\n\nAnd the mechanism has a number attached: how long the window is.",
+    "In 2021 it was two days.\n\nIt's now one. The SEC moved US equities from T+2 to T+1 on 28 May 2024.\n\nIf you're still writing \"T+2\" about US stocks, you're two and a half years out of date.",
+    "Credit where due: shortening it was explicitly meant to reduce the clearing-margin exposure that produced 2021. Canada and Mexico moved the same day. The UK targets end of 2027.\n\nThe rails did respond.",
+    "But the honest scoreboard: the window halved. It did not vanish.\n\nOne day is still a day in which someone must be collateralised against your unsettled trade. The 2021 mechanism still exists, smaller.",
+    "And the fix is uneven. The standard FX settlement cycle is still T+2 — so on a cross-border trade the currency leg can't settle alongside the equity leg at all.",
+    "Blockchain settlement isn't a faster version of this. It's a different shape.\n\nThe transfer and the payment are the same event. There's no interval to collateralise, and no window where someone else's risk management becomes your inability to click buy.",
+    "That's the claim worth making. Note what it's about: RAILS. Not any instrument being inherently superior.\n\nWhich brings us to two claims that get oversold.",
+    "Perps vs options.\n\nA perpetual future has no expiry and no strike. Exposure tracks the underlying ~1:1, and a funding payment passes between longs and shorts to keep it tethered to spot.\n\nOne number to watch instead of three.",
+    "On complexity the perp genuinely wins: no expiry to roll, no assignment, a linear payoff you can reason about without a model. And on crypto rails it trades continuously — which matters, because risk doesn't stop at 4pm Friday.",
+    "What it does NOT give you is a floor.\n\nBuying an option means your maximum loss is the premium. Known, pre-paid, and no later price move can increase it.\n\nA leveraged perp has no such property. An adverse move liquidates you.",
+    "Funding is also a recurring cost of carry that can quietly run against you while you're right about direction and wrong about timing.\n\n\"Simpler\" and \"safer\" are different words. Perps are the simpler instrument and, levered, frequently the more dangerous one.",
+    "Anyone telling you a perp is strictly better than an option is selling you the simplicity and not mentioning the floor they removed to get it.\n\nThe defensible claim is narrower: easier to reason about, and it trades on a market that never closes.",
+    "Now tokenized stocks — where the usual pitch runs BACKWARDS. We've argued the other side of this twice in the last month, so we're not going to pretend otherwise now.",
+    "Most tokenized equity today is not a share.\n\nKraken's xStocks: backed 1:1, dividends reflected by increasing your token balance — and explicitly NOT conferring shareholder rights such as voting.",
+    "Robinhood's EU tokens are more explicit still: \"classic\" tokens are MiFID II derivatives that can't leave the app, with key information reportedly naming the manufacturer as sole counterparty, no share ownership, no voting, and no compensation scheme.",
+    "Its newer on-chain stock tokens are tokenized DEBT securities that track a stock's economics rather than conveying ownership of one.\n\n(Mostly product pages and secondary comparisons, not prospectuses. Read the actual key information document.)",
+    "Put that beside a share at a conventional broker: the security itself, regulated custody chain, shareholder rights attached, and in the US, SIPC protection if the broker fails.\n\nOn \"what do I own and what if the other side fails\" — the tokenized version is currently WEAKER.",
+    "So the clean thesis is a split decision.\n\nTokenization wins the clock: always-on markets, settlement that IS the transfer, no window for a collateral call to close the door.\n\nIt loses, for now, on the strength of the claim.",
+    "The interesting frontier isn't arguing a wrapper beats a broker. It's getting always-on settlement without downgrading what you own — which nobody has fully shipped.",
+    "Where we sit: Swop runs perpetual futures and prediction markets. It does NOT offer tokenized equities, so half this thread is market structure we find interesting, not a product pitch.",
+    "Swop is fully self-custodial — keys are generated and held on your device; Swop never holds them. Gas-sponsored, on Solana, Ethereum, Base and Polygon.\n\nNarrow relevance: your position isn't inside an intermediary whose collateral position becomes your trading restriction.",
+    "That removes the 2021 failure mode. It does not remove market risk, liquidation risk, or funding costs, and it is not a claim that trading on-chain is safe.\n\nNone of this is investment advice.\n\nhttps://www.swopme.co/blog/markets-close-blockchains-dont"
+  ]
+}
