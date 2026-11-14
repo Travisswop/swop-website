@@ -106,6 +106,34 @@ Ovi watches swaps, perps and prediction markets and proposes positions inside a 
 
 Split a bill, settle a bet, look up a price. Everyone approves their own part.
 
+Ovi Desktop · Model Studio
+
+## Train on your Mac. Chat in Ovi.
+
+Teach a starting model with your examples, then connect your Mac to the same Ovi account you use on your phone.
+
+### Your own model, in your normal chats
+
+Choose a model size, add training examples and train an adapter. Pair from Ovi’s Settings → My computer, then choose your trained model in a chat.
+
+### ⓘ What is an adapter?
+
+A small set of learned changes that teaches a starting model from your examples. Your training examples and model files stay on your Mac.
+
+### ⓘ Does my Mac need to stay on?
+
+Yes. Keep Ovi Desktop open and your Mac awake and connected while chatting from your phone. Messages and answers travel through Ovi’s account service to your paired Mac.
+
+### Ovi Desktop for Mac
+
+Apple Silicon · macOS 14 or later. The first training run downloads the starting model.
+
+The public download is being prepared. It will appear here after Apple signing and notarization are complete.
+
+### ⓘ Which Ovi account do I use?
+
+Use your existing Ovi account in the TestFlight app. The desktop companion pairs with that account using a short-lived code; you do not need a separate Studio account. Local hosting is currently limited to enabled pilot accounts.
+
 S.04 · Your rules
 
 ## Powerful, on a leash you hold.
