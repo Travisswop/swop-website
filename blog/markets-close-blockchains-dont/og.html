@@ -1,0 +1,78 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  body {
+    font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+    background: radial-gradient(120% 140% at 82% 30%, #103524 0%, #0b1512 42%, #070709 75%);
+    color:#fff; position:relative;
+  }
+  @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
+  @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
+  .blob { position:absolute; border-radius:50%; filter:blur(90px); }
+  .b1 { width:520px; height:520px; right:-80px; top:-120px; background:#2ec27e; opacity:.26; }
+  .b2 { width:380px; height:380px; left:-120px; bottom:-160px; background:#1a6d47; opacity:.33; }
+  .stripes { position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(255,255,255,.025) 90px 92px); }
+  .wrap { position:absolute; inset:0; padding:56px 72px; display:flex; }
+  .left { width:690px; display:flex; flex-direction:column; justify-content:flex-start; z-index:3; }
+  .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:26px; letter-spacing:.45em; margin-bottom:24px; }
+  .kick { display:inline-flex; align-items:center; gap:12px; background:rgba(46,194,126,.14);
+    border:1.5px solid rgba(46,194,126,.6); color:#5ff0ab; font-family:'JetBrains Mono';
+    font-size:21px; font-weight:700; letter-spacing:.12em; padding:10px 20px; border-radius:999px;
+    width:max-content; margin-bottom:26px; text-transform:uppercase; }
+  .dot { width:12px; height:12px; border-radius:50%; background:#2ec27e; box-shadow:0 0 14px #2ec27e; }
+  h1 { font-size:78px; line-height:.97; font-weight:900; letter-spacing:-.028em;
+       text-shadow:0 8px 40px rgba(0,0,0,.72); }
+  h1 .hl { color:#5ff0ab; text-shadow:0 0 46px rgba(46,194,126,.75); }
+  .sub { margin-top:22px; font-size:25px; font-weight:700; color:rgba(255,255,255,.82); max-width:580px; line-height:1.3; }
+  /* right visual: a market clock, hands stopped, vs an unbroken ring */
+  .right { position:absolute; right:48px; top:0; width:500px; height:630px; z-index:1;
+    display:flex; align-items:center; justify-content:center; }
+  .clock { width:360px; height:360px; border-radius:50%; position:relative;
+    background: radial-gradient(circle at 34% 28%, #163a28 0%, #0e2a1e 55%, #09160f 100%);
+    box-shadow: 0 0 0 16px rgba(46,194,126,.14), 0 0 120px rgba(46,194,126,.42),
+                inset 0 -20px 60px rgba(0,0,0,.55), inset 0 18px 40px rgba(255,255,255,.10);
+    border:3px solid rgba(95,240,171,.5); }
+  .tick { position:absolute; left:50%; top:10px; width:4px; height:22px; background:rgba(255,255,255,.35);
+    transform-origin:50% 170px; border-radius:2px; }
+  .hand { position:absolute; left:50%; bottom:50%; background:#5ff0ab; border-radius:6px;
+    transform-origin:50% 100%; box-shadow:0 0 22px rgba(95,240,171,.8); }
+  .h-hr { width:12px; height:96px; margin-left:-6px; transform:rotate(126deg); }
+  .h-mn { width:9px; height:140px; margin-left:-4.5px; transform:rotate(-34deg); }
+  .pin { position:absolute; left:50%; top:50%; width:26px; height:26px; margin:-13px 0 0 -13px;
+    border-radius:50%; background:#5ff0ab; box-shadow:0 0 26px rgba(95,240,171,.9); }
+  .halted { position:absolute; right:10px; bottom:118px; background:#ff2e2e; color:#fff;
+    font-weight:900; font-size:30px; padding:13px 24px; border-radius:15px; transform:rotate(-5deg);
+    box-shadow:0 12px 40px rgba(255,46,46,.45); letter-spacing:.02em; z-index:4; white-space:nowrap; }
+  .scrim { position:absolute; left:0; top:0; width:760px; height:630px; z-index:2;
+    background:linear-gradient(90deg, rgba(7,7,9,.94) 0%, rgba(7,7,9,.86) 62%, rgba(7,7,9,0) 100%); }
+  .url { position:absolute; left:72px; bottom:34px; font-family:'JetBrains Mono';
+    font-size:20px; color:rgba(255,255,255,.5); letter-spacing:.06em; z-index:3; }
+</style></head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="stripes"></div>
+  <div class="right">
+    <div class="clock">
+      <div class="tick" style="transform:rotate(0deg)"></div>
+      <div class="tick" style="transform:rotate(90deg)"></div>
+      <div class="tick" style="transform:rotate(180deg)"></div>
+      <div class="tick" style="transform:rotate(270deg)"></div>
+      <div class="hand h-hr"></div>
+      <div class="hand h-mn"></div>
+      <div class="pin"></div>
+    </div>
+    <div class="halted">MARKET HALTED</div>
+  </div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="logo">SWOP</div>
+      <div class="kick"><span class="dot"></span>Perspective</div>
+      <h1>MARKETS CLOSE.<br><span class="hl">CHAINS DON'T.</span></h1>
+      <div class="sub">The buy button vanished because of a clock,<br>not a conspiracy</div>
+    </div>
+  </div>
+  <div class="url">swopme.co/blog</div>
+</body></html>
