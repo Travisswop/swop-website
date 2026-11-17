@@ -63,6 +63,26 @@ Each row has a source and a verified-on date. Travis adds/verifies rows; the age
 | User / transaction counts | No public number exists yet — never estimate |
 | SWOP token — any claim at all | **No token row exists. Blocks cb204 "Copy trading on Solana" (Tue 9/23) and the parked "Swop is the people's network" post.** Proposed wording below — Travis to confirm, correct, or reject each line, then they move up to Verified. |
 
+### Proposed auth/security rows — awaiting Travis (drafted 2026-11-17)
+
+Read from `desktop-app` source, **not** from a product page: `app/(pages)/account-security/page.tsx`
+and `app/(pages)/wallet-settings/page.tsx`. Reading code is not verification —
+**nothing here may be published until Travis promotes it.** Drafted for the
+"Nobody broke the encryption" post, which discloses Swop's own position rather than
+writing around it.
+
+| Proposed claim | Exact wording to approve or correct | Where it came from |
+|---|---|---|
+| Sign-in passkeys exist | "Swop supports sign-in passkeys: you can sign in with Face ID, Touch ID, Windows Hello or a hardware key instead of an email code." | account-security page copy, verbatim |
+| Passkey is ADDITIVE (the honest one) | "Adding a sign-in passkey does not disable email sign-in. Until you also turn on transaction security, an attacker who controls your email can still sign in." | The UI states the passkey "adds a login method only". This is the claim that makes the post honest — if it is wrong, the post must change. |
+| Transaction MFA exists and is separate | "Passkey verification for transactions is a separate setting, under Wallet Settings → Transaction Security. It is off unless you turn it on." | wallet-settings + account-security copy ("Does not create sign-in passkeys"; "currently off") |
+| What transaction MFA actually protects | "With transaction verification on, someone who gets into your account still cannot move funds without your passkey." | Inferred from the feature's purpose — **Travis must confirm this is what it gates** before it is published. |
+| Key export as the real backstop | "You can export your private key, which does not depend on Swop, your email, or any password manager." | Already Verified in the self-custody row; restated here for this post's context. |
+
+**Open question for Travis, not a claim:** is transaction security off by default for
+new wallets? The post currently says it is opt-in. If that changes, the post needs an
+edit — and if it is defaulted ON, that is a much better story and should be said loudly.
+
 ### Proposed token rows — awaiting Travis (drafted 2026-09-15)
 
 Researched against `swop-app-backend/docs/REWARDS_ARCHITECTURE.md`. **Nothing here may be
