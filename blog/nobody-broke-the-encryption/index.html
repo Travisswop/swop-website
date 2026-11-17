@@ -51,6 +51,14 @@
     },
     {
       "@type": "Question",
+      "name": "How do hackers actually take over an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually as a chain of small steps rather than one dramatic break. Credentials surface in an old breach dump or are typed into a convincing fake login page; a second factor is then bypassed by reading a code aloud to someone impersonating support, approving a repeated push notification, or porting the phone number to a new SIM. Once the inbox is controlled, password resets for every other account follow mechanically, recovery addresses are changed so the owner cannot reverse it, and session tokens are replayed to skip login entirely. No cryptography is attacked at any point."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "Why is email a security weak point?",
       "acceptedAnswer": {
         "@type": "Answer",
@@ -115,7 +123,7 @@
 <h1 class="tight">Nobody broke the encryption. The logins broke.</h1>
 <p class="art-dek">Almost nothing that got breached this year was breached by defeating cryptography. The maths held. The way we prove who we are did not &mdash; and the fix being sold for the next decade addresses a different problem entirely.</p>
 <div class="art-meta">
-<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Nov 17, 2026</span><span class="sep"></span><span class="mono">Updated Nov 17, 2026</span><span class="sep"></span><span class="mono">13 min read</span></span>
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Nov 17, 2026</span><span class="sep"></span><span class="mono">Updated Nov 17, 2026</span><span class="sep"></span><span class="mono">15 min read</span></span>
 <span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Nobody%20broke%20the%20encryption.%20The%20logins%20broke.&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fnobody-broke-the-encryption" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Nobody%20broke%20the%20encryption.%20The%20logins%20broke.&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fnobody-broke-the-encryption" target="_blank" rel="noopener">Farcaster</a></span>
 </div>
 </div>
@@ -127,6 +135,7 @@
 <span class="lbl">Contents</span>
 <a href="#s1">What actually goes wrong</a>
 <a href="#s2">Email is the skeleton key</a>
+<a href="#s2b">What a takeover actually looks like</a>
 <a href="#s3">What public-key auth actually fixes</a>
 <a href="#s4">Why legacy systems keep losing this fight</a>
 <a href="#s5">The quantum question, honestly</a>
@@ -175,6 +184,25 @@
 <h2 id="s2">Email is the skeleton key</h2>
 <p>Here is the structural problem with the login model most of the internet still runs on. Whatever you use to sign in, there is almost always a path that ends at your email: forgot password, magic link, one-time code, &ldquo;confirm it&rsquo;s you.&rdquo; That makes your inbox the root of trust for everything else you own &mdash; and an inbox is a shared-secret account, reachable from anywhere, recoverable by a support process, and protected by a password and perhaps an SMS code that can be redirected with a SIM swap.</p>
 <p>Email was designed in the era of trusted networks. It was never built to be the custodian of every other account you hold; it became that by accident, because it was the one identifier everybody already had. The consequence is that your security is not the strength of your strongest login. It is the strength of your weakest <em>recovery</em> path, and for most people that path is a mail account that has been compromised somewhere already.</p>
+
+<h2 id="s2b">What a takeover actually looks like</h2>
+<p>Described abstractly, &ldquo;account takeover&rdquo; sounds like a single dramatic event. In practice it is a chain of small, individually reasonable steps, and seeing the chain is what makes the structural argument land.</p>
+<p>It usually begins somewhere unrelated to the thing being stolen. An address and password surface in an old breach dump from a service nobody thinks about any more. Reused anywhere else, that pair now works in more than one place. If it does not, there is a second route: a convincing message, a login page that looks right, and credentials typed straight into the attacker&rsquo;s form. Neither step requires defeating anything.</p>
+<p>Then comes the second factor, which is often weaker than it feels. A code read aloud to someone impersonating support, a push notification approved at the eighth attempt by a tired person, or a phone number ported to a new SIM so the codes simply arrive somewhere else. The defining weakness of a one-time code is that it is a shared secret with a short life &mdash; and a secret you can be persuaded to repeat is a secret an attacker can use.</p>
+<p>With the inbox, the rest follows mechanically. Password resets for every other account are requested and approved. Recovery addresses are changed so the real owner cannot reverse it. Session tokens, which skip the login entirely, are harvested and replayed. At no point in the sequence was any cryptography attacked. The system worked exactly as designed, for the wrong person.</p>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Method</th><th>What the service stores</th><th>What an attacker needs</th></tr></thead>
+<tbody>
+<tr><th scope="row">Password</th><td>A hash it must keep safe</td><td>The password &mdash; phished, reused or cracked offline</td></tr>
+<tr><th scope="row">SMS / email code</th><td>A channel it trusts</td><td>Control of the channel, or for you to read the code aloud</td></tr>
+<tr><th scope="row">Authenticator app</th><td>A shared seed</td><td>The current code, which you can still be talked into giving</td></tr>
+<tr><th scope="row">Passkey</th><td>Only a public key</td><td>Your device and its biometric &mdash; a fake site cannot replay the signature</td></tr>
+<tr><th scope="row">Wallet key</th><td>Nothing at all</td><td>The private key, or your signature on something you misread</td></tr>
+</tbody>
+</table>
+</div>
+<p>Read the middle column downwards. The amount the service has to keep safe on your behalf shrinks to nothing, and the attacker&rsquo;s job changes from <em>stealing a secret at scale</em> to <em>compromising one person&rsquo;s device or judgement</em>. That is the entire structural argument, and it is why one breach stops meaning millions of accounts.</p>
 
 <h2 id="s3">What public-key auth actually fixes</h2>
 <p>The alternative is older than the problem and is finally arriving at scale: stop sharing secrets. In a key-pair model you keep a private key and the service keeps only the matching public key. You prove who you are by signing a challenge. The service never holds anything an attacker can use.</p>
@@ -244,12 +272,14 @@
 <p>Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them. Wallets run on Privy today. You can export your private key, which is the only recovery path in this entire post that does not depend on a company, an inbox or a password manager.</p>
 <p>And then the honest part. Swop supports sign-in passkeys &mdash; Face ID, Touch ID, Windows Hello or a hardware key instead of an email code. But <strong>adding a passkey does not switch email off.</strong> It adds a second door rather than closing the first, and an attacker will always take the weaker one. By itself, it is a convenience upgrade, not a security boundary. That is not a Swop quirk; it is the most common way passkey rollouts across the industry end up delivering less than they appear to.</p>
 <div class="note"><span class="k">If you use Swop, do this</span>The setting that actually changes your exposure is <strong>Transaction Security</strong>, in Wallet Settings &mdash; passkey verification on transactions. It is a separate setting from sign-in passkeys, and it is off unless you turn it on. With it on, someone who gets into your account still cannot move funds without your passkey. If you read one sentence of this post as an instruction, make it that one. And for completeness, as we have said before: Swop has not commissioned a third-party security audit to date.</div>
-<p>Where this is going, and what we think the industry owes people, is the same thing: recovery that does not reintroduce a skeleton key. That means a passkey that makes email <em>insufficient</em> rather than merely optional, step-up verification on the actions that actually move value, and a real self-custody backstop for anyone who wants out of trusting a provider at all. The last of those exists today. The first two are the work.</p>
+<p>Where this is going, and what we think the industry owes people, is the same thing: recovery that does not reintroduce a skeleton key. It is worth being concrete about what that means rather than gesturing at a future.  That means a passkey that makes email <em>insufficient</em> rather than merely optional, step-up verification on the actions that actually move value, and a real self-custody backstop for anyone who wants out of trusting a provider at all. The last of those exists today. The first two are the work.</p>
 <p>None of this is security advice for your specific situation, and nothing here is a guarantee. The useful question to carry away is the one the breach reports keep answering: not &ldquo;is the encryption strong,&rdquo; because it is, but &ldquo;who can get my access without my key, and what procedure would they have to complete?&rdquo;</p>
 
 <h2 id="faq">FAQ</h2>
 <h3>Are most hacks caused by broken encryption?</h3>
 <p>No. In Verizon&rsquo;s 2026 Data Breach Investigations Report, 31% of breaches start with exploitation of a software vulnerability &mdash; which Verizon says has overtaken stolen passwords as the leading way in &mdash; and credential abuse appears somewhere in roughly 39% of breaches. Defeating cryptography is not a meaningful category. Attackers go around the maths rather than through it, by phishing people, exploiting unpatched systems and stealing live sessions.</p>
+<h3>How do hackers actually take over an account?</h3>
+<p>Usually as a chain of small steps rather than one dramatic break. Credentials surface in an old breach dump or are typed into a convincing fake login page; a second factor is then bypassed by reading a code aloud to someone impersonating support, approving a repeated push notification, or porting the phone number to a new SIM. Once the inbox is controlled, password resets for every other account follow mechanically, recovery addresses are changed so the owner cannot reverse it, and session tokens are replayed to skip login entirely. No cryptography is attacked at any point.</p>
 <h3>Why is email a security weak point?</h3>
 <p>Because it is the recovery path for almost everything else. Forgotten passwords, magic links and one-time codes all end at your inbox, which makes it the root of trust for every other account you hold. Your security therefore equals the strength of your weakest recovery path rather than your strongest login, and email was never designed to be a custodian for everything else.</p>
 <h3>Do passkeys stop phishing?</h3>
