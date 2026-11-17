@@ -41,6 +41,10 @@ until they are moved up.
 
 ## Proposed (agent may append; Travis promotes)
 
+Appended 2026-11-17. From Travis's brief for the 11-17 post (blog/crypto-hacks-2026-what-they-share). The post was tracked against the closest existing promoted lines ("is Swop safe", "what wallet lets an AI agent trade for me safely"); promoting this line would let a future post target it directly.
+
+- how to keep crypto safe after exchange and wallet hacks / recent crypto hacks  [Travis brief · Tue 11/17]
+
 Appended 2026-10-14. From Beachhead calendar item cb216 (d=2026-10-14, "Remittances are
 the test case for tokenized money"). The calendar's own note flagged that this topic has
 no target query here and suggested this phrasing; the drafted post

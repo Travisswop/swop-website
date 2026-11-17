@@ -1,0 +1,9 @@
+Three of the biggest security incidents in crypto landed within about two weeks of each other: Binance on 29 October, wallets created through Keplr's Google and Apple login (the issue was at its provider, Web3Auth), and the hijack of Across's domain on 10 November.
+
+On what has been disclosed so far, none of them broke the cryptography. Each went through something around the keys: an engineer's laptop and the signing path behind it, a key-infrastructure vendor, a domain registrar.
+
+That changes the question worth asking about any wallet, ours included: what can cause it to sign, who can change where you are sent, and can you leave.
+
+We wrote up what happened, six questions to ask any wallet, what we have shipped against them, and what we have not done, including that we have not commissioned a third-party security audit.
+
+https://www.swopme.co/blog/crypto-hacks-2026-what-they-share
