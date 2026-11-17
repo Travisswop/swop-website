@@ -1,0 +1,9 @@
+{
+  "posts": [
+    "Three of the biggest security incidents of the last three weeks: Binance (29 Oct), Keplr's Google/Apple-login wallets via their provider Web3Auth, and the Across domain hijack (10 Nov).\n\nOn what's been disclosed, none of them broke the cryptography.",
+    "Binance: a compromised engineer's laptop may have given access to a service container (its preliminary finding).\n\nKeplr: the incident originated at Web3Auth, the provider behind its social-login wallets.\n\nAcross: social engineering at its registrar gave an attacker the domain.",
+    "All three went in through something around the keys, not the lock.\n\nIn the Keplr incident, wallets set up with a recovery phrase or hardware wallet weren't affected. Same app, different answer to 'who can reconstruct the key?'",
+    "So the useful question about any wallet isn't 'is it secure?'\n\nIt's: what can cause it to sign, who can change where you're sent, and can you leave?",
+    "We wrote up what happened, six questions to ask any wallet, what Swop has shipped against them, and what we haven't done (no third-party audit to date; wallets run on Privy today).\n\nhttps://www.swopme.co/blog/crypto-hacks-2026-what-they-share"
+  ]
+}
