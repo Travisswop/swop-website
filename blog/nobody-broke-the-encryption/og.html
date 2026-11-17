@@ -1,0 +1,72 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1200px; height:630px; overflow:hidden; }
+  body {
+    font-family: 'Inter Tight', 'Inter', -apple-system, sans-serif;
+    background: radial-gradient(120% 140% at 82% 30%, #103524 0%, #0b1512 42%, #070709 75%);
+    color:#fff; position:relative;
+  }
+  @font-face { font-family:'Inter Tight'; src:url('../../editorial/fonts/InterTight.ttf'); }
+  @font-face { font-family:'JetBrains Mono'; src:url('../../editorial/fonts/JetBrainsMono.ttf'); }
+  .blob { position:absolute; border-radius:50%; filter:blur(90px); }
+  .b1 { width:520px; height:520px; right:-80px; top:-120px; background:#2ec27e; opacity:.26; }
+  .b2 { width:380px; height:380px; left:-120px; bottom:-160px; background:#1a6d47; opacity:.33; }
+  .stripes { position:absolute; inset:0;
+    background: repeating-linear-gradient(115deg, transparent 0 90px, rgba(255,255,255,.025) 90px 92px); }
+  .wrap { position:absolute; inset:0; padding:56px 72px; display:flex; }
+  .left { width:690px; display:flex; flex-direction:column; justify-content:flex-start; z-index:3; }
+  .logo { font-family:'JetBrains Mono'; font-weight:800; font-size:26px; letter-spacing:.45em; margin-bottom:24px; }
+  .kick { display:inline-flex; align-items:center; gap:12px; background:rgba(46,194,126,.14);
+    border:1.5px solid rgba(46,194,126,.6); color:#5ff0ab; font-family:'JetBrains Mono';
+    font-size:21px; font-weight:700; letter-spacing:.12em; padding:10px 20px; border-radius:999px;
+    width:max-content; margin-bottom:26px; text-transform:uppercase; }
+  .dot { width:12px; height:12px; border-radius:50%; background:#2ec27e; box-shadow:0 0 14px #2ec27e; }
+  h1 { font-size:78px; line-height:.97; font-weight:900; letter-spacing:-.028em;
+       text-shadow:0 8px 40px rgba(0,0,0,.72); }
+  h1 .hl { color:#5ff0ab; text-shadow:0 0 46px rgba(46,194,126,.75); }
+  .sub { margin-top:22px; font-size:25px; font-weight:700; color:rgba(255,255,255,.82); max-width:580px; line-height:1.3; }
+  /* right visual: an intact padlock — the lock is fine, the door was opened elsewhere */
+  .right { position:absolute; right:48px; top:0; width:500px; height:630px; z-index:1;
+    display:flex; align-items:center; justify-content:center; }
+  .lock { position:relative; width:330px; height:360px; }
+  .shackle { position:absolute; left:50%; top:4px; width:186px; height:186px; margin-left:-93px;
+    border:30px solid #5ff0ab; border-radius:50%; border-bottom-color:transparent;
+    box-shadow:0 0 44px rgba(95,240,171,.45); }
+  .body { position:absolute; left:50%; bottom:6px; width:306px; height:218px; margin-left:-153px;
+    border-radius:34px; background:linear-gradient(160deg,#37e394 0%,#17914f 60%,#0e6236 100%);
+    box-shadow:0 0 0 14px rgba(46,194,126,.14), 0 0 110px rgba(46,194,126,.45),
+               inset 0 -18px 46px rgba(0,0,0,.4), inset 0 16px 34px rgba(255,255,255,.22); }
+  .keyhole { position:absolute; left:50%; top:62px; width:46px; height:46px; margin-left:-23px;
+    border-radius:50%; background:#07130d; box-shadow:inset 0 3px 8px rgba(0,0,0,.6); }
+  .keyslot { position:absolute; left:50%; top:100px; width:26px; height:58px; margin-left:-13px;
+    border-radius:0 0 9px 9px; background:#07130d; }
+  .halted { position:absolute; right:10px; bottom:118px; background:#ff2e2e; color:#fff;
+    font-weight:900; font-size:30px; padding:13px 24px; border-radius:15px; transform:rotate(-5deg);
+    box-shadow:0 12px 40px rgba(255,46,46,.45); letter-spacing:.02em; z-index:4; white-space:nowrap; }
+  .scrim { position:absolute; left:0; top:0; width:760px; height:630px; z-index:2;
+    background:linear-gradient(90deg, rgba(7,7,9,.94) 0%, rgba(7,7,9,.86) 62%, rgba(7,7,9,0) 100%); }
+  .url { position:absolute; left:72px; bottom:34px; font-family:'JetBrains Mono';
+    font-size:20px; color:rgba(255,255,255,.5); letter-spacing:.06em; z-index:3; }
+</style></head>
+<body>
+  <div class="blob b1"></div><div class="blob b2"></div><div class="stripes"></div>
+  <div class="right">
+    <div class="lock">
+      <div class="shackle"></div>
+      <div class="body"><div class="keyhole"></div><div class="keyslot"></div></div>
+    </div>
+    <div class="halted">LOGIN BREACHED</div>
+  </div>
+  <div class="scrim"></div>
+  <div class="wrap">
+    <div class="left">
+      <div class="logo">SWOP</div>
+      <div class="kick"><span class="dot"></span>Perspective</div>
+      <h1>NOBODY BROKE<br>THE <span class="hl">ENCRYPTION.</span></h1>
+      <div class="sub">The maths held. The logins didn’t.</div>
+    </div>
+  </div>
+  <div class="url">swopme.co/blog</div>
+</body></html>
