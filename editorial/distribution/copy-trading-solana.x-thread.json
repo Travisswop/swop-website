@@ -1,0 +1,11 @@
+{
+ "posts": [
+  "Copy trading doesn't copy anything.\n\nSoftware sees a public wallet trade, then submits a different transaction from your account. Later. At your size. At whatever price exists by then.\n\nTwo trades, two prices, two outcomes. That gap is the whole story.",
+  "Which is why the normal disappointment isn't \"the trader was wrong.\"\n\nIt's \"the trader was right and I still lost.\"",
+  "You buy their impact.\n\nOn a token without deep liquidity, their buy is part of why the price went up. Your order arrives after it.\n\nThinner token = bigger gap. So it's largest in exactly the trades that look most exciting on a leaderboard.",
+  "Size isn't risk.\n\n2% of a large book vs 40% of a small one, into the same token, is not the same bet.\n\nBeing right about the token doesn't save you from being wrong about the size.",
+  "Exits mirror worse than entries.\n\nAn entry is one clean buy, easy to detect. Exits are staged, partial, routed elsewhere.\n\nMost of the result in trading lives in exits. Most of the reliability in copying lives in entries.",
+  "On leaderboards: ranking by short-window return is ranking by variance, because that's what short-window return maximises.\n\nThe biggest swings fill both ends of the distribution. You see one end. The other end dropped off the page.\n\nSurvivors, presented as experts.",
+  "Before you grant anything, answer one question: who can move the money?\n\nIf you deposit, withdrawing is a request. If it's a scoped permission, your exposure is whatever you permitted — so read the scope first.\n\nhttps://www.swopme.co/blog/copy-trading-solana"
+ ]
+}
