@@ -54,7 +54,7 @@ FOOTER = f'''{START}
   <div class="sf-top">
     <div class="sf-brand">
       <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
-      <p>Own your identity. Own your data. <span>Earn from it.</span></p>
+      <p>Your name. Your money. <span>Your agents.</span></p>
       <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">{APPLE}<span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">{PLAY}<span><small>Get it on</small><b>Google Play</b></span></a></div>
     </div>
     <div class="sf-dev">

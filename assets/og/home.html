@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<title>Swop homepage share card</title>
+<!-- Source for /assets/og-card.jpg (homepage link preview, 1200x630).
+     home-base.jpg is the previous card: its wordmark, URL and wallet phone are kept as is; only the copy is redrawn.
+     Render: serve the site root (python3 -m http.server 8930), then
+     "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless --disable-gpu --hide-scrollbars \
+       --force-device-scale-factor=1 --window-size=1200,630 --screenshot=og.png http://localhost:8930/assets/og/home.html
+     and convert: sips -s format jpeg -s formatOptions 88 og.png --out assets/og-card.jpg -->
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{position:relative;background:radial-gradient(ellipse 560px 420px at 1000px 600px,rgba(63,224,143,.12),transparent 72%),#FAFAFA;-webkit-font-smoothing:antialiased}
+/* pieces of the previous card, reused untouched */
+.keep{position:absolute;background:url(home-base.jpg) no-repeat;background-size:1200px 630px}
+.phone{left:756px;top:0;width:444px;height:630px;background-position:-756px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 34px)}
+.logo{left:60px;top:52px;width:180px;height:56px;background-position:-60px -52px}
+.url{left:60px;top:548px;width:150px;height:40px;background-position:-60px -548px}
+.copy{position:absolute;left:72px;top:152px;width:700px}
+h1{font:900 96px/.88 Figtree,sans-serif;letter-spacing:-.045em;color:#0a0a0c}
+h1 mark{background:linear-gradient(transparent 58%,#3FE08F 58%,#3FE08F 92%,transparent 92%);color:inherit;padding:0 .06em 0 0}
+p{margin-top:30px;font:400 24px/1.42 Inter,sans-serif;color:rgba(10,10,12,.62);max-width:600px;letter-spacing:-.005em}
+</style></head>
+<body>
+<div class="keep phone"></div><div class="keep logo"></div><div class="keep url"></div>
+<div class="copy">
+  <h1>Your name.<br>Your money.<br><mark>Your agents.</mark></h1>
+  <p>A world where your identity, your money and your agents belong to you, not to the platforms you use.</p>
+</div>
+</body></html>
