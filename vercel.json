@@ -112,7 +112,7 @@
       "destination": "/live.md"
     },
     {
-      "source": "/token",
+      "source": "/whitepaper",
       "has": [
         {
           "type": "header",
@@ -120,7 +120,7 @@
           "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/token.md"
+      "destination": "/whitepaper.md"
     },
     {
       "source": "/shop",
@@ -203,12 +203,12 @@
       "destination": "/live.html"
     },
     {
-      "source": "/token",
-      "destination": "/token.html"
+      "source": "/whitepaper",
+      "destination": "/whitepaper.html"
     },
     {
-      "source": "/token/",
-      "destination": "/token.html"
+      "source": "/whitepaper/",
+      "destination": "/whitepaper.html"
     },
     {
       "source": "/eldorado",
@@ -391,7 +391,7 @@
       ]
     },
     {
-      "source": "/token",
+      "source": "/whitepaper",
       "headers": [
         {
           "key": "Vary",
@@ -452,11 +452,6 @@
       "permanent": true
     },
     {
-      "source": "/token.html",
-      "destination": "/token",
-      "permanent": true
-    },
-    {
       "source": "/eldorado.html",
       "destination": "/eldorado",
       "permanent": true
@@ -464,6 +459,31 @@
     {
       "source": "/swop_landing_v6.html",
       "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/token",
+      "destination": "/whitepaper",
+      "permanent": true
+    },
+    {
+      "source": "/token/",
+      "destination": "/whitepaper",
+      "permanent": true
+    },
+    {
+      "source": "/token.html",
+      "destination": "/whitepaper",
+      "permanent": true
+    },
+    {
+      "source": "/token.md",
+      "destination": "/whitepaper.md",
+      "permanent": true
+    },
+    {
+      "source": "/whitepaper.html",
+      "destination": "/whitepaper",
       "permanent": true
     }
   ]
