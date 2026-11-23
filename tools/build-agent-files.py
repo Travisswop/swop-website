@@ -38,7 +38,7 @@ ROOT_PAGES = {
     'geobucks.html': ('/geobucks', 'Geo Bucks & Drops'),
     'trade.html': ('/trade', 'Trading'),
     'live.html': ('/live', 'Swop Live'),
-    'token.html': ('/token', 'SWOP'),
+    'whitepaper.html': ('/whitepaper', 'Whitepaper'),
     'ovi.html': ('/ovi', 'Ovi'),
     'mcp.html': ('/mcp', 'Swop MCP'),
     'eldorado.html': ('/eldorado', 'El Dorado'),
