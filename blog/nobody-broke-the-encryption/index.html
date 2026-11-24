@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Nobody Broke the Encryption. The Logins Broke.</title>
+<meta name="description" content="Almost every major breach is an authentication failure, not a cryptography failure. What email-era logins get wrong, what public-key auth actually fixes, and why post-quantum Ethereum solves a different problem on a different clock.">
+<link rel="canonical" href="https://www.swopme.co/blog/nobody-broke-the-encryption">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="Nobody broke the encryption. The logins broke.">
+<meta property="og:description" content="Nobody picked the lock. They asked the front desk for a spare key, and the front desk is your email.">
+<meta property="og:url" content="https://www.swopme.co/blog/nobody-broke-the-encryption">
+<meta property="og:image" content="https://www.swopme.co/blog/nobody-broke-the-encryption/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-11-17">
+<meta property="article:modified_time" content="2026-11-17">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/nobody-broke-the-encryption/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="Nobody broke the encryption. The logins broke.">
+<meta name="twitter:description" content="Today's breaches aren't broken maths. They're broken logins — and post-quantum crypto fixes neither.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Nobody broke the encryption. The logins broke.",
+  "description": "Almost every major breach is an authentication failure, not a cryptography failure. What email-era logins get wrong, what public-key auth actually fixes, and why post-quantum Ethereum solves a different problem on a different clock.",
+  "datePublished": "2026-11-17",
+  "dateModified": "2026-11-17",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/nobody-broke-the-encryption"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are most hacks caused by broken encryption?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. In Verizon’s 2026 Data Breach Investigations Report, 31% of breaches start with exploitation of a software vulnerability — which Verizon says has overtaken stolen passwords as the leading way in — and credential abuse appears somewhere in roughly 39% of breaches. Defeating cryptography is not a meaningful category. Attackers go around the maths rather than through it, by phishing people, exploiting unpatched systems and stealing live sessions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do hackers actually take over an account?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usually as a chain of small steps rather than one dramatic break. Credentials surface in an old breach dump or are typed into a convincing fake login page; a second factor is then bypassed by reading a code aloud to someone impersonating support, approving a repeated push notification, or porting the phone number to a new SIM. Once the inbox is controlled, password resets for every other account follow mechanically, recovery addresses are changed so the owner cannot reverse it, and session tokens are replayed to skip login entirely. No cryptography is attacked at any point."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why is email a security weak point?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because it is the recovery path for almost everything else. Forgotten passwords, magic links and one-time codes all end at your inbox, which makes it the root of trust for every other account you hold. Your security therefore equals the strength of your weakest recovery path rather than your strongest login, and email was never designed to be a custodian for everything else."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do passkeys stop phishing?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A passkey signature is cryptographically bound to the site that requested it, so a fake site cannot replay it — that removes phishing as a mechanism rather than relying on users to spot a fake. The common failure is that adding a passkey often does not disable the older email or password path, so an attacker simply uses the weaker one. A passkey only becomes a security boundary when the alternatives are removed or downgraded."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Ethereum quantum-resistant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not today. Account signatures use elliptic-curve cryptography that a sufficiently large quantum computer could break, and Google Quantum AI research in March 2026 estimated roughly 1,200 logical qubits to break 256-bit elliptic curve cryptography. The Ethereum Foundation has a published post-quantum roadmap — signature abstraction at the account level, hash-based signatures for validators, and proof systems for the larger signatures — targeting core infrastructure around 2029, with ecosystem migration beyond that."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Would post-quantum cryptography have prevented recent breaches?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Post-quantum cryptography defends against a future adversary capable of breaking current cryptography. It does nothing about phishing, unpatched software, stolen sessions or social engineering, which is what actually causes breaches today. The one genuine overlap is “harvest now, decrypt later” — encrypted data captured today and decrypted once the hardware exists — which is a real reason to migrate early, but an argument about long-lived secrets rather than about logins."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<!-- va:start --><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!-- va:end -->
+<!-- seo:start -->
+<link rel="alternate" type="text/markdown" href="/blog/nobody-broke-the-encryption.md" title="This page as Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt: Swop for AI agents (MCP server, x402 checkout, page index)">
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Swop Journal">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Swop", "item": "https://www.swopme.co/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.swopme.co/blog"}, {"@type": "ListItem", "position": 3, "name": "Nobody broke the encryption. The logins broke.", "item": "https://www.swopme.co/blog/nobody-broke-the-encryption"}]}</script>
+<!-- seo:end -->
+<style>
+.ig{margin:44px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+</style>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Perspective</span></div>
+<h1 class="tight">Nobody broke the encryption. The logins broke.</h1>
+<p class="art-dek">Almost nothing that got breached this year was breached by defeating cryptography. The maths held. The way we prove who we are did not &mdash; and the fix being sold for the next decade addresses a different problem entirely.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Nov 17, 2026</span><span class="sep"></span><span class="mono">Updated Nov 17, 2026</span><span class="sep"></span><span class="mono">15 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=Nobody%20broke%20the%20encryption.%20The%20logins%20broke.&url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fnobody-broke-the-encryption" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=Nobody%20broke%20the%20encryption.%20The%20logins%20broke.&embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fnobody-broke-the-encryption" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">What actually goes wrong</a>
+<a href="#s2">Email is the skeleton key</a>
+<a href="#s2b">What a takeover actually looks like</a>
+<a href="#s3">What public-key auth actually fixes</a>
+<a href="#s4">Why legacy systems keep losing this fight</a>
+<a href="#s5">The quantum question, honestly</a>
+<a href="#s6">What wallets do not fix</a>
+<a href="#s7">Where Swop actually stands today</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>Almost nothing that got breached this year was breached by defeating cryptography. Nobody factored a key or broke a cipher. They phished an employee, exploited an unpatched server, stole a live session, or asked a password-reset link to be sent to an inbox they already controlled. The maths held; the way we prove who we are did not. That distinction matters, because the fix most often sold for the next decade &mdash; post-quantum cryptography &mdash; addresses the part that is currently working.</p>
+
+<div class="figures">
+<div><div class="n">31%</div><div class="l">Breaches starting with a software vulnerability</div></div>
+<div><div class="n">39%</div><div class="l">Breaches with credential abuse somewhere in the chain</div></div>
+<div><div class="n">~2029</div><div class="l">Target for Ethereum&rsquo;s core post-quantum work</div></div>
+</div>
+
+<h2 id="s1">What actually goes wrong</h2>
+<p>Verizon&rsquo;s <a href="https://www.verizon.com/business/resources/reports/dbir/">2026 Data Breach Investigations Report</a>, covering incidents from November 2024 to October 2025, contains a finding worth sitting with: <strong>31% of breaches now start with a software vulnerability</strong>, which Verizon describes as beating stolen passwords as the top way attackers get in.</p>
+<p>That is a genuine change, and it cuts against the lazy version of this argument. &ldquo;Passwords are the whole problem&rdquo; is no longer true at the point of entry. Credentials remain enormous &mdash; as reported from the same report, credential abuse appears somewhere in roughly 39% of breaches and stolen credentials in 36%, with phishing steady at around 16% of initial access and the human element in roughly 62% &mdash; but the single most common front door is now unpatched software.</p>
+<figure class="ig">
+<svg viewBox="0 0 980 310" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Chart contrasting how breaches actually begin — vulnerability exploitation 31 percent, phishing 16 percent, credential abuse 13 percent at initial access — against defeating cryptography, which is effectively zero.">
+  <text x="34" y="34" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="2.4" fill="#6b6b6b">HOW BREACHES ACTUALLY START</text>
+  <text x="34" y="66" font-family="'Inter Tight',Inter,sans-serif" font-size="21" font-weight="800" fill="#0a0a0c">None of these is &#8220;they broke the encryption&#8221;</text>
+  <g font-family="'Inter Tight',Inter,sans-serif" font-size="15.5" fill="#0a0a0c">
+    <text x="34" y="116">Exploiting a software vulnerability</text>
+    <text x="34" y="158">Phishing</text>
+    <text x="34" y="200">Credential abuse</text>
+    <text x="34" y="242">Defeating the cryptography itself</text>
+  </g>
+  <rect x="330" y="100" width="434" height="22" rx="4" fill="#17a35c" fill-opacity=".85"/>
+  <rect x="330" y="142" width="224" height="22" rx="4" fill="#17a35c" fill-opacity=".55"/>
+  <rect x="330" y="184" width="182" height="22" rx="4" fill="#17a35c" fill-opacity=".45"/>
+  <rect x="330" y="226" width="4" height="22" rx="2" fill="#c0392b"/>
+  <g font-family="'JetBrains Mono',monospace" font-size="14" font-weight="700" fill="#0a0a0c">
+    <text x="778" y="117">31%</text><text x="568" y="159">16%</text><text x="526" y="201">13%</text>
+  </g>
+  <text x="346" y="243" font-family="'JetBrains Mono',monospace" font-size="13" fill="#c0392b">not a measured category</text>
+  <text x="34" y="286" font-family="'Inter Tight',Inter,sans-serif" font-size="15" font-weight="700" fill="#0a0a0c">Vulnerability exploitation has overtaken stolen passwords as the single most</text>
+  <text x="34" y="304" font-family="'Inter Tight',Inter,sans-serif" font-size="15" font-weight="700" fill="#0a0a0c">common way in. Credentials still appear somewhere in <tspan fill="#17a35c">39%</tspan> of breaches.</text>
+</svg>
+<figcaption>Initial-access vectors, Verizon DBIR 2026 (incidents from Nov 2024 to Oct 2025). The 31% figure is Verizon&rsquo;s own; the others are as reported from the report.</figcaption>
+</figure>
+<p>Notice what is absent from that list. There is no row for &ldquo;defeated the encryption,&rdquo; because it effectively does not happen. The cryptography is the one component performing to specification. Everything failing around it is authentication, patching and human judgement.</p>
+<p class="pull">We spend our anxiety on the one part of the stack that is working, and our budget on the parts that are not.</p>
+
+<h2 id="s2">Email is the skeleton key</h2>
+<p>Here is the structural problem with the login model most of the internet still runs on. Whatever you use to sign in, there is almost always a path that ends at your email: forgot password, magic link, one-time code, &ldquo;confirm it&rsquo;s you.&rdquo; That makes your inbox the root of trust for everything else you own &mdash; and an inbox is a shared-secret account, reachable from anywhere, recoverable by a support process, and protected by a password and perhaps an SMS code that can be redirected with a SIM swap.</p>
+<p>Email was designed in the era of trusted networks. It was never built to be the custodian of every other account you hold; it became that by accident, because it was the one identifier everybody already had. The consequence is that your security is not the strength of your strongest login. It is the strength of your weakest <em>recovery</em> path, and for most people that path is a mail account that has been compromised somewhere already.</p>
+
+<h2 id="s2b">What a takeover actually looks like</h2>
+<p>Described abstractly, &ldquo;account takeover&rdquo; sounds like a single dramatic event. In practice it is a chain of small, individually reasonable steps, and seeing the chain is what makes the structural argument land.</p>
+<p>It usually begins somewhere unrelated to the thing being stolen. An address and password surface in an old breach dump from a service nobody thinks about any more. Reused anywhere else, that pair now works in more than one place. If it does not, there is a second route: a convincing message, a login page that looks right, and credentials typed straight into the attacker&rsquo;s form. Neither step requires defeating anything.</p>
+<p>Then comes the second factor, which is often weaker than it feels. A code read aloud to someone impersonating support, a push notification approved at the eighth attempt by a tired person, or a phone number ported to a new SIM so the codes simply arrive somewhere else. The defining weakness of a one-time code is that it is a shared secret with a short life &mdash; and a secret you can be persuaded to repeat is a secret an attacker can use.</p>
+<p>With the inbox, the rest follows mechanically. Password resets for every other account are requested and approved. Recovery addresses are changed so the real owner cannot reverse it. Session tokens, which skip the login entirely, are harvested and replayed. At no point in the sequence was any cryptography attacked. The system worked exactly as designed, for the wrong person.</p>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Method</th><th>What the service stores</th><th>What an attacker needs</th></tr></thead>
+<tbody>
+<tr><th scope="row">Password</th><td>A hash it must keep safe</td><td>The password &mdash; phished, reused or cracked offline</td></tr>
+<tr><th scope="row">SMS / email code</th><td>A channel it trusts</td><td>Control of the channel, or for you to read the code aloud</td></tr>
+<tr><th scope="row">Authenticator app</th><td>A shared seed</td><td>The current code, which you can still be talked into giving</td></tr>
+<tr><th scope="row">Passkey</th><td>Only a public key</td><td>Your device and its biometric &mdash; a fake site cannot replay the signature</td></tr>
+<tr><th scope="row">Wallet key</th><td>Nothing at all</td><td>The private key, or your signature on something you misread</td></tr>
+</tbody>
+</table>
+</div>
+<p>Read the middle column downwards. The amount the service has to keep safe on your behalf shrinks to nothing, and the attacker&rsquo;s job changes from <em>stealing a secret at scale</em> to <em>compromising one person&rsquo;s device or judgement</em>. That is the entire structural argument, and it is why one breach stops meaning millions of accounts.</p>
+
+<h2 id="s3">What public-key auth actually fixes</h2>
+<p>The alternative is older than the problem and is finally arriving at scale: stop sharing secrets. In a key-pair model you keep a private key and the service keeps only the matching public key. You prove who you are by signing a challenge. The service never holds anything an attacker can use.</p>
+<figure class="ig">
+<svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Comparison of a shared secret and a key pair. With a shared secret the server stores something that can be stolen, replayed and reset by email. With a key pair the server stores only a public key and the private key never leaves the device.">
+  <text x="34" y="34" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="2.4" fill="#6b6b6b">WHAT AN ATTACKER GETS</text>
+  <text x="34" y="66" font-family="'Inter Tight',Inter,sans-serif" font-size="21" font-weight="800" fill="#0a0a0c">The difference is what the server has to keep</text>
+  <rect x="34" y="88" width="440" height="190" rx="12" fill="#ffffff" stroke="#c0392b" stroke-opacity=".35"/>
+  <rect x="506" y="88" width="440" height="190" rx="12" fill="#ffffff" stroke="#17a35c" stroke-opacity=".5"/>
+  <text x="58" y="116" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="1.4" fill="#c0392b">SHARED SECRET &#183; PASSWORD, OTP</text>
+  <text x="530" y="116" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="1.4" fill="#17a35c">KEY PAIR &#183; PASSKEY, WALLET</text>
+  <g font-family="'Inter Tight',Inter,sans-serif" font-size="15.5" fill="#0a0a0c">
+    <text x="58" y="148">Server stores something usable</text>
+    <text x="58" y="176">Can be phished and replayed</text>
+    <text x="58" y="204">Resettable &#8212; via your email</text>
+    <text x="58" y="232">One breach exposes millions</text>
+    <text x="530" y="148">Server stores only a public key</text>
+    <text x="530" y="176">Signature is bound to the site</text>
+    <text x="530" y="204">Nothing to reset, nothing to leak</text>
+    <text x="530" y="232">A breach yields unusable data</text>
+  </g>
+  <text x="58" y="262" font-family="'JetBrains Mono',monospace" font-size="12.5" fill="#6b6b6b">THE SKELETON KEY IS THE RESET CHANNEL</text>
+  <text x="530" y="262" font-family="'JetBrains Mono',monospace" font-size="12.5" fill="#6b6b6b">BUT NOW YOU CAN LOSE THE KEY</text>
+</svg>
+<figcaption>Passkeys and crypto wallets are the same idea applied to different objects: prove possession of a private key, never hand over a secret.</figcaption>
+</figure>
+<p>This is what passkeys do, and the adoption numbers are no longer small &mdash; FIDO Alliance reporting puts the installed base in the billions, with Google describing more than 800 million accounts actively using them. Crucially, a passkey signature is bound to the site that requested it, so a convincing fake cannot replay it. That removes phishing as a mechanism rather than asking users to be better at spotting it.</p>
+<p>It is also, structurally, exactly what a crypto wallet does. A wallet is a key pair with a balance attached; signing a transaction and signing a login challenge are the same operation applied to different objects. The reason to notice this is not tribal. It is that the industry arrived at the same answer twice, independently, for the same reason: <em>the only secret that cannot be stolen from a server is one the server never had.</em></p>
+
+<h2 id="s4">Why legacy systems keep losing this fight</h2>
+<p>It would be easy to say legacy systems are simply old. That is not the problem, and saying so makes the argument weaker than it should be. The problem is that they are <strong>custodial by design</strong>, and custody creates an override.</p>
+<p>If a provider can restore your access when you lose it, then there exists a procedure &mdash; a support agent, a reset flow, a recovery channel &mdash; that transfers control of your account to whoever completes it convincingly. That override is the product feature people most rely on and the single most reliable thing to attack. You cannot fully patch it, because removing it means telling a locked-out customer that nothing can be done. Every large consumer platform resolves that tension in favour of recoverability, which is why social engineering keeps working against companies with excellent engineering.</p>
+<p>A blockchain account is structurally different, not incrementally better. The account <em>is</em> the key pair. There is no administrator, so there is no override to socially engineer, no reset flow to subvert, and no credential database to breach &mdash; because there is no database. That is a real architectural advantage and it is why the model is worth building on.</p>
+<p>It is also why it is unforgiving, and any honest version of this argument has to say so in the same breath: the absence of an override means that when a key is gone, it is gone. The industry&rsquo;s actual task is not choosing between those two models. It is building recovery that does not reintroduce a skeleton key &mdash; which is precisely the thing nobody, including us, has completely solved.</p>
+
+<h2 id="s5">The quantum question, honestly</h2>
+<p>Which brings us to the claim doing the most work in crypto security marketing right now, and the one that deserves the most scepticism.</p>
+<p><strong>Ethereum is not quantum-resistant today.</strong> Account signatures use elliptic-curve cryptography that a sufficiently large quantum computer would break; Google Quantum AI research published in March 2026 estimated roughly 1,200 logical qubits to break 256-bit elliptic curve cryptography. The Ethereum Foundation has a serious, public <a href="https://pq.ethereum.org/">post-quantum roadmap</a> &mdash; account-level signature abstraction so accounts can adopt new schemes, hash-based signatures replacing validator BLS on the consensus side, and proof systems to handle the much larger signatures post-quantum schemes require. It targets core post-quantum infrastructure around <strong>2029</strong>, with ecosystem migration continuing beyond that.</p>
+<figure class="ig">
+<svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Two timelines. Attacks that work today — phishing, vulnerability exploitation, session theft — are happening now. Ethereum's post-quantum roadmap targets core infrastructure around 2029 with ecosystem migration beyond it.">
+  <text x="34" y="34" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="2.4" fill="#6b6b6b">TWO DIFFERENT CLOCKS</text>
+  <text x="34" y="66" font-family="'Inter Tight',Inter,sans-serif" font-size="21" font-weight="800" fill="#0a0a0c">Post-quantum crypto is real. It is not this year&#8217;s problem.</text>
+  <text x="34" y="112" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="1.2" fill="#c0392b">BREAKING YOU TODAY</text>
+  <rect x="34" y="124" width="912" height="40" rx="7" fill="#c0392b" fill-opacity=".10" stroke="#c0392b" stroke-opacity=".35"/>
+  <text x="52" y="150" font-family="'Inter Tight',Inter,sans-serif" font-size="15.5" fill="#0a0a0c">Phishing &#183; unpatched software &#183; stolen sessions &#183; SIM swap &#183; a password reset sent to an inbox</text>
+  <text x="34" y="202" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="1.2" fill="#17a35c">THE QUANTUM TIMELINE</text>
+  <line x1="34" y1="236" x2="946" y2="236" stroke="#0a0a0c" stroke-opacity=".22" stroke-width="1.5"/>
+  <circle cx="110" cy="236" r="7" fill="#17a35c"/><text x="96" y="266" font-family="'JetBrains Mono',monospace" font-size="12.5" fill="#6b6b6b">TODAY</text>
+  <text x="96" y="222" font-family="'Inter Tight',Inter,sans-serif" font-size="14" fill="#6b6b6b">not quantum-safe</text>
+  <circle cx="640" cy="236" r="7" fill="#17a35c"/><text x="600" y="266" font-family="'JetBrains Mono',monospace" font-size="12.5" fill="#6b6b6b">~2029 TARGET</text>
+  <text x="600" y="222" font-family="'Inter Tight',Inter,sans-serif" font-size="14" fill="#6b6b6b">core PQ infrastructure</text>
+  <circle cx="900" cy="236" r="7" fill="#0a0a0c" fill-opacity=".35"/><text x="828" y="266" font-family="'JetBrains Mono',monospace" font-size="12.5" fill="#6b6b6b">BEYOND</text>
+  <text x="828" y="222" font-family="'Inter Tight',Inter,sans-serif" font-size="14" fill="#6b6b6b">ecosystem migration</text>
+</svg>
+<figcaption>Ethereum&rsquo;s published post-quantum roadmap targets core infrastructure around 2029. Nothing on either line fixes the other.</figcaption>
+</figure>
+<p>So: real work, credible people, genuinely the right direction. And it has close to nothing to do with the breaches in the first half of this post. Post-quantum cryptography protects against a future adversary who can break today&rsquo;s maths. It does not protect against a phishing page, an unpatched server, a stolen session cookie, or a support agent who believed a convincing story. Anyone selling quantum resistance as the answer to the current security crisis is answering a different question on a different clock.</p>
+<p>The one place the two timelines genuinely touch is &ldquo;harvest now, decrypt later&rdquo; &mdash; data captured today and decrypted when the hardware exists. That is a real reason to migrate in advance, and it is an argument about long-lived secrets, not about logins.</p>
+
+<h2 id="s6">What wallets do not fix</h2>
+<p>If this piece stopped here it would be a sales pitch, so here is the other side. Moving to keys deletes a category of attack and creates two more.</p>
+<p>The first is that you can now lose the key, permanently, with no appeal. The second is that attackers followed. The dominant attack on wallet users is not cracking keys; it is persuading people to sign something &mdash; a transaction that grants spending approval, a message that authorises a transfer. The cryptography works perfectly and signs exactly what it was asked to. Phishing did not disappear when the industry moved to keys. It moved from &ldquo;give me your password&rdquo; to &ldquo;approve this,&rdquo; which is harder to spot, because the thing you are approving is often unreadable.</p>
+<p>Keys change <em>who</em> can be attacked, from the provider&rsquo;s database to the individual&rsquo;s judgement at the moment of signing. That is an improvement at scale &mdash; one breach stops meaning millions of accounts &mdash; and it is not the end of the problem.</p>
+
+<h2 id="s7">Where Swop actually stands today</h2>
+<p>It would be convenient to end with a product claim. Instead, here is our own position, including the uncomfortable part, because a post arguing that email is the weak link should say where its author sits.</p>
+<p>Swop is fully self-custodial &mdash; keys are generated and held on your device; Swop never holds them. Wallets run on Privy today. You can export your private key, which is the only recovery path in this entire post that does not depend on a company, an inbox or a password manager.</p>
+<p>And then the honest part. Swop supports sign-in passkeys &mdash; Face ID, Touch ID, Windows Hello or a hardware key instead of an email code. But <strong>adding a passkey does not switch email off.</strong> It adds a second door rather than closing the first, and an attacker will always take the weaker one. By itself, it is a convenience upgrade, not a security boundary. That is not a Swop quirk; it is the most common way passkey rollouts across the industry end up delivering less than they appear to.</p>
+<div class="note"><span class="k">If you use Swop, do this</span>The setting that actually changes your exposure is <strong>Transaction Security</strong>, in Wallet Settings &mdash; passkey verification on transactions. It is a separate setting from sign-in passkeys, and it is off unless you turn it on. With it on, someone who gets into your account still cannot move funds without your passkey. If you read one sentence of this post as an instruction, make it that one. And for completeness, as we have said before: Swop has not commissioned a third-party security audit to date.</div>
+<p>Where this is going, and what we think the industry owes people, is the same thing: recovery that does not reintroduce a skeleton key. It is worth being concrete about what that means rather than gesturing at a future.  That means a passkey that makes email <em>insufficient</em> rather than merely optional, step-up verification on the actions that actually move value, and a real self-custody backstop for anyone who wants out of trusting a provider at all. The last of those exists today. The first two are the work.</p>
+<p>None of this is security advice for your specific situation, and nothing here is a guarantee. The useful question to carry away is the one the breach reports keep answering: not &ldquo;is the encryption strong,&rdquo; because it is, but &ldquo;who can get my access without my key, and what procedure would they have to complete?&rdquo;</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>Are most hacks caused by broken encryption?</h3>
+<p>No. In Verizon&rsquo;s 2026 Data Breach Investigations Report, 31% of breaches start with exploitation of a software vulnerability &mdash; which Verizon says has overtaken stolen passwords as the leading way in &mdash; and credential abuse appears somewhere in roughly 39% of breaches. Defeating cryptography is not a meaningful category. Attackers go around the maths rather than through it, by phishing people, exploiting unpatched systems and stealing live sessions.</p>
+<h3>How do hackers actually take over an account?</h3>
+<p>Usually as a chain of small steps rather than one dramatic break. Credentials surface in an old breach dump or are typed into a convincing fake login page; a second factor is then bypassed by reading a code aloud to someone impersonating support, approving a repeated push notification, or porting the phone number to a new SIM. Once the inbox is controlled, password resets for every other account follow mechanically, recovery addresses are changed so the owner cannot reverse it, and session tokens are replayed to skip login entirely. No cryptography is attacked at any point.</p>
+<h3>Why is email a security weak point?</h3>
+<p>Because it is the recovery path for almost everything else. Forgotten passwords, magic links and one-time codes all end at your inbox, which makes it the root of trust for every other account you hold. Your security therefore equals the strength of your weakest recovery path rather than your strongest login, and email was never designed to be a custodian for everything else.</p>
+<h3>Do passkeys stop phishing?</h3>
+<p>A passkey signature is cryptographically bound to the site that requested it, so a fake site cannot replay it &mdash; that removes phishing as a mechanism rather than relying on users to spot a fake. The common failure is that adding a passkey often does not disable the older email or password path, so an attacker simply uses the weaker one. A passkey only becomes a security boundary when the alternatives are removed or downgraded.</p>
+<h3>Is Ethereum quantum-resistant?</h3>
+<p>Not today. Account signatures use elliptic-curve cryptography that a sufficiently large quantum computer could break, and Google Quantum AI research in March 2026 estimated roughly 1,200 logical qubits to break 256-bit elliptic curve cryptography. The Ethereum Foundation has a published post-quantum roadmap &mdash; signature abstraction at the account level, hash-based signatures for validators, and proof systems for the larger signatures &mdash; targeting core infrastructure around 2029, with ecosystem migration beyond that.</p>
+<h3>Would post-quantum cryptography have prevented recent breaches?</h3>
+<p>No. Post-quantum cryptography defends against a future adversary capable of breaking current cryptography. It does nothing about phishing, unpatched software, stolen sessions or social engineering, which is what actually causes breaches today. The one genuine overlap is &ldquo;harvest now, decrypt later&rdquo; &mdash; encrypted data captured today and decrypted once the hardware exists &mdash; which is a real reason to migrate early, but an argument about long-lived secrets rather than about logins.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed &mdash; see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/nobody-broke-the-encryption').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Your name. Your money. <span>Your agents.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">Swop.ID</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/whitepaper">Whitepaper</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>

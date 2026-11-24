@@ -5,8 +5,16 @@
   <id>https://www.swopme.co/blog</id>
   <link href="https://www.swopme.co/blog"/>
   <link rel="self" type="application/atom+xml" href="https://www.swopme.co/feed.xml"/>
-  <updated>2026-11-13T00:00:00Z</updated>
+  <updated>2026-11-17T00:00:00Z</updated>
   <author><name>Swop Team</name></author>
+  <entry>
+    <title>Nobody broke the encryption. The logins broke.</title>
+    <id>https://www.swopme.co/blog/nobody-broke-the-encryption</id>
+    <link href="https://www.swopme.co/blog/nobody-broke-the-encryption"/>
+    <published>2026-11-17T00:00:00Z</published>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <summary>Almost every major breach is an authentication failure, not a cryptography failure. What email-era logins get wrong, what public-key auth actually fixes, and why post-quantum Ethereum solves a different problem on a different clock.</summary>
+  </entry>
   <entry>
     <title>Markets close. Blockchains don’t.</title>
     <id>https://www.swopme.co/blog/markets-close-blockchains-dont</id>
