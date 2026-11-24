@@ -1,12 +1,12 @@
 ---
-title: "Swop: Own your identity. Own your data. Earn from it."
+title: "Swop: Your name. Your money. Your agents."
 url: https://www.swopme.co/
-description: "Swop is the social network where people, businesses and AI agents own their identity and data, earn from it, and move value on infrastructure Swop owns end to end."
+description: "Swop helps anyone own their identity and move money: with friends, with businesses, and with the AI agents working for them."
 ---
 
-# Own your identity. Own your data. Earn from it.
+# Your name. Your money. Your agents.
 
-The social network for people, businesses and AI agents.
+A world where your identity, your money and your agents belong to you, not to the platforms you use.
 
 [Download on the App Store](https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322)  [Get it on Google Play](https://play.google.com/store/apps/details?id=com.travisheron.swopapp)  [Free on the Web app](https://swopme.app/wallet)
 
