@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Recent Crypto Hacks: What They Share, and What to Ask</title>
+<meta name="description" content="Binance, Keplr and Across were each hit through something around the keys, not the cryptography. What they share, and six questions to ask any wallet.">
+<link rel="canonical" href="https://www.swopme.co/blog/crypto-hacks-2026-what-they-share">
+<link rel="icon" href="/favicon.ico">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Swop">
+<meta property="og:title" content="The hacks didn’t break the math.">
+<meta property="og:description" content="Three incidents in two weeks, three different doors. None went through the cryptography.">
+<meta property="og:url" content="https://www.swopme.co/blog/crypto-hacks-2026-what-they-share">
+<meta property="og:image" content="https://www.swopme.co/blog/crypto-hacks-2026-what-they-share/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="article:published_time" content="2026-11-17">
+<meta property="article:modified_time" content="2026-11-17">
+<meta property="article:author" content="Swop Team">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://www.swopme.co/blog/crypto-hacks-2026-what-they-share/og.png">
+<meta name="twitter:site" content="@swoplabs">
+<meta name="twitter:title" content="The hacks didn’t break the math.">
+<meta name="twitter:description" content="Binance, Keplr and Across lost control of different things. What they share, and what to ask any wallet.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "The hacks didn’t break the math.",
+  "description": "Binance, Keplr and Across were each hit through something around the keys, not the cryptography. What they share, and six questions to ask any wallet.",
+  "datePublished": "2026-11-17",
+  "dateModified": "2026-11-17",
+  "author": {"@type": "Organization", "name": "Swop Team", "url": "https://www.swopme.co/blog/authors/swop-team"},
+  "publisher": {"@type": "Organization", "name": "Swop", "url": "https://www.swopme.co"},
+  "mainEntityOfPage": "https://www.swopme.co/blog/crypto-hacks-2026-what-they-share"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What did the Binance breach involve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Binance disclosed the breach on 29 October 2026 and put its total impact at about $6.3 billion. Its preliminary finding, as reported by CoinDesk and Cointelegraph, was that a compromised DevOps engineer’s laptop may have given access to a service container and enabled unauthorized withdrawals; it said it found no evidence of a wallet private-key leak. A co-CEO later said the attack was more complex than a single compromised account. Binance said it would absorb the loss rather than its users, and the investigation was ongoing at the time of those reports."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Was the Keplr incident a hack of Keplr?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Keplr’s co-founder said it was not a hack of Keplr’s code: the incident originated at Web3Auth, a provider Keplr uses to create wallets from Google and Apple logins. Keplr said wallets set up with a recovery phrase or a hardware wallet were not affected. Web3Auth said it had identified a security issue in its infrastructure and moved assets out of vulnerable wallets into recovery addresses. As of The Block’s 8 November report, the number of wallets affected and the root cause had not been published."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are email or social-login wallets less safe than recovery-phrase wallets?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They fail differently rather than in a fixed order. A social-login wallet adds a provider that helps create or reconstruct your key, which is the dependency the Keplr incident exposed. A recovery phrase removes that provider but puts the whole burden on you, and a phrase that is lost, photographed or phished is gone. The practical test is whether you can take your key out and use it somewhere else if your provider has a bad day. On Swop you can export your private key."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Has Swop had a third-party security audit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Swop has not commissioned a third-party security audit to date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Swop hold my keys?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today."
+      }
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/swop-blog.css?v=2">
+<!-- va:start --><script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)};</script><script defer src="/_vercel/insights/script.js"></script><!-- va:end -->
+<style>
+.ig{margin:44px 0}
+.ig svg{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+.ig figcaption{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--mut);margin-top:12px;text-align:center}
+</style>
+<!-- seo:start -->
+<link rel="alternate" type="text/markdown" href="/blog/crypto-hacks-2026-what-they-share.md" title="This page as Markdown">
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt: Swop for AI agents (MCP server, x402 checkout, page index)">
+<link rel="alternate" type="application/atom+xml" href="/feed.xml" title="Swop Journal">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Swop", "item": "https://www.swopme.co/"}, {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.swopme.co/blog"}, {"@type": "ListItem", "position": 3, "name": "The hacks didn’t break the math.", "item": "https://www.swopme.co/blog/crypto-hacks-2026-what-they-share"}]}</script>
+<!-- seo:end -->
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/footer.css">
+</head>
+<body>
+<nav>
+<div class="wrap nav-inner">
+<a class="brand" href="/blog"><img src="/blog/assets/swop-logo.png" alt="Swop"></a>
+<a class="btn" id="get-app" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Get the app</a>
+</div>
+</nav>
+
+<header class="art-head">
+<div class="wrap">
+<div class="art-crumb"><a href="/blog">Blog</a><span>/</span><span class="cur">Perspective</span></div>
+<h1 class="tight">The hacks didn&rsquo;t break the math.</h1>
+<p class="art-dek">Binance, Keplr’s wallets and Across lost control of different things within two weeks. What they share is not a smart-contract bug. It is the layer around the keys — and what that means for judging any wallet, ours included.</p>
+<div class="art-meta">
+<span class="by"><span class="ini">ST</span><a class="nm" href="/blog/authors/swop-team">Swop Team</a><span class="sep"></span><span class="mono">Nov 17, 2026</span><span class="sep"></span><span class="mono">Updated Nov 17, 2026</span><span class="sep"></span><span class="mono">10 min read</span></span>
+<span class="share"><a href="#" id="copy-link">Copy link</a><a href="https://x.com/intent/tweet?text=The%20hacks%20didn%27t%20break%20the%20math.&amp;url=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcrypto-hacks-2026-what-they-share" target="_blank" rel="noopener">X</a><a href="https://warpcast.com/~/compose?text=The%20hacks%20didn%27t%20break%20the%20math.&amp;embeds[]=https%3A%2F%2Fwww.swopme.co%2Fblog%2Fcrypto-hacks-2026-what-they-share" target="_blank" rel="noopener">Farcaster</a></span>
+</div>
+</div>
+</header>
+
+<section class="art-body">
+<div class="wrap art-grid">
+<aside class="toc">
+<span class="lbl">Contents</span>
+<a href="#s1">Three incidents, three different doors</a>
+<a href="#s2">What the three have in common</a>
+<a href="#s3">Six questions to ask any wallet</a>
+<a href="#s4">What Swop has shipped against them</a>
+<a href="#s5">What we have not done</a>
+<a href="#s6">Where this goes next</a>
+<a href="#faq">FAQ</a>
+</aside>
+<article class="prose">
+<p>The three biggest security incidents of the past three weeks &mdash; the Binance breach on 29 October, the Keplr wallet incident traced to its provider Web3Auth in early November, and the hijack of Across&rsquo;s domain on 10 November &mdash; did not, on what has been disclosed so far, involve anyone breaking cryptography. Each went in through something that sits <em>around</em> the keys: an engineering laptop and the signing path behind it, a wallet-infrastructure provider, a domain registrar. So the useful question about any wallet is not &ldquo;is it secure?&rdquo; but three narrower ones: what can cause it to sign, who can change where you are sent, and whether you can leave. This post covers what happened, what to ask &mdash; and, in the part where we are the subject, what Swop has shipped and what it has not.</p>
+
+<div class="note"><span class="k">As of 17 November 2026</span>All three incidents were still developing when this was written. Every figure below is attributed to whoever produced it &mdash; the company, a named analytics firm, or a news outlet &mdash; and may be revised. Where a company has not said something, we say so rather than fill the gap.</div>
+
+<div class="figures">
+<div><div class="n">$6.3bn</div><div class="l">Binance&rsquo;s own figure for the impact, 29 Oct</div></div>
+<div><div class="n">$5.6M</div><div class="l">Moved by Web3Auth into 12 recovery addresses (The Block, on-chain)</div></div>
+<div><div class="n">$350K</div><div class="l">GoPlus&rsquo;s estimate of Across user losses; Across has published none</div></div>
+</div>
+
+<h2 id="s1">Three incidents, three different doors</h2>
+<div class="tbl-wrap">
+<table>
+<thead><tr><th>Incident</th><th>When</th><th>The door</th><th>What the company said</th></tr></thead>
+<tbody>
+<tr><th scope="row">Binance</th><td>29 Oct</td><td>A compromised engineer&rsquo;s laptop and what it could reach (Binance&rsquo;s preliminary finding)</td><td>About $6.3bn impact; it will absorb the loss, not its users</td></tr>
+<tr><th scope="row">Keplr / Web3Auth</th><td>Early Nov</td><td>A wallet-infrastructure provider&rsquo;s systems</td><td>Not a hack of Keplr&rsquo;s code; wallets secured by a recovery phrase or hardware wallet were not affected</td></tr>
+<tr><th scope="row">Across</th><td>10 Nov</td><td>The domain registrar account</td><td>Affected users will be made whole; post-mortem to follow</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>Binance.</strong> On 29 October Binance disclosed a breach and put its total impact at about $6.3 billion; <a href="https://www.coindesk.com/business/2026/10/29/potential-multi-billion-binance-hack-hitting-crypto-markets">CoinDesk called it</a> the largest crypto hack to date. Binance&rsquo;s preliminary finding was that a compromised DevOps engineer&rsquo;s laptop may have given access to a service container and enabled unauthorized withdrawals, and it said it found no evidence of a wallet private-key leak. A Binance co-CEO later said the attack was more complex than a single compromised account, and an outside researcher, Blockaid&rsquo;s CEO, <a href="https://cointelegraph.com/news/binance-hack-may-involve-private-key-misuse-not-theft-blockaid-ceo">described it</a> as looking more like a compromise of signing infrastructure than theft of a key. Binance said it would absorb the loss rather than its users and, on 31 October, <a href="https://www.coindesk.com/business/2026/10/31/binance-says-it-has-replaced-90-of-stolen-crypto-after-massive-usd6-3-billion-breach">said it had replaced about 90%</a> of the affected assets. In those reports Binance had not named who was responsible, and the investigation was ongoing.</p>
+<p><strong>Keplr and Web3Auth.</strong> Keplr, a crypto wallet, <a href="https://x.com/keplrwallet/status/2118926087615045807">said</a> accounts created with Google or Apple login had seen unauthorized transactions. Its co-founder wrote that this was not a hack of Keplr&rsquo;s code: the incident originated at Web3Auth, a provider Keplr uses to create wallets from social logins. Web3Auth <a href="https://x.com/Web3Auth/status/2119110953975635985">said</a> it had identified a security issue in its infrastructure affecting certain embedded wallets used by Keplr, paused its social-login service, and moved assets out of vulnerable wallets into recovery addresses; <a href="https://www.theblock.co/news/defi/2026-11-08-web3auth-says-it-frontran-hackers-by-moving-5-6-million-out-of-exposed-keplr-wallets-436029">The Block</a>, reviewing on-chain data, counted about $5.6 million in 12 of them. Keplr said wallets set up with a recovery phrase or a hardware wallet were not affected, and told Google and Apple login users to stop sending funds to those accounts. As of The Block&rsquo;s 8 November report, Web3Auth had not said how many wallets were hit and had given no specific cause beyond a flaw in its own systems. That report was also the only detailed one we found, so treat the specifics as provisional.</p>
+<p><strong>Across.</strong> At about 18:45 UTC on 10 November, Across <a href="https://x.com/AcrossProtocol/status/2120278803318489362">said</a>, a social-engineering attack on its domain registrar, Namecheap, gave an attacker control of the Across domain. Visitors were sent to a phishing page, which <a href="https://www.theblock.co/news/defi/2026-11-11-crosschain-protocol-across-restores-systems-after-domain-hijack-437843">GoPlus said</a> was built to get people to sign fake token approvals that drain wallets. Across took the site down, regained control the next day, and <a href="https://cointelegraph.com/news/across-protocol-restores-website-after-hackers-hijack-domain">said</a> affected users would be made whole, with a post-mortem to follow. GoPlus estimated about $350,000 in user losses across six chains; Across has not published a figure. Across said third-party integrations and API users were not affected.</p>
+
+<h2 id="s2">What the three have in common</h2>
+<figure class="ig">
+<svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Four layers between a person and a signature: devices and signing paths, key providers, the address book of domains and registrars, and the cryptography itself. Binance, Keplr and Web3Auth, and Across each sit on one of the first three layers. No break was reported in the cryptography layer in any of the three incidents.">
+  <text x="34" y="36" font-family="'JetBrains Mono',monospace" font-size="13" letter-spacing="2.4" fill="#6b6b6b">WHERE EACH INCIDENT GOT IN</text>
+  <text x="34" y="68" font-family="'Inter Tight',Inter,sans-serif" font-size="21" font-weight="800" fill="#0a0a0c">Three doors around the lock</text>
+  <g font-family="'JetBrains Mono',monospace" font-size="12" letter-spacing=".8">
+    <rect x="34" y="86" width="150" height="26" rx="13" fill="#fdecea" stroke="#c0392b" stroke-opacity=".6"/><text x="109" y="103" text-anchor="middle" fill="#c0392b">BINANCE &#183; 29 OCT</text>
+    <rect x="269" y="86" width="164" height="26" rx="13" fill="#fdecea" stroke="#c0392b" stroke-opacity=".6"/><text x="351" y="103" text-anchor="middle" fill="#c0392b">KEPLR / WEB3AUTH</text>
+    <rect x="504" y="86" width="140" height="26" rx="13" fill="#fdecea" stroke="#c0392b" stroke-opacity=".6"/><text x="574" y="103" text-anchor="middle" fill="#c0392b">ACROSS &#183; 10 NOV</text>
+    <rect x="739" y="86" width="190" height="26" rx="13" fill="#e8f6ee" stroke="#17a35c" stroke-opacity=".6"/><text x="834" y="103" text-anchor="middle" fill="#17a35c">NO BREAK REPORTED</text>
+  </g>
+  <g>
+    <rect x="34" y="124" width="205" height="108" rx="12" fill="#ffffff" stroke="#c0392b" stroke-opacity=".45"/>
+    <rect x="269" y="124" width="205" height="108" rx="12" fill="#ffffff" stroke="#c0392b" stroke-opacity=".45"/>
+    <rect x="504" y="124" width="205" height="108" rx="12" fill="#ffffff" stroke="#c0392b" stroke-opacity=".45"/>
+    <rect x="739" y="124" width="205" height="108" rx="12" fill="#ffffff" stroke="#17a35c" stroke-opacity=".6"/>
+  </g>
+  <g font-family="'JetBrains Mono',monospace" font-size="12.5" letter-spacing="1" fill="#0a0a0c" font-weight="700">
+    <text x="56" y="152">DEVICES &amp; SIGNING</text><text x="291" y="152">KEY PROVIDERS</text>
+    <text x="526" y="152">THE ADDRESS BOOK</text><text x="761" y="152" fill="#17a35c">THE CRYPTOGRAPHY</text>
+  </g>
+  <g font-family="'Inter Tight',Inter,sans-serif" font-size="14.5" fill="#6b6b6b">
+    <text x="56" y="182">Laptops, service accounts,</text><text x="56" y="202">signing servers</text>
+    <text x="291" y="182">Vendors that create or</text><text x="291" y="202">hold key material</text>
+    <text x="526" y="182">Domains, registrars,</text><text x="526" y="202">DNS</text>
+    <text x="761" y="182">Signatures, hashes,</text><text x="761" y="202">the chain itself</text>
+  </g>
+  <text x="34" y="262" font-family="'Inter Tight',Inter,sans-serif" font-size="15.5" font-weight="700" fill="#0a0a0c">On what has been disclosed so far, all three went in through the layers on the left.</text>
+  <text x="34" y="283" font-family="'Inter Tight',Inter,sans-serif" font-size="15.5" font-weight="700" fill="#0a0a0c">The layer on the right <tspan fill="#17a35c">did what it was asked.</tspan></text>
+</svg>
+<figcaption>Dependency and access problems, not cryptography problems. Based on the companies’ own accounts as of 17 Nov 2026.</figcaption>
+</figure>
+<p>Put them side by side and the pattern is hard to miss: in none of the three was the thing that failed the lock. It was the layer between a person and a signature.</p>
+<p>At Binance, on its own account, the path started at a machine where people build and run systems, and from there reached a way to move funds. At Keplr, it was a vendor that sits in the path of turning a social login into a wallet key. At Across, it was the address book: whoever controls a domain controls where the name sends you, whatever the contract behind it does.</p>
+<p class="pull">The cryptography did what it was asked. The failures were in who got to ask.</p>
+<p>Each of those is outside what a smart-contract audit is built to examine, and none of them is fixed by a nicer wallet interface. They are access and dependency problems, and they get managed the way those always are: narrower access, fewer single points of failure, logs you can check, and an exit that does not depend on the party that was just breached.</p>
+<p>The Keplr detail is the instructive one. Same app, same week; wallets whose keys were set up with a recovery phrase or a hardware wallet were not affected, and wallets set up through the provider&rsquo;s social login were. What differed was who could reconstruct the key.</p>
+
+<h2 id="s3">Six questions to ask any wallet</h2>
+<p>These apply to every wallet and exchange, including ours. The answers are more useful than any adjective.</p>
+<ul>
+<li><strong>What can cause a signature?</strong> List every party and process that can: you, the wallet vendor, any key-infrastructure provider, any automated agent. If the answer includes &ldquo;an employee&rsquo;s laptop&rdquo; or &ldquo;a service account,&rdquo; ask what limits it.</li>
+<li><strong>Is there a provider between you and your key, and can you take the key out?</strong> If you can export it, an incident at the provider is a migration. If you cannot, it is a wait.</li>
+<li><strong>How do you know the site is the site?</strong> Bookmark the real address, and after any incident treat links as suspect until the project confirms it has regained control. If you signed anything during an incident window, revoke those approvals.</li>
+<li><strong>How much authority does anything automated have, and is it written down?</strong> An agent that can act should have a ceiling that only you can raise, and a log that cannot be quietly edited.</li>
+<li><strong>What does the company hold that an attacker would want?</strong> Data a company does not keep cannot be taken from it.</li>
+<li><strong>What has it committed to in writing, before anything goes wrong?</strong> Binance and Across both said users would be made whole, and both said it after the incident. Look for what a provider has committed to in advance.</li>
+</ul>
+
+<h2 id="s4">What Swop has shipped against them</h2>
+<p>We cannot tell you this could not happen to us, and neither can anyone else. What follows is what exists today, set against the questions above, using only wording we have verified. The section after it is the list of what we have not done.</p>
+<h3>Who can sign, and can you leave</h3>
+<p>You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today. Losing your phone doesn&rsquo;t mean losing your funds: log in with your email on any phone and your Swop wallet comes back with it. You can also save your private key, which lets you open your assets in any wallet you choose.</p>
+<p>That last sentence is the one the Keplr incident makes concrete. A wallet that runs on a provider inherits some of that provider&rsquo;s risk &mdash; that is simply what a dependency is &mdash; and an exported key is the part of the arrangement you can carry out of it. See also <a href="/blog/recover-wallet-without-seed-phrase">how recovery works without a seed phrase</a> and <a href="/blog/is-swop-safe">what &ldquo;safe&rdquo; means for Swop</a>.</p>
+<h3>How much an automated agent can do</h3>
+<p>Swop&rsquo;s agent proposes; you approve. Nothing signs without a tap, and the agent never holds keys. Swop&rsquo;s Goldman trading agent runs under an ERC-8196-inspired policy layer: each vault carries a versioned policy, expanding a policy&rsquo;s authority requires the owner&rsquo;s EIP-712 signature, and every enforcement decision is written to a per-vault hash-chained audit log. Risk-reducing actions &mdash; exits, cancels, and withdrawals back to the owner &mdash; are never blocked by the policy layer. The owner can always get out. More in <a href="/blog/erc-8196-agent-policy">the policy-layer write-up</a> and <a href="/blog/ai-agent-wallet-safety-checklist">the agent safety checklist</a>.</p>
+<h3>Holding less of what an attacker wants</h3>
+<p>On the card rail, the sensitive data is identity documents. Card-rail verification runs through Stripe. Stripe holds the identity documents; Swop keeps only a revocable record of the decision, not the evidence behind it. Swop never writes verification data to ENS, an NFT, or any public chain, and card proceeds never touch a Swop wallet &mdash; Stripe holds the fiat balance and pays the merchant&rsquo;s bank.</p>
+
+<h2 id="s5">What we have not done</h2>
+<p>A security post that lists only strengths is a press release, so here is the other column.</p>
+<ul>
+<li><strong>No third-party audit.</strong> Swop has not commissioned a third-party security audit to date. Everything above is our own account of our own systems.</li>
+<li><strong>A provider sits under the wallet.</strong> Wallets run on Privy today, so the security of Swop wallets includes the security of that provider. We are saying so in the open because the Keplr incident is a good example of why it matters.</li>
+<li><strong>The policy layer is a backend control, not an on-chain guarantee.</strong> Enforcement happens at Swop&rsquo;s backend signing seam &mdash; the point every agent transaction must pass to be signed &mdash; and the audit chain makes any violation provable. It is not an on-chain guarantee. [NEEDS FACT: policy-layer rollout stage. Last verified 28 Aug 2026: &ldquo;shipped Aug 28, 2026 and is running in shadow (observe-and-log) mode while it soaks; enforcement mode follows.&rdquo; Confirm the current stage and state it here, or delete this marker.]</li>
+</ul>
+
+<h2 id="s6">Where this goes next</h2>
+<p>The direction we are working in is the one the incidents argue for: keep the key with the person and keep an exit that does not depend on us; give anything automated a ceiling the owner controls and a log nobody can quietly rewrite; and hold as little as possible of what an attacker would want. Some of that is shipped, some of it is still being rolled out, and some of it is a promise we would rather you judge on delivery than on this paragraph.</p>
+<p>None of this is investment or security advice, and nothing here is a guarantee that any wallet or exchange, ours included, cannot be breached. If you take one thing from it, take the six questions.</p>
+
+<h2 id="faq">FAQ</h2>
+<h3>What did the Binance breach involve?</h3>
+<p>Binance disclosed the breach on 29 October 2026 and put its total impact at about $6.3 billion. Its preliminary finding, as reported by CoinDesk and Cointelegraph, was that a compromised DevOps engineer’s laptop may have given access to a service container and enabled unauthorized withdrawals; it said it found no evidence of a wallet private-key leak. A co-CEO later said the attack was more complex than a single compromised account. Binance said it would absorb the loss rather than its users, and the investigation was ongoing at the time of those reports.</p>
+<h3>Was the Keplr incident a hack of Keplr?</h3>
+<p>Keplr’s co-founder said it was not a hack of Keplr’s code: the incident originated at Web3Auth, a provider Keplr uses to create wallets from Google and Apple logins. Keplr said wallets set up with a recovery phrase or a hardware wallet were not affected. Web3Auth said it had identified a security issue in its infrastructure and moved assets out of vulnerable wallets into recovery addresses. As of The Block’s 8 November report, the number of wallets affected and the root cause had not been published.</p>
+<h3>Are email or social-login wallets less safe than recovery-phrase wallets?</h3>
+<p>They fail differently rather than in a fixed order. A social-login wallet adds a provider that helps create or reconstruct your key, which is the dependency the Keplr incident exposed. A recovery phrase removes that provider but puts the whole burden on you, and a phrase that is lost, photographed or phished is gone. The practical test is whether you can take your key out and use it somewhere else if your provider has a bad day. On Swop you can export your private key.</p>
+<h3>Has Swop had a third-party security audit?</h3>
+<p>Swop has not commissioned a third-party security audit to date.</p>
+<h3>Does Swop hold my keys?</h3>
+<p>You control your Swop wallet: nothing moves without your approval, you can export your private key, and Swop never holds your keys. Wallets run on Privy today.</p>
+
+<div class="art-end">
+<span class="ini">ST</span>
+<div>
+<div class="nm"><a class="link" href="/blog/authors/swop-team">Swop Team</a></div>
+<p class="bio">Written by the Swop product team. Editorial rules: a direct answer up front, no invented statistics, dates on everything, and links to primary sources.</p>
+</div>
+</div>
+</article>
+</div>
+</section>
+
+<section class="sub">
+<div class="wrap">
+<div class="sub-grid">
+<div>
+<h3 class="tight">One email, every other Tuesday.</h3>
+<p class="sub-d">Releases, market notes, and what we got wrong. No growth-hacking, no referral loops.</p>
+</div>
+<form class="sub-form" onsubmit="event.preventDefault();this.classList.add('done')">
+<input type="email" placeholder="you@domain.com" required>
+<button type="submit">Subscribe</button>
+<span class="ok mono">Subscribed &mdash; see you Tuesday.</span>
+</form>
+</div>
+</div>
+</section>
+
+<section class="app">
+<div class="wrap app-inner">
+<div>
+<span class="eyebrow">Swop App</span>
+<h3 class="tight">Reading about it is the slow way.</h3>
+</div>
+<div class="app-acts"><a class="btn" href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322">Download for iOS</a><a class="btn ghost" href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp">Android</a></div>
+</div>
+</section>
+
+
+<script>
+document.getElementById('copy-link').addEventListener('click',function(e){
+  e.preventDefault();
+  navigator.clipboard.writeText('https://www.swopme.co/blog/crypto-hacks-2026-what-they-share').then(()=>{
+    this.textContent='Copied';setTimeout(()=>{this.textContent='Copy link'},1600);
+  });
+});
+</script>
+<script>if(/android/i.test(navigator.userAgent)){var g=document.getElementById('get-app');if(g)g.href='https://play.google.com/store/apps/details?id=com.travisheron.swopapp';}</script>
+<!-- site-footer:start -->
+<footer class="sf" aria-label="Site footer"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="sf-swop" viewBox="0 0 88 18"><g fill="currentColor"><path d="M13.1545 1.08794V2.99327C13.1545 2.99327 13.1291 3.54142 12.1374 3.54142H4.07153C4.07153 3.54142 3.2625 3.48963 3.2625 4.37683V6.83029C3.2625 6.83029 3.41883 7.48299 4.35879 7.48299H10.832C10.832 7.48299 13.6245 7.71749 13.6245 10.6937V14.8952C13.6245 14.8952 13.5981 18.0004 9.37028 18.0004H1.33079C1.33079 18.0004 0 17.9505 0 16.8269V15.5743C0 15.5743 0.026381 14.7134 1.22625 14.7134H10.3132C10.3132 14.7134 11.4857 13.2253 10.4167 10.5628H3.23612C3.23612 10.5628 0.417216 10.3019 0.287263 7.79566C0.157311 5.28943 -0.260883 0.539798 3.00161 0.539798H12.0377C12.7608 0.528073 13.1594 0.654116 13.1594 1.08794"/><path d="M20.2764 0.0283394H22.0038C22.0038 0.0283394 22.7699 -0.0693711 22.9692 0.680056C23.1685 1.42948 26.7671 13.6753 26.7671 13.6753L30.7224 1.28976C30.7224 1.28976 31.0224 0.019543 31.975 0.019543C32.9277 0.019543 33.9849 -0.202257 34.363 0.946799C34.7412 2.09585 38.2391 13.6577 38.2391 13.6577L42.5139 0.639998C42.5139 0.639998 42.7416 0 43.2838 0H45.2683C45.3465 0.0156607 45.4205 0.0479048 45.4851 0.09456C45.5498 0.141215 45.6038 0.201201 45.6433 0.270465C45.6828 0.339728 45.7071 0.416662 45.7143 0.496082C45.7216 0.575503 45.7118 0.655564 45.6855 0.730866C45.5292 1.34448 40.6047 16.1181 40.6047 16.1181C40.6047 16.1181 40.0038 17.9579 38.2685 17.9579C36.5331 17.9579 35.6059 15.5699 35.6059 15.5699L32.5769 5.3906L29.2636 15.8777C29.2636 15.8777 28.7086 17.8319 26.7124 17.8319C24.7162 17.8319 24.0235 15.1038 24.0235 15.1038L19.6774 0.869611C19.6774 0.869611 19.4488 0.0166143 20.2764 0.0283394Z"/><path fill-rule="evenodd" d="M53.4917 3.24393H59.5496C59.5496 3.24393 61.5038 3.0876 61.5038 5.14926V12.4833C61.5038 12.4833 61.6083 14.5195 59.6473 14.5195H53.2806C53.2806 14.5195 52.0016 14.6495 52.0016 12.6631V4.70273C52.0016 4.70273 52.0016 3.26738 53.4897 3.23709L53.4917 3.24393ZM53.4633 0H60.2238C60.2238 0 64.3999 0.522741 64.3999 4.25522V13.2337C64.3999 13.2337 64.4263 17.6189 59.6757 17.6189H53.4116C53.4116 17.6189 49.0264 17.5407 49.0264 12.6357C49.0264 7.73072 49 4.07446 49 4.07446C49 4.07446 48.9971 0.0566749 53.4633 0.00391217V0Z"/><path d="M74.0749 0.308594H83.4706C83.4706 0.308594 86.3305 0.455156 87.1512 3.5193C87.1512 3.5193 88.2212 10.5143 84.2542 10.5143H76.0584V17.0266C76.0584 17.0266 75.8883 17.9402 75.0666 17.9402H73.7485C73.7485 17.9402 72.874 17.9265 72.874 16.7256V8.36664C72.874 8.36664 72.9649 7.66216 73.983 7.66216H82.6156C82.6156 7.66216 84.3255 7.78625 84.3255 5.84185V4.2785C84.3255 4.2785 84.4301 3.43039 82.4202 3.43039H73.7153C73.7153 3.43039 72.8672 3.44309 72.8672 1.99505C72.8672 0.547004 74.0749 0.311522 74.0749 0.311522"/></g></symbol></svg><div class="sf-wrap">
+  <div class="sf-top">
+    <div class="sf-brand">
+      <a href="/" class="sf-wm" aria-label="Swop home"><svg role="img" aria-label="Swop" viewBox="0 0 88 18"><use href="#sf-swop"/></svg></a>
+      <p>Your name. Your money. <span>Your agents.</span></p>
+      <div class="sf-apps"><a href="https://apps.apple.com/us/app/swop-connecting-the-world/id1593201322"><svg width="20" height="22" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 4.9c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.3 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg><span><small>Download on the</small><b>App Store</b></span></a><a href="https://play.google.com/store/apps/details?id=com.travisheron.swopapp"><svg width="19" height="21" viewBox="0 0 24 24" aria-hidden="true"><path fill="#00A0FF" d="M3.6 1.8L13.5 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1z"/><path fill="#00F076" d="M17 8.4L13.5 12 3.6 1.8c.2-.1.5-.1.8.1z"/><path fill="#FF3A44" d="M17 15.6L4.4 22.1c-.3.2-.6.2-.8.1L13.5 12z"/><path fill="#FFD500" d="M20.4 10.4c.8.5.8 1.7 0 2.2L17 15.6 13.5 12 17 8.4z"/></svg><span><small>Get it on</small><b>Google Play</b></span></a></div>
+    </div>
+    <div class="sf-dev">
+      <span class="sf-kicker">Developers</span>
+      <h3>Build on Swop.</h3>
+      <p>Take payments from people and AI agents, get signed webhooks, and put Swop inside any AI. Explained simply, with code you can copy.</p>
+      <a class="sf-docs" href="https://docs.swopme.co">Read the docs <span aria-hidden="true">→</span></a>
+      <div class="sf-devlinks"><a href="https://docs.swopme.co/payments/quickstart">Quickstart</a><a href="https://docs.swopme.co/api-reference">API reference</a><a href="https://docs.swopme.co/mcp/quickstart">MCP setup</a><a href="https://docs.swopme.co/swivy">Swivy docs</a><a href="https://docs.swopme.co/troubleshooting">Troubleshooting</a><a href="/llms.txt" class="sf-mono">llms.txt</a></div>
+    </div>
+  </div>
+  <div class="sf-cols" role="navigation" aria-label="Footer"><div class="sf-col"><h4>Products</h4><ul><li><a href="/swopid">Swop.ID</a></li><li><a href="/pay">Swop Pay</a></li><li><a href="/geobucks">Geo Bucks</a></li><li><a href="/whitepaper">Whitepaper</a></li><li><a href="/decentrabet">Decentrabet<em class="sf-tag">Beta</em></a></li><li><a href="/swivy">Swivy<em class="sf-tag sf-soon">Soon</em></a></li><li><a href="/shop">Shop</a></li></ul></div><div class="sf-col"><h4>AI &amp; worlds</h4><ul><li><a href="/ovi">Ovi<em class="sf-tag">Beta</em></a></li><li><a href="/mcp">Swop MCP</a></li><li><a href="/eldorado">El Dorado<em class="sf-tag">Beta</em></a></li></ul></div><div class="sf-col"><h4>Company</h4><ul><li><a href="/blog/">Blog</a></li><li><a href="/about.html">About</a></li><li><a href="https://support.swop.id">Support</a></li><li><a href="mailto:support@swopme.co">Contact</a></li><li><a href="/swop_fee_calculator.html">Fee calculator</a></li></ul></div><div class="sf-col"><h4>Legal</h4><ul><li><a href="/privacy.html">Privacy</a></li><li><a href="/terms.html">Terms</a></li><li><a href="/legal.html">Legal</a></li></ul></div></div>
+  <div class="sf-bar"><div class="sf-socs"><a href="https://x.com/swoplabs" aria-label="Swop on X"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4l16 16M20 4L4 20" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg></a><a href="https://www.instagram.com/swop.labs" aria-label="Swop on Instagram"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.9"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></svg></a><a href="https://discord.com/invite/axxx4mHePf" aria-label="Swop on Discord"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 7.5c3-1.4 6-1.4 9 0M7.5 16.5c3 1.4 6 1.4 9 0M6 17c-1.4-2.6-1.8-5.6-.9-9 1-1 2.4-1.7 3.9-2l.6 1.2M18 17c1.4-2.6 1.8-5.6.9-9-1-1-2.4-1.7-3.9-2l-.6 1.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="9.5" cy="12" r="1.3" fill="currentColor"/><circle cx="14.5" cy="12" r="1.3" fill="currentColor"/></svg></a><a href="https://github.com/Travisswop" aria-label="Swop on GitHub"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.8-.3 5.6-1.4 5.6-6.1a4.7 4.7 0 0 0-1.3-3.3 4.4 4.4 0 0 0-.1-3.3s-1.1-.3-3.5 1.3a12 12 0 0 0-6.3 0C5.9 2.6 4.9 2.9 4.9 2.9a4.4 4.4 0 0 0-.1 3.3 4.7 4.7 0 0 0-1.3 3.3c0 4.7 2.8 5.8 5.6 6.1-.6.6-.6 1.2-.5 2V21" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div><span class="sf-note">Example names and amounts are illustrative. Status tags show what is live today.</span><span class="sf-c">© 2026 Swop</span></div>
+</div>
+<div class="sf-giant" aria-hidden="true"><svg viewBox="0 0 88 18"><use href="#sf-swop"/></svg></div>
+</footer>
+<!-- site-footer:end -->
+</body>
+</html>

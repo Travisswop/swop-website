@@ -5,8 +5,16 @@
   <id>https://www.swopme.co/blog</id>
   <link href="https://www.swopme.co/blog"/>
   <link rel="self" type="application/atom+xml" href="https://www.swopme.co/feed.xml"/>
-  <updated>2026-11-13T00:00:00Z</updated>
+  <updated>2026-11-17T00:00:00Z</updated>
   <author><name>Swop Team</name></author>
+  <entry>
+    <title>The hacks didn’t break the math.</title>
+    <id>https://www.swopme.co/blog/crypto-hacks-2026-what-they-share</id>
+    <link href="https://www.swopme.co/blog/crypto-hacks-2026-what-they-share"/>
+    <published>2026-11-17T00:00:00Z</published>
+    <updated>2026-11-17T00:00:00Z</updated>
+    <summary>Binance, Keplr and Across were each hit through something around the keys, not the cryptography. What they share, and six questions to ask any wallet.</summary>
+  </entry>
   <entry>
     <title>Markets close. Blockchains don’t.</title>
     <id>https://www.swopme.co/blog/markets-close-blockchains-dont</id>
